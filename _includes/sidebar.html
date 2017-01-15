@@ -1,0 +1,100 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Accueil</a>
+     <a class="sidebar-nav-item-invert" href="{{ site.github.repo }}"> -> GitHub {{ site.version }}</a>
+
+      {% comment %}
+        The code below dynamically generates a sidebar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
+
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+			{% if node.fatherref == "presentation" %}
+			  {% if node.level == "page" %}
+				<a class="sidebar-nav-item" href="{{ node.url }}">{{ node.title }}</a>
+			  {%else%}
+				<a class="sidebar-nav-item subpage" href="{{ node.url }}">{{ node.title }}</a>
+			  {% endif %}
+			{% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+	  
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+			{% if node.fatherref == "documentation" %}
+			  {% if node.level == "page" %}
+				<a class="sidebar-nav-item" href="{{ node.url }}">{{ node.title }}</a>
+			  {%else%}
+				<a class="sidebar-nav-item subpage" href="{{ node.url }}">{{ node.title }}</a>
+			  {% endif %}
+			{% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+	  
+	  {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+			{% if node.fatherref == "ressources" %}
+			  {% if node.level == "page" %}
+				<a class="sidebar-nav-item" href="{{ node.url }}">{{ node.title }}</a>
+			  {%else%}
+				<a class="sidebar-nav-item subpage" href="{{ node.url }}">{{ node.title }}</a>
+			  {% endif %}
+			{% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+	  {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+			{% if node.fatherref == "FAQ" %}
+			  {% if node.level == "page" %}
+				<a class="sidebar-nav-item" href="{{ node.url }}">{{ node.title }}</a>
+			  {%else%}
+				<a class="sidebar-nav-item subpage" href="{{ node.url }}">{{ node.title }}</a>
+			  {% endif %}
+			{% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      </nav>
+<br>
+<br>
+<br>
+<br>
+	
+	<p class="sidebar-addons">Nous contacter:
+	<a href="mailto:contact@programmevitam.fr">contact@programmevitam.fr</a></p>
+<p class="sidebar-addons" style="
+    margin-bottom: 0px;
+">Suivez-nous sur les réseaux sociaux:
+</p><table style="border: 0; background-color:white;width:50%; float:right">
+	<tbody>
+	<tr style="border: 0; background-color:white;" align="right">
+	<td style="border: 0; background-color:white;">
+	<a href="https://www.twitter.com/progvitam" rel="nofollow" target="_blank" style="float:right; display: block;"><img src="/public/images/twitter.png" alt="Twitter" title="Twitter" style="opacity: 0.8;-moz-opacity: 0.8;margin-bottom: 0px;" class="fade" height="32" width="32"></a>
+	</td>
+	<td style="border: 0;background-color:white;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+	<a href="https://www.linkedin.com/grp/home?gid=8267547" rel="nofollow" target="_blank" style="float:left; display: block;">
+	<img src="/public/images/linkedin.png" alt="Compte linkedin du programme Vitam" title="Compte linkedin du programme Vitam" style="opacity: 0.8;-moz-opacity: 0.8;margin-bottom: 0px;" class="fade" height="32" width="32"></a></td></tr>
+	</tbody>
+	</table></p>
+		<div style="clear:both;"></div>
+    <p class="sidebar-addons"> 
+	<a href="/Legal">Mentions légales</a> </p>
+<!--  	<p class="sidebar-addons">Ce site est publié sous les termes de la licence 
+	<a href="https://creativecommons.org/licenses/by-sa/3.0/fr/">CC BY-SA 3.0 FR</a> </p>
+ 
+-->
+</div>
