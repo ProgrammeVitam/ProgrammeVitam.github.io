@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Recette &mdash; documentation VITAM - Manuel utilisateur 0.11.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel utilisateur 0.11.1" href="index.html"/>
+        <link rel="prev" title="Administration" href="Administration.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel utilisateur
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.11.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentification.html">Authentification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Entree.html">Entrée d&#8217;un SIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Consultation.html">Recherche et consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Administration.html">Administration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Recette</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#principes-generaux">Principes généraux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avertissement">Avertissement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation">Navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#administration-des-collections">Administration des collections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#actions-de-suppression">Actions de suppression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-de-toutes-les-collections-vitam">Purge de toutes les collections VITAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-referentiels">Purge des référentiels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-journaux">Purge des journaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-groupes-d-objets-et-unites-archivistiques">Purge des Groupes d&#8217;Objets et Unités Archivistiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-soap-ui">Tests SOAP-UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#principes">Principes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fichier-de-configuration">Fichier de configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structuration-du-fichier-de-configuration">Structuration du fichier de configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-d-un-jeux-de-test">Configuration d&#8217;un jeux de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-configuration">Exemple de configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lancement-des-tests">Lancement des tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#affichage-du-rapport">Affichage du rapport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detail-des-colonnes-du-rapport">Détail des colonnes du rapport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resultat-au-format-json">Résultat au format JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#securisation-des-journaux">Sécurisation des journaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lancer-une-operation-de-securisation">Lancer une opération de sécurisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rechercher-des-journaux-securises">Rechercher des journaux sécurisés</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - Manuel utilisateur</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Recette</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/recette.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="recette">
+<h1>Recette<a class="headerlink" href="#recette" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="principes-generaux">
+<h2>Principes généraux<a class="headerlink" href="#principes-generaux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;accès à l&#8217;IHM de recette s&#8217;effectue par un chemin différent. Par défaut, son adresse est :</p>
+<p><strong>addresse_de_votre_serveur/ihm-recette/#!/login</strong></p>
+<p>Par soucis de distinction visuelle avec l&#8217;interface de démo, la couleur dominante de cette IHM est le rouge.</p>
+<img alt="_images/RECETTE_accueil.png" src="_images/RECETTE_accueil.png" />
+<div class="section" id="avertissement">
+<h3>Avertissement<a class="headerlink" href="#avertissement" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;IHM de recette est développée à des fins de tests uniquement.</p>
+<p><strong>Elle n&#8217;a aucunement vocation à être utilisée en production</strong></p>
+<p>Elle contient des interfaces utilisateurs permettant de :</p>
+<blockquote>
+<div><ul class="simple">
+<li>administrer les collections MongoDB (référentiels, journaux, objets...)</li>
+<li>lancer des tests automatisés via SOAP UI</li>
+<li>sécuriser manuellement les journaux des opérations</li>
+<li>consulter les journaux de sécurisation</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="navigation">
+<h3>Navigation<a class="headerlink" href="#navigation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Par défaut, suite à sa connexion l&#8217;utilisateur accède à la page d&#8217;administration des collections.</p>
+<p>Le menu de navigation contient les entrées suivantes :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Administration des collections</li>
+<li>Test SOAP-UI</li>
+<li>Transfert</li>
+<li>Sécurisation d&#8217;un journal des opérations</li>
+<li>Rechercher un journal sécurisé</li>
+</ul>
+</div></blockquote>
+<img alt="_images/RECETTE_navigation.png" src="_images/RECETTE_navigation.png" />
+</div>
+</div>
+<div class="section" id="administration-des-collections">
+<h2>Administration des collections<a class="headerlink" href="#administration-des-collections" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;IHM de recette permet de supprimer certains ou tous les référentiels / journaux / objets dans le but de recetter VITAM ou de faire des tests variés pour éprouver la stabilité du système.</p>
+<img alt="_images/RECETTE_admin_collections.png" src="_images/RECETTE_admin_collections.png" />
+<div class="section" id="actions-de-suppression">
+<h3>Actions de suppression<a class="headerlink" href="#actions-de-suppression" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Chaque bouton &#8220;supprimer&#8221; est situé sous le titre de son action.
+Lors du clic sur un des boutons &#8220;supprimer&#8221;, une fenêtre modale (popin) apparait et demande de confirmer l&#8217;action de suppression.
+Deux choix sont proposés:</p>
+<ul class="simple">
+<li>Un clic sur &#8220;Annuler&#8221;, annule la demande de suppression, la fenêtre modale se ferme et rien ne se passe</li>
+<li>Un clic sur &#8220;Vider&#8221;, valide la demande de suppression, la fenêtre modale se ferme et la suppression est effectuée</li>
+</ul>
+<p>Une fois la suppression effectuée, une message de confirmation s&#8217;affiche dans une fenêtre modale.</p>
+</div>
+<div class="section" id="purge-de-toutes-les-collections-vitam">
+<h3>Purge de toutes les collections VITAM<a class="headerlink" href="#purge-de-toutes-les-collections-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tous les référentiels, tous les journaux ainsi que tous les objets et unités archivitiques sont supprimés de VITAM.
+Suite à cette opération, chaque IHM correspondante est vide de contenu et plus aucune archive n&#8217;est présente dans VITAM.</p>
+</div>
+<div class="section" id="purge-des-referentiels">
+<h3>Purge des référentiels<a class="headerlink" href="#purge-des-referentiels" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Référentiel des formats</strong></p>
+<p>Le référentiel des formats VITAM est supprimé. L&#8217;IHM du référentiel de formats est vide de contenu. Sans référentiel de formats, aucun SIP ne pourra être importé dans le SAE.</p>
+<p><strong>Référentiel des règles de gestion</strong></p>
+<p>Le référentiel des règles de gestion VITAM est supprimé. L&#8217;IHM des règles de gestion est vide de contenu. Sans référentiel des règles de gestion, aucun SIP ne pourra être importé dans le SAE.</p>
+<p><strong>Registre des fonds</strong></p>
+<p>Le référentiel du registre des fonds VITAM est supprimé. L&#8217;IHM du registre des fonds est vide de contenu.</p>
+</div>
+<div class="section" id="purge-des-journaux">
+<h3>Purge des journaux<a class="headerlink" href="#purge-des-journaux" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Journal du Cycle de Vie</strong> (Unité archivistique)</p>
+<p>Tous les journaux du cycle de vie des unités archivistiques sont supprimés de VITAM. L&#8217;IHM de chaque &#8220;Journal de Cycle de Vie&#8221; d&#8217;une unité archivistique est vide de contenu.</p>
+<p><strong>Journal du Cycle de Vie</strong> (objets)</p>
+<p>Tous les journaux du cycle de vie des objets sont supprimés de VITAM. L&#8217;IHM de chaque &#8220;Journal de Cycle du Vie&#8221; d&#8217;un objet est vide de contenu.</p>
+<p><strong>Journal des Opérations</strong></p>
+<p>Tous les journaux des opérations sont supprimés de VITAM. Les IHM &#8220;Journal des Opérations&#8221; et &#8220;Journal des Opérations d&#8217;entrées&#8221; sont vides de contenu.</p>
+</div>
+<div class="section" id="purge-des-groupes-d-objets-et-unites-archivistiques">
+<h3>Purge des Groupes d&#8217;Objets et Unités Archivistiques<a class="headerlink" href="#purge-des-groupes-d-objets-et-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Purge des Unités Archivistiques</strong></p>
+<p>Toutes les unités archivistiques sont supprimées de VITAM. L&#8217;IHM &#8220;Recherche archives&#8221; est vide de contenu.</p>
+<p><strong>Purge des Groupes d&#8217;objets</strong></p>
+<p>Toutes les objets sont supprimés de VITAM. L&#8217;IHM &#8220;Détail d&#8217;une unité archivistique&#8221; ne comprend plus d&#8217;objet.</p>
+</div>
+</div>
+<div class="section" id="tests-soap-ui">
+<h2>Tests SOAP-UI<a class="headerlink" href="#tests-soap-ui" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="principes">
+<h3>Principes<a class="headerlink" href="#principes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette interface a pour objectif de lancer des tests fonctionnels automatisés avec SOAP UI, construits via un fichier JSON.</p>
+<p>L&#8217;équipe d&#8217;exploitation réalise le fichier json avec les archivistes, puis le place sur le serveur Vitam.</p>
+<p>L&#8217;exécution des tests est ensuite lancée par les archivistes via l&#8217;IHM.</p>
+<p>Cette partie présente à la fois l&#8217;IHM et les différentes configuration à réaliser par les archivistes.</p>
+<img alt="_images/RECETTE_accueil_SOAPUI.png" src="_images/RECETTE_accueil_SOAPUI.png" />
+</div>
+<div class="section" id="fichier-de-configuration">
+<h3>Fichier de configuration<a class="headerlink" href="#fichier-de-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les jeux de test à exécuter sont déclarés dans le fichier <em>data.json</em>.</p>
+<p>Chaque SIP à utiliser pour valider un cas fonctionnel sera donc déclaré dans ce fichier selon un méthode détaillée ci-après.</p>
+</div>
+<div class="section" id="structuration-du-fichier-de-configuration">
+<h3>Structuration du fichier de configuration<a class="headerlink" href="#structuration-du-fichier-de-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le fichier de configuration contient un champ &#8220;params&#8221; dont la valeur est un tableau. Ce tableau contient l&#8217;ensemble des jeux de tests à exécuter, chaque ligne rerésentant un test.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;params&quot;</span><span class="p">:</span>
+  <span class="p">[</span>
+    <span class="p">{</span><span class="n">Configuration</span> <span class="n">du</span> <span class="n">test</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">Configuration</span> <span class="n">du</span> <span class="n">test</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">Configuration</span> <span class="n">du</span> <span class="n">test</span> <span class="mi">3</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration-d-un-jeux-de-test">
+<h3>Configuration d&#8217;un jeux de test<a class="headerlink" href="#configuration-d-un-jeux-de-test" title="Lien permanent vers ce titre">¶</a></h3>
+<dl class="docutils">
+<dt>Chaque jeux de test est composé des cinq élements suivants :</dt>
+<dd><ul class="first last simple">
+<li>sipName</li>
+<li>expected</li>
+<li>httpStatusCode</li>
+<li>testName</li>
+<li>category</li>
+</ul>
+</dd>
+</dl>
+<p><strong>&#8220;sipName&#8221;</strong></p>
+<p>La valeur contenue dans ce champ doit être une chaîne de caractères. Il contient le nom du fichier à utiliser en entrée ainsi que sa localisation dans le système de fichier.</p>
+<p>La localisation du fichier est une URI relative par rapport à la racine des tests SOAPUI déterminée par votre exploitant.</p>
+<p>On a donc par défaut l&#8217;arborescence suivante (le schéma suivant ne tient pas compte des autres dossiers et fichiers du repertoire SOAPUI)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">RACINE</span>
+  <span class="o">|-------</span> <span class="n">data</span><span class="o">.</span><span class="n">json</span>
+  \<span class="o">-------</span> <span class="n">test</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Pour un fichier <em>test.zip</em> placé dans le dossier racine, on entrera alors :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;test.zip&quot;</span>
+</pre></div>
+</div>
+<p>Si ce fichier est placé dans un dossier <em>data</em>, enfant de <em>RACINE</em>, c&#8217;est à dire placé commme ceci :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">RACINE</span>
+  <span class="o">|-------</span> <span class="n">data</span><span class="o">.</span><span class="n">json</span>
+  \<span class="o">-------</span> <span class="n">data</span>
+            \<span class="o">-------</span> <span class="n">test</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>on entrera alors :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;test_arborescence/test.zip&quot;</span>
+</pre></div>
+</div>
+<p><strong>&#8220;expected&#8221;</strong></p>
+<p>La valeur contenue dans ce champ doit être une chaîne de caractères. Il contient le statut attendu à l&#8217;issue de l&#8217;opération d&#8217;entrée du SIP</p>
+<p>Par exemple :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;expected&quot;</span><span class="p">:</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><strong>&#8220;httpStatusCode&#8221;</strong></p>
+<p>La valeur contenue dans ce champs est un nombre entier. Il contient le code retour HTTP attendu.</p>
+<p>Par exemple :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;httpStatusCode&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><strong>&#8220;testName&#8221;</strong></p>
+<p>La valeur contenue dans ce champ doit être une chaîne de caractères. Il s&#8217;agit du nom du test tel qu&#8217;il sera reporté dans le rapport final.</p>
+<p>Par exemple :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;Jeux de données possédant une arborescence complexe&quot;</span>
+</pre></div>
+</div>
+<p><strong>&#8220;category&#8221;</strong>: La valeur contenue dans ce champ doit être une chaîne de caractères.</p>
+<p>Par exemple :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;Tests sur les arborescences&quot;</span>
+</pre></div>
+</div>
+<p>voici l&#8217;exemple d&#8217;une configuration pour <em>un jeu de test</em></p>
+<p><em>NB :</em> l&#8217;exemple de configuration d&#8217;un jeu de test ci-dessous a été indenté pour une meilleure compréhension. Par défaut, dans le fichier de configuration global, la configuration d&#8217;un test est placée sur une ligne seulement.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;SIP_OK/OK_SIP_2_GO.zip&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;expected&quot;</span><span class="p">:</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;httpStatusCode&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span>
+  <span class="s2">&quot;testName&quot;</span><span class="p">:</span><span class="s2">&quot;Succès du processus de téléchargement du SIP&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;Tests sur les arborescences&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-de-configuration">
+<h3>Exemple de configuration<a class="headerlink" href="#exemple-de-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ci-après une configuration exemple contenant 4 jeux de tests</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;params&quot;</span><span class="p">:[</span>
+
+        <span class="p">{</span><span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;SIP_OK/OK_SIP_2_GO.zip&quot;</span><span class="p">,</span><span class="s2">&quot;expected&quot;</span><span class="p">:</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="s2">&quot;httpStatusCode&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">&quot;testName&quot;</span><span class="p">:</span><span class="s2">&quot;Succès du processus de téléchargement du SIP&quot;</span><span class="p">,</span><span class="s2">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;EVT_UPLOAD_SIP&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;SIP_KO/KO_SIP_mauvais_format.pdf&quot;</span><span class="p">,</span><span class="s2">&quot;expected&quot;</span><span class="p">:</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span><span class="s2">&quot;httpStatusCode&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">&quot;testName&quot;</span><span class="p">:</span><span class="s2">&quot;Échec du processus de téléchargement du SIP : fichier au format non conforme&quot;</span><span class="p">,</span><span class="s2">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;EVT_UPLOAD_SIP&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;SIP_OK/OK_ARBO_desunitsdeclare_1unitfilsavantpere.zip&quot;</span><span class="p">,</span><span class="s2">&quot;expected&quot;</span><span class="p">:</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span><span class="s2">&quot;httpStatusCode&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">&quot;testName&quot;</span><span class="p">:</span><span class="s2">&quot;Succès du processus du contrôle sanitaire : aucun virus détecté&quot;</span><span class="p">,</span><span class="s2">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;EVT_SANITY_CHECK_SIP&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;sipName&quot;</span><span class="p">:</span><span class="s2">&quot;SIP_KO/KO_VIRUS_code2.zip&quot;</span><span class="p">,</span><span class="s2">&quot;expected&quot;</span><span class="p">:</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span><span class="s2">&quot;httpStatusCode&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">&quot;testName&quot;</span><span class="p">:</span><span class="s2">&quot;Échec du processus du contrôle sanitaire du SIP : fichier détecté comme infecté&quot;</span><span class="p">,</span><span class="s2">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;EVT_SANITY_CHECK_SIP&quot;</span><span class="p">},</span>
+
+<span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancement-des-tests">
+<h3>Lancement des tests<a class="headerlink" href="#lancement-des-tests" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une fois le fichier data.json, ainsi que le SIP déposés sur le serveur Vitam par l&#8217;exploitant, les tests peuvent être lancés via l&#8217;IHM en cliquant sur le bouton &#8220;lancer les tests&#8221;</p>
+<img alt="_images/RECETTE_lancer_test_SOAPUI.png" src="_images/RECETTE_lancer_test_SOAPUI.png" />
+</div>
+<div class="section" id="affichage-du-rapport">
+<h3>Affichage du rapport<a class="headerlink" href="#affichage-du-rapport" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour afficher le rapport, cliquer sur le bouton &#8220;afficher résultats&#8221;.</p>
+<img alt="_images/Recette_afficher_resultats_SOAPUI.png" src="_images/Recette_afficher_resultats_SOAPUI.png" />
+<p>Le tableau de rapport apparait alors en bas de l&#8217;écran.</p>
+<p>Il contient les informations suivantes :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Nombre de tests réalisé</li>
+<li>Nombre de test en succès</li>
+<li>Nombre de tests en échec</li>
+<li>Un taleau contenant la liste des tests</li>
+</ul>
+</div></blockquote>
+<img alt="_images/RECETTE_resultat_tableau_SOAPUI.png" src="_images/RECETTE_resultat_tableau_SOAPUI.png" />
+</div>
+<div class="section" id="detail-des-colonnes-du-rapport">
+<h3>Détail des colonnes du rapport<a class="headerlink" href="#detail-des-colonnes-du-rapport" title="Lien permanent vers ce titre">¶</a></h3>
+<dl class="docutils">
+<dt>Les colonnes du rapport sont les suivantes :</dt>
+<dd><ul class="first last simple">
+<li>Nom du test</li>
+<li>Nom du SIP</li>
+<li>Catégorie</li>
+<li>Résultat attendu</li>
+<li>Résultat constaté</li>
+</ul>
+</dd>
+</dl>
+<p>Les lignes pour lesquelles le résultat attendu est égal au résultat constaté apparaissent sur fond vert.
+Les lignes pour lesquelles le résultat attendu est différent du résultat constaté apparaissent sur fond rouge</p>
+</div>
+<div class="section" id="resultat-au-format-json">
+<h3>Résultat au format JSON<a class="headerlink" href="#resultat-au-format-json" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible d&#8217;afficher le JSON de résultat en cliquant sur le lien nommé &#8220;Lien vers les résultats Json&#8221;. Le fichier apparait en plein écran et il est possile de l&#8217;enregistrer.</p>
+<img alt="_images/RECETTE_recupererJSON_resultat.png" src="_images/RECETTE_recupererJSON_resultat.png" />
+</div>
+</div>
+<div class="section" id="securisation-des-journaux">
+<h2>Sécurisation des journaux<a class="headerlink" href="#securisation-des-journaux" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="lancer-une-operation-de-securisation">
+<h3>Lancer une opération de sécurisation<a class="headerlink" href="#lancer-une-operation-de-securisation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;interface de lancement est accessible par le menu : Menu &gt; Sécurisation du journal des opérations</p>
+<p>L&#8217;interface contient simplement un bouton &#8220;Générer&#8221;. Au clic sur ce bouton, le système va lancer l&#8217;opération de sécurisation des journaux. Elle prendra en compte tous les journaux du dernier créé au dernier non sécurisé.</p>
+<p>Il est également possible d&#8217;afficher le JSON de résultat en cliquant sur le lien nommé &#8220;Lien vers les résulstats Json&#8221;. Le fichier apparait en plein écran et il est possile de l&#8217;enregistrer.</p>
+<img alt="_images/RECETTE_lancer_secu.png" src="_images/RECETTE_lancer_secu.png" />
+<p>Si aucun journal n&#8217;a encore été sécurisé, alors elle prendra en compte tous les journaux.</p>
+<p>A la fin de l&#8217;opération, un message avertit du succès ou de l&#8217;échec de l&#8217;opération.</p>
+<p>Un fichier .zip est créé et placé dans le l&#8217;offre de stockage de Vitam dans le répertoire suivant :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">browse</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">storage</span><span class="o">-</span><span class="n">offer</span><span class="o">-</span><span class="n">default</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">Logbook</span>
+</pre></div>
+</div>
+<p>Il contient les fichiers suivants :</p>
+<blockquote>
+<div><ul class="simple">
+<li>operation.json : liste des opérations sécurisées, la première étant l&#8217;opération &#8220;tracability&#8221;</li>
+<li>merkleTree.json : contient une sérialisation json de l&#8217;arbre de merkle</li>
+<li>token.tsp : timestamp de la combinaison de la racine de l&#8217;arbre de merkle, des empreintes des opérations de sécurisation antérieures : la dernière réalisée, celle du mois précédent et celle de l&#8217;année précédente.</li>
+<li>computing_information.txt : reprend les différents empreintes qui ont permis de réaliser l&#8217;horodatage</li>
+<li>additional_information.txt : contient le nombre d&#8217;informations sécurisées, ainsi que les dates du premier et du dernier élement</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="rechercher-des-journaux-securises">
+<h3>Rechercher des journaux sécurisés<a class="headerlink" href="#rechercher-des-journaux-securises" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;interface de consultation des journaux est accessible par le menu : Menu &gt; Rechercher un journal sécurisé</p>
+<img alt="_images/RECETTE_consulation_journal_secu.png" src="_images/RECETTE_consulation_journal_secu.png" />
+<p>L&#8217;interface est consituée de quatre éléments :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Un champ date</li>
+<li>Un bouton rechercher</li>
+<li>Un paginateur</li>
+<li>Une zone d&#8217;affichage des résultats</li>
+</ul>
+</div></blockquote>
+<p><strong>Utilisation du champs date</strong></p>
+<p>Le champ date permet d&#8217;afficher les journaux de type sécurisation créés après cette date. Par exemple, si on sélectionne la date 24/11/2016, seuls les journaux de type sécurisation générés le ou après le 24/11/2016 seront affichées.</p>
+<p><strong>Lancer une reherche</strong></p>
+<p>Pour lancer une recherche en prenant en compte cette date, cliquer sur le bouton rechercher après l&#8217;avoir sélectionnée.</p>
+<p>Si l&#8217;utilisateur clique sur le bouton rechercher sans sélectionner de date, alors tous les journauux disponibles s&#8217;affichent.</p>
+<p><strong>Zone de résultats</strong></p>
+<p>La zone de résultats peut afficher au maximum 50 journaux.</p>
+<p>S&#8217;il y en a plus, ils sont répartis sur différentes pages et sont accessibles par le paginateur.</p>
+<p><strong>Consultation du détail d&#8217;un journal</strong></p>
+<p>Chaque ligne représente un journal de type sécurisation. Au clic sur cette ligne, l&#8217;IHM affiche le détail du journal dans une nouvelle fenêtre.</p>
+<img alt="_images/RECETTE_consultation_journal.png" src="_images/RECETTE_consultation_journal.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Administration.html" class="btn btn-neutral" title="Administration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.11.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

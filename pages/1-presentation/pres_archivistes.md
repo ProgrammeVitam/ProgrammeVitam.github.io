@@ -7,9 +7,9 @@ fatherref: presentation
 >La solution logicielle Vitam doit permettre aux services producteurs d’archives numériques de gérer les étapes du cycle de vie (archivage courant, intermédiaire, définitif) et l’accès à leurs données. Elle doit également permettre aux services d’archives de remplir leurs missions de collecte, de conservation, de gestion et de communication des archives numériques et de répondre aux besoins de pérennisation.
 
 ![Schéma SAE Vitam](/public/images/SchemaSAEVitam.jpg){: style="float:left; margin:2rem; height:15rem"}
-La solution logicielle Vitam est librement réutilisable. Pour constituer une plate-forme d’archivage numérique, elle devra être interfacée avec les applications des services producteurs (SIRH, GED…) et les logiciels de gestion des archives utilisés par les services d’archives. Elle sera également connectée avec les solutions de stockage fournies par les services informatiques de l’entité.
+La solution logicielle Vitam est librement réutilisable. Pour constituer une plate-forme d’archivage numérique, elle devra être interfacée avec les applications métiers de ses services producteurs (SIRH, GED…) et les logiciels de gestion des archives utilisés par le service d’archive. Elle sera également connectée avec les solutions de stockage fournies par le service informatique de l’entité intéressée.
 La solution logicielle Vitam assurera la prise en charge d’objets variés : fichiers bureautiques, données, images fixes et animées, enregistrements sonores, messages et messageries électroniques, etc.
-Elle répondra plus particulièrement aux besoins des services qui devront à terme gérer de très nombreux objets (plusieurs millions voire milliards) et/ou une multiplicité de services producteurs et pourra s’utiliser dans un contexte mutualisé.
+Elle répondra plus particulièrement aux besoins des services qui devront, à terme, gérer de très nombreux objets (plusieurs millions voire milliards) et/ou une multiplicité de services producteurs et pourra s’utiliser dans un contexte mutualisé.
 
 ## Des fonctionnalités issues du modèle OAIS.
 
@@ -25,7 +25,7 @@ La solution respecte les normes et standards du métier (Seda, NF Z 42013) et s�
 ## ...Ainsi que l’ajout d’éléments indispensables pour les archivistes
 
 En outre, afin de mieux servir le cœur de métier des archivistes, un domaine fonctionnel spécifique intitulé « gestion des archives existantes », a été ajouté. Il regroupe toutes les activités de gestion du cycle de vie des archives : enrichissement et modification des métadonnées, éliminations, règles de gestion (DUA, DUC…), transfert dans un autre SAE.
-Ce bloc de fonctionnalité leur permettra d’assurer au mieux leurs missions de gestion des archives.
+Ce bloc de fonctionnalités leur permettra d’assurer au mieux leurs missions de gestion des archives.
 
 ## La solution logicielle Vitam est-elle adaptée aux besoins de mon établissement ?
 

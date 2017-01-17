@@ -13,29 +13,29 @@ répondre ensemble à l’enjeu de l’archivage numérique tout au long de leur
 
 Le programme Vitam (Valeurs immatérielles transmises aux archives pour mémoire) a été 
 validé par le Comité interministériel aux Archives de France du 1er juillet 2013 et a 
-obtenu l’avis favorable de la DISIC, le 4 septembre 2013. Il a fait l’objet d’une convention 
+obtenu l’avis favorable de la Direction interministérielle du numérique et des systèmes d’information 
+et de communication de l’État (DINSIC), le 4 septembre 2013. Il a fait l’objet d’une convention 
 entre les trois ministères et les services du Premier ministre signée le 5 mars 2015 et a été 
 retenu dans le cadre de l’action : « Transition numérique de l’État et modernisation de l’action 
 publique » du Programme d’investissements d’avenir (PIA). Il a été lancé officiellement le 9 mars 
-2015 sous le pilotage de la Direction interministérielle du numérique et des systèmes d’information 
-et de communication de l’État (DINSIC) et du Comité interministériel aux Archives de France (CIAF).
+2015 sous le pilotage de la DINSIC et du Comité interministériel aux Archives de France (CIAF).
 
 ## Les objectifs du programme Vitam
 
 ![5 projets du programme](/public/images/Programme5Projets.jpg){: style="float:right; margin:2rem; height:15rem"}
-Le programme Vitam a 3 objectifs, soutenus par 5 projets:
+Le programme Vitam a 3 objectifs, soutenus par 5 projets :
 
-* La réalisation de la solution logicielle libre Vitam  d’archivage électronique permettant la prise en charge, la conservation et la consultation sécurisée de très gros volumes d’archives numériques définitives, intermédiaires voire courantes ;
-* la mise en place de plates-formes d’archivage utilisant la solution logicielle Vitam, dans chacun des trois ministères, via les projets ministériels : Saphir (MAEDI), Adamant (MCC/Archives nationales) et ArchiPél NG (MinDéf) ;
-* la diffusion et la réutilisation la plus large de la solution logicielle Vitam, en favorisant et fédérant l’ensemble des actions de soutien financier, de sensibilisation et d’accompagnement en matière d’archivage électronique au-delà des trois ministères porteurs du programme, via le projet Ad-Essor (MCC/Service interministériel des archives de France).
+* La réalisation de la solution logicielle libre Vitam  d’archivage numérique permettant la prise en charge, la conservation et la consultation sécurisée de très gros volumes d’archives numériques définitives, intermédiaires, voire courantes ;
+* la mise en place de plate-formes d’archivage utilisant la solution logicielle Vitam, dans chacun des trois ministères, via les projets ministériels : Saphir (MAEDI), Adamant (MCC/Archives nationales) et ArchiPél NG (MinDéf) ;
+* la diffusion et la réutilisation la plus large de la solution logicielle Vitam, en favorisant et fédérant l’ensemble des actions de soutien financier, de sensibilisation et d’accompagnement en matière d’archivage numérique au-delà des trois ministères porteurs du programme, via le projet Ad-Essor (MCC/Service interministériel des archives de France).
 
-## Le manifeste de la solution logicielle
+## Le manifeste Agile de la solution logicielle
 
-Le "manifeste" est une phrase résumant l’essentiel d’un projet, utilisée comme fondement dans les méthodes Agiles. Voici celui de la solution logicielle Vitam:
+Le "manifeste" est une phrase résumant l’essentiel d’un projet, utilisée comme fondement dans les méthodes Agiles. Voici celui de la solution logicielle Vitam :
 
 {:manifest: style="text-align: center; margin-bottom: 0.25rem;"}
 
-**Pour les services de l’administration**
+**Pour les services de l’Administration**
 {:manifest }
 **Afin de satisfaire les enjeux d’accès dans le temps à leurs informations numériques,**
 {:manifest}
@@ -48,8 +48,8 @@ Le "manifeste" est une phrase résumant l’essentiel d’un projet, utilisée c
 
 ## Le calendrier du projet solution logicielle
 
-Des engagements sont pris à compter de la date de notification des marchés de développement et intégration pour répondre rapidement aux besoins des ministères porteurs (MCC/AN, Mindef et MAEDI) et des partenaires qui doivent insérer la solution logicielle dans leurs propres développements et dans leurs SI existants. 
-Au début de l’année 2016, les lots du marché de réalisation Vitam ont été attribués aux sociétés CDH-IT et Linagora pour les développements, à la société Smile pour un lot d’expertise adaptable aux besoins de développement et à la société Thalès pour l’intégration et la qualité. La réalisation du logiciel a pu débuter dans la foulée en avril 2016.
+Des engagements sont pris à compter de la date de notification des marchés de développement et d'intégration pour répondre rapidement aux besoins des ministères porteurs (MCC/AN, Mindef et MAEDI) et des partenaires qui doivent insérer la solution logicielle dans leurs propres développements et dans leurs SI existants. 
+Au début de l’année 2016, les lots du marché de réalisation Vitam ont été attribués aux sociétés HIT-Part et Linagora pour les développements, à la société Smile pour un lot d’expertise adaptable aux besoins de développement et à la société Thalès pour l’intégration et la qualité de la solution logicielle. La réalisation du logiciel a pu débuter dès avril 2016.
 Conformément au calendrier fixé, les premières livraisons ont eu lieu en 2016, avec la publication des premières API en juillet et la livraison de la version Bêta-test du logiciel aux projets et partenaires le 29 novembre.
 Les livraisons se poursuivront à raison d’une version de production de la solution logicielle chaque année en 2017, 2018 et 2019, ainsi que les versions intermédiaires.
 ![Frise temporelle du programme](/public/images/FriseTemps.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}

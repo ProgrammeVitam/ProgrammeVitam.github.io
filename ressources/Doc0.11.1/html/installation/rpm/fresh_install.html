@@ -1,0 +1,1307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9.2.3. Procédure de première installation &mdash; documentation VITAM - Documentation d&#39;installation 0.11.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Recherche" href="../search.html"/>
+    <link rel="top" title="documentation VITAM - Documentation d&#39;installation 0.11.1" href="../index.html"/>
+        <link rel="up" title="9. Procédures d’installation / mise à jour : Package RPM" href="_toc.html"/>
+        <link rel="next" title="9.2.4. Procédure de mise à niveau" href="update.html"/>
+        <link rel="prev" title="9.2.2. Explications relatives à la PKI" href="pki.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation
+          
+
+          
+            
+            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.11.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">3. Architecture de la solution logicielle VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prerequis.html">4. Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-it-services.html">5. Dépendances aux services d&#8217;infrastructures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fiche_type.html">6. Fiche type de déploiement VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fiche_type.html#guidelines-de-deploiement">7. Guidelines de déploiement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_version.html">8. Récupération de la version</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">9. Procédures d&#8217;installation / mise à jour : Package RPM</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_toc.html#pre-requis-supplementaire">9.1. Pré-requis supplémentaire</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html#procedures">9.2. Procédures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="securite.html">9.2.1. Configuration de sécurité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html">9.2.2. Explications relatives à la PKI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">9.2.3. Procédure de première installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-du-deploiement">9.2.3.1. Configuration du déploiement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-mongoclient-aministration-mongoclient">9.2.3.2. Paramétrage de mongoclient (aministration mongoclient)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#premiere-utilisation-de-mongoclient">9.2.3.3. Première utilisation de mongoclient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deploiement">9.2.3.4. Déploiement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-automatique-d-objets-dans-kibana">9.2.3.5. Import automatique d&#8217;objets dans Kibana</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">9.2.4. Procédure de mise à niveau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../validation_deploiement.html">10. Validation de la procédure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">11. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extras.html">12. Elements extras de l&#8217;installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">13. Contacts et support</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">VITAM - Documentation d'installation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="_toc.html">9. Procédures d&#8217;installation / mise à jour : Package RPM</a> &raquo;</li>
+      
+    <li>9.2.3. Procédure de première installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/rpm/fresh_install.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="procedure-de-premiere-installation">
+<h1>9.2.3. Procédure de première installation<a class="headerlink" href="#procedure-de-premiere-installation" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les fichiers de déploiement sont disponibles dans la version VITAM livrée dans le sous-répertoire <code class="docutils literal"><span class="pre">deployment</span></code> . Ils consistent en 2 parties&nbsp;:</p>
+<blockquote>
+<div><ul class="simple">
+<li>le playbook ansible, présent dans le sous-répertoire <code class="docutils literal"><span class="pre">ansible-vitam-rpm</span></code>, qui est indépendant de l&#8217;environnement à déployer</li>
+<li>les fichiers d&#8217;inventaire (1 par environnement à déployer)&nbsp;; des fichiers d&#8217;exemple sont disponibles dans le sous-répertoire <code class="docutils literal"><span class="pre">environments-rpm</span></code></li>
+</ul>
+</div></blockquote>
+<div class="section" id="configuration-du-deploiement">
+<h2>9.2.3.1. Configuration du déploiement<a class="headerlink" href="#configuration-du-deploiement" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="informations-plate-forme">
+<span id="inventaire"></span><h3>9.2.3.1.1. Informations &#8220;plate-forme&#8221;<a class="headerlink" href="#informations-plate-forme" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour configurer le déploiement, il est nécessaire de créer dans le répertoire <code class="docutils literal"><span class="pre">environments-rpm</span></code> un nouveau fichier d&#8217;inventaire à nommer <code class="docutils literal"><span class="pre">hosts.&lt;environnement&gt;</span></code> ( où &lt;environnement&gt; sera utilisé par la suite ) comportant les informations suivantes :</p>
+<div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234</pre></div></td><td class="code"><div class="highlight"><pre><span></span># Group definition ; DO NOT MODIFY
+[hosts]
+
+# Group definition ; DO NOT MODIFY
+[hosts:children]
+vitam
+reverse
+library
+hosts-mongo-express
+
+
+########### Tests environments specifics ###########
+
+# EXTRA : Front reverse-proxy (test environments ONLY) ; add machine name after
+[reverse]
+
+
+########### Extra VITAM applications ###########
+
+[library]
+# TODO: Put here servers where this service will be deployed : library
+
+[hosts-mongo-express]
+# TODO: Put here servers where this service will be deployed : mongo-express
+
+[elasticsearch:children] # EXTRA : elasticsearch
+hosts-elasticsearch-data
+hosts-elasticsearch-log
+
+########### VITAM services ###########
+
+# Group definition ; DO NOT MODIFY
+[vitam:children]
+zone-external
+zone-access
+zone-applicative
+zone-storage
+zone-data
+zone-admin
+
+
+##### Zone externe
+
+
+[zone-external:children]
+hosts-ihm-demo
+
+[hosts-ihm-demo]
+# TODO: Put here servers where this service will be deployed : ihm-demo
+
+
+##### Zone access
+
+# Group definition ; DO NOT MODIFY
+[zone-access:children]
+hosts-ingest-external
+hosts-access-external
+
+[hosts-ingest-external]
+# TODO: Put here servers where this service will be deployed : ingest-external
+
+
+[hosts-access-external]
+# TODO: Put here servers where this service will be deployed : access-external
+
+
+##### Zone applicative
+
+# Group definition ; DO NOT MODIFY
+[zone-applicative:children]
+hosts-ingest-internal
+hosts-processing
+hosts-worker
+hosts-access-internal
+hosts-metadata
+hosts-functional-administration
+hosts-logbook
+hosts-workspace
+hosts-storage-engine
+
+[hosts-logbook]
+# TODO: Put here servers where this service will be deployed : logbook
+
+
+[hosts-workspace]
+# TODO: Put here servers where this service will be deployed : workspace
+
+
+[hosts-ingest-internal]
+# TODO: Put here servers where this service will be deployed : ingest-internal
+
+
+[hosts-access-internal]
+# TODO: Put here servers where this service will be deployed : access-internal
+
+
+[hosts-metadata]
+# TODO: Put here servers where this service will be deployed : metadata
+
+
+[hosts-functional-administration]
+# TODO: Put here servers where this service will be deployed : functional-administration
+
+
+[hosts-processing]
+# TODO: Put here servers where this service will be deployed : processing
+
+
+[hosts-storage-engine]
+# TODO: Put here servers where this service will be deployed : storage-engine
+
+
+[hosts-worker]
+# TODO: Put here servers where this service will be deployed : worker
+
+
+##### Zone storage
+
+[zone-storage:children] # DO NOT MODIFY
+hosts-storage-offer-default
+
+
+[hosts-storage-offer-default]
+# TODO: Put here servers where this service will be deployed : storage-offer-default
+
+
+
+##### Zone data
+
+# Group definition ; DO NOT MODIFY
+[zone-data:children]
+hosts-elasticsearch-data
+mongo_common
+
+
+[hosts-elasticsearch-data]
+# TODO: Put here servers where this service will be deployed : elasticsearch-data cluster
+
+
+# Group definition ; DO NOT MODIFY
+[mongo_common:children]
+mongos
+mongoc
+mongod
+
+[mongos]
+# TODO: Put here servers where this service will be deployed : mongos cluster ; add after name shard_id=0
+# Example : vitam-iaas-mongos-01.int shard_id=0
+
+[mongoc]
+# TODO: Put here servers where this service will be deployed : mongoc cluster
+
+
+[mongod] # mongod declaration ; add machines name after ; add after shard_id=0 &amp; rs_member_id=&lt;increasing number, starting from 0, for each line&gt;
+# TODO: Put here servers where this service will be deployed : mongod cluster ; add after name shard_id=0
+# Example : vitam-iaas-db-01.int rs_member_id=0 shard_id=0
+# Example : vitam-iaas-db-02.int rs_member_id=1 shard_id=0
+# Example : vitam-iaas-db-03.int rs_member_id=2 shard_id=0
+
+###### Zone admin
+
+# Group definition ; DO NOT MODIFY
+[zone-admin:children]
+hosts-consul-server
+hosts-log-server
+hosts-elasticsearch-log
+hosts-mongoclient
+
+[hosts-consul-server]
+# TODO: Put here servers where this service will be deployed : consul
+
+
+[hosts-log-server]
+# TODO: Put here servers where this service will be deployed : log-server (kibana/logstash)
+
+
+[hosts-elasticsearch-log]
+# TODO: Put here servers where this service will be deployed : elasticsearch-log cluster
+
+[hosts-mongoclient]
+# TODO: Put here servers where this service will be deployed : mongos cluster ; add after name shard_id=0
+# Example : vitam-iaas-mongos-01.int shard_id=0
+
+########### Global vars ###########
+
+[hosts:vars]
+# Declare user for ansible on target machines
+ansible_ssh_user=
+
+# Can target user become as root ? ; true is required by VITAM (usage of a sudoer is mandatory)
+ansible_become=true
+
+# Environment (defines consul environment name ; in extra on homepage)
+environnement=
+
+# EXTRA : FQDN of the front reverse-proxy ; used when VITAM is behind a reverse proxy (provides configuration for reverse proxy &amp;&amp; displayed in header page)
+vitam_reverse_external_dns=
+
+# Version that has to be deployed (defined in the release note)
+# Example: rpm_version=0.9.0-RC1*
+rpm_version=
+
+# Configuration for Curator
+#	Days before deletion on log management cluster; 365 for production environment
+days_to_delete=
+
+#	Days before closing &quot;old&quot; indexes on log management cluster; 30 for production environment
+days_to_close=
+
+#	Days before deletion for topbeat index only on log management cluster; 365 for production environment
+days_to_delete_topbeat=
+
+# Related to Consul ; apply in a table your DNS server(s)
+# Example : dns_servers=[&quot;8.8.8.8&quot;,&quot;8.8.4.4&quot;]
+dns_servers=
+
+#	LOG level defined in logback files ; can be a value in &quot;ERROR&quot;,&quot;WARN&quot;,&quot;INFO&quot;,&quot;DEBUG&quot;,&quot;TRACE&quot;. Recommended value is &quot;WARN&quot;
+log_level=
+# FOr SoapUI files tests
+web_dir_soapui_tests=http://vitam-prod-ldap-1.internet.agri:8083/webdav
+
+# For reverse proxy use
+reverse_proxy_port=80
+
+# For metrics
+# curator job : days before closing
+days_to_close_metrics=7
+# curator job : days before deleting
+days_to_delete_metrics=30
+# Installation ClamAV ? true/false
+installation_clamav=true
+
+# cas de l&#39;appel au webDAV pour récupérer les jeux de tests
+http_proxy_environnement=
+</pre></div>
+</td></tr></table></div>
+<p>Pour chaque type de &#8220;host&#8221; (lignes 2 à 176), indiquer le(s) serveur(s) défini(s) pour chaque fonction. Une colocalisation de composants est possible.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">indiquer les contre-indications !</p>
+</div>
+<p>Ensuite, dans la section <code class="docutils literal"><span class="pre">hosts:vars</span></code> (lignes 179 à 240), renseigner les valeurs comme décrit :</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Définition des variables</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Clé</th>
+<th class="head">Description</th>
+<th class="head">Valeur d&#8217;exemple</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ansible_ssh_user</td>
+<td>Utilisateurs ansible sur les machines sur lesquelles VITAM sera déployé</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ansible_become</td>
+<td>Propriété interne à ansible pour passer root</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>local_user</td>
+<td>En cas de déploiement en local</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>environnement</td>
+<td>Suffixe</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>vitam_reverse_domain</td>
+<td>Cas de la gestion d&#8217;un reverse proxy</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>consul_domain</td>
+<td>nom de domaine consul</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>vitam_ihm_demo_external_dns</td>
+<td>Déprécié ; ne pas utiliser</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>rpm_version</td>
+<td>Version à installer</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>days_to_delete</td>
+<td>Période de grâce des données sous Elastricsearch avant destruction (valeur en jours)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>days_to_close</td>
+<td>Période de grâce des données sous Elastricsearch avant fermeture des index (valeur en jours)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>days_to_delete_topbeat</td>
+<td>Période de grâce des données sous Elastricsearch  - index Topbeat - avant destruction (valeur en jours)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>days_to_delete_local</td>
+<td>Période de grâce des log VITAM - logback (valeur en jours)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>dns_server</td>
+<td>Serveur DNS que Consul peut appeler s&#8217;il n&#8217;arrive pas à faire de résolution</td>
+<td>172.16.1.21</td>
+</tr>
+<tr class="row-odd"><td>log_level</td>
+<td>Niveau de log de logback</td>
+<td>WARN</td>
+</tr>
+<tr class="row-even"><td>web_dir_soapui_tests</td>
+<td>URL pour récupérer data.json et les tests pour SoapUI</td>
+<td><a class="reference external" href="http://vitam-prod-ldap-1.internet.agri:8083/webdav">http://vitam-prod-ldap-1.internet.agri:8083/webdav</a></td>
+</tr>
+<tr class="row-odd"><td>reverse_proxy_port</td>
+<td>port du reverse proxy pour configuration du vhost</td>
+<td>8080</td>
+</tr>
+<tr class="row-even"><td>days_to_close_metrics</td>
+<td>Période de grâce avant fermeture des index des métriques JVM</td>
+<td>7</td>
+</tr>
+<tr class="row-odd"><td>days_to_delete_metrics</td>
+<td>Période de grâce avant destruction des index fermés des métriques JVM</td>
+<td>30</td>
+</tr>
+<tr class="row-even"><td>installation_clamav</td>
+<td>Choix d&#8217;installation de ClamAV (true/false)</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>http_proxy_environnement</td>
+<td>Cas particulier de la récupération des jeux de tests ; URL de squid</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>mongoclientPort</td>
+<td>Port par lequel mongoclient est acessible</td>
+<td>27016</td>
+</tr>
+<tr class="row-odd"><td>mongoclientDbName</td>
+<td>Nom de la Base de donnée stockant la configuration mongoclient</td>
+<td>mongoclient</td>
+</tr>
+</tbody>
+</table>
+<p>A titre informatif, le positionnement des variables ainsi que des dérivations des déclarations de variables sont effectuées sous <code class="docutils literal"><span class="pre">environments-rpm</span></code> <code class="docutils literal"><span class="pre">/group_vars/all/all</span></code>, comme suit :</p>
+<div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_folder_root</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/vitam</span>
+<span class="l l-Scalar l-Scalar-Plain">docker_registry_httponly</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_docker_tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="l l-Scalar l-Scalar-Plain">port_http_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">86400</span>
+
+<span class="l l-Scalar l-Scalar-Plain">syslog_facility</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local0</span>
+
+<span class="c1"># Composants colocalisés</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessinternal_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;access-internal.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessinternal_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8101</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessinternal_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_accessinternal_host}}:{{vitam_accessinternal_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessexternal_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;access-external.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessexternal_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8102</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessexternal_port_https</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8444</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_accessexternal_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_accessexternal_host}}:{{vitam_accessexternal_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestinternal_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;ingest-internal.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestinternal_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8100</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestinternal_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_ingestinternal_host}}:{{vitam_ingestinternal_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_metadata_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;metadata.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_metadata_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8200</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_metadata_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_metadata_host}}:{{vitam_metadata_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_demo_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{groups[&#39;hosts-ihm-demo&#39;][0]}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_demo_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8002</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_demo_baseurl</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/ihm-demo</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_demo_static_content</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">webapp</span>
+
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_recette_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{groups[&#39;hosts-ihm-recette&#39;][0]}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_recette_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8204</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_recette_baseurl</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/ihm-recette</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ihm_recette_static_content</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">webapp</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestexternal_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;ingest-external.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestexternal_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8001</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestexternal_port_https</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8443</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_ingestexternal_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_ingestexternal_host}}:{{vitam_ingestexternal_port}}&quot;</span>
+
+<span class="c1"># Internal components communication configuration</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_logbook_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;logbook.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_logbook_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9002</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_logbook_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_logbook_host}}:{{vitam_logbook_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_workspace_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;workspace.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_workspace_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8201</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_workspace_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_workspace_host}}:{{vitam_workspace_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_processing_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;processing.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_processing_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8203</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_processing_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_processing_host}}:{{vitam_processing_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_worker_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9104</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_storageengine_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;storage.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_storageengine_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9102</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_storageengine_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_storageengine_host}}:{{vitam_storageengine_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_storageofferdefault_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;storage-offer-default.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_storageofferdefault_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9900</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_storageofferdefault_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_storageofferdefault_host}}:{{vitam_storageofferdefault_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_functional_administration_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;functional-administration.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_functional_administration_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8004</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_functional_administration_baseurl</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://{{vitam_functional_administration_host}}:{{vitam_functional_administration_port}}&quot;</span>
+
+<span class="c1"># Normally no need for the host ? Maybe use the same strategy as data ?</span>
+<span class="l l-Scalar l-Scalar-Plain">elasticsearch_log_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;elasticsearch-log.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">elasticsearch_log_http_port</span><span class="p p-Indicator">:</span> <span class="s">&quot;9201&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">elasticsearch_log_tcp_port</span><span class="p p-Indicator">:</span> <span class="s">&quot;9301&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">elasticsearch_data_http_port</span><span class="p p-Indicator">:</span> <span class="s">&quot;9200&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">elasticsearch_data_tcp_port</span><span class="p p-Indicator">:</span> <span class="s">&quot;9300&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">mongo_base_path</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vitam_folder_root}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">mongos_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
+<span class="l l-Scalar l-Scalar-Plain">mongoc_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
+<span class="l l-Scalar l-Scalar-Plain">mongod_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
+<span class="l l-Scalar l-Scalar-Plain">mongo_authentication</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">mongoclientDbName</span><span class="p p-Indicator">:</span> <span class="s">&quot;mongoclient&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">mongoclientPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27016</span>
+<span class="l l-Scalar l-Scalar-Plain">mongoclientbaseUrl</span><span class="p p-Indicator">:</span> <span class="s">&quot;/mongoclient&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_mongodb_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;mongos.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_mongodb_port</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{mongos_port}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_logstash_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">groups[&#39;hosts-log-server&#39;][0]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_logstash_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10514</span>
+
+<span class="c1"># Normally no need for the host ?</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_kibana_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;kibana.service.{{consul_domain}}&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_kibana_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_curator_host</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(groups[&#39;hosts-log-server&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary(groups[&#39;hosts-log-server&#39;][0],</span><span class="nv"> </span><span class="s">&#39;&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_library_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8090</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_siegfried_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">19000</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_user</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam</span>
+<span class="l l-Scalar l-Scalar-Plain">vitamdb_user</span><span class="p p-Indicator">:</span> <span class="s">&quot;vitamdb&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_group</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam</span>
+
+<span class="l l-Scalar l-Scalar-Plain">consul_domain</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">consul</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_folder_permission</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0750</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vitam_conf_permission</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0640</span>
+
+<span class="l l-Scalar l-Scalar-Plain">consul_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">consul</span>
+<span class="l l-Scalar l-Scalar-Plain">consul_folder_conf</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vitam_folder_root}}/conf/{{consul_component}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">soapui_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">soapui</span>
+<span class="l l-Scalar l-Scalar-Plain">soapui_folder_app</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vitam_folder_root}}/app/{{soapui_component}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">mongod_folder_database</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vitam_folder_root}}/data/mongod/db&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">mongoc_folder_database</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vitam_folder_root}}/data/mongoc/db&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">service_restart_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+</pre></div>
+</td></tr></table></div>
+<p>Le fichier <code class="docutils literal"><span class="pre">vault.yml</span></code> est également présent sous <code class="docutils literal"><span class="pre">environments-rpm</span></code> <code class="docutils literal"><span class="pre">/group_vars/all/all</span></code> et contient les secrets ; ce fichier est encrypté par <code class="docutils literal"><span class="pre">ansible-vault</span></code> et doit être paramétré avant le lancement de l&#8217;orchestration de déploiement.</p>
+<div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>KeyStorePassword_ingest_external: azerty
+KeyManagerPassword_ingest_external: azerty
+TrustStorePassword_ingest_external: tazerty
+grantedKeyStorePassphrase_ingest_external: gazerty
+p12_ihm_demo_password: vitam1234
+TrustStore_ihm_demo_password: jksazerty
+KeyStorePassword_access_external: qsdfgh
+KeyManagerPassword_access_external: qsdfgh
+TrustStorePassword_access_external: tqsdfgh
+grantedKeyStorePassphrase_access_external: gqsdfgh
+plateforme_secret: vitamsecret
+mongoAdminUser: vitamdb-admin
+mongoAdminPassword: azerty
+mongoMetadataUser: metadata
+mongoMetadataPassword: azerty
+mongoLogbookUser: logbook
+mongoLogbookPassword: azerty
+mongoFunctionalAdminUser: functional-admin
+mongoFunctionalAdminPassword: azerty
+mongoClientUser: mongoclient
+mongoClientPassword: azerty
+mongoPassPhrase: mongogo
+p12_ihm_recette_password: grokbizftej
+TrustStore_ihm_recette_password: AzErTy
+p12_logbook_password: p12logbook1234
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si le mot de passe du fichier <code class="docutils literal"><span class="pre">vault.yml</span></code> est changé, ne pas oublier de le répercuter dans le fichier <code class="docutils literal"><span class="pre">vault_pass.txt</span></code> (et le séuriser à l&#8217;issue de l&#8217;installation).</p>
+</div>
+<p>Le déploiement s&#8217;effectue depuis la machine &#8220;ansible&#8221; et va distribuer la solution VITAM selon l&#8217;inventaire correctement renseigné.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">le playbook <code class="docutils literal"><span class="pre">vitam.yml</span></code> comprend des étapes avec la mention <code class="docutils literal"><span class="pre">no_log</span></code> afin de ne pas afficher en clair des étapes comme les mots de passe des certificats. En cas d&#8217;erreur, il est possible de retirer la ligne dans le fichier pour une analyse plus fine d&#8217;un éventuel problème sur une de ces étapes.</p>
+</div>
+</div>
+</div>
+<div class="section" id="parametrage-de-mongoclient-aministration-mongoclient">
+<h2>9.2.3.2. Paramétrage de mongoclient (aministration mongoclient)<a class="headerlink" href="#parametrage-de-mongoclient-aministration-mongoclient" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le package rpm vitam-mongoclient nécessite une bases de données mongoDB (mongoclient) pour stocker sa configuration.
+Cette base de données est créée dans <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> durant la première installation.
+La configuration est également générée en fonction des paramètres de l&#8217;inventaire.</p>
+<p>Mongoclient permet de se connecter aux différentes bases de données mongoDB utilisées par VITAM.</p>
+</div>
+<div class="section" id="premiere-utilisation-de-mongoclient">
+<h2>9.2.3.3. Première utilisation de mongoclient<a class="headerlink" href="#premiere-utilisation-de-mongoclient" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Par défault, mongoclient est accessible par l&#8217;url: <a class="reference external" href="http://hostname:27016/mongoclient">http://hostname:27016/mongoclient</a> suivant les hôtes configurés dans le groupes hosts-mongoclients de l&#8217;inventaire Vitam.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">les versions de mongoclient inférieures à la version 1.5.0 présentent un message d&#8217;erreur &#8220;route not found&#8221; à l&#8217;apparition de l&#8217;interface. les fonctionnalités de l&#8217;application sont indisponibles dans cet état. Ce problème est aisemment contournable en cliquant sur le bouton &#8220;Go to Dashboard&#8221; pour revenir à un état normal de l&#8217;application.</p>
+</div>
+<p>Lors de la première utilisation de mongoclient, il convient de configurer les connexions aux bases de données à superviser. (Cette procédure devrait disparaître à l&#8217;issue de la phase Beta)</p>
+<dl class="docutils">
+<dt>Procédure pour configurer la connexion aux bases vitam::</dt>
+<dd><ol class="first last arabic simple">
+<li>Cliquer sur le bouton &#8220;Connect&#8221; situé en haut de la page (l&#8217;emplacement dépend de la taille de la fenêtre)</li>
+<li>Dans la fenêtre &#8220;Connections&#8221;, cliquer sur le bouton &#8220;Create New&#8221;. =&gt; la fenêtre Add connection apparait contenant 4 sections : Connection, Authentication, URL, SHH</li>
+<li>Dans la section &#8220;Connection&#8221;, saisir un nom à donner à la connexion dans &#8220;name&#8221;, le nom ou l&#8217;ip du server mongos à cibler dans &#8220;hostname&#8221;, changer éventuellement le &#8220;port&#8221;, définir la base de donnée sur laquelle le client doit se connecter</li>
+<li>Dans la section &#8220;Authentication&#8221;, saisir les paramètres d&#8217;autentification du compte à utiliser pour se connecter à la base configurée en section &#8220;connection&#8221;</li>
+<li>Dans la section URL, en fonction du la configuration des services, choisir cette méthode de connexion en lieu et place des autres méthodes.</li>
+<li>Dans la section &#8220;SHH&#8221;, si le service mongoDB n&#8217;est accessible qu&#8217;au travers d&#8217;une connexion SSH, renseigner les paramètres de cette connexion pour accéder au serveur.</li>
+<li>Sauvegarder les paramètres avec le boutton &#8220;save changes&#8221;</li>
+<li>La nouvelle connexion doit apparaître avec un résumé de ses paramètres dans la fenêtre &#8220;Connections&#8221;</li>
+<li>CLiquer sur la ligne de la connexion puis cliquer sur le boutton &#8220;Connect Now&#8221; pour utiliser se connecter.</li>
+</ol>
+</dd>
+</dl>
+<p>Si les identifiants utilisés disposent de droit suffisants, Mongoclient vas afficher les métriques du service mongoDB.</p>
+<p>Mongoclient ne permet de gerer qu&#8217;une seule base à la fois, il est toutefois possible de changer de base de donnée rapidement en ouvrant le menu &#8220;More&#8221; =&gt; &#8220;Switch Database&#8221; qui affichera la liste des bases de données accessibles (suivant les identifiants renseignés).</p>
+<div class="section" id="parametrage-de-l-antivirus-ingest-externe">
+<h3>9.2.3.3.1. Paramétrage de l&#8217;antivirus (ingest-externe)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-externe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;antivirus utilisé par ingest-externe est modifiable ; pour cela :</p>
+<ul class="simple">
+<li>Créer un autre shell (dont l&#8217;extension doit être <code class="docutils literal"><span class="pre">.sh.j2</span></code>) sous <code class="docutils literal"><span class="pre">ansible-vitam-rpm/roles/vitam/templates/ingest-external</span></code> ; prendre comme modèle le fichier <code class="docutils literal"><span class="pre">scan-clamav.sh.j2</span></code>. Ce fichier est un template Jinja2, et peut donc contenir des variables qui seront interprétées lors de l&#8217;installation.</li>
+<li>Modifier le fichier <code class="docutils literal"><span class="pre">ansible-vitam-rpm/roles/vitam/templates/ingest-external/ingest-external.conf.j2</span></code> en pointant sur le nouveau fichier.</li>
+</ul>
+<p>Ce script shell doit respecter le contrat suivant :</p>
+<ul>
+<li><p class="first">Argument : chemin absolu du fichier à analyser</p>
+</li>
+<li><p class="first">Sémantique des codes de retour</p>
+<blockquote>
+<div><ul class="simple">
+<li>0 : Analyse OK - pas de virus</li>
+<li>1 : Analyse OK - virus trouvé et corrigé</li>
+<li>2 : Analyse OK - virus trouvé mais non corrigé</li>
+<li>3 : Analyse NOK</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Contenu à écrire dans stdout / stderr</p>
+<blockquote>
+<div><ul class="simple">
+<li>stdout : Nom des virus trouvés, un par ligne ; Si échec (code 3) : raison de l’échec</li>
+<li>stderr : Log «&nbsp;brut&nbsp;» de l’antivirus</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="parametrage-des-certificats-externe">
+<h3>9.2.3.3.2. Paramétrage des certificats (*-externe)<a class="headerlink" href="#parametrage-des-certificats-externe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Se reporter à l&#8217;étape &#8220;PKI&#8221; du déploiement, décrite plus bas.</p>
+</div>
+</div>
+<div class="section" id="deploiement">
+<h2>9.2.3.4. Déploiement<a class="headerlink" href="#deploiement" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="fichier-de-mot-de-passe">
+<h3>9.2.3.4.1. Fichier de mot de passe<a class="headerlink" href="#fichier-de-mot-de-passe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si le fichier <code class="docutils literal"><span class="pre">deployment/vault_pass.txt</span></code> est renseigné avec le mot de passe du fichier <code class="docutils literal"><span class="pre">environnements-rpm/group_vars/all/vault.yml</span></code>, le mot de passe ne sera pas demandé. Si le fichier est absent, le mot de passe du &#8220;vault&#8221; sera demandé.</p>
+</div>
+<div class="section" id="pki">
+<h3>9.2.3.4.2. PKI<a class="headerlink" href="#pki" title="Lien permanent vers ce titre">¶</a></h3>
+<ol class="arabic simple">
+<li>paramétrer le fichier <code class="docutils literal"><span class="pre">environnements-rpm/group_vars/all/vault.yml</span></code> et le fichier d&#8217;inventaire de la plate-forme sous <code class="docutils literal"><span class="pre">environnements-rpm</span></code> (se baser sur le fichier hosts.example)</li>
+<li>Lancer le script</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pki-generate-ca.sh
+</pre></div>
+</div>
+<p>En cas d&#8217;absence de PKI, il permet de générer  une PKI, ainsi que des certificats pour les échanges https entre composants. Se reporter au chapitre PKI si le client préfère utiliser sa propre PKI.</p>
+<ol class="arabic simple" start="3">
+<li>Lancer le script</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>generate_certs.sh &lt;environnement&gt;
+</pre></div>
+</div>
+<p>Basé sur le contenu du fichier <code class="docutils literal"><span class="pre">vault.yml</span></code>, ce script  génère des certificats  nécessaires au bon fonctionnement de VITAM.</p>
+<ol class="arabic simple" start="3">
+<li>Lancer le script</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>generate_stores.sh &lt;environnement&gt;
+</pre></div>
+</div>
+<p>Basé sur le contenu du fichier <code class="docutils literal"><span class="pre">vault.yml</span></code>, ce script  génère des stores nécessaires au bon fonctionnement de VITAM.</p>
+<ol class="arabic simple" start="4">
+<li>Lancer le script</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>copie_fichiers_vitam.sh &lt;environnement&gt;
+</pre></div>
+</div>
+<p>pour recopier dans les bons répertoires d&#8217;ansiblerie les certificats et stores précédemment créés.</p>
+</div>
+<div class="section" id="id1">
+<h3>9.2.3.4.3. Déploiement<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une fois l&#8217;étape de PKI effectuée avec succès, le déploiement est à réaliser avec la commande suivante&nbsp;:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-rpm/vitam.yml -i environments-rpm/&lt;ficher d&#39;inventaire&gt; --vault-password-file vault_pass.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="extra">
+<h3>9.2.3.4.4. Extra<a class="headerlink" href="#extra" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Deux playbook d&#8217;extra sont fournis pour usage &#8220;tel quel&#8221;.</p>
+<ol class="arabic simple">
+<li>ihm-recette</li>
+</ol>
+<p>Ce playbook permet d&#8217;installer également le composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ihm-recette.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-rpm-extra/ihm-recette.yml -i environments-rpm/&lt;ficher d&#39;inventaire&gt; --vault-password-file vault_pass.txt
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>extra complet</li>
+</ol>
+<dl class="docutils">
+<dt>Ce playbook permet d&#8217;installer :</dt>
+<dd><ul class="first last simple">
+<li>topbeat</li>
+<li>packetbeat</li>
+<li>un serveur Apache pour naviguer sur le <code class="docutils literal"><span class="pre">/vitam</span></code>  des différentes machines hébergeant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a></li>
+<li>mongo-express (en docker  ; une connexion internet est alors nécessaire)</li>
+<li>le composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> library, hébergeant les documentations du projet</li>
+<li>le composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ihm-recette (nécessite un accès à un répertoire &#8220;partagé&#8221; pour récupérer les jeux de tests)</li>
+<li>un reverse proxy, afin de siplifier les appels aux composants</li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-rpm-extra/extra.yml -i environments-rpm/&lt;ficher d&#39;inventaire&gt; --vault-password-file vault_pass.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="import-automatique-d-objets-dans-kibana">
+<h2>9.2.3.5. Import automatique d&#8217;objets dans Kibana<a class="headerlink" href="#import-automatique-d-objets-dans-kibana" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il peut être utile de vouloir automatiquement importer dans l&#8217;outil de visualisation Kibana des dashboards préalablement crées. Cela ce fait simplement avec le système d&#8217;import automatique mis en place. Il suffit de suivre les différentes étapes :</p>
+<ol class="arabic simple">
+<li>Ouvrir l&#8217;outil Kibana dans son navigateur.</li>
+<li>Créer ses dashboards puis sauvegarder.</li>
+<li>Aller dans l&#8217;onglets <strong>Settings</strong> puis <strong>Objects</strong>.</li>
+<li>Sélectionner les composants à exporter puis cliquer sur le bouton <strong>Export</strong>. (ou bien cliquer sur <strong>Export Everything</strong> pour tout exporter).</li>
+<li>Copier le/les fichier(s) <em>.json</em> téléchargés à l&#8217;emplacement <code class="docutils literal"><span class="pre">deployment\ansible-vitam-rpm\roles\log-server\files\kibana-objects</span></code>.</li>
+<li>Les composants sont prêts à être importés automatique lors du prochain déploiement.</li>
+</ol>
+<p>Pour éviter d&#8217;avoir à recréer les &#8220;index-pattern&#8221; définis dans l&#8217;onglet <strong>Settings</strong> de Kibana, ceux-ci aussi sont pris en charge par le système de déploiement automatique. En revanche ils ne sont pas exportables, il est donc nécessaire de créer à la main le fichier <em>.json</em> correspondant. Pour ce faire :</p>
+<ol class="arabic simple">
+<li>Faire une requête GET sur l&#8217;url suivante <code class="docutils literal"><span class="pre">http://&lt;ip-elasticsearch-log&gt;/.kibana/index-pattern/_search</span></code>.</li>
+<li>Récupérer le contenu au format JSON et extraire le contenu de la clé <strong>hits.hits</strong> (qui doit être un tableau).</li>
+<li>Copier ce tableau dans un fichier.</li>
+<li>Copier le fichier crée à l&#8217;étape 3 dans l&#8217;emplacement <code class="docutils literal"><span class="pre">deployment\ansible-vitam-rpm\roles\log-server\files\kibana-objects</span></code>.</li>
+<li>Les index-pattern sont prêts à être importés.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="update.html" class="btn btn-neutral float-right" title="9.2.4. Procédure de mise à niveau" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pki.html" class="btn btn-neutral" title="9.2.2. Explications relatives à la PKI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.11.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

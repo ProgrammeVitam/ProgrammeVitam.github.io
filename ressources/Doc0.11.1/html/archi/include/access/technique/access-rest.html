@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1.2.10. Access-rest &mdash; documentation VITAM - Architecture 0.11.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Recherche" href="../../../search.html"/>
+    <link rel="top" title="documentation VITAM - Architecture 0.11.1" href="../../../index.html"/>
+        <link rel="up" title="7.1.2. Architecture Technique" href="_toc.html"/>
+        <link rel="next" title="7.1.3. Sécurité" href="../securite/_toc.html"/>
+        <link rel="prev" title="7.1.2.7. Access-core" href="access-core.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.11.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fonctionnelle-archivistes/_toc.html">3. Architecture fonctionnelle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fonctionnelle-exploitation/_toc.html">4. Architecture d&#8217;exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../technique/_toc.html">5. Architecture technique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.1. Access</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../fonctionnelle/_toc.html">7.1.1. Architecture Fonctionnelle</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="_toc.html">7.1.2. Architecture Technique</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.1.2.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-api.html">7.1.2.2. Access-api</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-client.html">7.1.2.3. Access-client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-client.html#utilisation">7.1.2.4. Utilisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-client.html#le-client">7.1.2.5. Le client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-common.html">7.1.2.6. Access-common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-core.html">7.1.2.7. Access-core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-core.html#presentation">7.1.2.8. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access-core.html#packages">7.1.2.9. Packages:</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.1.2.10. Access-rest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#presentation">7.1.2.11. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#packages">7.1.2.12. Packages:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-gouv-vitam-access-external-rest">7.1.2.13. fr.gouv.vitam.access.external.rest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/_toc.html">7.1.3. Sécurité</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.5. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.6. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.7. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.8. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.9. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.10. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.11. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">VITAM - Architecture</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+      
+          <li><a href="../_toc.html">7.1. Access</a> &raquo;</li>
+      
+          <li><a href="_toc.html">7.1.2. Architecture Technique</a> &raquo;</li>
+      
+    <li>7.1.2.10. Access-rest</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/access/technique/access-rest.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="access-rest">
+<h1>7.1.2.10. Access-rest<a class="headerlink" href="#access-rest" title="Lien permanent vers ce titre">¶</a></h1>
+</div>
+<div class="section" id="presentation">
+<h1>7.1.2.11. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h1>
+<p>API REST appelées par le client access interne. Il y a un controle des paramètres (SanityChecker.checkJsonAll) transmis
+avec ESAPI.</p>
+</div>
+<div class="section" id="packages">
+<h1>7.1.2.12. Packages:<a class="headerlink" href="#packages" title="Lien permanent vers ce titre">¶</a></h1>
+<p>fr.gouv.vitam.access.external.config : contient les paramètres de configurations du service web d&#8217;application.
+fr.gouv.vitam.access.external.model : classes métiers, classes implémentant le pattern DTO... .
+fr.gouv.vitam.access.external.rest : classes de lancement du serveur d&#8217;application et du controlleur REST.</p>
+</div>
+<div class="section" id="fr-gouv-vitam-access-external-rest">
+<h1>7.1.2.13. fr.gouv.vitam.access.external.rest<a class="headerlink" href="#fr-gouv-vitam-access-external-rest" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="rest-api">
+<h2>7.1.2.13.1. Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/units">https://vitam/access-external/v1/units</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/units/unit_id">https://vitam/access-external/v1/units/unit_id</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/objects">https://vitam/access-external/v1/objects</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/units/unit_id/object">https://vitam/access-external/v1/units/unit_id/object</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/accession-register">https://vitam/access-external/v1/accession-register</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/accession-register/document_id">https://vitam/access-external/v1/accession-register/document_id</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/accession-register/document_id/accession-register-detail">https://vitam/access-external/v1/accession-register/document_id/accession-register-detail</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/operations">https://vitam/access-external/v1/operations</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/operations/operation_id">https://vitam/access-external/v1/operations/operation_id</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/unitlifecycles/lifecycle_id">https://vitam/access-external/v1/unitlifecycles/lifecycle_id</a></div>
+<div class="line"><a class="reference external" href="https://vitam/access-external/v1/objectgrouplifecycles/lifecycle_id">https://vitam/access-external/v1/objectgrouplifecycles/lifecycle_id</a></div>
+<div class="line"><a class="reference external" href="https://vitam/admin-external/v1/collection_id">https://vitam/admin-external/v1/collection_id</a></div>
+<div class="line"><a class="reference external" href="https://vitam/admin-external/v1/collection_id/document_id">https://vitam/admin-external/v1/collection_id/document_id</a></div>
+</div>
+<div class="section" id="accessapplication-java">
+<h3>7.1.2.13.1.1. -AccessApplication.java<a class="headerlink" href="#accessapplication-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>classe de démarrage du serveur d&#8217;application.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span>// démarrage
+public static void main(String[] args) {
+    try {
+        startApplication(args);
+        server.join();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+
+Dans le startApplication on effectue le start de VitamServer.
+Le join permet de lancer les tests unitaires et d&#39;arreter le serveur.
+Dans le fichier de configuration, le paramètre jettyConfig est à
+paramétrer avec le nom du fichier de configuration de jetty.
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessresourceimpl-java">
+<h3>7.1.2.13.1.2. -AccessResourceImpl.java<a class="headerlink" href="#accessresourceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>classe controlleur REST</p>
+<p>la classe contient actuellement 9 méthodes :</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>getUnits()</dt>
+<dd><p class="first last">NB : the post X-Http-Method-Override header</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="2">
+<li><dl class="first docutils">
+<dt>createOrSelectUnits()</dt>
+<dd><p class="first">récupère la liste des units avec la filtre
+NB : La méthode HTTP GET n&#8217;est pas compatible,</p>
+<blockquote>
+<div><p>on utilisera une méthode HTTP POST dont l&#8217;entête contiendra &#8220;X-HTTP-Method-GET&#8221;</p>
+</div></blockquote>
+<p class="last">méthode createOrSelectUnits() va appeler méthode getUnits()</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="3">
+<li><dl class="first docutils">
+<dt>getUnitById()</dt>
+<dd><dl class="first last docutils">
+<dt>récupère un unit avec son id</dt>
+<dd><p class="first last">NB : the post X-Http-Method-Override header</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="4">
+<li><dl class="first docutils">
+<dt>createOrSelectUnitById()</dt>
+<dd><dl class="first docutils">
+<dt>NB</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">La méthode HTTP GET n&#8217;est pas compatible,</span><dd><p class="first last">on utilisera une méthode HTTP POST dont l&#8217;entête contiendra &#8220;X-HTTP-Method-GET&#8221;</p>
+</dd>
+</dl>
+<p class="last">méthode createOrSelectUnitById() va appeler méthode getUnitById()</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="5">
+<li><dl class="first docutils">
+<dt>updateUnitById()</dt>
+<dd><p class="first last">mise à jour d&#8217;un unit par son id avec une requête json</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="6">
+<li><dl class="first docutils">
+<dt>getObjectGroup()</dt>
+<dd><blockquote class="first">
+<div><p>récupérer une groupe d&#8217;objet avec la filtre</p>
+</div></blockquote>
+<p class="last">NB : the post X-Http-Method-Override header</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="7">
+<li><dl class="first docutils">
+<dt>getObjectGroupPost()</dt>
+<dd><dl class="first docutils">
+<dt>NB</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">La méthode HTTP GET n&#8217;est pas compatible,</span><dd><p class="first last">on utilisera une méthode HTTP POST dont l&#8217;entête contiendra &#8220;X-HTTP-Method-GET&#8221;</p>
+</dd>
+</dl>
+<p class="last">méthode getObjectGroupPost() va appeler méthode getObjectGroup()</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="8">
+<li><dl class="first docutils">
+<dt>getObject()</dt>
+<dd><p class="first last">récupérer le group d&#8217;objet par un unit
+NB : the post X-Http-Method-Override header</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="9">
+<li><dl class="first docutils">
+<dt>getObjectPost()</dt>
+<dd><dl class="first docutils">
+<dt>NB</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">La méthode HTTP GET n&#8217;est pas compatible,</span><dd><p class="first last">on utilisera une méthode HTTP POST dont l&#8217;entête contiendra &#8220;X-HTTP-Method-GET&#8221;</p>
+</dd>
+</dl>
+<p class="last">méthode getObjectPost() va appeler méthode getObject()</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="logbookexternalresourceimpl-java">
+<h3>7.1.2.13.1.3. -LogbookExternalResourceImpl.java<a class="headerlink" href="#logbookexternalresourceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>classe controlleur REST</p>
+<p>la classe contient actuellement 6 méthodes :</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>getOperationById()</dt>
+<dd><p class="first last">récupère l&#8217;opération avec son id
+NB : the post X-Http-Method-Override header</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="2">
+<li><dl class="first docutils">
+<dt>selectOperationByPost()</dt>
+<dd><dl class="first docutils">
+<dt>NB</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">La méthode HTTP GET n&#8217;est pas compatible,</span><dd><p class="first last">on utilisera une méthode HTTP POST dont l&#8217;entête contiendra &#8220;X-HTTP-Method-GET&#8221;</p>
+</dd>
+</dl>
+<p class="last">méthode selectOperationByPost() va appeler méthode getOperationById()</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="3">
+<li><dl class="first docutils">
+<dt>selectOperation()</dt>
+<dd><p class="first last">récupérer tous les journaux de l&#8217;opéraion
+NB : the post X-Http-Method-Override header</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="4">
+<li><dl class="first docutils">
+<dt>selectOperationWithPostOverride()</dt>
+<dd><dl class="first docutils">
+<dt>NB</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">La méthode HTTP GET n&#8217;est pas compatible,</span><dd><p class="first last">on utilisera une méthode HTTP POST dont l&#8217;entête contiendra &#8220;X-HTTP-Method-GET&#8221;</p>
+</dd>
+</dl>
+<p class="last">méthode selectOperationWithPostOverride() va appeler méthode selectOperation()</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="5">
+<li><dl class="first docutils">
+<dt>getUnitLifeCycle()</dt>
+<dd><p class="first last">récupère le journal sur le cycle de vie d&#8217;un unit avec son id</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="6">
+<li><dl class="first docutils">
+<dt>getObjectGroupLifeCycle()</dt>
+<dd><p class="first last">récupère le journal sur le cycle de vie d&#8217;un groupe d&#8217;objet avec son id</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="adminmanagementexternalresourceimpl-java">
+<h3>7.1.2.13.1.4. -AdminManagementExternalResourceImpl.java<a class="headerlink" href="#adminmanagementexternalresourceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>classe controlleur REST</p>
+<p>la classe contient actuellement 4 méthodes :
+1. checkDocument()</p>
+<blockquote>
+<div><blockquote>
+<div>vérifier le format ou la règle</div></blockquote>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><dl class="first docutils">
+<dt>importDocument()</dt>
+<dd><p class="first last">importer le fichier du format ou de la règle</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="3">
+<li><dl class="first docutils">
+<dt>findDocuments()</dt>
+<dd><p class="first last">récupérer le format ou la règle</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic" start="4">
+<li><dl class="first docutils">
+<dt>findDocumentByID()</dt>
+<dd><p class="first last">récupérer le format ou la règle avec la filtre avec son id</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../securite/_toc.html" class="btn btn-neutral float-right" title="7.1.3. Sécurité" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="access-core.html" class="btn btn-neutral" title="7.1.2.7. Access-core" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.11.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

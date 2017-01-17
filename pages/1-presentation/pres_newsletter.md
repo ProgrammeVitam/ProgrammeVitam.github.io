@@ -4,8 +4,7 @@ title: Lettres d'information
 fatherref: presentation
 ---
 
->Vous pouvez nous suivre, outre sur les réseaux sociaux, par la 
-lecture de nos lettres d'information.
+>Vous pouvez connaître l'actualité du Programme Vitam, en nous suivant sur les réseaux sociaux ou en consultant nos lettres d'information publiées régulièrement.
 
 * [**Janvier 2017**](/ressources/Newsletter/20170106_Newsletter_vitam_n4_janvier_2017.pdf)
 * [**Novembre 2016**](/ressources/Newsletter/20161014_Newsletter_vitam_n3_novembre_2016.pdf)

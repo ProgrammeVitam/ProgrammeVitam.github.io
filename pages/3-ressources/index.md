@@ -5,7 +5,7 @@ fatherref: ressources
 level: page
 ---
 
-> Sont ici présentées l'ensemble des ressources mises à disposition sur les versions actuelle et passées. 
+> Est ici présenté l'ensemble des ressources mises à disposition concernant les versions actuelle et passées de la solution logicielle Vitam. 
 
 ## Solution logicielle Vitam - dernière version publiée ({{ site.version }})
 
@@ -13,21 +13,27 @@ Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et les di
 
 * **le code développé**
 
-Il est accesible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ site.github.repo }}).
+Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ site.github.repo }}).
 
-* **les package java (.jar) associés, diffusés pour Maven**
+* **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accesibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.repomaven }}).
+Ils sont accessibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.repomaven }}).
 
 * **les paquets de déploiement** 
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM 
 CentOS 7. Ils contiennent aussi des conteneurs de documentation et de jeux de 
-tests. Ils sont accesibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintray.repo }}).
+tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintray.repo }}).
 
 * **la documentation fonctionnelle et technique**
 
-Elle est en partie sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement accesible sous forme PDF et/ou HTML sur la page [Documentation](/pages/2-documentation)
+Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/2-documentation)
+
+* **les jeux de tests**
+
+Ils contiennent les référentiels de test, et les fichiers SIP utiles pour les 
+tests automatiques. *A noter qu'il faut injecter les référentiels avant de lancer les tests.*
+Ils sont accessibles sur BinTray [{{ site.bintray.repodataset }}]({{ site.bintray.repodataset }}).
 
 ## Outils complémentaires Vitam - dernière version publiée ({{ site.version }})
 
@@ -36,7 +42,7 @@ Il s'agit des outils utilisés pour faciliter le test ou le développement.
 Pour 
 le moment, il s'agit du **Générateur Seda**, un outil de développement permettant
 de générer automatiquement à partir d’une simple arborescence de fichiers un SIP
-(paquet d’information à archiver) conforme aux [recommandations Vitam](/ressources/Doc0.11.1/Design_SIP_IT11.pdf).
+(paquet d’information à archiver) conforme aux [recommandations Vitam](/ressources/Doc0.11.1/20170116_Design_SIP_beta_V1.4.pdf).
  Sont mis à dispostion:
 
 * **le paquet d'installation sous Linux et Windows**
@@ -47,7 +53,7 @@ nécessite seulement la présence de java 8 sur le poste
 
 * **une présentation du Générateur Seda**
 
-Elle introduit les fonctions du Générateur ainsi que son utilisation simple et avancée
+Elle décrit les fonctions du Générateur ainsi que son utilisation simple et avancée
 ([pdf](/ressources/Res0.11.1/20170116_presentation_generateur.pdf)).
 
 * **le code développé**

@@ -64,10 +64,10 @@ la conservation et la restauration du papier.
 ## Comment préparer les archives à l’entrée ?
 
 Le pré-versement est une question à l’étude : des travaux intellectuels et des discussions 
-sont lancés sur ce thème important des développements pourraient éventuellement être réalisés 
+sont lancés sur ce thème important, des développements pourraient éventuellement être réalisés 
 pour assurer ces fonctionnalités (dans ou hors de Vitam).
 La question du versement des données non structurées, bureautiques, par exemple, est à l’étude. 
-Normalement ces versements passeront par l’interface homme-machine (IHM).
+Normalement, ces versements passeront par l’interface homme-machine (IHM).
 Les vracs constituent les ensembles les plus difficiles à gérer (y compris les documents issus de GED).
 Un outil supplémentaire est nécessaire pour préparer les archives, et cela est pris en compte par le 
 projet AD-Essor au sein du programme (outil Octave).
@@ -75,11 +75,11 @@ projet AD-Essor au sein du programme (outil Octave).
 ## Quel sera le dimensionnement et l’architecture des plate-formes dans les ministères ?
 
 La solution logicielle utilisera les technologies du cloud pour assurer l’élasticité. 
-Les infrastructures ministérielles comporteront des dizaines machines virtuelles répliquées sur 
+Les infrastructures ministérielles comporteront des dizaines de machines virtuelles répliquées sur 
 3 stockages (2 systèmes rapides et un plus lent sur bandes), visant des volumes en centaines de teraoctets voire 
 de pétaoctets, ou encore des centaines de millions d'objets archivés voire de milliards d'objets.
 Le Programme a été lancé dans un contexte de croissance exponentielle des archives 
-numériques. Par exemple, le volume collecté par les Archives nationales depuis les années 80 jusqu’en 2011 
+numériques. Par exemple, le volume collecté par les Archives nationales, depuis les années 80 jusqu’en 2011, 
 est équivalent à la seule collecte de 2014.
 
 

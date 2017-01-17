@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9.2.2. Explications relatives à la PKI &mdash; documentation VITAM - Documentation d&#39;installation 0.11.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Recherche" href="../search.html"/>
+    <link rel="top" title="documentation VITAM - Documentation d&#39;installation 0.11.1" href="../index.html"/>
+        <link rel="up" title="9. Procédures d’installation / mise à jour : Package RPM" href="_toc.html"/>
+        <link rel="next" title="9.2.3. Procédure de première installation" href="fresh_install.html"/>
+        <link rel="prev" title="9.2.1. Configuration de sécurité" href="securite.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation
+          
+
+          
+            
+            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.11.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">3. Architecture de la solution logicielle VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prerequis.html">4. Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-it-services.html">5. Dépendances aux services d&#8217;infrastructures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fiche_type.html">6. Fiche type de déploiement VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fiche_type.html#guidelines-de-deploiement">7. Guidelines de déploiement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_version.html">8. Récupération de la version</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">9. Procédures d&#8217;installation / mise à jour : Package RPM</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_toc.html#pre-requis-supplementaire">9.1. Pré-requis supplémentaire</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html#procedures">9.2. Procédures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="securite.html">9.2.1. Configuration de sécurité</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">9.2.2. Explications relatives à la PKI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#valorisation-des-variables-propres-a-l-environnement">9.2.2.1. Valorisation des variables propres à l&#8217;environnement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generation-des-autorites-de-certification">9.2.2.2. Génération des autorités de certification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generation-des-certificats">9.2.2.3. Génération des certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generation-des-stores">9.2.2.4. Génération des stores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recopie-des-bons-fichiers-dans-l-ansiblerie">9.2.2.5. Recopie des bons fichiers dans l&#8217;ansiblerie</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fresh_install.html">9.2.3. Procédure de première installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">9.2.4. Procédure de mise à niveau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../validation_deploiement.html">10. Validation de la procédure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">11. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extras.html">12. Elements extras de l&#8217;installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">13. Contacts et support</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">VITAM - Documentation d'installation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="_toc.html">9. Procédures d&#8217;installation / mise à jour : Package RPM</a> &raquo;</li>
+      
+    <li>9.2.2. Explications relatives à la PKI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/rpm/pki.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="explications-relatives-a-la-pki">
+<h1>9.2.2. Explications relatives à la PKI<a class="headerlink" href="#explications-relatives-a-la-pki" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les commandes sont à passer dans le sous-répertoire <code class="docutils literal"><span class="pre">deployment</span></code> de la livraison.</p>
+<div class="section" id="valorisation-des-variables-propres-a-l-environnement">
+<h2>9.2.2.1. Valorisation des variables propres à l&#8217;environnement<a class="headerlink" href="#valorisation-des-variables-propres-a-l-environnement" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Afin de réaliser l&#8217;étape ci-dessous, le mot de passe par défaut du fichier <code class="docutils literal"><span class="pre">vault.yml</span></code> se situe dans le fichier <code class="docutils literal"><span class="pre">vault_pass.txt</span></code>. Après avoir changé ce mot de passe, ne pas oublier de le mettre à jour dans le fichier <code class="docutils literal"><span class="pre">vault_pass.txt</span></code>.</p>
+</div>
+<p>Le fichier <code class="docutils literal"><span class="pre">environments-rpm/group_vars/all/vault.yml</span></code> a été généré avec un mot de passe (change_it) ; le changer par la commande :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ansible-vault rekey environments-rpm/group_vars/all/vault.yml
+</pre></div>
+</div>
+<p>Pour modifier et adapter au besoin le &#8220;vault&#8221; (qui, pour rappel, contient les mots de passe sensibles de la plate-forme), éditer le fichier avec la commande :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ansible-vault edit environments-rpm/group_vars/all/vault.yml
+</pre></div>
+</div>
+<p>Puis, éditer le fichier <code class="docutils literal"><span class="pre">environments-rpm/hosts.&lt;environnement&gt;</span></code> et le mettre en conformité de l&#8217;environnement souhaité. Ce fichier est l&#8217;inventaire associé au playbook de déploiement VITAM et il est décrit dans le paragraphe <a class="reference internal" href="fresh_install.html#inventaire"><span class="std std-ref">Informations &#8220;plate-forme&#8221;</span></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">les scripts des étapes suivantes utilisent <code class="docutils literal"><span class="pre">environments-rpm/group_vars/all/vault.yml</span></code> et, s&#8217;il existe, le fichier <code class="docutils literal"><span class="pre">vault_pass.txt</span></code> qui contient le mot de passe du fichier <code class="docutils literal"><span class="pre">vault</span></code>. Si <code class="docutils literal"><span class="pre">vault_pass.txt</span></code> n&#8217;existe pas, le mot de passe de <code class="docutils literal"><span class="pre">environments-rpm/group_vars/all/vault.yml</span></code> sera demandé.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">par la suite, le terme &lt;environnement&gt; correspond à l&#8217;extension du nom de fichier d&#8217;inventaire.</p>
+</div>
+</div>
+<div class="section" id="generation-des-autorites-de-certification">
+<h2>9.2.2.2. Génération des autorités de certification<a class="headerlink" href="#generation-des-autorites-de-certification" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="cas-d-une-pki-inexistante">
+<h3>9.2.2.2.1. Cas d&#8217;une PKI inexistante<a class="headerlink" href="#cas-d-une-pki-inexistante" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le répertoire de déploiement, lancer le script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./pki-generate-ca.sh
+</pre></div>
+</div>
+<p>Ce script génère sous <code class="docutils literal"><span class="pre">PKI/CA</span></code> les certificats CA et intermédiaires pour client et server.</p>
+<p>Voici ci-dessous un exemple de rendu du script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Lancement de la procédure de création d&#39;une CA
+==============================================
+Répertoire ./PKI/CA absent ; création...
+Création du répertoire de travail temporaire newcerts sous ./PKI/newcerts...
+        Création de CA root pour server...
+        Create CA request...
+Generating a 512 bit RSA private key
+...............++++++++++++
+...++++++++++++
+writing new private key to &#39;./PKI/CA/server/ca.key&#39;
+-----
+        Create CA certificate...
+Using configuration from ./PKI/config/server/ca-config
+Check that the request matches the signature
+Signature ok
+The Subject&#39;s Distinguished Name is as follows
+commonName            :T61STRING:&#39;CA_server&#39;
+organizationName      :PRINTABLE:&#39;Vitam.&#39;
+countryName           :PRINTABLE:&#39;FR&#39;
+stateOrProvinceName   :PRINTABLE:&#39;idf&#39;
+localityName          :PRINTABLE:&#39;paris&#39;
+Certificate is to be certified until Nov 14 15:44:32 2026 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+        CA root pour server créée sous ./PKI/CA/server !
+        Création de la CA intermediate pour server...
+        Generate intermediate request...
+Generating a 4096 bit RSA private key
+..............................................................................................................................................................................................++
+.................................................++
+writing new private key to &#39;./PKI/CA/server_intermediate/ca.key&#39;
+-----
+        Sign...
+Using configuration from ./PKI/config/server/ca-config
+Check that the request matches the signature
+Signature ok
+The Subject&#39;s Distinguished Name is as follows
+commonName            :T61STRING:&#39;CA_server_intermediate&#39;
+organizationName      :PRINTABLE:&#39;Vitam.&#39;
+countryName           :PRINTABLE:&#39;FR&#39;
+stateOrProvinceName   :PRINTABLE:&#39;idf&#39;
+localityName          :PRINTABLE:&#39;paris&#39;
+Certificate is to be certified until Nov 14 15:44:33 2026 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+        CA intemédiaire server créée sous ./PKI/CA/server_intermediate !
+----------------------------------------------------------------------
+        Création de CA root pour client...
+        Create CA request...
+Generating a 512 bit RSA private key
+.....++++++++++++
+..................++++++++++++
+writing new private key to &#39;./PKI/CA/client/ca.key&#39;
+-----
+        Create CA certificate...
+Using configuration from ./PKI/config/client/ca-config
+Check that the request matches the signature
+Signature ok
+The Subject&#39;s Distinguished Name is as follows
+commonName            :T61STRING:&#39;CA_client&#39;
+organizationName      :PRINTABLE:&#39;Vitam.&#39;
+countryName           :PRINTABLE:&#39;FR&#39;
+stateOrProvinceName   :PRINTABLE:&#39;idf&#39;
+localityName          :PRINTABLE:&#39;paris&#39;
+Certificate is to be certified until Nov 14 15:44:33 2026 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+        CA root pour client créée sous ./PKI/CA/client !
+        Création de la CA intermediate pour client...
+        Generate intermediate request...
+Generating a 4096 bit RSA private key
+....................++
+............................................................................................................++
+writing new private key to &#39;./PKI/CA/client_intermediate/ca.key&#39;
+-----
+        Sign...
+Using configuration from ./PKI/config/client/ca-config
+Check that the request matches the signature
+Signature ok
+The Subject&#39;s Distinguished Name is as follows
+commonName            :T61STRING:&#39;CA_client_intermediate&#39;
+organizationName      :PRINTABLE:&#39;Vitam.&#39;
+countryName           :PRINTABLE:&#39;FR&#39;
+stateOrProvinceName   :PRINTABLE:&#39;idf&#39;
+localityName          :PRINTABLE:&#39;paris&#39;
+Certificate is to be certified until Nov 14 15:44:34 2026 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+        CA intemédiaire client créée sous ./PKI/CA/client_intermediate !
+----------------------------------------------------------------------
+==========================================================================
+Fin du shell
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">bien noter les dates de création et de fin de validité des CA. En cas d&#8217;utilisation de la PKI fournie, la CA root a une durée de validité de 10 ans ; la CA intermédiaire a une durée de 3 ans.</p>
+</div>
+</div>
+<div class="section" id="cas-d-une-ca-deja-existante">
+<h3>9.2.2.2.2. Cas d&#8217;une CA déjà existante<a class="headerlink" href="#cas-d-une-ca-deja-existante" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si le client possède déjà une <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a>, ou ne compte pas utiliser la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> fournie par VITAM, il convient de positionner les fichiers <code class="docutils literal"><span class="pre">ca.crt</span></code> et <code class="docutils literal"><span class="pre">ca.key</span></code> sous <code class="docutils literal"><span class="pre">PKI/CA/&lt;usage&gt;</span></code>, où usage est :</p>
+<ul class="simple">
+<li>server</li>
+<li>server_intermediate</li>
+<li>client</li>
+<li>client_intermediate</li>
+</ul>
+</div>
+</div>
+<div class="section" id="generation-des-certificats">
+<h2>9.2.2.3. Génération des certificats<a class="headerlink" href="#generation-des-certificats" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="cas-de-certificats-inexistants">
+<h3>9.2.2.3.1. Cas de certificats inexistants<a class="headerlink" href="#cas-de-certificats-inexistants" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">cette étape n&#8217;est à effectuer que pour les clients ne possédant pas de certificats.</p>
+</div>
+<p>Editer complètement le fichier <code class="docutils literal"><span class="pre">environments-rpm/&lt;inventaire&gt;</span></code>  pour indiquer les serveurs associés à chaque service.</p>
+<p>Puis, dans le répertoire de déploiement, lancer le script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./generate_certs.sh &lt;environnement&gt;
+</pre></div>
+</div>
+<p>Ci-dessous un exemple de sortie du script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Sourcer les informations nécessaires dans vault.yml
+Generation du certificat client de ihm-demo
+        Création du certificat  pour ihm-demo hébergé sur localhost.localdomain...
+        Generation de la clé...
+Generating a <span class="m">4096</span> bit RSA private key
+..............................................................................................++
+.....................................................................................................................................................................................................++
+writing new private key to <span class="s1">&#39;./PKI/certificats/client/ihm-demo/ihm-demo.key&#39;</span>
+-----
+        Generation du certificat signé avec client...
+Using configuration from ./PKI/config/client/ca-config
+Check that the request matches the signature
+Signature ok
+The Subject<span class="s1">&#39;s Distinguished Name is as follows</span>
+<span class="s1">commonName            :PRINTABLE:&#39;</span>ihm-demo<span class="s1">&#39;</span>
+<span class="s1">organizationName      :PRINTABLE:&#39;</span>Vitam.<span class="s1">&#39;</span>
+<span class="s1">countryName           :PRINTABLE:&#39;</span>FR<span class="s1">&#39;</span>
+<span class="s1">stateOrProvinceName   :PRINTABLE:&#39;</span>idf<span class="s1">&#39;</span>
+<span class="s1">localityName          :PRINTABLE:&#39;</span>paris<span class="s1">&#39;</span>
+<span class="s1">Certificate is to be certified until Nov 16 15:48:11 2019 GMT (1095 days)</span>
+
+<span class="s1">Write out database with 1 new entries</span>
+<span class="s1">Data Base Updated</span>
+<span class="s1">        Conversion en p12...</span>
+<span class="s1">        Fin de conversion sous ./PKI/certificats/client/ihm-demo/ !</span>
+<span class="s1">Fin de génération du certificat client de ihm-demo</span>
+<span class="s1">--------------------------------------------------</span>
+<span class="s1">Generation du certificat client de ihm-recette</span>
+<span class="s1">        Création du certificat  pour ihm-recette hébergé sur localhost.localdomain...</span>
+<span class="s1">        Generation de la clé...</span>
+<span class="s1">Generating a 4096 bit RSA private key</span>
+<span class="s1">................................++</span>
+<span class="s1">..........................................................++</span>
+<span class="s1">writing new private key to &#39;</span>./PKI/certificats/client/ihm-recette/ihm-recette.key<span class="s1">&#39;</span>
+<span class="s1">-----</span>
+<span class="s1">        Generation du certificat signé avec client...</span>
+<span class="s1">Using configuration from ./PKI/config/client/ca-config</span>
+<span class="s1">Check that the request matches the signature</span>
+<span class="s1">Signature ok</span>
+<span class="s1">The Subject&#39;</span>s Distinguished Name is as follows
+commonName            :PRINTABLE:<span class="s1">&#39;ihm-recette&#39;</span>
+organizationName      :PRINTABLE:<span class="s1">&#39;Vitam.&#39;</span>
+countryName           :PRINTABLE:<span class="s1">&#39;FR&#39;</span>
+stateOrProvinceName   :PRINTABLE:<span class="s1">&#39;idf&#39;</span>
+localityName          :PRINTABLE:<span class="s1">&#39;paris&#39;</span>
+Certificate is to be certified <span class="k">until</span> Nov <span class="m">16</span> 15:48:11 <span class="m">2019</span> GMT <span class="o">(</span><span class="m">1095</span> days<span class="o">)</span>
+
+Write out database with <span class="m">1</span> new entries
+Data Base Updated
+        Conversion en p12...
+        Fin de conversion sous ./PKI/certificats/client/ihm-recette/ !
+Fin de génération du certificat client de ihm-recette
+--------------------------------------------------
+Generation du certificat server de ingest-external
+        Génération pour vitam-iaas-app-01.int...
+        Création du certificat server pour ingest-external hébergé sur vitam-iaas-app-01.int...
+        Generation de la clé...
+Generating a <span class="m">4096</span> bit RSA private key
+..................................................++
+..........................................................++
+writing new private key to <span class="s1">&#39;./PKI/certificats/server/hosts/vitam-iaas-app-01.int/ingest-external.key&#39;</span>
+-----
+        Generation du certificat signé avec CA server...
+Using configuration from ./PKI/config/server/ca-config
+Check that the request matches the signature
+Signature ok
+The Subject<span class="s1">&#39;s Distinguished Name is as follows</span>
+<span class="s1">commonName            :PRINTABLE:&#39;</span>ingest-external.service.consul<span class="s1">&#39;</span>
+<span class="s1">organizationName      :PRINTABLE:&#39;</span>Vitam.<span class="s1">&#39;</span>
+<span class="s1">countryName           :PRINTABLE:&#39;</span>FR<span class="s1">&#39;</span>
+<span class="s1">stateOrProvinceName   :PRINTABLE:&#39;</span>idf<span class="s1">&#39;</span>
+<span class="s1">localityName          :PRINTABLE:&#39;</span>paris<span class="s1">&#39;</span>
+<span class="s1">Certificate is to be certified until Nov 16 15:48:12 2019 GMT (1095 days)</span>
+
+<span class="s1">Write out database with 1 new entries</span>
+<span class="s1">Data Base Updated</span>
+<span class="s1">        Conversion en p12...</span>
+<span class="s1">        Fin de conversion sous ./PKI/certificats/server/hosts/vitam-iaas-app-01.int/ !</span>
+<span class="s1">Fin de génération du certificat server de ingest-external</span>
+<span class="s1">---------------------------------------------------------</span>
+<span class="s1">Generation du certificat server de access-external</span>
+<span class="s1">        Génération pour vitam-iaas-app-01.int...</span>
+<span class="s1">        Création du certificat server pour access-external hébergé sur vitam-iaas-app-01.int...</span>
+<span class="s1">        Generation de la clé...</span>
+<span class="s1">Generating a 4096 bit RSA private key</span>
+<span class="s1">.............++</span>
+<span class="s1">.......................................................................................................................................................................................................++</span>
+<span class="s1">writing new private key to &#39;</span>./PKI/certificats/server/hosts/vitam-iaas-app-01.int/access-external.key<span class="s1">&#39;</span>
+<span class="s1">-----</span>
+<span class="s1">        Generation du certificat signé avec CA server...</span>
+<span class="s1">Using configuration from ./PKI/config/server/ca-config</span>
+<span class="s1">Check that the request matches the signature</span>
+<span class="s1">Signature ok</span>
+<span class="s1">The Subject&#39;</span>s Distinguished Name is as follows
+commonName            :PRINTABLE:<span class="s1">&#39;access-external.service.consul&#39;</span>
+organizationName      :PRINTABLE:<span class="s1">&#39;Vitam.&#39;</span>
+countryName           :PRINTABLE:<span class="s1">&#39;FR&#39;</span>
+stateOrProvinceName   :PRINTABLE:<span class="s1">&#39;idf&#39;</span>
+localityName          :PRINTABLE:<span class="s1">&#39;paris&#39;</span>
+Certificate is to be certified <span class="k">until</span> Nov <span class="m">16</span> 15:48:14 <span class="m">2019</span> GMT <span class="o">(</span><span class="m">1095</span> days<span class="o">)</span>
+
+Write out database with <span class="m">1</span> new entries
+Data Base Updated
+        Conversion en p12...
+        Fin de conversion sous ./PKI/certificats/server/hosts/vitam-iaas-app-01.int/ !
+Fin de génération du certificat server de access-external
+---------------------------------------------------------
+<span class="o">=============================================================================================</span>
+Fin de script.
+</pre></div>
+</div>
+<p>Ce script génère sous <code class="docutils literal"><span class="pre">PKI/certificats</span></code> les certificats (format p12) nécessaires pour un bon fonctionnement dans VITAM.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Les certificats générés à l&#8217;issue ont une durée de validité de (à vérifier).</p>
+</div>
+</div>
+<div class="section" id="cas-de-certificats-deja-crees-par-le-client">
+<h3>9.2.2.3.2. Cas de certificats déjà créés par le client<a class="headerlink" href="#cas-de-certificats-deja-crees-par-le-client" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si le client possède déjà une <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a>, ou ne compte pas utiliser la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> fournie par VITAM, il convient de positionner les certificats sous <code class="docutils literal"><span class="pre">PKI/certificats/&lt;usage&gt;</span></code>, où usage est :</p>
+<ul>
+<li><p class="first">client/ihm-recette/ihm-recette.p12</p>
+</li>
+<li><p class="first">client/ihm-demo/ihm-recette.crt</p>
+</li>
+<li><p class="first">client/ihm-demo/ihm-demo.p12</p>
+</li>
+<li><p class="first">client/ihm-demo/ihm-demo.crt</p>
+</li>
+<li><dl class="first docutils">
+<dt>server/hosts/&lt;hostname défini dans l&#8217;inventaire&gt;/&lt;nom composant vitam&gt;.p12 pour</dt>
+<dd><ul class="first last simple">
+<li>ingest-external</li>
+<li>access-external</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="generation-des-stores">
+<h2>9.2.2.4. Génération des stores<a class="headerlink" href="#generation-des-stores" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lancer le script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./generate_stores.sh &lt;environnement&gt;
+</pre></div>
+</div>
+<p>Ci-dessous un exemple de sortie du script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Sourcer les informations nécessaires dans vault.yml
+Génération du keystore de ihm-demo
+        Génération pour vitam-iaas-ext-01.int...
+Génération du truststore de ihm-demo...
+        Import des CA server dans truststore de ihm-demo...
+                ... import CA server root...
+Certificat ajouté au fichier de clés
+                ... import CA server intermediate...
+Certificat ajouté au fichier de clés
+                ... import CA client root...
+Certificat ajouté au fichier de clés
+                ... import CA client intermediate...
+Certificat ajouté au fichier de clés
+Fin de génération du trustore de ihm-demo
+------------------------------------------------
+Génération du keystore de ihm-recette
+        Génération pour vitam-iaas-ext-01.int...
+Génération du truststore de ihm-recette...
+        Import des CA server dans truststore de ihm-recette...
+                ... import CA server root...
+Certificat ajouté au fichier de clés
+                ... import CA server intermediate...
+Certificat ajouté au fichier de clés
+                ... import CA client root...
+Certificat ajouté au fichier de clés
+                ... import CA client intermediate...
+Certificat ajouté au fichier de clés
+Fin de génération du trustore de ihm-recette
+------------------------------------------------
+Génération du keystore de access-external
+        Génération pour vitam-iaas-app-01.int...
+        Import du p12 de ingest-external dans le keystore
+L<span class="s1">&#39;entrée de l&#39;</span><span class="nb">alias</span> vitam-iaas-app-01.int a été importée.
+Commande d<span class="s1">&#39;import exécutée : 1 entrées importées, échec ou annulation de 0 entrées</span>
+<span class="s1">Fin de génération du keystore ingest-external</span>
+<span class="s1">---------------------------------------------</span>
+<span class="s1">Génération du truststore de ingest-external...</span>
+<span class="s1">        Import des CA server dans truststore de ingest-external...</span>
+<span class="s1">                ... import CA server root...</span>
+<span class="s1">Certificat ajouté au fichier de clés</span>
+<span class="s1">                ... import CA server intermediate...</span>
+<span class="s1">Certificat ajouté au fichier de clés</span>
+<span class="s1">                ... import CA client root...</span>
+<span class="s1">Certificat ajouté au fichier de clés</span>
+<span class="s1">                ... import CA client intermediate...</span>
+<span class="s1">Certificat ajouté au fichier de clés</span>
+<span class="s1">Fin de génération du trustore de ingest-external</span>
+<span class="s1">------------------------------------------------</span>
+<span class="s1">Génération du grantedstore de ingest-external...</span>
+<span class="s1">        Import certificat IHM-demo &amp; ihm-recette du grantedstore de ingest-external...</span>
+<span class="s1">Certificat ajouté au fichier de clés</span>
+<span class="s1">Certificat ajouté au fichier de clés</span>
+<span class="s1">------------------------------------------------</span>
+<span class="s1">Génération du keystore de access-external</span>
+<span class="s1">        Génération pour vitam-iaas-app-01.int...</span>
+<span class="s1">        Import du p12 de access-external dans le keystore</span>
+<span class="s1">L&#39;</span>entrée de l<span class="s1">&#39;alias vitam-iaas-app-01.int a été importée.</span>
+<span class="s1">Commande d&#39;</span>import exécutée : <span class="m">1</span> entrées importées, échec ou annulation de <span class="m">0</span> entrées
+Fin de génération du keystore access-external
+---------------------------------------------
+Génération du truststore de access-external...
+        Import des CA server dans truststore de access-external...
+                ... import CA server root...
+Certificat ajouté au fichier de clés
+                ... import CA server intermediate...
+Certificat ajouté au fichier de clés
+                ... import CA client root...
+Certificat ajouté au fichier de clés
+                ... import CA client intermediate...
+Certificat ajouté au fichier de clés
+Fin de génération du trustore de access-external
+------------------------------------------------
+Génération du grantedstore de access-external...
+        Import certificat IHM-demo <span class="p">&amp;</span> ihm-recette du grantedstore de access-external...
+Certificat ajouté au fichier de clés
+Certificat ajouté au fichier de clés
+------------------------------------------------
+<span class="o">=============================================================================================</span>
+Fin de script.
+</pre></div>
+</div>
+<p>Ce script génère sous <code class="docutils literal"><span class="pre">PKI/certificats</span></code> les stores (jks) associés pour un bon fonctionnement dans VITAM.</p>
+</div>
+<div class="section" id="recopie-des-bons-fichiers-dans-l-ansiblerie">
+<h2>9.2.2.5. Recopie des bons fichiers dans l&#8217;ansiblerie<a class="headerlink" href="#recopie-des-bons-fichiers-dans-l-ansiblerie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lancer le script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./copie_fichiers_vitam.sh &lt;environnement&gt;
+</pre></div>
+</div>
+<p>Ci-dessous un exemple de sortie du script :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Recopie des stores dans VITAM
+        Recopie pour access-external...
+        Fichiers recopiés
+------------------------
+        Recopie pour ingest-external...
+        Fichiers recopiés
+------------------------
+        Recopie pour ihm-demo...
+        Fichiers recopiés
+------------------------
+        Recopie pour ihm-recette...
+        Fichiers recopiés
+------------------------
+=============================================================================================
+Fin de procédure ; vous pouvez déployer l&#39;ansiblerie.
+</pre></div>
+</div>
+<p>Ce script recopie les fichiers nécessaires (certificats, stores) aux bons endroits de l&#8217;ansiblerie (sous <code class="docutils literal"><span class="pre">ansible-vitam-rpm/roles/vitam/files/&lt;composant&gt;</span></code>).</p>
+<div class="section" id="cas-des-sia">
+<h3>9.2.2.5.1. Cas des SIA<a class="headerlink" href="#cas-des-sia" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour le moment, la prise en charge des certificats des SIA n&#8217;est pas effective ; seuls les certificats d&#8217;ihm-demo et ihm-recette sont aujourd&#8217;hui intégrés dans l&#8217;installation.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<p class="last">Pour connecter un client externe à une instance de test Vitam, utiliser donc l&#8217;un des certificats cités (ihm-demo ou ihm-recette).</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fresh_install.html" class="btn btn-neutral float-right" title="9.2.3. Procédure de première installation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="securite.html" class="btn btn-neutral" title="9.2.1. Configuration de sécurité" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.11.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Access-rest &mdash; documentation VITAM - Manuel de développement 0.11.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Recherche" href="../../search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 0.11.1" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.11.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../_toc.html">Détails par composant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Access-rest</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/access/access-rest.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="access-rest">
+<h1>Access-rest<a class="headerlink" href="#access-rest" title="Lien permanent vers ce titre">¶</a></h1>
+</div>
+<div class="section" id="presentation">
+<h1>Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h1>
+<p>API REST EXT appelées par le client access external. Il y a un controle des paramètres (SanityChecker.checkJsonAll) transmis
+avec ESAPI.</p>
+</div>
+<div class="section" id="fr-gouv-vitam-access-external-rest">
+<h1>fr.gouv.vitam.access.external.rest<a class="headerlink" href="#fr-gouv-vitam-access-external-rest" title="Lien permanent vers ce titre">¶</a></h1>
+<p>&#8211; AccessExternalRessourceImpl</p>
+<div class="section" id="rest-api">
+<h2>Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h2>
+<p>-Unit</p>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/units">https://vitam/access-external/v1/units</a>
+récupérer la liste des units avec la filtre (le contenu de la requête)</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/units">https://vitam/access-external/v1/units</a> (with X-HTTP-METHOD-OVERRIDE GET)
+récupérer la liste des units avec la filtre (le contenu de la requête)</div>
+</div>
+<div class="line-block">
+<div class="line">PUT <a class="reference external" href="https://vitam/access-external/v1/units">https://vitam/access-external/v1/units</a>
+Mettre à jour la liste des units (non implémenté)</div>
+</div>
+<div class="line-block">
+<div class="line">PUT <a class="reference external" href="https://vitam/access-external/v1/units/unit_id">https://vitam/access-external/v1/units/unit_id</a>
+Mettre à jour l&#8217;unit avec avec le contenu de la requête</div>
+</div>
+<div class="line-block">
+<div class="line">HEAD <a class="reference external" href="https://vitam/access-external/v1/units">https://vitam/access-external/v1/units</a>
+Vérifier l&#8217;existence d&#8217;un unit (non implémenté)</div>
+</div>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/units/unit_id">https://vitam/access-external/v1/units/unit_id</a>
+récupérer l&#8217;units avec la filtre (le contenu de la requête)</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/units/unit_id">https://vitam/access-external/v1/units/unit_id</a>  (avec X-HTTP-METHOD-OVERRIDE GET)
+récupérer l&#8217;units avec la filtre (le contenu de la requête)</div>
+</div>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/units/unit_id/object">https://vitam/access-external/v1/units/unit_id/object</a>
+récupérer le group d&#8217;objet par un unit (le contenu de la requête)</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/units/unit_id/object">https://vitam/access-external/v1/units/unit_id/object</a> (avec X-HTTP-METHOD-OVERRIDE GET)
+récupérer le group d&#8217;objet par un unit (le contenu de la requête)</div>
+</div>
+<p>-ObjectGroup</p>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/objects">https://vitam/access-external/v1/objects</a>
+récupérer la liste des object group (non implémenté)</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/objects">https://vitam/access-external/v1/objects</a> (avec X-HTTP-METHOD-OVERRIDE GET)
+récupérer la liste des object group (non implémenté)</div>
+</div>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/objects/object_id">https://vitam/access-external/v1/objects/object_id</a>
+récupérer une groupe d&#8217;objet avec la filtre (le contenu de la requête) et id</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/objects/objet_id">https://vitam/access-external/v1/objects/objet_id</a> (avec X-HTTP-METHOD-OVERRIDE GET)
+récupérer une groupe d&#8217;objet avec la filtre (le contenu de la requête) et id</div>
+</div>
+<p>-Accession Register
+| POST <a class="reference external" href="https://vitam/access-external/v1/accession-register">https://vitam/access-external/v1/accession-register</a></p>
+<blockquote>
+<div>récupérer le registre de fond</div></blockquote>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/accession-register/document_id">https://vitam/access-external/v1/accession-register/document_id</a>
+récupérer le registre de fond avec la filtre (le contenu de la requête) et id</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/accession-register/document_id/accession-register-detail">https://vitam/access-external/v1/accession-register/document_id/accession-register-detail</a>
+récupérer le détail du registre de fond avec la filtre (le contenu de la requête) et id</div>
+</div>
+<p>&#8211; LogbookRessourceImpl</p>
+</div>
+<div class="section" id="id1">
+<h2>Rest API<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
+<p>-Operation
+| GET <a class="reference external" href="https://vitam/access-external/v1/operations">https://vitam/access-external/v1/operations</a></p>
+<blockquote>
+<div>récupérer tous les journaux de l&#8217;opéraion</div></blockquote>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/operations">https://vitam/access-external/v1/operations</a> (with X-HTTP-METHOD-OVERRIDE GET)
+récupérer tous les journaux de l&#8217;opéraion</div>
+</div>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/operations">https://vitam/access-external/v1/operations</a>/{id_op}
+récupérer le journal de l&#8217;opéraion avec la filtre (le contenu de la requête) et id</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/access-external/v1/operations">https://vitam/access-external/v1/operations</a>/{id_op} (with X-HTTP-METHOD-OVERRIDE GET)
+récupérer le journal de l&#8217;opéraion avec la filtre (le contenu de la requête) et id</div>
+</div>
+<p>-Cycle de vie
+| GET <a class="reference external" href="https://vitam/access-external/v1/unitlifecycles">https://vitam/access-external/v1/unitlifecycles</a>/{id_lc}</p>
+<blockquote>
+<div>récupérer le journal sur le cycle de vie d&#8217;un unit avec la filtre (le contenu de la requête) et id</div></blockquote>
+<div class="line-block">
+<div class="line">GET <a class="reference external" href="https://vitam/access-external/v1/objectgrouplifecycles">https://vitam/access-external/v1/objectgrouplifecycles</a>/{id_lc}
+récupérer le journal sur le cycle de vie d&#8217;un groupe d&#8217;objet avec la filtre (le contenu de la requête) et id</div>
+</div>
+<p>&#8211; AdminManagementResourceImpl</p>
+</div>
+<div class="section" id="id2">
+<h2>Rest API<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
+<p>-Format&amp;Rule
+| PUT <a class="reference external" href="https://vitam/admin-external/v1/collection_id">https://vitam/admin-external/v1/collection_id</a></p>
+<blockquote>
+<div>vérifier le format ou la règle</div></blockquote>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/admin-external/v1/collection_id">https://vitam/admin-external/v1/collection_id</a>
+importer le fichier du format ou de la règle</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/admin-external/v1/collection_id">https://vitam/admin-external/v1/collection_id</a>
+récupérer le format ou la règle</div>
+</div>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="https://vitam/admin-external/v1/collection_id/document_id">https://vitam/admin-external/v1/collection_id/document_id</a>
+récupérer le format ou la règle avec la filtre (le contenu de la requête) et id</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.11.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

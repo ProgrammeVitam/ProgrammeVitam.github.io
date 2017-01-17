@@ -5,7 +5,7 @@ fatherref: presentation
 ---
 >Le rôle des informaticiens des ministères et des collectivités susceptibles 
 d’utiliser Vitam est fondamental. Si l'on veut éviter "l'alzheimer" numérique, 
-il leur faut dès maintenant penser et réaliser l'intégration 
+il leur faut, dès maintenant, penser et réaliser l'intégration de
 de la fonction archivage dans leur SI.
 
 Alors que les teraoctets s’amoncellent dans les centres de productions, la 
@@ -14,23 +14,23 @@ pour les autorités administratives devient de plus en plus urgente à traiter.
 
 ## Penser le moyen et le long terme
 
-Il ne s’agit plus simplement de conserver des fichiers mais bien d’assurer que 
+Il ne s’agit plus simplement de conserver des fichiers, mais bien de s’assurer que 
 l’information pertinente pourra être retrouvée et utilisée des années, voire des
- décennies après. Il faut non seulement sélectionner l’information mais aussi la
- conserver de manière accessible dans le temps malgré les migrations de baies, 
+ décennies après. Il faut, non seulement, sélectionner l’information mais aussi la
+ conserver de manière accessible dans le temps, malgré les migrations de baies, 
  de supports et de formats.
 
 Face à la croissance exponentielle du numérique, il faut, grâce à un saut 
 technologique, se mettre en capacité de traiter les milliards d’objets de toutes
  natures qui devront être conservés. Le passage aux technologies du Big data, 
  associées à une approche sémantique sur une base cloud, est nécessaire pour 
- relever le défi que représentent les 3 V : volumétrie des données,variabilité 
- des métadonnées, et vélocité d’accès.
+ relever le défi que représentent les 3 V : Volumétrie des données, Variabilité 
+ des métadonnées et Vélocité d’accès.
 
 ## Une solution ouverte
 
-La solution logicielle développée dans le programme Vitam permettra la prise en 
-charge, la conservation, la pérennisation et la consultation sécurisée de très 
+La solution logicielle développée par le programme Vitam permettra la prise en 
+charge, la conservation, la pérennisation et la consultation sécurisées de très 
 gros volumes d’archives numériques. Elle assurera la gestion complète du cycle 
 de vie des archives et donc la garantie de leur valeur probante. Elle pourra 
 être utilisée pour tout type d'archive, y compris pour des documents classifiés 
@@ -46,10 +46,10 @@ maintenance et donc globalement sa pérennité.
 
 L’obligation de mettre en œuvre une solution d’archivage numérique dans les 
 contextes très différents des trois ministères porteurs, tant en termes de 
-pratiques archivistiques qu’en termes de production informatique, a orienté 
+pratiques archivistiques, qu’en termes de production informatique, a orienté 
 notre choix vers la réalisation d’un back-office. L’objectif est de prendre en 
 compte dans la solution logicielle Vitam, le maximum de fonctions mutualisables 
-et technologiquement complexes, d’autant plus quand elles s’appliquent à des 
+et technologiquement complexes, d’autant plus quand elles s’appliquent à de 
 très grands nombres d’objets, et de laisser chaque entité porter ses propres 
 spécificités de processus. Cette vision permet ainsi la réutilisation plus 
 large, tout en assurant la réalisation d’un outil générique intégrable selon les 
@@ -61,9 +61,9 @@ Positionnée comme une brique d’infrastructure, elle prendra en charge toutes 
 opérations nécessaires pour assurer la pérennisation des documents numériques 
 versés et pour garantir le maintien de leur valeur probante.
 
-Pour permettre un usage mutualisé à plusieurs organisations, elle sera 
-multi-tenants avec un cloisonnement systématique de toutes les archives et 
-informations du système par organisation utilisatrice.
+Pour permettre un usage mutualisé entre plusieurs organisations, elle sera 
+multi-tenante avec un cloisonnement systématique de toutes les archives et 
+des informations du système par organisation utilisatrice.
 
 Elle permettra la prise en charge de tous les documents numériques (bureautique,
  audio, vidéo, image, plan, bases de données, etc.) que l’administration 
@@ -85,10 +85,10 @@ Elle offrira des interfaces applicatives (API) permettant principalement :
 * la recherche sur les méta-données et les journaux,
 * l’accès aux documents,
 
-Pour des usages plus spécifiques il y aura aussi des interfaces de gestion et 
+Pour des usages plus spécifiques, il y aura aussi des interfaces de gestion et 
 d’administration.
 
-Enfin toujours dans un esprit de facilité de réutilisation, la solution 
+Enfin, toujours dans un esprit de facilité de réutilisation, la solution 
 logicielle Vitam est aussi neutre technologiquement que possible :
 * elle n'impose pas d'infrastructures particulières, comme des baies de 
 stockages adaptées ou des matériels spécifiques,
@@ -98,7 +98,7 @@ selon le degré de virtualisation,
 * elle est développée pour s'exécuter sur un environnement Linux et distribuée 
 pour un déploiement CentOS (à venir en V1 aussi Debian),
 * elle amène une solution de stockage déployable sur toute infrastructure 
-serveurs en lien avec une capacité de stockage disque ou quand ils existent peut
+serveurs en lien avec une capacité de stockage disque ou, quand ils existent, peut
  utiliser des moyens existants de stockage Objet (Swift)
 
 ## L'architecture... en bref
@@ -127,24 +127,24 @@ Il est possible d’utiliser des offres externes de stockage objet, ou d’en me
 ## En collaboration avec les porteurs et partenaires
 
 Pour que cette solution soit utile au plus grand nombre, sa conception et 
-ses test seront faits en collaboration avec tous les partenaires du programmes, 
-et certains points clés seront ouverts à discussion au delà, comme les API alpha
- publiée en juillet 2016.
+ses tests seront faits en collaboration avec tous les partenaires du Programme, 
+et certains points clés seront ouverts à discussions au-delà, comme les API alpha
+ publiées en juillet 2016.
  
 Le calage régulier est facilité par le mode de développement en Agile, en Scrum 
-de Scrum, avec selon les moments de 2 à 4 équipes. Le rythme est de 3 semaines 
-pour les sprints, de 5 sprints soit entre 3 et 4 mois par version intermédiaire 
-et annuel pour les versions majeures. Les porteurs et partenaires peuvent se 
+de Scrum, avec, selon les moments, de 2 à 4 équipes. Le rythme est de 3 semaines 
+pour les sprints, de 3 à 4 mois soit 5 sprints par version intermédiaire 
+et annuel pour les versions majeures. Les ministères porteurs et partenaires peuvent se 
 caler sur les livrables des sprints pour accompagner leur propre développement 
 quand il est Agile.
  
-Ces livraisons régulières permettent aussi les tests des porteurs et partenaires, 
+Ces livraisons régulières permettent aussi les tests des ministères porteurs et partenaires, 
 ce qui contribue à la qualité des livrables... 
 
 <hr/>
 
-[^1]: Avant la clôture d’une affaire ou d’un dossier, par exemple, le dossier RH  d’un agent travaillant toujours dans le service.
+[^1]: Avant la clôture d’une affaire ou d’un dossier, par exemple, le dossier RH d’un agent travaillant toujours dans le service.
 
-[^2]: Avant l’expiration de la durée d’utilité administrative (DUA), les données  peuvent faire l’objet d’un contrôle, recours contentieux ou de la demande du  public à des fins administratives.
+[^2]: Avant l’expiration de la durée d’utilité administrative (DUA), les données peuvent faire l’objet d’un contrôle, recours contentieux ou de la demande du public à des fins administratives.
 
 [^3]: A l’issue de la DUA, les données n’ont plus d’utilité administrative mais sont conservées pour des raisons historiques, statistiques mais aussi juridiques. Les données ayant un effet de droit sans limite dans le temps, par exemple l’état-civil, sont aussi archivées à titre définitif. A ce stade, elles doivent pouvoir être communiquées au public, en conformité avec les délais légaux de communicabilité.

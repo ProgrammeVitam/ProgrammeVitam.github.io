@@ -11,7 +11,7 @@ fatherref: presentation
 
 ## Porteurs
 
-* Ministère des Affaires Etrangères
+* Ministère des Affaires Etrangères et du Développement International
 * Ministère de la Culture et de la Communication
 * Ministère de la Défense
 

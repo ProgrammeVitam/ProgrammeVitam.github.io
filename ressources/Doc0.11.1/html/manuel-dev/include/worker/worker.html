@@ -1,0 +1,1001 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Worker &mdash; documentation VITAM - Manuel de développement 0.11.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Recherche" href="../../search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 0.11.1" href="../../index.html"/>
+        <link rel="up" title="Worker" href="_toc.html"/>
+        <link rel="next" title="Worker Client" href="worker-client.html"/>
+        <link rel="prev" title="Introduction" href="intro.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.11.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Worker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#presentation">1. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-server">2. Worker-server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-core">3. Worker-core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details-des-handlers">4. Details des Handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-common">5. Worker-common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-client">6. Worker-client</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="worker-client.html">Worker Client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+      
+          <li><a href="_toc.html">Worker</a> &raquo;</li>
+      
+    <li>Worker</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/worker/worker.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="worker">
+<h1>Worker<a class="headerlink" href="#worker" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="presentation">
+<h2>1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="line-block">
+<div class="line"><em>Parent package:</em> <strong>fr.gouv.vitam</strong></div>
+<div class="line"><em>Package proposition:</em> <strong>fr.gouv.vitam.worker</strong></div>
+</div>
+<p>4 modules composent la partie worker :
+- worker-common : incluant la partie common (Utilitaires...), notamment le SedaUtils.
+- worker-core : contenant les différents handlers.
+- worker-client : incluant le client permettant d&#8217;appeler le REST.
+- worker-server : incluant la partie REST.</p>
+</div>
+<div class="section" id="worker-server">
+<h2>2. Worker-server<a class="headerlink" href="#worker-server" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="rest-api">
+<h3>2.1 Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour l&#8217;instant les uri suivantes sont déclarées :</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://server/worker/v1">http://server/worker/v1</a></div>
+<div class="line">POST /tasks -&gt; <strong>POST Permet de lancer une étape à exécuter</strong></div>
+</div>
+</div>
+<div class="section" id="registration">
+<h3>2.2 Registration<a class="headerlink" href="#registration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une partie registration permet de gérer la registration du Worker.</p>
+<p>La gestion de l&#8217;abonnement du <em>worker</em> auprès du serveur <em>processing</em> se fait à l&#8217;aide d&#8217;un ServletContextListener : <em>fr.gouv.vitam.worker.server.registration.WorkerRegistrationListener</em>.</p>
+<p>Le WorkerRegistrationListener va lancer l&#8217;enregistrement du <em>worker</em> au démarrage du serveur worker, dans un autre Thread utilisant l&#8217;instance <em>Runnable</em> : <em>fr.gouv.vitam.worker.server.registration.WorkerRegister</em>.</p>
+<p>L&#8217;execution du <em>WorkerRegister</em> essaie d&#8217;enregistrer le <em>worker</em> suivant un retry paramétrable dans la configuration du serveur avec :
+- un délai (registerDelay en secondes)
+- un nombre d&#8217;essai (registerTry)</p>
+<p>Le lancement du serveur est indépendant de l&#8217;enregistrement du <em>worker</em> auprès du <em>processing</em> : le serveur <em>worker</em> ne s&#8217;arrêtera pas si l&#8217;enregistrement n&#8217;a pas réussi.</p>
+</div>
+</div>
+<div class="section" id="worker-core">
+<h2>3. Worker-core<a class="headerlink" href="#worker-core" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans la partie Core, sont présents les différents Handlers nécessaires pour exécuter les différentes actions.
+- CheckConformityActionHandler
+- CheckObjectsNumberActionHandler
+- CheckObjectUnitConsistencyActionHandler
+- CheckSedaActionHandler
+- CheckStorageAvailabilityActionHandler
+- CheckVersionActionHandler
+- ExtractSedaActionHandler
+- IndexObjectGroupActionHandler
+- IndexUnitActionHandler
+- StoreObjectGroupActionHandler
+- FormatIdentificationActionHandler
+- AccessionRegisterActionHandler
+- TransferNotificationActionHandler
+- UnitsRulesCompteHandler
+- DummyHandler</p>
+<p>La classe WorkerImpl permet de lancer ces différents handlers.</p>
+<div class="section" id="focus-sur-la-gestion-des-entrees-sorties-des-handlers">
+<h3>3.1 Focus sur la gestion des entrées / sorties  des Handlers<a class="headerlink" href="#focus-sur-la-gestion-des-entrees-sorties-des-handlers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Chaque Handler a un constructeur sans argument et est lancé avec la commande :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">CompositeItemStatus</span> <span class="nf">execute</span><span class="o">(</span><span class="n">WorkerParameters</span> <span class="n">params</span><span class="o">,</span> <span class="n">HandlerIO</span> <span class="n">ioParam</span><span class="o">).</span>
+</pre></div>
+</div>
+<p>Le HandlerIO a pour charge d&#8217;assurer la liaison avec le Workspace et la mémoire entre tous les handlers d&#8217;un step.</p>
+<p>La structuration du HandlerIO est la suivante :</p>
+<ul>
+<li><p class="first">des paramètres d&#8217;entrées (in) :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d&#8217;une même étape</p>
+</li>
+<li><p class="first">une cible (uri) comportant un schema (WORKSPACE, MEMORY, VALUE) et un path :</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE:path indique le chemin relatif sur le workspace</li>
+<li>MEMORY:path indique le nom de la clef de valeur</li>
+<li>VALUE:path indique la valeur statique en entrée</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">chaque handler peut accéder à ces valeurs, définies dans l&#8217;ordre stricte, via le handlerIO</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE : implicitement un File</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">(</span><span class="n">rank</span><span class="o">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>MEMORY : implicitement un objet mémoire déjà alloué par un Handler précédent</li>
+</ul>
+</div></blockquote>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Object could be whatever, Map, List, JsonNode or even File</span>
+<span class="n">Object</span> <span class="n">object</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">(</span><span class="n">rank</span><span class="o">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>VALUE : implicitement une valeur String</li>
+</ul>
+</div></blockquote>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">string</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">(</span><span class="n">rank</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">des paramètres d&#8217;entrées (out) :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d&#8217;une même étape</p>
+</li>
+<li><p class="first">une cible (uri) comportant un schema (WORKSPACE, MEMORY) et un path :</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE:path indique le chemin relatif sur le workspace</li>
+<li>MEMORY:path indique le nom de la clef de valeur</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">chaque handler peut stocker les valeurs finales, définies dans l&#8217;ordre stricte, via le handlerIO</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE : implicitement un File local</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// To get the filename as specified by the workflow</span>
+<span class="n">ProcessingUri</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getOutput</span><span class="o">(</span><span class="n">rank</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="na">getPath</span><span class="o">();</span>
+<span class="c1">// Write your own file</span>
+<span class="n">File</span> <span class="n">newFile</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getNewLocalFile</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+<span class="c1">// write it</span>
+<span class="o">...</span>
+<span class="c1">// Now give it back to handlerIO as ouput result,</span>
+<span class="c1">// specifying if you want to delete it right after or not</span>
+<span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="n">rank</span><span class="o">,</span> <span class="n">newFile</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="c1">// or let the handlerIO delete it later on</span>
+<span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="n">rank</span><span class="o">,</span> <span class="n">newFile</span><span class="o">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>MEMORY : implicitement un objet mémoire</li>
+</ul>
+</div></blockquote>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create your own Object</span>
+<span class="n">MyClass</span> <span class="n">object</span> <span class="o">=</span> <span class="o">...</span>
+<span class="c1">// Now give it back to handlerIO as ouput result</span>
+<span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="n">rank</span><span class="o">,</span> <span class="n">object</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Afin de vérifier la cohérence entre ce qu&#8217;attend le Handler et ce que contient le HandlerIO, la méthode suivante est à réaliser :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">clasz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="c1">// add in order the Class type of each Input argument</span>
+<span class="n">clasz</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">File</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">clasz</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="c1">// Then check the conformity passing the number of output parameters too</span>
+<span class="kt">boolean</span> <span class="n">check</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">checkHandlerIO</span><span class="o">(</span><span class="n">outputNumber</span><span class="o">,</span> <span class="n">clasz</span><span class="o">);</span>
+<span class="c1">// According to the check boolean, continue or raise an error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cas-particulier-des-tests-unitaires">
+<h3>3.2 Cas particulier des Tests unitaires<a class="headerlink" href="#cas-particulier-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Afin d&#8217;avoir un handlerIO correctement initialisé, il faut redéfinir le handlerIO manuellement comme l&#8217;attend le handler :</p>
+<p>Si nécessaire et si compatible, il est possible de passer par un mode MEMORY pour les paramètres &#8220;in&#8221; :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// In a common part (@Before for instance)</span>
+<span class="n">HandlerIO</span> <span class="n">handlerIO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HandlerIO</span><span class="o">(</span><span class="s">&quot;containerName&quot;</span><span class="o">,</span> <span class="s">&quot;workerid&quot;</span><span class="o">);</span>
+
+<span class="c1">// Declare the signature in but instead of using WORKSPACE, use MEMORY</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">IOParameter</span><span class="o">&gt;</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">in</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">IOParameter</span><span class="o">().</span><span class="na">setUri</span><span class="o">(</span><span class="k">new</span> <span class="n">ProcessingUri</span><span class="o">(</span><span class="n">UriPrefix</span><span class="o">.</span><span class="na">MEMORY</span><span class="o">,</span> <span class="s">&quot;file1&quot;</span><span class="o">)));</span>
+<span class="n">in</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">IOParameter</span><span class="o">().</span><span class="na">setUri</span><span class="o">(</span><span class="k">new</span> <span class="n">ProcessingUri</span><span class="o">(</span><span class="n">UriPrefix</span><span class="o">.</span><span class="na">MEMORY</span><span class="o">,</span> <span class="s">&quot;file2&quot;</span><span class="o">)));</span>
+<span class="n">in</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">IOParameter</span><span class="o">().</span><span class="na">setUri</span><span class="o">(</span><span class="k">new</span> <span class="n">ProcessingUri</span><span class="o">(</span><span class="n">UriPrefix</span><span class="o">.</span><span class="na">MEMORY</span><span class="o">,</span> <span class="s">&quot;file3&quot;</span><span class="o">)));</span>
+<span class="n">in</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">IOParameter</span><span class="o">().</span><span class="na">setUri</span><span class="o">(</span><span class="k">new</span> <span class="n">ProcessingUri</span><span class="o">(</span><span class="n">UriPrefix</span><span class="o">.</span><span class="na">MEMORY</span><span class="o">,</span> <span class="s">&quot;file4&quot;</span><span class="o">)));</span>
+
+<span class="c1">// Dans un bloc @After, afin de nettoyer les dossiers</span>
+<span class="nd">@After</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">aftertest</span><span class="o">()</span> <span class="o">{</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">// Pour chaque test</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+   <span class="c1">// Use it first as Out parameters</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">addOutIOParameters</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+
+   <span class="c1">// Initialize the real value in MEMORY using those out parameters from Resource Files</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">PropertiesUtils</span><span class="o">.</span><span class="na">getResourceFile</span><span class="o">(</span><span class="n">ARCHIVE_ID_TO_GUID_MAP</span><span class="o">));</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">PropertiesUtils</span><span class="o">.</span><span class="na">getResourceFile</span><span class="o">(</span><span class="n">OBJECT_GROUP_ID_TO_GUID_MAP</span><span class="o">));</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">PropertiesUtils</span><span class="o">.</span><span class="na">getResourceFile</span><span class="o">(</span><span class="n">BDO_TO_BDO_INFO_MAP</span><span class="o">));</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">addOuputResult</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">PropertiesUtils</span><span class="o">.</span><span class="na">getResourceFile</span><span class="o">(</span><span class="n">ATR_GLOBAL_SEDA_PARAMETERS</span><span class="o">));</span>
+
+
+   <span class="c1">// Reset the handlerIo in order to remove all In and Out parameters</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">reset</span><span class="o">();</span>
+
+
+   <span class="c1">// And now declares the In parameter list, that will use the MEMORY default values</span>
+   <span class="n">handlerIO</span><span class="o">.</span><span class="na">addInIOParameters</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+   <span class="o">...</span>
+<span class="o">}</span>
+
+<span class="c1">// If necessary, delcares real OUT parameters too there</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">IOParameter</span><span class="o">&gt;</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">out</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">IOParameter</span><span class="o">().</span><span class="na">setUri</span><span class="o">(</span><span class="k">new</span> <span class="n">ProcessingUri</span><span class="o">(</span><span class="n">UriPrefix</span><span class="o">.</span><span class="na">WORKSPACE</span><span class="o">,</span> <span class="s">&quot;file5&quot;</span><span class="o">)));</span>
+<span class="n">handlerIO</span><span class="o">.</span><span class="na">addOutIOParameters</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+
+<span class="c1">// Now handler will have access to in parameter as File as if they were coming from Workspace</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creation-d-un-nouveau-handler">
+<h3>3.3 Création d&#8217;un nouveau handler<a class="headerlink" href="#creation-d-un-nouveau-handler" title="Lien permanent vers ce titre">¶</a></h3>
+<dl class="docutils">
+<dt>La création d&#8217;un nouveaux handler doit être motivée par certaines conditions nécessaires :</dt>
+<dd><ul class="first last simple">
+<li>lorsque qu&#8217;il n&#8217;y a pas de handler qui répond au besoin</li>
+<li>lorsque rajouter la fonctionnalité dans un handler existant, le surcharge et le détourne de sa fonctionalité première</li>
+<li>lorsque l&#8217;on veut refactorer un handler existant pour donner des fonctionalités &#8216;un peu&#8217; plus &#8216;élémentaires&#8217;</li>
+</ul>
+</dd>
+</dl>
+<p>Les handlers doivent étendrent la classe ActionHandler et implémenter la méthode execute.
+Lors de la création d&#8217;un nouveau handler, il faut ajouter une nouvelle instance, dans WorkerImpl.init pour enregistrer le
+handler dans le worker et définir le handler id.
+Celui ci sert de clé pour :</p>
+<blockquote>
+<div><ul class="simple">
+<li>les messages dans logbook (vitam-logbook-messages_fr.properties) en fonction de la criticité</li>
+<li>les fichiers json de définition des workflows json (exemple : DefaultIngestWorkflow.json)</li>
+</ul>
+</div></blockquote>
+<p>cf. workflow.rst</p>
+</div>
+</div>
+<div class="section" id="details-des-handlers">
+<h2>4. Details des Handlers<a class="headerlink" href="#details-des-handlers" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="detail-du-handler-checkconformityactionhandler">
+<h3>4.1 Détail du handler : CheckConformityActionHandler<a class="headerlink" href="#detail-du-handler-checkconformityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="description">
+<h4>4.1.1 description<a class="headerlink" href="#description" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce handler permet de contrôle de l&#8217;empreinte. Il comprend désormais 2 tâches :</p>
+<p>&#8211; Vérification de l&#8217;empreinte par rapport à l&#8217;empreinte indiquée dans le manifeste (en utilisant algorithme déclaré dans manifeste)
+&#8211; Calcul d&#8217;une empreinte en SHA-512 si l&#8217;empreinte du manifeste est calculée avec un algorithme différent</p>
+</div>
+<div class="section" id="execution">
+<h4>4.1.2 exécution<a class="headerlink" href="#execution" title="Lien permanent vers ce titre">¶</a></h4>
+<p>CheckConformityActionHandler recupère l&#8217;algorithme de Vitam (SHA-512) par l&#8217;input dans workflow
+et le fichier en InputStream par le workspace.</p>
+<p>Si l&#8217;algorithme est différent que celui dans le manifest, il calcul l&#8217;empreinte de fichier en SHA-512</p>
+<hr class="docutils" />
+<p>Si les empreintes sont différents, c&#8217;est le cas KO.
+Le message { &#8220;MessageDigest&#8221;: &#8220;value&#8221;, &#8220;Algorithm&#8221;: &#8220;algo&#8221;, &#8220;ComputedMessageDigest&#8221;: &#8220;value&#8221;} va être stocké dans le journal
+Sinon le message { &#8220;MessageDigest&#8221;: &#8220;value&#8221;, &#8220;Algorithm&#8221;: &#8220;algo&#8221;, &#8220;SystemMessageDigest&#8221;: &#8220;value&#8221;, &#8220;SystemAlgorithm&#8221;: &#8220;algo&#8221;} va être stocké dans le journal
+Mais il y a encore deux cas à ce moment:</p>
+<blockquote>
+<div>si l&#8217;empreinte est avec l&#8217;algorithme SHA-512, c&#8217;est le cas OK.
+sinon, c&#8217;est le cas WARNING. le nouveau empreint et son algorithme seront mis à jour dans la collection ObjectGroup.</div></blockquote>
+<p>CheckConformityActionHandler compte aussi le nombre de OK, KO et WARNING.
+Si nombre de KO est plus de 0, l&#8217;action est KO.</p>
+</div>
+<div class="section" id="journalisation">
+<h4>4.1.3 journalisation :<a class="headerlink" href="#journalisation" title="Lien permanent vers ce titre">¶</a></h4>
+</div>
+<div class="section" id="logbook-lifecycle">
+<h4>logbook lifecycle<a class="headerlink" href="#logbook-lifecycle" title="Lien permanent vers ce titre">¶</a></h4>
+<p>CA 1 : Vérification de la conformité de l&#8217;empreinte. (empreinte en SHA-512 dans le manifeste)</p>
+<p>Dans le processus d&#8217;entrée, l&#8217;étape de vérification de la conformité de l&#8217;empreinte doit être appelée en position 450.
+Lorsque l&#8217;étape débute, pour chaque objet du groupe d&#8217;objet technique, une vérification d&#8217;empreinte doit être effectuée (celle de l&#8217;objet avec celle inscrite dans le manifeste SEDA). Cette étape est déjà existante actuellement.
+Le calcul d&#8217;empreinte en SHA-512 (CA 2) ne doit pas s&#8217;effectuer si l&#8217;empreinte renseigné dans le manifeste a été calculé en SHA-512. C&#8217;est cette empreinte qui sera indexée dans les bases Vitam.</p>
+<p>CA 1.1 : Vérification de la conformité de l&#8217;empreinte. (empreinte en SHA-512 dans le manifeste) - Started
+- Lorsque l&#8217;action débute, elle inscrit une ligne dans les journaux du cycle de vie des GOT :
+* eventType EN – FR : « Digest Check», « Vérification de l&#8217;empreinte des objets»
+* outcome : &#8220;Started&#8221;
+* outcomeDetailMessage FR : « Début de la vérification de l&#8217;empreinte »
+* eventDetailData FR : &#8220;Empreinte manifeste : &lt;MessageDigest&gt;, algorithme : &lt;MessageDigest attribut algorithm&gt;&#8221;
+* objectIdentifierIncome : MessageIdentifier du manifest</p>
+<p>CA 1.2 : Vérification de la conformité de l&#8217;empreinte. (empreinte en SHA-512 dans le manifeste) - OK
+- Lorsque l&#8217;action est OK, elle inscrit une ligne dans les journaux du cycle de vie des GOT :
+* eventType EN – FR : « Digest Check», « Vérification de l&#8217;empreinte des objets»
+* outcome : &#8220;OK&#8221;
+* outcomeDetailMessage FR : « Succès de la vérification de l&#8217;empreinte »
+* eventDetailData FR : &#8220;Empreinte : &lt;MessageDigest&gt;, algorithme : &lt;MessageDigest attribut algorithm&gt;&#8221;
+* objectIdentifierIncome : MessageIdentifier du manifest
+Comportement du workflow décrit dans l&#8217;US #680</p>
+<ul class="simple">
+<li>La collection ObjectGroup est aussi mis à jour, en particulier le champs : Message Digest : {  empreinte, algorithme utlisé }</li>
+</ul>
+<p>CA 1.3 : Vérification de la conformité de l&#8217;empreinte. (empreinte en SHA-512 dans le manifeste) - KO
+- Lorsque l&#8217;action est KO, elle inscrit une ligne dans les journaux du cycle de vie des GOT :
+* eventType EN – FR : « Digest Check», « Vérification de l&#8217;empreinte des objets»
+* outcome : &#8220;KO&#8221;
+* outcomeDetailMessage FR : « Échec de la vérification de l&#8217;empreinte »
+* eventDetailData FR : &#8220;Empreinte manifeste : &lt;MessageDigest&gt;, algorithme : &lt;MessageDigest attribut algorithm&gt;
+Empreinte calculée : &lt;Empreinte calculée par Vitam&gt;&#8221;
+* objectIdentifierIncome : MessageIdentifier du manifest
+Comportement du workflow décrit dans l&#8217;US #680</p>
+<p>Si l&#8217;empreinte proposé dans le manifeste SEDA n&#8217;est pas en SHA-512, alors le système doit calculer l&#8217;empreinte en SHA-512. C&#8217;est cette empreinte qui sera indexée dans les bases Vitam.
+Lorsque l&#8217;action débute, pour chaque objet du groupe d&#8217;objet technique, un calcul d&#8217;empreinte au format SHA-512 doit être effectué. Cette action intervient juste apres le check de l&#8217;empreinte dans le manifeste (mais on est toujours dans l&#8217;étape du check conformité de l&#8217;empreinte).</p>
+<p>CA 2.1 : Vérification de la conformité de l&#8217;empreinte. (empreinte différent de SHA-512 dans le manifeste) - Started
+- Lorsque l&#8217;action débute, elle inscrit une ligne dans les journaux du cycle de vie des GOT :
+* eventType EN – FR : « Digest Check», « Vérification de l&#8217;empreinte des objets»
+* outcome : &#8220;Started&#8221;
+* outcomeDetailMessage FR : « Début de la vérification de l&#8217;empreinte »
+* eventDetailData FR : &#8220;Empreinte manifeste : &lt;MessageDigest&gt;, algorithme : &lt;MessageDigest attribut algorithm&gt;&#8221;
+* objectIdentifierIncome : MessageIdentifier du manifest</p>
+<p>CA 2.2 : Vérification de la conformité de l&#8217;empreinte. (empreinte différent de SHA-512 dans le manifeste) - OK
+- Lorsque l&#8217;action est OK, elle inscrit une ligne dans les journaux du cycle de vie des GOT :
+* eventType EN – FR : « Digest Check», « Vérification de l&#8217;empreinte des objets»
+* outcome : &#8220;OK&#8221;
+* outcomeDetailMessage FR : « Succès de la vérification de l&#8217;empreinte »
+* eventDetailData FR : &#8220;Empreinte Manifeste : &lt;MessageDigest&gt;, algorithme : &lt;MessageDigest attribut algorithm&gt;&#8221;
+&#8220;Empreinte calculée (&lt;algorithme utilisé &#8220;XXX&#8221;&gt;): &lt;Empreinte calculée par Vitam&gt;&#8221;
+* objectIdentifierIncome : MessageIdentifier du manifest</p>
+</div>
+<div class="section" id="modules-utilises">
+<h4>4.1.5 modules utilisés<a class="headerlink" href="#modules-utilises" title="Lien permanent vers ce titre">¶</a></h4>
+<p>processing, worker, workspace et logbook</p>
+</div>
+<div class="section" id="cas-d-erreur">
+<h4>4.1.4 cas d&#8217;erreur<a class="headerlink" href="#cas-d-erreur" title="Lien permanent vers ce titre">¶</a></h4>
+<p>XMLStreamException                          : problème de lecture SEDA
+InvalidParseOperationException              : problème de parsing du SEDA
+LogbookClientAlreadyExistsException         : un logbook client existe dans ce workflow
+LogbookClientBadRequestException            : LogbookLifeCycleObjectGroupParameters est mal paramétré et le logbook client génère une mauvaise requete
+LogbookClientException                      : Erreur générique de logbook. LogbookException classe mère des autres exceptions LogbookClient
+LogbookClientNotFoundException              : un logbook client n&#8217;existe pas pour ce workflow
+LogbookClientServerException                : logbook server a un internal error
+ProcessingException                         : erreur générique du processing
+ContentAddressableStorageException          : erreur de stockage</p>
+</div>
+</div>
+<div class="section" id="detail-du-handler-checkobjectsnumberactionhandler">
+<h3>4.2 Détail du handler : CheckObjectsNumberActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectsnumberactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id1">
+<h4>4.2.1 description<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce handler permet de comparer le nombre d&#8217;objet stocké sur le workspace et le nombre d&#8217;objets déclaré dans le manifest.</p>
+</div>
+</div>
+<div class="section" id="detail-du-handler-checkobjectunitconsistencyactionhandler">
+<h3>4.3 Détail du handler : CheckObjectUnitConsistencyActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectunitconsistencyactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce handler permet de contrôler la cohérence entre l&#8217;object/object group et l&#8217;ArchiveUnit.</p>
+<p>Pour ce but, on détecte les groupes d&#8217;object qui ne sont pas référé par au moins d&#8217;un ArchiveUnit.
+Ce tache prend deux maps de données qui ont été crée dans l&#8217;étape précédente de workflow comme input :
+objectGroupIdToUnitId
+objectGroupIdToGuid
+Le ouput de cette contrôle est une liste de groupe d&#8217;objects invalide. Si on trouve les groupe d&#8217;objects
+invalide, le logbook lifecycles de group d&#8217;object sera mis à jour.</p>
+<p>L&#8217;exécution de l&#8217;algorithme est présenté dans le code suivant :*
+.. code-block:: java ..................................................................</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while (it.hasNext()) {</dt>
+<dd><p class="first">final Map.Entry&lt;String, Object&gt; objectGroup = it.next();
+if (!objectGroupToUnitStoredMap.containsKey(objectGroup.getKey())) {</p>
+<blockquote>
+<div><p>itemStatus.increment(StatusCode.KO);
+try {</p>
+<blockquote>
+<div><p>// Update logbook OG lifecycle
+final LogbookLifeCycleObjectGroupParameters logbookLifecycleObjectGroupParameters =</p>
+<blockquote>
+<div>LogbookParametersFactory.newLogbookLifeCycleObjectGroupParameters();</div></blockquote>
+<dl class="docutils">
+<dt>LogbookLifecycleWorkerHelper.updateLifeCycleStartStep(handlerIO.getHelper(),</dt>
+<dd>logbookLifecycleObjectGroupParameters,
+params, HANDLER_ID, LogbookTypeProcess.INGEST,
+objectGroupToGuidStoredMap.get(objectGroup.getKey()).toString());</dd>
+<dt>logbookLifecycleObjectGroupParameters.setFinalStatus(HANDLER_ID, null, StatusCode.KO,</dt>
+<dd>null);</dd>
+</dl>
+<p>handlerIO.getHelper().updateDelegate(logbookLifecycleObjectGroupParameters);
+final String objectID =</p>
+<blockquote>
+<div>logbookLifecycleObjectGroupParameters.getParameterValue(LogbookParameterName.objectIdentifier);</div></blockquote>
+<dl class="docutils">
+<dt>handlerIO.getLifecyclesClient().bulkUpdateObjectGroup(params.getContainerName(),</dt>
+<dd>handlerIO.getHelper().removeUpdateDelegate(objectID));</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>} catch (LogbookClientBadRequestException | LogbookClientNotFoundException |</dt>
+<dd>LogbookClientServerException | ProcessingException e) {
+LOGGER.error(&#8220;Can not update logbook lifcycle&#8221;, e);</dd>
+</dl>
+<p>}
+ogList.add(objectGroup.getKey());</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>} else {</dt>
+<dd>itemStatus.increment(StatusCode.OK);
+// Update logbook OG lifecycle
+....</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="detail-du-handler-checksedaactionhandler">
+<h3>4.4 Détail du handler : CheckSedaActionHandler<a class="headerlink" href="#detail-du-handler-checksedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="detail-du-handler-checkstorageavailabilityactionhandler">
+<h3>4.4 Détail du handler : CheckStorageAvailabilityActionHandler<a class="headerlink" href="#detail-du-handler-checkstorageavailabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="detail-du-handler-checkversionactionhandler">
+<h3>4.5 Détail du handler : CheckVersionActionHandler<a class="headerlink" href="#detail-du-handler-checkversionactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="detail-du-handler-extractsedaactionhandler">
+<h3>4.6 Détail du handler : ExtractSedaActionHandler<a class="headerlink" href="#detail-du-handler-extractsedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id2">
+<h4>4.6.1 description<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce handler permet d&#8217;extraire le contenu du SEDA. Il y a :
+- extraction des BinaryDataObject
+- extraction des ArchiveUnit
+- création des lifes cycles des units
+- construction de l&#8217;arbre des units et sauvegarde sur le workspace
+- sauvegarde de la map des units sur le workspace
+- sauvegarde de la map des objets sur le workspace
+- sauvegarde de la map des objets groupes sur le workspace</p>
+</div>
+<div class="section" id="detail-des-differentes-maps-utilisees">
+<h4>4.6.2 Détail des différentes maps utilisées :<a class="headerlink" href="#detail-des-differentes-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<dl class="docutils">
+<dt>Map&lt;String, String&gt; binaryDataObjectIdToGuid</dt>
+<dd>contenu         : cette map contient l&#8217;id du BDO relié à son guid
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors de la lecture des BinaryDataObject
+lecture, get    : saveObjectGroupsToWorkspace, getObjectGroupQualifiers,
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, String&gt; binaryDataObjectIdToObjectGroupId :</dt>
+<dd>contenu         : cette map contient l&#8217;id du BDO relié au groupe d&#8217;objet de la balise DataObjectGroupId ou DataObjectGroupReferenceId
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors de la lecture des BinaryDataObject
+lecture, get    : lecture de la map dans mapNewTechnicalDataObjectGroupToBDO, getNewGdoIdFromGdoByUnit, completeBinaryObjectToObjectGroupMap, checkArchiveUnitIdReference et writeBinaryDataObjectInLocal
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, GotObj&gt; binaryDataObjectIdWithoutObjectGroupId :</dt>
+<dd>contenu         : cette map contient l&#8217;id du BDO relié à un groupe d&#8217;objet technique instanciés lors du parcours des objets binaires.
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors du parcours des BDO dans mapNewTechnicalDataObjectGroupToBDO et extractArchiveUnitToLocalFile. Dans extractArchiveUnitToLocalFile, quand on découvre un DataObjectReferenceId et que cet Id se trouve dans binaryDataObjectIdWithoutObjectGroupId alors on récupère l&#8217;objet et on change le statut isVisited à true.
+lecture, get    : lecture de la map dans mapNewTechnicalDataObjectGroupToBDO, extractArchiveUnitToLocalFile, getNewGdoIdFromGdoByUnit,
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+</dl>
+<p>Le groupe d&#8217;objet technique GotObj contient un guid et un boolean isVisited, initialisé à false lors de la création. Le set à true est fait lors du parcours des units.</p>
+<dl class="docutils">
+<dt>Map&lt;String, String&gt; objectGroupIdToGuid</dt>
+<dd>contenu         : cette map contient l&#8217;id du groupe d&#8217;objet relié à son guid
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors du parcours des BDO dans writeBinaryDataObjectInLocal et mapNewTechnicalDataObjectGroupToBDO lors de la création du groupe d&#8217;objet technique
+lecture, get    : lecture de la map dans checkArchiveUnitIdReference, writeBinaryDataObjectInLocal, extractArchiveUnitToLocalFile, saveObjectGroupsToWorkspace
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, String&gt; objectGroupIdToGuidTmp</dt>
+<dd>contenu         : c&#8217;est la même map que objectGroupIdToGuid
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée dans writeBinaryDataObjectInLocal
+lecture, get    : lecture de la map dans writeBinaryDataObjectInLocal
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, List&lt;String&gt;&gt; objectGroupIdToBinaryDataObjectId</dt>
+<dd>contenu         : cette map contient l&#8217;id du groupe d&#8217;objet relié à son ou ses BDO
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors du parcours des BDO dans writeBinaryDataObjectInLocal quand il y a une balise DataObjectGroupId ou DataObjectGroupReferenceId et qu&#8217;il n&#8217;existe pas dans objectGroupIdToBinaryDataObjectId.
+lecture, get    : lecture de la map dans le parcours des BDO dans writeBinaryDataObjectInLocal.  La lecture est faite pour ajouter des BDO dans la liste.
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, List&lt;String&gt;&gt; objectGroupIdToUnitId</dt>
+<dd>contenu         : cette map contient l&#8217;id du groupe d&#8217;objet relié à ses AU
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors du parcours des units dans extractArchiveUnitToLocalFile quand il y a une balise DataObjectGroupId ou DataObjectGroupReferenceId et qu&#8217;il nexiste pas dans objectGroupIdToUnitId sinon on ajoute dans la liste des units de la liste
+lecture, get    : lecture de la map dans le parcours des units. La lecture est faite pour ajouter des units dans la liste.
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, BinaryObjectInfo&gt; objectGuidToBinaryObject</dt>
+<dd>contenu         : cette map contient le guid du binary data object et BinaryObjectInfo
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populer lors de l&#8217;extraction des infos du binary data object vers le workspace
+lecture, get    : elle permet de récupérer les infos binary data object pour sauver l&#8217;object group sur le worskapce et
+supression      : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, String&gt; unitIdToGuid</dt>
+<dd>contenu         : cette map contient l&#8217;id de l&#8217;unit relié à son guid
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors du parcours des units dans extractArchiveUnitToLocalFile
+lecture, get    : lecture de la map se fait lors de la création du graph/level des unit dans createIngestLevelStackFile et dans la sauvegarde des object groups vers le workspace
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, String&gt; unitIdToGroupId</dt>
+<dd>contenu         : cette map contient l&#8217;id de l&#8217;unit relié à son group id
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est populée lors du parcours des BDO dans writeBinaryDataObjectInLocal quand il y a une balise DataObjectGroupId ou DataObjectGroupReferenceId
+lecture, get    : lecture de la map se fait lors de l&#8217;extraction des unit dans extractArchiveUnitToLocalFile et permettant de lire dans objectGroupIdToGuid.
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+<dt>Map&lt;String, String&gt; objectGuidToUri</dt>
+<dd>contenu         : cette map contient le guid du BDO relié à son uri définis dans le manifest
+création        : elle est créé lors de la création du handler
+MAJ, put        : elle est poppulée lors du parcours des BDO dans writeBinaryDataObjectInLocal quand il rencontre la balise uri
+lecture, get    : lecture de la map se fait lors du save des objects groups dans le workspace
+suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</dd>
+</dl>
+<p>sauvegarde des maps (binaryDataObjectIdToObjectGroupId, objectGroupIdToGuid) dans le workspace</p>
+</div>
+</div>
+<div class="section" id="detail-du-handler-indexobjectgroupactionhandler">
+<h3>4.7 Détail du handler : IndexObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-indexobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id3">
+<h4>4.7.1 description<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Indexation des objets groupes en récupérant les objets groupes du workspace. Il y a utilisation d&#8217;un client metadata.
+TODO</p>
+</div>
+</div>
+<div class="section" id="detail-du-handler-indexunitactionhandler">
+<h3>4.8 Détail du handler : IndexUnitActionHandler<a class="headerlink" href="#detail-du-handler-indexunitactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id4">
+<h4>4.8.1 description<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Indexation des units en récupérant les units du workspace. Il y a utilisation d&#8217;un client metadata.
+TODO</p>
+</div>
+</div>
+<div class="section" id="detail-du-handler-storeobjectgroupactionhandler">
+<h3>4.9 Détail du handler : StoreObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-storeobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id5">
+<h4>4.9.1 description<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Persistence des objets dans l&#8217;offre de stockage depuis le workspace.</p>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="detail-du-handler-formatidentificationactionhandler">
+<h3>4.10 Détail du handler : FormatIdentificationActionHandler<a class="headerlink" href="#detail-du-handler-formatidentificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id6">
+<h4>4.10.1 Description<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce handler permet d&#8217;identifier et contrôler automatiquement le format des objets versés.
+Il s&#8217;exécute sur les différents ObjectGroups déclarés dans le manifest. Pour chaque objectGroup, voici ce qui est effectué :</p>
+<blockquote>
+<div><ul class="simple">
+<li>récupération du JSON de l&#8217;objectGroup présent sur le Workspace</li>
+<li>transformation de ce Json en une map d&#8217;id d&#8217;objets / uri de l&#8217;objet associée</li>
+<li>boucle sur les objets :
+- téléchargement de l&#8217;objet (File) depuis le Workspace
+- appel l&#8217;outil de vérification de format (actuellement Siegfried) en lui passant le path vers l&#8217;objet à identifier + récupération de la réponse.
+- appel de l&#8217;AdminManagement pour faire une recherche getFormats par rapport au PUID récupéré.
+- mise à jour du Json : le format récupéré par Siegfried est mis à jour dans le Json (pour indexation future).
+- construction d&#8217;une réponse.</li>
+<li>sauvegarde du JSON de l&#8217;objectGroup dans le Workspace.</li>
+<li>aggrégation des retours pour générer un message + mise à jour du logbook.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h4>4.10.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h4>
+<dl class="docutils">
+<dt>Map&lt;String, String&gt; objectIdToUri</dt>
+<dd>contenu         : cette map contient l&#8217;id du BDO associé à son uri.
+création        : elle est créée dans le Handler après récupération du json listant les ObjectGroups
+MAJ, put        : elle est populée lors de la lecture du json listant les ObjectGroups.
+lecture, get    : lecture au fur et à mesure du traitement des BDO.
+suppression     : elle n&#8217;est pas enregistrée sur le workspace et est présente en mémoire uniquement.</dd>
+</dl>
+</div>
+<div class="section" id="id8">
+<h4>4.10.3 exécution<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce Handler est exécuté dans l&#8217;étape &#8220;Contrôle et traitements des objets&#8221;, juste après le Handler de vérification des empreintes.</p>
+</div>
+<div class="section" id="journalisation-logbook-operation-logbook-life-cycle">
+<h4>4.10.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#journalisation-logbook-operation-logbook-life-cycle" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Dans le traitement du Handler, sont mis à jour uniquement les journaux de cycle de vie des ObjectGroups.
+Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Le format PUID n&#8217;a pas été trouvé / ne correspond pas avec le référentiel des formats.</li>
+<li>Le format du fichier n&#8217;a pas pu être trouvé.</li>
+<li>Le format du fichier a été complété dans les métadonnées (un &#8220;diff&#8221; est généré et ajouté).</li>
+<li>Le format est correct et correspond au référentiel des formats.</li>
+</ul>
+</div></blockquote>
+<p>(Note : les messages sont informatifs et ne correspondent aucunement à ce qui sera vraiment inséré en base)</p>
+</div>
+<div class="section" id="id9">
+<h4>4.10.5 modules utilisés<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h4>
+<dl class="docutils">
+<dt>Le Handler utilise les modules suivants :</dt>
+<dd><ul class="first last simple">
+<li>Workspace (récupération / copie de fichiers)</li>
+<li>Logbook (mise à jour des journaux de cycle de vie des ObjectGroups)</li>
+<li>Common-format-identification (appel pour analyse des objets)</li>
+<li>AdminManagement (comparaison format retourné par l&#8217;outil d&#8217;analyse par rapport au référentiel des formats de Vitam).</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id10">
+<h4>4.10.6 cas d&#8217;erreur<a class="headerlink" href="#id10" title="Lien permanent vers ce titre">¶</a></h4>
+<dl class="docutils">
+<dt>Les différentes exceptions pouvant être rencontrées :</dt>
+<dd><ul class="first last simple">
+<li>ReferentialException : si un problème est rencontré lors de l&#8217;interrogation du référentiel des formats de Vitam</li>
+<li>InvalidParseOperationException/InvalidCreateOperationException : si un problème est rencontré lors de la génération de la requête d&#8217;interrogation du référentiel des formats de Vitam</li>
+<li>FormatIdentifier*Exception : si un problème est rencontré avec l&#8217;outil d&#8217;analyse des formats (Siegfried)</li>
+<li>Logbook*Exception : si un problème est rencontré lors de l&#8217;interrogation du logbook</li>
+<li>Logbook*Exception : si un problème est rencontré lors de l&#8217;interrogation du logbook</li>
+<li>Content*Exception : si un problème est rencontré lors de l&#8217;interrogation du workspace</li>
+<li>ProcessingException : si un problème plus général est rencontré dans le Handler</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="detail-du-handler-transfernotificationactionhandler">
+<h3>4.11 Détail du handler : TransferNotificationActionHandler<a class="headerlink" href="#detail-du-handler-transfernotificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id11">
+<h4>4.11.1 Description<a class="headerlink" href="#id11" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce handler permet de finaliser le processus d&#8217;entrée d&#8217;un SIP. Cet Handler est un peu spécifique car il sera lancé même si une étape précédente tombe en erreur.
+Il permet de générer un xml de notification qui sera :</p>
+<blockquote>
+<div><ul class="simple">
+<li>une notification KO si une étape du workflow est tombée en erreur.</li>
+<li>une notification OK si le process est OK, et que le SIP a bien été intégré sans erreur.</li>
+</ul>
+</div></blockquote>
+<p>La première étape dans ce handler est de déterminer l&#8217;état du Workflow : OK ou KO.</p>
+</div>
+<div class="section" id="id12">
+<h4>4.11.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id12" title="Lien permanent vers ce titre">¶</a></h4>
+<dl class="docutils">
+<dt>Map&lt;String, Object&gt; archiveUnitSystemGuid</dt>
+<dd>contenu         : cette map contient la liste des archives units avec son identifiant tel que déclaré dans le manifest, associé à son GUID.</dd>
+<dt>Map&lt;String, Object&gt; binaryDataObjectSystemGuid</dt>
+<dd>contenu         : cette map contient la liste Data Objects avec leur GUID généré associé à l&#8217;identifiant déclaré dans le manifest.</dd>
+<dt>Map&lt;String, Object&gt; bdoObjectGroupSystemGuid</dt>
+<dd>contenu         : cette map contient la liste groupes d&#8217;objets avec leur GUID généré associé à l&#8217;identifiant déclaré dans le manifest.</dd>
+</dl>
+</div>
+<div class="section" id="id13">
+<h4>4.11.3 exécution<a class="headerlink" href="#id13" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce Handler est exécuté en dernière position. Il sera exécuté quoi qu&#8217;il se passe avant.
+Même si le processus est KO avant, le Handler sera exécuté.</p>
+<p><em>Cas OK :</em>
+&#64;TODO&#64;</p>
+<p><em>Cas KO :</em>
+Pour l&#8217;opération d&#8217;ingest en cours, on va récupérer dans les logbooks plusieurs informations :</p>
+<blockquote>
+<div><ul class="simple">
+<li>récupération des logbooks operations générés par l&#8217;opération d&#8217;ingest.</li>
+<li>récupération des logbooks lifecycles pour les archive units présentes dans le SIP.</li>
+<li>récupération des logbooks lifecycles pour les groupes d&#8217;objets présents dans le SIP.</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Le Handler s&#8217;appuie sur des fichiers qui lui sont transmis. Ces fichiers peuvent ne pas être présents si jamais le process est en erreur avec la génération de ces derniers.</dt>
+<dd><ul class="first last simple">
+<li>un fichier globalSedaParameters.file contenant des informations sur le manifest (messageIdentifier).</li>
+<li>un fichier mapsUnits.file : présentant une map d&#8217;archive unit</li>
+<li>un fichier mapsBDO.file : présentant la liste des binary data objects</li>
+<li>un fichier mapsBDOtoOG=.file : mappant le binary data object à son object group</li>
+</ul>
+</dd>
+</dl>
+<p>A noter que ces fichiers ne sont pas obligatoires pour le bon déroulement du handler.</p>
+<p>Le handler va alors procéder à la génération d&#8217;un XML à partir des informationss aggrégées.
+Voici sa structure générale :</p>
+<blockquote>
+<div><ul class="simple">
+<li>MessageIdentifier est rempli avec le MessageIdentifier présent dans le fichier globalSedaParameters. Il est vide si le fichier n&#8217;existe pas.</li>
+<li>dans la balise ReplyOutcome :
+- dans Operation, on aura une liste d&#8217;events remplis par les différentes opérations KO et ou FATAL. La liste sera forcément remplie avec au moins un event. Cette liste est obtenue par l&#8217;interrogation de la collection LogbookOperations.
+- dans ArchiveUnitList, on aura une liste d&#8217;events en erreur. Cette liste est obtenue par l&#8217;interrogation de la collection LogbookLifecycleUnits.
+- dans DataObjectList, on aura une liste d&#8217;events en erreur. Cette liste est obtenue par l&#8217;interrogation de la collection LogbookLifecycleObjectGroups.</li>
+</ul>
+</div></blockquote>
+<p>Le XML est alors enregistré sur le Workspace.</p>
+</div>
+<div class="section" id="id14">
+<h4>4.11.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#id14" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Dans le traitement du Handler, le logbook est interrogé : opérations et cycles de vie.
+Cependant aucune mise à jour est effectuée lors de l&#8217;exécution de ce handler.</p>
+</div>
+<div class="section" id="id15">
+<h4>4.11.5 modules utilisés<a class="headerlink" href="#id15" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le Handler utilise les modules suivants :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Workspace (récupération / copie de fichiers)</li>
+<li>Logbook (partie server) : pour le moment la partie server du logbook est utilisée pour récupérer les différents journaux (opérations et cycles de vie).</li>
+<li>Storage : permettant de stocker l&#8217;ATR.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id16">
+<h4>4.11.6 cas d&#8217;erreur<a class="headerlink" href="#id16" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les différentes exceptions pouvant être rencontrées :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Logbook*Exception : si un problème est rencontré lors de l&#8217;interrogation du logbook</li>
+<li>Content*Exception : si un problème est rencontré lors de l&#8217;interrogation du workspace</li>
+<li>XML*Exception : si un souci est rencontré sur la génération du XML</li>
+<li>ProcessingException : si un problème plus général est rencontré dans le Handler</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="detail-du-handler-accessionregisteractionhandler">
+<h3>4.12 Détail du handler : AccessionRegisterActionHandler<a class="headerlink" href="#detail-du-handler-accessionregisteractionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id17">
+<h4>4.12.1 Description<a class="headerlink" href="#id17" title="Lien permanent vers ce titre">¶</a></h4>
+<p>AccessionRegisterActionHandler permet de fournir une vue globale et dynamique des archives</p>
+<p>sous la responsabilité du service d&#8217;archives, pour chaque tenant.</p>
+</div>
+<div class="section" id="detail-des-maps-utilisees">
+<h4>4.12.2 Détail des maps utilisées<a class="headerlink" href="#detail-des-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<dl class="docutils">
+<dt>Map&lt;String, String&gt; objectGroupIdToGuid</dt>
+<dd>contenu         : cette map contient l&#8217;id du groupe d&#8217;objet relié à son guid</dd>
+<dt>Map&lt;String, String&gt; archiveUnitIdToGuid</dt>
+<dd>contenu         : cette map contient l&#8217;id du groupe d&#8217;objet relié à son guid</dd>
+<dt>Map&lt;String, Object&gt; bdoToBdoInfo</dt>
+<dd>contenu         : cette map contient l&#8217;id du binary data object relié à son information</dd>
+</dl>
+</div>
+<div class="section" id="id18">
+<h4>4.12.3 exécution<a class="headerlink" href="#id18" title="Lien permanent vers ce titre">¶</a></h4>
+<p>L&#8217;alimentation du registre des fonds a lieu pendant la phase de finalisation de l&#8217;entrée,</p>
+<p>une fois que les objets et les units sont rangés. (&#8220;stepName&#8221;: &#8220;STP_INGEST_FINALISATION&#8221;)</p>
+<dl class="docutils">
+<dt>Le Registre des Fonds est alimenté de la manière suivante:</dt>
+<dd>&#8211; un identifiant unique
+&#8211; des informations sur le service producteur (OriginatingAgency)
+&#8211; des informations sur le service versant (SubmissionAgency), si différent du service producteur
+&#8211; date de début de l’enregistrement (Start Date)
+&#8211; date de fin de l’enregistrement (End Date)
+&#8211; date de dernière mise à jour de l’enregistrement (Last update)
+&#8211; nombre d’units (Total Units)
+&#8211; nombre de GOT (Total ObjectGroups)
+&#8211; nombre d&#8217;Objets (Total Objects)
+&#8211; volumétrie des objets (Object Size)
+&#8211; id opération d’entrée associée [pour l&#8217;instant, ne comprend que l&#8217;evIdProc de l&#8217;opération d&#8217;entrée concerné]
+&#8211; status (ItemStatus)</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="worker-common">
+<h2>5. Worker-common<a class="headerlink" href="#worker-common" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le worker-common contient majoritairement des classes utilitaires.
+A terme, il faudra que SedaUtils notamment soit &#8220;retravaillé&#8221; pour que les différentes méthodes soit déplacées dans les bons Handlers.</p>
+</div>
+<div class="section" id="worker-client">
+<h2>6. Worker-client<a class="headerlink" href="#worker-client" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le worker client contient le code permettant l&#8217;appel vers les API Rest offert par le worker.
+Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail, voir la partie worker-client.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="worker-client.html" class="btn btn-neutral float-right" title="Worker Client" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.11.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
