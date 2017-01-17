@@ -54,7 +54,7 @@ nécessite seulement la présence de java 8 sur le poste
 * **une présentation du Générateur Seda**
 
 Elle décrit les fonctions du Générateur ainsi que son utilisation simple et avancée
-([pdf](/ressources/Res0.11.1/20170116_presentation_generateur.pdf)).
+([pdf](/ressources/Res0.11.1/20170116_presentation_generateur_V1.0.pdf)).
 
 * **le code développé**
 
