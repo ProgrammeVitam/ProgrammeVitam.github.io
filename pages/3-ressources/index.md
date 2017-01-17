@@ -69,7 +69,7 @@ Il est accesible sur GitHub dans le dépot GitHub [{{ site.github.repoext }}]({{
 ### API alpha
 
 * Package de présentation ([zip](/ressources/API-Alpha/Vitam-API-Alpha-07-2016.zip)) comprenant
-	* un fichier README.txt (version [HTML](/ressources/API-Alpha/README)),
+	* un fichier README.txt (version [HTML](/ressources/API-Alpha/Readme)),
 	* le fichier de licence Vitam LICENCE.txt (version [HTML](/ressources/API-Alpha/LICENCE)),
 	* un ensemble exécutable avec une JVM 8 (autour d'un serveur jetty) qui expose :
 		* la documentation html des API Vitam (pages statiques reprises ci-dessus)
