@@ -20,9 +20,9 @@ de développement.
 d'archives ([pdf](/ressources/Doc0.11.1/20170116_Design_SIP_beta_V1.4.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles 
 et des objets métiers utilisés par la solution logicielle Vitam
-([pdf](/ressources/Doc0.11.1/Organisation-de-information_IT11.pdf))
+([pdf](/ressources/Doc0.11.1/20170116_Organisation-de-information_IT11_V1.1.pdf))
 * **Conservation de la valeur probante** - présentation de la sécurisation des 
-journaux ([pdf](/ressources/Doc0.11.1/Valeur_probante_IT11.pdf))
+journaux ([pdf](/ressources/Doc0.11.1/20170116_Valeur_probante_IT11_V1.1.pdf))
 * **Manuel utilisateur** ([pdf](/ressources/Doc0.11.1/pdf/vitam-manuel-utilisateur.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/manuel-utilisateur))
 * **Scenarii de test métier** ([pdf](/ressources/Doc0.11.1/pdf/vitam-scenario-tests.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/scenario-test))
 
