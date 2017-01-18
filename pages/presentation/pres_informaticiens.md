@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Focus informaticien
+title: Focus informaticiens
 fatherref: presentation
 ---
 >Le rôle des informaticiens des ministères et des collectivités susceptibles 
