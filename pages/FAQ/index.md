@@ -9,13 +9,13 @@ level: page
 
 Le programme est fondé sur :
 
-* un budget de l'ordre de 15 millions d’euro pour le développement de la solution logicielle
-* pour les 5 ans à venir, d’une équipe interministérielle de 14 personnes mises 
+* un budget de l'ordre de 15 millions d’euro pour le développement de la solution logicielle;
+* pour les 5 ans à venir, une équipe interministérielle de 14 personnes mises 
 à disposition à temps plein par leur Administration (ministères de la Défense, de 
-la Culture, des Affaires étrangères et du Développement international)
-* d’équipes de développement et d’intégration, plus de 30 personnes, constituées 
-par les prestataires titulaires des marchés publics Vitam (principalement Smile, HIT Part, Linagora, Thalès, Goood) 
-* d’une plate-forme de développements pouvant atteindre 400 machines virtuelles (VM) et plus de 100To
+la Culture, des Affaires étrangères et du Développement international);
+* des équipes de développement et d’intégration, plus de 30 personnes, constituées 
+par les prestataires titulaires des marchés publics Vitam (principalement Smile, HIT Part, Linagora, Thalès, Goood);
+* une plate-forme de développements pouvant atteindre 400 machines virtuelles (VM) et plus de 100To, hébergée par le ministère de l'Agriculture.
 
 ## Quel est le calendrier du projet de développement ?
 

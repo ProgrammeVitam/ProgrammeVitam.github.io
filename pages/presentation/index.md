@@ -70,8 +70,8 @@ La collaboration repose sur 4 niveaux de partenariats selon les objectifs retenu
 
 ## Pour aller plus loin :
 
-- [Focus archivistes](/pages/1-presentation/pres_archivistes)
+- [Focus archivistes](pres_archivistes)
 
-- [Focus informaticiens](/pages/1-presentation/pres_informaticiens)
+- [Focus informaticiens](pres_informaticiens)
 
 - [Aperçu](/ressources/Doc0.11.1/20170116_NP_VITAM_presentation_solution_logicielle_V2.0.pdf) du projet solution logicielle (version Bêta)

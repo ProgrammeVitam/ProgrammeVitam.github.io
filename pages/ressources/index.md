@@ -27,7 +27,7 @@ tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintra
 
 * **la documentation fonctionnelle et technique**
 
-Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/2-documentation)
+Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation)
 
 * **les jeux de tests**
 
@@ -58,7 +58,7 @@ Elle décrit les fonctions du Générateur ainsi que son utilisation simple et a
 
 * **le code développé**
 
-Il sera aussi accesible sur GitHub (fin janvier 2017).
+Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.github.repoext }}).
 
 
 <br>

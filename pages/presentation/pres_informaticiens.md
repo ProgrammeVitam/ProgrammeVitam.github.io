@@ -90,6 +90,7 @@ d’administration.
 
 Enfin, toujours dans un esprit de facilité de réutilisation, la solution 
 logicielle Vitam est aussi neutre technologiquement que possible :
+
 * elle n'impose pas d'infrastructures particulières, comme des baies de 
 stockages adaptées ou des matériels spécifiques,
 * elle s'installe sur un environnement serveur x86 physique, virtualisé ou en 
