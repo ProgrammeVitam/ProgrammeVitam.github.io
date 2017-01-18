@@ -58,7 +58,7 @@ Elle décrit les fonctions du Générateur ainsi que son utilisation simple et a
 
 * **le code développé**
 
-Il est accesible sur GitHub dans le dépot GitHub [{{ site.github.repoext }}]({{ site.github.repoext }}).
+Il sera aussi accesible sur GitHub (fin janvier 2017).
 
 
 <br>

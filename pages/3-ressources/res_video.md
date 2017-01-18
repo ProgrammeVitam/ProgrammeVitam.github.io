@@ -36,7 +36,8 @@ fatherref: ressources
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AuNR95yJ3Ns" frameborder="0" allowfullscreen></iframe>
 
 Pour reproduire ces tests vous devez utiliser la configuration Postman qui est accessible dans la ([documentation](documentation/index.html#config_postman)) de la Bêta, et les exemples de référentiels et de SIP suivants:
-  - Référentiel [PRONOM](https://www.nationalarchives.gov.uk/PRONOM/Default.aspx) des formats ([xml](ressources/DemoAPI/DROID_SignatureFile_V88.xml))
-  - Référentiel de règles ([csv](ressources/DemoAPI/jeu_donnees_OK_regles_CSV_regles))
-  - SIP Conforme ([zip](ressources/DemoAPI/SIP-Conforme-Beta.zip))
-  - SIP Non conforme ([zip](ressources/DemoAPI/SIP-Non-Conforme.zip))
+
+* Référentiel [PRONOM](https://www.nationalarchives.gov.uk/PRONOM/Default.aspx) des formats ([xml](ressources/DemoAPI/DROID_SignatureFile_V88.xml))
+* Référentiel de règles ([csv](ressources/DemoAPI/jeu_donnees_OK_regles_CSV_regles))
+* SIP Conforme ([zip](ressources/DemoAPI/SIP-Conforme-Beta.zip))
+* SIP Non conforme ([zip](ressources/DemoAPI/SIP-Non-Conforme.zip))
