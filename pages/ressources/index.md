@@ -58,7 +58,7 @@ Elle décrit les fonctions du Générateur ainsi que son utilisation simple et a
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.github.repoext }}).
+Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.github.repoext }}). A noter que les packages java (.jar) sont sur le même point Maven que la solution logicielle.
 
 
 <br>
