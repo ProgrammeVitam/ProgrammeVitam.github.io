@@ -49,7 +49,7 @@ de générer automatiquement à partir d’une simple arborescence de fichiers u
 
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution 
 nécessite seulement la présence de java 8 sur le poste 
-([zip](/ressources/Res0.11.1/0.11.1-RC.zip)).
+([zip](/ressources/Res0.11.1/generateur-seda_0.11.1.zip)).
 
 * **une présentation du Générateur Seda**
 
