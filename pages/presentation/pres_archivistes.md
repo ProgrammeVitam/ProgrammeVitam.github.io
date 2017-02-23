@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Focus archivistes
 fatherref: presentation
@@ -31,7 +31,6 @@ Ce bloc de fonctionnalités leur permettra d’assurer au mieux leurs missions d
 
 La solution logicielle Vitam s’adresse, en premier lieu, aux structures ayant un besoin d’archivage numérique conséquent (grand nombre de données, besoins d’accès fréquents). Voici quelques questions vous permettant d’identifier l’adéquation entre les besoins de votre établissement et l’utilisation de la solution logicielle Vitam :
 ![Questions clés sur un projet Vitam](/public/images/CribleIntegrationVitam.jpg){: style="display: block; margin-left: auto; margin-right: auto; width:40rem"}
-
 
 ## Participer au programme Vitam : les chantiers métiers Archivistes
 
