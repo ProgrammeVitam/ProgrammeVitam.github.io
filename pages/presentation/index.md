@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Présentation
 fatherref: presentation
