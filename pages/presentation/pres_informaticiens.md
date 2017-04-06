@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Focus informaticiens
 fatherref: presentation

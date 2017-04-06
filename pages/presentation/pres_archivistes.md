@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Focus archivistes
 fatherref: presentation
