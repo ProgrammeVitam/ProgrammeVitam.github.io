@@ -5,11 +5,11 @@ fatherref: ressources
 level: page
 ---
 
-> Est ici présenté l'ensemble des ressources mises à disposition concernant les versions actuelle et passées de la solution logicielle Vitam. 
+> Cette page présente pour chaque version actuelle et passée de la solution logicielle Vitam, l'ensemble des ressources mises à disposition. 
 
 ## Solution logicielle Vitam - dernière version publiée ({{ site.version }})
 
-Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et les différentes IHM. Sont mis à dispostion:
+Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et les différentes IHM. Sont mis à dispostion :
 
 * **le code développé**
 
@@ -27,7 +27,7 @@ tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintra
 
 * **la documentation fonctionnelle et technique**
 
-Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation)
+Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation).
 
 * **les jeux de tests**
 
@@ -43,7 +43,7 @@ Pour
 le moment, il s'agit du **Générateur Seda**, un outil de développement permettant
 de générer automatiquement à partir d’une simple arborescence de fichiers un SIP
 (paquet d’information à archiver) conforme aux [recommandations Vitam](/ressources/Doc0.11.1/20170116_Design_SIP_beta_V1.4.pdf).
- Sont mis à dispostion:
+ Sont mis à dispostion :
 
 * **le paquet d'installation sous Linux et Windows**
 
@@ -75,6 +75,6 @@ Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.gith
 		* la documentation html des API Vitam (pages statiques reprises ci-dessus)
 		* l'outil RAML Console permettant de manière dynamique de visualiser la documentation RAML et de faire des tests ([https://github.com/mulesoft/api-console](https://github.com/mulesoft/api-console))
 		* les Javadoc de quelques modules Vitam (query-builder, ingest.client, access.client, logbook.client)
-		* les points d'entrée REST des API externes de Access (units et objects), de Logbook (operation et lifecycle) et d'Ingest en mode "bouchonné" c'est à dire que les réponses renvoyées par le serveur sont correctes vis à vis de la documentation de l'API mais il s'agit de "fausses" données puisqu'il n'y a pas d'implémentation du back-office Vitam derrière.
+		* les points d'entrée REST des API externes de Access (units et objects), de Logbook (operation et lifecycle) et d'Ingest en mode "bouchonné" c'est à dire que les réponses renvoyées par le serveur sont correctes vis à vis de la documentation de l'API, mais il s'agit de "fausses" données puisqu'il n'y a pas d'implémentation du back-office Vitam derrière.
 	* des exemples de code Java pour l'utilisation des clients Access, Logbook et Ingest
 	* des exemples de requêtes CURL vers les APIs Access et Logbook
