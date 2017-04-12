@@ -9,13 +9,13 @@ level: page
 
 Le programme est fondé sur :
 
-* un budget de l'ordre de 15 millions d’euro pour le développement de la solution logicielle ;
+* un budget de l'ordre de 15 millions d’euro pour le développement de la solution logicielle,
 * pour les 5 ans à venir, une équipe interministérielle de 14 personnes mises 
 à disposition à temps plein par leur Administration (ministères de la Défense, de 
-la Culture, des Affaires étrangères et du Développement international) ;
+la Culture, des Affaires étrangères et du Développement international),
 * des équipes de développement et d’intégration, plus de 30 personnes, constituées 
-par les prestataires titulaires des marchés publics Vitam (principalement Smile, HIT Part, Linagora, Thalès, Goood) ;
-* un responsable PMO (Project management office) KPMG
+par les prestataires titulaires des marchés publics Vitam (principalement Smile, HIT Part, Linagora, Thalès, Goood),
+* un responsable PMO (Project management office) KPMG,
 * une plate-forme de développements pouvant atteindre 400 machines virtuelles (VM) et plus de 100To, hébergée par le ministère de l'Agriculture.
 
 ## Quel est le calendrier du projet de développement ?
@@ -27,12 +27,12 @@ Les grands jalons du planning sont les suivants :
 l’intégration applicative de la solution logicielle Vitam, **les 
 API principales** ont été publiées le **18 juillet   2016**. 
 Une documentation, des fichiers de descriptions et des interfaces "bouchonnées" 
-sont mises à disposition à l’adresse api.programmevitam.fr ;
+sont mises à disposition à l’adresse api.programmevitam.fr,
 * Pour permettre l’appropriation par les équipes de production en avance de phase, une
 **version** dite "**Bêta**" de la solution logicielle Vitam a été mise à disposition des ministères
-porteurs et des partenaires du programme le **29 novembre 2016** ;
-* La première version utilisable en production sera la **V1** publiée au **second semestre 2017**
-* Ensuite la **V2** sera publiée au **second semestre  2018** ;
+porteurs et des partenaires du programme le **29 novembre 2016**,
+* La première version utilisable en production sera la **V1** publiée au **second semestre 2017**,
+* Ensuite la **V2** sera publiée au **second semestre  2018**,
 * Et la **V3**, version finale de la phase projet, sera publiée au **second semestre 2019**.
 
 ## Quelle est la stratégie en cours par rapport aux autres institutions et projets  ?
@@ -53,9 +53,9 @@ En effet, on établira une relation contractualisée entre le SAE et l’applica
 
 La pérennisation sera donc assurée en 3 phases :
 
-* identification des formats : règles et préconisation de contrôle sur la base d'un référentiel ;
-* règles et préconisation de conservation ;
-* règles et outils de conversions ;
+* identification des formats : règles et préconisation de contrôle sur la base d'un référentiel,
+* règles et préconisation de conservation,
+* règles et outils de conversions.
 
 La gestion des formats ne sera accessible que pour les administrateurs des plate-formes 
 d’archivage. De même qu’actuellement, seules certaines personnes sont chargées de gérer 
