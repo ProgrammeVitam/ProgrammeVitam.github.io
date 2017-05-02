@@ -25,7 +25,7 @@ et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Organisation-de-information_V1.1.pdf))
 * **Spécification des SIP** - recommandations sur la construction des paquets 
 d'archives ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Specification_des_SIP_V1.8.pdf))
-* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Vitam_regles_gestion_V0.3))
+* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Vitam_regles_gestion_V0.3.pdf))
 * **Documentation ajout d'unités archivistiques** - description des principes d'ajout d'unités archivistiques ([pdf](/ressources/Doc0.15.1/pdf/vitam-maj-au.0.15.1.pdf) 
 \| [html](/ressources/Doc0.15.1/html/maj-au))
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170420_NP_Valeur_probante_V1.2.pdf))
