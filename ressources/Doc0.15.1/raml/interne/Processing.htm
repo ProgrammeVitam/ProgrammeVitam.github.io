@@ -1,0 +1,845 @@
+<!DOCTYPE HTML><html><head><title>API-Vitam Version Alpha - Moteur d'exécution interne API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 4.0.5"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h1 {
+        font-size: 1.3em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      pre code {
+        overflow: auto;
+        word-wrap: normal;
+        white-space: pre;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container-fluid"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>API-Vitam Version Alpha - Moteur d'exécution interne API documentation <small>version v1</small></h1><p>http://processing.internal.vitam.gouv.fr/{version}</p><ul><li><strong>version</strong>: <em>required (v1)</em></li></ul><h3 id="avertissements"><a href="#avertissements">Avertissements</a></h3><p><strong>Les API internes présentées dans ces pages ne sont pas en conformités avec l&#39;implémentation actuelle mais indiquent la cible prévue pour la version 1.</strong></p><p>Cette version d&#39;API présente des fonctionnalités sous différents statuts :</p><ul><li>Supportées : rien n&#39;est spécifié, la fonctionnalité ou la donnée est supportée</li><li><p>Non supportées : le mot clef <strong>UNSUPPORTED</strong> est indiqué et précise que cette fonctionnalité ou donnée n&#39;est pas supportée par l&#39;implémentaton courante</p><p>Cette version d&#39;API présente des fonctionnalités sous différentes versions :</p></li><li><p><strong>Alpha</strong> : l&#39;API est dans une première version, susceptible d&#39;évoluer fortement</p></li><li><strong>Beta</strong> : l&#39;API est proche de sa version stable</li><li><strong>Production</strong> : l&#39;API est considérée comme "production ready"</li><li><p><strong>Deprecated</strong> : l&#39;API est considérée comme obsolète et devrait disparaître dans une version majeure prochaine</p><p>Pour le moment, la partie <strong>/containers/{cid}</strong> des paths n&#39;est pas encore pris en compte mais doit être ajoutée à terme.</p></li></ul><h3 id="licence"><a href="#licence">Licence</a></h3><p>Ce document est distribué sous les termes de la licence <a href="https://creativecommons.org/licenses/by-sa/3.0/fr/">Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR)</a></p><h3 id="workflows"><a href="#workflows">Workflows</a></h3><p>Le principe proposé serait le suivant:</p><ul><li>Permet de soumettre un workflow à l&#39;exécution:<ul><li>POST /operations/id</li></ul></li><li>Obtenir le statut détaillé d&#39;un workflow:<ul><li>GET /operations/id</li></ul></li><li>Obtenir le statut d&#39;un workflow:<ul><li>HEAD /operations/id</li></ul></li><li>Permet d&#39;intervenir sur le comportement de l&#39;exécution et de la distribution (next,resume,pause)<ul><li>PUT /operations/id</li></ul></li><li>Permet à un worker d&#39;informer de la fin d&#39;exécution d&#39;une étape<ul><li>DELETE /operations/id</li></ul></li></ul><ul><li>Permet de soumettre des operations à l&#39;exécution:<ul><li>POST /operations</li></ul></li><li>Mettre à jour le statut des operations en cours d&#39;un workflow:<ul><li>PUT /operations</li></ul></li></ul><h3 id="worker_family"><a href="#worker_family">Worker_family</a></h3><p>Le principe proposé serait le suivant:</p><ul><li>Permet de définir les Workers dans des familles<ul><li>POST /worker_family</li></ul></li><li>Permet l&#39;abonnement et la suppression d&#39;un worker<ul><li>POST /worker_family/id_family/workers</li></ul></li></ul><p>Questions ou remarques:</p><ul><li>Le /status pourrait être étendu pour remonter un état statistique du moteur</li></ul></div><div class="panel panel-default"><div class="panel-heading"><h3 id="operations" class="panel-title">Operations</h3></div><div class="panel-body"><div class="top-resource-description"><p>Administration des Workflows Asynchrones (opérations).</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_operations"><span class="parent"></span>/operations</a> <span class="methods"><a href="#operations_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#operations_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_operations" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#operations_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de soumettre une opération (workflow + contexte + lot)</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#operations_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet d&#39;interagir avec la liste des opérations (pause, reprise, repriorisation par exemple)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/operations</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de soumettre une opération (workflow + contexte + lot)</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations_post_request" data-toggle="tab">Request</a></li><li><a href="#operations_post_response" data-toggle="tab">Response</a></li><li><a href="#operations_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations_post_request"><h3>Headers</h3><ul><li><strong>X-Action</strong>: <em>required (string)</em></li><li><strong>X-Context-Id</strong>: <em>(string)</em></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+ "id": "DefaultIngestWorkflow",
+ "comment":"Default Ingest Workflow V3",
+ "steps":
+ [
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check manifest existence",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "checkSeda", "actionType": "NOBLOCK"}}]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Version",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckVersion", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Objects Number",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckObjectsNumber", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Extract Unit and ObjectGroup",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+			"actions":[{"action":{"actionKey": "ExtractSeda", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Storage Availability",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckStorageAvailability", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Index Unit",
+		 "stepType":"BLOCK",
+			 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "Units"
+				 },
+		 "actions":[{"action":{"actionKey": "IndexUnit", "actionType": "NOBLOCK"} }]
+
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Store ObjectGroup",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "ObjectGroup"
+				 },
+		 "actions":[{"action":{"actionKey": "StoreObjectGroup", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Index ObjectGroup",
+		 "stepType":"BLOCK",
+			 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "ObjectGroup"
+				 },
+			"actions":[{"action":{"actionKey": "IndexObjectGroup", "actionType": "NOBLOCK"} }]
+
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Digest Message",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+			"actions":[{"action":{"actionKey": "CheckConformity", "actionType": "NOBLOCK"} }]
+ }
+ ]
+}
+</code></pre></div><div class="tab-pane" id="operations_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations_post_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/operations</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet d&#39;interagir avec la liste des opérations (pause, reprise, repriorisation par exemple)</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations_put_request" data-toggle="tab">Request</a></li><li><a href="#operations_put_response" data-toggle="tab">Response</a></li><li><a href="#operations_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations_put_request"><h3>Headers</h3><ul><li><strong>X-Action</strong>: <em>required (string)</em></li><li><strong>X-Context-Id</strong>: <em>(string)</em></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="operations_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations_put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_operations__id_"><span class="parent">/operations</span>/{id}</a> <span class="methods"><a href="#operations__id__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#operations__id__post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#operations__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#operations__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#operations__id__head"><span class="badge badge_head">head <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_operations__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#operations__id__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de récupérer le statut du workflow en cours</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#operations__id__post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de soumettre un workflow à l&#39;exécution</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#operations__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet d&#39;interagir avec une opération (pause, reprise, repriorisation par exemple)</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#operations__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>pour annuler le workflow.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#operations__id__head'" class="list-group-item"><span class="badge badge_head">head <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Obtenir le statut d&#39;un workflow</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/operations</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de récupérer le statut du workflow en cours</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations__id__get_request" data-toggle="tab">Request</a></li><li><a href="#operations__id__get_response" data-toggle="tab">Response</a></li><li><a href="#operations__id__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+ "id": "DefaultIngestWorkflow",
+ "comment":"Default Ingest Workflow V3",
+ "steps":
+ [
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check manifest existence",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "checkSeda", "actionType": "NOBLOCK"}}]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Version",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckVersion", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Objects Number",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckObjectsNumber", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Extract Unit and ObjectGroup",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+			"actions":[{"action":{"actionKey": "ExtractSeda", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Storage Availability",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckStorageAvailability", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Index Unit",
+		 "stepType":"BLOCK",
+			 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "Units"
+				 },
+		 "actions":[{"action":{"actionKey": "IndexUnit", "actionType": "NOBLOCK"} }]
+
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Store ObjectGroup",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "ObjectGroup"
+				 },
+		 "actions":[{"action":{"actionKey": "StoreObjectGroup", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Index ObjectGroup",
+		 "stepType":"BLOCK",
+			 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "ObjectGroup"
+				 },
+			"actions":[{"action":{"actionKey": "IndexObjectGroup", "actionType": "NOBLOCK"} }]
+
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Digest Message",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+			"actions":[{"action":{"actionKey": "CheckConformity", "actionType": "NOBLOCK"} }]
+ }
+ ]
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/202" target="_blank">202</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations__id__post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/operations</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de soumettre un workflow à l&#39;exécution</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations__id__post_request" data-toggle="tab">Request</a></li><li><a href="#operations__id__post_response" data-toggle="tab">Response</a></li><li><a href="#operations__id__post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations__id__post_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Action</strong>: <em>required (string)</em></li><li><strong>X-Context-Id</strong>: <em>(string)</em></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="operations__id__post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+ "id": "DefaultIngestWorkflow",
+ "comment":"Default Ingest Workflow V3",
+ "steps":
+ [
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check manifest existence",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "checkSeda", "actionType": "NOBLOCK"}}]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Version",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckVersion", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Objects Number",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckObjectsNumber", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Extract Unit and ObjectGroup",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+			"actions":[{"action":{"actionKey": "ExtractSeda", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Storage Availability",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+		 "actions":[{"action":{"actionKey": "CheckStorageAvailability", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Index Unit",
+		 "stepType":"BLOCK",
+			 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "Units"
+				 },
+		 "actions":[{"action":{"actionKey": "IndexUnit", "actionType": "NOBLOCK"} }]
+
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Store ObjectGroup",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "ObjectGroup"
+				 },
+		 "actions":[{"action":{"actionKey": "StoreObjectGroup", "actionType": "NOBLOCK"} }]
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Index ObjectGroup",
+		 "stepType":"BLOCK",
+			 "distribution" : {
+				 "kind":"LIST",
+				 "element" : "ObjectGroup"
+				 },
+			"actions":[{"action":{"actionKey": "IndexObjectGroup", "actionType": "NOBLOCK"} }]
+
+ },
+ {
+ "workerGroupId" :"DefaultWorker",
+		 "stepName":"Check Digest Message",
+		 "stepType":"BLOCK",
+		 "distribution" : {
+				 "kind":"REF",
+				 "element" : "SIP/manifest.xml"
+				 },
+			"actions":[{"action":{"actionKey": "CheckConformity", "actionType": "NOBLOCK"} }]
+ }
+ ]
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/202" target="_blank">202</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__post_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/operations</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet d&#39;interagir avec une opération (pause, reprise, repriorisation par exemple)</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations__id__put_request" data-toggle="tab">Request</a></li><li><a href="#operations__id__put_response" data-toggle="tab">Response</a></li><li><a href="#operations__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Action</strong>: <em>required (string)</em></li><li><strong>X-Context-Id</strong>: <em>(string)</em></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="operations__id__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations__id__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/operations</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>pour annuler le workflow.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations__id__delete_request" data-toggle="tab">Request</a></li><li><a href="#operations__id__delete_response" data-toggle="tab">Response</a></li><li><a href="#operations__id__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations__id__delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><p>Succesfully deleted resource</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__delete_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="operations__id__head"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_head">head <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/operations</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Obtenir le statut d&#39;un workflow</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#operations__id__head_request" data-toggle="tab">Request</a></li><li><a href="#operations__id__head_response" data-toggle="tab">Response</a></li><li><a href="#operations__id__head_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="operations__id__head_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__head_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>operation trouve et status retourne avec succes</p><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><p>operation non trouve</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="operations__id__head_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="worker_family" class="panel-title">Worker's family</h3></div><div class="panel-body"><div class="top-resource-description"><p>Administration des familles de Workers.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_worker_family"><span class="parent"></span>/worker_family</a> <span class="methods"><a href="#worker_family_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_worker_family" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#worker_family_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de lister les familles</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet d&#39;interagir avec les workers de la famille</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/worker_family</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de lister les familles</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family_get_request" data-toggle="tab">Request</a></li><li><a href="#worker_family_get_response" data-toggle="tab">Response</a></li><li><a href="#worker_family_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family_get_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "query": "name=&#39;abcdef*&#39;&amp;since&gt;&#39;2015-07-14&#39;"
+}
+</code></pre></div><div class="tab-pane" id="worker_family_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "hits": {
+    "total": 10,
+    "size": 3,
+    "offset": 0,
+    "limit": 100,
+    "time_out": false,
+    "next": "async_id_next"
+  },
+  "context": {
+    "query": "family list"
+  },
+  "results": [
+    {"familly ": "familyId",
+    "workers": [
+      {"worker" : "workerId",
+      "capacity" : "capacity"},
+      {"worker" : "workerId",
+      "capacity" : "capacity"},
+      {}
+    ]},
+    {"familly ": "familyId",
+    "workers": [
+      {"worker" : "workerId",
+      "capacity" : "capacity"},
+      {"worker" : "workerId",
+      "capacity" : "capacity"}
+    ]}
+    ]
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family_get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/worker_family</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet d&#39;interagir avec les workers de la famille</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family_put_request" data-toggle="tab">Request</a></li><li><a href="#worker_family_put_response" data-toggle="tab">Response</a></li><li><a href="#worker_family_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family_put_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="worker_family_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family_put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_worker_family__id_family_"><span class="parent">/worker_family</span>/{id_family}</a> <span class="methods"><a href="#worker_family__id_family__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_worker_family__id_family_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#worker_family__id_family__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de récupérer le statut de la famille</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de créer une famille de Worker</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet d&#39;interagir avec la famille</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Efface une famille si vide</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family</span>/{id_family}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de récupérer le statut de la famille</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__get_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__get_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__get_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "familly ": "familyId",
+    "workers": [
+      {"worker" : "workerId",
+      "capacity" : "capacity"},
+      {"worker" : "workerId",
+      "capacity" : "capacity"}
+    ]
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family</span>/{id_family}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de créer une famille de Worker</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__post_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__post_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__post_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "pool" : "poolname",
+  "description" : "description of pool",
+  "actions" : ["digest", "transform", "formatid"],
+  "status" : "Active"
+}
+</code></pre></div><div class="tab-pane" id="worker_family__id_family__post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "id",
+    "type": "class, worker",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "last_status": {
+      "code": 404,
+      "vitamCode": 123456,
+      "context": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__post_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family</span>/{id_family}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet d&#39;interagir avec la famille</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__put_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__put_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__put_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="worker_family__id_family__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family</span>/{id_family}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Efface une famille si vide</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__delete_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__delete_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__delete_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__delete_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_worker_family__id_family__workers"><span class="parent">/worker_family/{id_family}</span>/workers</a> <span class="methods"><a href="#worker_family__id_family__workers_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__workers_delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_worker_family__id_family__workers" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>API de gestion des Workers d&#39;une famille.</p></div><div class="list-group"><div onclick="window.location.href = '#worker_family__id_family__workers_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de sélectionner un sous-ensemble de Workers.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__workers_delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Efface un sous-ensemble de Workers. Le Delete de tout ou partie des workers d&#39;une famille entraîne l&#39;appel à "unregister" depuis le moteur vers le(s) worker(s) concerné(s), comme pour l&#39;appel direct à un Worker</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__workers_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family/{id_family}</span>/workers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de sélectionner un sous-ensemble de Workers.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__workers_get_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__workers_get_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__workers_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__workers_get_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "query": "name=&#39;abcdef*&#39;&amp;since&gt;&#39;2015-07-14&#39;"
+}
+</code></pre></div><div class="tab-pane" id="worker_family__id_family__workers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "hits": {
+    "total": 10,
+    "size": 3,
+    "offset": 0,
+    "limit": 100,
+    "time_out": false,
+    "next": "async_id_next"
+  },
+  "context": {
+    "query": "workers list"
+  },
+  "results": [
+    {"worker" : "workerId",
+    "capacity" : "capacity"},
+    {"worker" : "workerId",
+    "capacity" : "capacity"},
+    {}
+    ]
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers_get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__workers_delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family/{id_family}</span>/workers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Efface un sous-ensemble de Workers. Le Delete de tout ou partie des workers d&#39;une famille entraîne l&#39;appel à "unregister" depuis le moteur vers le(s) worker(s) concerné(s), comme pour l&#39;appel direct à un Worker</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__workers_delete_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__workers_delete_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__workers_delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__workers_delete_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "query": "name=&#39;abcdef*&#39;&amp;since&gt;&#39;2015-07-14&#39;"
+}
+</code></pre></div><div class="tab-pane" id="worker_family__id_family__workers_delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "hits": {
+    "total": 10,
+    "size": 3,
+    "offset": 0,
+    "limit": 100,
+    "time_out": false,
+    "next": "async_id_next"
+  },
+  "context": {
+    "query": "workers list"
+  },
+  "results": [
+    {"worker" : "workerId",
+    "capacity" : "capacity"},
+    {"worker" : "workerId",
+    "capacity" : "capacity"},
+    {}
+    ]
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers_delete_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_worker_family__id_family__workers__id_worker_"><span class="parent">/worker_family/{id_family}/workers</span>/{id_worker}</a> <span class="methods"><a href="#worker_family__id_family__workers__id_worker__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__workers__id_worker__post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__workers__id_worker__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#worker_family__id_family__workers__id_worker__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_worker_family__id_family__workers__id_worker_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>API permettant la gestion d&#39;un Worker.</p></div><div class="list-group"><div onclick="window.location.href = '#worker_family__id_family__workers__id_worker__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Accès à un statut d&#39;un Worker.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__workers__id_worker__post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Ajoute un nouveau Worker (abonnement) dans une famille.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__workers__id_worker__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Mise à jour d&#39;un paramètre pour ce Worker</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#worker_family__id_family__workers__id_worker__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet le retrait d&#39;un Worker à cete famille (désabonnement).</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__workers__id_worker__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family/{id_family}/workers</span>/{id_worker}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Accès à un statut d&#39;un Worker.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__workers__id_worker__get_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__workers__id_worker__get_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__workers__id_worker__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__workers__id_worker__get_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li><li><strong>id_worker</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "name" : "workername",
+  "family" : "familyname",
+  "capacity" : 10,
+  "storage" : 100,
+  "status" : "Active"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__workers__id_worker__post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family/{id_family}/workers</span>/{id_worker}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Ajoute un nouveau Worker (abonnement) dans une famille.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__workers__id_worker__post_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__workers__id_worker__post_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__workers__id_worker__post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__workers__id_worker__post_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li><li><strong>id_worker</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "name" : "workername",
+  "family" : "familyname",
+  "capacity" : 10,
+  "storage" : 100,
+  "status" : "Active"
+}
+</code></pre></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "id",
+    "type": "class, worker",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "last_status": {
+      "code": 404,
+      "vitamCode": 123456,
+      "context": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__post_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__workers__id_worker__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family/{id_family}/workers</span>/{id_worker}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Mise à jour d&#39;un paramètre pour ce Worker</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__workers__id_worker__put_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__workers__id_worker__put_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__workers__id_worker__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__workers__id_worker__put_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li><li><strong>id_worker</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+"todo" : "à compléter...!",
+  "name" : "workername",
+  "family" : "familyname",
+  "capacity" : 10,
+  "storage" : 100,
+  "status" : "Active"
+}
+</code></pre></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="worker_family__id_family__workers__id_worker__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/worker_family/{id_family}/workers</span>/{id_worker}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet le retrait d&#39;un Worker à cete famille (désabonnement).</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#worker_family__id_family__workers__id_worker__delete_request" data-toggle="tab">Request</a></li><li><a href="#worker_family__id_family__workers__id_worker__delete_response" data-toggle="tab">Response</a></li><li><a href="#worker_family__id_family__workers__id_worker__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="worker_family__id_family__workers__id_worker__delete_request"><h3>URI Parameters</h3><ul><li><strong>id_family</strong>: <em>required (string)</em></li><li><strong>id_worker</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "id",
+    "type": "class, worker",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "last_status": {
+      "code": 404,
+      "vitamCode": 123456,
+      "context": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="worker_family__id_family__workers__id_worker__delete_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="status" class="panel-title">/status</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_status"><span class="parent"></span>/status</a> <span class="methods"><a href="#status_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_status" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#status_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="status_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/status</h4></div><div class="modal-body"><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#status_get_response" data-toggle="tab">Response</a></li><li><a href="#status_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="status_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK, operation in success</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>id</strong>: <em>required (string)</em><p>Id of the instance</p></li><li><strong>service</strong>: <em>required (string)</em><p>Service Name for this instance</p></li><li><strong>startDate</strong>: <em>required (datetime)</em><p>Date time for the start of this instance</p></li><li><strong>status</strong>: <em>required (one of Active, Inactive, ShutdownInProgress, Unreachable)</em><p>Status of this instance</p></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "id": "abcdef",
+  "service": "serviceName",
+  "startDate": "2015-07-14T17:07:14Z",
+  "status": "Active"
+}</code></pre><pre><code>{
+  "id": "abcdef",
+  "service": "serviceName",
+  "startDate": "2015-07-14T17:07:14Z",
+  "status": "Active"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/503" target="_blank">503</a></h2><p>Service Unavailable, the requested service is unavailable</p></div><div class="tab-pane" id="status_get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#operations">Operations</a></li><li><a href="#worker_family">Worker's family</a></li><li><a href="#status">/status</a></li></ul></div></div></div></div></body></html>

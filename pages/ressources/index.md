@@ -5,9 +5,9 @@ fatherref: ressources
 level: page
 ---
 
-> Cette page présente pour chaque version actuelle et passée de la solution logicielle Vitam, l'ensemble des ressources mises à disposition. 
+> Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition. 
 
-## Solution logicielle Vitam - dernière version publiée ({{ site.version }})
+## Solution logicielle Vitam - toutes versions publiées
 
 Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et les différentes IHM. Sont mis à dispostion :
 
@@ -22,7 +22,7 @@ Ils sont accessibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.
 * **les paquets de déploiement** 
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM 
-CentOS 7. Ils contiennent aussi des conteneurs de documentation et de jeux de 
+pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de 
 tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintray.repo }}).
 
 * **la documentation fonctionnelle et technique**
@@ -32,29 +32,29 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 * **les jeux de tests**
 
 Ils contiennent les référentiels de test, et les fichiers SIP utiles pour les 
-tests automatiques. *A noter qu'il faut injecter les référentiels avant de lancer les tests.*
-Ils sont accessibles sur BinTray [{{ site.bintray.repodataset }}]({{ site.bintray.repodataset }}).
+tests automatiques. Ils sont accessibles sur BinTray [{{ site.bintray.repodataset }}]({{ site.bintray.repodataset }}).
+*A noter qu'il faut veiller à injecter les référentiels avant de lancer les tests.*
 
-## Outils complémentaires Vitam - dernière version publiée ({{ site.version }})
+## Outils complémentaires Vitam - toutes versions publiées
 
 Il s'agit des outils utilisés pour faciliter le test ou le développement. 
 
-Pour 
-le moment, il s'agit du **Générateur Seda**, un outil de développement permettant
+Pour le moment, il s'agit du **Générateur Seda**, un outil de développement permettant
 de générer automatiquement à partir d’une simple arborescence de fichiers un SIP
-(paquet d’information à archiver) conforme aux [recommandations Vitam](/ressources/Doc0.11.1/20170116_Design_SIP_beta_V1.4.pdf).
- Sont mis à dispostion :
+(paquet d’information à archiver) conforme aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation)).
+
+Sont mis à dispostion :
 
 * **le paquet d'installation sous Linux et Windows**
 
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution 
-nécessite seulement la présence de java 8 sur le poste 
-([zip](/ressources/Res0.11.1/generateur-seda_0.11.1.zip)).
+nécessite seulement la présence de java 8 sur le poste.
+Il est accessible sur BinTray [{{ site.bintray.repogenseda }}]({{ site.bintray.repogenseda }}).
 
 * **une présentation du Générateur Seda**
 
 Elle décrit les fonctions du Générateur ainsi que son utilisation simple et avancée
-([pdf](/ressources/Res0.11.1/20170116_presentation_generateur_V1.0.pdf)).
+(cf "Présentation du générateur SEDA" selon la version dans la page [Documentation](/pages/documentation)).
 
 * **le code développé**
 

@@ -5,7 +5,7 @@ fatherref: documentation
 level: page
 ---
 
-> Est ici présentée la documentation de la version publiée {{ site.version }}. 
+> Est ici présentée la documentation de la version publiée {{ site.version }} et des précédentes. 
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
 de développement.
 
@@ -16,36 +16,41 @@ de développement.
 
 ## Documentation métier
 
-* **Spécification des SIP** - recommandations sur la construction des paquets 
-d'archives ([pdf](/ressources/Doc0.11.1/20170116_Design_SIP_beta_V1.4.pdf))
+* **Manuel utilisateur** ([pdf](/ressources/Doc0.15.1/pdf/vitam-manuel-utilisateur.0.15.1.pdf) 
+\| [html](/ressources/Doc0.15.1/html/manuel-utilisateur))
+* **Manuel IHM recette** ([pdf](/ressources/Doc0.15.1/pdf/vitam-ihm-recette.0.15.1.pdf) 
+\| [html](/ressources/Doc0.15.1/html/ihm-recette))
 * **Organisation de l'information** - présentation des exigences fonctionnelles 
 et des objets métiers utilisés par la solution logicielle Vitam
-([pdf](/ressources/Doc0.11.1/20170116_Organisation-de-information_IT11_V1.1.pdf))
-* **Conservation de la valeur probante** - présentation de la sécurisation des 
-journaux ([pdf](/ressources/Doc0.11.1/20170116_Valeur_probante_IT11_V1.1.pdf))
-* **Manuel utilisateur** ([pdf](/ressources/Doc0.11.1/pdf/vitam-manuel-utilisateur.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/manuel-utilisateur))
-* **Scenarii de test métier** ([pdf](/ressources/Doc0.11.1/pdf/vitam-scenario-tests.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/scenario-test))
+([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Organisation-de-information_V1.1.pdf))
+* **Spécification des SIP** - recommandations sur la construction des paquets 
+d'archives ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Specification_des_SIP_V1.8.pdf))
+* **Documentation ajout d'unités archivistiques** - description des principes d'ajout d'unités archivistiques ([pdf](/ressources/Doc0.15.1/pdf/vitam-maj-au.0.15.1.pdf) 
+\| [html](/ressources/Doc0.15.1/html/maj-au))
+* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170420_NP_Valeur_probante_V1.2.pdf))
+* **Présentation du générateur SEDA** - présentation de l'outil complémentaire Générateur SEDA ([pdf](/ressources/Doc0.15.1/autres/fonctionnel/20170424_NP_Vitam_presentation_generateur_V0.1.pdf)) 
 
 ## Documentation technique
 
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc0.11.1/pdf/vitam-architecture.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc0.11.1/pdf/vitam-documentation-exploitation.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc0.11.1/pdf/vitam-documentation-installation.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/installation))
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc0.15.1/pdf/vitam-architecture.0.15.1.pdf) \| [html](/ressources/Doc0.15.1/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc0.15.1/pdf/vitam-documentation-exploitation.0.15.1.pdf) \| [html](/ressources/Doc0.15.1/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc0.15.1/pdf/vitam-documentation-installation.0.15.1.pdf) \| [html](/ressources/Doc0.15.1/html/installation))
 
 ## Documentation développeur
 
-* **Javadoc** ([html](/ressources/Doc0.11.1/javadoc))
+* **Javadoc** ([html](/ressources/Doc0.15.1/javadoc))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc0.15.1/autres/developpement/Manuel_integration_%20applicative.pdf))
 * **Manuel de développement** - éléments d'architecture interne et de 
-méthode utiles aux développements ([pdf](/ressources/Doc0.11.1/pdf/vitam-manuel-developpement.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/manuel-dev))
+méthode utiles aux développements ([pdf](/ressources/Doc0.15.1/pdf/vitam-manuel-developpement.0.15.1.pdf) \| [html](/ressources/Doc0.15.1/html/manuel-dev))
 * **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/Doc0.11.1/pdf/vitam-datamodel.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/data-model))
-* **Modèle de workflow** - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/Doc0.11.1/pdf/vitam-modele-workflow.0.11.1-RC2-SNAPSHOT.pdf) \| [html](/ressources/Doc0.11.1/html/workflow-model))
-* **Documentation d'API internes** - description des API REST internes en RAML ([html&raml](/ressources/Doc0.11.1/raml/interne))
-* **Documentation d'API externes** - description des API REST externes en RAML ([html&raml](/ressources/Doc0.11.1/raml/externe))
-<a name="config_postman"></a>
-* **Configuration Postman** - configuration des accès API externes Vitam 
-([Readme](/ressources/Doc0.11.1/autres/postman/README) \| [Collection](/ressources/Doc0.11.1/autres/postman/Vitam.postman_collection.json) \| [Environnement](/ressources/Doc0.11.1/autres/postman/Vitam.postman_environment.json))
+([pdf](/ressources/Doc0.15.1/pdf/vitam-datamodel.0.15.1.pdf) \| [html](/ressources/Doc0.15.1/html/data-model))
+* **Modèle de workflow**  - description de la décompositon et du séquencement des
+ opérations ([pdf](/ressources/Doc0.15.1/pdf/vitam-modele-workflow.0.15.1.pdf) \| [html](/ressources/Doc0.15.1/html/workflow-model))
+* **Documentation d'API internes** - description des API REST internes en RAML ([html&raml](/ressources/Doc0.15.1/raml/interne))
+* **Documentation d'API externes** - description des API REST externes en RAML ([html&raml](/ressources/Doc0.15.1/raml/externe))
 
 
-     
+<hr/>
+
+
+* Accéder à la documentation des [Anciennes versions](/pages/documentation/liste_doc_ancienne/)

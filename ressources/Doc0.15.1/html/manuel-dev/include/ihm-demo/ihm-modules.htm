@@ -1,0 +1,402 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Modules IHM Front &mdash; documentation VITAM - Manuel de développement 0.15.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="..\..\_static\css\theme.css" type="text/css">
+  
+
+  
+
+  
+        <link rel="index" title="Index" href="..\..\genindex.htm">
+        <link rel="search" title="Recherche" href="..\..\search.htm">
+    <link rel="top" title="documentation VITAM - Manuel de développement 0.15.1" href="..\..\index.htm">
+        <link rel="up" title="IHM demo" href="_toc.htm">
+        <link rel="next" title="IHM Front - Tests" href="ihm-tests.htm">
+        <link rel="prev" title="IHM Front" href="ihm-front.htm"> 
+
+  
+  <script src="..\..\_static\js\modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="..\..\index.htm" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="..\..\_static\LogoVitamGrand2.png" class="logo">
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="..\_toc.htm">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="..\access\_toc.htm">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\common\_toc.htm">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\functional-administration\_toc.htm">Functional administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.htm">IHM demo</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ihm-logbook-introduction.htm">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-front.htm">IHM Front</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Modules IHM Front</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cette-documentation-decrit-les-principaux-modules-reutilisables-de-l-ihm-front-js">Cette documentation décrit les principaux modules réutilisables de l&#8217;IHM front (js)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-tests.htm">IHM Front - Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-logbook-dat.htm">DAT : module IHM logbook operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-tenant-id.htm">IHM Front - Requêtes HTTP et Tenant ID</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="..\ingest\_toc.htm">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\logbook\_toc.htm">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\metadata\_toc.htm">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\processing\_toc.htm">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\storage\_toc.htm">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\technical-administration\_toc.htm">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\worker\_toc.htm">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\workspace\_toc.htm">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.htm">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.htm#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.htm#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.htm#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..\..\index.htm">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..\..\index.htm">Docs</a> &raquo;</li>
+      
+          <li><a href="..\_toc.htm">Détails par composant</a> &raquo;</li>
+      
+          <li><a href="_toc.htm">IHM demo</a> &raquo;</li>
+      
+    <li>Modules IHM Front</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="..\..\_sources\include\ihm-demo\ihm-modules.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modules-ihm-front">
+<h1>Modules IHM Front<a class="headerlink" href="#modules-ihm-front" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="cette-documentation-decrit-les-principaux-modules-reutilisables-de-l-ihm-front-js">
+<h2>Cette documentation décrit les principaux modules réutilisables de l&#8217;IHM front (js)<a class="headerlink" href="#cette-documentation-decrit-les-principaux-modules-reutilisables-de-l-ihm-front-js" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="module-archive-unit">
+<h3>Module archive-unit<a class="headerlink" href="#module-archive-unit" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce module ne comprends pas le module &#8216;archive-unit-search&#8217;
+Ce module permet le processing et l&#8217;affichage des données liées à une Archive Unit.
+Les directives utilisées sont:</p>
+<blockquote>
+<div><ul class="simple">
+<li>display-field qui permet d&#8217;afficher un champ en prenant en compte le mode édition</li>
+<li>display-fieldtree qui permet d&#8217;afficher un ensemble de champs en utilisant le directive display-field avec des paramètres standards pour chaque champ</li>
+</ul>
+</div></blockquote>
+<div class="section" id="directive-display-field">
+<h4>Directive display-field<a class="headerlink" href="#directive-display-field" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Cette directive permet d&#8217;afficher un champ &#8216;simple&#8217; en mode visualisation ou edition.
+Un champ &#8216;simple&#8217; est un champ qui à simplement une valeur (Texte/nombre) et pas de sous-élément.</p>
+<p>Usages:
+Pour utiliser cette directive il suffit d&#8217;appeler la balise &#8216;&lt;display-field&#8217; en spécifiant les parametres suivants:
+- field-label: Surcharge du nom du label
+- field-object: L&#8217;ensemble des propriétés de l&#8217;objet. Doit contenir au moins:
+&#8211; isModificationAllowed: vrai si le champ est éditable
+&#8211; isFieldEdit: vrai si le champ est en cours d&#8217;édition
+&#8211; fieldValue: La valeur affichée du champ
+- edit-mode: Vrai si le formulaire est en mode édition
+- field-size: La valeur du XX dans la classe CSS de bootstrap col-md-XX.
+- intercept-user-change: Fonction de callback à appeler lorsque la champ est modifié</p>
+<blockquote>
+<div>Cette fonction doit prendre un fieldSet en paramètres.</div></blockquote>
+<p>Il est également possible de donner une valeur de surcharge pour la valeur du champ grâce à ce dernier paramètre:
+- display-value: Affiche une valeur spécifique à la place de fieldValue (Le mode édition reprends la valeur réelle)</p>
+<p>Exemple:
+.. code-block:: html</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;div class=&#8221;col-xs-12&#8221;&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;div class=&#8221;form-group col-md-6&#8221;&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;display-field field-label=&#8220;&#8216;Service producteur&#8217;&#8221; field-size=&#8220;&#8216;11&#8217;&#8221;</dt>
+<dd><blockquote class="first">
+<div>intercept-user-change=&#8221;$ctrl.interceptUserChanges(fieldSet)&#8221;</div></blockquote>
+<p class="last">field-object=&#8221;$ctrl.mainFields[&#8216;OriginatingAgency&#8217;].content[0]&#8221; edit-mode=&#8221;$ctrl.isEditMode&#8221;&gt;</p>
+</dd>
+</dl>
+<p class="last">&lt;/display-field&gt;</p>
+</dd>
+</dl>
+<p class="last">&lt;/div</p>
+</dd>
+</dl>
+<p>&lt;/div&gt;</p>
+</div></blockquote>
+</div>
+<div class="section" id="directive-display-fieldtree">
+<h4>Directive display-fieldtree<a class="headerlink" href="#directive-display-fieldtree" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Cette directive permet d&#8217;afficher un champ et leurs sous élément si nécessaire de manière récursive.
+- field-object: L&#8217;ensemble des propriétés de l&#8217;objet. Doit contenir au moins:
+&#8211; isModificationAllowed: vrai si le champ est éditable
+&#8211; isFieldEdit: vrai si le champ est en cours d&#8217;édition
+&#8211; fieldValue: La valeur affichée du champ
+&#8211; typeF: Le type de champ</p>
+<blockquote>
+<div>&#8216;P&#8217; correspond à un champs &#8216;parent&#8217; avec des sous éléments.
+&#8216;S&#8217; correspond à un champ simple.</div></blockquote>
+<p>&#8211; content: Tableau de fieldObject contenant les enfants de ce champ.
+- edit-mode: Vrai si le formulaire est en mode édition
+- intercept-user-change: Fonction de callback à appeler lorsque la champ est modifié.</p>
+<blockquote>
+<div>Cette fonction doit prendre un fieldSet en paramètres.</div></blockquote>
+<p>Exemple:
+.. code-block:: html</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;div class=&#8221;row archiveDesc panel-collapse collapse in&#8221; id=&#8221;{{&#8216;box&#8217; + key}}&#8221;&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;div ng-repeat=&#8221;fieldSet in $ctrl.managmentItems&#8221;&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;display-fieldtree intercept-user-change=&#8221;$ctrl.interceptUserChanges(fieldSet)&#8221;</dt>
+<dd>field-object=&#8221;fieldSet&#8221; edit-mode=&#8221;$ctrl.isEditMode&#8221;&gt;</dd>
+</dl>
+<p class="last">&lt;/display-fieldtree&gt;</p>
+</dd>
+</dl>
+<p class="last">&lt;/div&gt;</p>
+</dd>
+</dl>
+<p>&lt;/div&gt;</p>
+</div></blockquote>
+</div>
+<div class="section" id="affichage-des-libelles-des-champs">
+<h4>Affichage des Libéllés des champs<a class="headerlink" href="#affichage-des-libelles-des-champs" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La fonction self.displayLabel du controller archive-unit permet de récupérer la valeur française des champs à afficher.
+- key: nom technique du champ à afficher
+- parent: nom technique de son parent direct.</p>
+<blockquote>
+<div>permet de reconstituer la clé parent.key pour les champs &#8216;parent&#8217;</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>constantes: Nom du fichier de constantes à utiliser.</dt>
+<dd><p class="first last">Cela permet d&#8217;avoir plusieurs _id (par exemple) en fonction du context.
+Les fichiers de constantes sont définis dans archive-unit.constant.js.
+Les clés des constantes équivalent à &#8220;key&#8221; pour les champs simples et à &#8216;parent.key&#8217; pour les champs parent.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">retourne le label si présent dans le fichier de constantes ou la clé (key) sinon.</p>
+</li>
+</ul>
+<p>Exemple:
+.. code-block:: javascript</p>
+<blockquote>
+<div>var key = fieldSet.fieldId;
+var parent = fieldSet.parent;
+var constants = ARCHIVE_UNIT_MODULE_OG_FIELD_LABEL;
+fieldSet.fieldName = self.displayLabel(key, parent, constants);</div></blockquote>
+</div>
+</div>
+<div class="section" id="affichage-dynamiquetable">
+<h3>Affichage dynamiqueTable<a class="headerlink" href="#affichage-dynamiquetable" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette directive permet de dynamiser les tableaux de données pour sélectionner les colonnes à afficher.
+- custom-fields: Ce sont les champs dynamiques pour le tableau.</p>
+<blockquote>
+<div><blockquote>
+<div>Ces objets doivent au moins avoir les champs &#8216;id&#8217; (Valeur technique et unique) et &#8216;label&#8217; (Valeur affichable à l&#8217;utilisateur).</div></blockquote>
+<p>selected-objects: Ce sont les objets sélectionnés à afficher. L&#8217;objet en etrée peut être un tableau vide et sera nourri par la directive</p>
+</div></blockquote>
+<p>Attention, pour des raisons d&#8217;ergonomie, il est demandé d&#8217;ajouter la classe CSS &#8216;dynamic-table-box&#8217; au div &#8216;panel-default&#8217; englobant.
+Cela permet à ce div de devenir dynamique et de dépasser de la page si plus de colones sont affichés. Ainsi la scrollbar horizontale est accessible directement.</p>
+</div>
+<div class="section" id="service-de-recherche">
+<h3>Service de recherche<a class="headerlink" href="#service-de-recherche" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le service ProcessSearchService (process-search.service.js) permet de factoriser les actions de recherche et de globaliser son fonctionnement. Tout écran de recherche doit l&#8217;utiliser.</p>
+<p>Il met à disposition une fonction d&#8217;initialisation (initAndServe) du service de recherche qui renvoie 3 functions possibles:
+* processSearch - Lance la requête HTTP et traite le comportement d&#8217;erreur si besoin (Affichage du message / vider les résultats / ...)
+* reinitForm - Efface tout les champs de recherche pour reprendre les valeurs initiales des champs et relance une recherche (si besoin).
+* onInputChange - Fonction qui peut être appelée par le contrôleur lors d&#8217;une modification d&#8217;un champ pour déclancher une réinitialisation de la recherche si le formulaire est revenu à son état initial.</p>
+<p>Aussi, en plus des autres paramètres (voir JS doc de la fonction initAndServe), l&#8217;initialisation prends en paramètre un objet &#8216;searchScope&#8217; qui doit être lié au scope et doit être de la forme suivante:
+.. code-block:: javascript</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>searchScope = {</dt>
+<dd>form: {/* Valeurs initiales des champs de recherche (seront donc mises à jour par la vue et par le service) <em>/},
+pagination: { /</em> Valeurs des variables de pagination <em>/ },
+error: { /</em> Mise à jour des message d&#8217;erreur <em>/ },
+response: { /</em>  <a href="#id1"><span class="problematic" id="id2">*</span></a>/ }</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>Ce service permet d&#8217;effectuer les actions suivantes de manière uniforme quelque soit le controller qui l&#8217;appelle:
+* Obliger d&#8217;utiliser la chaîne de fonctions fournies (Evite d&#8217;avoir une implem differente sur chaque controller)
+* Gérer la réinitialisation des messages d&#8217;erreur lors du lancement d&#8217;une nouvelle recherche (searchScope.error)
+* Gérer la réinitialisation du nombre de résultats lors de chaque recherches (searchscope.response)
+* Gestion de la recherche automatique à l&#8217;initialisation de la page (Ou à la réinitialisation du formulaire)</p>
+<p>Par la suite, ce service pourra être complété par des directives (liste non exaustive) pour automatiser l&#8217;affichage des informations similaires:
+* Messages d&#8217;erreur (On peut imaginer une directive à assossier à un formulaire qui affiche les boutons d&#8217;effactement multi-champs, le bouton de résultat et le message d&#8217;erreur en se basant sur le searchScope.form et searchScope.error)
+* Affichage des résultats (On peut imaginer une directive se basant sur searchScope.response déffinissant un pattern pour le tableau de résultat et le titre + Nb résultats).
+* Gestion de la pagination (On peut imaginer une directive se basant sur le searchScope.pagination et searchScope.response pour calculer les éléments de pagination).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ihm-tests.htm" class="btn btn-neutral float-right" title="IHM Front - Tests" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ihm-front.htm" class="btn btn-neutral" title="IHM Front" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.15.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="..\..\_static\jquery.js"></script>
+      <script type="text/javascript" src="..\..\_static\underscore.js"></script>
+      <script type="text/javascript" src="..\..\_static\doctools.js"></script>
+      <script type="text/javascript" src="..\..\_static\translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="..\..\_static\js\theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
