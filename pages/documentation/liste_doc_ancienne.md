@@ -9,7 +9,7 @@ de développement.
 
 # Version Release 3-0.15.1
 
-## Première approche
+## Première approche 
 
 * **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/Doc0.11.1/20170116_NP_VITAM_presentation_solution_logicielle_V2.0.pdf))
