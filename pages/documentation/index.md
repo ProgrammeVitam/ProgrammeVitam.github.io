@@ -11,7 +11,7 @@ de développement.
 
 ## Première approche
 
-* **Guide de lecture de la documentation** - quels documents à lire selon votre rôle et vos attentes? et une description de chaque document ([pdf](/ressources/DocCourante/Vitam_Documentation_guide_de_lecture.pdf)
+* **Guide de lecture de la documentation** - quels documents à lire selon votre rôle et vos attentes? et une description de chaque document ([pdf](/ressources/DocCourante/Vitam_Documentation_guide_de_lecture.pdf))
 
 * **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/Vitam_presentation_solution_logicielle.pdf))
