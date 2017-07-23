@@ -1,0 +1,338 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8.1. Introduction sur les certificats dans Vitam &mdash; documentation VITAM - Documentation d&#39;installation 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="..\_static\css\theme.css" type="text/css">
+  
+
+  
+
+  
+        <link rel="index" title="Index" href="..\genindex.html">
+        <link rel="search" title="Recherche" href="..\search.html">
+    <link rel="top" title="documentation VITAM - Documentation d&#39;installation 0.20.0" href="..\index.html">
+        <link rel="up" title="8. Explications relatives à la génération des certificats" href="_toc.html">
+        <link rel="next" title="8.2. Cas 1: Je ne dispose pas de PKI, je souhaite utiliser celle de Vitam" href="pki_vitam.html">
+        <link rel="prev" title="8. Explications relatives à la génération des certificats" href="_toc.html"> 
+
+  
+  <script src="..\_static\js\modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="..\index.html" class="icon icon-home"> VITAM - Documentation d'installation
+          
+
+          
+            
+            <img src="..\_static\LogoVitamGrand2.png" class="logo">
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="..\introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\architecture.html">3. Architecture de la solution logicielle VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\prerequis.html">4. Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\10-it-services.html">5. Dépendances aux services d&#8217;infrastructures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\fiche_type.html">6. Fiche type de déploiement VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\get_version.html">7. Récupération de la version</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">8. Explications relatives à la génération des certificats</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. Introduction sur les certificats dans Vitam</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-suites-cryptographiques-protocoles-supportes-par-vitam">8.1.1. Liste des suites cryptographiques &amp; protocoles supportés par Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vue-d-ensemble-de-la-gestion-des-certificats">8.1.2. Vue d&#8217;ensemble de la gestion des certificats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-de-la-pki">8.1.3. Description de l&#8217;arborescence de la PKI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-du-repertoire-deployment-environments-certs">8.1.4. Description de l&#8217;arborescence du répertoire deployment/environments/certs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-du-repertoire-deployment-environments-keystores">8.1.5. Description de l&#8217;arborescence du répertoire deployment/environments/keystores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnement-des-scripts-de-la-pki">8.1.6. Fonctionnement des scripts de la PKI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki_vitam.html">8.2. Cas 1: Je ne dispose pas de PKI, je souhaite utiliser celle de Vitam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pki_externe.html">8.3. Cas 2: Je dispose d&#8217;une PKI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="..\packages\_toc.html">9. Procédures d&#8217;installation / mise à jour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\validation_deploiement.html">10. Validation de la procédure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\troubleshooting.html">11. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\troubleshooting.html#retour-d-experience-cas-rencontres">12. Retour d&#8217;expérience / cas rencontrés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\extras.html">13. Elements extras de l&#8217;installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..\index.html">VITAM - Documentation d'installation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..\index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="_toc.html">8. Explications relatives à la génération des certificats</a> &raquo;</li>
+      
+    <li>8.1. Introduction sur les certificats dans Vitam</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="..\_sources\certificats\introduction_certificats.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-sur-les-certificats-dans-vitam">
+<h1>8.1. Introduction sur les certificats dans Vitam<a class="headerlink" href="#introduction-sur-les-certificats-dans-vitam" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="liste-des-suites-cryptographiques-protocoles-supportes-par-vitam">
+<h2>8.1.1. Liste des suites cryptographiques &amp; protocoles supportés par Vitam<a class="headerlink" href="#liste-des-suites-cryptographiques-protocoles-supportes-par-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de consulter les ciphers supportés par Vitam dans deux fichiers disponibles sur ce chemin: <cite>ansible-vitam/roles/vitam/templates/</cite></p>
+<ul>
+<li><dl class="first docutils">
+<dt>Le fichier jetty-config.xml.j2</dt>
+<dd><ul class="first last simple">
+<li>La balise contenant l&#8217;attribut name=&#8221;IncludeCipherSuites&#8221; référence les ciphers supportés</li>
+<li>La balise contenant l&#8217;attribut name=&#8221;ExcludeCipherSuites&#8221; référence les ciphers non supportés</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Le fichier java.security.j2</dt>
+<dd><ul class="first last simple">
+<li>La ligne jdk.tls.disabledAlgorithms renseigne les ciphers désactivés au niveau java</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Les 2 balises concernant les ciphers sur le fichier jetty-config.xml.j2 sont complémentaires car elles comportent des wildcards (*) ; en cas de conflit, l&#8217;exclusion est prioritaire.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Voir aussi</p>
+<p class="last">Ces fichiers correspondent à la configuration recommandée ; celle-ci est décrite plus en détail dans le DAT (chapitre sécurité).</p>
+</div>
+</div>
+<div class="section" id="vue-d-ensemble-de-la-gestion-des-certificats">
+<h2>8.1.2. Vue d&#8217;ensemble de la gestion des certificats<a class="headerlink" href="#vue-d-ensemble-de-la-gestion-des-certificats" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id1">
+<span id="pki-certificats"></span><img alt="../_images/pki-certificats.svg" src="..\_images\pki-certificats.svg"><p class="caption"><span class="caption-text">Vue d&#8217;ensemble de la gestion des certificats au déploiement</span></p>
+</div>
+</div>
+<div class="section" id="description-de-l-arborescence-de-la-pki">
+<h2>8.1.3. Description de l&#8217;arborescence de la PKI<a class="headerlink" href="#description-de-l-arborescence-de-la-pki" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tous les fichiers de gestion de la PKI se trouvent dans le répertoire <code class="docutils literal"><span class="pre">deployment</span></code> de l&#8217;arborescence Vitam:</p>
+<ul>
+<li><p class="first">Le sous répertoire <code class="docutils literal"><span class="pre">pki</span></code> contient les scripts de génération des CA &amp; des certificats, les CA générées par les scripts, et les fichiers de configuration d&#8217;openssl</p>
+</li>
+<li><p class="first">Le sous répertoire <code class="docutils literal"><span class="pre">environments</span></code> contient tous les certificats nécessaires au bon déploiement de Vitam:</p>
+<blockquote>
+<div><ul class="simple">
+<li>certificats publics des CA</li>
+<li>Certificats clients, serveurs, de timestamping, et coffre fort contenant les mots de passe des clés privées des certificats (sous-répertoire <code class="docutils literal"><span class="pre">certs</span></code>)</li>
+<li>Magasins de certificats (keystores / truststores / grantedstores), et coffre fort contenant les mots de passe des magasins de certificats (sous-répertoire <code class="docutils literal"><span class="pre">keystores</span></code>)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Le script <code class="docutils literal"><span class="pre">generate_stores.sh</span></code> génère les magasins de certificats (keystores), cf la section <a class="reference internal" href="#fonctionnementscriptspki"><span class="std std-ref">Fonctionnement des scripts de la PKI</span></a></p>
+</li>
+</ul>
+<div class="figure align-center" id="id2">
+<span id="arborescence-pki"></span><a class="reference external image-reference" href="..\_images\arborescence_pki.svg"><img alt="../_images/arborescence_pki.svg" src="..\_images\arborescence_pki.svg"></a>
+<p class="caption"><span class="caption-text">Vue l&#8217;arborescence de la PKI Vitam</span></p>
+</div>
+<p>Le fichier ci-dessus est aussi disponible au format xmind <a class="reference download internal" href="..\_downloads\arborescence_pki.xmind" download=""><code class="xref download docutils literal"><span class="pre">arborescence_pki.xmind</span></code></a></p>
+</div>
+<div class="section" id="description-de-l-arborescence-du-repertoire-deployment-environments-certs">
+<h2>8.1.4. Description de l&#8217;arborescence du répertoire deployment/environments/certs<a class="headerlink" href="#description-de-l-arborescence-du-repertoire-deployment-environments-certs" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id3">
+<span id="arborescence-certs"></span><a class="reference external image-reference" href="..\_images\arborescence_certs.svg"><img alt="../_images/arborescence_certs.svg" src="..\_images\arborescence_certs.svg"></a>
+<p class="caption"><span class="caption-text">Vue détaillée de l&#8217;arborescence des certificats</span></p>
+</div>
+<p>Le fichier ci-dessus est aussi disponible au format xmind <a class="reference download internal" href="..\_downloads\arborescence_certs.xmind" download=""><code class="xref download docutils literal"><span class="pre">arborescence_certs.xmind</span></code></a></p>
+</div>
+<div class="section" id="description-de-l-arborescence-du-repertoire-deployment-environments-keystores">
+<h2>8.1.5. Description de l&#8217;arborescence du répertoire deployment/environments/keystores<a class="headerlink" href="#description-de-l-arborescence-du-repertoire-deployment-environments-keystores" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id4">
+<span id="arborescence-keystores"></span><a class="reference external image-reference" href="..\_images\arborescence_keystores.svg"><img alt="../_images/arborescence_keystores.svg" src="..\_images\arborescence_keystores.svg"></a>
+<p class="caption"><span class="caption-text">Vue détaillée de l&#8217;arborescence des keystores</span></p>
+</div>
+<p>Le fichier ci-dessus est aussi disponible au format xmind <a class="reference download internal" href="..\_downloads\arborescence_keystores.xmind" download=""><code class="xref download docutils literal"><span class="pre">arborescence_keystores.xmind</span></code></a></p>
+</div>
+<div class="section" id="fonctionnement-des-scripts-de-la-pki">
+<span id="fonctionnementscriptspki"></span><h2>8.1.6. Fonctionnement des scripts de la PKI<a class="headerlink" href="#fonctionnement-des-scripts-de-la-pki" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La gestion de la PKI se fait avec 3 scripts dans le répertoire deployment de l&#8217;arborescence Vitam:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">pki/scripts/generate_ca.sh</span></code> : génère des autorités de certifications (si besoin)</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">pki/scripts/generate_certs.sh</span></code> : génère des certificats à partir des autorités de certifications présentes (si besoin)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Récupère le mot de passe des clés privées à générer dans le vault <code class="docutils literal"><span class="pre">environments/certs/vault-certs.yml</span></code></li>
+<li>Génère les certificats &amp; les clés privées</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">generate_stores.sh</span></code> : génère les magasins de certificats nécessaires au bon fonctionnement de Vitam</p>
+<blockquote>
+<div><ul class="simple">
+<li>Récupère le mot de passe du magasin indiqué dans <code class="docutils literal"><span class="pre">environments/group_vars/all/vault-keystore.yml</span></code></li>
+<li>Insère les bon certificats dans les magasins qui en ont besoin</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Si les certificats sont créés par la PKI externe, il faut donc les positionner dans l&#8217;arborescence attendue avec le nom attendu pour certains (cf <a class="reference internal" href="pki_externe.html#arborescence-certs"><span class="std std-ref">Vue détaillée de l&#8217;arborescence des certificats</span></a>)</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pki_vitam.html" class="btn btn-neutral float-right" title="8.2. Cas 1: Je ne dispose pas de PKI, je souhaite utiliser celle de Vitam" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc.html" class="btn btn-neutral" title="8. Explications relatives à la génération des certificats" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="..\_static\jquery.js"></script>
+      <script type="text/javascript" src="..\_static\underscore.js"></script>
+      <script type="text/javascript" src="..\_static\doctools.js"></script>
+      <script type="text/javascript" src="..\_static\translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="..\_static\js\theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

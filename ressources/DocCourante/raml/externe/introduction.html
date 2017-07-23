@@ -1,0 +1,595 @@
+﻿<!DOCTYPE HTML><html><head><title>API-Vitam Version Beta - Introduction API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 4.0.5"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h1 {
+        font-size: 1.3em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      pre code {
+        overflow: auto;
+        word-wrap: normal;
+        white-space: pre;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container-fluid"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>API-Vitam Version Beta - Introduction API documentation <small>version v1</small></h1><p>https://api.vitam.gouv.fr/{version}</p><ul><li><strong>version</strong>: <em>required (v1)</em></li></ul><h3 id="avertissements"><a href="#avertissements">Avertissements</a></h3><p>Cette version d&#39;API présente des fonctionnalités sous différents statuts :</p><ul><li>Supportées : rien n&#39;est spécifié, la fonctionnalité ou la donnée est supportée</li><li><p>Non supportées : le mot clef <strong>UNSUPPORTED</strong> est indiqué et précise que cette fonctionnalité ou donnée n&#39;est pas supportée par l&#39;implémentaton courante</p><p>Cette version d&#39;API présente des fonctionnalités sous différentes versions :</p></li><li><p><strong>Alpha</strong> : l&#39;API est dans une première version, susceptible d&#39;évoluer fortement</p></li><li><strong>Beta</strong> : l&#39;API est proche de sa version stable</li><li><strong>Production</strong> : l&#39;API est considérée comme "production ready"</li><li><strong>Deprecated</strong> : l&#39;API est considérée comme obsolète et devrait disparaître dans une version majeure prochaine</li></ul><h3 id="licence"><a href="#licence">Licence</a></h3><p>Ce document est distribué sous les termes de la <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">Licence Ouverte V2.0</a></p><h3 id="conventions_rest_g_n_rales"><a href="#conventions_rest_g_n_rales">Conventions REST Générales</a></h3><p>Ici sont présentées des conventions dans le cadre des API Vitam.</p><h1 id="mod-le-rest">Modèle REST</h1><p>Les URL sont découpées de la façon suivantes :</p><ul><li>protocole: https</li><li>FQDN : exemple api.vitam.fr avec éventuellement un port spécifique</li><li>Base :<nom du="" service="">/<version></version></nom></li><li>Resource : le nom d&#39;une collection</li><li>L&#39;URL peut contenir d&#39;autres éléments (item, sous-collections)</li></ul><p>Exemple: <a href="https://api.vitam.fr/access/v1/units/id">https://api.vitam.fr/access/v1/units/id</a></p><p>Les méthodes utilisées :</p><ul><li>GET: pour l&#39;équivalent de "Select" (possibilité d&#39;utiliser POST avec X-Http-Method-Override: GET dans le Header)</li><li>POST: pour l&#39;équivalent de "Insert"</li><li>PUT: pour l&#39;équivalent de "Update"</li><li>DELETE: pour l&#39;équivalent de "Delete" (possibilité d&#39;utiliser POST avec X-Http-Method-Override: DELETE dans le Header)</li><li>HEAD: pour l&#39;équivalent du "Test d&#39;existence"</li><li>OPTIONS: pour l&#39;équivalent de "Lister les commandes disponibles"</li></ul><p>Les codes retours HTTP standards utilisés sont :</p><ul><li>200: Sur des opérations de GET, PUT, DELETE, HEAD, OPTIONS</li><li>201: Sur l&#39;opération POST (sans X-Http-Method-Override)</li><li>202: Pour les réponses asynchrones</li><li>204: Pour des réponses sans contenu (type HEAD sans options)</li><li>206: Pour des réponses partielles ou des réponses en mode Warning (OK mais avec une alerte)</li></ul><p>Les codes d&#39;erreurs HTTP standards utilisés sont :</p><ul><li>400: Requête mal formulée</li><li>401: Requête non autorisée</li><li>404: Resource non trouvée</li><li>409: Requête en conflit</li><li>412: Des préconditions ne sont pas respectées</li><li>413: La requête dépasse les capacités du service</li><li>415: Le Media Type demandé n&#39;est pas supporté</li><li>500: si une erreur interne est survenue dans le back-office (peut être un bug ou un effet de bord d&#39;une mauvaise commande)</li><li>501: Le service n&#39;est pas implémenté</li></ul><h2 id="mod-le-asynchrone">Modèle asynchrone</h2><p>Dans le cas d&#39;une opération asynchrone, deux options sont possibles :</p><h3 id="mode-pooling">Mode Pooling</h3><p>Dans le mode pooling, le client est responsable de requêter de manière répétée l&#39;URI de vérification du statut, et ce de manière raisonnée (pas trop souvent).</p><p>Le principe est le suivant :</p><ul><li>Création de l&#39;opération à effectuer<ul><li>Exemple: POST /ingests et retourne 202 + X-Request-Id noté id</li></ul></li><li>Pooling sur l&#39;opération demandée<ul><li>Exemple: GET /operations/id et retourne 202 + X-Request-Id tant que non terminé</li><li>Intervalle recommandé : pas moins que la minute</li></ul></li><li>Fin de pooling sur l&#39;opération demandée<ul><li>Exemple : GET /operations/id et retourne 200 + le résultat</li></ul></li></ul><h3 id="mode-callback-unsupported-">Mode Callback <strong>UNSUPPORTED</strong></h3><p>Dans le mode Callback, le client soumet une création d&#39;opération et simultanément propose une URI de Callback sur laquelle Vitam rappellera le client pour lui indiquer que cette opération est terminée.</p><p>Le principe est le suivant :</p><ul><li>Création de l&#39;opération à effectuer avec l&#39;URI de Callback<ul><li>Exemple: POST /ingests + dans le Header X-Callback: <a href="https://uri?id={id}&amp;status={status}">https://uri?id={id}&amp;status={status}</a> et retourne 202 + #id + Header X-Callback confirmé</li></ul></li><li>A la fin de l&#39;opération, Vitam rappelle le client avec l&#39;URI de Callback<ul><li>Exemple: GET /uri?id=idop&amp;status=OK</li></ul></li><li>Le client rappelle alors Vitam pour obtenir l&#39;information<ul><li>Exemple: GET /ingests/#id et retourne 200 + le résultat</li></ul></li></ul><h3 id="perspectives-d-volution">Perspectives d&#39;évolution</h3><p>Dans le cas où l&#39;accès au résulat final ne doit pas se faire sur l&#39;URI /resources/id, il faudra ajouter une réponse 303.</p><h2 id="authentification">Authentification</h2><p>L&#39;authentification dans Vitam authentifie l&#39;application Front-Office qui se connecte à ses API. Cette authentification s&#39;effectue en trois temps :</p><ul><li>Un premier composant authentifie la nouvelle connexion<ul><li>La première implémentation sera basée sur une authentification du certificat client dans la connexion TLS</li></ul></li><li>Le premier composant passe au service REST la variable Header "X-Identity" contenant l&#39;identifiant de l&#39;application Front-Office.<ul><li>Comme cette identification est actuellement interne, ce Header est actuellement non généré.</li></ul></li><li>Le service REST, sur la base de cette authentification, s&#39;assure que l&#39;application Front-Office ait bien l&#39;habilitation nécessaire pour effectuer la requête exprimée.</li></ul><h2 id="identifiant-de-corr-lation">Identifiant de corrélation</h2><p>Vitam étant un service REST, il est "State Less". Il ne dispose donc pas de notion de session en propre. Cependant chaque requête retourne un identifiant de requête "<strong>X-Request-Id</strong>" qui est traçé dans les logs et journaux du SAE et permet donc de faire une corrélation avec les événements de l&#39;application Front-Office cliente si celle-ci enregistre elle-aussi cet identifiant.</p><p><strong>UNSUPPORTED</strong> Considérant que cela peut rendre difficile le suivi d&#39;une session utilisateur connecté sur un Front-Office, il est proposé que l&#39;application Front-Office puisse passer en paramètre dans le Header l&#39;argument "<strong>X-Application-Id</strong>" correspondant à un identifiant de session de l&#39;utilisateur connecté. Cet identifiant DOIT être non signifiant car il sera lui aussi dans les logs et les journaux de Vitam. Il est inclus dans chaque réponse de Vitam si celui-ci est exprimé dans la requête correspondante. Grâce à cet identifiant externe de session, il est alors plus facile de retracer l&#39;activité d&#39;un utilisateur grâce d&#39;une part au regroupement de l&#39;ensemble des actions dans Vitam au travers de cet identifiant, et d&#39;autre part grâce aux logs de l&#39;application Front-Office utilisant ce même identifiant de session.</p><p>Afin de gérer plusieurs tenants, il est imposé (pour le moment) que l&#39;application Front-Office puisse passer en paramètre dans le Header l&#39;argument <strong>X-Tenant-Id</strong> correspondant au tenant sur lequel se baser pour exécuter la requête.</p><h2 id="pagination">Pagination</h2><p>Vitam ne dispose pas de notion de session en raison de son implémentation « State Less ». Néanmoins, pour des raisons d&#39;optimisations sur des requêtes où le nombre de résultats serait important, il est proposé une option tendant à améliorer les performances : X-Cursor et X-Cursor-Id.</p><h3 id="m-thode-standard">Méthode standard</h3><p>De manière standard, il est possible de paginer les résultats en utilisant le DSL avec les arguments suivants dans la requête : (pour GET uniquement)</p><ul><li><strong>$limit</strong> : le nombre maximum d&#39;items retournés (limité à 1000 par défaut, maximum à 100000)</li><li><strong>$per_page</strong> : le nombre maximum des premiers items retournés (limité à 100 par défaut, maximum à 100) (<strong>UNSUPPORTED</strong>)</li><li><strong>$offset</strong> : la position de démarrage dans la liste retournée (positionné à 0 par défaut, maximum à 100000)</li></ul><p>En raison du principe State-less, les requêtes suivantes (en manipulant notamment $offset) seront à nouveau exécutées, conduisant à des performances réduites.</p><h3 id="m-thode-optimis-e-unsupported-">Méthode optimisée <strong>UNSUPPORTED</strong></h3><p>Afin d&#39;optimiser, il est proposé d&#39;ajouter de manière optionnelle dans le Header lors de la première requête le champs suivant : <strong>X-Cursor: true</strong> Si la requête nécessite une pagination (plus d&#39;une page de réponses possible), le SAE répondra alors la première page (dans le Body) et dans le Header :</p><ul><li><strong>X-Cursor-Id</strong>: id (identifiant du curseur)</li><li><strong>X-Cursor-Timeout</strong>: datetime (date limite de validité du curseur)</li></ul><p>Le client peut alors demander les pages suivantes en envoyant simplement une requête GET avec un Body vide et dans le Header : <strong>X-Cursor-Id</strong>: id.</p><h3 id="dsl_vitam"><a href="#dsl_vitam">DSL Vitam</a></h3><p>Le DSL (Domain Specific Language) Vitam est composé de deux parties :</p><ul><li>Request: Contient la structure du Body contenant la requête au format Json. Le DSL permet d&#39;exprimer un grand nombre de possibilités de requêtes. Dans le cadre des <em>Units</em> et <em>Objects</em>, cette requête peut être arborescente et multiples.</li><li>Response: Contient la structure du Body contenant le résultat au format Json. Il contient différentes informations utiles ou demandées.</li></ul><h1 id="request">Request</h1><p>Une requête est composée de plusieurs parties, et en particulier le Body qui contient un Json exprimant la requête.</p><p>Elle peut être complétée par quelques valeurs dans le <em>Header</em> :</p><ul><li><strong>X-Application-Id</strong> : (<strong>UNSUPPORTED</strong>) pour conserver la session (valeur non signifiante) dans les journaux et logs du SAE associés à l&#39;opération demandée</li><li><strong>X-Valid: true</strong> : (<strong>UNSUPPORTED</strong>) pour une requête HEAD sur un <strong>Object</strong> pour vérifier la validité (check d&#39;empreinte)</li><li><strong>X-Tenant-Id</strong> : pour chaque requête, le tenant sur lequel doit être exécutée la requête</li><li><strong>X-Qualifier</strong> et <strong>X-Version</strong> : pour une requête GET sur un <strong>Object</strong> pour récupérer un usage et une version particulière</li><li><strong>X-Callback</strong> (<strong>UNSUPPORTED</strong>) : pour les opérations de longue durée et donc asynchrones pour indiquer l&#39;URL de Callback</li><li><strong>X-Cursor: true</strong> et <strong>X-Cursor-Id</strong> (<strong>UNSUPPORTED</strong>) : pour la gestion d&#39;une requête en mode "curseur"</li><li><strong>X-Http-Method-Override</strong> : pour permettre aux clients HTTP ne supportant pas tous les modes de la RFC 7231 (GET/PUT/DELETE avec Body)</li></ul><h2 id="builderrequest">BuilderRequest</h2><p>Il existe des Helpers en Java pour construire les requêtes au bon format (hors headers) dans le package <strong>common-database-public.</strong></p><ul><li><strong>Request</strong><ul><li>Multiple : fr.gouv.vitam.common.database.builder.request.multiple avec MultipleDelete, MultipleInsert, MultipleSelect et MultipleUpdate (pour Units et Objects)</li><li>Single : fr.gouv.vitam.common.database.builder.request.single avec Select, Insert, Deleren Update (pour toutes les autres collections, en fonction des droits et possibilités)</li></ul></li><li><strong>Query</strong> qui sont des arguments d&#39;une Request<ul><li>fr.gouv.vitam.common.database.builder.query avec BooleanQuery, CompareQuery, ... et surtout le <strong>QueryHelper</strong> et le <strong>VitamFieldsHelper</strong> pour les champs protégés (commençant par un &#39;#&#39;)</li><li>dans le cas de update fr.gouv.vitam.common.database.builder.action avec AddAction, IncAction, ... et surtout le <strong>UpdateActionHelper*</strong></li></ul></li></ul><h2 id="collections-units-et-objects-uniquement">Collections Units et Objects uniquement</h2><ul><li><strong>$roots</strong>:<ul><li>Il s&#39;agit des racines (Units) à partir desquelles la requête est exprimée (toutes les recherches sur les Units et Objects sont en mode arborescente). Il correspond d&#39;une certaine façon à "<em>FROM x</em>" dans le langage SQL étendu au cas des arborescences.</li><li>Autres collections: ce champ n&#39;existe pas car il n&#39;y a pas d&#39;arborescence.</li></ul></li><li><strong>$query</strong>:<ul><li>$query peut contenir plusieurs Query, qui seront exécutées successivement (tableau de Query).</li><li>Une Query correspond à la formulation "<em>WHERE xxx</em>" dans le langage SQL, c&#39;est à dire les critères de sélection.</li><li>La succession est exécutée avec la signification suivante :<ul><li>Depuis $roots, chercher les Units/Objects tel que Query[1], conduisant à obtenir une liste d&#39;identifiants[1]</li><li>Cette liste d&#39;identifiants[1] devient le nouveau $roots, chercher les Units/Objects tel que Query[2], conduisant à obtenir une liste d&#39;identifiants[2]</li><li>Et ainsi de suite, la liste d&#39;identifiants[n] de la dernière Query[n] est la liste de résultat définitive sur laquelle l&#39;opération effective sera réalisée (SELECT, UPDATE, INSERT, DELETE) selon ce que l&#39;API supporte (GET, PUT, POST, DELETE).</li><li>Chaque query peut spécifier une profondeur où appliquer la recherche :<ul><li>$depth = 0 : sur les items spécifiés (filtre sur les mêmes items, à savoir pour la première requête ceux de $roots, pour les suivantes, le résultat de la requête précédente, c&#39;est à dire le nouveau $roots)</li><li>$depth &lt; 0 : sur les items parents (hors les items spécifiés dans le $roots courant)</li><li>$depth &gt; 0 : sur les items enfants (hors les items spécifiés dans le $roots courant)</li><li>par défaut, $depth vaut 1 (enfants immédiats dans le $roots courant)</li></ul></li><li>Le principe est résumé dans le graphe d&#39;états suivant :</li></ul></li></ul></li></ul><p><img src="multi-query-schema.png" alt="Graphe d&#39;états dans le cas Multi-queries"></p><ul><li>$source (<strong>UNSUPPORTED</strong>) permet de changer de collections entre deux query (unit ou object)</li></ul><ul><li><p><strong>$filter</strong>:</p><ul><li>Il permet de spécifier des filtres additionnels :<ul><li>Pour <em>GET</em> :<ul><li><strong>$limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut, maximum à 100000)</li><li><strong>$per_page</strong> (<strong>UNSUPPORTED</strong>) : le nombre maximum des premiers items retournés (limité à 100 par défaut, maximum à 100)</li><li><strong>$offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut, maximum à 100000)</li><li><strong>$orderby: { fieldname: 1, fieldname: -1 }</strong> : permet de définir un tri ascendant ou descendant<ul><li><strong>IMPORTANT</strong> : pour un champ analysé (plein texte), le tri n&#39;est pas lexicographique mais basé sur le score de correspondance</li></ul></li><li><strong>$hint: "nocache"</strong> (<strong>UNSUPPORTED</strong>) permet de spécifier si l&#39;on ne veut pas bénéficier du cache (cache actif par défaut)</li></ul></li><li>Pour <em>POST</em>, <em>PUT</em> et <em>DELETE</em><ul><li><strong>$mult</strong>: booléen où <em>true</em> signifie que l&#39;opération peut concerner de multiples items (par défaut, positionné à <em>false</em>)<ul><li><em>POST</em>: les pères sélectionnés peuvent être multiples</li><li><em>PUT</em>: la mise à jour peut concerner de multiples items simultanément</li><li><em>DELETE</em>: l&#39;effacement peut concerner plusieurs items</li></ul></li></ul></li></ul></li></ul></li><li><p><strong>$projection: { fieldname: 0, fieldname: 1 }</strong> uniquement pour <em>GET</em> (SELECT)</p><ul><li>Il permet de définir la forme du résultat que l&#39;on souhaite. Il correspond au "<em>SELECT *</em>" dans le langage SQL.</li><li>Une valeur à 1 réclame le champ.</li><li>Une valeur à 0 exclut le champ.</li><li>Si rien n&#39;est spécifié, cela correspond à tous les champs (équivalent à "SELECT *")</li></ul></li><li><strong>$data</strong>: uniquement pour <em>POST</em> (INSERT)<ul><li>Permet de définir le contenu à insérer dans la collection.</li></ul></li><li><strong>$action</strong>: uniquement pour <em>PUT</em> (UPDATE)<ul><li>Permet de définir le contenu à modifier dans la collection.</li></ul></li><li>Il n&#39;y a pas d&#39;argument complémentaire pour <em>DELETE</em> (DELETE) hormis la partie <em>$filter</em></li><li><strong>facetQuery</strong> (<strong>UNSUPPORTED</strong>): uniquement pour <em>GET</em> et optionnel<ul><li>Permet de définir des sous-requêtes (sous la forme d&#39;agrégats) correspondant généralement à des facettes dans l&#39;application Front-Office</li></ul></li></ul><h2 id="autres-collections">Autres collections</h2><ul><li><strong>$query</strong>:<ul><li>Il s&#39;agit d&#39;une <strong>Query</strong> unique.</li><li>Une Query correspond à la formulation "<em>WHERE xxx</em>" dans le langage SQL, c&#39;est à dire les critères de sélection.</li></ul></li><li><p><strong>$filter</strong>:</p><ul><li>Il permet de spécifier des filtres additionnels :<ul><li>Pour <em>GET</em> :<ul><li><strong>$limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut, maximum à 100000)</li><li><strong>$per_page</strong> (<strong>UNSUPPORTED</strong>): le nombre maximum des premiers items retournés (limité à 100 par défaut, maximum à 100)</li><li><strong>$offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut, maximum à 100000)</li><li><strong>$orderby: { fieldname: 1, fieldname: -1 }</strong> : permet de définir un tri ascendant ou descendant<ul><li><strong>IMPORTANT</strong> : pour un champ analysé (plein texte), le tri n&#39;est pas lexicographique mais basé sur le score de correspondance</li></ul></li><li><strong>$hint: "nocache"</strong> (<strong>UNSUPPORTED</strong>) permet de spécifier si l&#39;on ne veut pas bénéficier du cache (cache actif par défaut)</li></ul></li><li>Pour <em>POST</em>, <em>PUT</em> et <em>DELETE</em><ul><li><strong>$mult</strong> (<strong>UNSUPPORTED</strong>): booléen où <em>true</em> signifie que l&#39;opération peut concerner de multiples items (par défaut, positionné à <em>false</em>)<ul><li><em>POST</em>: les pères sélectionnés peuvent être multiples</li><li><em>PUT</em>: la mise à jour peut concerner de multiples items simultanément</li><li><em>DELETE</em>: l&#39;effacement peut concerner plusieurs items</li></ul></li></ul></li></ul></li></ul></li><li><p><strong>$projection: { fieldname: 0, fieldname: 1 }</strong> uniquement pour <em>GET</em></p><ul><li>Il permet de définir la forme du résultat que l&#39;on souhaite. Il correspond au "<em>SELECT *</em>" dans le langage SQL.</li><li>Une valeur à 1 réclame le champ.</li><li>Une valeur à 0 exclut le champ.</li><li>Si rien n&#39;est spécifié, cela correspond à tous les champs (équivalent à "SELECT *")</li></ul></li><li><strong>$data</strong>: uniquement pour <em>POST</em><ul><li>Permet de définir le contenu à insérer dans la collection.</li></ul></li><li><strong>$action</strong>: uniquement pour <em>PUT</em><ul><li>Permet de définir le contenu à modifier dans la collection.</li></ul></li><li><strong>facetQuery</strong> (<strong>UNSUPPORTED</strong>): uniquement pour <em>GET</em> et optionnel<ul><li>Permet de définir des sous-requêtes (sous la forme d&#39;agrégats) correspondant généralement à des facettes dans l&#39;application Front-Office</li></ul></li></ul><h2 id="query">Query</h2><p>Les commandes de la Query peuvent être :</p><table class="table"><thead><tr><th>Catégorie</th><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>Accès direct</td><td>$path</td><td>identifiants</td><td>Accès direct à un noeud</td></tr><tr><td>Booléens</td><td>$and, $or, $not</td><td>opérateurs</td><td>Combinaison logique d&#39;opérateurs</td></tr><tr><td>Comparaison</td><td>$eq, $ne, $lt, $lte, $gt, $gte</td><td>Champ et valeur</td><td>Comparaison de la valeur d&#39;un champ et la valeur passée en argument</td></tr><tr><td></td><td>$range</td><td>Champ, $lt, $lte, $gt, $gte et valeurs</td><td>Comparaison de la valeur d&#39;un champ avec l&#39;intervalle passé en argument</td></tr><tr><td>Existence</td><td>$exists, $missing, $isNull</td><td>Champ</td><td>Existence d&#39;un champ</td></tr><tr><td>Tableau</td><td>$in, $nin</td><td>Champ et valeurs</td><td>Présence de valeurs dans un tableau</td></tr><tr><td></td><td>$size</td><td>Champ et taille</td><td>Taille d&#39;un tableau</td></tr><tr><td></td><td>[n] <strong>UNSUPPORTED</strong></td><td>Position (n &gt;= 0)</td><td>Élément d&#39;un tableau</td></tr><tr><td>Textuel</td><td>$term, $wildcard</td><td>Champ, mot clef</td><td>Comparaison de champs mots-clefs à valeur exacte</td></tr><tr><td></td><td>$match, $match_all, $match_phrase, $match_phrase_prefix</td><td>Champ, phrase, $max_expansions (optionnel)</td><td>Recherche plein texte soit sur des mots, des phrases ou un préfixe de phrase</td></tr><tr><td></td><td>$regex</td><td>Champ, Expression régulière</td><td>Recherche via une expression régulière</td></tr><tr><td></td><td>$search</td><td>Champ, valeur</td><td>Recherche du type moteur de recherche</td></tr><tr><td></td><td>$flt, $mlt</td><td>Champ, valeur</td><td>Recherche « More Like This », soit par valeurs approchées</td></tr><tr><td>Géomatique</td><td>$geometry, $box, $polygon, $center</td><td>Positions</td><td>Définition d&#39;une position géographique</td></tr><tr><td><strong>UNSUPPORTED</strong></td><td>$geoWithin, $geoIntersects, $near</td><td>Une forme</td><td>Recherche par rapport à une forme géométrique</td></tr></tbody></table><p>Chaque Query dispose éventuellement d&#39;arguments additionnels pour gérer l&#39;arborescence :</p><table class="table"><thead><tr><th>Catégorie</th><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>Profondeur</td><td>$depth, $exactdepth</td><td>+ ou - n</td><td>Permet de spécifier si la query effectue une recherche vers les racines (-) ou vers les feuilles (+) et de quelle profondeur (n), avec une profondeur relative ($depth) ou exacte ($exactdepth). $depth = 0 signifie que l&#39;on ne change pas de profondeur (mêmes objets concernés), $depth &gt; 0 indique une recherche vers les fils uniquement, $depth &lt; 0 indique une recherche vers les pères uniquements (cf. schéma sur les multiples queries)</td></tr><tr><td>Collection</td><td>$source</td><td>units / objects</td><td>Permet dans une succession de Query de changer de collection. Attention, la dernière Query doit respecter la collection associée à la requête</td></tr></tbody></table><h2 id="actions">Actions</h2><p>Dans la commande PUT (Update) :</p><table class="table"><thead><tr><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>nom de champ, valeur</td><td>change la valeur du champ, peut être une liste de valeur</td></tr><tr><td>$unset</td><td>liste de noms de champ</td><td>enlève le champ</td></tr><tr><td>$min, $max</td><td>nom de champ, valeur</td><td>change la valeur du champ à la valeur minimale/maximale si elle est supérieure/inférieure à la valeur précisée</td></tr><tr><td>$inc</td><td>nom de champ, valeur</td><td>incrémente/décremente la valeur du champ selon la valeur indiquée</td></tr><tr><td>$rename</td><td>nom de champ, nouveau nom</td><td>change le nom du champ</td></tr><tr><td>$push, $pull</td><td>nom de champ, liste de valeurs</td><td>ajoute en fin ou retire les éléments de la liste du champ (qui est un tableau)</td></tr><tr><td>$add</td><td>nom de champ, liste de valeurs</td><td>ajoute les éléments de la liste du champ (qui est un "set" avec unicité des valeurs)</td></tr><tr><td>$pop</td><td>nom de champ, -1 ou 1</td><td>retire le premier (-1) ou le dernier (1) de la liste du champ</td></tr></tbody></table><h2 id="facetquery-unsupported-">FacetQuery <strong>UNSUPPORTED</strong></h2><p>Lors d&#39;une commande GET (Select), les possibilités envisagées sont :</p><table class="table"><thead><tr><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>$cardinality</td><td>nom de champ</td><td>indique le nombre de valeurs différentes pour ce champ</td></tr><tr><td>$avg, $max, $min, $stats</td><td>nom de champ numérique</td><td>indique la valeur moyenne, maximale, minimale ou l&#39;ensemble des statistiques du champ</td></tr><tr><td>$percentile</td><td>nom de champ numérique, valeurs optionnelles</td><td>indique les percentiles de répartition des valeurs du champ, éventuellement selon la répartition des valeurs indiquées</td></tr><tr><td>$date_histogram</td><td>nom de champ, intervalle</td><td>indique la répartition selon les dates selon un intervalle définie sous la forme "nX" où n est un nombre et X une lettre parmi y (year), M (month), d(day), h(hour), m(minute), s(seconde) ou encore de la forme "year", "quarter", "month", "week", "day", "hour", "minute" ou "second"</td></tr><tr><td>$date_range</td><td>nom de champ, format, ranges</td><td>indique la répartition selon les dates selon un intervalle défini "ranges" : [ { "to": "now-10M/M" }, { "from": "now-10M/M" } ] et "format" : "MM-yyyy"</td></tr><tr><td>$range</td><td>nom de champ, intervalles</td><td>indique la répartition selon des valeurs numériques par la forme "ranges" : [ { "to": 50 }, { "from": 50, "to": 100 }, { "from": 100 } ]</td></tr><tr><td>$terms</td><td>nom de champ</td><td>indique la répartition selon des valeurs textuelles du champ</td></tr><tr><td>$significant_terms</td><td>nom de champ principal, nom de champ secondaire</td><td>indique la répartition selon des valeurs textuelles du champ principal et affiche pour chaque les termes significatifs pour le second champ</td></tr></tbody></table><h2 id="exemples">Exemples</h2><h3 id="get">GET</h3><ul><li>La query sélectionne les Units qui vont être retournées.</li><li>Le contenu est :<ul><li>Pour <strong>Units/Objects</strong> :<ul><li><strong>$roots</strong></li><li><strong>$query</strong></li><li><strong>$filter</strong></li><li><strong>$projection: { fieldname: 0, fieldname: 1 }</strong></li><li><strong>facetQuery</strong> optionnel (<strong>UNSUPPORTED</strong>)</li></ul></li><li>Pour les autres collections :<ul><li><strong>$query</strong></li><li><strong>$filter</strong></li><li><strong>$projection: { fieldname: 0, fieldname: 1 }</strong></li><li><strong>facetQuery</strong> optionnel (<strong>UNSUPPORTED</strong>)</li></ul></li></ul></li></ul><pre><code class="lang-json">  {
+    "$roots": [ "id0" ],
+    "$query": [
+      { "$match": { "Title": "titre" }, "$depth": 4 }
+    ],
+    "$filter": { "$limit": 100 },
+    "$projection": { "$fields": { "#id": 1, "Title": 1, "#type": 1, "#parents": 1, "#object": 1 } },
+    "$facetQuery": { "$terms": "#object.#type" } // (**UNSUPPORTED**)
+  }
+</code></pre><h3 id="post">POST</h3><ul><li>La query sélectionne le ou les Units parents de celle qui va être créée.</li><li>Le contenu est :<ul><li>Pour <strong>Units/Objects</strong> :<ul><li><strong>$roots</strong></li><li><strong>$query</strong></li><li><strong>$filter</strong></li><li><strong>$data</strong></li></ul></li><li>Pour les autres collections :<ul><li><strong>$query</strong></li><li><strong>$filter</strong></li><li><strong>$data</strong></li></ul></li></ul></li></ul><pre><code class="lang-json">  {
+    "$roots": [ "id0" ],
+    "$query": [
+      { "$match": { "Title": "titre" }, "$depth": 4 }
+    ],
+    "$filter": {  },
+    "$data": { "Title": "mytitle", "description": "my description", "value": 1 }
+  }
+</code></pre><h3 id="put">PUT</h3><ul><li>La query sélectionne les Units sur lesquelles l&#39;update va être réalisé.</li><li>Le contenu est :<ul><li>Pour <strong>Units/Objects</strong> :<ul><li><strong>$roots</strong></li><li><strong>$query</strong></li><li><strong>$filter</strong></li><li><strong>$action</strong></li></ul></li><li>Pour les autres collections :<ul><li><strong>$query</strong></li><li><strong>$filter</strong></li><li><strong>$action</strong></li></ul></li></ul></li></ul><pre><code class="lang-json">  {
+    "$roots": [ "id0" ],
+    "$query": [
+      { "$eq": { "Title": "mytitle" }, "$depth": 5 }
+    ],
+    "$filter": {  },
+    "$action": [{ "$inc": { "value": 10 } }]
+  }
+</code></pre><h1 id="response">Response</h1><p>Une réponse est composée de plusieurs parties :</p><ul><li><strong>$hits</strong>:<ul><li><strong>limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut)</li><li><strong>offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li><strong>total</strong>: le nombre total potentiel (estimation) des résultats possibles</li><li><strong>size</strong>: le nombre réel d&#39;items retournés</li><li><strong>time_out</strong>: Vrai si la requête a durée trop longtemps et donc avec un résultat potentiellement partiel</li></ul></li><li><strong>$context</strong>: rapelle la requête exprimée</li><li><strong>$results</strong>: contient le résultat de la requête sous forme d&#39;une liste d&#39;items</li><li><strong>$facets</strong>: (<strong>UNSUPPORTED</strong>) contient le résultat de la partie $facetQuery.</li></ul><p>Des champs sont protégés dans les requêtes :</p><ul><li>Il est interdit d&#39;exprimer un champ qui démarre par un <em>&#39;_&#39;</em></li><li>La plupart de ces champs protégés sont interdits à la modification. Ils ne sont utilisables que dans la partie <em>$projection</em> ou <em>$query</em> mais pas dans la partie <em>$data</em></li><li>Communs Units et Objects<ul><li><strong>#id</strong> est l&#39;identifiant de l&#39;item</li><li><strong>#all</strong> est l&#39;équivalent de "SELECT *"</li><li><strong>#unitups</strong> est la liste des Units parents</li><li><strong>#tenant</strong> est le tenant associé</li><li><strong>#operations</strong> est la liste des opérations qui ont opéré sur cet élément</li><li><strong>#originating_agency</strong> est l&#39;OriginatingAgency su SIP d&#39;origine</li><li><strong>#originating_agencies</strong> est l&#39;ensemble des OriginatingAgencies issues du SIP et des rattachements (héritage)</li><li><strong>#storage</strong> est l&#39;état de stockage</li><li><strong>#score</strong> (<strong>UNSUPORTED</strong>) contiendra en cas de requête avec plein texte le score de pertinence</li></ul></li><li>Spécifiques pour les Units<ul><li><strong>#unittype</strong> est la typologie du Unit (Arbre HOLLDING_UNIT, Plan FILING_UNIT ou ArchiveUnit INGEST)</li><li><strong>#nbunits</strong> est le nombre de fils immédiats à un Unit donné</li><li><strong>#object</strong> est l&#39;objet associé à un Unit (s&#39;il existe)</li><li><strong>#type</strong> est le type d&#39;item (Document Type)</li><li><strong>#allunitups</strong> est l&#39;ensemble des Units parents (depuis les racines)</li><li><strong>#management</strong> est la partie règles de gestion associées au Unit (ce champ est autorisée à être modifiée et donc dans <em>$data</em>)</li></ul></li><li>Spécifiques pour les Objects<ul><li><strong>#type</strong> est le type d&#39;item (Type d&#39;Objet : Document, Audio, Video, Image, Text, ...)</li><li><strong>#nbobjects</strong> est le nombre d&#39;objets binaires (usages/version) associé à cet objet</li><li><strong>#qualifiers</strong> est la liste des qualifiers disponibles<ul><li>Les "qualifiers" disponibles pour les objets :<ul><li><strong>PhysicalMaster</strong> pour original physique</li><li><strong>BinaryMaster</strong> pour conservation</li><li><strong>Dissemination</strong> pour la version de diffusion compatible avec un accès rapide et via navigateur</li><li><strong>Thumbnail</strong> pour les vignettes pour les affichages en qualité très réduite et très rapide en "prévue"</li><li><strong>TextContent</strong> pour la partie native texte (ASCII UTF8)</li></ul></li><li>Un raccourci exite : <strong>#usage</strong></li></ul></li><li><strong>#size</strong> est la taille d&#39;un objet</li><li><strong>#format</strong> est le format (PUID) d&#39;un objet</li></ul></li></ul><p>La réponse dispose également de champs dans le <em>Header</em> :</p><ul><li><strong>FullApiVersion</strong> : (<strong>UNSUPPORTED</strong>) retourne le numéro précis de la version de l&#39;API en cours d&#39;exécution</li><li><strong>X-Request-Id</strong> : pour chaque requête, un unique identifiant est fourni en réponse</li><li><strong>X-Tenant-Id</strong> : pour chaque requête, le tenant sur lequel a été exécutée l&#39;opération demandée</li><li><strong>X-Application-Id</strong> : (<strong>UNSUPPORTED</strong>) pour conserver la session (valeur non signifiante) dans les journaux et logs associés à l&#39;opération demandée</li><li><strong>X-Qualifier</strong> et <strong>X-Version</strong> : pour une requête GET sur un <strong>Object</strong> pour indiquer un usage et une version particulière</li><li><strong>X-Callback</strong> (<strong>UNSUPPORTED</strong>): pour les opérations de longue durée et donc asynchrones pour indiquer l&#39;URL de Callback</li><li>(<strong>UNSUPPORTED</strong>) Si <strong>X-Cursor: true</strong> a été spécifié et si la réponse nécessite l&#39;usage d&#39;un curseur (nombre de réponses &gt; <em>$per_page</em>), le SAE retourne <strong>X-Cursor-Id</strong> et <strong>X-Cursor-Timeout</strong> (date de fin de validité du curseur) : pour la gestion d&#39;une requête en mode "curseur" par le client</li></ul><h2 id="exemples">Exemples</h2><h3 id="r-ponse-pour-units">Réponse pour Units</h3><pre><code class="lang-json">  {
+    "$hits": {
+      "total": 3,
+      "size": 3,
+      "offset": 0,
+      "limit": 100,
+      "time_out": false
+    },
+    "$context": {
+      "$roots": [ "id0" ],
+      "$query": [
+        { "$match": { "Title": "titre" }, "$depth": 4 }
+      ],
+      "$filter": { "$limit": 100 },
+      "$projection": { "$fields": { "#id": 1, "Title": 1, "#type": 1, "#unitups": 1, "#object": 1 } },
+      "$facetQuery": { "$terms": "#object.#type" }
+    },
+    "$results": [
+      {
+        "#id": "id1", "Title": "titre 1", "#type": "DemandeCongés",
+        "#unitups": [ { "#id": "id4", "#type": "DossierCongés" } ],
+        "#object": { "#id": "id101", "#type": "Document",
+          "#qualifiers": { "BinaryMaster": 5, "Dissemination": 1, "Thumbnail": 1, "TextContent": 1 } }
+      },
+      {
+        "#id": "id2", "Title": "titre 2", "#type": "DemandeCongés",
+        "#unitups": [ { "#id": "id4", "#type": "DossierCongés" } ],
+        "#object": { "#id": "id102", "#type": "Document",
+          "#qualifiers": { "BinaryMaster": 5, "Dissemination": 1, "Thumbnail": 1, "TextContent": 1 } }
+      },
+      {
+        "#id": "id3", "Title": "titre 3", "#type": "DemandeCongés",
+        "#unitups": [ { "#id": "id4", "#type": "DossierCongés" } ],
+        "#object": { "#id": "id103", "#type": "Image",
+          "#qualifiers": { "BinaryMaster": 3, "Dissemination": 1, "Thumbnail": 1, "TextContent": 1 } }
+      }
+    ],
+    "$facet": { //**UNSUPPORTED**
+      "#object.#type": { "Document": 2, "Image": 1 }
+    }
+  }
+</code></pre><h3 id="r-ponse-pour-objects">Réponse pour Objects</h3><pre><code class="lang-json">  {
+    "$hits": {
+      "total": 3,
+      "size": 3,
+      "offset": 0,
+      "limit": 100,
+      "time_out": false
+    },
+    "$context": {
+      "$roots": [ "id0" ],
+      "$query": [
+        { "$match": { "Title": "titre" }, "$depth": 4, "$source": "units" },
+        { "$eq": { "#type": "Document" }, "$source": "objects" }
+      ],
+      "$filter": { "$limit": 100 },
+      "$projection": { "$fields": { "#id": 1, "#qualifiers": 1, "#type": 1, "#unitups": 1 } }
+    },
+    "$results": [
+      {
+        "#id": "id101", "#type": "Document",
+        "#qualifiers": { "BinaryMaster": 5, "Dissemination": 1, "Thumbnail": 1, "TextContent": 1 },
+        "#unitups": [ { "#id": "id1", "#type": "DemandeCongés" } ]
+      },
+      {
+        "#id": "id102", "#type": "Document",
+        "#qualifiers": { "BinaryMaster": 5, "Dissemination": 1, "Thumbnail": 1, "TextContent": 1 },
+        "#unitups": [ { "#id": "id2", "#type": "DemandeCongés" } ]
+      },
+      {
+        "#id": "id103", "#type": "Document",
+        "#qualifiers": { "BinaryMaster": 3, "Dissemination": 1, "Thumbnail": 1, "TextContent": 1 },
+        "#unitups": [ { "#id": "id3", "#type": "DemandeCongés" } ]
+      }
+    ]
+  }
+</code></pre><h2 id="r-ponse-en-cas-d-erreurs">Réponse en cas d&#39;erreurs</h2><p>En cas d&#39;erreur, Vitam retourne un message d&#39;erreur dont le format est :</p><ul><li><strong>httpCode</strong> : code erreur Http</li><li><strong>code</strong> : code erreur Vitam</li><li><strong>context</strong> : contexte de l&#39;erreur</li><li><strong>state</strong> : statut en format de message court sous forme de code</li><li><strong>message</strong> : statut en format de message court</li><li><strong>description</strong> : statut détaillé</li><li><strong>errors</strong> : le cas échéant des sous-erreurs associées avec le même format</li></ul><h3 id="exemple-de-retour-en-erreur">Exemple de retour en erreur</h3><pre><code class="lang-json">  {
+    "httpCode": 404,
+    "code" : "codeVitam1",
+    "context": "ingest",
+    "state": "Item_Not_Found",
+    "message": "Item is not found",
+    "description": "Operation on item xxx cannot be done since item is not found in &lt;&lt;resourcePathName&gt;&gt;",
+    "errors": [
+      { "httpCode": 415,
+        "code" : "codevitam2",
+        "context": "ingest",
+        "state": "Unsupported_Media_Type",
+        "message": "Unsupported media type detected",
+        "description": "File xxx has an unsupported media type yyy" },
+      { "httpCode": 412,
+        "code": "codevitam3",
+        "context": "ingest",
+        "state": "Precondition_Failed",
+        "message": "Precondition in error",
+        "description": "Operation on file xxx cannot continue since precondition is in error" }
+    ]
+  }
+</code></pre><h2 id="cas-particulier-head-pour-test-d-existence-et-validation-unsupported-">Cas particulier : HEAD pour test d&#39;existence et validation (<strong>UNSUPPORTED</strong>)</h2><p>La commande <em>HEAD</em> permet de savoir pour un item donné s&#39;il existe (retour <strong>204</strong>) ou pas (retour <strong>404</strong>).</p><p>(<strong>UNSUPPORTED</strong>) Si dans le Header est ajoutée la commande <strong>X-Valid: true</strong>, la commande <em>HEAD</em> vérifie si l&#39;item (Unit ou Object) existe et s&#39;il est conforme (audit de l&#39;item sur la base de son empreinte). S&#39;il n&#39;est pas conforme mais qu&#39;il existe, le retour est <strong>417</strong> (Expectation Failed).</p><h3 id="exemple_dsl_vitam"><a href="#exemple_dsl_vitam">Exemple DSL Vitam</a></h3><p>Cette partie va essayer de montrer quelques exemples d&#39;usages du DSL dans différentes conditions.</p><h1 id="collection-units">Collection Units</h1><p><strong>Points particuliers sur les end points</strong></p><ul><li><p><strong>/units</strong> : il s&#39;agit ici de requêter un ensemble d&#39;archives (Units) sur leurs métadonnées. Bien que non encore supportée, il sera possible de réaliser des UPDATE massifs sur cet end-point.</p><ul><li><p><strong>$root</strong> peut être vide ou renseigné : il sera contrôlé via les contrats d&#39;accès associés à l&#39;application.</p><ul><li>S&#39;il est vide, il prendra les valeurs renseignées par les contrats.</li><li>S&#39;il contient des identifiants, il sera vérifié que ces identifiants sont bien soient ceux des contrats, soient fils de ceux spécifiés dans ces contrats.</li></ul></li><li><p>Le résultat doit être une liste de Units (vide ou pas)</p></li></ul></li><li><p><strong>/units/id</strong> : il s&#39;agit ici de requêter depuis un Unit donné. Le résultat peut être multiple selon les query spécifiées (et notamment le <em>$depth</em>).</p><ul><li><p><strong>$roots</strong> est implicite à la valeur de id (si une valeur est spécifiée, elle sera ignorée)</p><ul><li>Cet Id sera toujours contrôlé par rapport aux contrats d&#39;accès associés à l&#39;application.</li></ul></li><li><p>Le résultat doit être une liste de Units (vide ou pas)</p></li></ul></li><li><strong>/units/id/object</strong> : il s&#39;agit ici d&#39;accéder, s&#39;il existe, à l&#39;objet (ObjectGroup) associé à cet Unit.<ul><li>Les query peuvent remonter les métadonnées (Header <strong>Accept: application/json</strong>)</li><li>Les query peuvent remonter un des objets binaires (Headers <strong>Accept: application/octet-stream</strong> et <strong>X-Qualifier</strong> et <strong>X-Version</strong>)</li><li>Le résultat doit être une liste de Objects (pour application/json) ou d&#39;un seul objet binaire (pour application/octet-stream)</li></ul></li></ul><h1 id="collection-objects">Collection Objects</h1><p><strong>Points particuliers sur les end points</strong> <strong>Cette collection est DEPRECATED et va disparaître car elle est contraire aux règles d&#39;accès aux objets à partir d&#39;une ArchiveUnit (/units/id/object).</strong></p><ul><li><p><strong>/objects</strong> : il s&#39;agit ici de requêter un ensemble d&#39;objets sur leurs métadonnées uniquement.</p><ul><li><p><strong>$root</strong> peut être vide ou renseigné : il sera contrôlé via les contrats d&#39;accès associés à l&#39;application et ne concerne que des Id de Units.</p><ul><li>S&#39;il est vide, il prendra les valeurs renseignées par les contrats (Id de Units parentes).</li><li>S&#39;il contient des identifiants, il sera vérifié que ces identifiants sont bien soient ceux des contrats, soient fils de ceux spécifiés dans ces contrats (toujours des Id de Units).</li></ul></li><li><p>Le résultat doit être une liste de Objects (vide ou pas)</p></li><li>Cette fonction est surtout utile pour des données statistiques sur les objets dans leur ensemble.</li></ul></li><li><p><strong>/objects/id</strong> : <strong>(susceptible d&#39;être dépréciée dans une prochaine version)</strong> il s&#39;agit ici d&#39;accéder à un objet (ObjectGroup).</p><ul><li>Les query peuvent remonter les métadonnées (Header <strong>Accept: application/json</strong>)</li><li>Les query peuvent remonter un des objets binaires (Headers <strong>Accept: application/octet-stream</strong> et <strong>X-Qualifier</strong> et <strong>X-Version</strong>)</li><li>Le résultat doit être une liste de Objects (pour application/json) ou d&#39;un seul objet binaire (pour application/octet-stream)</li></ul></li></ul><h1 id="exemples-d-usages-du-dsl">Exemples d&#39;usages du DSL</h1><h2 id="partie-query">Partie $query</h2><h3 id="rappel-sur-l-usage-de-depth">Rappel sur l&#39;usage de $depth</h3><ul><li>$query peut contenir plusieurs Query, qui seront exécutées successivement (tableau de Query).</li><li>Une Query correspond à la formulation "<em>WHERE xxx</em>" dans le langage SQL, c&#39;est à dire les critères de sélection.</li><li>La succession est exécutée avec la signification suivante :<ul><li>Depuis <em>$roots</em>, chercher les Units/Objects tel que Query[1], conduisant à obtenir une liste d&#39;identifiants[1]</li><li>Cette liste d&#39;identifiants[1] devient le nouveau <em>$roots</em>, chercher les Units/Objects tel que Query[2], conduisant à obtenir une liste d&#39;identifiants[2]</li><li>Et ainsi de suite, la liste d&#39;identifiants[n] de la dernière Query[n] est la liste de résultat définitive sur laquelle l&#39;opération effective sera réalisée (SELECT, UPDATE, INSERT, DELETE) selon ce que l&#39;API supporte (GET, PUT, POST, DELETE).</li><li>Chaque query peut spécifier une profondeur où appliquer la recherche :<ul><li><em>$depth = 0</em> : sur les items spécifiés (filtre sur les mêmes items, à savoir pour la première requête ceux de $roots, pour les suivantes, le résultat de la requête précédente, c&#39;est à dire le nouveau $roots)</li><li><em>$depth &lt; 0</em> : sur les items parents (hors les items spécifiés dans le $roots courant)</li><li><em>$depth &gt; 0</em> : sur les items enfants (hors les items spécifiés dans le $roots courant)</li><li><strong>par défaut, $depth vaut 1</strong> (enfants immédiats dans le $roots courant)</li></ul></li><li>Le principe est résumé dans le graphe d&#39;états suivant :</li></ul></li></ul><p><img src="multi-query-schema.png" alt="Graphe d&#39;états dans le cas Multi-queries"></p><ul><li>$source (<strong>UNSUPPORTED</strong>) permet de changer de collections entre deux query (unit ou object)</li></ul><h3 id="d-tails-sur-la-partie-filter-orderby">Détails sur la partie $filter $orderby</h3><p>Il y a une différence entre un tri sur un champ non analysé (date, nombre, code) et un champ analysé :</p><ul><li>Pour un champ non analysé : l&#39;ordre est lexicographique pour un texte, l&#39;ordre est naturel pour un champ date ou nombre</li><li><strong>IMPORTANT</strong> : Pour un champ analysé (plein texte), le tri n&#39;est pas lexicographique mais basé sur le score de correspondance</li><li>l&#39;ordre de déclaration des tris est respectés dans la réponse</li></ul><h3 id="d-tails-sur-chaque-commande-de-la-partie-query">Détails sur chaque commande de la partie $query</h3><ul><li>$path : [ id1, id2, ... ]<ul><li>Accès direct à un ou plusieurs noeuds</li><li><strong>$path : [ "id1", "id2" ]</strong> est l&#39;équivalent implicite de <em>$in : { #id : [ id1, id2 ] }</em> mais sur le champ #id uniquement</li><li><strong>Important</strong> : cette commande n&#39;est autorisée qu&#39;en première position. Elle implique une vérification que les <em>$roots</em> sont compatibles avec ces Ids qui deviennent les nouveaux $roots implicitement</li></ul></li></ul><pre><code class="lang-json">{ "$path" : [ "id1", "id2" ] }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = path("id1", "id2");
+</code></pre><ul><li>$and, $or, $not<ul><li>Combinaison logique d&#39;opérateurs</li><li><strong>$and : [ expression1, expression2, ... ]</strong> où chaque expression est une commande et chaque commande doit être vérifiée</li><li><strong>$or</strong> où chaque expression est une commande et au moins une commande doit être vérifiée</li><li><strong>$not</strong> où chaque expression est une commande et aucune ne doit être vérifiée</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$and" : [ { "$gt" : { "StartDate" : "2014-03-25" } }, { "$lte" : { "StartDate" : "2014-04-25" } } ] }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = and().add(gt("StartDate", dateFormat.parse("2014-03-25")), lte("StartDate", dateFormat.parse("2014-04-25"));
+</code></pre><p>pour toute StartDate plus grande que le 25 mars 2014 et inférieure ou égale au 25 avril 2014 (équivalent à un $range dans ce cas)</p><ul><li><p>$eq, $ne, $lt, $lte, $gt, $gte static Comparaison de la valeur d&#39;un champ et la valeur passée en argument</p><ul><li><strong>$gt : { name : value }</strong> où <em>name</em> est le nom du champ et <em>value</em> la valeur avec laquelle on compare le champ</li><li>$eq : égalité, marche également avec les champs non analysés (codes). <strong>Attention</strong> : pour les champs analysés, il s&#39;agit d&#39;un $match_all.</li><li>$ne : le champ n&#39;a pas la valeur dournie</li><li>$lt, $lte : le champs a une valeur inférieure ou égale avec la valeur fournie</li><li>$gt, $gte : le champs a une valeur supérieure ou égale avec la valeur fournie</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$gt" : { "StartDate" : "2014-03-25" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = gt("StartDate", dateFormat.parse("2014-03-25"));
+</code></pre><p>pour toute StartDate plus grande que le 25 mars 2014</p><ul><li>$range<ul><li>Comparaison de la valeur d&#39;un champ avec l&#39;intervalle passé en argument</li><li><strong>$range : { name : { $gte : value, $lte : value } }</strong> est un raccourci pour chercher sur un seul champ nommé <em>name</em> les Units dont la valeur est comprise entre la partie <em>$gt</em> ou <em>$gte</em> et la partie <em>$lt</em> ou <em>$lte</em></li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$range" : { "StartDate" : { "$gte" : "2014-03-25", "$lte" : "2014-04-25" } } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = range("StartDate", dateFormat.parse("2014-03-25"), true, dateFormat.parse("2014-04-25"), true);
+</code></pre><p>pour toute StartDate plus grande ou égale au 25 mars 2014 mais inférieure ou égale au 25 avril 2014</p><ul><li>$exists, $missing, $isNull<ul><li>Existence d un champ</li><li><strong>$exists : name</strong> où <em>name</em> est le nom du champ qui doit exister</li><li><strong>$missing</strong> : le champ ne doit pas exister</li><li><strong>$isNull</strong> : le champ existe mais vide</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$exists" : "StartDate" }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = exists("StartDate");
+</code></pre><p>pour tout Unit contenant le champ StartDate</p><ul><li>$in, $nin<ul><li>Présence de valeurs dans un champ (ce champ peut être un tableau ou un simple champ avec une seule valeur)</li><li><strong>$in : { name : [ value1, value2, ... ] }</strong> où <em>name</em> est le nom du tableau et le tableau de valeurs ce que peut contenir le tableau. Il suffit d une seule valeur présente dans le tableau pour qu il soit sélectionné.<ul><li><strong>Attention</strong> : pour les champs analysés, il s&#39;agit d&#39;un $match multiple via $or.</li></ul></li><li><strong>$nin</strong> est l opérateur inverse, le tableau ne doit contenir aucune des valeurs spécifiées</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$in" : { "#unitups" : ["id1", "id2"] } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.VitamFieldsHelper.*;
+static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = in(unitups(), "id1", "id2");
+</code></pre><p>pour rechercher les Units qui ont pour parents immédiats au moins l un des deux Id spécifiés</p><ul><li>$size<ul><li>Taille d un tableau</li><li><strong>$size : { name : length }</strong> où <em>name</em> est le nom du tableau et <em>length</em> la taille attendue (égalité)</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$size" : { "#unitups" : 2 } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.VitamFieldsHelper.*;
+static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = size(unitups(), 2);
+</code></pre><p>pour rechercher les Units qui ont 2 parents immédiats exactement</p><ul><li>$term<ul><li>Comparaison de champs avec une valeur exacte (non analysé)#type</li><li><strong>$term : { name : term, name : term }</strong> où l on fait une recherche exacte sur les différents champs indiqués</li><li><strong>Attention</strong> : pour les champs analysés, il s&#39;agit d&#39;un $match_all.</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$term" : { "#id" : "guid" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.VitamFieldsHelper.*;
+static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = term(id(), guid);
+</code></pre><p>qui cherchera le Unit ayant pour Id celui précisé (équivalent dans ce cas à $eq) (non analysé, donc pour les codes uniquement)</p><ul><li>$wildcard<ul><li>Comparaison de champs mots-clefs à valeur</li><li><strong>$wildcard : { name : term }</strong> où l on fait une recherche exacte sur le champ indiqué mais avec une possibilité d introduire un &#39;*&#39; dans le contenu</li><li><strong>NOTA BENE</strong> : cette requête est coûteuse.</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$wildcard" : { "#type" : "FAC*01" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.VitamFieldsHelper.*;
+static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = wildcard(type(), "FAC*01");
+</code></pre><p>qui cherchera les Units qui contiennent dans le type (Document Type) une valeur commençant par FAC et terminant par 01 (non analysé, donc pour les codes uniquement)</p><ul><li>$match, $match_all, $match_phrase, $match_phrase_prefix<ul><li>Recherche plein texte soit sur des mots, des phrases ou un préfixe de phrase</li><li><strong>$match : { name : words, $max_expansions : n }</strong> où <em>name</em> est le nom du champ, <em>words</em> les mots que l&#39;on cherche, dans n&#39;importe quel ordre, et optionnellement <em>n</em> indiquant une extension des mots recherchés ("seul" avec n=5 permet de trouver "seulement")</li><li><strong>$match_all : { name : words, $max_expansions : n }</strong> où <em>name</em> est le nom du champ, <em>words</em> les mots que l&#39;on cherche (tous), dans n&#39;importe quel ordre, et optionnellement <em>n</em> indiquant une extension des mots recherchés ("seul" avec n=5 permet de trouver "seulement")</li><li><strong>$match_phrase</strong> permet de définir une phrase (<em>words</em> constitue une phrase à trouver exactement dans cet ordre)</li><li><strong>$match_phrase_prefix</strong> permet de définir que le champ <em>name</em> doit commencer par cette phrase</li><li><strong>NOTA BENE</strong> : dans le cas de champs non analysés, cette requête est remplacé par une requête de type "prefix".</li><li>Exemple 1 :</li></ul></li></ul><pre><code class="lang-json">{ "$match" : { "Title" : "Napoléon Waterloo" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = match("Title", "Napoléon Waterloo");
+</code></pre><p>qui cherchera les Units qui contiennent les deux mots dans n importe quel ordre dans le titre</p><ul><li>Exemple 2 :</li></ul><pre><code class="lang-json">{ "$match_phrase" : { "Description" : "le petit chat est mort" }}
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = matchPhrase("Description", "le petit chat est mort");
+</code></pre><p>qui cherchera les Units qui contiennent la phrase n importe où dans la description</p><ul><li>$regex<ul><li>Recherche via une expression régulière</li><li><strong>NOTA BENE</strong> : cette requête est très lenbte et très coûteuse.</li><li><strong>$regex : { name : regex }</strong> où <em>name</em> est le nom du champ et <em>regex</em> l expression au format expression régulière du contenu du champ</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$regex" : { "Title" : "Napoléon.\* [Waterloo | Leipzig]" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = regex("Title", "Napoléon.\* [Waterloo | Leipzig]");
+</code></pre><p>qui cherchera les Units qui contiennent exactement Napoléon suivi de n importe quoi mais se terminant sur un choix parmi Waterloo ou Leipzig dans le titre</p><ul><li>$search<ul><li>Recherche du type moteur de recherche</li><li><strong>$search : { name : searchParameter }</strong> où <em>name</em> est le nom du champ, <em>searchParameter</em> est une expression de recherche</li><li>L expression est formulée avec les opérateurs suivants :<ul><li><strong>+</strong> signifie AND</li><li><strong>|</strong> signifie OR</li><li><strong>-</strong> empêche le mot qui lui est accollé (tout sauf ce mot)</li><li><strong>\"</strong> permet d exprimer un ensemble de mots en une phrase (l ordre des mots est impératif dans la recherche)</li><li><strong>*</strong> A la fin d&#39;un mot signifie que l on recherche tout ce qui contient un mot commençant par</li><li><strong>(</strong> et <strong>)</strong> signifie une précédence dans les opérateurs (priorisation des recherches AND, OR)</li><li><strong>~N</strong> après un mot est proche du <strong>*</strong> mais en limitant le nombre de caractères dans la complétion (fuzziness)</li><li><strong>~N</strong> après une phrase (encadré par <strong>"</strong>) autorise des "trous" dans la phrase</li></ul></li><li><strong>Attention</strong> : pour les champs non analysés, il s&#39;agit d&#39;un $term multivalué (choix parmi plusieurs valeurs).</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$search" : { "Title" : "\"oeufs cuits\" +(tomate | patate) -frite" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = search("Title", "\"oeufs cuits\" +(tomate | patate) -frite");
+</code></pre><p>pour rechercher les Units qui ont dans le titre la phrase "oeufs cuits" et au moins un parmi tomate ou patate, mais pas frite</p><ul><li><p>$flt, $mlt</p><ul><li>Recherche « More Like This », soit par valeurs approchées</li><li><p><strong>$mlt : { $fields : [ name1, name2 ], $like : like_text }</strong> où <em>name1</em>, <em>name2</em>, ... sont les noms des champs concernés, et <em>like_text</em> un champ texte avec lequel on va comparer les différents champs fournies pour trouver des éléments "ressemblant" à la valeur fournie (il s&#39;agit d&#39;une recherche permettant de chercher quelque chose qui ressemble à la valeur fournie, pas l&#39;égalité, en mode plein texte)</p><ul><li>$mlt : More like this, la méthode recommandée</li><li>$fmt : Fuzzy like this, une autre que fournie l&#39;indexeur mais pouvant donner plus de faux positif et qui est un assemblage de $match avec une combinaison "$or"</li></ul></li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$mlt" : { "$fields" : ["Title", "Description"], "$like" : "Il était une fois" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+Query query = mlt("Il était une fois", "Title", "Description");
+</code></pre><p>pour chercher les Units qui ont dans le titre ou la description un contenu qui s&#39;approche de la phrase spécifiée dans $like.</p><h2 id="partie-action-dans-la-fonction-update">Partie $action dans la fonction Update</h2><ul><li>$set<ul><li>change la valeur des champs</li><li><strong>$set : { name1 : value1, name2 : value2, ... }</strong> où <em>nameX</em> est le nom des champs à changer avec la valeur indiquée dans <em>valueX</em></li><li><strong>NOTA BENE</strong>: $set admet maintenant une liste de valeur pour un champ de type tableau.</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$set" : { "Title" : "Mon nouveau titre", "Description" : "Ma nouvelle description" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = set("Title", "Mon nouveau titre").add("Description", "Ma nouvelle description");
+</code></pre><p>qui change les champs Title et Description avec les valeurs indiquées</p><ul><li><p>$unset</p><ul><li>enlève la valeur des champs</li><li><p><strong>$unset : [ name1, name2, ... ]</strong> où <em>nameX</em> est le nom des champs pour lesquels on va supprimer les valeurs</p></li><li><p>$min, $max</p></li><li><p>change la valeur du champ à la valeur minimale/maximale si elle est supérieure/inférieure à la valeur précisée , Exemple :</p></li></ul></li></ul><pre><code class="lang-json">{ "$unset" : [ "StartDate", "EndDate" ] }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = unset("StartDate", "EndDate");
+</code></pre><p>qui va vider les champs indiqués de toutes valeurs</p><ul><li>$min, $max<ul><li>change la valeur du champ à la valeur minimale/maximale si elle est supérieure/inférieure à la valeur précisée</li><li><strong>$min : { name : value }</strong> où <em>name</em> est le nom du champ où si sa valeur actuelle est inférieure à <em>value</em>, sa valeur sera remplacée par celle-ci</li><li><strong>$max</strong> idem en sens inverse, la valeur sera remplacée si l&#39;existante est supérieure à celle indiquée</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$min" : { "MonChamp" : 3 } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = set("Title", "Mon nouveau titre").add("Description", "Ma nouvelle description");
+</code></pre><p>Si MonCompteur contient 2, MonCompteur vaudra 3, mais si MonCompteur contient 4, la valeur restera inchangée.</p><ul><li><strong>$inc : { name : value }</strong> où <em>name</em> est le nom du champ à incrémenter de la valeur <em>value</em> passée en paramètre (positive ou négative)<ul><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$inc" : { "MonCompteur" : -2 } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = inc("MonCompteur", -2);
+</code></pre><p>décrémente de 2 la valeur initiale de MonCompteur</p><ul><li>$rename<ul><li>change le nom du champ</li><li><strong>$rename : { name : newname }</strong> où <em>name</em> est le nom du champ à renommer en <em>newname</em></li><li>les champs préfixés par &#39;<strong>#</strong>&#39; ne peuvent pas être renommés</li><li>Example :</li></ul></li></ul><pre><code class="lang-json">{ "$rename" : { "MonChamp" : "MonNouveauChamp" } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = rename("MonChamp", "MonNouveauChamp");
+</code></pre><p>où le champ MonChamp est renommé en MonNouveauChamp</p><ul><li>$push, $pull<ul><li>ajoute en fin ou retire les éléments de la liste du champ (qui est un tableau)</li><li><strong>$push : { name : { $each : [ value, value, ... ] } }</strong> où <em>name</em> est le nom du champ de la forme d&#39;un tableau (une valeur peut apparaître plus dune seule fois dans le tableau) et les valeurs sont ajoutées à la fin du tableau</li><li><strong>$pull</strong> a la même signification mais inverse, à savoir qu&#39;elle enlève du tableau les valeurs précisées si elles existent</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$push" : { "Tag" : { "$each" : [ "Poisson", "Oiseau" ] } } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = push("Tag", "Poisson", "Oiseau");
+</code></pre><p>ajoute dans le champ Tag les valeurs précisées à la fin du tableau même si elles existent déjà dans le tableau</p><ul><li>$add<ul><li>ajoute les éléments de la liste du champ (unicité des valeurs)</li><li><strong>$add : { name : { $each : [ value, value, ... ] } }</strong> où <em>name</em> est le nom du champ de la forme d&#39;une MAP ou SET (une valeur ne peut apparaître qu&#39;une seule fois dans le tableau) et les valeurs sont ajoutées, si elles n&#39;existent pas déjà</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$add" : { "Tag" : { "$each" : [ "Poisson", "Oiseau" ] } } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = add("Tag", "Poisson", "Oiseau");
+</code></pre><p>ajoute dans le champ Tag les valeurs préciées sauf si elles existent déjà dans le tableau</p><ul><li>$pop<ul><li>ajoute ou retire un élément du tableau en première ou dernière position selon la valeur -1 ou 1</li><li><strong>$pop : { name : value }</strong> où <em>name</em> est le nom du champ et si <em>value</em> vaut -1, retire le premier, si <em>value</em> vaut 1, retire le dernier</li><li>Exemple :</li></ul></li></ul><pre><code class="lang-json">{ "$pop" : { "Tag" : -1 } }
+</code></pre><pre><code class="lang-java">static include fr.gouv.vitam.common.database.builder.query.action.UpdateActionHelper.*;
+Action action = pop("Tag", -1);
+</code></pre><p>retire dans le champ Tag la première valeur du tableau</p><h1 id="exemple-d-un-select-multi-queries">Exemple d&#39;un SELECT Multi-queries</h1><p>En JSON :</p><pre><code class="lang-json">  {
+    "$roots": [ "id0" ],
+    "$query": [
+      { "$match": { "Title": "titre" }, "$depth": 4 },
+      { "$and" : [ { "$gt" : { "StartDate" : "2014-03-25" } },
+        { "$lte" : { "EndDate" : "2014-04-25" } } ], "$depth" : 0},
+      { "$exists" : "FilePlanPosition" }
+    ],
+    "$filter": { "$limit": 100 },
+    "$projection": { "$fields": { "#id": 1, "Title": 1, "#type": 1, "#parents": 1, "#object": 1 } }
+  }
+</code></pre><p>En Java :</p><pre><code class="lang-java">include fr.gouv.vitam.common.database.builder.request.multiple.SelectMultiQuery;
+static include fr.gouv.vitam.common.database.builder.query.VitamFieldsHelper.*;
+static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+
+Query query1 = match("Title", "titre").setDepthLimit(4);
+Query query2 = and(gt("StartDate", dateFormat.parse("2014-03-25")), lte("EndDate", dateFormat.parse("2014-04-25"))).setDepthLimit(0);
+Query query3 = exists("FilePlanPosition");
+SelectMultiQuery select = new SelectMultiQuery().addRoots("id0").addQueries(query1, query2, query3)
+    .setLimitFilter(0, 100).addProjection(id(), "Title", type(), parents(), object());
+JsonNode json = select.getFinalSelect();
+</code></pre><ol><li>Cette requête commence avec le Unit id0. A partir de ce Unit, on cherche des Units qui sont fils avec une distance d&#39;au plus 4 du noeud id0 et où Title contient "titre", ce qui donne une nouvelle liste d&#39;Ids.</li><li>La query suivante utilise la liste d&#39;Ids précédemment obtenue pour effectuer un filtre sur celle-ci ($depth = 0) et vérifie une condition sur StartDate et EndDate, ce qui donne une nouvelle liste d&#39;Ids, sous-ensemble de celle obtenue en étape 1.</li><li>La query suivante utilise la liste d&#39;Ids précédemment obtenue comme point de départ et cherche les fils immédiats ($depth = 1 implicite) qui vérifie la condition que FilePlanPosition, ce qui donne une nouvelle d&#39;Ids.</li><li>Sur la base de cette nouvelle liste d&#39;Ids obtenue de l&#39;étape 3, seuls les 100 premiers sont retournés, et le contenu de ce qui est retourné est précisé dans la projection.</li></ol><p>A noter qu&#39;il aurait été possible d&#39;optimiser cette requête comme suit :</p><p>En JSON :</p><pre><code class="lang-json">  {
+    "$roots": [ "id0" ],
+    "$query": [
+      { "$and" : [ { "$match": { "Title": "titre" } },
+        { "$gt" : { "StartDate" : "2014-03-25" } },
+        { "$lte" : { "EndDate" : "2014-04-25" } } ], "$depth" : 4},
+      { "$exists" : "FilePlanPosition" }
+    ],
+    "$filter": { "$limit": 100 },
+    "$projection": { "$fields": { "#id": 1, "title": 1, "#type": 1, "#parents": 1, "#object": 1 } }
+  }
+</code></pre><p>En Java :</p><pre><code class="lang-java">include fr.gouv.vitam.common.database.builder.request.multiple.SelectMultiQuery;
+static include fr.gouv.vitam.common.database.builder.query.VitamFieldsHelper.*;
+static include fr.gouv.vitam.common.database.builder.query.QueryHelper.*;
+
+Query query2 = and(match("Title", "titre"), gt("StartDate", dateFormat.parse("2014-03-25")), lte("EndDate", dateFormat.parse("2014-04-25"))).setDepthLimit(4);
+Query query3 = exists("FilePlanPosition");
+SelectMultiQuery select = new SelectMultiQuery().addRoots("id0").addQueries(query2, query3)
+    .setLimitFilter(0, 100).addProjection(id(), "Title", type(), parents(), object());
+JsonNode json = select.getFinalSelect();
+</code></pre><p>Car la requête 1 et 2 sont unifiées en une seule.</p><h1 id="exemple-de-sc-narios">Exemple de scénarios</h1><p>Ces scénarios sont inspirés de cas métiers concrets et exprimés en mode JSON.</p><h2 id="cas-du-sip-mercier-zip">Cas du SIP Mercier.zip</h2><h3 id="etape-1">Etape 1</h3><ol><li>je cherche l&#39;article 2 (ArchivalAgencyArchiveUnitIdentifier) = les discours prononcés devant l&#39;Assemblée nationale</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+        {
+          "$match": {
+            "Title": "assemblée"
+          },
+          "$depth": 20
+        },
+        {
+          "$match": {
+            "Title": "discours"
+          },
+          "$depth": 20
+        }
+      ]
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+
+   }
+  }
+}
+</code></pre><h3 id="etape-2">Etape 2</h3><ol><li>je cherche les discours prononcés lors de la préparation de la loi relative au défenseur des droits, que ce soit à l&#39;Assemblée nationale ou le Sénat (Title = défenseur)</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    {
+      "$or": [
+        {
+          "$match": {
+            "Title": "sénat"
+          }
+        },
+        {
+          "$match": {
+            "Title": "assemblée"
+          }
+        }
+      ],
+      "$depth": 20
+    },
+    {
+      "$and": [
+        {
+          "$match": {
+            "Title": "défenseur"
+          }
+        }
+      ],
+      "$depth": 20
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+    }
+  }
+}
+</code></pre><h3 id="etape-3">Etape 3</h3><ol><li>je cherche dans le dossier Sénat (Title = Sénat), les discours prononcés lors de la relative au défenseur des droits (Title = défenseur)</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    {
+      "$and": [
+        {
+          "$eq": {
+            "Title": "Sénat"
+          }
+        }
+      ],
+      "$depth": 20
+    },
+    {
+      "$and": [
+        {
+          "$match": {
+            "Title": "défenseur"
+          }
+        }
+      ],
+      "$depth": 20
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+    }
+  }
+}
+</code></pre><h3 id="etape-4">Etape 4</h3><ol><li>je cherche les discours prononcé sur telle intervalle de date (StartDate, EndDate)</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+      {
+      "$or": [
+        {
+          "$match": {
+            "Title": "discours"
+          }
+        }
+      ],
+      "$depth": 20
+    },
+    {
+      "$and": [
+        { "$range" : { "StartDate" : { "$gte" : "2012-10-22", "$lte" : "2012-11-07" } } },
+        { "$range" : { "EndDate" : { "$gte" : "2012-11-07", "$lte" : "2012-11-08" } } }
+      ],
+      "$depth": 0
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+
+   }
+  }
+}
+</code></pre><h2 id="cas-du-sip-1069_ok_rules_complexe_complete-zip">Cas du SIP 1069_OK_RULES_COMPLEXE_COMPLETE.zip</h2><h3 id="etape-1">Etape 1</h3><ol><li>je cherche l&#39;AU dont le titre est Botzaris (Title = Botzaris)</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+        {
+          "$match": {
+            "Title": "Botzaris"
+          },
+          "$depth": 20
+        }
+      ]
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+
+   }
+  }
+}
+</code></pre><h3 id="etape-2">Etape 2</h3><ol><li>je cherche les AU qui ne seront pas communicables au 01/01/2018 (= les AU qui ont une AccesRule avec une EndDate postérieure au 01/01/2018)</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    {
+      "$or": [
+        {
+          "$gt": {
+            "#management.AccessRule.EndDate": "2018-01-01"
+          }
+        }
+      ],
+      "$depth": 0
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+        "#rules" : 1, "Title" : 1
+    }
+  }
+}
+</code></pre><h3 id="etape-3">Etape 3</h3><ol><li>je cherche les AU qui ont une AppraisalRule avec sort final = Destroy</li></ol><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    {
+      "$or": [
+        {
+          "$eq": {
+            "#management.AppraisalRule.FinalAction": "Destroy"
+          }
+        }
+      ],
+      "$depth": 0
+    }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    }
+  },
+  "$projection": {
+    "$fields": {
+        "#rules" : 1, "Title" : 1
+    }
+  }
+}
+</code></pre></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"></ul></div></div></div></div></body></html>

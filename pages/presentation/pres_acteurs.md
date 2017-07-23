@@ -11,15 +11,15 @@ fatherref: presentation
 
 ## Porteurs
 
-* Ministère des Affaires Etrangères et du Développement International,
-* Ministère de la Culture et de la Communication,
-* Ministère de la Défense.
+* Ministère des Armées,
+* Ministère de la Culture,
+* Ministère de l'Europe et des Affaires Etrangères.
 
 ![Logos](/public/images/Porteurs.jpg)
 
 ## Partenaires
 
-* Ministère de l'Environnement, de l'Energie et de la Mer,
+* Ministère de la Transition écologique et solidaire,
 * Centre Informatique National de l'Enseignement Supérieur (CINES),
 * Agence de Services et de Paiement (ASP).
 
