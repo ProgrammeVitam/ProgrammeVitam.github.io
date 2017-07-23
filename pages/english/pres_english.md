@@ -56,7 +56,7 @@ The program targeting wide dissemination and re-use, is open to those interested
 This actors benefit of an access to dedicated spaces in the Program collaborative tools and can participate in workshops and working groups. They become members of Vitam community.
 Collaboration is based on 4 differents levels of partnerships, that vary according to the objectives chosen. The two more important levels are the subject of signed agreements and open participation to the partnership committee. 
 
-## 4 differents levels of partnerships of Program Vitam
+## 4 different levels of partnerships of Program Vitam
 
 1. Participate in technical and functional reflexion: participation in tests (dexport of data, analysis of exports, installation and use of identified tools ...), surveys, calls for comment ;
 2. Participate in the test of VITAM software solution: participation in functional and technical tests at the end of major delivery cycles (Releases). These tests aim to verify that the functional and technical requirements of the Vitam software solution are taken into account ;
