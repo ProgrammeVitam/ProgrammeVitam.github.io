@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gestion des bases de données &mdash; documentation VITAM - Manuel de développement 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 0.20.0" href="index.html"/>
+        <link rel="prev" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gestion des bases de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gestion-de-l-ajout-d-un-champ">Gestion de l&#8217;ajout d&#8217;un champ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-core-unit-et-objectgroup">metadata-core : Unit et ObjectGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pour-les-autres-collections">Pour les autres collections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modification-d-une-collection-check-list">Modification d&#8217;une collection : check list</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Gestion des bases de données</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/gestion-database.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gestion-des-bases-de-donnees">
+<h1>Gestion des bases de données<a class="headerlink" href="#gestion-des-bases-de-donnees" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce document présente les points d&#8217;attention et une check list quand vous avez
+une modification à faire sur un schéma de données d&#8217;une base de données ou la
+création d&#8217;une requête particulière MongoDB.</p>
+<div class="section" id="gestion-de-l-ajout-d-un-champ">
+<h2>Gestion de l&#8217;ajout d&#8217;un champ<a class="headerlink" href="#gestion-de-l-ajout-d-un-champ" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si ce champ n&#8217;est pas &#8220;protégé&#8221; (non préfixé par &#8220;<strong>_</strong>&#8221;), seuls les aspects
+indexations sont à suivre.</p>
+<p>Si ce champ est &#8220;protégé&#8221; (préfixé par un &#8220;<strong>_</strong>&#8221;), quelques règles d&#8217;usages sont
+à respecter :</p>
+<ul class="simple">
+<li>Il est préfixé en base par &#8220;<strong>_</strong>&#8221; afin de ne pas être en conflit avec des métadonnées externes (notamment pour le &#8220;<em>content</em>&#8221; du Unit)</li>
+<li>Le nom dans la base doit être court (exemple: <strong>_us</strong>) afin de limiter l&#8217;empreinte mémoire et disque de ce champs tant pour les index que pour les données, et tant pour MongoDB que pour ElasticSearch</li>
+<li>Le nom du point de vue usage (externe et interne) doit être explicite (exemple: <strong>allunitups</strong>)</li>
+<li>Il est préfixé d&#8217;un &#8216;<strong>#</strong>&#8216; pour permettre son interprétation par Vitam comme un champ protégé</li>
+<li>Il cache l&#8217;implémentation réelle du champ</li>
+</ul>
+<p>Certains de ces champs sont interdits en update/insert (depuis l&#8217;extérieur),
+mais autorisés en interne.</p>
+<p>La définition d&#8217;un tel champ &#8220;protégé&#8221; s&#8217;effectue ainsi :</p>
+<ul>
+<li><p class="first">common-database-vitam</p>
+<ul>
+<li><p class="first">common-database-public</p>
+<ul>
+<li><p class="first">BuilderToken.java : il contient un enum simple définisssant le champ (exemple: <strong>ALLUNITUPS(&#8220;allunitups&#8221;)</strong>)</p>
+</li>
+<li><p class="first">VitamFieldsHelper.java : il contient des helpers pour accéder directement à la représentation formelle (précédé du &#8216;<strong>#</strong>&#8216;) le champ (exemple: <strong>allunitups()</strong>)</p>
+<p>Le QueryBuilder interdit les champs préfixés par &#8220;<strong>_</strong>&#8221;. Il impose donc l&#8217;usage de la notation &#8216;<strong>#</strong>&#8216;.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">commmon-database-private</p>
+<ul class="simple">
+<li>ParserTokens.java : il contient la copie exacte de BulderToken mais y ajoute les méthodes<ul>
+<li><strong>notAllowedOnSet()</strong> qui interdit ou pas l&#8217;update/insert depuis l&#8217;extérieur. Ce check est réalisé par les API-internal via les VarNameAdapter.</li>
+<li><strong>getPROJECTIONARGS()*</strong> qui traduit du champ interne en champ externe. Cette fonction est utilisé par les deux ci-dessous.</li>
+<li><strong>isNotAnalyzed()</strong> qui indique si le champ n&#8217;est pas indexé</li>
+<li><strong>isAnArray()</strong> qui indique si le champ est un tableau</li>
+<li><strong>isSingleProtectedVariable</strong> désigne les variables de collections Single</li>
+<li><strong>isAnArrayVariable</strong> désigne les variables de collections Single ou Multiple</li>
+<li><strong>isSingleNotAnalyzedVariable</strong> désigne les variables de collections Single</li>
+</ul>
+</li>
+<li>VarNameAdapter.java pour Unit/ObjectGroup</li>
+<li>VarNameInsertAdapter.java pour Unit/ObjectGroup</li>
+<li>VarNameUpdateAdapter.java pour Unit/ObjectGroup <em>(devra être dupliqué en usage externe et interne : protection de certains champs)</em></li>
+<li>SingleVarNameAdapter.java pour les collections hors Unit/ObjectGroup pour usage interne</li>
+<li>SingleVarNameAdapterExternal.java pour usage externe pour les collections hors Unit/ObjectGroup</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="metadata-core-unit-et-objectgroup">
+<h3>metadata-core : Unit et ObjectGroup<a class="headerlink" href="#metadata-core-unit-et-objectgroup" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>MongoDbVarNameAdapter.java : autorise les update/insert sur les <strong>#protégés</strong> et trafuit dans les champs définitifs définis dans MetadataDocument.java, Unit.java et ObjectGroup.java (exemple: <strong>#allunitups</strong> en <strong>_us</strong>)</li>
+<li>MongoDbMetadataResponseFilter.java : récupère la réponse et retraduit en sens inverse un champs &#8220;<strong>_xxx</strong>&#8221; en son correspondant &#8220;<strong>#xxxxxxxxx</strong>&#8221; (exemple: <strong>_us</strong> en <strong>#allunitups</strong>)</li>
+<li>MetadataDocument.java et Unit.java et ObjectGroup.java pour la définition des champs traduits en interne (formats courts comme &#8220;<strong>_us</strong>&#8221; et non &#8220;<strong>_unitsparents</strong>&#8221;)</li>
+</ul>
+</div>
+<div class="section" id="pour-les-autres-collections">
+<h3>Pour les autres collections<a class="headerlink" href="#pour-les-autres-collections" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Elle s&#8217;appuie sur SingleVarNameAdapater et devraient avoir leurs propres extensions
+(comme MongoDbVarNameAdapter) ainsi que pour les retours (comme MongoDbMetadataResponseFilter)</p>
+</div>
+</div>
+<div class="section" id="modification-d-une-collection-check-list">
+<h2>Modification d&#8217;une collection : check list<a class="headerlink" href="#modification-d-une-collection-check-list" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Pour les champs protégés (préfix <strong>#</strong>)<ul>
+<li>Ajouter le champ dans les classes BuilderToken, VitamFieldsHelper, ParserTokens</li>
+<li>Vérifier/Modifier les VarNameAdapter de la collection s&#8217;ils sont bien pris en compte (tant pour les cas Insert/Update interdits ou pas que pour la traduction dans le nom du champ final)</li>
+<li>Modifier le ResponseFilter de la collection pour retraduire en #xxxxx la réponse</li>
+</ul>
+</li>
+<li>Pour tous les champs<ul>
+<li>Mettre à jour le schéma Json pour prendre en compte le nouveau champ et son type</li>
+<li>Si ce champ est utilisé dans des requêtes MongoDB et/ou consitue une clef primaire modifier avec l&#8217;intégration les index techniques MongoDb (optimisation et unicité)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="plugin-icu-elasticsearch.html" class="btn btn-neutral" title="Plugin ICU Elasticsearch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

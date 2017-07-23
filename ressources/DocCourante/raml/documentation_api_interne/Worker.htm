@@ -1,0 +1,294 @@
+<!DOCTYPE HTML><html><head><title>API-Vitam Version Alpha - Worker interne API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 4.0.5"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h1 {
+        font-size: 1.3em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      pre code {
+        overflow: auto;
+        word-wrap: normal;
+        white-space: pre;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container-fluid"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>API-Vitam Version Alpha - Worker interne API documentation <small>version v1</small></h1><p>http://worker.internal.vitam.gouv.fr/{version}</p><ul><li><strong>version</strong>: <em>required (v1)</em></li></ul><h3 id="avertissements"><a href="#avertissements">Avertissements</a></h3><p><strong>Les API internes présentées dans ces pages ne sont pas en conformités avec l&#39;implémentation actuelle mais indiquent la cible prévue pour la version 1.</strong></p><p>Cette version d&#39;API présente des fonctionnalités sous différents statuts :</p><ul><li>Supportées : rien n&#39;est spécifié, la fonctionnalité ou la donnée est supportée</li><li><p>Non supportées : le mot clef <strong>UNSUPPORTED</strong> est indiqué et précise que cette fonctionnalité ou donnée n&#39;est pas supportée par l&#39;implémentaton courante</p><p>Cette version d&#39;API présente des fonctionnalités sous différentes versions :</p></li><li><p><strong>Alpha</strong> : l&#39;API est dans une première version, susceptible d&#39;évoluer fortement</p></li><li><strong>Beta</strong> : l&#39;API est proche de sa version stable</li><li><strong>Production</strong> : l&#39;API est considérée comme "production ready"</li><li><p><strong>Deprecated</strong> : l&#39;API est considérée comme obsolète et devrait disparaître dans une version majeure prochaine</p><p>Pour le moment, la partie <strong>/containers/{cid}</strong> des paths n&#39;est pas encore pris en compte mais doit être ajoutée à terme.</p></li></ul><h3 id="licence"><a href="#licence">Licence</a></h3><p>Ce document est distribué sous les termes de la <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">Licence Ouverte V2.0</a></p><h3 id="tasks"><a href="#tasks">Tasks</a></h3><p>Le principe proposé serait le suivant:</p><ul><li>Affectation par le Moteur d&#39;exécution (Distribution):<ul><li>POST /tasks</li></ul></li><li>Suivi pour un worker pour une tâche:<ul><li>GET / tasks/id_async</li></ul></li><li>Possibilité future d&#39;agir sur une tâche en cours d&#39;exécution (ou plusieurs):<ul><li>PATCH /tasks</li><li>PATCH /tasks/id_async</li></ul></li></ul><p>Questions ou remarques:</p><ul><li>Le /status pourrait être étendu pour avoir des informations statistiques sur le Worker.</li></ul></div><div class="panel panel-default"><div class="panel-heading"><h3 id="tasks" class="panel-title">Tasks</h3></div><div class="panel-body"><div class="top-resource-description"><p>Administration des Tâches Asynchrones (Steps).</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_tasks"><span class="parent"></span>/tasks</a> <span class="methods"><a href="#tasks_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#tasks_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#tasks_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_tasks" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#tasks_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de lister les tâches en cours</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#tasks_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de soumettre une tâche (steps + contexte + item)</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#tasks_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet si nécessaire d&#39;interagir avec une tâche (cancel)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="tasks_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/tasks</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de lister les tâches en cours</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#tasks_get_request" data-toggle="tab">Request</a></li><li><a href="#tasks_get_response" data-toggle="tab">Response</a></li><li><a href="#tasks_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tasks_get_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "query": "name=&#39;abcdef*&#39;&amp;since&gt;&#39;2015-07-14&#39;"
+}
+</code></pre></div><div class="tab-pane" id="tasks_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "hits": {
+    "total": 10,
+    "size": 3,
+    "offset": 0,
+    "limit": 100,
+    "time_out": false,
+    "next": "async_id_next"
+  },
+  "context": {
+    "query": "name=&#39;abcdef*&#39;&amp;since&gt;&#39;2015-07-14&#39;"
+  },
+  "results": [ "id1", "id2", "id3" ]
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="tasks_get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="tasks_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/tasks</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de soumettre une tâche (steps + contexte + item)</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#tasks_post_request" data-toggle="tab">Request</a></li><li><a href="#tasks_post_response" data-toggle="tab">Response</a></li><li><a href="#tasks_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tasks_post_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{ "Step": "name",
+	"otherInfo": "other info",
+	"actions": [{
+		"action": "id_action",
+		"arguments": {
+			"nom_champ_1": "jxpath1",
+			"nom_champ_2": "jxpath2"
+		},
+		"results": {
+			"nom_champ_3": null,
+			"nom_champ_4": null
+		},
+		"status" : "Running",
+		"post_assign": [{
+			"target": "jxpath3",
+			"result": "construction1"
+		}],
+		"start_time" : "1990-12-31T23:59:60Z",
+		"end_time" : "1990-12-31T23:59:60Z"
+	}]
+}
+</code></pre></div><div class="tab-pane" id="tasks_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="tasks_post_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="tasks_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/tasks</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet si nécessaire d&#39;interagir avec une tâche (cancel)</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#tasks_put_request" data-toggle="tab">Request</a></li><li><a href="#tasks_put_response" data-toggle="tab">Response</a></li><li><a href="#tasks_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tasks_put_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="tasks_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="tasks_put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_tasks__id_async_"><span class="parent">/tasks</span>/{id_async}</a> <span class="methods"><a href="#tasks__id_async__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#tasks__id_async__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_tasks__id_async_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#tasks__id_async__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet de récupérer le statut d&#39;une Tâche en cours</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#tasks__id_async__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Permet si nécessaire d&#39;interagir avec une Tâche (cancel)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="tasks__id_async__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/tasks</span>/{id_async}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de récupérer le statut d&#39;une Tâche en cours</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#tasks__id_async__get_request" data-toggle="tab">Request</a></li><li><a href="#tasks__id_async__get_response" data-toggle="tab">Response</a></li><li><a href="#tasks__id_async__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tasks__id_async__get_request"><h3>URI Parameters</h3><ul><li><strong>id_async</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="tasks__id_async__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="tasks__id_async__get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="tasks__id_async__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/tasks</span>/{id_async}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet si nécessaire d&#39;interagir avec une Tâche (cancel)</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#tasks__id_async__put_request" data-toggle="tab">Request</a></li><li><a href="#tasks__id_async__put_response" data-toggle="tab">Response</a></li><li><a href="#tasks__id_async__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tasks__id_async__put_request"><h3>URI Parameters</h3><ul><li><strong>id_async</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+  "X-RequestId": "id",
+  "code": 201,
+  "vitamCode": 123456,
+  "timestamp": "2015-07-14T17:07:14Z",
+  "message": "message informatif retour"
+}</code></pre></div><div class="tab-pane" id="tasks__id_async__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><pre><code>{
+    "id": "$id_async$",
+    "type": "ingest",
+    "state": "done",
+    "task_status": "commit",
+    "start_date": "2014-01-10T03:06:17.396Z",
+    "end_date": "2014-01-20T03:06:17.396Z",
+    "expiration_date": "2014-02-20T03:06:17.396Z",
+    "result_link": "https://xxx/v1/ingests/456",
+    "error": {
+      "http_code": 404,
+      "code": "ingest",
+      "state": "File_Not_Found",
+      "message": "File is not found",
+      "description": "Operation on file xxx cannot be done since file is not found",
+      "errors": [
+        { "http_code": 415, "code": "ingest", "state": "Unsupported_Media_Type", "message": "Unsupported media type detected", "description": "File xxx has an unsupported media type yyy" },
+        { "http_code": 412, "code": "ingest", "state": "Precondition_Failed", "message": "Precondition in error", "description": "Operation on file xxx cannot continue since precondition is in error" }
+      ]
+    }
+}</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div><div class="tab-pane" id="tasks__id_async__put_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="status" class="panel-title">/status</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_status"><span class="parent"></span>/status</a> <span class="methods"><a href="#status_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_status" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#status_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="status_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/status</h4></div><div class="modal-body"><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>VitamPlatform</b><p>Based on Platform Secret</p></div><ul class="nav nav-tabs"><li class="active"><a href="#status_get_response" data-toggle="tab">Response</a></li><li><a href="#status_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="status_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK, operation in success</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>id</strong>: <em>required (string)</em><p>Id of the instance</p></li><li><strong>service</strong>: <em>required (string)</em><p>Service Name for this instance</p></li><li><strong>startDate</strong>: <em>required (datetime)</em><p>Date time for the start of this instance</p></li><li><strong>status</strong>: <em>required (one of Active, Inactive, ShutdownInProgress, Unreachable)</em><p>Status of this instance</p></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "id": "abcdef",
+  "service": "serviceName",
+  "startDate": "2015-07-14T17:07:14Z",
+  "status": "Active"
+}</code></pre><pre><code>{
+  "id": "abcdef",
+  "service": "serviceName",
+  "startDate": "2015-07-14T17:07:14Z",
+  "status": "Active"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized, authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>required (string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>(number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/503" target="_blank">503</a></h2><p>Service Unavailable, the requested service is unavailable</p></div><div class="tab-pane" id="status_get_securedby"><h1>Secured by VitamPlatform</h1><h3>Headers</h3><ul><li><strong>X-Vitam-Key</strong>: <em>required (string)</em><p>Vitam Platform Key</p></li></ul></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#tasks">Tasks</a></li><li><a href="#status">/status</a></li></ul></div></div></div></div></body></html>

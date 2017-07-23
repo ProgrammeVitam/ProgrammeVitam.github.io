@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DSL &mdash; documentation VITAM - Manuel Intégraption Applicative 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel Intégraption Applicative 0.20.0" href="index.html"/>
+        <link rel="next" title="DSL Vitam" href="dsl-introduction.html"/>
+        <link rel="prev" title="Conventions REST Générales" href="standard.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégraption Applicative
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vitam.html">VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">Conventions REST Générales</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DSL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#principes">Principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#corps-de-la-requete">Corps de la requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-java-et-documentation">API Java et documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsl-introduction.html">DSL Vitam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exemples.html">Exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exemple-dsl.html">Exemple DSL Vitam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-usage.html">Utilisation des clients externes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - Manuel Intégraption Applicative</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>DSL</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/DSL.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dsl">
+<h1>DSL<a class="headerlink" href="#dsl" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="principes">
+<h2>Principes<a class="headerlink" href="#principes" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Dans le body - langage de requête</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>DSL VITAM</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>SQL : pas de plein texte, parser difficile</li>
+<li>NoSQL : pas de norme</li>
+<li>Abstraction indispensable (masquer l&#8217;implémentation)</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li>Typographie</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Snake - « propriete_avec_multiple_noms »</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Mais pas « proprieteAvecMultipleNoms »</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Body au format JSON</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Contient des informations spécifiques à la requête pour la collection</li>
+<li>Peut contenir une « Query » (DSL)</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li>Pagination</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>offset / limit dans la Query</li>
+<li>Range dans le Header pour les octets d&#8217;un fichier binaire</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Tri</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>orderby dans la Query</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="corps-de-la-requete">
+<h2>Corps de la requête<a class="headerlink" href="#corps-de-la-requete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une requête DSL se décompose en 4 parties principales :</p>
+<blockquote>
+<div>Projections, Collections, Requêtes (critères=query), Filtres (tri, limite)</div></blockquote>
+<p>Pour comparaison avec le langage SQL</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field1</span><span class="p">,</span> <span class="n">field2</span> <span class="n">FROM</span> <span class="n">table</span> <span class="n">WHERE</span> <span class="n">field3</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="n">LIMIT</span> <span class="n">n</span> <span class="n">SORT</span> <span class="n">field1</span> <span class="n">ASC</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><em>SELECT field1, field2</em> : la Projection</li>
+<li><em>FROM table</em> : la Collection</li>
+<li><em>WHERE field3 &lt; value</em> : la partie Query</li>
+<li><em>LIMIT n SORT field1 ASC</em> : les filtres</li>
+</ul>
+<p>Dans le cas de multiples queries, un champ de plus peut intervenir, il s&#8217;agit du paramètre <strong>$depth</strong> qui indique la direction dans l&#8217;arborescence de chaque <em>Query</em>.</p>
+<p><strong>Modèle générique CRUD</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Create</span> <span class="o">=</span> <span class="n">POST</span>
+ <span class="n">data</span> <span class="p">:</span> <span class="p">{</span> <span class="n">champ</span> <span class="p">:</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">champ</span> <span class="p">:</span> <span class="p">{</span> <span class="n">champ</span> <span class="p">:</span> <span class="n">valeur</span> <span class="p">}</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Read = GET
+ filter : { limit, offset, orderby }, projection : { field : 0/1, … }
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Update = PUT (avec forme ~ POST) / PATCH
+ action : { set : { field : value, …}, inc : { field : value }, … }
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Delete</span> <span class="o">=</span> <span class="n">DELETE</span>
+ <span class="nb">filter</span> <span class="p">:</span> <span class="p">{</span> <span class="n">mult</span> <span class="p">:</span> <span class="n">true</span><span class="o">/</span><span class="n">false</span> <span class="p">}</span>
+ <span class="n">roots</span> <span class="o">=</span> <span class="n">liste</span> <span class="n">des</span> <span class="n">Id</span> <span class="n">de</span> <span class="n">départ</span> <span class="p">(</span><span class="n">sommet</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;arbre de classement)</span>
+</pre></div>
+</div>
+<img alt="_images/DSL_corps_requete.png" src="_images/DSL_corps_requete.png" />
+<p>Une query est exprimée avec des opérateurs (inspirés de MongoDB / Elastic)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="23%" />
+<col width="24%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Catégorie</th>
+<th class="head">Opérateurs</th>
+<th class="head">Arguments</th>
+<th class="head">Commentaire</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Accès direct</td>
+<td>$path</td>
+<td>identifiants</td>
+<td>Accès direct à un noeud</td>
+</tr>
+<tr class="row-odd"><td>Booléens</td>
+<td>$and, $or, $not</td>
+<td>opérateurs</td>
+<td>Combinaison logique d&#8217;opérateurs</td>
+</tr>
+<tr class="row-even"><td>Comparaison</td>
+<td>$eq, $ne, $lt, $lte, $gt, $gte</td>
+<td>Champ et valeur</td>
+<td>Comparaison de la valeur d&#8217;un champ et la valeur passée en argument</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>$range</td>
+<td>Champ, $lt, $lte, $gt, $gte et valeurs</td>
+<td>Comparaison de la valeur d&#8217;un champ avec l&#8217;intervalle passé en argument</td>
+</tr>
+<tr class="row-even"><td>Existence</td>
+<td>$exists, $missing, $isNull</td>
+<td>Champ</td>
+<td>Existence d&#8217;un champ</td>
+</tr>
+<tr class="row-odd"><td>Tableau</td>
+<td>$in, $nin</td>
+<td>Champ et valeurs</td>
+<td>Présence de valeurs dans un tableau</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>$size</td>
+<td>Champ et taille</td>
+<td>Comparaison (égale) de la taille d&#8217;un tableau</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>[n] <strong>UNSUPPORTED</strong></td>
+<td>Position (n &gt;= 0)</td>
+<td>Élément d&#8217;un tableau</td>
+</tr>
+<tr class="row-even"><td>Textuel</td>
+<td>$term, $wildcard</td>
+<td>Champ, mot clef</td>
+<td>Comparaison de champs mots-clefs à valeur exacte</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>$match, $matchPhrase, $matchPhrasePrefix</td>
+<td>Champ, phrase, $max_expansions (optionnel)</td>
+<td>Recherche plein texte soit sur des mots, des phrases ou un préfixe de phrase</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>$regex</td>
+<td>Champ, Expression régulière</td>
+<td>Recherche via une expression régulière</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>$search</td>
+<td>Champ, valeur</td>
+<td>Recherche du type moteur de recherche</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>$flt, $mlt</td>
+<td>Champ, valeur</td>
+<td>Recherche « More Like This », soit par valeurs approchées</td>
+</tr>
+<tr class="row-odd"><td>Géomatique</td>
+<td>$geometry, $box, $polygon, $center</td>
+<td>Positions</td>
+<td>Définition d&#8217;une position géographique</td>
+</tr>
+<tr class="row-even"><td><strong>UNSUPPORTED</strong></td>
+<td>$geoWithin, $geoIntersects, $near</td>
+<td>Une forme</td>
+<td>Recherche par rapport à une forme géométrique</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque Query dispose éventuellement d&#8217;arguments additionnels pour gérer l&#8217;arborescence :</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="9%" />
+<col width="7%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Catégorie</th>
+<th class="head">Opérateur</th>
+<th class="head">Arguments</th>
+<th class="head">Commentaire</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Profondeur</td>
+<td>$depth, $exactdepth</td>
+<td>+ ou - n</td>
+<td>Permet de spécifier si la query effectue une recherche vers les racines (-) ou vers les feuilles (+) et de quelle profondeur (n), avec une profondeur relative ($depth) ou exacte ($exactdepth)
+- $depth = 0 signifie que l&#8217;on ne change pas de profondeur (mêmes objets concernés)
+- $depth &gt; 0 indique une recherche vers les fils uniquement
+- $depth &lt; 0 indique une recherche vers les pères uniquements (cf. schéma sur les multiples queries)</td>
+</tr>
+<tr class="row-odd"><td>Collection</td>
+<td>$source</td>
+<td>units / objects</td>
+<td>Permet dans une succession de Query de changer de collection. Attention, la dernière Query doit respecter la collection associée à la requête</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api-java-et-documentation">
+<h2>API Java et documentation<a class="headerlink" href="#api-java-et-documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Documentation :</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/externe/introduction.html">Ressource documentaire : raml/externe/introduction.html</a></li>
+</ul>
+</div></blockquote>
+<p>API java :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Dans common/common-database-vitam/common-database-public<ul>
+<li>fr.gouv.vitam.common.database.builder.query; notamment <strong>VitamFieldsHelper</strong> et <strong>QueryHelper</strong></li>
+<li>fr.gouv.vitam.common.database.builder.query.action; dont <strong>UpdateActionHelper</strong></li>
+<li>fr.gouv.vitam.common.database.builder.request.multiple; dont <strong>DeleteMultiQuery</strong>, <strong>SelectMultiQuery</strong>, <strong>InsertMultiQuery</strong>, <strong>UpdateMultiQuery</strong></li>
+<li>fr.gouv.vitam.common.database.builder.request.single; dont <strong>Delete</strong>, <strong>Insert</strong>, <strong>Select</strong>, <strong>Update</strong></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dsl-introduction.html" class="btn btn-neutral float-right" title="DSL Vitam" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="standard.html" class="btn btn-neutral" title="Conventions REST Générales" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

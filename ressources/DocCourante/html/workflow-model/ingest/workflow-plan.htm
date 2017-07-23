@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow d’entrée d’un plan de classement &mdash; documentation VITAM - Modèle de workflow 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Recherche" href="../search.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 0.20.0" href="../index.html"/>
+        <link rel="up" title="INGEST" href="_toc_ingest.html"/>
+        <link rel="next" title="MASTERDATA" href="../masterdata/_toc_masterdata.html"/>
+        <link rel="prev" title="Workflow d’entrée" href="workflow.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_ingest.html">INGEST</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">Workflow d&#8217;entrée</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d&#8217;entrée d&#8217;un plan de classement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-entree-d-un-plan-de-classement-vision-metier">Processus d&#8217;entrée d&#8217;un plan de classement (vision métier)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage">Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">MASTERDATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc_audit.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">VITAM - Modèle de workflow</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="_toc_ingest.html">INGEST</a> &raquo;</li>
+      
+    <li>Workflow d&#8217;entrée d&#8217;un plan de classement</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ingest/workflow-plan.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-d-entree-d-un-plan-de-classement">
+<h1>Workflow d&#8217;entrée d&#8217;un plan de classement<a class="headerlink" href="#workflow-d-entree-d-un-plan-de-classement" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus (workflow-plan) d&#8217;entrée d&#8217;un plan de classement dans la solution logicielle Vitam. La structure d&#8217;un plan de classement diffère de celle d&#8217;un SIP par l&#8217;absence d&#8217;objet et de vérification par rapport à un profil SEDA. Il s&#8217;agit plus simplement d&#8217;une arborescence représentée par des unités archivistiques. Ce processus partage donc certaines étapes avec celui du transfert d&#8217;un SIP classique, en ignore certaines et rajoute des tâches additionnelles.</p>
+<p>Le workflow actuel mis en place dans la solution logicielle Vitam est défini dans le fichier &#8220;DefaultFilingSchemeWorkflow.json&#8221;. Ce fichier est disponible dans : sources/processing/processing-management/src/main/resources/</p>
+</div>
+<div class="section" id="processus-d-entree-d-un-plan-de-classement-vision-metier">
+<h2>Processus d&#8217;entrée d&#8217;un plan de classement (vision métier)<a class="headerlink" href="#processus-d-entree-d-un-plan-de-classement-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus d&#8217;entrée d&#8217;un plan est identique au workflow d&#8217;entrée d&#8217;un SIP. Il débute lors du lancement du téléchargement d&#8217;un plan de classement dans la solution logicielle Vitam. Toutes les étapes et actions sont journalisées dans le journal des opérations.</p>
+<p>Les étapes et actions associées ci-dessous décrivent le processus d&#8217;entrée (clé et description de la clé associée dans le journal des opérations), non encore abordées dans la description de l&#8217;entrée d&#8217;un SIP.</p>
+<div class="section" id="traitement-additionnel-dans-la-tache-check-dataobjectpackage">
+<h3>Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE<a class="headerlink" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first">Vérification de la non existence d&#8217;objets (CHECK_NO_OBJECT)</p>
+<ul>
+<li><p class="first"><strong>Règle</strong> : vérification qu&#8217;il n&#8217;y a pas d&#8217;objet numérique dans le manifest.xml du plan</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : aucun objet numérique n&#8217;est présent dans le manifeste (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.OK=Succès de la vérification de l&#8217;absence d&#8217;objet)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>KO : des objets numériques sont présent dans le manifeste (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.KO=Échec de la vérification de l&#8217;absence d&#8217;objet : objet(s) trouvé(s))</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de la non existence d&#8217;objet numérique (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.FATAL=Erreur fatale lors de la vérification de l&#8217;absence d&#8217;objet)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>D&#8217;une façon synthétique, le workflow est décrit de cette façon :</p>
+<img alt="../_images/Workflow_FilingScheme.jpg" class="align-center" src="../_images/Workflow_FilingScheme.jpg" />
+<p>Diagramme d&#8217;activité du workflow du plan de classement</p>
+<ul class="simple">
+<li><strong>Step 1</strong> - STP_INGEST_CONTROL_SIP : Check SIP  / distribution sur REF GUID/SIP/manifest.xml<ul>
+<li>CHECK_SEDA (CheckSedaActionHandler.java) :<ul>
+<li>Test de l&#8217;existence du manifest.xml,</li>
+<li>Test de l&#8217;existence d&#8217;un fichier unique à la racine du SIP</li>
+<li>Test de l&#8217;existence d&#8217;un dossier unique à la racine, nommé &#8220;Content&#8221; (insensible à la casse)</li>
+<li>Validation XSD du manifeste,</li>
+<li>Validation de la structure du manifeste par rapport au schema par défaut fourni avec le standard SEDA v. 2.0.</li>
+</ul>
+</li>
+<li>CHECK_HEADER (CheckHeaderActionHandler.java)<ul>
+<li>Test de l&#8217;existence du service producteur dans le bordereau</li>
+<li>Contient CHECK_CONTRACT_INGEST (CheckIngestContractActionHandler.java) :<ul>
+<li>Recherche le nom de contrat d&#8217;entrée dans le SIP,</li>
+<li>Vérification de la validité de contrat par rapport au référentiel de contrats importée dans le système</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CHECK_DATAOBJECTPACKAGE (CheckDataObjectPackageActionHandler.java)<ul>
+<li>Contient CHECK_NO_OBJECT<ul>
+<li>Vérification de l&#8217;absence d&#8217;objets</li>
+</ul>
+</li>
+<li>Contient CHECK_MANIFEST_OBJECTNUMBER (CheckObjectsNumberActionHandler.java) :<ul>
+<li>Comptage des objets (BinaryDataObject) dans le manifest.xml en s&#8217;assurant de l&#8217;absence de doublon, que le nombre d&#8217;objets binaires reçus est strictement égal au nombre d&#8217;objets attendus</li>
+<li>Création de la liste des objets binaires dans le workspace GUID/SIP/content/,</li>
+<li>Comparaison du nombre et des URI des objets binaires contenus dans le SIP avec ceux définis dans le manifeste.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Contient CHECK_MANIFEST (ExtractSedaActionHandler.java) :<ul>
+<li>Extraction des unités archivistiques, des BinaryDataObject, des PhysicalDataObject,</li>
+<li>Création des journaux du cycle de vie des unités archivistiques et des groupes d&#8217;objets,</li>
+<li>Vérification de la présence de cycles dans les arboresences des Units,</li>
+<li>Création de l&#8217;arbre d&#8217;ordre d&#8217;indexation,</li>
+<li>Extraction des métadonnées contenues dans le bloc ManagementMetadata du manifeste pour le calcul des règles de gestion,</li>
+<li>Vérification du GUID de la structure de rattachement</li>
+<li>Vérification de la cohérence entre l&#8217;unité archivistique rattachée et l&#8217;unité archivistique de rattachement.</li>
+<li>Vérification des problèmes d&#8217;encodage dans le manifeste</li>
+<li>Vérification que les objets ayant un groupe d&#8217;objets ne référencent pas directement les unités archivistiques</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Step 2</strong> - STP_UNIT_CHECK_AND_PROCESS : Contrôle et traitements des units / distribution sur LIST GUID<ul>
+<li>UNITS_RULES_COMPUTE (UnitsRulesComputePlugin.java) :<ul>
+<li>vérification de l&#8217;existence de la règle dans le référentiel des règles de gestion</li>
+<li>calcul des échéances associées à chaque unité archivistique.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Step 3</strong> - STP_UNIT_STORING : Rangement des unités archivistique / distribution sur LIST GUID/Units<ul>
+<li>UNIT_METADATA_INDEXATION (IndexUnitActionPlugin.java) :<ul>
+<li>Transformation sous la forme Json des unités archivistiques et intégration du GUID Unit et du GUID des groupes d&#8217;objets</li>
+</ul>
+</li>
+<li>UNIT_METADATA_STORAGE (StoreMetaDataUnitActionPlugin.java.java) :<ul>
+<li>Sauvegarde sur les offres de stockage des métadonnées des unités archivistiques.</li>
+</ul>
+</li>
+<li>COMMIT_LIFE_CYCLE_UNIT (CommitLifeCycleUnitActionHandler.java)<ul>
+<li>Sécurisation en base des journaux du cycle de vie des unités archivistiques</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Step 4</strong> - STP_ACCESSION_REGISTRATION : Alimentation du registre des fonds<ul>
+<li>ACCESSION_REGISTRATION (AccessionRegisterActionHandler.java) :<ul>
+<li>Création/Mise à jour et enregistrement des collections AccessionRegisterDetail et AccessionRegisterSummary concernant les archives prises en compte, par service producteur.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Step 5 et finale</strong> - STP_INGEST_FINALISATION : Finalisation de l&#8217;entrée. Cette étape est obligatoire et sera toujours exécutée, en dernière position.<ul>
+<li>ATR_NOTIFICATION (TransferNotificationActionHandler.java) :<ul>
+<li>Génération de l&#8217;ArchiveTransferReply.xml (peu importe le statut du processus d&#8217;entrée, l&#8217;ArchiveTransferReply est obligatoirement généré),</li>
+<li>Écriture de l&#8217;ArchiveTransferReply sur les offres de stockage.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../masterdata/_toc_masterdata.html" class="btn btn-neutral float-right" title="MASTERDATA" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workflow.html" class="btn btn-neutral" title="Workflow d’entrée" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1041 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exemple DSL Vitam &mdash; documentation VITAM - Manuel Intégraption Applicative 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel Intégraption Applicative 0.20.0" href="index.html"/>
+        <link rel="next" title="Utilisation des clients externes" href="client-usage.html"/>
+        <link rel="prev" title="Exemples" href="Exemples.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégraption Applicative
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vitam.html">VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">Conventions REST Générales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DSL.html">DSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsl-introduction.html">DSL Vitam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exemples.html">Exemples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exemple DSL Vitam</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#collection-units">Collection Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collection-objects">Collection Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exemples-d-usages-du-dsl">Exemples d&#8217;usages du DSL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#partie-query">Partie $query</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rappel-sur-l-usage-de-depth">Rappel sur l&#8217;usage de $depth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details-sur-la-partie-filter-orderby">Détails sur la partie $filter $orderby</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details-sur-chaque-commande-de-la-partie-query">Détails sur chaque commande de la partie $query</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#partie-action-dans-la-fonction-update">Partie $action dans la fonction Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exemple-d-un-select-multi-queries">Exemple d&#8217;un SELECT Multi-queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exemple-de-scenarios">Exemple de scénarios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cas-du-sip-mercier-zip">Cas du SIP Mercier.zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cas-du-sip-1069-ok-rules-complexe-complete-zip">Cas du SIP 1069_OK_RULES_COMPLEXE_COMPLETE.zip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client-usage.html">Utilisation des clients externes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - Manuel Intégraption Applicative</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Exemple DSL Vitam</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/exemple-dsl.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="exemple-dsl-vitam">
+<h1>Exemple DSL Vitam<a class="headerlink" href="#exemple-dsl-vitam" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette partie va essayer de montrer quelques exemples d&#8217;usages du DSL dans différentes conditions.</p>
+<div class="section" id="collection-units">
+<h2>Collection Units<a class="headerlink" href="#collection-units" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Points particuliers sur les end points</strong></p>
+<ul class="simple">
+<li><strong>/units</strong> : il s&#8217;agit ici de requêter un ensemble d&#8217;archives (Units) sur leurs métadonnées. Bien que non encore supportée, il sera possible de réaliser des UPDATE massifs sur cet end-point.<ul>
+<li><strong>$root</strong> peut être vide ou renseigné : il sera contrôlé via les contrats d&#8217;accès associés à l&#8217;application.<ul>
+<li>S&#8217;il est vide, il prendra les valeurs renseignées par les contrats.</li>
+<li>S&#8217;il contient des identifiants, il sera vérifié que ces identifiants sont bien soient ceux des contrats, soient fils de ceux spécifiés dans ces contrats.</li>
+</ul>
+</li>
+<li>Le résultat doit être une liste de Units (vide ou pas)</li>
+</ul>
+</li>
+<li><strong>/units/id</strong> : il s&#8217;agit ici de requêter depuis un Unit donné. Le résultat peut être multiple selon les query spécifiées (et notamment le <em>$depth</em>).<ul>
+<li><strong>$roots</strong> est implicite à la valeur de id (si une valeur est spécifiée, elle sera ignorée)<ul>
+<li>Cet Id sera toujours contrôlé par rapport aux contrats d&#8217;accès associés à l&#8217;application.</li>
+</ul>
+</li>
+<li>Le résultat doit être une liste de Units (vide ou pas)</li>
+</ul>
+</li>
+<li><strong>/units/id/object</strong> : il s&#8217;agit ici d&#8217;accéder, s&#8217;il existe, à l&#8217;objet (ObjectGroup) associé à cet Unit.<ul>
+<li>Les query peuvent remonter les métadonnées (Header <strong>Accept: application/json</strong>)</li>
+<li>Les query peuvent remonter un des objets binaires (Headers <strong>Accept: application/octet-stream</strong> et <strong>X-Qualifier</strong> et <strong>X-Version</strong>)</li>
+<li>Le résultat doit être une liste de Objects (pour application/json) ou d&#8217;un seul objet binaire (pour application/octet-stream)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="collection-objects">
+<h2>Collection Objects<a class="headerlink" href="#collection-objects" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Points particuliers sur les end points</strong>
+<strong>Cette collection est DEPRECATED et va disparaître car elle est contraire aux règles d&#8217;accès aux objets à partir d&#8217;une ArchiveUnit (/units/id/object).</strong></p>
+<ul class="simple">
+<li><strong>/objects</strong> : il s&#8217;agit ici de requêter un ensemble d&#8217;objets sur leurs métadonnées uniquement.<ul>
+<li><strong>$root</strong> peut être vide ou renseigné : il sera contrôlé via les contrats d&#8217;accès associés à l&#8217;application et ne concerne que des Id de Units.<ul>
+<li>S&#8217;il est vide, il prendra les valeurs renseignées par les contrats (Id de Units parentes).</li>
+<li>S&#8217;il contient des identifiants, il sera vérifié que ces identifiants sont bien soient ceux des contrats, soient fils de ceux spécifiés dans ces contrats (toujours des Id de Units).</li>
+</ul>
+</li>
+<li>Le résultat doit être une liste de Objects (vide ou pas)</li>
+<li>Cette fonction est surtout utile pour des données statistiques sur les objets dans leur ensemble.</li>
+</ul>
+</li>
+<li><strong>/objects/id</strong> : <strong>(susceptible d&#8217;être dépréciée dans une prochaine version)</strong> il s&#8217;agit ici d&#8217;accéder à un objet (ObjectGroup).<ul>
+<li>Les query peuvent remonter les métadonnées (Header <strong>Accept: application/json</strong>)</li>
+<li>Les query peuvent remonter un des objets binaires (Headers <strong>Accept: application/octet-stream</strong> et <strong>X-Qualifier</strong> et <strong>X-Version</strong>)</li>
+<li>Le résultat doit être une liste de Objects (pour application/json) ou d&#8217;un seul objet binaire (pour application/octet-stream)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="exemples-d-usages-du-dsl">
+<h2>Exemples d&#8217;usages du DSL<a class="headerlink" href="#exemples-d-usages-du-dsl" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="partie-query">
+<h3>Partie $query<a class="headerlink" href="#partie-query" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="rappel-sur-l-usage-de-depth">
+<h4>Rappel sur l&#8217;usage de $depth<a class="headerlink" href="#rappel-sur-l-usage-de-depth" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>$query peut contenir plusieurs Query, qui seront exécutées successivement (tableau de Query).</li>
+<li>Une Query correspond à la formulation &#8220;<em>WHERE xxx</em>&#8221; dans le langage SQL, c&#8217;est à dire les critères de sélection.</li>
+<li>La succession est exécutée avec la signification suivante :<ul>
+<li>Depuis $roots, chercher les Units/Objects tel que Query[1], conduisant à obtenir une liste d&#8217;identifiants[1]</li>
+<li>Cette liste d&#8217;identifiants[1] devient le nouveau $roots, chercher les Units/Objects tel que Query[2], conduisant à obtenir une liste d&#8217;identifiants[2]</li>
+<li>Et ainsi de suite, la liste d&#8217;identifiants[n] de la dernière Query[n] est la liste de résultat définitive sur laquelle l&#8217;opération effective sera réalisée (SELECT, UPDATE, INSERT, DELETE) selon ce que l&#8217;API supporte (GET, PUT, POST, DELETE).</li>
+<li>Chaque query peut spécifier une profondeur où appliquer la recherche :<ul>
+<li><em>$depth = 0</em> : sur les items spécifiés (filtre sur les mêmes items, à savoir pour la première requête ceux de $roots, pour les suivantes, le résultat de la requête précédente, c&#8217;est à dire le nouveau $roots)</li>
+<li><em>$depth &lt; 0</em> : sur les items parents (hors les items spécifiés dans le $roots courant)</li>
+<li><em>$depth &gt; 0</em> : sur les items enfants (hors les items spécifiés dans le $roots courant)
+- <strong>par défaut, $depth vaut 1</strong> (enfants immédiats dans le $roots courant)</li>
+</ul>
+</li>
+<li>Le principe est résumé dans le graphe d&#8217;états suivant :</li>
+</ul>
+</li>
+</ul>
+<img alt="_images/multi-query-schema.png" src="_images/multi-query-schema.png" />
+<ul class="simple">
+<li>$source (<strong>UNSUPPORTED</strong>) permet de changer de collections entre deux query (unit ou object)</li>
+</ul>
+</div>
+<div class="section" id="details-sur-la-partie-filter-orderby">
+<h4>Détails sur la partie $filter $orderby<a class="headerlink" href="#details-sur-la-partie-filter-orderby" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il y a une différence entre un tri sur un champ non analysé (date, nombre, code) et un champ analysé :</p>
+<ul class="simple">
+<li>Pour un champ non analysé : l&#8217;ordre est lexicographique pour un texte, l&#8217;ordre est naturel pour un champ date ou nombre</li>
+<li><strong>IMPORTANT</strong> : Pour un champ analysé (plein texte), le tri n&#8217;est pas lexicographique mais basé sur le score de correspondance</li>
+<li>l&#8217;ordre de déclaration des tris est respectés dans la réponse</li>
+</ul>
+</div>
+<div class="section" id="details-sur-chaque-commande-de-la-partie-query">
+<h4>Détails sur chaque commande de la partie $query<a class="headerlink" href="#details-sur-chaque-commande-de-la-partie-query" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>$path : [ id1, id2, ... ]<ul>
+<li>Accès direct à un ou plusieurs noeuds</li>
+<li><strong>$path : [ &#8220;id1&#8221;, &#8220;id2&#8221; ]</strong> est l&#8217;équivalent implicite de <em>$in : { #id : [ id1, id2 ] }</em> mais sur le champ #id uniquement</li>
+<li><strong>Important</strong> : cette commande n&#8217;est autorisée qu&#8217;en première position. Elle implique une vérification que les <em>$roots</em> sont compatibles avec ces Ids qui deviennent les nouveaux $roots implicitement</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$path&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;id1&quot;</span><span class="p">,</span> <span class="s2">&quot;id2&quot;</span> <span class="p">]</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="s2">&quot;id1&quot;</span><span class="p">,</span> <span class="s2">&quot;id2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>$and, $or, $not<ul>
+<li>Combinaison logique d&#8217;opérateurs</li>
+<li><strong>$and : [ expression1, expression2, ... ]</strong> où chaque expression est une commande et chaque commande doit être vérifiée</li>
+<li><strong>$or</strong> où chaque expression est une commande et au moins une commande doit être vérifiée</li>
+<li><strong>$not</strong> où chaque expression est une commande et aucune ne doit être vérifiée</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$and&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;$gt&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-03-25&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;$lte&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-04-25&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">]</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="ow">and</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gt</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-03-25&quot;</span><span class="p">)),</span>
+         <span class="n">lte</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-04-25&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>pour toute StartDate plus grande que le 25 mars 2014 et inférieure ou égale au 25 avril 2014 (équivalent à un $range dans ce cas)</p>
+<ul class="simple">
+<li>$eq, $ne, $lt, $lte, $gt, $gte<ul>
+<li>Comparaison de la valeur d&#8217;un champ et la valeur passée en argument</li>
+<li><strong>$gt : { name : value }</strong> où <em>name</em> est le nom du champ et <em>value</em> la valeur avec laquelle on compare le champ<ul>
+<li>$eq : égalité, marche également avec les champs non analysés (codes). <strong>Attention</strong> : pour les champs analysés, il s&#8217;agit d&#8217;un $match_all.</li>
+<li>$ne : le champ n&#8217;a pas la valeur dournie</li>
+<li>$lt, $lte : le champs a une valeur inférieure ou égale avec la valeur fournie</li>
+<li>$gt, $gte : le champs a une valeur supérieure ou égale avec la valeur fournie</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exemple :</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$gt&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-03-25&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-03-25&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>pour toute StartDate plus grande que le 25 mars 2014</p>
+<ul class="simple">
+<li>$range<ul>
+<li>Comparaison de la valeur d&#8217;un champ avec l&#8217;intervalle passé en argument</li>
+<li><strong>$range : { name : { $gte : value, $lte : value } }</strong> est un raccourci pour chercher sur un seul champ nommé <em>name</em> les Units dont la valeur est comprise entre la partie <em>$gt</em> ou <em>$gte</em> et la partie <em>$lt</em> ou <em>$lte</em></li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$range&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$gte&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-03-25&quot;</span><span class="p">,</span> <span class="s2">&quot;$lte&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-04-25&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-03-25&quot;</span><span class="p">),</span> <span class="n">true</span><span class="p">,</span>
+      <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-04-25&quot;</span><span class="p">),</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>pour toute StartDate plus grande ou égale au 25 mars 2014 mais inférieure ou égale au 25 avril 2014</p>
+<ul>
+<li><dl class="first docutils">
+<dt>$exists, $missing, $isNull</dt>
+<dd><ul class="first last simple">
+<li>Existence d&#8217;un champ</li>
+<li><strong>$exists : name</strong> où <em>name</em> est le nom du champ qui doit exister</li>
+<li><strong>$missing</strong> : le champ ne doit pas exister</li>
+<li><strong>$isNull</strong> : le champ existe mais vide</li>
+<li>Exemple :</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$exists&quot;</span> <span class="p">:</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">exists</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>pour tout Unit contenant le champ StartDate</p>
+<ul>
+<li><dl class="first docutils">
+<dt>$in, $nin</dt>
+<dd><ul class="first last simple">
+<li>Présence de valeurs dans un champ (ce champ peut être un tableau ou un simple champ avec une seule valeur)</li>
+<li><strong>$in : { name : [ value1, value2, ... ] }</strong> où <em>name</em> est le nom du tableau et le tableau de valeurs ce que peut contenir le tableau. Il suffit d&#8217;une seule valeur présente dans le tableau pour qu&#8217;il soit sélectionné.<ul>
+<li><strong>Attention</strong> : pour les champs analysés, il s&#8217;agit d&#8217;un $match multiple via $or.</li>
+</ul>
+</li>
+<li><strong>$nin</strong> est l&#8217;opérateur inverse, le tableau ne doit contenir aucune des valeurs spécifiées</li>
+<li>Exemple :</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$in&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="c1">#unitups&quot; : [&quot;id1&quot;, &quot;id2&quot;] } }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">VitamFieldsHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="ow">in</span><span class="p">(</span><span class="n">unitups</span><span class="p">(),</span> <span class="s2">&quot;id1&quot;</span><span class="p">,</span> <span class="s2">&quot;id2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>pour rechercher les Units qui ont pour parents immédiats au moins l&#8217;un des deux Id spécifiés</p>
+<ul>
+<li><dl class="first docutils">
+<dt>$size</dt>
+<dd><ul class="first last simple">
+<li>Taille d&#8217;un tableau</li>
+<li><strong>$size : { name : length }</strong> où <em>name</em> est le nom du tableau et <em>length</em> la taille attendue (égalité)</li>
+<li>Exemple :</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$size&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="c1">#unitups&quot; : 2 } }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">VitamFieldsHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">unitups</span><span class="p">(),</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>pour rechercher les Units qui ont 2 parents immédiats exactement</p>
+<ul class="simple">
+<li>$term<ul>
+<li>Comparaison de champs avec une valeur exacte (non analysé)</li>
+<li><strong>$term : { name : term, name : term }</strong> où l&#8217;on fait une recherche exacte sur les différents champs indiqués</li>
+<li><strong>Attention</strong> : pour les champs analysés, il s&#8217;agit d&#8217;un $match_all.</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$term&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;#id&quot;</span> <span class="p">:</span> <span class="s2">&quot;guid&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">VitamFieldsHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">term</span><span class="p">(</span><span class="nb">id</span><span class="p">(),</span> <span class="n">guid</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui cherchera le Unit ayant pour Id celui précisé (équivalent dans ce cas à $eq) (non analysé, donc pour les codes uniquement)</p>
+<ul class="simple">
+<li>$wildcard<ul>
+<li>Comparaison de champs mots-clefs à valeur</li>
+<li><strong>$wildcard : { name : term }</strong> où l&#8217;on fait une recherche exacte sur le champ indiqué mais avec une possibilité d&#8217;introduire un &#8216;*&#8217; dans le contenu</li>
+<li><strong>NOTA BENE</strong> : cette requête est coûteuse.</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$wildcard&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;#type&quot;</span> <span class="p">:</span> <span class="s2">&quot;FAC*01&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">VitamFieldsHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">wildcard</span><span class="p">(</span><span class="nb">type</span><span class="p">(),</span> <span class="s2">&quot;FAC*01&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui cherchera les Units qui contiennent dans le type (Document Type) une valeur commençant par FAC et terminant par 01 (non analysé, donc pour les codes uniquement)</p>
+<ul class="simple">
+<li>$match, $match_all, $match_phrase, $match_phrase_prefix<ul>
+<li>Recherche plein texte soit sur des mots, des phrases ou un préfixe de phrase</li>
+<li><strong>$match : { name : words, $max_expansions : n }</strong> où <em>name</em> est le nom du champ, <em>words</em> les mots que l&#8217;on cherche, dans n&#8217;importe quel ordre, et optionnellement <em>n</em> indiquant une extension des mots recherchés (&#8220;seul&#8221; avec n=5 permet de trouver &#8220;seulement&#8221;)</li>
+<li><strong>$match_all : { name : words, $max_expansions : n }</strong> où <em>name</em> est le nom du champ, <em>words</em> les mots que l&#8217;on cherche (tous), dans n&#8217;importe quel ordre, et optionnellement <em>n</em> indiquant une extension des mots recherchés (&#8220;seul&#8221; avec n=5 permet de trouver &#8220;seulement&#8221;)</li>
+<li><strong>$match_phrase</strong> permet de définir une phrase (<em>words</em> constitue une phrase à trouver exactement dans cet ordre)</li>
+<li><strong>$match_phrase_prefix</strong> permet de définir que le champ <em>name</em> doit commencer par cette phrase</li>
+<li><strong>NOTA BENE</strong> : dans le cas de champs non analysés, cette requête est remplacé par une requête de type &#8220;prefix&#8221;.</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$match&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Title&quot;</span> <span class="p">:</span> <span class="s2">&quot;Napoléon Waterloo&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;Napoléon Waterloo&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui cherchera les Units qui contiennent les deux mots dans n&#8217;importe quel ordre dans le titre</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$match_phrase&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Description&quot;</span> <span class="p">:</span> <span class="s2">&quot;le petit chat est mort&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">matchPhrase</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">,</span> <span class="s2">&quot;le petit chat est mort&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui cherchera les Units qui contiennent la phrase n&#8217;importe où dans la description</p>
+<ul class="simple">
+<li>$regex<ul>
+<li>Recherche via une expression régulière</li>
+<li><strong>NOTA BENE</strong> : cette requête est très lenbte et très coûteuse.</li>
+<li><strong>$regex : { name : regex }</strong> où <em>name</em> est le nom du champ et <em>regex</em> l&#8217;expression au format expression régulière du contenu du champ</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$regex&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Title&quot;</span> <span class="p">:</span> <span class="s2">&quot;Napoléon.\* [Waterloo | Leipzig]&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">regex</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;Napoléon.\* [Waterloo | Leipzig]&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui cherchera les Units qui contiennent exactement Napoléon suivi de n&#8217;importe quoi mais se terminant sur un choix parmi Waterloo ou Leipzig dans le titre</p>
+<ul class="simple">
+<li>$search<ul>
+<li>Recherche du type moteur de recherche</li>
+<li><strong>$search : { name : searchParameter }</strong> où <em>name</em> est le nom du champ, <em>searchParameter</em> est une expression de recherche</li>
+<li>L&#8217;expression est formulée avec les opérateurs suivants :<ul>
+<li><strong>+</strong> signifie AND</li>
+<li><strong>|</strong> signifie OR</li>
+<li><strong>-</strong> empêche le mot qui lui est accollé (tout sauf ce mot)</li>
+<li><strong>&#8220;</strong> permet d&#8217;exprimer un ensemble de mots en une phrase (l&#8217;ordre des mots est impératif dans la recherche)</li>
+<li><strong>*</strong> A la fin d&#8217;un mot signifie que l&#8217;on recherche tout ce qui contient un mot commençant par</li>
+<li><strong>(</strong> et <strong>)</strong> signifie une précédence dans les opérateurs (priorisation des recherches AND, OR)</li>
+<li><strong>~N</strong> après un mot est proche du <strong>*</strong> mais en limitant le nombre de caractères dans la complétion (fuzziness)</li>
+<li><strong>~N</strong> après une phrase (encadré par <strong>&#8220;</strong>) autorise des &#8220;trous&#8221; dans la phrase</li>
+<li><strong>Attention</strong> : pour les champs non analysés, il s&#8217;agit d&#8217;un $term multivalué (choix parmi plusieurs valeurs).</li>
+</ul>
+</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$search&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Title&quot;</span> <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">oeufs cuits</span><span class="se">\&quot;</span><span class="s2"> +(tomate | patate) -frite&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">oeufs cuits</span><span class="se">\&quot;</span><span class="s2"> +(tomate | patate) -frite&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>pour rechercher les Units qui ont dans le titre la phrase &#8220;oeufs cuits&#8221; et au moins un parmi tomate ou patate, mais pas frite</p>
+<ul class="simple">
+<li>$flt, $mlt<ul>
+<li>Recherche « More Like This », soit par valeurs approchées</li>
+<li><strong>$mlt : { $fields : [ name1, name2 ], $like : like_text }</strong> où <em>name1</em>, <em>name2</em>, ... sont les noms des champs concernés, et <em>like_text</em> un champ texte avec lequel on va comparer les différents champs fournies pour trouver des éléments &#8220;ressemblant&#8221; à la valeur fournie (il s&#8217;agit d&#8217;une recherche permettant de chercher quelque chose qui ressemble à la valeur fournie, pas l&#8217;égalité, en mode plein texte)<ul>
+<li>$mlt : More like this, la méthode recommandée</li>
+<li>$fmt : Fuzzy like this, une autre que fournie l&#8217;indexeur mais pouvant donner plus de faux positif et qui est un assemblage de $match avec une combinaison &#8220;$or&#8221;</li>
+</ul>
+</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$mlt&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$fields&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">],</span> <span class="s2">&quot;$like&quot;</span> <span class="p">:</span> <span class="s2">&quot;Il était une fois&quot;</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">mlt</span><span class="p">(</span><span class="s2">&quot;Il était une fois&quot;</span><span class="p">,</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>pour chercher les Units qui ont dans le titre ou la description un contenu qui s&#8217;approche de la phrase spécifiée dans $like.</p>
+</div>
+</div>
+<div class="section" id="partie-action-dans-la-fonction-update">
+<h3>Partie $action dans la fonction Update<a class="headerlink" href="#partie-action-dans-la-fonction-update" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>$set<ul>
+<li>change la valeur des champs</li>
+<li><strong>$set : { name1 : value1, name2 : value2, ... }</strong> où <em>nameX</em> est le nom des champs à changer avec la valeur indiquée dans <em>valueX</em></li>
+<li><strong>NOTA BENE</strong>: $set admet maintenant une liste de valeur pour un champ de type tableau.</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$set&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Title&quot;</span> <span class="p">:</span> <span class="s2">&quot;Mon nouveau titre&quot;</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span> <span class="p">:</span> <span class="s2">&quot;Ma nouvelle description&quot;</span> <span class="p">}</span><span class="s2">&quot; }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;Mon nouveau titre&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">,</span> <span class="s2">&quot;Ma nouvelle description&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui change les champs Title et Description avec les valeurs indiquées</p>
+<ul class="simple">
+<li>$unset<ul>
+<li>enlève la valeur des champs</li>
+<li><strong>$unset : [ name1, name2, ... ]</strong> où <em>nameX</em> est le nom des champs pour lesquels on va supprimer les valeurs<ul>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$unset&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="s2">&quot;EndDate&quot;</span> <span class="p">]</span><span class="s2">&quot; }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="n">unset</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="s2">&quot;EndDate&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>qui va vider les champs indiqués de toutes valeurs</p>
+<ul class="simple">
+<li>$min, $max<ul>
+<li>change la valeur du champ à la valeur minimale/maximale si elle est supérieure/inférieure à la valeur précisée</li>
+<li><strong>$min : { name : value }</strong> où <em>name</em> est le nom du champ où si sa valeur actuelle est inférieure à <em>value</em>, sa valeur sera remplacée par celle-ci</li>
+<li><strong>$max</strong> idem en sens inverse, la valeur sera remplacée si l&#8217;existante est supérieure à celle indiquée</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$min&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;MonChamp&quot;</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">}</span><span class="s2">&quot; }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;Mon nouveau titre&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">,</span> <span class="s2">&quot;Ma nouvelle description&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si MonCompteur contient 2, MonCompteur vaudra 3, mais si MonCompteur contient 4, la valeur restera inchangée</p>
+<ul class="simple">
+<li>$inc<ul>
+<li>incrémente/décremente la valeur du champ selon la valeur indiquée</li>
+<li><strong>$inc : { name : value }</strong> où <em>name</em> est le nom du champ à incrémenter de la valeur <em>value</em> passée en paramètre (positive ou négative)</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$inc&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;MonCompteur&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="p">}</span><span class="s2">&quot; }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="n">inc</span><span class="p">(</span><span class="s2">&quot;MonCompteur&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>décrémente de 2 la valeur initiale de MonCompteur</p>
+<ul class="simple">
+<li>$rename<ul>
+<li>change le nom du champ</li>
+<li><strong>$rename : { name : newname }</strong> où <em>name</em> est le nom du champ à renommer en <em>newname</em></li>
+<li>les champs préfixés par &#8216;#&#8217; ne peuvent pas être renommés.</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$rename&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;MonChamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;MonNouveauChamp&quot;</span> <span class="p">}</span><span class="s2">&quot; }</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="n">rename</span><span class="p">(</span><span class="s2">&quot;MonChamp&quot;</span><span class="p">,</span> <span class="s2">&quot;MonNouveauChamp&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>où le champ MonChamp va être renommé en MonNouveauChamp</p>
+<ul class="simple">
+<li>$push, $pull<ul>
+<li>ajoute en fin ou retire les éléments de la liste du champ (qui est un tableau)</li>
+<li><strong>$push : { name : { $each : [ value, value, ... ] } }</strong> où <em>name</em> est le nom du champ de la forme d&#8217;un tableau (une valeur peut apparaître plus dune seule fois dans le tableau) et les valeurs sont ajoutées à la fin du tableau</li>
+<li><strong>$pull</strong> a la même signification mais inverse, à savoir qu&#8217;elle enlève du tableau les valeurs précisées si elles existent</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$push&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Tag&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$each&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;Oiseau&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="n">push</span><span class="p">(</span><span class="s2">&quot;Tag&quot;</span><span class="p">,</span> <span class="s2">&quot;Poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;Oiseau&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>ajoute dans le champ Tag les valeurs précisées à la fin du tableau même si elles existent déjà dans le tableau</p>
+<ul class="simple">
+<li>$add<ul>
+<li>ajoute les éléments de la liste du champ (unicité des valeurs)</li>
+<li><strong>$add : { name : { $each : [ value, value, ... ] } }</strong> où <em>name</em> est le nom du champ de la forme d&#8217;une MAP ou SET (une valeur ne peut apparaître qu&#8217;une seule fois dans le tableau) et les valeurs sont ajoutées, si elles n&#8217;existent pas déjà</li>
+<li><strong>$pull</strong> peut être utilisé pour retirer une valeur</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$add&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Tag&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$each&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;Oiseau&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="s2">&quot;Tag&quot;</span><span class="p">,</span> <span class="s2">&quot;Poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;Oiseau&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>ajoute dans le champ Tag les valeurs précisées sauf si elles existent déjà dans le tableau</p>
+<ul class="simple">
+<li>$pop<ul>
+<li>ajoute ou retire un élément du tableau en première ou dernière position selon la valeur -1 ou 1</li>
+<li><strong>$pop : { name : value }</strong> où <em>name</em> est le nom du champ et si <em>value</em> vaut -1, retire le premier, si <em>value</em> vaut 1, retire le dernier</li>
+<li>Exemple :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;$pop&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Tag&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">UpdateActionHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">action</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Tag&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>retire dans le champ Tag la première valeur du tableau</p>
+</div>
+</div>
+<div class="section" id="exemple-d-un-select-multi-queries">
+<h2>Exemple d&#8217;un SELECT Multi-queries<a class="headerlink" href="#exemple-d-un-select-multi-queries" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;id0&quot;</span> <span class="p">],</span>
+ <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span> <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;titre&quot;</span> <span class="p">},</span> <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="p">},</span>
+   <span class="p">{</span> <span class="s2">&quot;$and&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;$gt&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-03-25&quot;</span> <span class="p">}</span> <span class="p">},</span>
+     <span class="p">{</span> <span class="s2">&quot;$lte&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;EndDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-04-25&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">],</span> <span class="s2">&quot;$depth&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+   <span class="p">{</span> <span class="s2">&quot;$exists&quot;</span> <span class="p">:</span> <span class="s2">&quot;FilePlanPosition&quot;</span> <span class="p">}</span>
+ <span class="p">],</span>
+ <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$limit&quot;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">},</span>
+ <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;#id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#parents&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#object&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">multiple</span><span class="o">.</span><span class="n">SelectMultiQuery</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">VitamFieldsHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+
+<span class="n">Query</span> <span class="n">query1</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;titre&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setDepthLimit</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">query2</span> <span class="o">=</span> <span class="ow">and</span><span class="p">(</span><span class="n">gt</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-03-25&quot;</span><span class="p">)),</span>
+      <span class="n">lte</span><span class="p">(</span><span class="s2">&quot;EndDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-04-25&quot;</span><span class="p">)))</span>
+      <span class="o">.</span><span class="n">setDepthLimit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">query3</span> <span class="o">=</span> <span class="n">exists</span><span class="p">(</span><span class="s2">&quot;FilePlanPosition&quot;</span><span class="p">);</span>
+<span class="n">SelectMultiQuery</span> <span class="n">select</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SelectMultiQuery</span><span class="p">()</span><span class="o">.</span><span class="n">addRoots</span><span class="p">(</span><span class="s2">&quot;id0&quot;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">addQueries</span><span class="p">(</span><span class="n">query1</span><span class="p">,</span> <span class="n">query2</span><span class="p">,</span> <span class="n">query3</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">setLimitFilter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">addProjection</span><span class="p">(</span><span class="nb">id</span><span class="p">(),</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(),</span> <span class="n">parents</span><span class="p">(),</span> <span class="nb">object</span><span class="p">());</span>
+<span class="n">JsonNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">getFinalSelect</span><span class="p">();</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Cette requête commence avec le Unit id0. A partir de ce Unit, on cherche des Units qui sont fils avec une distance d&#8217;au plus 4 du noeud id0 et où Title contient &#8220;titre&#8221;, ce qui donne une nouvelle liste d&#8217;Ids.</li>
+<li>La query suivante utilise la liste d&#8217;Ids précédemment obtenue pour effectuer un filtre sur celle-ci ($depth = 0) et vérifie une condition sur StartDate et EndDate, ce qui donne une nouvelle liste d&#8217;Ids, sous-ensemble de celle obtenue en étape 1.</li>
+<li>La query suivante utilise la liste d&#8217;Ids précédemment obtenue comme point de départ et cherche les fils immédiats ($depth = 1 implicite) qui vérifie la condition que FilePlanPosition, ce qui donne une nouvelle d&#8217;Ids.</li>
+<li>Sur la base de cette nouvelle liste d&#8217;Ids obtenue de l&#8217;étape 3, seuls les 100 premiers sont retournés, et le contenu de ce qui est retourné est précisé dans la projection.</li>
+</ol>
+<p>A noter qu&#8217;il aurait été possible d&#8217;optimiser cette requête comme suit :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;id0&quot;</span> <span class="p">],</span>
+ <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span> <span class="s2">&quot;$and&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;titre&quot;</span> <span class="p">}</span> <span class="p">},</span>
+     <span class="p">{</span> <span class="s2">&quot;$gt&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-03-25&quot;</span> <span class="p">}</span> <span class="p">},</span>
+     <span class="p">{</span> <span class="s2">&quot;$lte&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;EndDate&quot;</span> <span class="p">:</span> <span class="s2">&quot;2014-04-25&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">],</span> <span class="s2">&quot;$depth&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+   <span class="p">{</span> <span class="s2">&quot;$exists&quot;</span> <span class="p">:</span> <span class="s2">&quot;FilePlanPosition&quot;</span> <span class="p">}</span>
+ <span class="p">],</span>
+ <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$limit&quot;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">},</span>
+ <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;#id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#parents&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#object&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">multiple</span><span class="o">.</span><span class="n">SelectMultiQuery</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">VitamFieldsHelper</span><span class="o">.*</span><span class="p">;</span>
+<span class="n">static</span> <span class="n">include</span> <span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">QueryHelper</span><span class="o">.*</span><span class="p">;</span>
+
+<span class="n">Query</span> <span class="n">query2</span> <span class="o">=</span> <span class="ow">and</span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="s2">&quot;titre&quot;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s2">&quot;StartDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-03-25&quot;</span><span class="p">)),</span>
+      <span class="n">lte</span><span class="p">(</span><span class="s2">&quot;EndDate&quot;</span><span class="p">,</span> <span class="n">dateFormat</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2014-04-25&quot;</span><span class="p">)))</span><span class="o">.</span><span class="n">setDepthLimit</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">query3</span> <span class="o">=</span> <span class="n">exists</span><span class="p">(</span><span class="s2">&quot;FilePlanPosition&quot;</span><span class="p">);</span>
+<span class="n">SelectMultiQuery</span> <span class="n">select</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SelectMultiQuery</span><span class="p">()</span><span class="o">.</span><span class="n">addRoots</span><span class="p">(</span><span class="s2">&quot;id0&quot;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">addQueries</span><span class="p">(</span><span class="n">query2</span><span class="p">,</span> <span class="n">query3</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">setLimitFilter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">addProjection</span><span class="p">(</span><span class="nb">id</span><span class="p">(),</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(),</span> <span class="n">parents</span><span class="p">(),</span> <span class="nb">object</span><span class="p">());</span>
+<span class="n">JsonNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">getFinalSelect</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Car la requête 1 et 2 sont unifiées en une seule.</p>
+</div>
+<div class="section" id="exemple-de-scenarios">
+<h2>Exemple de scénarios<a class="headerlink" href="#exemple-de-scenarios" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="cas-du-sip-mercier-zip">
+<h3>Cas du SIP Mercier.zip<a class="headerlink" href="#cas-du-sip-mercier-zip" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Etape 1</strong></p>
+<ol class="arabic simple">
+<li>je cherche l&#8217;article 2 (ArchivalAgencyArchiveUnitIdentifier) = les discours prononcés devant l&#8217;Assemblée nationale</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;assemblée&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;discours&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+   <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Etape 2</strong></p>
+<ol class="arabic simple" start="2">
+<li>je cherche les discours prononcés lors de la préparation de la loi relative au défenseur des droits, que ce soit à l&#8217;Assemblée nationale ou le Sénat (Title = défenseur)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$or&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;sénat&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;assemblée&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$and&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;défenseur&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Etape 3</strong></p>
+<ol class="arabic simple" start="3">
+<li>je cherche dans le dossier Sénat (Title = Sénat), les discours prononcés lors de la relative au défenseur des droits (Title = défenseur)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$and&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$eq&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sénat&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$and&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;défenseur&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Etape 4</strong></p>
+<ol class="arabic simple" start="4">
+<li>je cherche les discours prononcé sur telle intervalle de date (StartDate, EndDate)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+      <span class="s2">&quot;$or&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;discours&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$and&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s2">&quot;$range&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;StartDate&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$gte&quot;</span> <span class="p">:</span> <span class="s2">&quot;2012-10-22&quot;</span><span class="p">,</span> <span class="s2">&quot;$lte&quot;</span> <span class="p">:</span> <span class="s2">&quot;2012-11-07&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;$range&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;EndDate&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$gte&quot;</span> <span class="p">:</span> <span class="s2">&quot;2012-11-07&quot;</span><span class="p">,</span> <span class="s2">&quot;$lte&quot;</span> <span class="p">:</span> <span class="s2">&quot;2012-11-08&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+   <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cas-du-sip-1069-ok-rules-complexe-complete-zip">
+<h3>Cas du SIP 1069_OK_RULES_COMPLEXE_COMPLETE.zip<a class="headerlink" href="#cas-du-sip-1069-ok-rules-complexe-complete-zip" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Etape 1</strong></p>
+<ol class="arabic simple">
+<li>je cherche l&#8217;AU dont le titre est Botzaris (Title = Botzaris)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Botzaris&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+   <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Etape 2</strong></p>
+<ol class="arabic simple" start="2">
+<li>je cherche les AU qui ne seront pas communicables au 01/01/2018 (= les AU qui ont une AccesRule avec une EndDate postérieure au 01/01/2018)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$or&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$gt&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;#management.AccessRule.EndDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-01-01&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;#rules&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Title&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Etape 3</strong></p>
+<ol class="arabic simple" start="3">
+<li>je cherche les AU qui ont une AppraisalRule avec sort final = Destroy</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;$roots&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;$or&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;$eq&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;#management.AppraisalRule.FinalAction&quot;</span><span class="p">:</span> <span class="s2">&quot;Destroy&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;$depth&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$orderby&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;TransactedDate&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;$fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;#rules&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Title&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="client-usage.html" class="btn btn-neutral float-right" title="Utilisation des clients externes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Exemples.html" class="btn btn-neutral" title="Exemples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

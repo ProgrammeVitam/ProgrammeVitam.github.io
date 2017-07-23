@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; documentation VITAM - Manuel Intégraption Applicative 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel Intégraption Applicative 0.20.0" href="index.html"/>
+        <link rel="next" title="Conventions REST Générales" href="standard.html"/>
+        <link rel="prev" title="VITAM" href="Vitam.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégraption Applicative
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vitam.html">VITAM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#services">Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quelques-ressources">Quelques Ressources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formation-generale-des-api-externes">Formation générale des API externes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raml">RAML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#javadoc">Javadoc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requetes-et-reponses">Requêtes et réponses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-de-postman">Utilisation de PostMan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ingest">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access">Access</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">Conventions REST Générales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DSL.html">DSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsl-introduction.html">DSL Vitam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exemples.html">Exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exemple-dsl.html">Exemple DSL Vitam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-usage.html">Utilisation des clients externes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - Manuel Intégraption Applicative</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/API.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="services">
+<h3>Services<a class="headerlink" href="#services" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>ingest-external : opérations d’entrées</li>
+<li>access-external : accès et journaux d’opérations</li>
+<li>admin-external : gestion du référentiel et opérations d’administration</li>
+</ul>
+</div>
+<div class="section" id="quelques-ressources">
+<h3>Quelques Ressources<a class="headerlink" href="#quelques-ressources" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">/ingest-external/v1/ingests</span></code></li>
+<li><code class="docutils literal"><span class="pre">/admin-external/v1/formats</span></code></li>
+<li><code class="docutils literal"><span class="pre">/access-external/v1/units</span></code></li>
+</ul>
+</div>
+<div class="section" id="formation-generale-des-api-externes">
+<h3>Formation générale des API externes<a class="headerlink" href="#formation-generale-des-api-externes" title="Lien permanent vers ce titre">¶</a></h3>
+<img alt="_images/API_formation_generale.png" src="_images/API_formation_generale.png" />
+</div>
+<div class="section" id="raml">
+<h3>RAML<a class="headerlink" href="#raml" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/externe/introduction.html">Ressource documentaire : raml/externe/introduction.html</a></li>
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/externe/ingest.html">Ressource documentaire : raml/externe/ingest.html</a></li>
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/externe/access.html">Ressource documentaire : raml/externe/access.html</a></li>
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/externe/functional-administration.html">Ressource documentaire : raml/externe/functional-administration.html</a></li>
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/externe/logbook.html">Ressource documentaire : raml/externe/logbook.html</a></li>
+</ul>
+<p>exemple d&#8217;interface du RAML</p>
+<img alt="_images/API_exemple_RAML.png" src="_images/API_exemple_RAML.png" />
+</div>
+<div class="section" id="javadoc">
+<h3>Javadoc<a class="headerlink" href="#javadoc" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/javadoc">Ressource documentaire : javadoc</a></li>
+</ul>
+<p>Notamment pour les packages des clients suivants :</p>
+<ul>
+<li><p class="first">Ingest External Client : <code class="docutils literal"><span class="pre">fr.gouv.vitam.ingest.external.client</span></code>;</p>
+</li>
+<li><p class="first">Access External Client : <code class="docutils literal"><span class="pre">fr.gouv.vitam.access.external.client</span></code>;</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Plus tard ce package sera découpé en trois parties :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">AccessExternalClient</span></code></li>
+<li><code class="docutils literal"><span class="pre">AdminExternalClient</span></code></li>
+<li><code class="docutils literal"><span class="pre">LogbookExternalClient</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="requetes-et-reponses">
+<h3>Requêtes et réponses<a class="headerlink" href="#requetes-et-reponses" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les requêtes HTTP VITAM ont en commun les attributs suivants :</p>
+<img alt="_images/API_requetes_elements_communs.png" src="_images/API_requetes_elements_communs.png" />
+<p>Les réponses HTTP de VITAM ont en commun les attributs suivants :</p>
+<img alt="_images/API_reponses_elements_communs.png" src="_images/API_reponses_elements_communs.png" />
+</div>
+<div class="section" id="utilisation-de-postman">
+<h3>Utilisation de PostMan<a class="headerlink" href="#utilisation-de-postman" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Possibilité de gestion des collections</p>
+<img alt="_images/API_postman_collections.png" src="_images/API_postman_collections.png" />
+<p>Exemples d&#8217;élements à renseigner pour une requête, ici <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/ingest-external/v1/ingests</span></code> :</p>
+<img alt="_images/API_exemple_requete_body_postman.png" src="_images/API_exemple_requete_body_postman.png" />
+</div>
+</div>
+<div class="section" id="ingest">
+<h2>Ingest<a class="headerlink" href="#ingest" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Exemple d&#8217;implémentation Java :</p>
+<p><code class="docutils literal"><span class="pre">/ingest-external/v1/ingests</span></code></p>
+<img alt="_images/API_implementation_ingest_1.png" src="_images/API_implementation_ingest_1.png" />
+<p><code class="docutils literal"><span class="pre">/ingest-external/v1/ingests/{objectId}/{type}</span></code></p>
+<img alt="_images/API_implementation_ingest_2.png" src="_images/API_implementation_ingest_2.png" />
+</div>
+<div class="section" id="access">
+<h2>Access<a class="headerlink" href="#access" title="Lien permanent vers ce titre">¶</a></h2>
+<p>RAML : <a class="reference external" href="http://www.programmevitam.fr/ressources/Doc0.20.0/raml/access/introduction.html">Ressource documentaire : raml/access/introduction.html</a> ; API qui définit les requêtes pour accéder aux Unités d&#8217;archives.</p>
+<p>La requête utilise le langage de requête (DSL) de Vitam en entrée et retourne une liste d&#8217;Unités d&#8217;archives selon le DSL Vitam en cas de succès.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">/units</span></code></li>
+</ul>
+<img alt="_images/API_RAML_unit.png" src="_images/API_RAML_unit.png" />
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">/objects</span></code></li>
+</ul>
+<img alt="_images/API_RAML_object.png" src="_images/API_RAML_object.png" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="standard.html" class="btn btn-neutral float-right" title="Conventions REST Générales" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Vitam.html" class="btn btn-neutral" title="VITAM" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

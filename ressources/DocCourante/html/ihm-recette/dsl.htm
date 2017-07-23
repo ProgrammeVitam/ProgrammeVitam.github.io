@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Testeur de requêtes DSL &mdash; documentation VITAM - IHM Recette 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - IHM Recette 0.20.0" href="index.html"/>
+        <link rel="prev" title="Tests fonctionnels" href="fonctionnel.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - IHM Recette
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="recette.html">Recette</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Administration des collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Tests de performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="securisation.html">Sécurisation des journaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fonctionnel.html">Tests fonctionnels</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testeur de requêtes DSL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#champs-disponibles">Champs disponibles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#realiser-une-requete">Réaliser une requête</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - IHM Recette</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Testeur de requêtes DSL</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/dsl.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testeur-de-requetes-dsl">
+<h1>Testeur de requêtes DSL<a class="headerlink" href="#testeur-de-requetes-dsl" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le testeur de requêtes DSL met à disposition des administrateurs une interface graphique permettant de simplifier l&#8217;exécution de requêtes sur les API de la solution logicielle Vitam.</p>
+<p>Celle-ci contient un formulaire composé de plusieurs champs.</p>
+<div class="section" id="champs-disponibles">
+<h2>Champs disponibles<a class="headerlink" href="#champs-disponibles" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Tenant</strong> : champ obligatoire. Indique le tenant sur lequel la requête va être exécutée. Ce champs est contribué automatiquement avec le numéro du tenant sélectionné par l’administrateur.</p>
+<p><strong>Contrat</strong> : champ optionnel. Liste permettant de sélectionner un contrat d&#8217;accès qui sera associé à la requête.</p>
+<p><strong>Collection</strong> : champ obligatoire. Liste permettant de sélectionner la collection sur laquelle la requête va être exécutée.</p>
+<p><strong>Action</strong> : champ obligatoire. Liste permettant de sélectionner le type d&#8217;action à effectuer. Actuellement, il n&#8217;est possible de sélectionner que &#8220;Rechercher&#8221;, sauf pour la collection &#8220;Contexte&#8221; qui a également l&#8217;option &#8220;Mise à jour&#8221;.</p>
+<p><strong>Identifiant</strong> : champs optionnel. Permet de renseigner le GUID de l&#8217;objet recherché.</p>
+<p><strong>Requête DSL</strong> : champ obligatoire. Permet de saisir la requête DSL au format Json.</p>
+</div>
+<div class="section" id="realiser-une-requete">
+<h2>Réaliser une requête<a class="headerlink" href="#realiser-une-requete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour réaliser une requête, l&#8217;administrateur rempli les champs du formulaire afin que leur contenu soit cohérent avec la requête qu&#8217;il souhaite exécuter.</p>
+<img alt="_images/DSL_envoyer_requete.png" src="_images/DSL_envoyer_requete.png" />
+<p>Pour vérifier la validité du formatage du Json, l&#8217;administrateur clique sur bouton &#8220;Vérifier Json&#8221;. Si le Json est valide, le texte est mis en forme et la mention &#8220;Json Valide&#8221; est affichée à gauche du bouton. Dans le cas contraire, la mention &#8220;Json non valide&#8221; est indiquée.</p>
+<img alt="_images/DSL_Json_Invalide.png" src="_images/DSL_Json_Invalide.png" />
+<p>Pour exécuter la requête, l&#8217;administrateur clique sur le bouton &#8220;Envoyer la requête&#8221;. Une zone de résultat est alors affichée à droite de l&#8217;écran et contient le retour envoyé par la solution logicielle Vitam.</p>
+<img alt="_images/DSL_requete_OK.png" src="_images/DSL_requete_OK.png" />
+<p>Si la requête contient une erreur autre que le non-respect du formatage de la requête Json, le retour envoyé par la solution logicielle Vitam contiendra un code d’erreur et sera affiché de la façon suivante :</p>
+<img alt="_images/DSL_requete_KO.png" src="_images/DSL_requete_KO.png" />
+<p>Si la requête envoyée par l&#8217;administrateur ne respecte pas le formatage de la requête Json, l&#8217;endroit où se trouve l&#8217;erreur sera indiqué dans le retour de la façon suivante :</p>
+<img alt="_images/DSl_requete_Json_KO.png" src="_images/DSl_requete_Json_KO.png" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="fonctionnel.html" class="btn btn-neutral" title="Tests fonctionnels" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
