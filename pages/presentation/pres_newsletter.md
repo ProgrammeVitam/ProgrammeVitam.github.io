@@ -6,6 +6,7 @@ fatherref: presentation
 
 >Vous pouvez connaître l'actualité du Programme Vitam, en nous suivant sur les réseaux sociaux ou en consultant nos lettres d'information publiées régulièrement.
 
+* [**Juillet 2017**](/ressources/Newsletter/20170725_Newsletter_vitam_n6_juillet_2017.pdf)
 * [**Mai 2017**](/ressources/Newsletter/20170505_Newsletter_vitam_n5_mai_2017.pdf)
 * [**Janvier 2017**](/ressources/Newsletter/20170106_Newsletter_vitam_n4_janvier_2017.pdf)
 * [**Novembre 2016**](/ressources/Newsletter/20161014_Newsletter_vitam_n3_novembre_2016.pdf)
