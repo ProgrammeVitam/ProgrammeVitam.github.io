@@ -25,6 +25,15 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM
 pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de 
 tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintray.repo }}).
 
+* **une machine virtuelle**
+
+Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
+La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement. 
+
+Elle est accessible sur http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.ova
+
+Une empreinte sha256 permet de vérifier l'intégrité du fichier ova : http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.sha256
+
 * **la documentation fonctionnelle et technique**
 
 Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation).
