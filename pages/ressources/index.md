@@ -30,9 +30,9 @@ tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintra
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement. 
 
-Elle est accessible sur [http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.ova] (http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.ova)
+Elle est accessible sur <http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.ova>
 
-Une empreinte sha256 permet de vérifier l'intégrité du fichier ova : [http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.sha256] (http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.sha256)
+Une empreinte sha256 permet de vérifier l'intégrité du fichier ova : <http://download.programmevitam.fr/demo_vitam_0.20.0/demo_vitam_0.20.0-1.sha256>
 
 * **la documentation fonctionnelle et technique**
 
