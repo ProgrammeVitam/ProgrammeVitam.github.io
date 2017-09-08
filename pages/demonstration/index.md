@@ -25,7 +25,7 @@ Pour reproduire ces tests vous devez utiliser les exemples de référentiels et 
 * Référentiel [PRONOM](https://www.nationalarchives.gov.uk/PRONOM/Default.aspx) des formats ([xml](/ressources/DemoR4/DROID_SignatureFile_V88.xml))
 * Référentiel de règles ([csv](/ressources/DemoR4/jeu_donnees_OK_regles_CSV.csv))
 * Référentiel des contrats ([json](/ressources/DemoR4/referential_contracts_ok.json))
-* SIP_14juillet_light ([zip](/ressources/DemoR4/SIP_14juillet_light.zip))
+* SIP de test ([zip](/ressources/DemoR4/SIP_14juillet_light.zip))
 
 **A noter:** avant de charger le SIP d'exemples, il faut avoir importé les 3 référentiels de formats, de règles de gestion et de contrats.
 
