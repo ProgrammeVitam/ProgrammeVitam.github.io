@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cucumber (exemples) &mdash; documentation VITAM - Scénarios de test 0.26.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Scénarios de test 0.26.1" href="index.html"/>
+        <link rel="prev" title="Outils de tests" href="outils.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Scénarios de test
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.26.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Objectif du document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outils.html">Outils de tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outils.html#tests-manuels">Tests Manuels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outils.html#tests-automatises">Tests Automatisés</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cucumber (exemples)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#collection-unit">Collection Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collection-filerules">Collection FileRules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collection-accessaccessionregister">Collection AccessAccessionRegister</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - Scénarios de test</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Cucumber (exemples)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/exemples_cucumber.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cucumber-exemples">
+<h1>Cucumber (exemples)<a class="headerlink" href="#cucumber-exemples" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Voici quelques exemples de scénarios de tests réalisables avec Cucumber.</p>
+<div class="section" id="collection-unit">
+<h2>Collection Unit<a class="headerlink" href="#collection-unit" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Fonctionnalité</strong> Recherche avancée</p>
+<p><strong>Scénario</strong> Recherche avancée d’archives – cas OK d’une recherche multicritères croisant métadonnées techniques et métadonnées descriptives et métadonnées de gestion (API)</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Etant donné les tests effectués sur le tenant 0
+Et un fichier SIP nommé data/SIP_OK/ZIP/OK-RULES_TEST.zip
+Et je télécharge le SIP
+Quand  j&#8217;utilise le fichier de requête suivant data/queries/select_multicriteres_md.json
+Et je recherche les unités archivistiques
+Alors les metadonnées sont
+| Title            | titre20999999  |
+| StartDate        | 2012-06-20T18:58:18 |
+| EndDate          | 2014-12-07T09:52:56 |</dd>
+</dl>
+<p><strong>Scénario</strong> Recherche avancée d’archives – recherche d’archives dans un tenant sur la base de critères correspondant à des archives conservées dans un autre tenant (manuel)</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Etant donné les tests effectués sur le tenant 0
+Quand  j&#8217;utilise le fichier de requête suivant data/queries/select_multicriteres_md.json
+Et je recherche les unités archivistiques
+Alors les metadonnées sont
+| Title            | titre20999999  |
+| StartDate        | 2012-06-20T18:58:18 |
+| EndDate          | 2014-12-07T09:52:56 |
+Mais les tests effectués sur le tenant 1
+Et je recherche les unités archivistiques
+Alors le nombre de résultat est 0
+&#8220;&#8221;&#8221;
+{   &#8220;$roots&#8221;: [],   &#8220;$query&#8221;: [     {           &#8220;$and&#8221;: [             {               &#8220;$eq&#8221;: {                 &#8220;#management.AccessRule.Rules.Rule&#8221;: &#8220;ACC-00002&#8221;               }             },             {               &#8220;$match&#8221;: {                 &#8220;Title&#8221;: &#8220;titre20999999&#8221;               }             }           ],       &#8220;$depth&#8221;: 20     }   ],   &#8220;$filter&#8221;: {     &#8220;$orderby&#8221;: {       &#8220;TransactedDate&#8221;: 1     }   },   &#8220;$projection&#8221;: {   } }
+&#8220;&#8221;&#8220;</dd>
+</dl>
+<p><strong>Fonctionnalité</strong> Modification interdite via API</p>
+<p><strong>Scénario</strong> KO_UPDATE_UNIT__ID : Vérifier la non modification de _id</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Etant donné les tests effectués sur le tenant 0
+Quand je modifie l&#8217;unité archivistique avec la requete
+&#8220;&#8221;&#8221;
+{&#8220;$query&#8221;: [],&#8221;$filter&#8221;: {},&#8221;$action&#8221;: [              {&#8220;$set&#8221;: {                              &#8220;_id&#8221; : &#8220;toto_id&#8221;                       }}]}
+&#8220;&#8221;&#8221;
+Et le statut de la requete est Bad Request</dd>
+</dl>
+<p><strong>Fonctionnalité</strong> Affichage des métadonnées de l&#8217;objet physique</p>
+<p><strong>Scénario</strong> CAS OK = import SIP OK et métadonnées de l&#8217;objet physique OK</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Etant donné les tests effectués sur le tenant 0
+Et un fichier SIP nommé data/SIP_OK/ZIP/OK_ArchivesPhysiques.zip
+Quand je télécharge le SIP
+Alors le statut final du journal des opérations est OK
+Quand j&#8217;utilise la requête suivante
+&#8220;&#8221;&#8221;
+{ &#8220;$roots&#8221;: [],   &#8220;$query&#8221;: [{&#8220;$and&#8221;:[{&#8220;$eq&#8221;:{&#8220;Title&#8221;:&#8221;Sed blandit mi dolor&#8221;}},{&#8220;$in&#8221;:{&#8220;#operations&#8221;:[&#8220;Operation-Id&#8221;]}}],       &#8220;$depth&#8221;: 0}],     &#8220;$projection&#8221;: {     &#8220;$fields&#8221;: {       &#8220;TransactedDate&#8221;: 1, &#8220;#id&#8221;: 1, &#8220;Title&#8221;: 1, &#8220;#object&#8221;: 1, &#8220;DescriptionLevel&#8221;: 1, &#8220;EndDate&#8221;: 1, &#8220;StartDate&#8221;: 1 }}}
+&#8220;&#8221;&#8221;
+Et je recherche les groupes d&#8217;objets des unités archivistiques
+Alors les metadonnées sont
+| #qualifiers.PhysicalMaster.versions.0.DataObjectVersion                      | PhysicalMaster_1    |              | #qualifiers.PhysicalMaster.versions.0.PhysicalDimensions.Height.value        | 21                  |          | #qualifiers.PhysicalMaster.versions.0.PhysicalDimensions.Height.unit         | centimetre          |          | #qualifiers.PhysicalMaster.versions.0.PhysicalDimensions.Length.value        | 29.7                |          | #qualifiers.PhysicalMaster.versions.0.PhysicalDimensions.Length.unit         | centimetre          |          | #qualifiers.PhysicalMaster.versions.0.PhysicalDimensions.Weight.value        | 1                   |          | #qualifiers.PhysicalMaster.versions.0.PhysicalDimensions.Weight.unit         | kilogram            |          | #qualifiers.BinaryMaster.versions.0.DataObjectVersion                        | BinaryMaster_1      |          | #qualifiers.BinaryMaster.versions.0.FileInfo.Filename                        | Filename0           |          | #qualifiers.BinaryMaster.versions.0.FormatIdentification.FormatId            | fmt/18              |</dd>
+</dl>
+</div>
+<div class="section" id="collection-filerules">
+<h2>Collection FileRules<a class="headerlink" href="#collection-filerules" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Fonctionnalité</strong> Recherche de règle de gestion</p>
+<p><strong>Scénario</strong> Vérification et import des règles OK, recherche par id OK</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Quand je vérifie le fichier nommé data/rules/jeu_donnees_OK_regles_CSV_regles.csv pour le référentiel RULES                                |   Quand j&#8217;utilise le fichier de requête suivant data/queries/select_rule_by_id.json
+Et je recherche les données dans le référentiel RULES
+Alors le nombre de résultat est 1
+Et les metadonnées sont
+| RuleId           | APP-00001
+&#8220;&#8221;&#8220;&#8221;
+{     &#8220;$query&#8221;: {             &#8220;$eq&#8221;: {                        &#8220;RuleId&#8221;: &#8220;APP-00001&#8221;           }       },      &#8220;$projection&#8221;: {                &#8220;$fields&#8221;: {                    &#8220;#id&#8221;: 1,                       &#8220;RuleId&#8221;: 1,                    &#8220;Name&#8221;: 1               }       },      &#8220;$filter&#8221;: {} }
+&#8220;&#8221;&#8220;&#8221;</dd>
+</dl>
+</div>
+<div class="section" id="collection-accessaccessionregister">
+<h2>Collection AccessAccessionRegister<a class="headerlink" href="#collection-accessaccessionregister" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Fonctionnalité</strong> Recherche dans les registres de fond</p>
+<p><strong>Contexte</strong> Avant de lancer cette suite de test, je présuppose que les règles de gestions et de formats sont chargés.</p>
+<p><strong>Scénario</strong> Upload d&#8217;un SIP et vérification du contenu dans le registre de fonds</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><p class="first">Etant donné les tests effectués sur le tenant 0
+Et un fichier SIP nommé data/SIP_OK/ZIP/OK_ARBO-COMPLEXE.zip
+Quand je télécharge le SIP</p>
+<blockquote>
+<div>Et j&#8217;utilise le fichier de requête suivant data/queries/select_accession_register_by_id.json</div></blockquote>
+<p>Et je recherche les détails des registres de fond pour le service producteur Vitam
+Alors les metadonnées sont</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">OriginatingAgency        | Vitam              |</div>
+<div class="line">SubmissionAgency         | Vitam              |</div>
+<div class="line">ArchivalAgreement        | ArchivalAgreement0 |</div>
+</div>
+</div></blockquote>
+<dl class="last docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>&#8220;$query&#8221;: {</dt>
+<dd><dl class="first docutils">
+<dt>&#8220;$eq&#8221;: {</dt>
+<dd>&#8220;#id&#8221;: &#8220;Operation-Id&#8221;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p class="last">},
+&#8220;$projection&#8221;: {},
+&#8220;$filter&#8221;: {}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="outils.html" class="btn btn-neutral" title="Outils de tests" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.26.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.4.1.1. Architecture fonctionnelle de l’application Back &mdash; documentation VITAM - Architecture 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="..\..\..\_static\css\theme.css" type="text/css">
+  
+
+  
+
+  
+        <link rel="index" title="Index" href="..\..\..\genindex.html">
+        <link rel="search" title="Recherche" href="..\..\..\search.html">
+    <link rel="top" title="documentation VITAM - Architecture 0.20.0" href="..\..\..\index.html">
+        <link rel="up" title="7.4.1. Architecture fonctionnelle" href="_toc.html">
+        <link rel="next" title="7.4.1.2. Architecture fonctionnelle de l’application Front" href="front-application.html">
+        <link rel="prev" title="7.4.1. Architecture fonctionnelle" href="_toc.html"> 
+
+  
+  <script src="..\..\..\_static\js\modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="..\..\..\index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="..\..\..\_static\LogoVitamGrand2.png" class="logo">
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="..\..\..\introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\..\introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\..\overview\_toc.html">3. Vue d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\..\archi-applicative\_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\..\archi-exploit-infra\_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\..\securite\_toc.html">6. Securite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="..\..\_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="..\..\access\_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\common\_toc.html">7.2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\functional-administration\_toc.html">7.3. Functional administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="..\_toc.html">7.4. IHM demo</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="_toc.html">7.4.1. Architecture fonctionnelle</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.4.1.1. Architecture fonctionnelle de l&#8217;application Back</a></li>
+<li class="toctree-l4"><a class="reference internal" href="front-application.html">7.4.1.2. Architecture fonctionnelle de l&#8217;application Front</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="..\technique\_toc.html">7.4.2. Architecture technique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\ihm-recette\_toc.html">7.5. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\ingest\_toc.html">7.6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\logbook\_toc.html">7.7. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\metadata\_toc.html">7.8. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\processing\_toc.html">7.9. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\storage\_toc.html">7.10. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\technical-administration\_toc.html">7.11. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\..\workspace\_toc.html">7.12. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..\..\..\index.html">VITAM - Architecture</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..\..\..\index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="..\..\_toc.html">7. Architecture détaillée</a> &raquo;</li>
+      
+          <li><a href="..\_toc.html">7.4. IHM demo</a> &raquo;</li>
+      
+          <li><a href="_toc.html">7.4.1. Architecture fonctionnelle</a> &raquo;</li>
+      
+    <li>7.4.1.1. Architecture fonctionnelle de l&#8217;application Back</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="..\..\..\_sources\include\ihm-demo\fonctionnelle\back_application.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture-fonctionnelle-de-l-application-back">
+<h1>7.4.1.1. Architecture fonctionnelle de l&#8217;application Back<a class="headerlink" href="#architecture-fonctionnelle-de-l-application-back" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="but-de-cette-documentation">
+<h2>7.4.1.1.1. But de cette documentation<a class="headerlink" href="#but-de-cette-documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On présente dans ce document l&#8217;architecture fonctionnelle de l&#8217;application Back IHM de VITAM.</p>
+</div>
+<div class="section" id="fonctionnement-general-du-module">
+<h2>7.4.1.1.2. Fonctionnement général du module<a class="headerlink" href="#fonctionnement-general-du-module" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;application IHM-DEMO est une application web dont la partie Front est une application Single Page développée avec le framework AngularJS 1.5.3 et côté serveur on utilise un serveur Jetty intégré qui gère les appels à ses services REST. Dans ce document, on s&#8217;intéresse à l&#8217;application côté serveur.
+On détaille dans la suite le fonctionnement par service REST.</p>
+<div class="section" id="recherche-des-units-post-ihm-demo-v1-api-archivesearch-units">
+<h3>7.4.1.1.2.1. Recherche des units : POST /ihm-demo/v1/api/archivesearch/units<a class="headerlink" href="#recherche-des-units-post-ihm-demo-v1-api-archivesearch-units" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;application Front construit en amont un objet Json passé dans le corps de la requête HTTP qui décrit les critères de recherche, les colonnes à afficher et le tri par défaut. Ci-dessous, la structure de l&#8217;objet reçu:</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">Title = <em>titleCriteria</em></p>
+<p>projection_transactdate = &#8220;TransactedDate&#8221;</p>
+<p>projection_id = &#8220;#id&#8221;</p>
+<p>projection_title = &#8220;Title&#8221;</p>
+<p class="last">orderby = &#8220;TransactedDate&#8221;</p>
+</dd>
+</dl>
+<p>}</p>
+<ul class="simple">
+<li>L&#8217;entrée <em>Title</em> définit la chaîne de caractères saisie par l&#8217;utilisateur et utilisée pour la <strong>recherche exacte</strong> sur les titres des archive units.</li>
+<li>Pour faire la distinction entre les champs utilisés dans la partie <em>query</em> de la requête DSL et les colonnes sélectionnées (<em>projection</em>), le préfixe <em>projection_</em> doit être ajouté à toutes les colonnes à afficher. Le résultat affiché inclut les colonnes <em>TransactedDate</em>, <em>id</em> et <em>Title</em>.</li>
+<li>L&#8217;entrée <em>orderby</em> définit la colonne sur laquelle le tri par défaut sera fait côté serveur.</li>
+<li>Il faudrait noter ici le caractère <em>#</em> ajouté à la sélection du champ <em>_id</em>. En fait, afin de permettre la sélection des champs protégés tels que <em>_id</em> il faut remplacer le caractère <em>_</em> par le caractère <em>#</em>.</li>
+</ul>
+<p>Cet objet est convertit en Map&lt;String, String&gt; qui sera utilisée pour construire la requête DSL de sélection.
+On passe la main maintenant à la classe utilitaire <em>DslQueryHelper</em> qui construit à partir de la Map reçue la requête DSL de sélection. Une instance de la classe <em>fr.gouv.vitam.builder.request.construct.Select</em> est créée et alimentée pour obtenir à la fin la structure suivante:</p>
+<p>{</p>
+<blockquote>
+<div><p>$query:[{&#8220;$and&#8221;:[{&#8220;$eq&#8221;:{&#8220;title&#8221;:&#8221;titleCriteria&#8221;}}]}],</p>
+<p>$filter:{&#8220;$orderby&#8221;:{&#8220;TransactedDate&#8221;:1}},</p>
+<p>$projection:{&#8220;$fields&#8221;:{&#8220;Title&#8221;:1, &#8220;#id&#8221;:1, &#8220;TransactedDate&#8221; : 1}}</p>
+</div></blockquote>
+<p>}</p>
+<p>La classe <em>UserInterfaceTransactionManager</em> appelle le client Access qui prend en charge l&#8217;appel de MetaData et la récupération du résultat de recherche. Ci-dessous la structure du résultat retourné à l&#8217;application Front:</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">$hint: { total:x },</p>
+<p>$context: {},</p>
+<p class="last">$result: [<em>tableau des archive units trouvées</em>]</p>
+</dd>
+</dl>
+<p>}</p>
+</div>
+<div class="section" id="affichage-du-detail-d-une-archive-unit-get-ihm-demo-v1-api-archivesearch-unit-id">
+<h3>7.4.1.1.2.2. Affichage du détail d&#8217;une archive unit : GET /ihm-demo/v1/api/archivesearch/unit/{id}<a class="headerlink" href="#affichage-du-detail-d-une-archive-unit-get-ihm-demo-v1-api-archivesearch-unit-id" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le processus d&#8217;affichage des détails d&#8217;une archive unit est déclenché suite à une sélection faite sur un résultat de recherche. L&#8217;id de l&#8217;unité sélectionnée est passé en tant que paramètre dans l&#8217;URL.</p>
+<p>Pour indiquer qu&#8217;il s&#8217;agit d&#8217;une sélection par id (c&#8217;est à dire une archive unit spécifique), la Map utilisée pour la construction de la requête DSL va contenir seulement une entrée : <strong>(SELECT_BY_ID, id)</strong>. De ce fait, la requête DSL de sélection introduit l&#8217;entrée root égale à l&#8217;id de l&#8217;unit sélectionnée. Donc, on aura la structure suivante:</p>
+<blockquote>
+<div>{&#8220;$roots&#8221;:[id],&#8221;$query&#8221;:[],&#8221;$filter&#8221;:{},&#8221;$projection&#8221;:{}}</div></blockquote>
+<p>De même, on appelle le client Access pour passer la requête au moteur MetaData qui retourne la structure de résultat de recherche mais on aura dans le bloc $result un tableau contenant un seul objet qui est l&#8217;archive unit sélectionnée.</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">$hint: { total:1 },</p>
+<p>$context: {},</p>
+<p class="last">$result: [{<em>détails de l&#8217;archive unit sélectionnée (toutes les colonnes)</em>}]</p>
+</dd>
+</dl>
+<p>}</p>
+</div>
+<div class="section" id="modification-et-enregistrement-des-details-d-une-archive-unit-put-ihm-demo-v1-api-archiveupdate-units-id">
+<h3>7.4.1.1.2.3. Modification et enregistrement des détails d&#8217;une archive unit : PUT /ihm-demo/v1/api/archiveupdate/units/{id}<a class="headerlink" href="#modification-et-enregistrement-des-details-d-une-archive-unit-put-ihm-demo-v1-api-archiveupdate-units-id" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Au niveau du formulaire d&#8217;une archive unit, l&#8217;utilisateur peut modifier toutes les données affichées mises à part l&#8217;id et les données de management. L&#8217;application Front passe seulement les champs qui ont été modifiés pour la sauvegarde sous la forme d&#8217;un tableau d&#8217;objet Json. Dans la suite la structure retournée:</p>
+<p>[{&#8220;fieldId&#8221;:&#8221;XXXXXXXX&#8221;,&#8221;newFieldValue&#8221;:&#8221;VVVVVVVVV&#8221;},   {&#8220;fieldId&#8221;:&#8221;YYYYYYYYY&#8221;,&#8221;newFieldValue&#8221;:&#8221;VVVVVVVVV&#8221;}, ....]</p>
+<p>On convertit cette structure en Map&lt;String, String&gt; et on ajoute une entrée (SELECT_BY_ID, id) pour intégrer le bloc <em>root</em> à la construction de la requête DSL de l&#8217;update.
+on construit cette fois-ci une instance de la classe <em>fr.gouv.vitam.builder.request.construct.Update</em> et on ajoute des Actions de type <em>fr.gouv.vitam.builder.request.construct.action.SetAction</em>.</p>
+<p>Voici un exemple de la requête obtenue:</p>
+<p>{&#8220;$roots&#8221;:[<em>id</em>],&#8221;$query&#8221;:[],&#8221;$filter&#8221;:{},&#8221;$action&#8221;:[{&#8220;$set&#8221;:{&#8220;date&#8221;:&#8221;09/09/2015&#8221;}},{&#8220;$set&#8221;:{&#8220;title&#8221;:&#8221;Archive2&#8221;}}]}</p>
+<p>De nouveau, on passe la requête DSL à Access qui retourne à son tour le résultat de l&#8217;opération d&#8217;update avec la même structure des requêtes de sélection mais sans résultat car l&#8217;application Front relance la récupération de l&#8217;archive unit à la réception de la réponse.</p>
+<div class="section" id="remarque-importante">
+<h4>7.4.1.1.2.3.1. Remarque importante<a class="headerlink" href="#remarque-importante" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour le moment, on ne gère pas la mise à jour des champs de type tableau qui va faire appel à un autre type d&#8217;action.</p>
+</div>
+</div>
+<div class="section" id="reste-a-faire">
+<h3>7.4.1.1.2.4. Reste à faire<a class="headerlink" href="#reste-a-faire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans la suite les services REST qui sont en cours de traitement:</p>
+<ul class="simple">
+<li>Recherche sur les opérations logbook</li>
+<li>Affichage du détail d&#8217;une opération logbook</li>
+<li>Téléchargement d&#8217;un SIP</li>
+<li>Recherche sur le référentiel des formats</li>
+<li>Affichage du détail d&#8217;un format</li>
+<li>Validation d&#8217;un référentiel à télécharger</li>
+<li>Téléchargement d&#8217;un référentiel de formats</li>
+<li>Suppression d&#8217;un format</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="front-application.html" class="btn btn-neutral float-right" title="7.4.1.2. Architecture fonctionnelle de l’application Front" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc.html" class="btn btn-neutral" title="7.4.1. Architecture fonctionnelle" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="..\..\..\_static\jquery.js"></script>
+      <script type="text/javascript" src="..\..\..\_static\underscore.js"></script>
+      <script type="text/javascript" src="..\..\..\_static\doctools.js"></script>
+      <script type="text/javascript" src="..\..\..\_static\translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="..\..\..\_static\js\theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

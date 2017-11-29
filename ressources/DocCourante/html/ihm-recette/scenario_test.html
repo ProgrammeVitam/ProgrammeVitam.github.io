@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scenario IHM recette &mdash; documentation VITAM - IHM Recette 0.26.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - IHM Recette 0.26.1" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - IHM Recette
+          
+
+          
+            
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.26.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="recette.html">Recette</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Administration des collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="securisation.html">Sécurisation des journaux</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">VITAM - IHM Recette</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Scenario IHM recette</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/scenario_test.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scenario-ihm-recette">
+<h1>Scenario IHM recette<a class="headerlink" href="#scenario-ihm-recette" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette partie décrit les scenario de test correspondant à ce qu&#8217;il est possible de réaliser via l&#8217;IHM de ercette.</p>
+<div class="section" id="liste-des-scenarii">
+<h2>Liste des scenarii<a class="headerlink" href="#liste-des-scenarii" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="regles-de-gestion">
+<h3>Règles de gestion<a class="headerlink" href="#regles-de-gestion" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour tester les différents cas pour le référentiel des règles de gestion :</p>
+<div class="section" id="pre-requis-purge-du-referentiel">
+<h4>Pré-requis : purge du référentiel<a class="headerlink" href="#pre-requis-purge-du-referentiel" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de recette &gt; Administration des collections</li>
+<li>Dans la partie Référentiels, purger le référentiel des règles en cliquant sur le bouton Supprimer.</li>
+<li>Une pop up apparait : &#8220;Suppression des règles de gestion ? Êtes-vous certain de vouloir vider la collection des règles de gestion ?&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Annuler&#8221;</li>
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>Aucune nouvelle entrée n&#8217;a été ajoutée concernant une opération STP_DELETE_RULES.</li>
+<li>Se rendre sur l&#8217;IHM de recette &gt; Administration des collections</li>
+<li>Dans la partie Référentiels, purger le référentiel des règles en cliquant sur le bouton Supprimer.</li>
+<li>Une pop-up apparait : &#8220;Suppression des règles de gestion ? Êtes-vous certain de vouloir vider la collection des règles de gestion ?&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Vider&#8221;</li>
+<li>Une pop-up apparaît : &#8220;Suppression des règles La base des règles de gestion a bien été purgée&#8221;.</li>
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_DELETE_RULES de catégorie MASTERDATA. On constate qu&#8217;elle est en succès.</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que l&#8217;on a deux enregistrements : un STARTED, et un OK.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cas-ko-format-de-fichier-non-reconnu">
+<h4>Cas KO : format de fichier non reconnu<a class="headerlink" href="#cas-ko-format-de-fichier-non-reconnu" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Import du Référentiel des Règles de gestion</li>
+<li>Ajouter un fichier au mauvais format (xml, pdf) et cliquer sur valider</li>
+<li>Une pop-up apparait avec le message : &#8220;Fichier invalide ou référentiel des règles de gestion déjà existant&#8221;</li>
+<li>Se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>Aucune opération n&#8217;a été ajoutée.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cas-ko-referentiel-des-regles-de-gestion-deja-present">
+<h4>Cas KO : référentiel des règles de gestion déjà présent<a class="headerlink" href="#cas-ko-referentiel-des-regles-de-gestion-deja-present" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Import du Référentiel des Règles de gestion</li>
+<li>Ajouter un fichier au format csv, correct (ex. :download:&#8217;&lt;files/jeu_donnees_regles_CSV.csv&gt;&#8217;.) et cliquer sur Valider</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier invalide ou référentiel des règles de gestion déjà existant&#8221;</li>
+<li>Se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>Aucune opération n&#8217;a été ajoutée.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cas-ok">
+<h4>Cas OK<a class="headerlink" href="#cas-ok" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Import du Référentiel des Règles de gestion</li>
+<li>Ajouter un fichier au format csv, correct (ex. :download:&#8217;&lt;files/jeu_donnees_regles_CSV.csv&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Annuler l&#8217;import&#8221; (l&#8217;import est annulé), rien n&#8217;a été effectué.</li>
+<li>Se rendre dans Administration &gt; Référentiel des règles de gestion, et constater l&#8217;absence du référentiel.</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des règles de gestion, et constater qu&#8217;aucune règle de gestion n&#8217;est présente</li>
+<li>Ajouter un fichier au format csv, correct (ex. :download:&#8217;&lt;files/jeu_donnees_regles_CSV.csv&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux choix , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Le référentiel des règles de gestion est importé&#8221;</li>
+<li>Se rendre dans Administration &gt; Référentiel des règles de gestion, et constater le référentiel est présent.</li>
+<li>Se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_IMPORT_RULES de catégorie MASTERDATA. Elle est en succès.</li>
+<li>Cliquer sur cette opération et constater dans le nouvel onglet que cette opération a été effectuée avec succès.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="formats">
+<h3>Formats<a class="headerlink" href="#formats" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour tester les différents cas pour le référentiel des formats.</p>
+<div class="section" id="id1">
+<h4>Pré-requis : purge du référentiel<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>Se rendre sur l&#8217;IHM de recette &gt; Administration des collections</li>
+<li>Dans la partie Référentiels, purger le référentiel des formats en cliquant sur le bouton &#8220;Supprimer&#8221;.</li>
+<li>Une pop up apparait : &#8220;Suppression des formats ? Êtes-vous certain de vouloir vider la collection des formats ?&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Annuler&#8221;</li>
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>Aucune nouvelle entrée n&#8217;a été ajoutée concernant une opération STP_DELETE_FORMAT.</li>
+<li>Se rendre sur l&#8217;IHM de recette &gt; Administration des collections</li>
+<li>Dans la partie Référentiels, purger le référentiel des formats en cliquant sur le bouton Supprimer.</li>
+<li>Une pop up apparait : &#8220;Suppression des formats ? Êtes-vous certain de vouloir vider la collection des formats ?&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Vider&#8221;</li>
+<li>Une pop-up apparaît : &#8220;Suppression des formats. La base des formats a bien été purgée&#8221;.</li>
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_DELETE_FORMAT de catégorie MASTERDATA. On constate qu&#8217;elle est en succès.</li>
+<li>Cliquer sur l&#8217;opération et constater dans le nouvel onglet qu&#8217;elle a bien été modifiée.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4>Cas KO : format de fichier non reconnu<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo, Administration &gt; Import du Référentiel des formats</li>
+<li>Ajouter un fichier au mauvais format (pdf, csv) et cliquer sur valider</li>
+<li>Une pop-up apparait avec le message : &#8220;Fichier invalide&#8221;</li>
+</ul>
+</div>
+<div class="section" id="cas-ko-referentiel-des-formats-deja-present">
+<h4>Cas KO : référentiel des formats déjà présent<a class="headerlink" href="#cas-ko-referentiel-des-formats-deja-present" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Import du Référentiel des formats</li>
+<li>Ajouter un fichier au format xml, correct (ex. :download:&#8217;&lt;files/DROID_SignatureFile_V86.xml&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;.</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options, &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;.</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Referentiel de formats déjà existant&#8221;</li>
+<li>Dans le menu se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_REFERENTIAL_FORMAT_IMPORT de catégorie MASTERDATA. On constate qu&#8217;elle est en échec</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que l&#8217;opération est en échec.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h4>Cas OK<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo, Administration &gt; Import du Référentiel des formats</li>
+<li>Ajouter un fichier au format xml, correct (ex. :download:&#8217;&lt;files/DROID_SignatureFile_V86.xml&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Annuler l&#8217;import&#8221; (l&#8217;import est annulé), rien n&#8217;a été effectué.</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des formats, et constater qu&#8217;aucun format n&#8217;est présent.</li>
+<li>Ajouter un fichier au format xml, correct (ex. :download:&#8217;&lt;files/DROID_SignatureFile_V86.xml&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;.</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Referentiel de formats importé&#8221;</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des formats, et constater que des formats sont présents.</li>
+<li>Dans le menu se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_REFERENTIAL_FORMAT_IMPORT de catégorie MASTERDATA. On constate qu&#8217;elle est en succès</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que cette opération a été effectuée avec succès.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contrats-d-entree">
+<h3>Contrats d&#8217;entrée<a class="headerlink" href="#contrats-d-entree" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour tester les différents cas pour le référentiel des contrats d&#8217;entrée.</p>
+<div class="section" id="cas-ko-contrat-d-entree-non-reconnu">
+<h4>Cas KO : contrat d&#8217;entrée non reconnu<a class="headerlink" href="#cas-ko-contrat-d-entree-non-reconnu" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo, Administration &gt; Import du Référentiel des contrats</li>
+<li>Ajouter un fichier au mauvais contrat (pdf, csv) et cliquer sur valider</li>
+<li>Une pop-up apparait avec le message : &#8220;Fichier invalide&#8221;</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cas-ko-referentiel-des-contrat-d-entree-deja-present">
+<h4>Cas KO : référentiel des contrat d&#8217;entrée déjà présent<a class="headerlink" href="#cas-ko-referentiel-des-contrat-d-entree-deja-present" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Import du Référentiel des contrats d&#8217;entrée</li>
+<li>Ajouter un fichier au format json, correct (ex. :download:&#8217;&lt;files/referential_contracts_ingest_ok.json&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;.</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options, &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;.</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Referentiel de contrats déjà existant&#8221;</li>
+<li>Dans le menu se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_IMPORT_INGEST_CONTRACT de catégorie MASTERDATA. On constate qu&#8217;elle est en échec</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que l&#8217;opération est en échec.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h4>Cas OK<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo, Administration &gt; Import du Référentiel des contrat d&#8217;entrée</li>
+<li>Ajouter un fichier au format json, correct (ex. :download:&#8217;&lt;files/referential_contracts_ingest_ok.json&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Annuler l&#8217;import&#8221; (l&#8217;import est annulé), rien n&#8217;a été effectué.</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des contrat d&#8217;entrée, et constater qu&#8217;aucun contrat n&#8217;est présent.</li>
+<li>Ajouter un fichier au format json, correct (ex. :download:&#8217;&lt;files/DROID_SignatureFile_V86.xml&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;.</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Referentiel de contrat importé&#8221;</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des contrats, et constater que des contrats sont présents.</li>
+<li>Dans le menu se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_IMPORT_INGEST_CONTRACT de catégorie MASTERDATA. On constate qu&#8217;elle est en succès</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que cette opération a été effectuée avec succès.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="contrats-d-acces">
+<h3>Contrats d&#8217;accès<a class="headerlink" href="#contrats-d-acces" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour tester les différents cas pour le référentiel des contrats d&#8217;accès.</p>
+<div class="section" id="cas-ko-contrat-d-acces-non-reconnu">
+<h4>Cas KO : contrat d&#8217;accès non reconnu<a class="headerlink" href="#cas-ko-contrat-d-acces-non-reconnu" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo, Administration &gt; Import du Référentiel des contrats</li>
+<li>Ajouter un fichier au mauvais contrat (pdf, csv) et cliquer sur valider</li>
+<li>Une pop-up apparait avec le message : &#8220;Fichier invalide&#8221;</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cas-ko-referentiel-des-contrat-d-acces-deja-present">
+<h4>Cas KO : référentiel des contrat d&#8217;accès déjà présent<a class="headerlink" href="#cas-ko-referentiel-des-contrat-d-acces-deja-present" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo &gt; Administration &gt; Import du Référentiel des contrats d&#8217;accès</li>
+<li>Ajouter un fichier au format json, correct (ex. :download:&#8217;&lt;files/referential_contracts_access_ok.json&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;.</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options, &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;.</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Referentiel de contrats déjà existant&#8221;</li>
+<li>Dans le menu se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_IMPORT_ACCESS_CONTRACT de catégorie MASTERDATA. On constate qu&#8217;elle est en échec</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que l&#8217;opération est en échec.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h4>Cas OK<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>Se rendre sur l&#8217;IHM de démo, Administration &gt; Import du Référentiel des contrat d&#8217;accès</li>
+<li>Ajouter un fichier au format json, correct (ex. :download:&#8217;&lt;files/referential_contracts_access_ok.json&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Cliquer sur le bouton &#8220;Annuler l&#8217;import&#8221; (l&#8217;import est annulé), rien n&#8217;a été effectué.</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des contrat d&#8217;accès, et constater qu&#8217;aucun contrat n&#8217;est présent.</li>
+<li>Ajouter un fichier au format json, correct (ex. :download:&#8217;&lt;files/DROID_SignatureFile_V86.xml&gt;&#8217;.) et cliquer sur le bouton &#8220;Valider&#8221;</li>
+<li>Une pop-up apparaît indiquant &#8220;Fichier valide&#8221; et avec deux options , &#8220;Annuler l&#8217;import&#8221; ou &#8220;Lancer l&#8217;import&#8221;.</li>
+<li>Cliquer sur le bouton &#8220;Lancer l&#8217;import&#8221;</li>
+<li>Une pop-up apparaît avec le message suivant : &#8220;Referentiel de contrat importé&#8221;</li>
+<li>Dans le menu se rendre dans Administration &gt; Référentiel des contrats, et constater que des contrats sont présents.</li>
+<li>Dans le menu se rendre dans Administration &gt; Journal des Opérations, et lancer une recherche (sans spécifier de critère)</li>
+<li>La première ligne correspond à une opération STP_IMPORT_ACCESS_CONTRACT de catégorie MASTERDATA. On constate qu&#8217;elle est en succès</li>
+<li>Cliquer sur le détail et constater dans le nouvel onglet que cette opération a été effectuée avec succès.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="purge-des-collections">
+<h3>Purge des collections<a class="headerlink" href="#purge-des-collections" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Plusieurs boutons sont disponibles dans l&#8217;ihm de recette, permettant de vider les collections MongoDB (attention, ceci n&#8217;est à effectuer que dans le cadre de la recette).</p>
+<dl class="docutils">
+<dt>Les scenarios de tests disponibles se divisent en 4 parties :</dt>
+<dd><ul class="first last simple">
+<li>référentiels</li>
+<li>journaux</li>
+<li>objets</li>
+<li>globale</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="referentiels">
+<h4>Référentiels<a class="headerlink" href="#referentiels" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Trois suppressions sont exécutables : formats, règles et registre des fonds.
+La suppression des différentes collection est visible ainsi dans le journal des opérations :</p>
+<blockquote>
+<div><ul class="simple">
+<li>formats : MASTERDATA / STP_DELETE_FORMAT</li>
+<li>règles : MASTERDATA / STP_DELETE_RULES</li>
+<li>registres des fonds : MASTERDATA / STP_DELETE_ACCESSION_REGISTER_SUMMARY</li>
+<li>registres des fonds : MASTERDATA / STP_DELETE_ACCESSION_REGISTER_DETAIL</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="journaux">
+<h4>Journaux<a class="headerlink" href="#journaux" title="Lien permanent vers ce titre">¶</a></h4>
+<p>3 suppressions sont exécutables : journaux d&#8217;opérations, journaux des cycles de vie (unité archivistique), journaux des cycles de vie (groupe d&#8217;objets).
+La suppression des différentes collection est visible ainsi dans le journal des opérations :</p>
+<blockquote>
+<div><ul class="simple">
+<li>opérations : MASTERDATA / STP_DELETE_LOGBOOK_OPERATION</li>
+<li>journaux des cycles de vie (archive unit) : MASTERDATA / STP_DELETE_LOGBOOK_LIFECYCLE_UNIT</li>
+<li>journaux des cycles de vie (groupe d&#8217;objets) : MASTERDATA / STP_DELETE_LOGBOOK_LIFECYCLE_OG</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="objets">
+<h4>Objets<a class="headerlink" href="#objets" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Deux suppressions sont exécutables : purge des unités archivistiques, purge des groupes d&#8217;objets;
+La suppression des différentes collection est visible ainsi dans le journal des opérations :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Unités archivistiques : MASTERDATA / STP_DELETE_METADATA_OG</li>
+<li>Groupes d&#8217;objets : MASTERDATA / STP_DELETE_METADATA_UNIT</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.26.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

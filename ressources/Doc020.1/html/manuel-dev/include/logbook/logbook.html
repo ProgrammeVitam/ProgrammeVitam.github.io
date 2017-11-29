@@ -1,0 +1,505 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Logbook &mdash; documentation VITAM - Manuel de développement 0.20.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="..\..\_static\css\theme.css" type="text/css">
+  
+
+  
+
+  
+        <link rel="index" title="Index" href="..\..\genindex.html">
+        <link rel="search" title="Recherche" href="..\..\search.html">
+    <link rel="top" title="documentation VITAM - Manuel de développement 0.20.0" href="..\..\index.html">
+        <link rel="up" title="Logbook" href="_toc.html">
+        <link rel="next" title="Logbook-lifecycle" href="logbook-lifecycle.html">
+        <link rel="prev" title="Introduction" href="introduction.html"> 
+
+  
+  <script src="..\..\_static\js\modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="..\..\index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="..\..\_static\LogoVitamGrand2.png" class="logo">
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="..\_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="..\access\_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\common\_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\functional-administration\_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\ihm-demo\_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\ingest\_toc.html">Ingest</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Logbook</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Logbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation">Utilisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parametres">Paramètres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#la-factory">La factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-client">Le client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#donnees">Données</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="logbook-lifecycle.html">Logbook-lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logbook-lifecycle.html#utilisation">Utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="..\metadata\_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\processing\_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\storage\_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\technical-administration\_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\worker\_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="..\workspace\_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\..\gestion-database.html">Gestion des bases de données</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..\..\index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..\..\index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="..\_toc.html">Détails par composant</a> &raquo;</li>
+      
+          <li><a href="_toc.html">Logbook</a> &raquo;</li>
+      
+    <li>Logbook</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="..\..\_sources\include\logbook\logbook.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logbook">
+<h1>Logbook<a class="headerlink" href="#logbook" title="Lien permanent vers ce titre">¶</a></h1>
+</div>
+<div class="section" id="utilisation">
+<h1>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="parametres">
+<h2>Paramètres<a class="headerlink" href="#parametres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les paramètres sont représentés via une interface <strong>LogbookParameters</strong> sous le package fr.gouv.vitam.logbook.common.parameters.</p>
+<p>L&#8217;idée est de représenter les paramètres sous forme de Map&lt;LogbookParameterName, String&gt;.</p>
+<p>Une methode getMapParameters() permet de récuperer l&#8217;ensemble de ces paramètres.
+Une methode getMandatoriesParameters() permet de récuperer un set de paramètre qui ne doivent pas être null ni vide.</p>
+<p>On retrouve une implémentation dans la classe <strong>LogbookOperationParameters</strong> qui représente les paramètres pour
+journaliser une <strong>opération</strong>.</p>
+<p>Il existe egalement une Enum <strong>LogbookParameterName</strong> qui permet de définir tous les noms de paramètres possible. Elle permet de remplir la map de paramètres ainsi que le set permettant de tester les paramètres requis.</p>
+</div>
+<div class="section" id="la-factory">
+<h2>La factory<a class="headerlink" href="#la-factory" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Afin de récupérer le client ainsi que la bonne classe de paramètre, une factory a été mise en place.
+Actuellement, elle ne fonctionne que pour le journal des opérations.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
+<span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">changeMode</span><span class="o">(</span><span class="n">ClientConfiguration</span> <span class="n">configuration</span><span class="o">)</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
+<span class="c1">// Récupération de la classe paramètre</span>
+<span class="n">LogbookParameters</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">();</span>
+<span class="c1">// Utilisation des setter : parameters.putParameterValue(parameterName, parameterValue);</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventTypeProcess</span><span class="o">,</span>
+<span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventTypeProcess</span><span class="o">.</span><span class="na">name</span><span class="o">())</span>
+<span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcome</span><span class="o">,</span>
+<span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcome</span><span class="o">.</span><span class="na">name</span><span class="o">());</span>
+<span class="c1">// Usage recommandé : utiliser le factory avec les arguments obligatoires à remplir</span>
+<span class="n">LogbookParameters</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+<span class="c1">// Des helpers pour aider</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">).</span><span class="na">getStatus</span><span class="o">();</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setTypeProcess</span><span class="o">(</span><span class="n">LogbookTypeProcess</span><span class="o">).</span><span class="na">getTypeProcess</span><span class="o">();</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">getEventDateTime</span><span class="o">();</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setFromParameters</span><span class="o">(</span><span class="n">LogbookParameters</span><span class="o">).</span><span class="na">getParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="section" id="le-mock">
+<h3>Le Mock<a class="headerlink" href="#le-mock" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Par défaut, le client est en mode Mock. Il est possible de récupérer directement le mock :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+<span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">changeMode</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+<span class="c1">// Récupération explicite du client mock</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Pour instancier son client en mode Production :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+<span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">changeMode</span><span class="o">(</span><span class="n">ClientConfiguration</span> <span class="n">configuration</span><span class="o">);</span>
+<span class="c1">// Récupération explicite du client</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="le-client">
+<h2>Le client<a class="headerlink" href="#le-client" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le client propose actuellement quatre méthodes : create, update, selectOperation et selectOperationbyId</p>
+<p>Le mock de create et upadate ne vérifie pas l&#8217;identifiant (eventIdentifier) ni la date (evendDateTime). En effet, il ne doit pas exister pour le create et inversement pour l&#8217;update.</p>
+<p>Chacune de ces méthodes prend en arguement la classe paramètre instanciée via la factory et peuplée au besoin.</p>
+<p>Le mock de selectOperation retourne un JsonNode qui contient MOCK_SELECT_RESULT_1 et MOCK_SELECT_RESULT_2</p>
+<p>Le mock de selectOperationbyId retourne un JsonNode qui contient seulement MOCK_SELECT_RESULT_1. En effet, chaque opération a un identifiant unique.</p>
+<p>Chacune de ces méthodes prend en arguement une requête select en String</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
+
+<span class="c1">// Récupération de la classe paramètre</span>
+<span class="n">LogbookParameters</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">();</span>
+<span class="c1">// Utilisation des setter : parameters.putParameterValue(parameterName, parameterValue);</span>
+
+<span class="c1">// create</span>
+<span class="n">client</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+<span class="c1">// possibilité de réutiliser le même parameters</span>
+<span class="c1">// Utilisation des setter : parameters.putParameterValue(parameterName, parameterValue);</span>
+<span class="c1">// update</span>
+<span class="n">client</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+
+<span class="c1">// select opération</span>
+<span class="n">client</span><span class="o">.</span><span class="na">selectOperation</span><span class="o">(</span><span class="n">String</span> <span class="n">select</span><span class="o">);</span>
+<span class="c1">// select opération par id</span>
+<span class="n">client</span><span class="o">.</span><span class="na">selectOperationbyId</span><span class="o">(</span><span class="n">String</span> <span class="n">select</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="section" id="exemple-d-usage-generique">
+<h3>Exemple d&#8217;usage générique<a class="headerlink" href="#exemple-d-usage-generique" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
+
+<span class="c1">// Récupération de la classe paramètre</span>
+<span class="n">LogbookParameters</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">();</span>
+<span class="c1">// Utilisation des setter : parameters.putParameterValue(parameterName, parameterValue);</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventIdentifierProcess</span><span class="o">,</span>
+          <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newOperationId</span><span class="o">(</span><span class="n">tenant</span><span class="o">).</span><span class="na">getId</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">outcome</span><span class="o">).</span><span class="na">setTypeProcess</span><span class="o">(</span><span class="n">type</span><span class="o">);</span>
+
+<span class="c1">// create global du processus AVANT toute opération sur ce processus</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">STARTED</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+
+<span class="c1">// et maintenant append jusqu&#39;à la fin du processus global</span>
+<span class="n">LogbookParameters</span> <span class="n">subParameters</span> <span class="o">=</span> <span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">();</span>
+<span class="c1">// Récupère les valeurs du parent: attention à resetter les valeurs propres !</span>
+<span class="n">subParameters</span><span class="o">.</span><span class="na">setFromParameters</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+<span class="c1">// Event GUID</span>
+<span class="n">subParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventIdentifier</span><span class="o">,</span>
+    <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newOperationIdGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">getId</span><span class="o">());</span>
+<span class="c1">// Event Type</span>
+<span class="n">subParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventType</span><span class="o">,</span>
+    <span class="s">&quot;UNZIP&quot;</span><span class="o">);</span>
+<span class="n">subParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">STARTED</span><span class="o">);</span>
+<span class="c1">// Et autres paramètres</span>
+<span class="o">...</span>
+<span class="c1">// Start sous opération</span>
+<span class="n">client</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">subParameters</span><span class="o">);</span>
+<span class="c1">// Unsip</span>
+<span class="n">subParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+<span class="c1">// Sous opération OK</span>
+<span class="n">client</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">subParameters</span><span class="o">);</span>
+
+<span class="c1">// Autres Opérations</span>
+
+<span class="c1">// Fin Opération Globale</span>
+<span class="c1">// create global du processus AVANT toute opération sur ce processus</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+
+<span class="c1">// Quand toutes les opérations sont terminées</span>
+<span class="n">client</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-ingest">
+<h3>Exemple Ingest<a class="headerlink" href="#exemple-ingest" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Available informations</span>
+<span class="c1">// TenantId</span>
+<span class="kt">int</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="c1">// Process Id (SIP GUID)</span>
+<span class="n">String</span> <span class="n">guidSip</span> <span class="o">=</span> <span class="s">&quot;xxx&quot;</span><span class="o">;</span>
+<span class="c1">// X-Request-Id</span>
+<span class="n">String</span> <span class="n">xRequestId</span> <span class="o">=</span> <span class="s">&quot;yyy&quot;</span><span class="o">;</span>
+<span class="c1">// Global Object Id: in ingest = SIP GUID</span>
+
+
+
+<span class="c1">// Récupération du client</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">client</span> <span class="o">=</span>
+<span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
+
+
+
+<span class="c1">// Récupération de la classe paramètre avec ou sans argument</span>
+<span class="n">LogbookParameters</span> <span class="n">parameters</span> <span class="o">=</span>
+<span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">();</span>
+<span class="n">LogbookParameters</span> <span class="n">parameters</span> <span class="o">=</span>
+<span class="n">LogbookParametersFactory</span><span class="o">.</span><span class="na">newLogbookOperationParameters</span><span class="o">(</span><span class="n">eventIdentifier</span><span class="o">,</span>
+<span class="n">eventType</span><span class="o">,</span> <span class="n">eventIdentifierProcess</span><span class="o">,</span> <span class="n">eventTypeProcess</span><span class="o">,</span>
+<span class="n">outcome</span><span class="o">,</span> <span class="n">outcomeDetailMessage</span><span class="o">,</span> <span class="n">eventIdentifierRequest</span><span class="o">);</span>
+
+
+<span class="c1">// Utilisation du setter</span>
+<span class="c1">// Event GUID</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventIdentifier</span><span class="o">,</span>
+<span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newOperationIdGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">getId</span><span class="o">());</span>
+<span class="c1">// Event Type</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventType</span><span class="o">,</span>
+<span class="s">&quot;UNZIP&quot;</span><span class="o">);</span>
+<span class="c1">// Event Identifier Process</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventIdentifierProcess</span><span class="o">,</span>
+<span class="n">guidSip</span><span class="o">);</span>
+<span class="c1">// Event Type Process</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setTypeProcess</span><span class="o">(</span><span class="n">LogbookTypeProcess</span><span class="o">.</span><span class="na">INGEST</span><span class="o">);</span>
+<span class="c1">// X-Request-Id</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">eventIdentifierRequest</span><span class="o">,</span>
+<span class="n">xRequestId</span><span class="o">);</span>
+<span class="c1">// Global Object Id = SIP GUID for Ingest</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">objectIdentifier</span><span class="o">,</span>
+<span class="n">guidSip</span><span class="o">);</span>
+
+
+
+<span class="c1">// Lancement de l&#39;opération</span>
+<span class="c1">// Outcome: status</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">STARTED</span><span class="o">);</span>
+<span class="c1">// Outcome detail message</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
+<span class="s">&quot;One infotmation to set before starting the operation&quot;</span><span class="o">);</span>
+
+
+
+<span class="c1">// 2 possibilities</span>
+<span class="c1">// 1) Démarrage de l&#39;Opération globale (eventIdentifierProcess) dans INGEST première fois</span>
+<span class="n">client</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+<span class="c1">// 2) update global process Operation (same eventIdentifierProcess) partout ailleurs</span>
+<span class="n">client</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+
+
+
+<span class="c1">// Run Operation</span>
+<span class="n">runOperation</span><span class="o">();</span>
+
+
+
+<span class="c1">// Finalisation de l&#39;opération, selon le statut</span>
+<span class="c1">// 1) Si OK</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+<span class="c1">// 2) Si non OK</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">ERROR</span><span class="o">);</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetail</span><span class="o">,</span>
+<span class="s">&quot;404_123456&quot;</span><span class="o">);</span> <span class="c1">// 404 = code http, 123456 = code erreur Vitam</span>
+
+
+
+<span class="c1">// Outcome detail message</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
+<span class="s">&quot;One infotmation to set after the operation&quot;</span><span class="o">);</span>
+<span class="c1">// update global process operation</span>
+<span class="n">client</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+
+
+
+<span class="c1">// When all client opération is done</span>
+<span class="n">client</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-ihm-demo-web-application">
+<h3>Exemple ihm-demo-web-application<a class="headerlink" href="#exemple-ihm-demo-web-application" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@POST</span>
+<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/logbook/operations&quot;</span><span class="o">)</span>
+<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getLogbookResult</span><span class="o">(</span><span class="n">String</span> <span class="n">options</span><span class="o">)</span>
+
+<span class="c1">// Traduction de Mappeur à la requête DSL</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">optionsMap</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="o">.</span><span class="na">getMapStringFromString</span><span class="o">(</span><span class="n">options</span><span class="o">);</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">CreateDSLClient</span><span class="o">.</span><span class="na">createSelectDSLQuery</span><span class="o">(</span><span class="n">optionsMap</span><span class="o">);</span>
+
+<span class="c1">// Récupération du client</span>
+<span class="n">LogbookOperationsClient</span> <span class="n">logbookClient</span> <span class="o">=</span> <span class="n">LogbookOperationsClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getLogbookOperationClient</span><span class="o">();</span>
+
+<span class="c1">// Sélection des opérations par la requête DSL</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">logbookClient</span><span class="o">.</span><span class="na">selectOperation</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+
+<span class="nd">@POST</span>
+<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/logbook/operations/{idOperation}&quot;</span><span class="o">)</span>
+<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getLogbookResultById</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;idOperation&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">operationId</span><span class="o">,</span> <span class="n">String</span> <span class="n">options</span><span class="o">)</span>
+
+<span class="c1">// Récupération du client</span>
+<span class="n">LogbookClient</span> <span class="n">logbookClient</span> <span class="o">=</span> <span class="n">LogbookClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getLogbookOperationClient</span><span class="o">();</span>
+
+<span class="c1">// Sélection des opérations par ID</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">logbookClient</span><span class="o">.</span><span class="na">selectOperationbyId</span><span class="o">(</span><span class="n">operationId</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="donnees">
+<h2>Données<a class="headerlink" href="#donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La recherche des logbook de type TRACEABILITY passent par ElasticSearch, il faut faire attention à ce que le requête contenant des filtres de type &#8220;OrderBy&#8221; correspondent bien a des champs définit dans le mapping de l&#8217;index Elastic : <em>LogbookOperation.MAPPING</em>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="logbook-lifecycle.html" class="btn btn-neutral float-right" title="Logbook-lifecycle" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.20.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="..\..\_static\jquery.js"></script>
+      <script type="text/javascript" src="..\..\_static\underscore.js"></script>
+      <script type="text/javascript" src="..\..\_static\doctools.js"></script>
+      <script type="text/javascript" src="..\..\_static\translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="..\..\_static\js\theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

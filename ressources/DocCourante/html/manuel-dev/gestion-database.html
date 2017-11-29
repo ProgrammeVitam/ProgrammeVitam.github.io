@@ -1,14 +1,14 @@
-﻿
+
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gestion des bases de données &mdash; documentation VITAM - Manuel de développement 0.20.0</title>
+  <title>Gestion des bases de données &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
   
 
   
@@ -24,19 +24,21 @@
 
   
   
-    <link rel="stylesheet" href="_static\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
 
   
 
   
-        <link rel="index" title="Index" href="genindex.html">
-        <link rel="search" title="Recherche" href="search.html">
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.20.0" href="index.html">
-        <link rel="prev" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html"> 
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="index.html"/>
+        <link rel="next" title="Ressource" href="client-ressource-rest.html"/>
+        <link rel="prev" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html"/> 
 
   
-  <script src="_static\js\modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -56,7 +58,7 @@
 
           
             
-            <img src="_static\LogoVitamGrand2.png" class="logo">
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
           
           </a>
 
@@ -64,7 +66,7 @@
             
             
               <div class="version">
-                0.20.0
+                0.26.1
               </div>
             
           
@@ -72,9 +74,9 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs">
-    <input type="hidden" name="check_keywords" value="yes">
-    <input type="hidden" name="area" value="default">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
   </form>
 </div>
 
@@ -86,7 +88,7 @@
             
             
                 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="include\_toc.html">Détails par composant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html">Parallélisation des tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
@@ -101,6 +103,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#modification-d-une-collection-check-list">Modification d&#8217;une collection : check list</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html#client">Client</a></li>
 </ul>
 
             
@@ -135,12 +139,12 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources\gestion-database.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/gestion-database.txt" rel="nofollow"> View page source</a>
           
         
       </li>
   </ul>
-  <hr>
+  <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
@@ -163,6 +167,7 @@ indexations sont à suivre.</p>
 <li>Il est préfixé d&#8217;un &#8216;<strong>#</strong>&#8216; pour permettre son interprétation par Vitam comme un champ protégé</li>
 <li>Il cache l&#8217;implémentation réelle du champ</li>
 </ul>
+<p>Pour les collections &#8220;Single&#8221;, les champs protégés sont explicitement indiqués dans le fichier ParserTokens et ne produireont des erreurs que dans le Back-office.</p>
 <p>Certains de ces champs sont interdits en update/insert (depuis l&#8217;extérieur),
 mais autorisés en interne.</p>
 <p>La définition d&#8217;un tel champ &#8220;protégé&#8221; s&#8217;effectue ainsi :</p>
@@ -190,11 +195,12 @@ mais autorisés en interne.</p>
 <li><strong>isSingleNotAnalyzedVariable</strong> désigne les variables de collections Single</li>
 </ul>
 </li>
-<li>VarNameAdapter.java pour Unit/ObjectGroup</li>
+<li>VarNameAdapter.java pour Unit/ObjectGroup pour usage interne pour Unit/ObjectGroup</li>
+<li>VarNameAdapterExternnal.java pour Unit/ObjectGroup pour usage externe (sécurité) pour Unit/ObjetGroup (default si non renseigné)</li>
 <li>VarNameInsertAdapter.java pour Unit/ObjectGroup</li>
 <li>VarNameUpdateAdapter.java pour Unit/ObjectGroup <em>(devra être dupliqué en usage externe et interne : protection de certains champs)</em></li>
 <li>SingleVarNameAdapter.java pour les collections hors Unit/ObjectGroup pour usage interne</li>
-<li>SingleVarNameAdapterExternal.java pour usage externe pour les collections hors Unit/ObjectGroup</li>
+<li>SingleVarNameAdapterExternal.java pour usage externe (sécurité) pour les collections hors Unit/ObjectGroup (default si non renseigné)</li>
 </ul>
 </li>
 </ul>
@@ -239,13 +245,15 @@ mais autorisés en interne.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="client-ressource-rest.html" class="btn btn-neutral float-right" title="Ressource" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="plugin-icu-elasticsearch.html" class="btn btn-neutral" title="Plugin ICU Elasticsearch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
-  <hr>
+  <hr/>
 
   <div role="contentinfo">
     <p>
@@ -271,22 +279,22 @@ mais autorisés en interne.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.20.0',
+            VERSION:'0.26.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="_static\jquery.js"></script>
-      <script type="text/javascript" src="_static\underscore.js"></script>
-      <script type="text/javascript" src="_static\doctools.js"></script>
-      <script type="text/javascript" src="_static\translations.js"></script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
 
   
 
   
   
-    <script type="text/javascript" src="_static\js\theme.js"></script>
+    <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
   

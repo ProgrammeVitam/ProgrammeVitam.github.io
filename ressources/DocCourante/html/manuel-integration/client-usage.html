@@ -1,14 +1,14 @@
-﻿
+
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Utilisation des clients externes &mdash; documentation VITAM - Manuel Intégraption Applicative 0.20.0</title>
+  <title>Utilisation des clients externes &mdash; documentation VITAM - Manuel Intégraption Applicative 0.26.1</title>
   
 
   
@@ -24,19 +24,20 @@
 
   
   
-    <link rel="stylesheet" href="_static\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
 
   
 
   
-        <link rel="index" title="Index" href="genindex.html">
-        <link rel="search" title="Recherche" href="search.html">
-    <link rel="top" title="documentation VITAM - Manuel Intégraption Applicative 0.20.0" href="index.html">
-        <link rel="prev" title="Exemple DSL Vitam" href="exemple-dsl.html"> 
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel Intégraption Applicative 0.26.1" href="index.html"/>
+        <link rel="prev" title="DSL Java Vitam" href="java-dsl.html"/> 
 
   
-  <script src="_static\js\modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -56,7 +57,7 @@
 
           
             
-            <img src="_static\LogoVitamGrand2.png" class="logo">
+            <img src="_static/LogoVitamGrand2.png" class="logo" />
           
           </a>
 
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                0.20.0
+                0.26.1
               </div>
             
           
@@ -72,9 +73,9 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs">
-    <input type="hidden" name="check_keywords" value="yes">
-    <input type="hidden" name="area" value="default">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
   </form>
 </div>
 
@@ -88,18 +89,16 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Vitam.html">VITAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="standard.html">Conventions REST Générales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DSL.html">DSL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dsl-introduction.html">DSL Vitam</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Exemples.html">Exemples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exemple-dsl.html">Exemple DSL Vitam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java-dsl.html">DSL Java Vitam</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Utilisation des clients externes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#clients-externes">Clients externes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#client-ingest">Client Ingest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#client-access">Client Access</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuration-d-un-client-externe">Configuration d&#8217;un client externe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-ingest">Client Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-access">Client Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access">Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#admin">Admin</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-d-un-client-externe">Configuration d&#8217;un client externe</a></li>
 </ul>
 </li>
 </ul>
@@ -136,27 +135,25 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources\client-usage.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/client-usage.txt" rel="nofollow"> View page source</a>
           
         
       </li>
   </ul>
-  <hr>
+  <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="utilisation-des-clients-externes">
 <h1>Utilisation des clients externes<a class="headerlink" href="#utilisation-des-clients-externes" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="clients-externes">
-<h2>Clients externes<a class="headerlink" href="#clients-externes" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour faciliter l&#8217;accès aux API externes, le projet VITAM met à disposition les clients externes Java correspondant.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Astuce</p>
 <p class="last">Le code d&#8217;ihm-demo est un bon exemple d&#8217;utilisation des clients présentés ci-dessous.</p>
 </div>
 <div class="section" id="client-ingest">
-<h3>Client Ingest<a class="headerlink" href="#client-ingest" title="Lien permanent vers ce titre">¶</a></h3>
+<h2>Client Ingest<a class="headerlink" href="#client-ingest" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le client Java des API ingest externes a les coordonnées maven suivantes :</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
@@ -176,28 +173,30 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">serverHost</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_ingestexternal_host</span><span class="p p-Indicator">}}</span>
-<span class="l l-Scalar l-Scalar-Plain">serverPort</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_ingestexternal_port_https</span><span class="p p-Indicator">}}</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">serverHost</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.ingestexternal.host</span> <span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">serverPort</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.ingestexternal.port_https</span> <span class="p p-Indicator">}}</span>
 <span class="l l-Scalar l-Scalar-Plain">secure</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="l l-Scalar l-Scalar-Plain">sslConfiguration</span> <span class="p p-Indicator">:</span>
  <span class="l l-Scalar l-Scalar-Plain">keystore</span> <span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_component }}.p12</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
     <span class="l l-Scalar l-Scalar-Plain">keyPassword</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">keystores.client_external.ihm_demo</span><span class="p p-Indicator">}}</span>
  <span class="l l-Scalar l-Scalar-Plain">truststore</span> <span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_component }}.jks</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
     <span class="l l-Scalar l-Scalar-Plain">keyPassword</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">truststores.client_external</span><span class="p p-Indicator">}}</span>
 <span class="l l-Scalar l-Scalar-Plain">hostnameVerification</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </td></tr></table></div>
+<p>Le fichier définitif doit s&#8217;appeler <code class="docutils literal"><span class="pre">ingest-external-client.conf</span></code> et doit être placé dans le répertoire <code class="docutils literal"><span class="pre">/vitam/conf</span></code> ou le répertoire défini par la surconfiguration
+du chemin de configuration par l&#8217;argument passé à la JVM <code class="docutils literal"><span class="pre">-Dvitam.config.folder=/monchemin</span></code> où <code class="docutils literal"><span class="pre">monchemin</span></code> est le lieu où se trouve ce fichier de configuration.</p>
 <p>Une instance de client se récupère grâce au code suivant :</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fr.gouv.vitam.ingest.external.client</span>
-<span class="n">IngestExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">IngestExternalClientFactorty</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
+<span class="n">IngestExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">IngestExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
 </pre></div>
 </div>
 <p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal"><span class="pre">IngestExternalClient</span></code>.</p>
 </div>
 <div class="section" id="client-access">
-<h3>Client Access<a class="headerlink" href="#client-access" title="Lien permanent vers ce titre">¶</a></h3>
+<h2>Client Access<a class="headerlink" href="#client-access" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le client Java des API access externes a les coordonnées maven suivantes :</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
@@ -217,33 +216,47 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">serverHost</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_accessexternal_host</span><span class="p p-Indicator">}}</span>
-<span class="l l-Scalar l-Scalar-Plain">serverPort</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_accessexternal_port_https</span><span class="p p-Indicator">}}</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">serverHost</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.accessexternal.host</span> <span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">serverPort</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.accessexternal.port_https</span> <span class="p p-Indicator">}}</span>
 <span class="l l-Scalar l-Scalar-Plain">secure</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="l l-Scalar l-Scalar-Plain">sslConfiguration</span> <span class="p p-Indicator">:</span>
  <span class="l l-Scalar l-Scalar-Plain">keystore</span> <span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_component }}.p12</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
     <span class="l l-Scalar l-Scalar-Plain">keyPassword</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">keystores.client_external.ihm_demo</span><span class="p p-Indicator">}}</span>
  <span class="l l-Scalar l-Scalar-Plain">truststore</span> <span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_component }}.jks</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keyPath</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
     <span class="l l-Scalar l-Scalar-Plain">keyPassword</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">truststores.client_external</span><span class="p p-Indicator">}}</span>
 <span class="l l-Scalar l-Scalar-Plain">hostnameVerification</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </td></tr></table></div>
+<p>Le fichier définitif doit s&#8217;appeler <code class="docutils literal"><span class="pre">access-external-client.conf</span></code> et placé dans le répertoire par défaut <code class="docutils literal"><span class="pre">/vitam/conf</span></code> ou le répertoire définit par la surconfiguration
+du chemin de configuration par l&#8217;argument passé à la JVM <code class="docutils literal"><span class="pre">-Dvitam.config.folder=/monchemin</span></code> où <code class="docutils literal"><span class="pre">monchemin</span></code> est le lieu où se trouve ce fichier de configuration.</p>
+<div class="section" id="access">
+<h3>Access<a class="headerlink" href="#access" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une instance de client se récupère grâce au code suivant :</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="o">.</span><span class="na">gouv</span><span class="o">.</span><span class="na">vitam</span><span class="o">.</span><span class="na">access</span><span class="o">.</span><span class="na">external</span><span class="o">.</span><span class="na">client</span>
-<span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactorty</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
+<span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
 </pre></div>
 </div>
 <p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal"><span class="pre">AccessExternalClient</span></code>.</p>
 </div>
+<div class="section" id="admin">
+<h3>Admin<a class="headerlink" href="#admin" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une instance de client se récupère grâce au code suivant :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="o">.</span><span class="na">gouv</span><span class="o">.</span><span class="na">vitam</span><span class="o">.</span><span class="na">access</span><span class="o">.</span><span class="na">external</span><span class="o">.</span><span class="na">client</span>
+<span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
+</pre></div>
+</div>
+<p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal"><span class="pre">AdminExternalClient</span></code>.</p>
+</div>
+</div>
 <div class="section" id="configuration-d-un-client-externe">
-<h3>Configuration d&#8217;un client externe<a class="headerlink" href="#configuration-d-un-client-externe" title="Lien permanent vers ce titre">¶</a></h3>
+<h2>Configuration d&#8217;un client externe<a class="headerlink" href="#configuration-d-un-client-externe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La configuration du client prend en compte les paramètres et fichiers suivants :</p>
 <ul>
-<li><p class="first">La propriété système Java <code class="docutils literal"><span class="pre">vitam.conf.dir</span></code> : elle indique le répertoire dans laquelle les fichiers de configuration des clients seront recherchés (ex de déclaration en ligne de commande: <code class="docutils literal"><span class="pre">-Dvitam.config.folder=/vitam/conf/clientvitam</span></code>) ;</p>
+<li><p class="first">La propriété système Java <code class="docutils literal"><span class="pre">vitam.config.folder</span></code> : indique le répertoire dans laquelle les fichiers de configuration des clients seront recherchés (ex de déclaration en ligne de commande: <code class="docutils literal"><span class="pre">-Dvitam.config.folder=/vitam/conf/clientvitam/</span></code>) ;</p>
 </li>
-<li><p class="first">Le fichier de configuration (<code class="docutils literal"><span class="pre">&lt;api&gt;-client.conf</span></code>) : il doit être présent dans le répertoire défini précédemment ; c&#8217;est un fichier de configuration qui contient notamment les éléments de configuration suivants :</p>
+<li><p class="first">Le fichier de configuration (<code class="docutils literal"><span class="pre">&lt;api&gt;-client.conf</span></code>) : doit être présent dans le répertoire défini précédemment ; c&#8217;est un fichier de configuration qui contient notamment les éléments de configuration suivants :</p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal"><span class="pre">serverHost</span></code> et <code class="docutils literal"><span class="pre">serverPort</span></code> permettent d&#8217;indiquer l&#8217;hôte et le port du serveur hébergeant l&#8217;API externe ;</li>
@@ -253,7 +266,8 @@
 </div></blockquote>
 </li>
 </ul>
-</div>
+<p>Le client externe peut necessiter un header pour l&#8217;authentification &#8220;X-Personal-Certificate&#8221; pour certaines resources sensibles.
+Ces resources sont listées dans la collection certificate de la base de données identity.</p>
 </div>
 </div>
 
@@ -265,12 +279,12 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="exemple-dsl.html" class="btn btn-neutral" title="Exemple DSL Vitam" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="java-dsl.html" class="btn btn-neutral" title="DSL Java Vitam" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
-  <hr>
+  <hr/>
 
   <div role="contentinfo">
     <p>
@@ -296,22 +310,22 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.20.0',
+            VERSION:'0.26.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="_static\jquery.js"></script>
-      <script type="text/javascript" src="_static\underscore.js"></script>
-      <script type="text/javascript" src="_static\doctools.js"></script>
-      <script type="text/javascript" src="_static\translations.js"></script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
 
   
 
   
   
-    <script type="text/javascript" src="_static\js\theme.js"></script>
+    <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
   

@@ -9,6 +9,9 @@ Un Workflow est défini en JSON avec la structure suivante :
 
 
 - un identifiant (id)
+- une clé (identifier)
+- un nom (name)
+- une catégorie (typeProc)
 - une liste de Steps :
 
  - un identifiant de famille de Workers (workerGroupId)
@@ -77,7 +80,7 @@ Exemple:
 .. dedent ne semble pas marcher.
 
 Etapes
--------
+------
 
 - **Step 1** - STP_INGEST_CONTROL_SIP : Check SIP  / distribution sur REF GUID/SIP/manifest.xml
 
@@ -99,8 +102,8 @@ Etapes
     - Contrôle des références dans les AU des Id BDO
     - Stockage dans Workspace des BDO et AU
 
-  - CHECK_CONTRACT_INGEST : Vérification de la présence et contrôle du contrat d'entrée 
-  
+  - CHECK_CONTRACT_INGEST : Vérification de la présence et contrôle du contrat d'entrée
+
   - CHECK_CONSISTENCY : vérification de la cohérence objet/unit
 
 - **Step 2** - STP_OG_CHECK_AND_TRANSFORME : Check Objects Compliance du SIP / distribution sur LIST GUID/BinaryDataObject
@@ -114,29 +117,39 @@ Etapes
 - **Step 3** - STP_UNIT_CHECK_AND_PROCESS : Check des archive unit et de leurs règles associées
 
   - CHECK_UNIT_SCHEMA : Contrôles intelligents du Json représentant l'Archive Unit par rapport à un schéma Json
-  - UNITS_RULES_COMPUTE : Calcul des règles de gestion 
+  - UNITS_RULES_COMPUTE : Calcul des règles de gestion
 
 - **Step 4** - STP_STORAGE_AVAILABILITY_CHECK : Check Storage Availability / distribution REF GUID/SIP/manifest.xml
 
   - STORAGE_AVAILABILITY_CHECK : Contrôle de la taille totale à stocker par rapport à la capacité des offres de stockage pour une stratégie et un tenant donnés
 
-- **Step 5** - STP_OG_STORING : Rangement des objets
+- **Step 5** - STP_OBJ_STORING : Rangement et indexation des objets
 
-  - OG_STORAGE : Écriture des objets sur l’offre de stockage des BDO des GO
+  - OBJ_STORAGE : Écriture des objets sur l’offre de stockage des BDO des GO
 
-  - OG_METADATA_INDEXATION : Enregistrement en base des ObjectGroup
+  - OG_METADATA_INDEXATION : Indexation des métadonnées des ObjectGroup
 
-- **Step 6** - STP_UNIT_STORING : Index Units / distribution sur LIST GUID/Units
+- **Step 6** - STP_UNIT_METADATA : Indexation des métadonnées des Units
 
-  - UNIT_METADATA_INDEXATION :
-    - Transformation Json Unit et intégration GUID Unit + GUID GO
-    - Enregistrement en base Units
+  - UNIT_METADATA_INDEXATION : Transformation Json Unit et intégration GUID Unit + GUID GO
 
-- **Step 7** - STP_ACCESSION_REGISTRATION : Alimentation du registre de fond
+- **Step 7** - STP_OG_STORING : Rangement des métadonnées des objets
+
+  - OG_METADATA_STORAGE : Enregistrement en base des métadonnées des ObjectGroup ainsi que leurs journaux de cycle de vie
+
+  - COMMIT_LIFE_CYCLE_OBJECT_GROUP : Écriture des objets sur l’offre de stockage des BDO des GO
+
+- **Step 8** - STP_UNIT_STORING : Index Units / distribution sur LIST GUID/Units
+
+  - UNIT_METADATA_STORAGE : Enregistrement en base des métadonnées des Units ainsi que leurs journaux de cycle de vie
+
+  - COMMIT_LIFE_CYCLE_UNIT : Écriture des métadonnées des Units sur l’offre de stockage des BDO des GO
+
+- **Step 9** - STP_ACCESSION_REGISTRATION : Alimentation du registre de fond
 
   - ACCESSION_REGISTRATION :  enregistrement des archives prises en charge dans le Registre des Fonds
 
-- **Step 8 et finale** - STP_INGEST_FINALISATION : Notification de la fin de l’opération d’entrée. Cette étape est obligatoire et sera toujours exécutée, en dernière position.
+- **Step 10 et finale** - STP_INGEST_FINALISATION : Notification de la fin de l’opération d’entrée. Cette étape est obligatoire et sera toujours exécutée, en dernière position.
 
   - ATR_NOTIFICATION :
     - génération de l'ArchiveTransferReply xml (OK ou KO)
@@ -146,3 +159,7 @@ Etapes
 Création d'un nouveau step
 --------------------------
 Un step est une étape de workflow. Il regroupe un ensemble d'actions (handler). Ces steps sont définis dans le workflowJSONvX.json (X=1,2).
+
+
+DefaultRulesUpdateWorkflow
+**************************
