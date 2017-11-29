@@ -38,6 +38,10 @@ Une empreinte sha256 permet de vérifier l'intégrité du fichier ova : <http://
 
 Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST, intégralement dans les packages sur Bintray, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation).
 
+* **les Release Notes**
+
+<https://github.com/ProgrammeVitam/vitam/releases>
+
 * **les jeux de tests**
 
 Ils contiennent les référentiels de test, et les fichiers SIP utiles pour les 
