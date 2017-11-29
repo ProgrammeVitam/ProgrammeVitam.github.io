@@ -42,11 +42,6 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 
 <https://github.com/ProgrammeVitam/vitam/releases>
 
-* **les jeux de tests**
-
-Ils contiennent les référentiels de test, et les fichiers SIP utiles pour les 
-tests automatiques. Ils sont accessibles sur BinTray [{{ site.bintray.repodataset }}]({{ site.bintray.repodataset }}).
-*A noter qu'il faut veiller à injecter les référentiels avant de lancer les tests.*
 
 ## Outils complémentaires Vitam - toutes versions publiées
 
