@@ -43,7 +43,9 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
  opérations ([pdf](/ressources/DocCourante/pdf/VITAM_modele_workflow.pdf) \| [html](/ressources/DocCourante/html/workflow-model))
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Valeur_probante.pdf))
 * **Présentation du générateur SEDA** - présentation de l'outil complémentaire Générateur SEDA 
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Generateur_de_SIP_Mode_d_emploi.pdf)) et de l'outil de génération des arbres et plans ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Generateur_de_SIP_arbres et plans.pdf.pdf))
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Generateur_de_SIP_Mode_d_emploi.pdf))
+* **Présentation du générateur arbres et plans** - présentation de  l'outil de génération des arbres et plans 
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Generateur_de_SIP_arbres et plans.pdf))
 
 
 ## Documentation des tests
@@ -69,11 +71,11 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/VITAM_Manuel_integration_applicative.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/DocCourante/pdf/VITAM_modele_de_donnees.pdf) \| [html](/ressources/DocCourante/html/data-model))
-* **Documentation d'API externes** - description des API REST externes en RAML ([html&raml](/ressources/DocCourante/raml/externe))
+* **Documentation d'API externes** - description des API REST externes en RAML([raml](/ressources/DocCourante/raml/externe))
 * **Manuel de développement** - éléments d'architecture interne et de 
 méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/VITAM_manuel_developpement.pdf) 
 \| [html](/ressources/DocCourante/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en RAML ([html&raml](/ressources/DocCourante/raml/interne))
+* **Documentation d'API internes** - description des API REST internes en RAML([raml](/ressources/DocCourante/raml/interne))
 
 
 <hr/>
