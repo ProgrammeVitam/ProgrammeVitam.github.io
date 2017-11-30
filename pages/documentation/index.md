@@ -71,10 +71,10 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/VITAM_Manuel_integration_applicative.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/DocCourante/pdf/VITAM_modele_de_donnees.pdf) \| [html](/ressources/DocCourante/html/data-model))
-* **Documentation d'API externes** - description des API REST externes en HTML ([html&raml] (/ressources/DocCourante/raml/externe))
+* **Documentation d'API externes** - description des API REST externes en HTML ([html](/ressources/DocCourante/raml/externe/index.htm))
 * **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/VITAM_manuel_developpement.pdf) 
 \| [html](/ressources/DocCourante/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en RAML ([html&raml] (/ressources/DocCourante/raml/interne))
+* **Documentation d'API internes** - description des API REST internes en HTML et RAML ([html&raml](/ressources/DocCourante/raml/interne/index.htm))
 
 
 <hr/>
