@@ -29,7 +29,7 @@ et des objets métiers utilisés par la solution logicielle Vitam
 * **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
 * **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
-* **Gestion des habilitation** - présentation des fonctionnalités associées à la gestion et à
+* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
 l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
 * **Services producteurs** - présentation des fonctionnalités associées à la
 notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Services_producteurs.pdf))
