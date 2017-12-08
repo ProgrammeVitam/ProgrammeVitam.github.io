@@ -47,10 +47,10 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 
 Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/Vitam_Documentation_Kit_de_prise_en_main.pdf))
 
-* **Contrat d'accès**([json](/ressources/RefCourant/exemple_contrat_acces_tous_droits.json))
-* **Contrat d'entrée**([json](/ressources/RefCourant/exemple_contrat_entree.json))
-* **Référentiel Agents**([csv](/ressources/RefCourant/exemple_referentiel_agents.csv))
-* **Référentiel des règles de gestion**([csv](/ressources/RefCourant/exemple_referentiel_regles.csv))
+* **Contrat d'accès** ([json](/ressources/RefCourant/exemple_contrat_acces_tous_droits.json))
+* **Contrat d'entrée** ([json](/ressources/RefCourant/exemple_contrat_entree.json))
+* **Référentiel Agents** ([csv](/ressources/RefCourant/exemple_referentiel_agents.csv))
+* **Référentiel des règles de gestion** ([csv](/ressources/RefCourant/exemple_referentiel_regles.csv))
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
