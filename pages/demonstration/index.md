@@ -19,9 +19,9 @@ level: page
 
 Les vidéos présentent différentes fonctionnalités proposées par la solution logicielle Vitam (version Release 5).
 
-* Transférer un paquet à archiver (SIP) : <iframe width="560" height="315" src="https://www.youtube.com/embed/Gb29J-GHf7k" frameborder="0" allowfullscreen></iframe>
+* Transférer un paquet à archiver (SIP) : <https://www.youtube.com/Gb29J-GHf7k>
 <br>
-* Rechercher une archive : <iframe width="560" height="315" src="https://www.youtube.com/embed/az-ZPVoeoXg" frameborder="0" allowfullscreen></iframe>
+* Rechercher une archive : <https://www.youtube.com/az-ZPVoeoXg>
 <br>
 * Les contrats d’entrées : <iframe width="560" height="315" src="https://www.youtube.com/embed/paXo4DpT_2Q" frameborder="0" allowfullscreen></iframe>
 <br>
