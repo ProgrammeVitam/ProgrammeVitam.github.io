@@ -23,23 +23,23 @@ Les vidéos présentent différentes fonctionnalités proposées par la solution
 <br>
 * Rechercher une archive : <https://www.youtube.com/az-ZPVoeoXg>
 <br>
-* Les contrats d’entrées : <iframe width="560" height="315" src="https://www.youtube.com/embed/paXo4DpT_2Q" frameborder="0" allowfullscreen></iframe>
+* Les contrats d’entrées : <https://www.youtube.com/paXo4DpT_2Q>
 <br>
-* Les contrats d’accès : <iframe width="560" height="315" src="https://www.youtube.com/embed/khkcJ2rnPiY" frameborder="0" allowfullscreen></iframe>
+* Les contrats d’accès : <https://www.youtube.com/khkcJ2rnPiY>
 <br>
-* Le référentiel des règles de gestions : <iframe width="560" height="315" src="https://www.youtube.com/embed/Kub8f4lD1WE" frameborder="0" allowfullscreen></iframe>
+* Le référentiel des règles de gestions : <https://www.youtube.com/Kub8f4lD1WE>
 <br>
-* Les profils d’archivage : <iframe width="560" height="315" src="https://www.youtube.com/embed/TFleNc9UgJw" frameborder="0" allowfullscreen></iframe>
+* Les profils d’archivage : <https://www.youtube.com/TFleNc9UgJw>
 <br>
-* Le référentiel des services agents : <iframe width="560" height="315" src="https://www.youtube.com/embed/0WpRKCDiHbw" frameborder="0" allowfullscreen></iframe>
+* Le référentiel des services agents : <https://www.youtube.com/0WpRKCDiHbw>
 <br>
-* Le référentiel des formats : <iframe width="560" height="315" src="https://www.youtube.com/embed/bTkSOjApz_U" frameborder="0" allowfullscreen></iframe>
+* Le référentiel des formats : <https://www.youtube.com/bTkSOjApz_U>
 <br>
-* Réaliser des audits d’existence et d’intégrité des objets archivés : <iframe width="560" height="315" src="https://www.youtube.com/embed/pYBnchomvdU" frameborder="0" allowfullscreen></iframe>
+* Réaliser des audits d’existence et d’intégrité des objets archivés : <https://www.youtube.com/pYBnchomvdU>
 <br>
-* Extraire des archives sous la forme d’un DIP (dissemination information package) : <iframe width="560" height="315" src="https://www.youtube.com/embed/Pz9jgIrO37w" frameborder="0" allowfullscreen></iframe>
+* Extraire des archives sous la forme d’un DIP (dissemination information package) : <https://www.youtube.com/Pz9jgIrO37w>
 <br>
-* Effectuer une requête en langage DSL : <iframe width="560" height="315" src="https://www.youtube.com/embed/AzvZtCNZi7w" frameborder="0" allowfullscreen></iframe>
+* Effectuer une requête en langage DSL : <https://www.youtube.com/AzvZtCNZi7w>
 <br>
 
 Pour reproduire ces tests, il est possible d'utiliser les éléments suivants :
