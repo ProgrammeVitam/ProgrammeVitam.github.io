@@ -8,10 +8,48 @@ level: page
 > Sont ici présentées des démonstrations vidéo de l'usage de Vitam ou du développement de certaines fonctionnalités
 
 ## Liste des vidéos
+* [Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5(0.26.x)](#pres_R5)
 * [Présentation générale de Vitam et de l'usage des API sur la version Release 4(0.20.x)](#pres_R4)
 * [Présentation de l'usage des API sur la version Bêta](#pres_api_beta)
 
 <hr/>
+
+## Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5(0.26.x)]
+<a name="pres_R5"></a>
+
+Les vidéos présentent différentes fonctionnalités proposées par la solution logicielle Vitam dans sa version 5.
+
+* Transférer un paquet à archiver (SIP) : <iframe width="560" height="315" src="https://youtu.be/Gb29J-GHf7k" frameborder="0" allowfullscreen></iframe>
+<br>
+* Rechercher une archive : <iframe width="560" height="315" src="https://youtu.be/az-ZPVoeoXg" frameborder="0" allowfullscreen></iframe>
+<br>
+* Les contrats d’entrées : <iframe width="560" height="315" src="https://youtu.be/paXo4DpT_2Q" frameborder="0" allowfullscreen></iframe>
+<br>
+* Les contrats d’accès : <iframe width="560" height="315" src="https://youtu.be/khkcJ2rnPiY" frameborder="0" allowfullscreen></iframe>
+<br>
+* Le référentiel des règles de gestions : <iframe width="560" height="315" src="https://youtu.be/Kub8f4lD1WE" frameborder="0" allowfullscreen></iframe>
+<br>
+* Les profils d’archivage : <iframe width="560" height="315" src="https://youtu.be/TFleNc9UgJw" frameborder="0" allowfullscreen></iframe>
+<br>
+* Le référentiel des services agents : <iframe width="560" height="315" src="https://youtu.be/0WpRKCDiHbw" frameborder="0" allowfullscreen></iframe>
+<br>
+* Le référentiel des formats : <iframe width="560" height="315" src="https://youtu.be/bTkSOjApz_U" frameborder="0" allowfullscreen></iframe>
+<br>
+* Réaliser des audits d’existence et d’intégrité des objets archivés : <iframe width="560" height="315" src="https://youtu.be/pYBnchomvdU" frameborder="0" allowfullscreen></iframe>
+<br>
+* Extraire des archives sous la forme d’un DIP (dissemination information package) : <iframe width="560" height="315" src="https://youtu.be/Pz9jgIrO37w" frameborder="0" allowfullscreen></iframe>
+<br>
+* Effectuer une requête en langage DSL : <iframe width="560" height="315" src="https://youtu.be/AzvZtCNZi7w" frameborder="0" allowfullscreen></iframe>
+<br>
+
+Pour reproduire ces tests, il est possible d'utiliser les éléments suivants :
+* Guide de prise en main ([pdf](/ressources/DocCourante/Vitam_Documentation_Kit_de_prise_en_main.pdf))
+* Contrat d'accès ([json](/ressources/RefCourant/exemple_contrat_acces_tous_droits.json))
+* Contrat d'entrée ([json](/ressources/RefCourant/exemple_contrat_entree.json))
+* Référentiel Agents ([csv](/ressources/RefCourant/exemple_referentiel_agents.csv))
+* Référentiel des règles de gestion ([csv](/ressources/RefCourant/exemple_referentiel_regles.csv))
+
+
 
 ## Présentation générale de Vitam et de l'usage des API sur la version Release 4(0.20.x)
 <a name="pres_R4"></a>
