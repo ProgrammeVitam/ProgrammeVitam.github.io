@@ -19,28 +19,59 @@ level: page
 
 Les vidéos présentent différentes fonctionnalités proposées par la solution logicielle Vitam (version Release 5).
 
-* Transférer un paquet à archiver (SIP) : <https://www.youtube.com/Gb29J-GHf7k>
+* Transférer un paquet à archiver (SIP) :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Gb29J-GHf7k" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Rechercher une archive : <https://www.youtube.com/az-ZPVoeoXg>
+
+* Rechercher une archive :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/az-ZPVoeoXg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Les contrats d’entrées : <https://www.youtube.com/paXo4DpT_2Q>
+
+* Les contrats d’entrées :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/paXo4DpT_2Q" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Les contrats d’accès : 
+
+* Les contrats d’accès :
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/khkcJ2rnPiY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Le référentiel des règles de gestions : <https://www.youtube.com/Kub8f4lD1WE>
+
+* Le référentiel des règles de gestions :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kub8f4lD1WE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Les profils d’archivage : <https://www.youtube.com/TFleNc9UgJw>
+
+* Les profils d’archivage :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TFleNc9UgJw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Le référentiel des services agents : <https://www.youtube.com/0WpRKCDiHbw>
+
+* Le référentiel des services agents :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0WpRKCDiHbw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Le référentiel des formats : <https://www.youtube.com/bTkSOjApz_U>
+
+* Le référentiel des formats :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bTkSOjApz_U" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Réaliser des audits d’existence et d’intégrité des objets archivés : <https://www.youtube.com/pYBnchomvdU>
+
+* Réaliser des audits d’existence et d’intégrité des objets archivés :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pYBnchomvdU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
-* Extraire des archives sous la forme d’un DIP (dissemination information package) : <https://www.youtube.com/Pz9jgIrO37w>
+
+* Extraire des archives sous la forme d’un DIP (dissemination information package) :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Pz9jgIrO37w" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> 
 <br>
-* Effectuer une requête en langage DSL : <https://www.youtube.com/AzvZtCNZi7w>
+
+* Effectuer une requête en langage DSL :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AzvZtCNZi7w" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> 
 <br>
 
 Pour reproduire ces tests, il est possible d'utiliser les éléments suivants :
