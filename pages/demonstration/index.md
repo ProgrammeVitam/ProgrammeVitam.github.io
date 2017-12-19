@@ -20,57 +20,46 @@ level: page
 Les vidéos présentent différentes fonctionnalités proposées par la solution logicielle Vitam (version Release 5).
 
 * Transférer un paquet à archiver (SIP) :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gb29J-GHf7k" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Rechercher une archive :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/az-ZPVoeoXg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Les contrats d’entrées :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/paXo4DpT_2Q" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Les contrats d’accès :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/khkcJ2rnPiY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Le référentiel des règles de gestions :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Kub8f4lD1WE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Les profils d’archivage :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TFleNc9UgJw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Le référentiel des services agents :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0WpRKCDiHbw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Le référentiel des formats :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bTkSOjApz_U" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Réaliser des audits d’existence et d’intégrité des objets archivés :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pYBnchomvdU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 
 * Extraire des archives sous la forme d’un DIP (dissemination information package) :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Pz9jgIrO37w" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> 
 <br>
 
 * Effectuer une requête en langage DSL :
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AzvZtCNZi7w" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> 
 <br>
 
