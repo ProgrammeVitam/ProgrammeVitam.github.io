@@ -25,7 +25,8 @@ Les vidéos présentent différentes fonctionnalités proposées par la solution
 <br>
 * Les contrats d’entrées : <https://www.youtube.com/paXo4DpT_2Q>
 <br>
-* Les contrats d’accès : <https://www.youtube.com/khkcJ2rnPiY>
+* Les contrats d’accès : 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/khkcJ2rnPiY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 <br>
 * Le référentiel des règles de gestions : <https://www.youtube.com/Kub8f4lD1WE>
 <br>
