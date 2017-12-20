@@ -14,7 +14,7 @@ level: page
 
 <hr/>
 
-## Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5(0.26.x)]
+## Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5 (0.26.x)
 <a name="pres_R5"></a>
 
 Les vidéos présentent différentes fonctionnalités proposées par la solution logicielle Vitam (version Release 5).
