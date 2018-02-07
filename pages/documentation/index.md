@@ -54,10 +54,11 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 \| [html](/ressources/DocCourante/html/ihm-recette))
 * **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/DocCourante/pdf/VITAM_Scenario_de_tests.pdf) 
 \| [html](/ressources/DocCourante/html/scenario-test))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM - **A VENIR**
+* **Cahier de tests métier** - liste des tests manuels sur les IHM -([pdf](/ressources/Doc020.1/autres/fonctionnel/VITAM_Cahier_de_test_20180131.pdf)
 * **Configuration des tests de non régression automatique** 
 ([pdf](/ressources/DocCourante/pdf/VITAM_configuration_tnr.pdf)
 \| [html](/ressources/DocCourante/html/configuration-tnr))
+
 
 ## Documentation technique
 
