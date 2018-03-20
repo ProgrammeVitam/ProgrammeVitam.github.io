@@ -30,7 +30,7 @@ tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintra
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement. 
 
-Elle est accessible sur <http://download.programmevitam.fr/demo_vitam_0.26.1-1/demo_vitam_0.26.1-1.ova>
+Elle est accessible sur <https://drive.google.com/open?id=1NPL7sfOqdzwCmKfKsQMPfSz_aJB69XUt>
 
 Une empreinte sha256 permet de vérifier l'intégrité du fichier ova : <http://download.programmevitam.fr/demo_vitam_0.26.1-1/demo_vitam_0.26.1-1.sha256>
 
@@ -41,6 +41,16 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 * **les Release Notes**
 
 <https://github.com/ProgrammeVitam/vitam/releases>
+
+
+## Des exemples de référentiels et contrats
+
+Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/Vitam_Documentation_Kit_de_prise_en_main.pdf))
+
+* **Contrat d'accès** ([json](/ressources/RefCourant/exemple_contrat_acces_tous_droits.json))
+* **Contrat d'entrée** ([json](/ressources/RefCourant/exemple_contrat_entree.json))
+* **Référentiel Agents** ([csv](/ressources/RefCourant/exemple_referentiel_agents.csv))
+* **Référentiel des règles de gestion** ([csv](/ressources/RefCourant/exemple_referentiel_regles.csv))
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
