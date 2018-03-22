@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parallélisation des tests &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Parallélisation des tests &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Recherche" href="search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="index.html"/>
         <link rel="next" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html"/>
         <link rel="prev" title="workspace" href="include/workspace/workspace.html"/> 
 
@@ -58,7 +58,7 @@
 
           
             
-            <img src="_static/LogoVitamGrand2.png" class="logo" />
+            <img src="_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -89,14 +89,16 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parallélisation des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -153,22 +155,26 @@ Pour ce but, nous effectuons les étapes suivantes :</p>
 <li>Parallélisation des tests unitaires</li>
 <li>Configuration de build avec les options de tests</li>
 </ul>
-</div>
 <div class="section" id="separation-des-tests-tdd-et-tests-d-integration">
-<h1>Séparation des tests TDD et tests d&#8217;intégration<a class="headerlink" href="#separation-des-tests-tdd-et-tests-d-integration" title="Lien permanent vers ce titre">¶</a></h1>
-<ul>
-<li><dl class="first docutils">
-<dt>Il y a trois tests d&#8217;intégration et nous les remettons dans le module test-intégration parent</dt>
-<dd><p class="first">ProcessingIT : test d&#8217;intégration pour différents services : workspace, functional-administration,
-worker, metadata, logbook, processing</p>
-<p>StorageClientIT : test d&#8217;intégration pour le client du service de storage. Cela concerne deux modules:
+<h2>Séparation des tests TDD et tests d&#8217;intégration<a class="headerlink" href="#separation-des-tests-tdd-et-tests-d-integration" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Il y a plusieurs tests d&#8217;intégration présents dans le module <em>integration-test</em> :</li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>.ProcessingIT : test d&#8217;intégration pour différents services : workspace, functional-administration, worker, metadata, logbook, processing</p>
+<blockquote>
+<div><blockquote>
+<div><p>StorageClientIT : test d&#8217;intégration pour le client du service de storage. Cela concerne deux modules:
 storage (client &amp; rest) et le client de workspace</p>
 <p>WorkerIT : test d&#8217;intégration pour les services : workspace, worker, metadata, logbook, processing</p>
-<p class="last">Ces tests d&#8217;intégration sont en mode séquentiel. Pour cela, nous indiquons dans le pom.xml de ce module de test-integration</p>
-</dd>
-</dl>
-</li>
-</ul>
+</div></blockquote>
+<p>FunctionalAdminIT : test d&#8217;intégration pour le service FunctionalAdministration.</p>
+<p>IngestInternalIt : test d&#8217;intégration pour le service IngestInternal.</p>
+<p>LogbookCheckConsistencyIT : test d&#8217;intégration pour le service de vérification de cohérence des journaux.</p>
+<p>*.Reconstruction*.IT : test d&#8217;intégration pour les services de reconstruction et de backup.</p>
+<p>SecurityInternalIT : test d&#8217;intégration pour le service de sécurité interne.</p>
+<blockquote>
+<div>Ces tests d&#8217;intégration sont en mode séquentiel. Pour cela, nous indiquons dans le pom.xml de ce module de test-integration</div></blockquote>
+</div></blockquote>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;pluginManagement&gt;</span>
                 <span class="nt">&lt;plugins&gt;</span>
@@ -195,8 +201,8 @@ storage (client &amp; rest) et le client de workspace</p>
 </div>
 </div>
 <div class="section" id="parallelisation-de-tests-unitaires">
-<h1>Parallélisation de tests unitaires<a class="headerlink" href="#parallelisation-de-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les tests unitaires de chaque module sont configurés pour être lancé en mode parallèle.
+<h2>Parallélisation de tests unitaires<a class="headerlink" href="#parallelisation-de-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les tests unitaires de chaque module sont configurés pour être lancés en mode parallèle.
 Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;plugins&gt;</span>
@@ -220,7 +226,7 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 </div>
 </div>
 <div class="section" id="configuration-de-build-avec-les-options-de-tests">
-<h1>Configuration de build avec les options de tests<a class="headerlink" href="#configuration-de-build-avec-les-options-de-tests" title="Lien permanent vers ce titre">¶</a></h1>
+<h2>Configuration de build avec les options de tests<a class="headerlink" href="#configuration-de-build-avec-les-options-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
 <li>mvn install : lancer le build normal avec tous les tests</li>
 <li>mvn clean install -DskipTests : pour ignorer tous les tests:</li>
@@ -272,6 +278,7 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 </pre></div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -314,7 +321,7 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

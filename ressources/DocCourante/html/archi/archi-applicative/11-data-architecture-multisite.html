@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2. Architecture des données &amp; multisite &mdash; documentation VITAM - Architecture 1.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Recherche" href="../search.html"/>
+    <link rel="top" title="documentation VITAM - Architecture 1.0.0" href="../index.html"/>
+        <link rel="up" title="4. Architecture applicative" href="_toc.html"/>
+        <link rel="next" title="4.3. Services métiers" href="20-services-list.html"/>
+        <link rel="prev" title="4.1. Architecture applicative" href="10-applicative-architecture.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/_toc.html">3. Vue d&#8217;ensemble</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">4. Architecture applicative</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html">4.1. Architecture applicative</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. Architecture des données &amp; multisite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inventaire-des-donnees">4.2.1. Inventaire des données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multisite">4.2.2. Multisite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html">4.3. Services métiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">VITAM - Architecture</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="_toc.html">4. Architecture applicative</a> &raquo;</li>
+      
+    <li>4.2. Architecture des données &amp; multisite</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/archi-applicative/11-data-architecture-multisite.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture-des-donnees-multisite">
+<h1>4.2. Architecture des données &amp; multisite<a class="headerlink" href="#architecture-des-donnees-multisite" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="inventaire-des-donnees">
+<h2>4.2.1. Inventaire des données<a class="headerlink" href="#inventaire-des-donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition seealso">
+<p class="first admonition-title">Voir aussi</p>
+<p class="last">Le modèle de données complet est explicité dans la documentation externe dédiée (&#8220;Modèle de données&#8221;).</p>
+</div>
+<p>Le tableau ci-dessous représente l&#8217;inventaire des données gérées par VITAM, avec leur localisation et le composant responsable du cycle de vie de la donnée (i.e. règles de création / modification / suppression) :</p>
+<table border="1" class="longtable docutils" id="id1">
+<caption><span class="caption-text">Inventaire des données VITAM</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Données pris en charge par le module</th>
+<th class="head">Composant responsable de la donnée</th>
+<th class="head">Persistence locale</th>
+<th class="head">Persistence BDD métier</th>
+<th class="head">Persistence Workspace</th>
+<th class="head">Persistence Storage</th>
+<th class="head">Persistence BDD techniques</th>
+<th class="head">Persistence inventaire ansible</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>métier</td>
+<td>Sas d&#8217;entrée des SIP (check antivirus et format du SIP)</td>
+<td>ingest-external</td>
+<td>/vitam/tmp</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>Fichier de définition d&#8217;un référentiel</td>
+<td>functional-administration</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>Référentiels métier&nbsp;: règles de gestion, formats, contrats, contextes, profils de sécurité, …</td>
+<td>functional-administration</td>
+<td>&nbsp;</td>
+<td>ES + MongoDB</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>certificats SIA &amp; personae</td>
+<td>security-internal</td>
+<td>&nbsp;</td>
+<td>MongoDB</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>Etat des workflows (en cours, en pause, terminés)</td>
+<td>processing</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Définition des workflows de traitement</td>
+<td>processing</td>
+<td>/vitam/conf</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>Données en cours de traitement par un processus</td>
+<td>worker</td>
+<td>/vitam/tmp</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>Registre des fonds</td>
+<td>functional-administration</td>
+<td>&nbsp;</td>
+<td>ES + MongoDB</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>JOP</td>
+<td>logbook</td>
+<td>&nbsp;</td>
+<td>ES + MongoDB</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>JOP sécurisé</td>
+<td>logbook (cron)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>JCV Unit / ObjectGroup</td>
+<td>logbook</td>
+<td>&nbsp;</td>
+<td>MongoDB</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>JCV sécurisé</td>
+<td>logbook (cron)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>ArchiveUnit (AU), ObjectGroup (GOT)</td>
+<td>metadata</td>
+<td>&nbsp;</td>
+<td>ES + MongoDB</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>BinaryObject (BDO)</td>
+<td>storage</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>Stratégies de stockage</td>
+<td>storage</td>
+<td>/vitam/conf</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>Journal des écritures</td>
+<td>storage</td>
+<td>REF&nbsp;: /vitam/log</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>Sécurisation du journal des écritures</td>
+<td>storage (cron)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>technico-métier</td>
+<td>Log des écritures dans une offre de stockage</td>
+<td>storage-offer</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MongoDB (offres)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>technique</td>
+<td>Logs logiciels</td>
+<td>(tous)</td>
+<td>/vitam/log</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ES (log)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>technique</td>
+<td>Métriques applicatives</td>
+<td>(tous)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: ES (log)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>technique</td>
+<td>Données de configuration (incl. certificats)</td>
+<td>(tous)</td>
+<td>/vitam/conf</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REF&nbsp;: X</td>
+</tr>
+</tbody>
+</table>
+<p>Quelques remarques :</p>
+<ul>
+<li><p class="first">si une donnée est persistée à plusieurs endroits, l&#8217;emplacement de référence (i.e. faisant foi en cas de désynchronisation entre les emplacements) est indiqué par le préfixe <code class="docutils literal"><span class="pre">REF:</span></code>. Les processus de reconstruction ou de remise en cohérence de la solution logicielle s&#8217;appuient sur cet emplacement référentiel pour alimenter les autres emplacements de stockage. En particulier, les offres de stockage VITAM portent la référence des données concernant les archives hébergées par le système VITAM : leur contenu binaire (BDO), mais également les métadonnées associées au sens large (AU, GOT, journaux) et les référentiels métier</p>
+</li>
+<li><p class="first">les données de référence à l&#8217;origine du registre des fonds sont les journaux opération (JOP)</p>
+</li>
+<li><p class="first">il existe 2 types de journaux d&#8217;écriture :</p>
+<blockquote>
+<div><ul class="simple">
+<li>le premier au niveau du moteur de stockage, qui permet de s&#8217;assurer de la bonne prise en compte des écritures par le système VITAM. Il s&#8217;agit d&#8217;un journal métier, participant à la preuve systémique (il est donc sécurisé comme les journaux d&#8217;opération et de cycle de vie des archives) ;</li>
+<li>le deuxième au niveau de l&#8217;offre de stockage, qui permet de conserver l&#8217;ordre d&#8217;écriture des éléments stockés pour permettre leur rejeu lors d&#8217;une reconstruction (totale ou partielle). Il s&#8217;agit donc d&#8217;un journal technique, s&#8217;inspirant fortement du concept des archivelog des bases de données.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="multisite">
+<h2>4.2.2. Multisite<a class="headerlink" href="#multisite" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id2">
+<img alt="../_images/dualsite-architecture.svg" src="../_images/dualsite-architecture.svg" /><p class="caption"><span class="caption-text">Architecture des données d&#8217;archives ; fonctionnement multisite.</span></p>
+</div>
+<p>Le fonctionnement multisite s&#8217;appuie fortement sur les capacités de reconstruction de VITAM :</p>
+<ul>
+<li><p class="first">VITAM doit être déployé avec une stratégie de stockage comportant une offre de stockage sur chaque site ;</p>
+</li>
+<li><p class="first">Le fonctionnement de VITAM sur plusieurs sites fonctionne sur un principe actif / passif :</p>
+<blockquote>
+<div><ul class="simple">
+<li>le site principal fonctionne en mode nominal,</li>
+<li>le site secondaire fonctionne en mode &#8220;reconstruction au fil de l&#8217;eau&#8221; (les tâches planifiées de sécurisation et d&#8217;audit sont arrêtées, les composants frontaux et de traitement de données sont arrêtés (en gris dans le schéma précédent), les tâches planifiées de reconstruction au fil de l&#8217;eau sont activées)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Toute donnée liées aux archives est systématiquement écrite dans les offre de stockage (le cas échéant, en même temps que dans les bases de données), donc sur les 2 sites en même temps ;</p>
+</li>
+<li><p class="first">Sur le site secondaire, des processus viennent régulièrement récupérer les données écrites en dernier dans l&#8217;offre de stockage de ce site (en se basant sur le contenu des logs d&#8217;écriture de l&#8217;offre) pour alimenter en update le contenu des bases de données &#8220;secondaires&#8221; :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Référentiels : reconstruction régulière et totale</li>
+<li>AU/GOT/BDO/Journaux : reconstruction au fil de l’eau</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>En cas de perte du site primaire, l&#8217;intégralité des données est donc présente dans le stockage sur le site secondaire, et est presque entièrement reconstruit dans les bases de données du même site. Une fois la reconstruction complètement terminée, le site secondaire est donc accessible ; le niveau d&#8217;accessibilité dépendra de la stratégie de stockage sur le site secondaire :</p>
+<ul class="simple">
+<li>Soit la dégradation du niveau de résilience des offres est acceptée, et la stratégie de stockage devra être modifiée pour limiter les écritures à une seule offre.</li>
+<li>Soit cette stratégie continue à requérir l&#8217;écriture sur 2 offres de stockage, et le système ne sera accessible qu&#8217;en lecture seule ; seule une recréation de l&#8217;offre de stockage sur le site principal permettra le retour à un fonctionnement nominal (Cf. admonition ci-dessous). Ce scénario est délicat à implémenter, et nécessite notamment la mise en place d&#8217;un contrat d&#8217;accès spécifique permettant de bloquer les accès en modification.</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">La version courante de la solution logicielle VITAM ne permet pas la resynchronisation d&#8217;une offre de stockage à partir d&#8217;une autre offre de stockage. Ainsi la réplication de l&#8217;offre de stockage du site secondaire vers une nouvelle offre de stockage du site principal,  indispensable pour un retour à la normale une fois le PRA terminé, doit être réalisé par des moyens d&#8217;infrastructure uniquement (recopie de systèmes de fichiers, duplication d&#8217;un object storage, dump + restoration de la base MongoDB des offres de stockage, ...)</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">En cas de bascule de site, les traitements en cours sur le site 1 sont perdus ; en particulier, les ingests non terminés doivent être renvoyés à VITAM et les autres batchs en cours doivent être relancés. L’incohérence des données sera réglée dans une version ultérieure du système VITAM.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="20-services-list.html" class="btn btn-neutral float-right" title="4.3. Services métiers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="10-applicative-architecture.html" class="btn btn-neutral" title="4.1. Architecture applicative" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

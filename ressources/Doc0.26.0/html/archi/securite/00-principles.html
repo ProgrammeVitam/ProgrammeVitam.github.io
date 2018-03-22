@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.1. Principes &mdash; documentation VITAM - Architecture 0.26.1</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Recherche" href="../search.html"/>
+    <link rel="top" title="documentation VITAM - Architecture 0.26.1" href="../index.html"/>
+        <link rel="up" title="6. Securite" href="_toc.html"/>
+        <link rel="next" title="6.2. Liste des secrets" href="10-secrets.html"/>
+        <link rel="prev" title="6. Securite" href="_toc.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.26.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/_toc.html">3. Vue d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">6. Securite</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Principes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#principes-de-cloisonnement">6.1.1. Principes de cloisonnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#principes-de-securisation-des-acces-externes">6.1.2. Principes de sécurisation des accès externes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#principes-de-securisation-des-communications-internes-au-systeme">6.1.3. Principes de sécurisation des communications internes au système</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#principes-de-securisation-des-bases-de-donnees">6.1.4. Principes de sécurisation des bases de données</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mongodb">6.1.4.1. MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elasticsearch">6.1.4.2. Elasticsearch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#principes-de-securisation-des-secrets-de-deploiement">6.1.5. Principes de sécurisation des secrets de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10-secrets.html">6.2. Liste des secrets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-certificates.html">6.3. Certificats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">VITAM - Architecture</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="_toc.html">6. Securite</a> &raquo;</li>
+      
+    <li>6.1. Principes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/securite/00-principles.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="principes">
+<h1>6.1. Principes<a class="headerlink" href="#principes" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les principes de sécurité de VITAM suivent les directives suivantes :</p>
+<ul>
+<li><p class="first">Authentification et autorisation systématique des systèmes clients de VITAM basées sur une authentification TLS mutuelle utilisant des certificats (pour les composants de la couche accès) ;</p>
+</li>
+<li><p class="first">Validation systématique des entrées du système :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Détection et suppression de codes malveillants dans les archives déposées dans VITAM ;</li>
+<li>Robustesse contre les failles du Top Ten OWASP pour toutes les interfaces REST ;</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Validation périodique des listes de CRL pour toutes les CA trustées par VITAM.</p>
+</li>
+</ul>
+<div class="section" id="principes-de-cloisonnement">
+<h2>6.1.1. Principes de cloisonnement<a class="headerlink" href="#principes-de-cloisonnement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les principes de cloisonnement en zones, et notamment les implications en termes de communication entre ces zones ont été décrits dans <a class="reference internal" href="../archi-exploit-infra/principes/30-principles-deployment.html"><span class="doc">la section dédiée aux principes de déploiement</span></a>.</p>
+</div>
+<div class="section" id="principes-de-securisation-des-acces-externes">
+<h2>6.1.2. Principes de sécurisation des accès externes<a class="headerlink" href="#principes-de-securisation-des-acces-externes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les services logiciels en contact direct avec les clients du SAE (i.e. les services <code class="docutils literal"><span class="pre">*-external</span></code>) implémentent les mesures de sécurité suivantes :</p>
+<ul>
+<li><p class="first">Chiffrement du transport des données entre les applications externes et VITAM via HTTPS ; par défaut, la configuration suivante est appliquée :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Protocoles exclus : <code class="docutils literal"><span class="pre">SSLv2</span></code>, <code class="docutils literal"><span class="pre">SSLv3</span></code></li>
+<li>Ciphers exclus : <code class="docutils literal"><span class="pre">.*NULL.*</span></code>, <code class="docutils literal"><span class="pre">.*RC4.*</span></code>, <code class="docutils literal"><span class="pre">.*MD5.*</span></code>, <code class="docutils literal"><span class="pre">.*DES.*</span></code>, <code class="docutils literal"><span class="pre">.*DSS.*</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dans cette version du système VITAM, les ciphers recommandés sont : <code class="docutils literal"><span class="pre">TLS_ECDHE.*</span></code>, <code class="docutils literal"><span class="pre">TLS_DHE_RSA.*</span></code></p>
+</div>
+<ul>
+<li><p class="first">Authentification par certificat x509 requise des applications externes (authentification M2M) basée sur une liste blanche de certificats valides ;</p>
+<blockquote>
+<div><ul class="simple">
+<li>Lors d’une connexion, la vérification synchrone confirme que le certificat proposé n’est pas expiré (not before, not after) et est bien présent dans le référentiel d’authentification des certificats valides (qui est un fichier keystore contenant la liste des certificats valides).</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dans cette version du système VITAM, la liste des certificats reconnus est stockée dans un keystore Java.</p>
+</div>
+<ul>
+<li><p class="first">Filtrage exhaustif des données et requêtes entrant dans le système basé sur :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Un WAF applicatif permettant le filtrage d&#8217;entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> protégeant notamment contre les attaques de type XSS)</li>
+<li>Support de l&#8217;utilisation d&#8217;un ou plusieurs antivirus (configurables et extensibles) dans le composant d&#8217;entrée (<code class="docutils literal"><span class="pre">ingest</span></code>) permettant de valider l&#8217;inocuité des données entrantes.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dans cette version du système, le paramétrage de l&#8217;antivirus est supporté lors de l&#8217;installation, mais pas le paramétrage d&#8217;ESAPI (notamment les filtres appliqués).</p>
+</div>
+</div>
+<div class="section" id="principes-de-securisation-des-communications-internes-au-systeme">
+<h2>6.1.3. Principes de sécurisation des communications internes au système<a class="headerlink" href="#principes-de-securisation-des-communications-internes-au-systeme" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le secret de plateforme permet de se protéger contre des erreurs de manipulation et de configuration en séparant les environnements de manière logique (secret partagé par l&#8217;ensemble de la plateforme mais différent entre plateformes). Ce secret (chaîne de caractères) est positionné dans la configuration des composants lors de l&#8217;installation du système.</p>
+<p>Dans chaque requête, les deux headers suivants sont positionnés :</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">X-Request-Timestamp</span></code> : il contient le timestamp de la requête sous forme epoch (secondes depuis 1970)</li>
+<li><code class="docutils literal"><span class="pre">X-Platform-ID</span></code> : il contient la valeur suivante : SHA256(&#8220;&lt;methode&gt;;&lt;URL&gt;;&lt;Valeur du header X-Request-Timestamp&gt;;&lt;Secret partagé de plateforme&gt;&#8221;)</li>
+</ul>
+<p>Du côté du composant cible de la requête, le contrôle est alors le suivant :</p>
+<ul class="simple">
+<li>Existence des deux headers précédents ;</li>
+<li>Vérification que timestamp envoyé est distant de l&#8217;heure actuelle sur le serveur requêté de moins de 10 secondes ( <code class="docutils literal"><span class="pre">|</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">temps</span> <span class="pre">local</span> <span class="pre">|</span> <span class="pre">&lt;</span> <span class="pre">10</span> <span class="pre">s</span></code> )</li>
+<li>Validation du hash transmis via la réalisation du même calul sur le serveur cible et de la comparaison des résultats.</li>
+</ul>
+<p>En cas d&#8217;échec d&#8217;une de ces validations, la requête est refusée.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les headers et le body de la requête ne sont pas inclus dans le calcul du X-Platform-ID pour des raisons de performance.</p>
+</div>
+</div>
+<div class="section" id="principes-de-securisation-des-bases-de-donnees">
+<h2>6.1.4. Principes de sécurisation des bases de données<a class="headerlink" href="#principes-de-securisation-des-bases-de-donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les bases de données sont sécurisées via un cloisonnement physique et/ou logique des différentes bases de données qui les constituent.</p>
+<div class="section" id="mongodb">
+<h3>6.1.4.1. MongoDB<a class="headerlink" href="#mongodb" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas de MongoDB, le cloisonnement est logique. Chaque service hébergeant des données dans MongoDB se voit attribuer une base et un utilisateur dédié. Cet utilisateur a uniquement les droits de lecture / écriture dans les collections de cette base de données, mais ne peut notamment pas modifier la structure des collections de sa base de données ni accéder aux collections d&#8217;une autre base de données.</p>
+<p>Un utilisateur technique &#8220;root&#8221; est également créé pour les besoins de l&#8217;installation et de la configuration de MongoDB.</p>
+<p>Chaque base de données ne doit être accédée que par les instances d&#8217;un seul service (ex: le service logbook est le seul à accéder à la base de données logbook).</p>
+<p>Enfin, l&#8217;accès anonyme à MongoDB est désactivé, et les utilisateurs sont authentifiés par le couple utilisateur / mot de passe.</p>
+</div>
+<div class="section" id="elasticsearch">
+<h3>6.1.4.2. Elasticsearch<a class="headerlink" href="#elasticsearch" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas d&#8217;Elasticsearch, le cloisonnement est principalement physique, dans le sens où le cluster hébergeant les données métier est disjoint du cluster hébergeant les données techniques.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L&#8217;accès au cluster Elasticsearch est anonyme sans authentification requise ; ceci est dû à une limitation de la version OpenSource d&#8217;Elasticsearch, et pourra être réévalué dans les futures versions du système VITAM.</p>
+</div>
+</div>
+</div>
+<div class="section" id="principes-de-securisation-des-secrets-de-deploiement">
+<h2>6.1.5. Principes de sécurisation des secrets de déploiement<a class="headerlink" href="#principes-de-securisation-des-secrets-de-deploiement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les secrets de l&#8217;intégralité de la solution VITAM déployée sont tous présents sur le serveur de déploiement ; par conséquent, ils doivent y être stockés de manière sécurisée, avec les principes suivants :</p>
+<ul class="simple">
+<li>Les mot de passe et token utilisés par ansible doivent être stockés dans des fichiers d&#8217;inventaire chiffrés par ansible-vault ;</li>
+<li>Les clé privées des certificats doivent être protégées par des mot de passe complexes ; ces derniers doivent suivre la règle précédente.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="10-secrets.html" class="btn btn-neutral float-right" title="6.2. Liste des secrets" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc.html" class="btn btn-neutral" title="6. Securite" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.26.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Création de journal sécurisé des journaux des écritures sécurisés &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Création de journal sécurisé des journaux des écritures sécurisés &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,9 +33,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="TRACEABILITY" href="_toc_traceability.html"/>
-        <link rel="next" title="UPDATE" href="../rules_update/_toc_rules_update.html"/>
+        <link rel="next" title="UPDATE" href="../update/_toc_update.html"/>
         <link rel="prev" title="Workflow de création de journal des cycles de vie sécurisé" href="workflow-traceability-lifecycle.html"/> 
 
   
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -104,7 +104,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -164,22 +164,30 @@
 <div><ul class="simple">
 <li>Des logs des journaux sécurisés (logFile.log). Ces logs comportent un certain nombre d&#8217;informations comme la date des écritures, l&#8217;empreinte des fichiers concernés, le tenant, l&#8217;adresse des offres...</li>
 </ul>
-<p>Ces logs sont un extrait des logs du moteur de stockage, sélectionnés entre deux intervalles de dates.
-- Un fichier d&#8217;information décrivant le périmètre du fichier des logs des journaux sécurisés associé : date de début et date de fin définissant l&#8217;intervalle de sélection des logs à sécuriser, ainsi que l&#8217;empreinte du fichier logFile et la date de création du .zip</p>
+<p>Ces logs sont un extrait des logs du moteur de stockage, sélectionnés entre deux intervalles de dates.</p>
+<ul class="simple">
+<li>Un fichier d&#8217;information décrivant le périmètre du fichier des logs des journaux sécurisés associé : date de début et date de fin définissant l&#8217;intervalle de sélection des logs à sécuriser, ainsi que l&#8217;empreinte du fichier logFile et la date de création du .zip</li>
+</ul>
 </div></blockquote>
 <p>Au niveau du journal des opérations, cette action est entièrement réalisée dans une seule étape (STP_STORAGE_SECURISATION)</p>
 <ul>
-<li><dl class="first docutils">
-<dt><strong>Status</strong> :</dt>
-<dd><ul class="first last simple">
-<li>OK : le tampon d&#8217;horodatage est calculé (STP_STORAGE_SECURISATION.OK=Succès du processus de sécurisation du journal des écritures)</li>
+<li><p class="first"><strong>Status</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : le tampon d&#8217;horodatage est calculé (STP_STORAGE_SECURISATION.OK = Succès du processus de sécurisation du journal des écritures)</li>
+<li>WARNING : il n&#8217;y a pas de nouveaux journaux à sécuriser (STP_STORAGE_SECURISATION.WARNING = avertissement lors du processus de sécurisation du journal des écritures )</li>
 <li>KO : pas de cas KO</li>
-<li>FATAL : une erreur technique est survenue lors de l&#8217;horodatage (STP_STORAGE_SECURISATION.FATAL=Erreur fatale lors du processus de sécurisation du journal des écritures)</li>
+<li>FATAL : une erreur technique est survenue lors de l&#8217;horodatage (STP_STORAGE_SECURISATION.FATAL = Erreur fatale lors du processus de sécurisation du journal des écritures)</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ul>
+<p>Cette étape déclenche également l&#8217;action :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Vérification de la liste des éléments à traiter (OBJECTS_LIST_EMPTY), décrite dans le paragraphe concernant la création de journal des cycles de vie sécurisé</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
@@ -190,7 +198,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../rules_update/_toc_rules_update.html" class="btn btn-neutral float-right" title="UPDATE" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../update/_toc_update.html" class="btn btn-neutral float-right" title="UPDATE" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="workflow-traceability-lifecycle.html" class="btn btn-neutral" title="Workflow de création de journal des cycles de vie sécurisé" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -224,7 +232,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

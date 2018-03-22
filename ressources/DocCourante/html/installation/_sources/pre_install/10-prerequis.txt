@@ -20,14 +20,24 @@ Le déploiement est orchestré depuis un poste ou serveur d'administration ; les
   + openssh-clients (client SSH utilisé par ansible)
   + java-1.8.0-openjdk & openssl (du fait de la génération de certificats / stores, l'utilitaire ``keytool`` est nécessaire)
 
-* un accès ssh vers un utilisateur d'administration avec élévation de privilèges vers les droits root, vitam, vitamdb sur les serveurs cibles.
-* Le compte utilisé sur le serveur d'administration doit avoir confiance dans les serveurs cibles (fichier ~/.ssh/known_hosts correctement renseigné)
+* un accès ssh vers un utilisateur d'administration avec élévation de privilèges vers les droits root, vitam, vitamdb sur les serveurs cibles.  
+* Le compte utilisé sur le serveur d'administration doit avoir confiance dans les serveurs sur lesquels la solution logicielle :term:`VITAM` doit être installée (fichier ``~/.ssh/known_hosts`` correctement renseigné)
+
+.. note:: Se référer à la `documentation d'usage <http://docs.ansible.com/ansible/latest/intro_getting_started.html>`_ pour les procédures de connexion aux machines-cibles depuis le serveur ansible.
 
 .. caution:: Les IP des machines sur lesquelles la solution Vitam sera installée ne doivent pas changer d'IP au cours du temps, en cas de changement d'IP, la plateforme ne pourra plus fonctionner.
 
 .. caution:: dans le cadre de l'installation des packages "extra", il est nécessaire, pour les partitions hébergeant des containeurs docker (mongo-express, head), qu'elles aient un accès internet.
 
 .. warning:: dans le cas d'une installation du composant ``vitam-offer`` en ``filesystem-hash``, il est fortement recommandé d'employer un système de fichiers ``xfs`` pour le stockage des données. Se référer au :term:`DAT` pour connaître la structuration des filesystems dans :term:`VITAM`. En cas d'utilisation d'un autre type, s'assurer que le filesystem possède/gère bien l'option ``user_xattr``.
+
+
+PKI
+===
+
+La solution VITAM nécessite des certificats pour son bon fonctionnement (cf. :term:`DAT` pour la liste des secrets et :doc:`/annexes/10-overview_certificats` pour une vue d'ensemble de leur usage.) La gestion de ces certificats, par le biais d'une ou plusieurs PKI, est à charge de l'équipe d'exploitation. La mise à disposition des certificats et des chaînes de validation CA, placés dans les répertoires de déploiement adéquats, est un pré-requis à tout déploiement en production de la solution VITAM. 
+
+.. seealso:: Veuillez vous référer à la section :doc:`/annexes/10-overview_certificats` pour la liste des certificats nécessaires au déploiement de la solution VITAM, ainsi que pour leurs répertoires de déploiement.
 
 
 Systèmes d'exploitation
@@ -39,6 +49,8 @@ Seules deux distributions Linux suivantes sont supportées à ce jour :
 * Debian 8 (jessie)
 
 SELinux doit être configuré en mode ``permissive`` ou ``disabled``.
+
+.. note:: En cas de changement de mode SELinux, redémarrer les machines pour la bonne prise en compte de la modification.
 
 .. Sujets à adresser : préciser la version minimale ; donner une matrice de compatibilité -> post-V1
 

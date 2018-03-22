@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Authentification &mdash; documentation VITAM - Manuel utilisateur 0.26.1</title>
+  <title>3. Authentification &mdash; documentation VITAM - Manuel utilisateur 1.0.0</title>
   
 
   
@@ -33,9 +33,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Recherche" href="search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel utilisateur 0.26.1" href="index.html"/>
-        <link rel="next" title="Entrée d’un SIP" href="Entree.html"/>
-        <link rel="prev" title="Généralités" href="general.html"/> 
+    <link rel="top" title="documentation VITAM - Manuel utilisateur 1.0.0" href="index.html"/>
+        <link rel="next" title="4. Entrée d’un SIP et plan de classement" href="Entree.html"/>
+        <link rel="prev" title="2. Généralités" href="general.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -58,7 +58,7 @@
 
           
             
-            <img src="_static/LogoVitamGrand2.png" class="logo" />
+            <img src="_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -88,22 +88,26 @@
             
             
                 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general.html">Généralités</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Authentification</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#connexion">Connexion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#roles">Rôles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deconnexion">Déconnexion</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#deconnexion-manuelle">Déconnexion manuelle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#deconnexion-automatique">Déconnexion automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">2. Généralités</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Authentification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#connexion">3.1. Connexion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-par-identifiant">3.1.1. Authentification par identifiant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-par-certificat">3.1.2. Authentification par certificat</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#roles">3.2. Rôles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deconnexion">3.3. Déconnexion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deconnexion-manuelle">3.3.1. Déconnexion manuelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deconnexion-automatique">3.3.2. Déconnexion automatique</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Entree.html">Entrée d&#8217;un SIP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Consultation.html">Recherche et Consultation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gestion.html">Gestion des archives existantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Entree.html">4. Entrée d&#8217;un SIP et plan de classement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche et Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestion.html">6. Gestion des archives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Administration.html">7. Administration</a></li>
 </ul>
 
             
@@ -134,7 +138,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Authentification</li>
+    <li>3. Authentification</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -149,7 +153,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="authentification">
-<h1>Authentification<a class="headerlink" href="#authentification" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>3. Authentification<a class="headerlink" href="#authentification" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Cette partie est destinée à expliquer les fonctionnalités du système d&#8217;authentification, qui s&#8217;affiche dès qu&#8217;un utilisateur souhaite se connecter à l&#8217;IHM minimale, et, également du processus de déconnexion.</p>
 <p>Le système comporte actuellement deux niveaux d&#8217;authentification :</p>
 <ul class="simple">
@@ -157,27 +161,38 @@
 <li>Utilisateur (user)</li>
 </ul>
 <div class="section" id="connexion">
-<h2>Connexion<a class="headerlink" href="#connexion" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Pour s&#8217;identifier à l&#8217;IHM de la solution logicielle Vitam, l&#8217;utilisateur doit saisir son identifiant et son mot de passe dans les champs du même nom.
-Pour des mesures de sécurité, le mot de passe saisi ne s&#8217;affichera pas en toutes lettres.</p>
-<p>L&#8217;utilisateur doit également choisir le tenant sur lequel il souhaite se connecter, en utilisant le sélecteur à la droite des champs &#8220;Identifiant&#8221; et &#8220;Mot de passe&#8221;. Le tenant correspond à un espace réservé à une entité utilisatrice. Par exemple, un lot d&#8217;archives versé dans le tenant numéro deux ne sera pas consultable depuis les autres tenants.</p>
-<p>Cliquer sur le bouton &#8220;Connexion&#8221; permet de lancer l&#8217;authentification.</p>
+<h2>3.1. Connexion<a class="headerlink" href="#connexion" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;utilisateur de la solution logicielle Vitam peut s&#8217;authentifier de deux façons différentes, selon le paramétrage qui a été effectué. Il est possible de se connecter en utilisant un login et un mot de passe, ou de se connecter en utilisant un certificat.</p>
+<p>Dans les deux cas, l&#8217;utilisateur doit choisir le tenant sur lequel il souhaite se connecter, pour cela, il utilise le sélecteur &#8220;Tenant de la session&#8221;.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <img alt="_images/form_login.png" src="_images/form_login.png" />
+<p>Par défaut, après connexion, la page &#8220;Transfert de SIP et plan de classement&#8221; est affichée.</p>
+<div class="section" id="authentification-par-identifiant">
+<h3>3.1.1. Authentification par identifiant<a class="headerlink" href="#authentification-par-identifiant" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour s&#8217;identifier à l&#8217;IHM de la solution logicielle Vitam dans ce mode d&#8217;authentification, l&#8217;utilisateur doit saisir son identifiant et son mot de passe dans les champs du même nom.
+Pour des mesures de sécurité, le mot de passe saisi ne s&#8217;affichera pas en toutes lettres.</p>
+<p>Cliquer sur le bouton &#8220;Connexion&#8221; permet de lancer l&#8217;authentification.</p>
 <p>Lorsque le couple Identifiant/Mot de passe n&#8217;est pas cohérent, c&#8217;est-à-dire :</p>
 <ul class="simple">
 <li>L&#8217;identifiant n&#8217;existe pas</li>
 <li>Le mot de passe ne correspond pas à l&#8217;identifiant associé</li>
 </ul>
 <p>Alors, un message d&#8217;erreur s&#8217;affiche à l&#8217;écran, demandant à l&#8217;utilisateur de vérifier son identifiant et son mot de passe. Aucune autre information n&#8217;est donnée par mesure de sécurité.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <img alt="_images/form_login_ko.png" src="_images/form_login_ko.png" />
-<p>Par défaut, après connexion, la page &#8220;Transfert de SIP et plan de classement&#8221; est affichée.</p>
-<p>Si l&#8217;utilisateur souhaite accéder à la plate-forme en saisissant une URL vers une page de la solution logicielle Vitam, une fois l&#8217;authentification effectuée, il sera redirigé vers la page demandée.
-Si la session de l&#8217;utilisateur est expirée (la durée de la session en cas d&#8217;inactivité est de 30 minutes, non paramétrable par le métier), il devra s&#8217;authentifier de nouveau et accédera directement à la dernière page consultée.</p>
-<p>Le tenant est indiqué à droite du menu.</p>
-<img alt="_images/tenant.png" src="_images/tenant.png" />
+</div>
+<div class="section" id="authentification-par-certificat">
+<h3>3.1.2. Authentification par certificat<a class="headerlink" href="#authentification-par-certificat" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour utiliser ce mode d&#8217;authentification, l&#8217;utilisateur doit détenir un certificat délivré par son service informatique. En cliquant simplement sur le bouton de connexion, il sera alors authentifié. Si l&#8217;utilisateur utilise un mauvais certificat ou n&#8217;utilise pas de certificat, un message d&#8217;erreur est affiché pour notifier de cette erreur.</p>
+<p>Si la session de l&#8217;utilisateur est expirée (la durée de la session en cas d&#8217;inactivité est de 30 minutes, non paramétrable par le métier), il devra s&#8217;authentifier de nouveau et accédera directement à la dernière page consultée.</p>
+</div>
 </div>
 <div class="section" id="roles">
-<h2>Rôles<a class="headerlink" href="#roles" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>3.2. Rôles<a class="headerlink" href="#roles" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Deux niveaux de permissions sont gérés au travers des rôles suivants :</p>
 <blockquote>
 <div><ul class="simple">
@@ -185,32 +200,36 @@ Si la session de l&#8217;utilisateur est expirée (la durée de la session en ca
 <li>User</li>
 </ul>
 </div></blockquote>
-<p><strong>Admin</strong> : rôle accordant des droits étendus. Permet d&#8217;accéder à l&#8217;ensemble des fonctionnalités, aux fonctionnalités d&#8217;administration fonctionnelle et à l&#8217;IHM de recette.</p>
+<p><strong>Admin</strong> : rôle accordant des droits étendus, permet d&#8217;accéder à l&#8217;ensemble des fonctionnalités, y compris d&#8217;administration fonctionnelle.</p>
+<p>Fonctionnalités spécifiques au mode Administrateur :
+- Import des référentiels des contextes
+- Transfert d&#8217;un SIP en mode &#8220;Pas à pas&#8221;.</p>
+<p>Les fonctionnalités disponibles sont présentes dans le menu:</p>
+<img alt="_images/menu_admin.png" src="_images/menu_admin.png" />
 <p><strong>User</strong> : permet d&#8217;accéder aux fonctionnalités suivantes :</p>
 <ul class="simple">
-<li>Transfert d&#8217;archives</li>
+<li>Transfert d&#8217;archives (en production seulement)</li>
 <li>Transfert de plan de classement</li>
 <li>Suivi des opérations d&#8217;entrée</li>
 <li>Recherche et consultation d&#8217;archives</li>
 <li>Détail des unités archivistiques</li>
-<li>Consultation des services producteurs</li>
+<li>Recherche et consultation des services producteurs</li>
 <li>Consultation des référentiels</li>
 <li>Consultation des journaux d&#8217;opération</li>
 </ul>
-<p>Mais n&#8217;a pas la posssibilité de transférer un SIP en mode &#8220;Pas à pas&#8221;.</p>
-<p>Menu d&#8217;administration en vue user :</p>
-<img alt="_images/menu_user.png" src="_images/menu_user.png" />
+<p>Mais n&#8217;a pas l&#8217;accès aux fonctionnalités du rôle Administrateur et du mode &#8220;Pas à Pas&#8221;, qui n&#8217;apparaissent pas dans le menu.</p>
+<img alt="_images/menu_users.png" src="_images/menu_users.png" />
 </div>
 <div class="section" id="deconnexion">
-<h2>Déconnexion<a class="headerlink" href="#deconnexion" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>3.3. Déconnexion<a class="headerlink" href="#deconnexion" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="deconnexion-manuelle">
-<h3>Déconnexion manuelle<a class="headerlink" href="#deconnexion-manuelle" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>3.3.1. Déconnexion manuelle<a class="headerlink" href="#deconnexion-manuelle" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Depuis n&#8217;importe quelle page de la solution logicielle Vitam, l&#8217;utilisateur a la possibilité de se déconnecter de l&#8217;application.
-Pour cela, il clique sur le bouton &#8220;Déconnnexion en haut à droite de la page en cours. Le système clos la session de l&#8217;utilisateur, et la page d&#8217;authentification s&#8217;affiche de nouveau.</p>
-<img alt="_images/tenant.png" src="_images/tenant.png" />
+Pour cela, il clique sur le bouton &#8220;Déconnexion en haut à droite de la page en cours. Le système clos la session de l&#8217;utilisateur, et la page d&#8217;authentification s&#8217;affiche de nouveau.</p>
+<a class="reference internal image-reference" href="_images/tenant.png"><img alt="_images/tenant.png" src="_images/tenant.png" style="width: 295.0px; height: 40.0px;" /></a>
 </div>
 <div class="section" id="deconnexion-automatique">
-<h3>Déconnexion automatique<a class="headerlink" href="#deconnexion-automatique" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>3.3.2. Déconnexion automatique<a class="headerlink" href="#deconnexion-automatique" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L&#8217;utilisateur est automatiquement déconnecté et redirigé vers la page d&#8217;authentification après un demi-heure d’inactivité.</p>
 </div>
 </div>
@@ -223,10 +242,10 @@ Pour cela, il clique sur le bouton &#8220;Déconnnexion en haut à droite de la 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Entree.html" class="btn btn-neutral float-right" title="Entrée d’un SIP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Entree.html" class="btn btn-neutral float-right" title="4. Entrée d’un SIP et plan de classement" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="general.html" class="btn btn-neutral" title="Généralités" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="general.html" class="btn btn-neutral" title="2. Généralités" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -257,7 +276,7 @@ Pour cela, il clique sur le bouton &#8220;Déconnnexion en haut à droite de la 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

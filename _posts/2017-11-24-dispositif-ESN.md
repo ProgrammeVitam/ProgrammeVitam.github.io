@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: Dispositif d’accompagnement des entreprises de services numériques (ESN) pour l'installation et la prise en main de la solution logicielle Vitam
 ---

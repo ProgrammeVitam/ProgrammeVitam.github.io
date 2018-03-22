@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Workflow &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,9 +33,9 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../../index.html"/>
         <link rel="up" title="Etudes en cours" href="_toc.html"/>
-        <link rel="next" title="Storage" href="../../storage/_toc.html"/>
+        <link rel="next" title="Nombre d’objets numériques conforme" href="CheckObjectsNumberActionHandler.html"/>
         <link rel="prev" title="Workspace" href="workspace.html"/> 
 
   
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">Processing</a><ul class="current">
@@ -103,9 +104,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../parametres/parametres.html">Paramètres</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../processing-management.html">Processing Management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../processing-distributor.html">Processing Distributor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-engine.html">Processing Engine</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="_toc.html">Etudes en cours</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="workspace.html">Workspace</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CheckObjectsNumberActionHandler.html">Nombre d&#8217;objets numériques conforme</a></li>
 </ul>
 </li>
 </ul>
@@ -117,13 +120,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -184,7 +184,7 @@
 <li>une clé (identifier)</li>
 <li>un nom (name)</li>
 <li>une catégorie (typeProc)</li>
-<li>une liste de Steps :</li>
+<li>une liste de Steps : La structure d&#8217;une step donnée est la suivante</li>
 </ul>
 <blockquote>
 <div><ul>
@@ -198,9 +198,30 @@ NOBLOCKING : le traitement peut continuer malgrée les erreurs</p>
 </li>
 <li><p class="first">un modèle de distribution :</p>
 <blockquote>
+<div><ul>
+<li><p class="first">kind: un type pouvant être :</p>
+<blockquote>
 <div><ul class="simple">
-<li>un type (kind) pouvant être REF ou LIST</li>
-<li>l&#8217;élément de distribution (element) indiquant l&#8217;élément unique (REF) ou le chemin sur le Workspace (LIST)</li>
+<li>REF : pas de distribution pour ce step et définit une référence vers un fichier à traiter. (Exemple: manifest.xml)</li>
+<li>LIST :</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>si la valeur de &#8216;element&#8217; est &#8216;Units&#8217; : la liste des éléments à traiter est incluse dans un fichier ingestLevelStack.json. Ce fichier contient les guid des archive units ordonnés par niveau de graphe.</li>
+<li>si la valeur de &#8216;element&#8217; est autre : la liste des éléments à traiter est représentée par les fichiers présents dans le sous-répertoire représenté par &#8216;element&#8217; (ex : &#8216;ObjectGroup&#8217;)</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>LIST_IN_FILE: Fichier contenant une liste de GUID à traiter dans la distribution</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">l&#8217;élément de distribution (element) indiquant l&#8217;élément unique (REF) ou le chemin vers un dossier ou un fichier sur le Workspace (LIST, LIST_IN_FILE)</p>
+</li>
+<li><p class="first">type: est-ce une distribution sur des unités archivistiques ou sur des groupes d&#8217;objets.</p>
+</li>
+<li><p class="first">statusOnEmptyDistribution: Le statut qu&#8217;on attribue au step si jamais la distribution n&#8217;a pas eu lieu. Par defaut: WARNING</p>
+</li>
 </ul>
 </div></blockquote>
 </li>
@@ -266,7 +287,6 @@ NOBLOCKING : le traitement peut continuer malgrée les erreurs</p>
 </li>
 </ul>
 </div></blockquote>
-<p>Exemple:</p>
 <div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
@@ -1066,65 +1086,116 @@ NOBLOCKING : le traitement peut continuer malgrée les erreurs</p>
 </td></tr></table></div>
 <div class="section" id="etapes">
 <h3>Etapes<a class="headerlink" href="#etapes" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Step 1</strong> - STP_INGEST_CONTROL_SIP : Check SIP  / distribution sur REF GUID/SIP/manifest.xml<ul>
-<li>CHECK_SEDA :
+<ul>
+<li><p class="first"><strong>Step 1</strong> - STP_INGEST_CONTROL_SIP : Check SIP  / distribution sur REF GUID/SIP/manifest.xml</p>
+<ul>
+<li><p class="first">PREPARE_STORAGE_INFO :
+- Vérifier que le storage est disponible
+- Récupérer les informations de connection au storage et les offres de stockage.</p>
+</li>
+<li><p class="first">CHECK_SEDA :
 - Test existence manifest.xml
-- Validation XSD SEDA manifest.xml</li>
-<li>CHECK_MANIFEST_DATAOBJECT_VERSION :</li>
-<li>CHECK_MANIFEST_OBJECTNUMBER :
+- Validation XSD SEDA manifest.xml</p>
+</li>
+<li><p class="first">CHECK_HEADER :
+- CHECK_AGENT: Vérifier l&#8217;existence des services agents dans le manifest et dans le référentiel des services agents.
+- CHECK_CONTRACT_INGEST : Vérifier l&#8217;existence des contrats d&#8217;entrée dans le manifest et dans le référentiel des contrats d&#8217;entrée
+- CHECK_IC_AP_RELATION: Vérifier le profile d&#8217;archivage et sa relation avec le contrat d&#8217;entrée
+- CHECK_ARCHIVEPROFILE: valider le manifest avec le fichier XSD/RNG défini dans le profile d&#8217;archivage</p>
+</li>
+<li><p class="first">CHECK_DATAOBJECTPACKAGE:</p>
+<ul>
+<li><p class="first">Cas 1: arbres et plans d&#8217;accès</p>
+<blockquote>
+<div><ul class="simple">
+<li>CHECK_NO_OBJECT</li>
+<li>CHECK_MANIFEST_OBJECTNUMBER</li>
+<li>CHECK_MANIFEST</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Cas 2: SIP</dt>
+<dd><ul class="first last simple">
+<li>CHECK_MANIFEST_DATAOBJECT_VERSION</li>
+<li>CHECK_MANIFEST_OBJECTNUMBER</li>
+<li>CHECK_MANIFEST</li>
+<li>CHECK_CONSISTENCY</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p class="first">CHECK_NO_OBJECT: Vérifier l&#8217;existence ou pas des objets binaires et des objets physiques
+- Vérifier l&#8217;égalité du nomber de fichiers binaires dans le workspace par rapport au manifest.
+- Extract seda: créer des fichiers json représentant les méta-données des unités archivistiques et groupes d&#8217;objets
+- Si en plus, l&#8217;ingest n&#8217;est pas un arbre ou un plan de classement, vérifier la cohérence entre les unités archivistiques et les groupes d&#8217;objets.</p>
+</li>
+<li><p class="first">CHECK_MANIFEST_OBJECTNUMBER :
 - Comptage BinaryDataObject dans manifest.xml en s&#8217;assurant d&#8217;aucun doublon :
 - List Workspace GUID/SIP/content/
-- CheckObjectsNumber Comparaison des 2 nombres et des URI</li>
-<li>CHECK_MANIFEST :
+- CheckObjectsNumber Comparaison des 2 nombres et des URI</p>
+</li>
+<li><p class="first">CHECK_MANIFEST :
 - Extraction BinaryDataObject de manifest.xml / MAP des Id BDO / Génération GUID
 - Extraction ArchiveUnit de manifest.xml / MAP des id AU / Génération GUID
 - Contrôle des références dans les AU des Id BDO
-- Stockage dans Workspace des BDO et AU</li>
-<li>CHECK_CONTRACT_INGEST : Vérification de la présence et contrôle du contrat d&#8217;entrée</li>
-<li>CHECK_CONSISTENCY : vérification de la cohérence objet/unit</li>
+- Stockage dans Workspace des BDO et AU</p>
+</li>
+<li><p class="first">CHECK_CONSISTENCY : vérification de la cohérence objet/unit</p>
+</li>
 </ul>
 </li>
-<li><strong>Step 2</strong> - STP_OG_CHECK_AND_TRANSFORME : Check Objects Compliance du SIP / distribution sur LIST GUID/BinaryDataObject<ul>
+<li><p class="first"><strong>Step 2</strong> - STP_OG_CHECK_AND_TRANSFORME : Check Objects Compliance du SIP / distribution sur LIST GUID/BinaryDataObject</p>
+<ul class="simple">
 <li>CHECK_DIGEST : Contrôle de l&#8217;objet binaire correspondant du BDO taille et empreinte via Workspace</li>
 <li>OG_OBJECTS_FORMAT_CHECK :
 - Contrôle du format des objets binaires
 - Consolidation de l&#8217;information du format dans l&#8217;object groupe correspondant si nécessaire</li>
 </ul>
 </li>
-<li><strong>Step 3</strong> - STP_UNIT_CHECK_AND_PROCESS : Check des archive unit et de leurs règles associées<ul>
+<li><p class="first"><strong>Step 3</strong> - STP_UNIT_CHECK_AND_PROCESS : Check des archive unit et de leurs règles associées</p>
+<ul class="simple">
 <li>CHECK_UNIT_SCHEMA : Contrôles intelligents du Json représentant l&#8217;Archive Unit par rapport à un schéma Json</li>
 <li>UNITS_RULES_COMPUTE : Calcul des règles de gestion</li>
 </ul>
 </li>
-<li><strong>Step 4</strong> - STP_STORAGE_AVAILABILITY_CHECK : Check Storage Availability / distribution REF GUID/SIP/manifest.xml<ul>
+<li><p class="first"><strong>Step 4</strong> - STP_STORAGE_AVAILABILITY_CHECK : Check Storage Availability / distribution REF GUID/SIP/manifest.xml</p>
+<ul class="simple">
 <li>STORAGE_AVAILABILITY_CHECK : Contrôle de la taille totale à stocker par rapport à la capacité des offres de stockage pour une stratégie et un tenant donnés</li>
 </ul>
 </li>
-<li><strong>Step 5</strong> - STP_OBJ_STORING : Rangement et indexation des objets<ul>
+<li><p class="first"><strong>Step 5</strong> - STP_OBJ_STORING : Rangement et indexation des objets</p>
+<ul class="simple">
 <li>OBJ_STORAGE : Écriture des objets sur l’offre de stockage des BDO des GO</li>
 <li>OG_METADATA_INDEXATION : Indexation des métadonnées des ObjectGroup</li>
 </ul>
 </li>
-<li><strong>Step 6</strong> - STP_UNIT_METADATA : Indexation des métadonnées des Units<ul>
+<li><p class="first"><strong>Step 6</strong> - STP_UNIT_METADATA : Indexation des métadonnées des Units</p>
+<ul class="simple">
 <li>UNIT_METADATA_INDEXATION : Transformation Json Unit et intégration GUID Unit + GUID GO</li>
 </ul>
 </li>
-<li><strong>Step 7</strong> - STP_OG_STORING : Rangement des métadonnées des objets<ul>
+<li><p class="first"><strong>Step 7</strong> - STP_OG_STORING : Rangement des métadonnées des objets</p>
+<ul class="simple">
 <li>OG_METADATA_STORAGE : Enregistrement en base des métadonnées des ObjectGroup ainsi que leurs journaux de cycle de vie</li>
 <li>COMMIT_LIFE_CYCLE_OBJECT_GROUP : Écriture des objets sur l’offre de stockage des BDO des GO</li>
 </ul>
 </li>
-<li><strong>Step 8</strong> - STP_UNIT_STORING : Index Units / distribution sur LIST GUID/Units<ul>
+<li><p class="first"><strong>Step 8</strong> - STP_UNIT_STORING : Index Units / distribution sur LIST GUID/Units</p>
+<ul class="simple">
 <li>UNIT_METADATA_STORAGE : Enregistrement en base des métadonnées des Units ainsi que leurs journaux de cycle de vie</li>
 <li>COMMIT_LIFE_CYCLE_UNIT : Écriture des métadonnées des Units sur l’offre de stockage des BDO des GO</li>
 </ul>
 </li>
-<li><strong>Step 9</strong> - STP_ACCESSION_REGISTRATION : Alimentation du registre de fond<ul>
+<li><p class="first"><strong>Step 9</strong> - STP_ACCESSION_REGISTRATION : Alimentation du registre de fond</p>
+<ul class="simple">
 <li>ACCESSION_REGISTRATION :  enregistrement des archives prises en charge dans le Registre des Fonds</li>
 </ul>
 </li>
-<li><strong>Step 10 et finale</strong> - STP_INGEST_FINALISATION : Notification de la fin de l’opération d’entrée. Cette étape est obligatoire et sera toujours exécutée, en dernière position.<ul>
+<li><p class="first"><strong>Step 10 et finale</strong> - STP_INGEST_FINALISATION : Notification de la fin de l’opération d’entrée. Cette étape est obligatoire et sera toujours exécutée, en dernière position.</p>
+<ul class="simple">
 <li>ATR_NOTIFICATION :
 - génération de l&#8217;ArchiveTransferReply xml (OK ou KO)
 - enregistrement de l&#8217;ArchiveTransferReply xml dans les offres de stockage</li>
@@ -1149,7 +1220,7 @@ NOBLOCKING : le traitement peut continuer malgrée les erreurs</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../storage/_toc.html" class="btn btn-neutral float-right" title="Storage" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="CheckObjectsNumberActionHandler.html" class="btn btn-neutral float-right" title="Nombre d’objets numériques conforme" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="workspace.html" class="btn btn-neutral" title="Workspace" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1183,7 +1254,7 @@ NOBLOCKING : le traitement peut continuer malgrée les erreurs</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

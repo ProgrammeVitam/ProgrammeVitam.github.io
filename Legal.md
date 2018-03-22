@@ -11,12 +11,10 @@ Adresse :
 Jean-Séverin Lair
  
 ## Hébergement
-Ce site est hébergé sur GitHub dans les dépôts [ProgrammeVitam](https://github.com/ProgrammeVitam)
+Ce site est hébergé sur GitHub (88 Colin P Kelly Jr St, San Francisco, CA 94107, United States) dans les dépôts [ProgrammeVitam](https://github.com/ProgrammeVitam)
 
 ## Droits de reproduction et liens
-La reproduction de contenu figurant sur ce site est autorisée à condition d'en indiquer la source
-(Licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 
-France [CC-BY-SA 3.0 FR](https://creativecommons.org/licenses/by-sa/3.0/fr/)).
+La reproduction de contenu figurant sur ce site est autorisée selon les conditions de la [Licence Ouverte 2.0](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
 
 De même, la mise en place de liens vers ce site, y compris "profonds", est autorisée.
 Si aucun accord préalable n'est nécessaire, nous vous remercions de nous informer par courriel d'une éventuelle reproduction ou pose de liens en écrivant 
@@ -31,4 +29,4 @@ Ce site est parfaitement visible à travers les navigateurs modernes les plus ut
 * Safari (dernière version)
 
 ## Logo
-Le logo Vitam a été créé par Mme Pascale Marie, de la Mission Communication Interne du Ministère de la Culture et de la Communication.
+Le logo Vitam a été créé par la société KPMG et l'agence Oliver.

@@ -31,9 +31,9 @@ sont mises à disposition à l’adresse api.programmevitam.fr,
 * Pour permettre l’appropriation par les équipes de production en avance de phase, une
 **version** dite "**Bêta**" de la solution logicielle Vitam a été mise à disposition des ministères
 porteurs et des partenaires du programme le **29 novembre 2016**,
-* La première version utilisable en production sera la **V1** publiée au **second semestre 2017**,
-* Ensuite la **V2** sera publiée au **second semestre  2018**,
-* Et la **V3**, version finale de la phase projet, sera publiée au **second semestre 2019**.
+* La première version utilisable en production est la **V1** publiée le **22 mars 2018**,
+* Ensuite la **V2** sera publiée **fin  2018**,
+* Et la **V3**, version finale de la phase projet, sera publiée **fin 2019**.
 
 ## Quelle est la stratégie en cours par rapport aux autres institutions et projets  ?
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’import d’un référentiel des profils &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Workflow d’import d’un référentiel des profils &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="MASTERDATA" href="_toc_masterdata.html"/>
         <link rel="next" title="Workflow d’administration d’un référentiel des profils de sécurité" href="security_profiles.html"/>
         <link rel="prev" title="Workflow d’administration d’un référentiel des contrats d’accès" href="access-contracts.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -94,18 +94,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ingest/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc_masterdata.html">MASTERDATA</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow-tree.html">Workflow d&#8217;import d&#8217;un arbre de positionnement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rules.html">Workflow d&#8217;administration d&#8217;un référentiel de règles de gestion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="formats.html">Workflow d&#8217;import d&#8217;un référentiel des formats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d&#8217;administration d&#8217;un référentiel des services agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d&#8217;administration et de mise à jour d&#8217;un référentiel des contrats d&#8217;entrée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;entrée</a></li>
 <li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;accès</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d&#8217;import d&#8217;un référentiel des profils</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-et-mise-a-jour-d-un-profil-vision-metier">Processus d&#8217;import  et mise à jour d&#8217;un profil (vision métier)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-et-mise-a-jour-d-un-profil-vision-metier">Processus d&#8217;import et mise à jour d&#8217;un profil (vision métier)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#import-des-metadonnees-d-un-profil-d-archivage-stp-import-profile-json">Import des métadonnées d&#8217;un profil d&#8217;archivage (STP_IMPORT_PROFILE_JSON)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-du-profil-d-archivage-stp-import-profile-file">Import du profil d&#8217;archivage (STP_IMPORT_PROFILE_FILE)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json">Mise à jour d&#8217;un profil d&#8217;archivage (STP_UPDATE_PROFILE_JSON)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#import-d-une-description-de-profil-d-archivage-stp-import-profile-file">Import d&#8217;une description de profil d&#8217;archivage (STP_IMPORT_PROFILE_FILE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sauvegarde-du-json-backup-profile">Sauvegarde du JSON (BACKUP_PROFILE)</a></li>
 </ul>
 </li>
 </ul>
@@ -115,7 +117,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -169,9 +171,9 @@
 <p>Cette section décrit le processus (workflow) permettant d&#8217;importer un profil d&#8217;archivage.</p>
 </div>
 <div class="section" id="processus-d-import-et-mise-a-jour-d-un-profil-vision-metier">
-<h2>Processus d&#8217;import  et mise à jour d&#8217;un profil (vision métier)<a class="headerlink" href="#processus-d-import-et-mise-a-jour-d-un-profil-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Processus d&#8217;import et mise à jour d&#8217;un profil (vision métier)<a class="headerlink" href="#processus-d-import-et-mise-a-jour-d-un-profil-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le processus d&#8217;import d&#8217;un profil d&#8217;archivage permet à la fois de vérifier qu&#8217;il contient les informations minimales obligatoires, de vérifier la cohérence de l&#8217;ensemble des informations, et de lui affecter des élements peuplés automatiquement.</p>
-<p>Tous les eléments réalisés au cours de ce processus sont exécutés dans une seule étape.</p>
+<p>Tous les éléments réalisés au cours de ce processus sont exécutés dans une seule étape.</p>
 <div class="section" id="import-des-metadonnees-d-un-profil-d-archivage-stp-import-profile-json">
 <h3>Import des métadonnées d&#8217;un profil d&#8217;archivage (STP_IMPORT_PROFILE_JSON)<a class="headerlink" href="#import-des-metadonnees-d-un-profil-d-archivage-stp-import-profile-json" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
@@ -186,14 +188,14 @@
 </li>
 <li>Les données suivantes optionnelles si elles sont remplies le sont en respectant les règles énoncées pour chacune :<ul>
 <li>Le champ &#8220;Description&#8221; est peuplé avec une chaîne de caractères</li>
-<li>Le champ &#8220;Status&#8221; est peuplé soit de la valeur ACTIVE ou INACTIVE</li>
+<li>Le champ &#8220;Status&#8221; est peuplé avec la valeur ACTIVE ou la valeur INACTIVE</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : les règles ci-dessus sont respectées (STP_IMPORT_PROFILE_JSON.OK=Succès du processus d&#8217;import du profil d&#8217;archivage)</li>
-<li>KO : une des règles ci-dessus n&#8217;a pas été respecté (STP_IMPORT_PROFILE_JSON.KO=Échec du processus d&#8217;import du profil d&#8217;archivage)</li>
+<li>KO : une des règles ci-dessus n&#8217;a pas été respectée (STP_IMPORT_PROFILE_JSON.KO=Échec du processus d&#8217;import du profil d&#8217;archivage)</li>
 <li>FATAL : une erreur technique est survenue lors de la vérification de l&#8217;import du profil d&#8217;archivage (STP_IMPORT_PROFILE_JSON.FATAL=Erreur fatale lors du processus d&#8217;import du profil d&#8217;archivage)</li>
 </ul>
 </li>
@@ -201,12 +203,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json">
-<h3>Mise à jour d&#8217;un profil d&#8217;archivage (STP_UPDATE_PROFILE_JSON)<a class="headerlink" href="#mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La modification d&#8217;un profil d&#8217;archivage doit suivre les mêmes règles que celles décrites pour la création.</p>
-</div>
-<div class="section" id="import-d-une-description-de-profil-d-archivage-stp-import-profile-file">
-<h3>Import d&#8217;une description de profil d&#8217;archivage (STP_IMPORT_PROFILE_FILE)<a class="headerlink" href="#import-d-une-description-de-profil-d-archivage-stp-import-profile-file" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="import-du-profil-d-archivage-stp-import-profile-file">
+<h3>Import du profil d&#8217;archivage (STP_IMPORT_PROFILE_FILE)<a class="headerlink" href="#import-du-profil-d-archivage-stp-import-profile-file" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li>Vérification de la concordance entre le fichier importé dans un profil et le format décrit dans la métadonnée &#8220;Format&#8221;<ul>
 <li><strong>Type</strong> : bloquant</li>
@@ -220,6 +218,32 @@
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json">
+<h3>Mise à jour d&#8217;un profil d&#8217;archivage (STP_UPDATE_PROFILE_JSON)<a class="headerlink" href="#mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La modification d&#8217;un profil d&#8217;archivage doit suivre les mêmes règles que celles décrites pour la création. L&#8217;association d&#8217;un fichier de profil avec les métadonnées d&#8217;un profil provoque également une opération de mise à jour du profil d&#8217;archivage.
+La modification doit suivre les mêmes règles que celles décrites pour la création. La clé de l&#8217;événement est &#8220;STP_UPDATE_PROFILE_JSON&#8221;, entraînant des statuts STP_UPDATE_PROFILE_JSON.OK, STP_UPDATE_PROFILE_JSON.KO et STP_UPDATE_PROFILE_JSON.FATAL sur les mêmes contrôles que l&#8217;import.</p>
+</div>
+<div class="section" id="sauvegarde-du-json-backup-profile">
+<h3>Sauvegarde du JSON (BACKUP_PROFILE)<a class="headerlink" href="#sauvegarde-du-json-backup-profile" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette tâche est appellée que ce soit en import initial ou lors de la modification des métadonnées de profils</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Règle</strong> : enregistrement d&#8217;une copie de la base de données des métadonnées de profils sur le stockage</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : une copie de la base de donnée nouvellement importée est enregistrée (BACKUP_PROFILE.OK = Succès du processus de sauvegarde des profils)</li>
+<li>KO : pas de cas KO</li>
+<li>FATAL : une erreur technique est survenue lors de la copie de la base de donnée nouvellement importée (BACKUP_PROFILE.FATAL = Erreur fatale lors du processus de sauvegarde des profils)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 </div>
@@ -265,7 +289,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

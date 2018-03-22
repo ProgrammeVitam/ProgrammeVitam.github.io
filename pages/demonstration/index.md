@@ -64,7 +64,7 @@ Les vidéos présentent différentes fonctionnalités proposées par la solution
 <br>
 
 Pour reproduire ces tests, il est possible d'utiliser les éléments suivants :
-* Guide de prise en main ([pdf](/ressources/DocCourante/Vitam_Documentation_Kit_de_prise_en_main.pdf))
+* Guide de prise en main ([pdf](/ressources/Doc0.26.0/Vitam_Documentation_Kit_de_prise_en_main.pdf))
 * Contrat d'accès ([json](/ressources/RefCourant/exemple_contrat_acces_tous_droits.json))
 * Contrat d'entrée ([json](/ressources/RefCourant/exemple_contrat_entree.json))
 * Référentiel Agents ([csv](/ressources/RefCourant/exemple_referentiel_agents.csv))

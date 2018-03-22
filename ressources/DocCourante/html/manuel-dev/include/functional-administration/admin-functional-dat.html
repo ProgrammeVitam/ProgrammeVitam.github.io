@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DAT : module functional-administration &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>DAT : module functional-administration &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Functional administration" href="_toc.html"/>
         <link rel="next" title="Administration-Management-Common" href="admin-functional-common.html"/>
         <link rel="prev" title="Introduction" href="introduction.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -94,7 +94,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Functional administration</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">DAT : module functional-administration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DAT : module functional-administration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules-et-packages">Modules et packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes-metiers">Classes métiers</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="admin-functional-common.html">Administration-Management-Common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin-functional-client.html">Administration-Management-client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin-functional-client.html#utilisation">Utilisation</a></li>
@@ -103,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -113,13 +118,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -177,42 +179,54 @@ functional-administration qui identifie par la user story #71, qui contient :</p
 <li>classes métiers</li>
 </ul>
 <hr class="docutils" />
-<ol class="arabic simple">
-<li>Modules et packages</li>
-</ol>
+<div class="section" id="modules-et-packages">
+<h2>Modules et packages<a class="headerlink" href="#modules-et-packages" title="Lien permanent vers ce titre">¶</a></h2>
 <p>functional-administration</p>
+<ul>
+<li><p class="first">functional-administration-common : contenant des classes pour des traitements communs concernant le format référentiels, l&#8217;opération auprès de la base de données</p>
+</li>
+<li><p class="first">functional-administration-format : fournir des traitements de base pour les formats référentiels de VITAM</p>
 <blockquote>
-<div><blockquote>
-<div><p><a href="#id1"><span class="problematic" id="id2">|</span></a>&#8212; functional-administration-common : contenant des classes pour des traitements communs concernant le format référentiels, l&#8217;opération auprès de la base de données
-<a href="#id3"><span class="problematic" id="id4">|</span></a>&#8212; functional-administration-format : fournir des traitements de base pour les formats référentiels de VITAM</p>
+<div><ul class="simple">
+<li>functional-administration-format-api  : définitions des APIs</li>
+<li>functional-administration-format-core : implémentations des APIs</li>
+<li>functional-administration-format-import</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">functional-administration-rule : fournir des traitements de base pour la gestion de règles administratives</p>
 <blockquote>
-<div><a href="#id5"><span class="problematic" id="id6">|</span></a>&#8212; functional-administration-format-api  : définitions des APIs
-<a href="#id7"><span class="problematic" id="id8">|</span></a>&#8212; functional-administration-format-core : implémentations des APIs
-<a href="#id9"><span class="problematic" id="id10">|</span></a>&#8212; functional-administration-format-import</div></blockquote>
-<p><a href="#id11"><span class="problematic" id="id12">|</span></a>&#8212; functional-administration-rule : fournir des traitements de base pour la gestion de règles administratives</p>
+<div><ul class="simple">
+<li>functional-administration-rule-api  : Définition des APIs</li>
+<li>functional-administration-rule-core : Impélmentation des APIs</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">functional-administration-accession-register : fournir des traitements de base pour la gestion des registres de fonds</p>
 <blockquote>
-<div><a href="#id13"><span class="problematic" id="id14">|</span></a>&#8212; functional-administration-rule-api  : Définition des APIs
-<a href="#id15"><span class="problematic" id="id16">|</span></a>&#8212; functional-administration-rule-core : Impélmentation des APIs</div></blockquote>
-<dl class="docutils">
-<dt><a href="#id17"><span class="problematic" id="id18">|</span></a>&#8212; functional-administration-accession-register</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">fournir des traitements de base pour la gestion des registres de fonds</span><dd><a href="#id19"><span class="problematic" id="id20">|</span></a>&#8212; functional-administration-accession-register-core : Impélmentation des traitements des registres de fonds</dd>
-</dl>
-<div class="line-block">
-<div class="line"><br /></div>
+<div><ul class="simple">
+<li>functional-administration-accession-register-core : Impélmentation des traitements des registres de fonds</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">functional-administration-rest   : le serveur REST de functional-administration qui donnes des traitement sur les traitements de format référentiel et gestion de règles administratives.</p>
+</li>
+<li><p class="first">functional-administration-client  : client functional-administration qui sera utilisé par les autres modules pour les appels de traitement sur le format référentiel &amp; gestion de règles.</p>
+</li>
+<li><p class="first">functional-administration-contract    : fournis les traitements de base pour les contrat d&#8217;accès et les contrat d&#8217;entrées</p>
+</li>
+<li><p class="first">functional-administration-profile     : fournis les traitements de base pour les profile.</p>
+</li>
+<li><p class="first">functional-administration-context  : fournis les traitements de base pour les contextes</p>
+</li>
+</ul>
 </div>
-<p><a href="#id21"><span class="problematic" id="id22">|</span></a>&#8212; functional-administration-rest   : le serveur REST de functional-administration qui donnes des traitement sur les traitements de format référentiel et gestion de règles administratives.
-<a href="#id23"><span class="problematic" id="id24">|</span></a>&#8212; functional-administration-client  : client functional-administration qui sera utilisé par les autres modules pour les appels de traitement sur le format référentiel &amp; gestion de règles.
-<a href="#id25"><span class="problematic" id="id26">|</span></a>&#8212; functional-administration-contract : fournis les traitements de base pour les contrat d&#8217;accès et les contrat d&#8217;entrées
-<a href="#id27"><span class="problematic" id="id28">|</span></a>&#8212; functional-administration-profile  : fournis les traitements de base pour les profile.</p>
-</div></blockquote>
-<p><a href="#id29"><span class="problematic" id="id30">|</span></a>&#8212; functional-administration-context  : fournis les traitements de base pour les contextes</p>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li>Classes métiers</li>
-</ol>
+<div class="section" id="classes-metiers">
+<h2>Classes métiers<a class="headerlink" href="#classes-metiers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans cette section, nous présentons quelques classes principales dans des modules/packages
 abordés ci-dessus.</p>
-<p>2.1. functional-administration-common :</p>
+<div class="section" id="functional-administration-common">
+<h3>functional-administration-common<a class="headerlink" href="#functional-administration-common" title="Lien permanent vers ce titre">¶</a></h3>
 <p>fr.gouv.vitam.functional.administration.common</p>
 <ul class="simple">
 <li>FileFormat.java :</li>
@@ -257,7 +271,9 @@ les classe de traitement auprès de la base de données mongodb pour les opérat
 <li>MongoDbAccessAdminImpl.java :</li>
 </ul>
 <p>une implémentation de l&#8217;interface MongoDbAccessReferential en extension le traitementMongoDbAccess commun pour mongodb</p>
-<p>2.2. functional-administration-format</p>
+</div>
+<div class="section" id="functional-administration-format">
+<h3>functional-administration-format<a class="headerlink" href="#functional-administration-format" title="Lien permanent vers ce titre">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li>functional-administration-format-api</li>
@@ -271,7 +287,9 @@ les classe de traitement auprès de la base de données mongodb pour les opérat
 <li>functional-administration-format-import</li>
 </ul>
 </div></blockquote>
-<p>2.3. functional-administration-rest</p>
+</div>
+<div class="section" id="functional-administration-rest">
+<h3>functional-administration-rest<a class="headerlink" href="#functional-administration-rest" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li>AdminManagementResource.java : définir des ressources différentes pour le serveur REST functional-administration</li>
 <li>AdminManagementApplication.java : créer &amp; lancer le serveur d&#8217;application avec une configuration</li>
@@ -279,12 +297,16 @@ les classe de traitement auprès de la base de données mongodb pour les opérat
 <li>ProfileResource.java : Définir l&#8217;endpoint de l&#8217;api rest du profile</li>
 <li>ContextResource.java : Définir l&#8217;endpoint de l&#8217;api rest du contexte</li>
 </ul>
-<p>2.4. functional-administration-client</p>
+</div>
+<div class="section" id="functional-administration-client">
+<h3>functional-administration-client<a class="headerlink" href="#functional-administration-client" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li>AdminManagementClientRest.java : créer le client de et des fonctionnalités en se connectant au serveur REST</li>
 <li>AdminManagementClientMock.java : créer le client et des fonctionnalités en se connectant au mock de serveur</li>
 </ul>
-<p>2.5. functional-administration-rules</p>
+</div>
+<div class="section" id="functional-administration-rules">
+<h3>functional-administration-rules<a class="headerlink" href="#functional-administration-rules" title="Lien permanent vers ce titre">¶</a></h3>
 <blockquote>
 <div><blockquote>
 <div><ul class="simple">
@@ -323,11 +345,18 @@ L&#8217;association de RuleDuration et RuleMeasurement doit être inférieure ou
 <li>&#8220;Illimitée (règle à durée illimitée)&#8221; : dans le cas où la date de fin ne peut pas être calculée car la durée de la règle est &#8216;unlimited&#8217;</li>
 </ul>
 </div></blockquote>
+<ul class="simple">
+<li>Les durées des règles du fichier en cours d&#8217;import doivent être strictement supérieures ou égales aux durées minimales
+demandées dans la configuration du tenant, pour cette catégorie de règle sur ce tenant
+(la durée de la règle est la valeur de la durée RuleDuration + l&#8217;unité de mesure RuleMeasurement.)</li>
+</ul>
 </div></blockquote>
 </dd>
 </dl>
 </div></blockquote>
-<p>2.6. functional-administration-accession-register</p>
+</div>
+<div class="section" id="functional-administration-accession-register">
+<h3>functional-administration-accession-register<a class="headerlink" href="#functional-administration-accession-register" title="Lien permanent vers ce titre">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li>functional-administration-accession-register-api</li>
@@ -338,7 +367,9 @@ L&#8217;association de RuleDuration et RuleMeasurement doit être inférieure ou
 </ul>
 <p>permet de créer une collection registre de fond et de faire la recherche par Service Producteur et l&#8217;affichage de détaile.</p>
 </div></blockquote>
-<p>2.7. functional-administration-contract</p>
+</div>
+<div class="section" id="functional-administration-contract">
+<h3>functional-administration-contract<a class="headerlink" href="#functional-administration-contract" title="Lien permanent vers ce titre">¶</a></h3>
 <p>fr.gouv.vitam.functional.administration.contract.api</p>
 <ul class="simple">
 <li>ContractService.java :   Interface définissant les différentes opérations sur les contrats (contrat d&#8217;accès et contrat d&#8217;entrée)</li>
@@ -351,7 +382,9 @@ L&#8217;association de RuleDuration et RuleMeasurement doit être inférieure ou
 <li>GenericContractValidator.java : Interface fonctionnelle de validations des contrats</li>
 <li>IngestContractImpl.java : Classe d&#8217;implémentation pour la gestion des contrats d&#8217;entrées</li>
 </ul>
-<p>2.8. functional-administration-profile</p>
+</div>
+<div class="section" id="functional-administration-profile">
+<h3>functional-administration-profile<a class="headerlink" href="#functional-administration-profile" title="Lien permanent vers ce titre">¶</a></h3>
 <p>fr.gouv.vitam.functional.administration.profile.api</p>
 <ul class="simple">
 <li>ProfileService.java :   Interface définissant les différentes opérations sur les profiles.</li>
@@ -365,18 +398,24 @@ L&#8217;association de RuleDuration et RuleMeasurement doit être inférieure ou
 <li>ProfileManager.java : Gère toutes les opérations du logbook et toutes les opérations de validation concernant les profiles. Lors de la validation, il vérifie (si déjà existence dans la base de données, champs obligatoires, fichiers au format xsd ou rng valides, ..).</li>
 <li>ProfileValidator.java : Interface fonctionnelle de validations des contrats</li>
 </ul>
-<p>2.9. functional-administration-context</p>
+</div>
+<div class="section" id="functional-administration-context">
+<h3>functional-administration-context<a class="headerlink" href="#functional-administration-context" title="Lien permanent vers ce titre">¶</a></h3>
 <p>fr.gouv.vitam.functional.administration.context.api</p>
 <p>-ContextService.java : Interface définissant les différentes opérations sur les contextes</p>
 <p>fr.gouv.vitam.functional.administration.context.core</p>
 <p>-ContextServiceImpl.java : Implémentation du Service ContextService
 -ContextValidator.java : Interface fonctionnelle de validations des contextes</p>
-<p>2.10. functional-administration-security-profile</p>
+</div>
+<div class="section" id="functional-administration-security-profile">
+<h3>functional-administration-security-profile<a class="headerlink" href="#functional-administration-security-profile" title="Lien permanent vers ce titre">¶</a></h3>
 <p>fr.gouv.vitam.functional.administration.profile.api.impl</p>
 <ul class="simple">
 <li>SecurityProfileService.java : Service gérant les différentes opérations sur les profiles de sécurité.</li>
 </ul>
 <p>fr.gouv.vitam.functional.administration.security.profile.core</p>
+</div>
+</div>
 </div>
 
 
@@ -420,7 +459,7 @@ L&#8217;association de RuleDuration et RuleMeasurement doit être inférieure ou
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

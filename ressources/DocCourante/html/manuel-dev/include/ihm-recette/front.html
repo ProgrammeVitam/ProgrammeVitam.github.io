@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>IHM Front &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>IHM Front &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="IHM demo" href="_toc.html"/>
         <link rel="next" title="ihm-recette" href="rest-raml.html"/>
         <link rel="prev" title="IHM demo" href="_toc.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -100,9 +100,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rest-raml.html">ihm-recette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-recette-serveur.html">IHM Recette serveur</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -113,13 +115,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -178,9 +177,9 @@
 <ul>
 <li><p class="first"><strong>e2e</strong>           Pour le moment inutilisé, pourra être utilisé pour les tests d&#8217;intégration end 2 end</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>src</strong>           Dossier contenant les sources du projet</dt>
-<dd><ul class="first last simple">
+<li><p class="first"><strong>src</strong>           Dossier contenant les sources du projet</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>app</strong>           Dossier contenant les sources typescript des composants du projet</li>
 <li><strong>assets</strong>        Dossier contenant des fichiers statiques utilisés dans l&#8217;IHM recette (images, polices, ...)</li>
 <li><strong>deb</strong>           Dossier contenant des fichiers spécifiques utiles à la génération des packages debian</li>
@@ -191,8 +190,7 @@ Les modifications sur ce fichiers doivent EXCLUSIVEMENT être faites à partir d
 <li><em>main.ts</em>         Point d&#8217;entrée de l&#8217;application</li>
 <li><em>test.ts</em>         Fichier de configuration des tests unitaires définissant entre autre les fichiers à inclure dans les tests.</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><dl class="first docutils">
 <dt><strong>themes</strong>        Dossier contenant les pattern du thème vitam</dt>
@@ -226,8 +224,8 @@ Les modifications sur ce fichiers doivent EXCLUSIVEMENT être faites à partir d
 </ul>
 <p>Voici l&#8217;architecture <em>théorique</em> des composants de l&#8217;application (à partir de ihm-recette/ihm-recette-web-front/src/app)</p>
 <ul>
-<li><p class="first"><strong>common</strong> Dossier contenant les composants globaux réutilisables pour l&#8217;ensemble des pages.
-Cela peut par exemple être le bandeau du menu ou un service de gestion des requêtes HTTP.</p>
+<li><p class="first"><strong>common</strong> Dossier contenant les composants globaux réutilisables pour l&#8217;ensemble des pages.</p>
+<p>Cela peut par exemple être le bandeau du menu ou un service de gestion des requêtes HTTP.</p>
 <blockquote>
 <div><ul class="simple">
 <li><strong>componant-name</strong>        Dossier contenant un composant global tel que le menu, le fil d&#8217;ariane ou encore un composant d&#8217;affichage des données.</li>
@@ -239,20 +237,27 @@ Cela peut par exemple être le bandeau du menu ou un service de gestion des requ
 <li><dl class="first docutils">
 <dt><strong>theme1</strong> Dossier contenant des composant sur un même theme (Pour l&#8217;ihm recette, nous aurons le theme d&#8217;administration, de sécurisation et de tests).</dt>
 <dd><ul class="first last">
-<li><p class="first"><strong>page1</strong>             Dossier contenant le composant d&#8217;une des pages de l&#8217;application.
-Ce composant à des particularités spécifiques (Voir &#8220;Composant de Page&#8221;)</p>
+<li><p class="first"><strong>page1</strong>             Dossier contenant le composant d&#8217;une des pages de l&#8217;application.</p>
+<p>Ce composant à des particularités spécifiques (Voir &#8220;Composant de Page&#8221;)</p>
 <blockquote>
-<div><ul class="simple">
-<li><strong>component1</strong>            Dossier contenant un des sous-composant utilisé dans la page1.
-Ce composant à des particularités spécifiques (Voir &#8220;Sous Composant&#8221;)</li>
-<li><em>page1.component.css</em>     Fichier contenant le style spécifique au composant page1. Le style définit ici n&#8217;est ni utilisable par les autres pages, ni par les sous-composants de la page1.</li>
-<li><em>page1.component.html</em>    Fichier contenant le template HTML du composant page1. Les sous-composants peuvent êtres appelés ici grace à la balise &lt;vitam-composant-name /&gt;</li>
-<li><em>page1.component.spec.ts</em> Fichier contenant les tests unitaires du composant page1.</li>
-<li><em>page1.component.ts</em>      Fichier contenant la logique du composant page1. Les appels au(x) services sont à faire ici.</li>
-<li><em>page1.service.ts</em>        Fichier contenant un service d&#8217;appels HTTP et/ou d&#8217;utilitaire pour le composant page1.
-Ce service à des particularités spécifiques (Voir &#8220;Service Composant&#8221;)</li>
-<li><em>class-name.ts</em>           Fichier contenant une classe utilisée seulement dans la page1.
-Il peut s&#8217;agir d&#8217;une classe définissant les propriétés de la structure utilisée pour les appels HTTP du service.</li>
+<div><ul>
+<li><p class="first"><strong>component1</strong>            Dossier contenant un des sous-composant utilisé dans la page1.
+Ce composant à des particularités spécifiques (Voir &#8220;Sous Composant&#8221;)</p>
+</li>
+<li><p class="first"><em>page1.component.css</em>     Fichier contenant le style spécifique au composant page1. Le style définit ici n&#8217;est ni utilisable par les autres pages, ni par les sous-composants de la page1.</p>
+</li>
+<li><p class="first"><em>page1.component.html</em>    Fichier contenant le template HTML du composant page1. Les sous-composants peuvent êtres appelés ici grace à la balise &lt;vitam-composant-name /&gt;</p>
+</li>
+<li><p class="first"><em>page1.component.spec.ts</em> Fichier contenant les tests unitaires du composant page1.</p>
+</li>
+<li><p class="first"><em>page1.component.ts</em>      Fichier contenant la logique du composant page1. Les appels au(x) services sont à faire ici.</p>
+</li>
+<li><p class="first"><em>page1.service.ts</em>        Fichier contenant un service d&#8217;appels HTTP et/ou d&#8217;utilitaire pour le composant page1.
+Ce service à des particularités spécifiques (Voir &#8220;Service Composant&#8221;)</p>
+</li>
+<li><p class="first"><em>class-name.ts</em>           Fichier contenant une classe utilisée seulement dans la page1.</p>
+<p>Il peut s&#8217;agir d&#8217;une classe définissant les propriétés de la structure utilisée pour les appels HTTP du service.</p>
+</li>
 </ul>
 </div></blockquote>
 </li>
@@ -267,41 +272,53 @@ Il peut s&#8217;agir d&#8217;une classe définissant les propriétés de la stru
 </ul>
 <div class="section" id="builds-et-lancement-des-tests">
 <h4>Builds et lancement des tests<a class="headerlink" href="#builds-et-lancement-des-tests" title="Lien permanent vers ce titre">¶</a></h4>
-<p>NPM: npm est utilisé pour gérer les dépendances de l&#8217;application. Le fichier <em>package.json</em> définit deux types de dépendances:
-- devDependencies: Dépendances utilisées pour les tests unitaire, le build ou la vérification du code. Ces dépendances ne sont pas utilisés par l&#8217;application finale en prod.
-- dependencies: Dépendances utilisées par l&#8217;application finale en prod. Ils peuvent être des composants, des classes ou des utilitaires de l&#8217;application.
-<em>Important</em>: Lors de la récupération de la branche, il est important de télécharger une première fois toutes les dépendances grâce à la commande <em>npm install</em></p>
-<p>Des scripts ont étés définis dans le fichier <em>package.json</em>. Ces scripts sont utilisables via la commande <em>npm run &lt;scriptName&gt;</em>.</p>
-<p>Scripts pour le developpement (A executer, sans erreurs avant toute demande de MR):
-- <em>start</em>: Lance la commande <em>ng serve &#8211;proxy-config proxy.conf.json</em> qui permet de déployer l&#8217;application à chaud en utilisant un proxy pour les appels vers le backoffice.</p>
-<blockquote>
-<div>Un watch est fait sur les fichiers sous le dossier src. Tout fichiers modifiers sous src mettra à jour, à chaud, l&#8217;application front.</div></blockquote>
+<p>NPM: npm est utilisé pour gérer les dépendances de l&#8217;application. Le fichier <em>package.json</em> définit deux types de dépendances:</p>
 <ul class="simple">
-<li><em>test</em>: Lance la commande <em>ng test</em> qui lance les tests unitaire aussi bien sur Chrome que sur PhantomJS. Un watch est également activé pour relancer les tests su un fichier est modifié.</li>
-<li><em>lint</em>: Lance la commande <em>ng lint</em> qui permet de vérifier les fichiers</li>
+<li>devDependencies: Dépendances utilisées pour les tests unitaire, le build ou la vérification du code. Ces dépendances ne sont pas utilisés par l&#8217;application finale en prod.</li>
+<li>dependencies: Dépendances utilisées par l&#8217;application finale en prod. Ils peuvent être des composants, des classes ou des utilitaires de l&#8217;application.</li>
 </ul>
-<p>Les scripts suivantes sont utilisés par le build maven:
-- <em>prod</em>: Lance la commande <em>ng build &#8211;env=prod</em> qui permet de builder l&#8217;application pour une cible de production (Actuelement similaire au script <em>build</em> qui lance <em>ng build &#8211;env=dev</em>
-- <em>inttest</em>: Lance la commande <em>ng test &#8211;single-run=true &#8211;browsers PhantomJS &#8211;watch=false</em> qui permet de lancer les tests unitaire une seule fois sur PhantomJS.</p>
+<p><em>Important</em>: Lors de la récupération de la branche, il est important de télécharger une première fois toutes les dépendances grâce à la commande <em>npm install</em></p>
+<p>Des scripts ont étés définis dans le fichier <em>package.json</em>. Ces scripts sont utilisables via la commande <em>npm run &lt;scriptName&gt;</em>.</p>
+<p>Scripts pour le developpement (A executer, sans erreurs avant toute demande de MR):</p>
+<ul>
+<li><p class="first"><em>start</em>: Lance la commande <em>ng serve &#8211;proxy-config proxy.conf.json</em> qui permet de déployer l&#8217;application à chaud en utilisant un proxy pour les appels vers le backoffice.</p>
+<p>Un watch est fait sur les fichiers sous le dossier src. Tout fichiers modifiers sous src mettra à jour, à chaud, l&#8217;application front.</p>
+</li>
+<li><p class="first"><em>test</em>: Lance la commande <em>ng test</em> qui lance les tests unitaire aussi bien sur Chrome que sur PhantomJS. Un watch est également activé pour relancer les tests su un fichier est modifié.</p>
+</li>
+<li><p class="first"><em>lint</em>: Lance la commande <em>ng lint</em> qui permet de vérifier les fichiers</p>
+</li>
+</ul>
+<p>Les scripts suivantes sont utilisés par le build maven:</p>
+<ul class="simple">
+<li><em>prod</em>: Lance la commande <em>ng build &#8211;env=prod</em> qui permet de builder l&#8217;application pour une cible de production (Actuelement similaire au script <em>build</em> qui lance <em>ng build &#8211;env=dev</em></li>
+<li><em>inttest</em>: Lance la commande <em>ng test &#8211;single-run=true &#8211;browsers PhantomJS &#8211;watch=false</em> qui permet de lancer les tests unitaire une seule fois sur PhantomJS.</li>
+</ul>
 <p>La configuration du proxy se fait dans le fichier <em>proxy.conf.json</em>.
 Pour le moment, aucun fichier de surcharge sur poste de dev n&#8217;est prévue pour avec des modifications locales ignorées par le git.</p>
 <p>Build du css:
-Pour mettre à jour le CSS (styles.css) il faut:
-- Update theme in <em>themes/vitam-red/theme.scss</em> or template in <em>themes/_theme.scss</em>
-- Generate css with the command line <em>sass themes/vitam-red/theme.scss:src/styles.css</em>
-- Remove src/styles.css.map before commit</p>
+Pour mettre à jour le CSS (styles.css) il faut:</p>
+<ul class="simple">
+<li>Update theme in <em>themes/vitam-red/theme.scss</em> or template in <em>themes/_theme.scss</em></li>
+<li>Generate css with the command line <em>sass themes/vitam-red/theme.scss:src/styles.css</em></li>
+<li>Remove src/styles.css.map before commit</li>
+</ul>
 <p>Le build maven lance le script inttest dans la phase test (-DskipTests permet donc d&#8217;ignorer les TU front)
-Les commandes suivantes peuvent être lancés pour faire des packages rpm/debian:
-- mvn clean install rpm:rpm
-- mvn clean install jdeb:jdeb</p>
+Les commandes suivantes peuvent être lancés pour faire des packages rpm/debian:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">rpm:rpm</span></code></li>
+<li><code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">jdeb:jdeb</span></code></li>
+</ul>
 </div>
 <div class="section" id="composant-de-page">
 <h4>Composant de Page<a class="headerlink" href="#composant-de-page" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Les composant de page ont pour but de:
-- Initialiser les composant communs (fil d&#8217;ariane, titre, ...) à toute les pages (Héritage de PageComponent)
-- Récupérer les données utiles en faisant appel au service (HTTP GET)
-- Traiter les données si besoin (Utiliser des services utilitaires pour les gros traitement des données)
-- Appeler des sous-composants pour afficher les donénes sur la page (Injecter des donénes / fonctions dans les sous-composants appelés)</p>
+<p>Les composant de page ont pour but de:</p>
+<ul class="simple">
+<li>Initialiser les composant communs (fil d&#8217;ariane, titre, ...) à toute les pages (Héritage de PageComponent)</li>
+<li>Récupérer les données utiles en faisant appel au service (HTTP GET)</li>
+<li>Traiter les données si besoin (Utiliser des services utilitaires pour les gros traitement des données)</li>
+<li>Appeler des sous-composants pour afficher les donénes sur la page (Injecter des donénes / fonctions dans les sous-composants appelés)</li>
+</ul>
 <p>Le composant de page doit hériter du composant PageComponent (app/common/page/page-component) et utiliser pageOnInit().
 Cela permet d&#8217;initialiser le fil d&#8217;ariane et la titre sur toute les pages.</p>
 </div>
@@ -316,14 +333,18 @@ Ils peuvent aussi avoir quelques fonctions utilitaires pour parser/préparer la 
 </div>
 <div class="section" id="sous-composant">
 <h4>Sous Composant<a class="headerlink" href="#sous-composant" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Les sous-composant ont pour but de:
-- Être initialisés grâce à des objets injectés par le composant parent,
-- Faire le rendement graphique d&#8217;une partie de la page (partie potentiellement répétée plusieurs fois sur la page),
-- Utiliser des services d&#8217;affichage des données ou des composants graphiques,
-- Faire des actions (potentielle utilisation du service du composant pour les appels PUT/POST/DELETE).</p>
-<p>Le sous-composant ne devrait pas:
-- Avoir de logique ni de traitement (Il doit se contenter d&#8217;afficher ce que le composant de page et ses services ont calculés pour lui),
-- Utiliser le service pour des appels HTTP GET (C&#8217;est le rôle du composant de page).</p>
+<p>Les sous-composant ont pour but de:</p>
+<ul class="simple">
+<li>Être initialisés grâce à des objets injectés par le composant parent,</li>
+<li>Faire le rendement graphique d&#8217;une partie de la page (partie potentiellement répétée plusieurs fois sur la page),</li>
+<li>Utiliser des services d&#8217;affichage des données ou des composants graphiques,</li>
+<li>Faire des actions (potentielle utilisation du service du composant pour les appels PUT/POST/DELETE).</li>
+</ul>
+<p>Le sous-composant ne devrait pas:</p>
+<ul class="simple">
+<li>Avoir de logique ni de traitement (Il doit se contenter d&#8217;afficher ce que le composant de page et ses services ont calculés pour lui),</li>
+<li>Utiliser le service pour des appels HTTP GET (C&#8217;est le rôle du composant de page).</li>
+</ul>
 </div>
 </div>
 </div>
@@ -370,7 +391,7 @@ Ils peuvent aussi avoir quelques fonctions utilitaires pour parser/préparer la 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

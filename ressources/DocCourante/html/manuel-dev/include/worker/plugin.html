@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker Plugin &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Worker Plugin &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/> 
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
+        <link rel="up" title="Worker" href="_toc.html"/>
+        <link rel="next" title="Idempotence" href="idempotent.html"/>
+        <link rel="prev" title="Worker Client" href="worker-client.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -56,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -85,16 +88,42 @@
           
             
             
-                <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_toc.html">Détails par composant</a></li>
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="worker.html">Worker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="worker-client.html">Worker Client</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Worker Plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#presentation">1. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gestion-des-entrants-du-plugin">2. Gestion des entrants du plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gestion-des-statuts-du-plugin-itemstatus">3. Gestion des statuts du plugin : ItemStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-d-un-nouveau-plugin">4. Intégration d&#8217;un nouveau plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="idempotent.html">Idempotence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -124,6 +153,10 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+      
+          <li><a href="_toc.html">Worker</a> &raquo;</li>
       
     <li>Worker Plugin</li>
       <li class="wy-breadcrumbs-aside">
@@ -211,7 +244,58 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 35
 36
 37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
@@ -220,7 +304,7 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 	<span class="s2">&quot;OG_OBJECTS_FORMAT_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.FormatIdentificationActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;format_check_plugin.properties&quot;</span>
-	<span class="p">},</span> 	
+	<span class="p">},</span>
 
 	<span class="s2">&quot;UNIT_METADATA_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.IndexUnitActionPlugin&quot;</span><span class="p">,</span>
@@ -230,7 +314,7 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 	<span class="s2">&quot;OG_METADATA_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.IndexObjectGroupActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;index_object_group_plugin.properties&quot;</span>
-        <span class="p">},</span>
+	<span class="p">},</span>
 	<span class="s2">&quot;OBJ_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreObjectGroupActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_object_group_plugin.properties&quot;</span>
@@ -246,8 +330,59 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 	<span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreMetaDataUnitActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_metadata_unit_plugin.properties&quot;</span>
-	<span class="p">}</span>	
-
+	<span class="p">},</span>
+	<span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitSchemaActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_schema_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;CHECK_CLASSIFICATION_LEVEL&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckClassificationLevelActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_classification_level_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;UPDATE_UNIT_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ArchiveUnitRulesUpdateActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;archive_units_rules_update_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;UPDATE_RUNNING_INGESTS&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.RunningIngestsUpdateActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;running_ingests_update_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;AUDIT_CHECK_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.AuditCheckObjectPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_check_object_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;AUDIT_FILE_INTEGRITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckIntegrityObjectPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_integrity_object_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;AUDIT_FILE_EXISTING&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckExistenceObjectPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_existence_object_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;OG_CREATE_SECURED_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CreateObjectSecureFileActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_object_secure_file_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;UNITS_CREATE_SECURED_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CreateUnitSecureFileActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;CREATE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.CreateManifest&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;PUT_BINARY_ON_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.PutBinaryOnWorkspace&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;STORE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.StoreDIP&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;OBJECT_GROUP_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.UpdateObjectGroupPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_update.properties&quot;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
@@ -257,7 +392,7 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 <p>La méthode doit retourner un objet de type ItemStatus, qui sera détaillé plus en détail dans un paragraphe dédié.</p>
 <p>De manière synthétique, voici le fonctionnement du plugin VITAM.</p>
 <div class="figure align-center">
-<img alt="images/plugin.png" src="images/plugin.png" />
+<img alt="../../_images/plugin.png" src="../../_images/plugin.png" />
 </div>
 </div>
 </div>
@@ -667,7 +802,106 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 358
 359
 360
-361</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultIngestWorkflow&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
@@ -683,6 +917,18 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
         <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;SIP/manifest.xml&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;PREPARE_STORAGE_INFO&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;storageInfo.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:StorageInfo/storageInfo.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_SEDA&quot;</span><span class="p">,</span>
@@ -721,6 +967,10 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
               <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;UnitType&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:INGEST&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;storageInfo.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:StorageInfo/storageInfo.json&quot;</span>
               <span class="p">}</span>
             <span class="p">],</span>
             <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -759,6 +1009,10 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
               <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsObjectGroup.file&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:MapsMemory/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;existingObjectGroup.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:UpdateObjectGroup/existing_object_group.json&quot;</span>
               <span class="p">}</span>
             <span class="p">]</span>
           <span class="p">}</span>
@@ -783,13 +1037,25 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;algo&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:SHA-512&quot;</span>
               <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
             <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_OBJECTS_FORMAT_CHECK&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
@@ -806,13 +1072,37 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_CLASSIFICATION_LEVEL&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;UNITS_RULES_COMPUTE&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
@@ -846,13 +1136,25 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OBJ_STORAGE&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_METADATA_INDEXATION&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
@@ -895,13 +1197,13 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
             <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
             <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">}</span>
@@ -918,13 +1220,44 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_UNIT&quot;</span><span class="p">,</span>
             <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_UNIT&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UPDATE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;UpdateObjectGroup/existing_object_group.json&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;statusOnEmptyDistribution&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OBJECT_GROUP_UPDATE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
             <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">}</span>
@@ -1641,7 +1974,106 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 358
 359
 360
-361</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;DefaultIngestWorkflow&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
@@ -1657,6 +2089,18 @@ En fonction du statut de chaque traitement on aura donc des messages différents
         <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;SIP/manifest.xml&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;PREPARE_STORAGE_INFO&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;storageInfo.json&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:StorageInfo/storageInfo.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;CHECK_SEDA&quot;</span><span class="p">,</span>
@@ -1695,6 +2139,10 @@ En fonction du statut de chaque traitement on aura donc des messages différents
               <span class="p">{</span>
                 <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;UnitType&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;VALUE:INGEST&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;storageInfo.json&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:StorageInfo/storageInfo.json&quot;</span>
               <span class="p">}</span>
             <span class="p">],</span>
             <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
@@ -1733,6 +2181,10 @@ En fonction du statut de chaque traitement on aura donc des messages différents
               <span class="p">{</span>
                 <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;mapsObjectGroup.file&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:MapsMemory/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;existingObjectGroup.file&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:UpdateObjectGroup/existing_object_group.json&quot;</span>
               <span class="p">}</span>
             <span class="p">]</span>
           <span class="p">}</span>
@@ -1757,13 +2209,25 @@ En fonction du statut de chaque traitement on aura donc des messages différents
                 <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;algo&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;VALUE:SHA-512&quot;</span>
               <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
             <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OG_OBJECTS_FORMAT_CHECK&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;in&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
@@ -1780,13 +2244,37 @@ En fonction du statut de chaque traitement on aura donc des messages différents
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;CHECK_CLASSIFICATION_LEVEL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;in&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;UNITS_RULES_COMPUTE&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;in&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
@@ -1820,13 +2308,25 @@ En fonction du statut de chaque traitement on aura donc des messages différents
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OBJ_STORAGE&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OG_METADATA_INDEXATION&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;in&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
@@ -1869,13 +2369,13 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
             <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
             <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">}</span>
@@ -1892,13 +2392,44 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_UNIT&quot;</span><span class="p">,</span>
             <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_UNIT&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;workerGroupId&quot;</span><span class="o">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_UPDATE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;UpdateObjectGroup/existing_object_group.json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;statusOnEmptyDistribution&quot;</span><span class="o">:</span> <span class="s2">&quot;OK&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OBJECT_GROUP_UPDATE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
             <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
           <span class="p">}</span>
         <span class="p">}</span>
@@ -2111,6 +2642,15 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="idempotent.html" class="btn btn-neutral float-right" title="Idempotence" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="worker-client.html" class="btn btn-neutral" title="Worker Client" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
@@ -2138,7 +2678,7 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

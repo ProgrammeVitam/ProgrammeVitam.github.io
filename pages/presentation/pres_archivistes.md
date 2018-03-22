@@ -6,9 +6,11 @@ fatherref: presentation
 
 >La solution logicielle Vitam doit permettre aux services producteurs d’archives numériques de gérer les étapes du cycle de vie (archivage courant, intermédiaire, définitif) et l’accès à leurs données. Elle doit également permettre aux services d’archives de remplir leurs missions de collecte, de conservation, de gestion et de communication des archives numériques et de répondre aux besoins de pérennisation.
 
-![Schéma SAE Vitam](/public/images/SchemaSAEVitam.jpg){: style="float:left; margin:2rem; height:15rem"} La solution logicielle Vitam est librement réutilisable. Pour constituer une plate-forme d’archivage numérique, elle devra être interfacée avec les applications métiers de ses services producteurs (SIRH, GED…) et les logiciels de gestion des archives utilisés par le service d’archive. Elle sera également connectée avec les solutions de stockage fournies par le service informatique de l’entité intéressée.
+La solution logicielle Vitam est librement réutilisable. Pour constituer une plate-forme d’archivage numérique, elle devra être interfacée avec les applications métiers de ses services producteurs (SIRH, GED…) et les logiciels de gestion des archives utilisés par le service d’archive. Elle sera également connectée avec les solutions de stockage fournies par le service informatique de l’entité intéressée.
 La solution logicielle Vitam assurera la prise en charge d’objets variés : fichiers bureautiques, données, images fixes et animées, enregistrements sonores, messages et messageries électroniques, etc.
-Elle répondra plus particulièrement aux besoins des services qui devront, à terme, gérer de très nombreux objets (plusieurs millions voire milliards). Elle pourra s’utiliser dans un contexte mutualisé, afin de gérer une multiplicité de services producteurs.
+Elle répondra plus particulièrement aux besoins des services qui devront, à terme, gérer de très nombreux objets (plusieurs centaines de millions voire milliards). Elle pourra s’utiliser dans un contexte mutualisé, afin de gérer une multiplicité de services producteurs.
+
+![Schéma SAE Vitam](/public/images/SchemaSAEVitam.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
 
 ## Des fonctionnalités issues du modèle OAIS.
 

@@ -1,0 +1,459 @@
+<!DOCTYPE HTML><html><head><title>API-Vitam - Introduction API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 4.0.5"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h1 {
+        font-size: 1.3em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      pre code {
+        overflow: auto;
+        word-wrap: normal;
+        white-space: pre;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container-fluid"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>API-Vitam - Introduction API documentation <small>version v1</small></h1><p>https://api.vitam.gouv.fr/{version}</p><ul><li><strong>version</strong>: <em>required (v1)</em></li></ul><h3 id="avertissements"><a href="#avertissements">Avertissements</a></h3><p>Cette version d&#39;API présente des fonctionnalités sous différents statuts :</p><ul><li>Supportées : rien n&#39;est spécifié, la fonctionnalité ou la donnée est supportée</li><li>Non supportées : le mot clef <strong>UNSUPPORTED</strong> est indiqué et précise que cette fonctionnalité ou donnée n&#39;est pas supportée par l&#39;implémentaton courante.</li></ul><h3 id="licence"><a href="#licence">Licence</a></h3><p>Ce document est distribué sous les termes de la <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">Licence Ouverte V2.0</a></p><h3 id="conventions_rest_g_n_rales"><a href="#conventions_rest_g_n_rales">Conventions REST Générales</a></h3><p>Ici sont présentées des conventions dans le cadre des API Vitam.</p><h1 id="mod-le-rest">Modèle REST</h1><p>Les URL sont découpées de la façon suivantes :</p><ul><li>protocole: https</li><li>FQDN : exemple api.vitam.fr avec éventuellement un port spécifique</li><li>Base :<nom du service>/<version></version></nom></li><li>Resource : le nom d&#39;une collection</li><li>L&#39;URL peut contenir d&#39;autres éléments (item, sous-collections)</li></ul><p>Exemple: <a href="https://api.vitam.fr/access-external/v1/units/id">https://api.vitam.fr/access-external/v1/units/id</a></p><p>Les méthodes utilisées :</p><ul><li>GET: pour l&#39;équivalent de "Select" (possibilité d&#39;utiliser POST avec X-Http-Method-Override: GET dans le Header)</li><li>POST: pour l&#39;équivalent de "Insert"</li><li>PUT: pour l&#39;équivalent de "Update"</li><li>DELETE: pour l&#39;équivalent de "Delete" (possibilité d&#39;utiliser POST avec X-Http-Method-Override: DELETE dans le Header)</li><li>HEAD: pour l&#39;équivalent du "Test d&#39;existence"</li><li>OPTIONS: pour l&#39;équivalent de "Lister les commandes disponibles"</li></ul><p>Les codes retours HTTP standards utilisés sont :</p><ul><li>200: Sur des opérations de GET, PUT, DELETE, HEAD, OPTIONS</li><li>201: Sur l&#39;opération POST (sans X-Http-Method-Override)</li><li>202: Pour les réponses asynchrones</li><li>204: Pour des réponses sans contenu (type HEAD sans options)</li><li>206: Pour des réponses partielles ou des réponses en mode Warning (OK mais avec une alerte)</li></ul><p>Les codes d&#39;erreurs HTTP standards utilisés sont :</p><ul><li>400: Requête mal formulée</li><li>401: Requête non autorisée</li><li>404: Resource non trouvée</li><li>409: Requête en conflit</li><li>412: Des préconditions ne sont pas respectées</li><li>413: La requête dépasse les capacités du service</li><li>415: Le Media Type demandé n&#39;est pas supporté</li><li>500: si une erreur interne est survenue dans le back-office (peut être un bug ou un effet de bord d&#39;une mauvaise commande)</li><li>501: Le service n&#39;est pas implémenté</li></ul><h2 id="ent-tes-https-des-apis">Entêtes HTTPs des APIs</h2><p>L&#39;appel aux APIs REST nécessite le passage de certains entêtes dans la requête :</p><ul><li><strong>X-Application-Id</strong> : pour conserver la session (valeur non signifiante) dans les journaux et logs du SAE associés à l&#39;opération demandée</li><li><strong>X-Tenant-Id</strong> : pour chaque requête, le tenant sur lequel doit être exécutée la requête</li><li><strong>X-Access-Contract-Id</strong> : pour les APIs nécessitant un contrat d&#39;accès.</li><li><strong>X-Personal-Certificate</strong> : pour les API sensibles nécessitant une authentification personae.</li><li><strong>X-Qualifier</strong> et <strong>X-Version</strong> : pour une requête GET sur un <strong>Object</strong> pour récupérer un usage et une version particulière</li><li><strong>X-Http-Method-Override</strong> : pour permettre aux clients HTTP ne supportant pas tous les modes de la RFC 7231 (GET/PUT/DELETE avec Body) de faire des appels POST en passant le verb HTTP cible (GET/PUT/DELETE) dans l&#39;entête.</li></ul><p>La réponse des APIs REST contient dans les headers de réponse :</p><ul><li><strong>X-Request-Id</strong> : pour chaque requête, un identifiant unique de corrélation est fourni en réponse.</li></ul><h2 id="mod-le-asynchrone">Modèle asynchrone</h2><p>Dans le cas d&#39;une opération asynchrone, une API d&#39;interrogation de type "pooling" est disponible. Le client peut requêter de manière répétée une URI de vérification du statut, et ce de manière raisonnée (pas trop souvent).</p><p>Le principe est le suivant :</p><ul><li>Création de l&#39;opération à effectuer<ul><li>Exemple: POST /ingests et retourne 202 + X-Request-Id noté id</li></ul></li><li>Pooling sur l&#39;opération demandée<ul><li>Exemple: GET /operations/id et retourne 202 + X-Request-Id tant que non terminé</li><li>Intervalle recommandé : pas moins que la minute</li></ul></li><li>Fin de pooling sur l&#39;opération demandée<ul><li>Exemple : GET /operations/id et retourne 200 + le résultat</li></ul></li></ul><h2 id="authentification">Authentification</h2><p>Vitam authentifie l&#39;application Front-Office qui se connecte à ses API via le certificat client de la connexion TLS. Chaque certificat enregistré dans le référentiel Vitam est rattaché à un Contexte. Vitam s&#39;assure que l&#39;application Front-Office ait bien l&#39;habilitation nécessaire pour effectuer la requête exprimée.</p><h2 id="authentification-personae">Authentification Personae</h2><p>Certaines APIs dites "sensibles" nécessitent une authentification renforcée de l&#39;utilisateur. L&#39;utilisateur souhaitant avoir accès à ces API doit s&#39;authentifier de manière forte avec un certificat X509 auprès du SIA. Ce certificat doit être passé par SIA lors de l&#39;appel aux APIs sensisbles dans un dédié header "<strong>X-Personal-Certificate</strong>" (en Base64 au format PEM).</p><h2 id="identifiant-de-corr-lation">Identifiant de corrélation</h2><p>Vitam étant un service REST, il est "State Less". Il ne dispose donc pas de notion de session en propre. Cependant chaque requête retourne un identifiant de requête "<strong>X-Request-Id</strong>" qui est traçé dans les logs et journaux du SAE et permet donc de faire une corrélation avec les événements de l&#39;application Front-Office cliente si celle-ci enregistre elle-aussi cet identifiant.</p><p>Considérant que cela peut rendre difficile le suivi d&#39;une session utilisateur connecté sur un Front-Office, il est proposé que l&#39;application Front-Office puisse passer en paramètre dans le Header l&#39;argument "<strong>X-Application-Id</strong>" correspondant à un identifiant de session de l&#39;utilisateur connecté. Cet identifiant DOIT être non signifiant car il sera lui aussi dans les logs et les journaux de Vitam. Il est inclus dans chaque réponse de Vitam si celui-ci est exprimé dans la requête correspondante. Grâce à cet identifiant externe de session, il est alors plus facile de retracer l&#39;activité d&#39;un utilisateur grâce d&#39;une part au regroupement de l&#39;ensemble des actions dans Vitam au travers de cet identifiant, et d&#39;autre part grâce aux logs de l&#39;application Front-Office utilisant ce même identifiant de session.</p><h2 id="pagination">Pagination</h2><p>Vitam ne dispose pas de notion de session en raison de son implémentation « State Less ». Néanmoins, il est possible de paginer les résultats en utilisant le DSL avec les arguments suivants dans la requête : (pour GET uniquement)</p><ul><li><strong>$limit</strong> : le nombre maximum d&#39;items retournés (limité à 10000 par défaut)</li><li><strong>$offset</strong> : la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li></ul><p>A noter qu&#39;en raison du modèle State-less, les requêtes suivantes (en manipulant notamment $offset) seront à nouveau exécutées, conduisant à des performances réduites.</p><h3 id="dsl_vitam"><a href="#dsl_vitam">DSL Vitam</a></h3><p>Le DSL (Domain Specific Language) de la solution logicielle Vitam est le langage dédié à l&#39;interrogation de la base de données et du moteur d&#39;indexation et offrant un niveau d&#39;abstraction afin de pouvoir exprimer un grand nombre de possibilités de requêtes. Sa structure est composée de deux parties :</p><ul><li>Request : contient la structure du Body contenant la requête au format JSON. Le DSL permet d&#39;exprimer un grand nombre de possibilités de requêtes. Dans le cadre des collections Metadata (Units et Objects), cette requête peut être organisée comme un ensemble de sous requêtes.</li><li>Response : contient la structure du Body contenant le résultat au format JSON. Il contient les différentes informations demandées.</li></ul><h1 id="request">Request</h1><p>La requête DSL est transmise dans le Body en tant que JSON (application/json).</p><h2 id="format-des-requ-tes">Format des requêtes</h2><h3 id="requ-tes-de-rercherche">Requêtes de Rercherche</h3><p>Une requête DSL de <strong>recherche</strong> se décompose en plusieurs sections selon l&#39;opération souhaitée :</p><ul><li><strong>$query</strong> : la requête, composée de critères de sélection</li><li><strong>$roots</strong> : les racines à partir desquels la recherche est lancée, uniquement pour les collections units et objects, dont les données sont organisées en mode arborescent</li><li><strong>$filter</strong> : le tri / la limite en nombre de résultats retournés</li><li><strong>$projections</strong> : un sous ensemble de champs devant être retournés</li></ul><p>Pour comparaison avec le langage SQL :</p><pre><code class="lang-sql">SELECT field1, field2         /* la Projection */
+FROM table1                   /* la Collection */
+WHERE field3 &lt; value1         /* la partie Query */
+LIMIT n ORDER BY field1 ASC   /* les Filtres */
+</code></pre><h4 id="requ-tes-de-recherche-pour-un-l-ment-sp-cifique-get-by-id-">Requêtes de recherche pour un élément spécifique (GET BY ID)</h4><p>La requête DSL <strong>GET BY ID</strong> est la plus simple. Elle permet de renvoyer le contenu (ou un partie) d&#39;un élément spécifique pour lequel l&#39;identifiant est spécifié dans l&#39;URL. Seule la section <strong>$projection</strong> peut être renseignée.</p><pre><code class="lang-JSON">{
+  "$projection": { }
+}
+</code></pre><p><strong>Exemple :</strong> Récupération d&#39;une unité archivistique donnée (GET access-external/v1/units/GUID1) :</p><ul><li>en revoyant uniquement les champs Title et Description</li></ul><pre><code class="lang-JSON">{
+  "$projection": {
+    "$fields": { "Title": 1, "Description": 1 }
+  }
+}
+</code></pre><h4 id="requ-tes-de-recherche-sur-les-collections-units-et-objects-select-multiple-">Requêtes de recherche sur les collections Units et Objects (SELECT MULTIPLE)</h4><p>Les collections de Metadata, que sont les collections units et objects, se requêtent en utilisant un tableau de <strong>$query</strong>. Une Query correspond à la formulation <code>WHERE xxx</code> dans le langage SQL, c&#39;est à dire les critères de sélection.</p><p>Le DSL permet d&#39;effectuer des requêtes arborescentes via la spécification de racines et de profondeur de recherche :</p><ul><li><strong>$roots</strong> : il s&#39;agit de la ou des racines (Units) à partir desquelles la requête est exprimée (toutes les recherches sur les Units et Objects sont en mode arborescente). Il correspond d&#39;une certaine façon à "<em>FROM x</em>" dans le langage SQL étendu au cas des arborescences. En l&#39;absence du paramètre, la recherche s&#39;effectuera sur toutes les unités archivistiques.</li><li><strong>$depth</strong> : spécifie la profondeur maximale dans l&#39;arborescence et à partir des $roots dans laquelle la recherche doit s&#39;exécuter. La valeur de $depth doit être un entier positif ou nul.<ul><li><em>$depth = 0</em> : cherche uniquement sur les unités précisées dans le $roots</li><li><em>$depth =n avec n &gt;0</em> : cherche sur les unités enfants jusqu&#39;à <em>n</em> niveau(x) de profondeur et ne cherche pas dans les unités de $roots elles-mêmes. <strong>IMPORTANT :</strong> Le paramètre <strong>$depth</strong> doit être spécifié lorsque des racines sont définies dans <strong>$roots</strong> (recherche arborescente). Le paramètre <strong>$depth</strong> ne doit pas être spécifié lorsque les racines ne sont pas spécifiées (recherche sur toutes les unités).</li></ul></li></ul><p>Il est également possible spécifier des filtres de recherche via <strong>$filter</strong> et des projections <strong>$projection</strong>.</p><pre><code class="lang-JSON">{
+  "$roots": [ ],
+  "$query": [ ],
+  "$filter": { },
+  "$projection": { }
+}
+</code></pre><h5 id="-recherche-mono-requ-te-"><strong>Recherche mono-requête</strong></h5><p>Il s&#39;agit du mode de recherche nominal. Dans ce mode, <strong>$query</strong> ne contient qu&#39;une seule requête de recherche. Le résultat de la recherche est directement renvoyé au client.</p><p><strong>Exemples :</strong></p><p>1/ Rechercher les unités ayant "Alpha" dans leurs titres parmi les unités racines ayant pour #id GUID1 ou GUID2</p><pre><code class="lang-json">{
+  "$roots": [
+    "GUID1",
+    "GUID2"
+  ],
+  "$query": [
+    {
+      "$match": { "Title": "Alpha" },
+      "$depth": 0
+    }
+  ],
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><p>2/ Rechercher les unités ayant "Alpha" dans leurs titres, et étant un enfant direct d&#39;une des unités ayant pour #id GUID1 ou GUID2</p><pre><code class="lang-json">{
+  "$roots": [
+    "GUID1",
+    "GUID2"
+  ],
+  "$query": [
+    {
+      "$match": { "Title": "Alpha" },
+      "$depth": 1
+    }
+  ],
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><p>3/ Pour effectuer cette recherche uniquement sur les enfants des unités de $roots ayant une profondeur relative de 1 à 5</p><pre><code class="lang-json">{
+  "$roots": [
+    "GUID1",
+    "GUID2"
+  ],
+  "$query": [
+    {
+      "$match": { "Title": "Alpha" },
+      "$depth": 5
+    }
+  ],
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><p>4/ Rechercher dans toutes les unités archivistiques du système</p><pre><code class="lang-json">{
+  "$query": [
+      { "$match": { "Title": "Alpha" } }
+  ],
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><h5 id="-recherche-multi-requ-tes-"><strong>Recherche multi-requêtes</strong></h5><p>Dans ce mode, <strong>$query</strong> contient plusieurs requêtes de recherche qui seront exécutées successivement (tableau de Query). La succession est exécutée avec la signification suivante :</p><ul><li>Depuis $roots, chercher les Units/Objects tels que Query[1], conduisant à obtenir une liste d&#39;identifiants[1]</li><li>Cette liste d&#39;identifiants[1] devient le nouveau $roots, chercher les Units/Objects tel que Query[2], conduisant à obtenir une liste d&#39;identifiants[2]</li><li>Et ainsi de suite, la liste d&#39;identifiants[n] de la dernière Query[n] est la liste de résultat définitive renvoyée au client.</li></ul><p><strong>Exemple :</strong> Rechercher les unités ayant "Discours du président" dans leur description, et qui sont des descendants directs des unités racines ayant pour #id GUID1 ou GUID2 et contenant "Alpha" dans leur titre.</p><pre><code class="lang-json">{
+  "$roots": [
+    "GUID1",
+    "GUID2"
+  ],
+  "$query": [
+    {
+      "$match": { "Title": "Alpha" },
+      "$depth": 0
+    },
+    {
+      "$match": { "Description": "Discours du président" },
+      "$depth": 1
+    }
+  ],
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><p><strong>Notes :</strong></p><ul><li>La recherche multi-requêtes est actuellement supportée à titre <strong>expérimental</strong>.</li><li>Selon la complexité des sous-requêtes, les recherches multi-requêtes peuvent être très couteuses.</li><li>Les filtres de recherche, et en particulier <strong>$limit</strong> et <strong>$offset</strong>, s&#39;appliquent uniquement sur la dernière requête. Les autres (premières) sous-requêtes ne doivent pas renvoyer un nombre de résultats trop important (10000+) au risque d&#39;un comportement de recherche non déterminé.</li></ul><h4 id="requ-tes-de-recherche-sur-les-autres-collections-select-single-">Requêtes de recherche sur les autres collections (SELECT SINGLE)</h4><p>Les autres collections (hormis Units et Objects) s&#39;utilisent avec une seule <strong>$query</strong>, et ne contiennent pas de <strong>$roots</strong>, ni de <strong>$depth</strong>. Il est possible spécifier des filtres de recherche via <strong>$filter</strong> et des projections <strong>$projection</strong>.</p><pre><code class="lang-JSON">{
+  "$query": { },
+  "$filter": { },
+  "$projection": { }
+}
+</code></pre><p><strong>Exemple :</strong> Rechercher un Contrat d&#39;Entrée avec une description donnée :</p><pre><code class="lang-json">{
+  "$query": { "$match_phrase": { "Description": "Contrat d&#39;entrée Alpha" } },
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><h3 id="requ-tes-de-modification">Requêtes de modification</h3><p>La requête DSL de mise à jour (<strong>UPDATE BY ID</strong>) permet de modifier le contenu du document pour lequel l&#39;identifiant est spécifié dans l&#39;URL. Les requêtes DSL de modification contiennent une section <strong>$action</strong>.</p><pre><code class="lang-JSON">{
+  "$action": [ ]
+}
+</code></pre><p><strong>Exemple :</strong> Modifier la description d&#39;un Contrat d&#39;Entrée :</p><pre><code class="lang-json">{
+  "$action": [
+       { "$set" : { "Description" : "Description" } }
+    ]
+}
+</code></pre><h2 id="query">Query</h2><p>Les commandes de la Query peuvent être :</p><table class="table"><thead><tr><th>Catégorie</th><th>Opérateurs</th><th>Arguments</th><th>Utilisable sur champs analysés ?</th><th>Utilisable sur champs non analysés ?</th><th>Commentaire</th></tr></thead><tbody><tr><td>Booléens</td><td>$and, $or, $not</td><td>Opérateurs</td><td>NA</td><td>NA</td><td>Combinaison logique d&#39;opérateurs</td></tr><tr><td>Comparaison</td><td>$eq, $ne, $lt, $lte, $gt, $gte</td><td>Champ et valeur</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ et la valeur passée en argument</td></tr><tr><td></td><td>$range</td><td>Champ, $lt, $lte, $gt, $gte et valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ avec l&#39;intervalle passé en argument</td></tr><tr><td>Existence</td><td>$exists</td><td>Champ</td><td><strong>Oui</strong></td><td><strong>Oui</strong></td><td></td></tr><tr><td>Tableau</td><td>$in, $nin</td><td>Champ, valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Présence de valeurs dans un tableau</td></tr><tr><td>Textuel</td><td>$wildcard</td><td>Champ, expression</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de champs mots-clefs à valeur exacte</td></tr><tr><td></td><td>$regex</td><td>Champ, expression régulière</td><td>Non</td><td><strong>Oui</strong></td><td>Recherche via une expression régulière</td></tr><tr><td></td><td>$match, $match_all, $match_phrase, $match_phrase_prefix</td><td>Champ, phrase</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche plein texte soit sur des mots, expressions, ou débuts d&#39;expressions</td></tr><tr><td></td><td>$search</td><td>Champ, string avec opérateur du $search</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche du type moteur de recherche</td></tr><tr><td>Parcours de graphe</td><td>$depth</td><td>entier positif ou nul</td><td>NA</td><td>NA</td><td>Recherche jusqu&#39;à un niveau de profondeur</td></tr></tbody></table><h3 id="op-rateurs-and-or-not-combinaison-logique-d-op-rateurs">Opérateurs $and, $or, $not : combinaison logique d&#39;opérateurs</h3><p><strong>Format :</strong></p><ul><li><code>{ $and : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>toutes</em> les commandes doivent être vérifiées</li><li><code>{ $or  : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>au moins une</em> commande doit être vérifiée</li><li><code>{ $not : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>aucune</em> ne doit être vérifiée ($not[condition A, condition B] peut donc s&#39;écrire sous une forme plus explicite de : $and[$not(condition A), $not(condition B)]).</li></ul><p><strong>Exemple :</strong></p><pre><code class="lang-json">{
+  "$query": [
+    {
+      "$or": [
+        { "$match": { "Title": "Porte de Bagnolet" } },
+        {
+          "$and": [
+            { "$match": { "Title": "porte" } },
+            {
+              "$not": [
+                { "$match": { "Title": "Chapelle" } }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "$filter": {},
+  "$projection": { "$fields": { "Title": 1 } }
+}
+</code></pre><p>Sur la collection units, cette requête demande toutes les unités archivistiques dont le titre est "Porte de bagnolet" ou dont le titre contient "porte" mais pas "chapelle"</p><h3 id="op-rateurs-eq-ne-lt-lte-gt-gte-recherche-par-comparateurs-d-galit-">Opérateurs $eq, $ne, $lt, $lte, $gt, $gte : recherche par comparateurs d&#39;égalité</h3><p>Comparaison de la valeur d&#39;un champ et la valeur passée en argument</p><p><strong>Format :</strong></p><ul><li><code>{ "$eq"  : { name : value } }</code> : où name est le nom du champ, et value est la valeur recherchée (Equals)</li><li><code>{ "$ne"  : { name : value } }</code> : où name est le nom du champ, et value est la valeur recherchée (Not Equals)</li><li><code>{ "$lt"  : { name : value } }</code> : où name est le nom du champ, et value est la valeur à comparer (Less Than)</li><li><code>{ "$lte" : { name : value } }</code> : où name est le nom du champ, et value est la valeur à comparer (Less Than or Equal)</li><li><code>{ "$gt"  : { name : value } }</code> : où name est le nom du champ, et value est la valeur à comparer (Greater Than)</li><li><code>{ "$gte" : { name : value } }</code> : où name est le nom du champ, et value est la valeur à comparer (Greater Than or Equal)</li></ul><p><strong>Exemples :</strong></p><pre><code class="lang-json">{ "$eq"  : { "Identifier" : "CT-000001" } }
+{ "$eq"  : { "StartDate" : "2014-03-25" } }
+{ "$ne"  : { "PI" : 3.14 } }
+{ "$ne"  : { "Status" : true } }
+{ "$lt"  : { "Identifier" : "CT-000001" } }
+{ "$lte" : { "StartDate" : "2014-03-25" } }
+{ "$gt"  : { "PI" : 3.14 } }
+{ "$gte" : { "Count" : 3 } }
+</code></pre><p><strong>Notes :</strong></p><ul><li>Ces opérateurs ne doivent être utilisés que pour les champs de type chaîne non analysée, date, nombre et booléen. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li><li>La comparaison doit se faire entre le même type. Le comportement dans le cas de types de données différents (par exemple comparer une date et un booléen) est non supporté.</li></ul><h3 id="op-rateur-range-recherche-par-intervalle-de-valeurs">Opérateur $range : Recherche par intervalle de valeurs</h3><p>Il s&#39;agit d&#39;un raccourci pour les opérateurs $lt, $lte, $gt et $gte pour effectuer des recherches sur un intervalle ouvert, semi-ouvert ou fermé.</p><p><strong>Format :</strong> <code>{ $range : { name : { minOperator : minValue, maxOperator : maxValue } } }</code> : où name est le nom du champ, minOperator est l&#39;opérateur de comparaison ($gt ou $gte), minValue est la valeur de comparaison minimale, maxOperator est l&#39;opérateur de comparaison ($lt ou $lte), maxValue est la valeur de comparaison maximale.</p><p><strong>Exemples :</strong></p><pre><code class="lang-json">{ "$range" : { "Identifier" : { "$gte" : "CT-000001", "$lte" : "CT-000009" } } }
+{ "$range" : { "StartDate" : { "$gt" : "2014-03-25", "$lt" : "2014-04-25" } } }
+{ "$range" : { "Count" : { "$gte" : 0, "$lt" : 10 } } }
+</code></pre><p><strong>Notes :</strong></p><ul><li>Cet opérateur ne doit être utilisé que pour les champs de type chaîne non analysée, date, nombre et booléen. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li><li>La comparaison doit se faire entre le même type. Le comportement dans le cas de types de données différents (par exemple comparer une date et un booléen) est non supporté.</li><li>Aucune vérification n&#39;est effectuée quant aux valeurs passées dans les <em>$gt</em> et <em>$lt</em> (ou encore <em>$gte</em> et <em>$lte</em>), ce qui signifie qu&#39;en cas de mauvais range (ex: "$gt" : "2014-04-25", "$lt" : "2014-04-24") la query sera considérée correcte, mais aucun résultat ne sera retourné.</li><li>Les dates dans VITAM étant la plupart du temps au format ISO, pour rechercher des Units ayant leur StartDate sur un jour donné, il convient donc d&#39;utiliser une Query range.</li></ul><h3 id="op-rateur-exists-test-d-existence-d-au-moins-une-valeur-non-nulle-dans-un-champ-">Opérateur $exists : test d&#39;existence d&#39;au moins une valeur non nulle dans un champ.</h3><p><strong>Format :</strong></p><ul><li><code>{ "$exists" : name }</code> : où name est le nom du champ à vérifier.</li></ul><p><strong>Exemples :</strong></p><p>L&#39;application de la requête suivante : <code>{ "$exists" : "Data" }</code> sélectionne les documents suivants :</p><pre><code class="lang-json">{ "Data": false }              /* Booléen */
+{ "Data": "2017-01-01" }       /* Date */
+{ "Data": "" }                 /* chaîne ou texte vide */
+{ "Data": "DATA" }             /* chaîne ou texte non vide */
+{ "Data": [ "DATA" ] }         /* Tableau contenant au moins une valeur non nulle */
+{ "Data": [ "DATA", null ] }   /* Tableau contenant au moins une valeur non nulle */
+</code></pre><p>L&#39;application de la même requête ( <code>{ "$exists" : "Data" }</code> ) ne sélectionne pas les documents suivants :</p><pre><code class="lang-json">{ "Data": null }               /* Champ null */
+{ "Data": [ ] }                /* Tableau vide */
+{ "Data": [ null ] }           /* Tableau vide */
+{ "PasDeChampData" }           /* Champ inexistant */
+</code></pre><h3 id="op-rateurs-in-nin-recherche-dans-une-liste-de-valeurs">Opérateurs $in, $nin : recherche dans une liste de valeurs</h3><p><strong>Format :</strong></p><ul><li><code>{ "$in"  : { name : [ value1, value2, ... ] } }</code> : où name est le nom du champ, valueN les valeurs recherchées. (Recherche de présence parmi les valeurs du tableau, IN).</li><li><code>{ "$nin" : { name : [ value1, value2, ... ] } }</code> : où name est le nom du champ, valueN les valeurs recherchées. (Recherche de non présence parmi les valeurs du tableau, NOT IN)</li></ul><p><strong>Exemples :</strong></p><pre><code class="lang-json">{ "$in"  : { "Identifier" : [ "CT-000001", "CT-000002" ] } }
+{ "$in"  : { "StartDate" : [ "2014-03-25", "2014-03-26" ] } }
+{ "$nin" : { "HierarchyLevel" : [ 1, 2 ] } }
+</code></pre><p><strong>Notes :</strong></p><ul><li>Ces opérateurs ne doivent être utilisés que pour les champs de type chaîne non analysée, date, nombre et booléen. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li><li>La comparaison doit se faire entre le même type. Le comportement dans le cas de types de données différents (par exemple comparer une date et un booléen) est non supporté.</li></ul><h2 id="op-rateur-wildcard-recherche-via-une-expression-g-n-rique">Opérateur $wildcard : recherche via une expression générique</h2><p>Recherche via une expression générique (wildcard).</p><p><strong>Format :</strong></p><ul><li><code>{ "$wildcard" : { name : expression } }</code> : où name est le nom du champ, expression l&#39;expression recherchée.</li></ul><p>Les wildcards autorisés dans <em>expression</em> sont :</p><ul><li><strong>« * »</strong> : qui correspond à toute séquence de caractères, vide inclus.</li><li><strong>« ? »</strong> : qui correspond à un caractères unique</li></ul><p><strong>Exemple :</strong> Recherche de tous les documents dont le champ DescriptionLevel commence par "Re" et se termine par "grp" :</p><pre><code class="lang-json">{ "$wildcard": { "DescriptionLevel": "Re*Grp" } }
+</code></pre><p><strong>Notes :</strong></p><ul><li>Les expressions génériques peuvent être très lentes et très coûteuses.</li><li>Cet opérateur ne doit être utilisé que pour les champs de type chaîne non analysée, date, nombre et booléen. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li></ul><h3 id="-regex-recherche-via-une-expression-r-guli-re">$regex : recherche via une expression régulière</h3><p>La syntaxe utilisée est celle du moteur d&#39;indexation elasticsearch.</p><p><strong>Format :</strong></p><ul><li><code>{ "$regex" : { name : regex } }</code> : où <em>name</em> est le nom du champ et <em>regex</em> l&#39;expression régulière recherchée.</li></ul><p><strong>Exemple :</strong> Recherche de tous les documents dont le champ Identifier commence par ABCD suivis par un ou plusieurs chiffres :</p><pre><code class="lang-json">{ "$wildcard": { "Identifier": "ABCD[0-9]+" } }
+</code></pre><p><strong>Notes :</strong></p><ul><li>Les expressions régulères peuvent être très lentes et très coûteuses.</li><li>Cet opérateur ne doit être utilisé que pour les champs de type chaîne non analysée, date, nombre et booléen. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li></ul><h3 id="op-rateurs-match-match_all-match_phrase-match_phrase_prefix-recherche-full-text">Opérateurs $match, $match_all, $match_phrase, $match_phrase_prefix : Recherche full-text</h3><p>Recherche plein texte sur des mots clés.</p><p><strong>Format :</strong></p><ul><li><code>$match : { name : words }</code> : où <em>name</em> est le nom du champ et <em>words</em> les mots recherchés, avec un opérator OR entre chaque mots. <em>$match</em> cherche donc <strong>au moins un</strong> mot spécifié dans les <em>words</em>, dans n&#39;importe quel ordre.</li><li><code>$match_all : { name : words }</code> où <em>name</em> est le nom du champ, <em>words</em> les mots recherchés, dans n&#39;importe quel ordre, avec un opérateur AND entre chaque mots. <em>$match_all</em> cherche <strong>tous</strong> les mots spécifiés dans les <em>words</em>, dans n&#39;importe quel ordre.</li><li><code>$match_phrase : { name : words }</code> où <em>name</em> est le nom du champ et <em>words</em> les mots recherchés, avec un opérator AND entre chaque mots. De plus <em>$match_phrase_prefix</em> cherche <strong>tous</strong> les mot spécifiés dans les <em>words</em> en tenant également compte de <strong>l&#39;ordre des mots</strong>.</li><li><code>$match_phrase_prefix : { name : words }</code> où <em>name</em> est le nom du champ et <em>words</em> les mots recherchés, avec un opérator AND entre chaque mots. De plus <em>$match_phrase_prefix</em> cherche <strong>tous</strong> les mot spécifiés dans les <em>words</em> en tenant également compte de <strong>l&#39;ordre des mots</strong>. La recherche sur le dernier mot est de type prefixe. Cet opérateur peut être particulièrement adapté à la recherche avec auto-complétion &#39;as you type&#39;.</li></ul><p><strong>Note :</strong></p><ul><li>Ces opérateurs ne doivent être utilisés que pour les champs de type texte analysé. Le comportement dans le cas d&#39;un champ de type chaîne non analysée, date, nombre, booléen ou null est non supporté.</li></ul><p><strong>Exemples :</strong></p><p>Recherche dans un champ "Title": "Voyez ce koala fou qui mange des journaux et des photos dans un bungalow"</p><p>Pour $match :</p><pre><code class="lang-json">{ "$match" : { "Title" : "koala fou" } }                      /* OK */
+{ "$match" : { "Title" : "fou koala" } }                      /* OK (pas d&#39;ordre des mots) */
+{ "$match" : { "Title" : "koala chocolat" } }                 /* OK (correspondance partielle) */
+{ "$match" : { "Title" : "Dessert chocolat" } }               /* KO (aucun mot trouvé) */
+</code></pre><p>Pour $match_all :</p><pre><code class="lang-json">{ "$match_all" : { "Title" : "koala fou" } }                  /* OK */
+{ "$match_all" : { "Title" : "fou koala" } }                  /* OK (pas d&#39;ordre des mots) */
+{ "$match_all" : { "Title" : "koala chocolat" } }             /* KO (Pas de correspondance partielle) */
+{ "$match_all" : { "Title" : "Dessert chocolat" } }           /* KO (Pas de correspondance) */
+</code></pre><p>Pour $match_phrase :</p><pre><code class="lang-json">{ "$match_phrase" : { "Title" : "koala fou" } }               /* OK */
+{ "$match_phrase" : { "Title" : "fou koala" } }               /* KO (l&#39;ordre des mots n&#39;est pas respecté) */
+{ "$match_phrase" : { "Title" : "koala chocolat" } }          /* KO (Pas de correspondance partielle) */
+{ "$match_phrase" : { "Title" : "Dessert chocolat" } }        /* KO (Pas de correspondance) */
+</code></pre><p>Pour $match_phrase_prefix</p><pre><code class="lang-json">{ "$match_phrase_prefix" : { "Title" : "koala fou" } }        /* OK */
+{ "$match_phrase_prefix" : { "Title" : "koala f" } }          /* OK (Correspondance avec préfixe sur le dernier terme) */
+{ "$match_phrase_prefix" : { "Title" : "fou koala" } }        /* KO (Ordre non respecté) */
+{ "$match_phrase_prefix" : { "Title" : "koala chocolat" } }   /* KO (Pas de correspondance partielle */
+{ "$match_phrase_prefix" : { "Title" : "Dessert chocolat" } } /* KO (Pas de correspondance) */
+</code></pre><h3 id="-search-recherche-approchante-avec-op-rateurs">$search : recherche approchante avec opérateurs</h3><p>Permet des recherches approchantes avec des expression exactes, des opérateurs ET / OU / NON, préfixes...</p><p><strong>Format :</strong> <code>{ "$search" : { name : searchParameter } }</code> : où <em>name</em> est le nom du champ, <em>searchParameter</em> est une expression de recherche.</p><p>L&#39;expression <em>searchParameter</em> peut être formulée avec les opérateurs suivants :</p><ul><li><strong>« + »</strong> signifie <strong>AND</strong></li><li><strong>« | »</strong> signifie <strong>OR</strong></li><li><strong>« - »</strong> signifie <strong>NOT</strong> (tout sauf)</li><li><strong>« " »</strong> signifie <strong>"expression exacte"</strong> (l&#39;ordre des mots est impératif dans la recherche)</li><li><strong>« ( »</strong> et <strong>« ) »</strong> signifie une précédence dans les opérateurs (priorisation des recherches <strong>AND</strong> et <strong>OR</strong>)</li><li><strong>« * »</strong> à la fin d&#39;un mot signifie une recherche par préfixe.<ul><li>La recherche est effecuté sur les racines des mots. En particulier, l&#39;utilisation du <strong>« * »</strong> empêche les recherches avec des accents. Ainsi un search de "éco*" ne trouvera pas "école", en revanche "eco" trouvera "école".</li><li>ne pas confondre avec l&#39;opérateur <strong>$wildcard</strong> qui permet de chercher des expression sur champs de type chaine non analysée.</li></ul></li><li><strong>« ~N »</strong> à la fin d&#39;un mot permet de réaliser une recherche approchante, <em>N</em> étant la distance d&#39;édition (nombre d&#39;insertions, de suppressions ou de substitutions nécessaires pour transformer un nom en un autre)</li><li><strong>« ~N »</strong> après une expression (encadrée par <strong>« * »</strong>) autorise des "trous" dans l&#39;expression recherchée, <em>N</em> étant le nombre de mots maximums autorisés pour la complétion</li></ul><p><strong>Important</strong> : Par défaut, <em>$search</em> effectue un OR entre chaque mot de l&#39;expression de recherche.</p><p><strong>Exemples :</strong></p><pre><code class="lang-json">{ "$search" : { "Title" : "alpha bravo charlie" } }             /* cherche un titre contenant au moins un mot entre alpha, bravo et charlie */
+{ "$search" : { "Title" : "alpha +bravo charlie" } }            /* cherche un titre contenant le mot bravo obligatoirement */
+{ "$search" : { "Title" : "+alpha -bravo" } }                   /* cherche un titre contenant le mot alpha ou ne contenant pas le mot bravo */
+{ "$search" : { "Title" : "+alpha +-bravo" } }                  /* cherche un titre contenant le mot alpha et ne contenant pas le mot bravo */
+{ "$search" : { "Title" : "+alpha -\"bravo charlie\"" } }       /* cherche un titre contenant le mot alpha et ne contenant pas l&#39;expression &#39;bravo charlie&#39; */
+{ "$search" : { "Title" : "+alpha +(bravo | charlie)" } }       /* cherche un titre contenant le mot alpha et contenant soit le mot bravo et/ou le mot charlie */
+</code></pre><p><strong>Note :</strong></p><ul><li>Cet opérateur ne doit être utilisé que pour les champs de type chaîne analysée. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li></ul><h3 id="cas-particuli-r-recherches-par-id">Cas particulièr : recherches par #id</h3><p>Un cas particulier est traité dans ce paragraphe, il s&#39;agit de la recherche par identifiant technique. Sur les différentes collections, le champ #id est un champ obligatoire peuplé par Vitam. Il s&#39;agit de l&#39;identifiant unique du document (unité archivistique, groupe d&#39;objets, différents référentiels...) représentée sous la forme d&#39;une chaîne de 36 caractères correspondant à un GUID. Il est possible de faire des requêtes sur ce champ, voici les opérateurs à privilégier dans ce cadre :</p><ul><li>{ <strong>"$eq" : { "#id" : value }</strong> } : où value est la valeur recherchée sous forme d&#39;un GUID</li><li>{ <strong>"$in" : { "#id" : [ value1, value2, ... ] }</strong> } : où valueN sont les valeurs recherchées sous forme de GUID.</li></ul><p>Il est aussi possible, mais moins recommandé, de faire :</p><ul><li>{ <strong>"$ne" : { "#id" : value }</strong> } : étant la recherche eq inversée</li><li>{ <strong>"$nin" : { "#id" : [ value1, value2, ... ] }</strong> } : étant la recherche in inversée</li></ul><p>L&#39;utilisation des autres opérateurs avec ce champ #id est non supportée.</p><h2 id="filtres">Filtres</h2><p>Les filtres permettent de spécifier des comportement additionnels à la recherce :</p><ul><li>$limit: le nombre maximum d&#39;items retournés (positionné à 10000 par défaut)</li><li>$offset: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li>$orderby: { fieldname: 1, fieldname: -1 } : permet de définir un tri ascendant (1) ou descendant (-1).<ul><li>Pour un champ non analysé : l&#39;ordre est lexicographique pour un texte, l&#39;ordre est naturel pour un champ date ou nombre</li><li>Pour un champ analysé (plein texte), le tri n&#39;est pas lexicographique mais basé sur le score de correspondance</li><li>L&#39;ordre de déclaration des tris est respectés dans la réponse</li></ul></li></ul><p><strong>Note :</strong> Le nombre de résultats ne doit être être trop important (<strong>$limit</strong> + <strong>$offset</strong> &gt; 10000+) au risque d&#39;un comportement de recherche non déterminé.</p><h2 id="projections">Projections</h2><p>Par défaut, les requêtes de recherche DSL renvoient tous les champs des documents. Ce qui correspond à un <code>SELECT *</code> dans le language SQL.</p><p>Cependant, il est fortement recommandé de limiter les champs à retourner en les spécifiant dans la section <strong>$projection</strong>. Ce qui correspond au <code>SELECT X, Y, Z</code> dans le langage SQL.</p><pre><code class="lang-json">{
+  "$projection": {
+    "$fields": {
+      "Champ1": 1,
+      "Champ2": 1
+    }
+  }
+}
+</code></pre><p>La valeur <strong>1</strong> indique que le champ est activé (renvoyé au client). Toute autre valeur est non supportée.</p><p><strong>Exemple :</strong> Pour ne renvoyer que les champs Title et Description</p><pre><code class="lang-json">{
+  "$projection": {
+    "$fields": {
+      "Title": 1,
+      "Description": 1
+    }
+  }
+}
+</code></pre><p><strong>Remarque :</strong></p><ul><li>Pour la collection <em>unit</em>, il est possible de demander la construction de l&#39;ensemble des règles héritées en utilisant une projection <em>spéciale</em> <strong>$rules</strong>. Si cette projection est utilisée, l&#39;ensemble des champs de l&#39;unité archivistique est remonté. Cette projection ne devrait être utilisée que dans le point d&#39;API <em>/units/{id}</em> (GET BY ID).</li></ul><pre><code class="lang-json">{
+  "$projection": { "$fields": { "$rules": 1 } }
+}
+</code></pre><h2 id="actions">Actions</h2><p>Dans le cas d&#39;un update, les opérateurs suivants sont utilisables</p><table class="table"><thead><tr><th>Opérateur</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>Crée ou modifie la valeur d&#39;un ou plusieurs champs</td></tr><tr><td>$unset</td><td>Supprime un ou plusieurs champs</td></tr></tbody></table><h1 id="response">Response</h1><p>Une réponse est composée de plusieurs parties :</p><ul><li><strong>$hits</strong>:<ul><li><strong>limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut)</li><li><strong>offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li><strong>total</strong>: le nombre total potentiel (estimation) des résultats possibles</li><li><strong>size</strong>: le nombre réel d&#39;items retournés</li></ul></li><li><strong>$context</strong>: rapelle la requête exprimée</li><li><strong>$results</strong>: contient le résultat de la requête sous forme d&#39;une liste d&#39;items</li></ul><h2 id="exemples">Exemples</h2><h3 id="r-ponse-pour-units">Réponse pour Units</h3><pre><code class="lang-json">{
+  "$hits": {
+    "total": 3,
+    "size": 3,
+    "offset": 0,
+    "limit": 100
+  },
+  "$context": {
+    "$roots": [ "GUID0" ],
+    "$query": [
+      { "$match": { "Title": "titre" }, "$depth": 4 }
+    ],
+    "$filter": { "$limit": 100 },
+    "$projection": { "$fields": { "#id": 1, "Title": 1 } },
+  },
+  "$results": [
+    { "#id": "GUID1", "Title": "titre 1" },
+    { "#id": "GUID2", "Title": "titre 2" },
+    { "#id": "GUID3", "Title": "titre 3" }
+  ]
+}
+</code></pre><h2 id="r-ponse-en-cas-d-erreurs">Réponse en cas d&#39;erreurs</h2><p>En cas d&#39;erreur, Vitam retourne un message d&#39;erreur dont le format est :</p><ul><li><strong>httpCode</strong> : code erreur Http</li><li><strong>code</strong> : code erreur Vitam</li><li><strong>context</strong> : contexte de l&#39;erreur</li><li><strong>state</strong> : statut en format de message court sous forme de code</li><li><strong>message</strong> : statut en format de message court</li><li><strong>description</strong> : statut détaillé</li><li><strong>errors</strong> : le cas échéant des sous-erreurs associées avec le même format</li></ul><h3 id="exemple-de-retour-en-erreur">Exemple de retour en erreur</h3><pre><code class="lang-json">{
+  "httpCode": 404,
+  "code": "404",
+  "context": "ADMIN_EXTERNAL",
+  "state": "code_vitam",
+  "message": "Not Found",
+  "description": "Access contract not found with id: GUID0"
+}
+</code></pre><h1 id="champs-texte-analys-s-et-non-analys-s">Champs texte analysés et non analysés</h1><p>Il existe 2 types de champs texte indexés sur le moteur d&#39;indexation elasticsearch :</p><ul><li><strong>Les champs analysés :</strong> Ces champs sont analysés syntaxiquement par le moteur d&#39;indexation (full-text). Par exemple, les champs <em>Description</em>, <em>Name</em>.</li><li><strong>Les champs non analysés :</strong> Ces champs ne sont pas analysés par le moteur d&#39;indexation (exact match). Par exemple, les champs <em>Identifier</em> ou <em>OriginatingAgency</em>.</li></ul><p>La liste complète des champs analysés et non analysés est disponible dans la documentation du modèle de données.</p><h1 id="champs-sp-ciaux">Champs spéciaux</h1><p>Des champs sont protégés dans les requêtes :</p><ul><li>Il est interdit d&#39;exprimer un champ qui démarre par un <em>&#39;_&#39;</em></li><li>La plupart de ces champs protégés sont interdits à la modification. Ils ne sont utilisables que dans la partie <em>$projection</em> ou <em>$query</em> mais pas dans la partie <em>$action</em></li><li>Communs Units et Objects<ul><li><strong>#id</strong> est l&#39;identifiant de l&#39;item</li><li><strong>#unitups</strong> est la liste des Units parents</li><li><strong>#tenant</strong> est le tenant associé</li><li><strong>#operations</strong> est la liste des opérations qui ont opéré sur cet élément</li><li><strong>#originating_agency</strong> est l&#39;OriginatingAgency su SIP d&#39;origine</li><li><strong>#originating_agencies</strong> est l&#39;ensemble des OriginatingAgencies issues du SIP et des rattachements (héritage)</li><li><strong>#storage</strong> est l&#39;état de stockage</li><li><strong>#score</strong> contiendra en cas de requête avec plein texte le score de pertinence (certaines collections n&#39;auront pas ce champ)</li><li><strong>#version</strong> version du document</li></ul></li><li>Spécifiques pour les Units<ul><li><strong>#unittype</strong> est la typologie du Unit (Arbre HOLLDING_UNIT, Plan FILING_UNIT ou ArchiveUnit INGEST)</li><li><strong>#nbunits</strong> est le nombre de fils immédiats à un Unit donné</li><li><strong>#object</strong> est l&#39;objet associé à un Unit (s&#39;il existe)</li><li><strong>#type</strong> est le type d&#39;item (Document Type)</li><li><strong>#allunitups</strong> est l&#39;ensemble des Units parents (depuis les racines)</li><li><strong>#management</strong> est la partie règles de gestion associées au Unit (ce champ est autorisée à être modifiée et donc dans <em>$action</em>)</li><li><strong>#min</strong> : est la profondeur minimum de l’unité archivistique par rapport à une racine.</li><li><strong>#max</strong> : est la profondeur maximale de l’unité archivistique par rapport à une racine.</li></ul></li><li>Spécifiques pour les Objects<ul><li><strong>#type</strong> est le type d&#39;item (Type d&#39;Objet : Document, Audio, Video, Image, Text, ...)</li><li><strong>#nbobjects</strong> est le nombre d&#39;objets binaires (usages/version) associé à cet objet</li><li><strong>#qualifiers</strong> est la liste des qualifiers disponibles<ul><li>Les "qualifiers" disponibles pour les objets :<ul><li><strong>PhysicalMaster</strong> pour original physique</li><li><strong>BinaryMaster</strong> pour conservation</li><li><strong>Dissemination</strong> pour la version de diffusion compatible avec un accès rapide et via navigateur</li><li><strong>Thumbnail</strong> pour les vignettes pour les affichages en qualité très réduite et très rapide en "prévue"</li><li><strong>TextContent</strong> pour la partie native texte (ASCII UTF8)</li></ul></li><li>Un raccourci exite : <strong>#usage</strong></li></ul></li><li><strong>#size</strong> est la taille d&#39;un objet</li><li><strong>#format</strong> est le format (PUID) d&#39;un objet</li></ul></li></ul><h3 id="exemple_dsl_vitam"><a href="#exemple_dsl_vitam">Exemple DSL Vitam</a></h3><p>Cette partie va essayer de montrer quelques exemples d&#39;usages du DSL dans différentes conditions.</p><h1 id="cas-du-sip-1069_ok_rules_complexe_complete-zip">Cas du SIP 1069_OK_RULES_COMPLEXE_COMPLETE.zip</h1><ul><li>Je cherche l&#39;AU dont le titre est Botzaris (Title = Botzaris)</li></ul><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    { "$match": { "Title": "Botzaris" } }
+  ],
+  "$filter": {
+    "$orderby": { "TransactedDate": 1 }
+  },
+  "$projection": { }
+}
+</code></pre><ul><li>Je cherche les AU qui ne seront pas communicables au 01/01/2018 (= les AU qui ont une AccesRule avec une EndDate postérieure au 01/01/2018)</li></ul><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    { "$gt": { "#management.AccessRule.Rules.EndDate": "2018-01-01" } }
+  ],
+  "$filter": {
+    "$orderby": { "TransactedDate": 1 }
+  },
+  "$projection": {
+    "$fields": { "#id": 1, "Title": 1 }
+  }
+}
+</code></pre><ul><li>Je cherche les AU qui ont une AppraisalRule avec sort final = Destroy</li></ul><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    { "$eq": { "#management.AppraisalRule.FinalAction": "Destroy" } }
+  ],
+  "$filter": {
+    "$orderby": {
+      "TransactedDate": 1
+    },
+    "$limit": 100
+  },
+  "$projection": {
+    "$fields": {
+        "$rules" : 1, "Title" : 1
+    }
+  }
+}
+</code></pre><h1 id="cas-du-sip-mercier-zip">Cas du SIP Mercier.zip</h1><ul><li>Je cherche dans le dossier Sénat (Title = Sénat), les discours prononcés lors de la relative au défenseur des droits (Title = défenseur). <strong>Recherche mono-requête</strong></li></ul><p>Chercher l&#39;AU avec pour titre "Sénat"</p><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    {
+      "$and": [
+        { "$match": { "Title": "Sénat" } },
+        { "$eq": { "DescriptionLevel": "File" } }
+      ]
+    }
+  ],
+  "$filter": { },
+  "$projection":  { "$fields": { "#id": 1 } }
+}
+</code></pre><p>Puis, à partir de l&#39;AU trouvée (#id=GUID1), rechercher les sous AU avec Title = défenseur</p><pre><code class="lang-json">{
+  "$roots": [ "GUID1" ],
+  "$query": [
+    {
+      "$match": { "Title": "défenseur" },
+      "$depth": 1
+    }
+  ],
+  "$filter": { },
+  "$projection":  { }
+  }
+}
+</code></pre><ul><li>Je cherche dans le dossier Sénat (Title = Sénat), les discours prononcés lors de la relative au défenseur des droits (Title = défenseur). <strong>Recherche multi-requêtes - Expérimental</strong></li></ul><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [
+    {
+      "$and": [
+        { "$match": { "Title": "Sénat" } },
+        { "$eq": { "DescriptionLevel": "File" } }
+      ]
+    },
+    {
+      "$match": { "Title": "défenseur" },
+      "$depth": 1
+    }
+  ],
+  "$filter": {
+    "$orderby": { "TransactedDate": 1 }
+  },
+  "$projection": { }
+  }
+}
+</code></pre></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"></ul></div></div></div></div></body></html>

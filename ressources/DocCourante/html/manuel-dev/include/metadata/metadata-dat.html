@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DAT : module metadata &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>DAT : module metadata &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Metadata" href="_toc.html"/>
         <link rel="next" title="Métadata" href="metadata-user-client.html"/>
         <link rel="prev" title="Métadata - Introduction" href="metadata-introduction.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -96,10 +96,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Metadata</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="metadata-introduction.html">Métadata - Introduction</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">DAT : module metadata</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DAT : module metadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules-et-packages">Modules et packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes-metiers">Classes métiers</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html">Métadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html#utilisation">Utilisation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata-api-rest-raml.html">Métadata : API REST Raml</a></li>
@@ -107,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html#utilisation">Utilisation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata-tenant.html">Métadata-tenant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata-inherited-rule.html">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-sync.html">Désynchronisation des bases de données</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -117,13 +123,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -181,32 +184,45 @@ metadata qui identifié par la user story #70, qui contient :</p>
 <li>classes métiers</li>
 </ul>
 <hr class="docutils" />
-<ol class="arabic simple">
-<li>Modules et packages</li>
-</ol>
+<div class="section" id="modules-et-packages">
+<h2>Modules et packages<a class="headerlink" href="#modules-et-packages" title="Lien permanent vers ce titre">¶</a></h2>
 <p>metadata</p>
-<blockquote>
-<div><a href="#id1"><span class="problematic" id="id2">|</span></a>&#8212; metadata-api     : définir des APIs de traitement des requêtes un utilisant  la base de données choisie
-<a href="#id3"><span class="problematic" id="id4">|</span></a>&#8212; metadata-core    : implémentation des APIs
-<a href="#id5"><span class="problematic" id="id6">|</span></a>&#8212; metadata-rest    : le serveur REST de métadata qui donnes des traitement sur les requêtes DSL
-<a href="#id7"><span class="problematic" id="id8">|</span></a>&#8212; metadata-client  : client métadata qui sera utilisé par les autres modules pour faire des requête DSL sur le métadata</div></blockquote>
-<ol class="arabic simple" start="2">
-<li>Classes métiers</li>
-</ol>
+<ul class="simple">
+<li>metadata-api     : définir des APIs de traitement des requêtes un utilisant  la base de données choisie</li>
+<li>metadata-core    : implémentation des APIs</li>
+<li>metadata-rest    : le serveur REST de métadata qui donnes des traitement sur les requêtes DSL</li>
+<li>metadata-client  : client métadata qui sera utilisé par les autres modules pour faire des requête DSL sur le métadata</li>
+</ul>
+</div>
+<div class="section" id="classes-metiers">
+<h2>Classes métiers<a class="headerlink" href="#classes-metiers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans cette section, nous présentons quelques classes principales dans des modules/packages qu&#8217;on a abordé ci-dessus.</p>
-<p>metadata-api :</p>
-<p>-MetaData.java : définir des interface métiers pour le métadata</p>
-<p>metadata-core :</p>
-<p>-MetaDataImpl.java : implémenter des fonctionnalités de traitement sur le métadata, pré-défini dans -MetaData.java</p>
-<p>metadata-rest</p>
+<div class="section" id="metadata-api">
+<h3>metadata-api<a class="headerlink" href="#metadata-api" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li>MetaDataRessource.java : définir des ressources différentes pour le serveur REST métadata</li>
-<li>MetaDataApplication.java : créer &amp; lancer le serveur d&#8217;application avec une configuration</li>
+<li><code class="docutils literal"><span class="pre">MetaData.java</span></code> : définir des interface métiers pour le métadata</li>
 </ul>
-<p>metadata-client</p>
+</div>
+<div class="section" id="metadata-core">
+<h3>metadata-core<a class="headerlink" href="#metadata-core" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li>MetaDataClient.java : créer le client et des fonctionnalités en se connectant au serveur REST</li>
+<li><code class="docutils literal"><span class="pre">MetaDataImpl.java</span></code> : implémenter des fonctionnalités de traitement sur le métadata, pré-défini dans -MetaData.java</li>
 </ul>
+</div>
+<div class="section" id="metadata-rest">
+<h3>metadata-rest<a class="headerlink" href="#metadata-rest" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MetaDataRessource.java</span></code> : définir des ressources différentes pour le serveur REST métadata</li>
+<li><code class="docutils literal"><span class="pre">MetaDataApplication.java</span></code> : créer &amp; lancer le serveur d&#8217;application avec une configuration</li>
+</ul>
+</div>
+<div class="section" id="metadata-client">
+<h3>metadata-client<a class="headerlink" href="#metadata-client" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MetaDataClient.java</span></code> : créer le client et des fonctionnalités en se connectant au serveur REST</li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -250,7 +266,7 @@ metadata qui identifié par la user story #70, qui contient :</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

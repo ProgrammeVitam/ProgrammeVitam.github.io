@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Ressources
 fatherref: ressources
@@ -22,17 +22,18 @@ Ils sont accessibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.
 * **les paquets de déploiement** 
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM 
-pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de 
-tests. Ils sont accessibles sur BinTray [{{ site.bintray.repo }}]({{ site.bintray.repo }}).
+pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests. 
+
+Liens de téléchargement:
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam/repo_vitam_1.0.0/rpm/vitam-product/)/[deb](http://download.programmevitam/repo_vitam_1.0.0/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam/repo_vitam_1.0.0/rpm/vitam-external/)/[deb](http://download.programmevitam/repo_vitam_1.0.0/deb/vitam-external/)).
 
 * **une machine virtuelle**
 
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement. 
 
-Elle est accessible sur <https://drive.google.com/open?id=1NPL7sfOqdzwCmKfKsQMPfSz_aJB69XUt>
-
-Une empreinte sha256 permet de vérifier l'intégrité du fichier ova : <http://download.programmevitam.fr/demo_vitam_0.26.1-1/demo_vitam_0.26.1-1.sha256>
+Sa publication interviendra dans quelques jours.
 
 * **la documentation fonctionnelle et technique**
 
@@ -43,14 +44,13 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 <https://github.com/ProgrammeVitam/vitam/releases>
 
 
-## Des exemples de référentiels et contrats
+## Des exemples d'usage
 
-Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/Vitam_Documentation_Kit_de_prise_en_main.pdf))
+Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiels et paquets SIP:
 
-* **Contrat d'accès** ([json](/ressources/RefCourant/exemple_contrat_acces_tous_droits.json))
-* **Contrat d'entrée** ([json](/ressources/RefCourant/exemple_contrat_entree.json))
-* **Référentiel Agents** ([csv](/ressources/RefCourant/exemple_referentiel_agents.csv))
-* **Référentiel des règles de gestion** ([csv](/ressources/RefCourant/exemple_referentiel_regles.csv))
+* **Fichiers d'exemples du kit de prise en main** ([zip](http://download.programmevitam.fr/repo_vitam_1.0.0/tests/20180320-Jeu_de_tests_Kit_de_prise_en_main.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/20180320_Vitam_Kit_de_prise_en_main_V3.0.pdf))
+
+* **Fichiers de test du cahier de tests** ([zip](http://download.programmevitam.fr/repo_vitam_1.0.0/tests/20180320-Jeux_de_tests_fonctionnels_RELEASE6.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/20180320_Vitam_Cahier_de_tests_metiers.pdf))
 
 
 ## Outils complémentaires Vitam - toutes versions publiées

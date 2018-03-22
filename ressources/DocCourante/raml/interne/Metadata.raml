@@ -30,8 +30,8 @@ documentation:
   - title: Licence
     content: !include docs-fr/license.md
 
-  - title: API Access
-    content: TODO
+  - title: API Metadata
+    content: API Metadata
 
 /units:
   displayName: ArchiveUnits
@@ -146,6 +146,31 @@ documentation:
     delete:
       description: Request to delete one ObjectGroup
       is: [AccessTraits.AccessDeleteObjectResponse]
+
+/raw:
+  displayName: Raw
+  description: |
+    API d'accès aux métadonnées en mode brut (pas de traduction Vitam).
+
+  /units/{id_unit}:
+    displayName: Unit access by id
+    description:  |
+     Récupère un Unit.
+
+    get:
+      description : |
+        Get a Unit
+      is: [AccessTraits.AccessUnitRawResponse]
+
+  /objectgroups/{id_og}:
+    displayName: Object Group access by id
+    description:  |
+     Récupère un Groupe d'Objet.
+
+    get:
+      description : |
+        Get an Object
+      is: [AccessTraits.AccessObjectRawResponse]
 
 /status:
   get:

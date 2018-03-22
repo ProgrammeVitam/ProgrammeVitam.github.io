@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’entrée d’un plan de classement &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Workflow d’entrée d’un plan de classement &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="INGEST" href="_toc_ingest.html"/>
         <link rel="next" title="MASTERDATA" href="../masterdata/_toc_masterdata.html"/>
         <link rel="prev" title="Workflow d’entrée" href="workflow.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -106,7 +106,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -158,7 +158,6 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette section décrit le processus d&#8217;entrée d&#8217;un plan de classement dans la solution logicielle Vitam. La structure d&#8217;un plan de classement diffère de celle d&#8217;un SIP par l&#8217;absence d&#8217;objet et de vérification par rapport à un profil d&#8217;archivage. Il s&#8217;agit plus simplement d&#8217;une arborescence représentée par des unités archivistiques. Ce processus partage donc certaines étapes avec celui du transfert d&#8217;un SIP classique, en ignore certaines et rajoute des tâches additionnelles.</p>
-<p>Le workflow actuel mis en place dans la solution logicielle Vitam est défini dans le fichier &#8220;DefaultFilingSchemeWorkflow.json&#8221;. Ce fichier est disponible dans : sources/processing/processing-management/src/main/resources/workflows.</p>
 </div>
 <div class="section" id="processus-d-entree-d-un-plan-de-classement-vision-metier">
 <h2>Processus d&#8217;entrée d&#8217;un plan de classement (vision métier)<a class="headerlink" href="#processus-d-entree-d-un-plan-de-classement-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
@@ -168,25 +167,20 @@
 <h3>Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE<a class="headerlink" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage" title="Lien permanent vers ce titre">¶</a></h3>
 <ul>
 <li><p class="first">Vérification de la non existence d&#8217;objets (CHECK_NO_OBJECT)</p>
-<ul>
-<li><p class="first"><strong>Règle</strong> : vérification qu&#8217;il n&#8217;y a pas d&#8217;objet numérique dans le bordereau de transfert du plan</p>
-</li>
-<li><p class="first"><strong>Statuts</strong> :</p>
+<ul class="simple">
+<li><strong>Règle</strong> : vérification qu&#8217;il n&#8217;y a pas d&#8217;objet numérique dans le bordereau de transfert du plan</li>
+<li><strong>Statuts</strong> :</li>
+</ul>
 <blockquote>
 <div><ul class="simple">
 <li>OK : aucun objet numérique n&#8217;est présent dans le bordereau de transfert (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.OK=Succès de la vérification de l&#8217;absence d&#8217;objet)</li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
 <li>KO : des objets numériques sont présent dans le bordereau de transfert (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.KO=Échec de la vérification de l&#8217;absence d&#8217;objet : objet(s) trouvé(s))</li>
 <li>FATAL : une erreur technique est survenue lors de la vérification de la non existence d&#8217;objet numérique (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.FATAL=Erreur fatale lors de la vérification de l&#8217;absence d&#8217;objet)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
+<p>Le workflow actuel mis en place dans la solution logicielle Vitam est défini dans le fichier &#8220;DefaultFilingSchemeWorkflow.json&#8221;. Ce fichier est disponible dans : sources/processing/processing-management/src/main/resources/workflows.</p>
 <p>D&#8217;une façon synthétique, le workflow est décrit de cette façon :</p>
 <img alt="../_images/Workflow_FilingScheme.png" class="align-center" src="../_images/Workflow_FilingScheme.png" />
 </div>
@@ -234,7 +228,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

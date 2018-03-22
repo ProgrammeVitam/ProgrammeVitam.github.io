@@ -3,7 +3,7 @@ VITAM
 #####
 
 
-.. image:: public/images/LogoDetoure.png
+.. image:: public/images/LogoV2.png
         :alt: Logo Vitam
         :align: center
 

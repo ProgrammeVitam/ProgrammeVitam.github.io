@@ -26,7 +26,7 @@ publique » du Programme d’investissements d’avenir (PIA) ;
 Le programme Vitam a 3 objectifs, soutenus par 5 projets :
 
 * La réalisation de la solution logicielle libre Vitam d’archivage numérique permettant la prise en charge, la conservation et la consultation sécurisée de très gros volumes d’archives numériques définitives, intermédiaires, voire courantes ;
-* La mise en place de plate-formes d’archivage utilisant la solution logicielle Vitam, dans chacun des trois ministères, via les projets ministériels : Saphir (MAEDI), Adamant (MCC/Archives nationales) et ArchiPél NG (MinDef) ;
+* La mise en place de plate-formes d’archivage utilisant la solution logicielle Vitam, dans chacun des trois ministères, via les projets ministériels : Saphir (MAEDI), Adamant (MCC/Archives nationales) et Archipel (MinDef) ;
 * La diffusion et la réutilisation la plus large de la solution logicielle Vitam, en favorisant et fédérant l’ensemble des actions de soutien financier, de sensibilisation et d’accompagnement en matière d’archivage numérique au-delà des trois ministères porteurs du programme, via le projet Ad-Essor (MCC/Service interministériel des Archives de France).
 
 ## Le manifeste Agile de la solution logicielle

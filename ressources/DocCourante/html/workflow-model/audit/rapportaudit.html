@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rapport d’audit &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Rapport d’audit &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,10 +33,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="AUDIT" href="_toc_audit.html"/>
         <link rel="next" title="DIP" href="../dip/_toc_dip.html"/>
-        <link rel="prev" title="Workflow de l’audit de l’existence des fichiers" href="workflow_audit_file_existing_integrity.html"/> 
+        <link rel="prev" title="Workflow de l’audit de l’existence et de l’intégrité des fichiers" href="workflow_audit_file_existing_integrity.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -92,9 +92,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc_audit.html">AUDIT</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="workflow-check-traceability.html">Workflow de contrôle d&#8217;intégrité d&#8217;un journal sécurisé</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_existing_integrity.html">Workflow de l&#8217;audit de l&#8217;existence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_existing_integrity.html">Workflow de l&#8217;audit de l&#8217;existence et de l&#8217;intégrité des fichiers</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Rapport d&#8217;audit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json">Exemple de JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-rapport-d-audit-ko">Exemple de JSON : rapport d&#8217;audit KO</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#partie-master">Partie &#8220;Master&#8221;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#liste-des-operations-auditees-source">Liste des opérations auditées (&#8220;source&#8221;)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#liste-des-anomalies-detectees-generant-un-ko-auditko">Liste des anomalies détectées générant un KO (&#8220;auditKO&#8221;)</a></li>
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ingest/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -157,8 +157,8 @@
   <div class="section" id="rapport-d-audit">
 <h1>Rapport d&#8217;audit<a class="headerlink" href="#rapport-d-audit" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Le rapport d&#8217;audit est un fichier JSON généré par la solution logicielle Vitam lorsqu&#8217;une opération d&#8217;audit se termine. Cette section décrit la manière dont ce rapport est structuré.</p>
-<div class="section" id="exemple-de-json">
-<h2>Exemple de JSON<a class="headerlink" href="#exemple-de-json" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="exemple-de-json-rapport-d-audit-ko">
+<h2>Exemple de JSON : rapport d&#8217;audit KO<a class="headerlink" href="#exemple-de-json-rapport-d-audit-ko" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;tenant&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
    <span class="nt">&quot;auditOperationId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaakgtg6rzaahd4ak6od5brxaaaaaq&quot;</span><span class="p">,</span>
@@ -171,37 +171,37 @@
    <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;FRAN_NP_009913&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;FRAN_NP_009913&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakeuctkoabjgkak6lowhh6yaaaaq&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;RATP&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;RATP&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakhu4m3aaaz2aak6loy4jxqaaaaq&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;RATP&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;RATP&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakhu4m3aaaz2aak6lo2shsiaaaaq&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;OBJ_KO&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;OBJ_KO&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakhfetkwabvlcak6lso7c7aaaaaq&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;PROD_AUDIT_KO_2OBJ_1GO&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;PROD_AUDIT_KO_2OBJ_1GO&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakhfetkwabvlcak6lsvp75aaaaaq&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;PROD_OBJ_PHYSIQUE&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;PROD_OBJ_PHYSIQUE&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakfuavsrab2diak6mdzyw6aaaaaq&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
          <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;agIdOrig&quot;</span><span class="p">:</span> <span class="s2">&quot;SP_SANS_OBJ&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;SP_SANS_OBJ&quot;</span><span class="p">,</span>
          <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaakfuavsrab2diak6mdz7rraaaaaq&quot;</span>
       <span class="p">}</span>
    <span class="p">],</span>
@@ -259,11 +259,11 @@
 <div class="section" id="liste-des-operations-auditees-source">
 <h2>Liste des opérations auditées (&#8220;source&#8221;)<a class="headerlink" href="#liste-des-operations-auditees-source" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La liste des opérations auditées est une liste d&#8217;identifiant d&#8217;opérations d&#8217;ingest. Il s&#8217;agit des opérations à l&#8217;origine de la création des groupes d&#8217;objets qui ont été audités. Chaque groupe n&#8217;a par nature qu&#8217;une et une seule opération à l&#8217;origine de sa création. En partant de ces opérations, il est donc possible de retrouver l&#8217;ensemble des groupes d&#8217;objets qui ont été audités.</p>
-<p>Au travers ces identifiants d&#8217;opérations, cette liste recense exhaustivement les groupes d&#8217;objets audités et ne présume en rien le succès ou l&#8217;échec de l&#8217;audit par rapport à ceux-ci.</p>
+<p>Au travers de ces identifiants d&#8217;opérations, cette liste recense exhaustivement les groupes d&#8217;objets audités et ne présume en rien le succès ou l&#8217;échec de l&#8217;audit par rapport à ceux-ci.</p>
 <p>Cette partie est construite autour des champs suivants :</p>
 <ul class="simple">
-<li>&#8220;_tenant&#8221;: identifiant du tenant sur lequel l&#8217;opération s&#8217;est déroulée</li>
-<li>&#8220;agIdOrig&#8221;: identifiant du service producteur relatif à cette opération</li>
+<li>&#8220;#tenant&#8221;: identifiant du tenant sur lequel l&#8217;opération s&#8217;est déroulée</li>
+<li>&#8220;OriginatingAgency&#8221;: identifiant du service producteur relatif à cette opération</li>
 <li>&#8220;evIdProc&#8221;: identifiant de l&#8217;opération étant à l&#8217;origine de la création du groupe d&#8217;objet audité</li>
 </ul>
 </div>
@@ -295,7 +295,7 @@
         <a href="../dip/_toc_dip.html" class="btn btn-neutral float-right" title="DIP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="workflow_audit_file_existing_integrity.html" class="btn btn-neutral" title="Workflow de l’audit de l’existence des fichiers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="workflow_audit_file_existing_integrity.html" class="btn btn-neutral" title="Workflow de l’audit de l’existence et de l’intégrité des fichiers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -326,7 +326,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

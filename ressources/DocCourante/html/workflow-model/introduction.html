@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Introduction &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Recherche" href="search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="index.html"/>
         <link rel="next" title="AUDIT" href="audit/_toc_audit.html"/>
         <link rel="prev" title="VITAM - Modèle de workflow" href="index.html"/> 
 
@@ -58,7 +58,7 @@
 
           
             
-            <img src="_static/LogoVitamGrand2.png" class="logo" />
+            <img src="_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -100,7 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ingest/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="masterdata/_toc_masterdata.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -155,8 +155,8 @@
 <h2>Objectif du document<a class="headerlink" href="#objectif-du-document" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce document a pour objectif de présenter les différents processus employés par la solution logicielle Vitam.
 Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux archivistes souhaitant une connaissance plus avancée du logiciel ainsi qu&#8217;aux développeurs.</p>
-<p>Il explicite chaque processus (appellés également &#8220;workflow&#8221;), et pour chacun leurs tâches, traitements et actions.</p>
-<p>Ce document comprend également du matériel additionnel pour faciliter la compréhension des processus comme des fiches récaputilatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.</p>
+<p>Il explicite chaque processus (appelés également &#8220;workflow&#8221;), et pour chacun leurs tâches, traitements et actions.</p>
+<p>Ce document comprend également du matériel additionnel pour faciliter la compréhension des processus comme des fiches récapitulatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.</p>
 </div>
 <div class="section" id="description-d-un-processus">
 <h2>Description d&#8217;un processus<a class="headerlink" href="#description-d-un-processus" title="Lien permanent vers ce titre">¶</a></h2>
@@ -170,23 +170,25 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 <p>Chaque étape, chaque action peuvent avoir les statuts suivants :</p>
 <ul class="simple">
 <li>OK : le traitement associé s&#8217;est passé correctement. Le workflow continue.</li>
-<li>Warning : le traitement associé a généré un avertissement (par exemple le format de l&#8217;objet est mal déclaré dans le bordereau de transfert). Le workflow continue.</li>
+<li>WARNING : le traitement associé a généré un avertissement (par exemple le format de l&#8217;objet est mal déclaré dans le bordereau de transfert). Le workflow continue.</li>
 <li>KO : le traitement associé a généré une erreur métier. Le workflow s&#8217;arrête si le modèle d&#8217;exécution est bloquant (cf. ci-dessous).</li>
-<li>FATAL : le traitement associé a généré une erreur technique. Le workflow s&#8217;arrête.</li>
+<li>FATAL : le traitement associé a généré une erreur technique. Le workflow se met en pause.</li>
 </ul>
+<p>Un workflow peut être terminé, en cours d&#8217;exécution ou être en pause. Un workflow en pause représente le processus arrêté à une étape donnée. Chaque étape peut être mise en pause : ce choix dépend du mode de versement (le mode pas à pas marque une pause à chaque étape), ou du statut (le statut FATAL met l&#8217;étape en pause). Les workflows en pause sont visibles dans l&#8217;IHM dans l&#8217;écran &#8220;Gestion des opérations&#8221;.</p>
+<p>Lorsque le statut FATAL survient à l&#8217;intérieur d&#8217;une étape (par exemple dans une des tâches ou un des traitements de l&#8217;étape), c&#8217;est toute l&#8217;étape qui est mise en pause. Si cette étape est rejouée, les objets déjà traités avant le fatal ne sont pas traités à nouveau : le workflow reprend exactement là où il s&#8217;était arrêté et commence par rejouer l&#8217;action sur l&#8217;objet qui a provoqué l&#8217;erreur.</p>
 <p>Chaque action peut avoir les modèles d&#8217;exécutions suivants (toutes les étapes sont par défaut bloquantes) :</p>
 <ul>
 <li><p class="first">Bloquant</p>
 <blockquote>
 <div><ul class="simple">
-<li>Si une action est identifiée en erreur, l&#8217;action et l&#8217;étape en cours sont alors arrêtées dans un statut &#8220;KO&#8221; ou &#8220;fatal&#8221; et le workflow passe à l&#8217;étape suivante. Dans certains cas, il est directement terminé en erreur alors que dans d&#8217;autres, il passe à une étape de finalisation. Ces comportements spécifiques sont décrits dans chaque workflow.</li>
+<li>Si une action bloquante est identifiée en erreur, le workflow est alors arrêté en erreur. Seules actions nécessaire à l&#8217;arrête du workflow sont alors éxecutées.</li>
 </ul>
 </div></blockquote>
 </li>
 <li><p class="first">Non bloquant</p>
 <blockquote>
 <div><ul class="simple">
-<li>Si une action est identifiée en erreur, elle passe en erreur puis le reste des actions de l&#8217;étape en cours est exécuté. Dans certains cas, le workflow est directement terminé en erreur alors que dans d&#8217;autres, il passe à une étape de finalisation. Dans les deux cas  Ces comportements spécifiques sont décrits dans chaque workflow.</li>
+<li>Si une action non bloquante est identifiée en erreur, elle seule sera en erreur et le workflow continuera normalement.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -195,11 +197,6 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 <div class="section" id="structure-d-un-fichier-properties-du-worflow">
 <h2>Structure d&#8217;un fichier Properties du Worflow<a class="headerlink" href="#structure-d-un-fichier-properties-du-worflow" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les fichiers <strong>Properties</strong> (Par exemple <em>DefaultIngestWorkflow.json</em>) permettent de définir la structure du Workflow pour les étapes, tâches et actions réalisées dans le module d&#8217;Ingest Interne, en excluant les étapes et actions réalisées dans le module d&#8217;Ingest externe.</p>
-<p>La structure du fichier est la suivante :</p>
-<div class="figure align-center" id="id1">
-<img alt="_images/workflow.jpg" src="_images/workflow.jpg" />
-<p class="caption"><span class="caption-text">Structure du fichier de définition du workflow</span></p>
-</div>
 <p>Un Workflow est défini en JSON avec la structure suivante :</p>
 <ul>
 <li><p class="first">un bloc en-tête contenant :</p>
@@ -225,8 +222,10 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 </ul>
 </li>
 <li><code class="docutils literal"><span class="pre">Distribution</span></code> : modèle de distribution, décrit comme suit :<ul>
-<li><code class="docutils literal"><span class="pre">Kind</span></code> : un type pouvant être REF (un élément unique) ou LIST (une liste d&#8217;éléments)</li>
+<li><code class="docutils literal"><span class="pre">Kind</span></code> : un type pouvant être REF (un élément unique) ou LIST (une liste d&#8217;éléments hiérarchisés) ou encore LIST_IN_FILE (liste d&#8217;éléments)</li>
 <li><code class="docutils literal"><span class="pre">Element</span></code> : l&#8217;élément de distribution indiquant l&#8217;élément unique sous forme d&#8217;URI (REF) ou la liste d&#8217;éléments en pointant vers un dossier (LIST).</li>
+<li><code class="docutils literal"><span class="pre">Type</span></code> : le type des objets traités (ObjectGroup uniquement pour le moment).</li>
+<li><code class="docutils literal"><span class="pre">statusOnEmptyDistribution</span></code> : permet dans le cas d&#8217;un traitement d&#8217;une liste vide, de surcharger le statut WARNING par un statut prédéfini.</li>
 </ul>
 </li>
 <li>une liste d&#8217;Actions :<ul>
@@ -306,7 +305,7 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

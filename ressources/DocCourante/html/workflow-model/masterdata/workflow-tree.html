@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’import d’un arbre de positionnement &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Workflow d’import d’un arbre de positionnement &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,10 +33,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="MASTERDATA" href="_toc_masterdata.html"/>
         <link rel="next" title="Workflow d’administration d’un référentiel de règles de gestion" href="rules.html"/>
-        <link rel="prev" title="&lt;no title&gt;" href="introduction.html"/> 
+        <link rel="prev" title="Introduction" href="introduction.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -94,18 +94,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ingest/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc_masterdata.html">MASTERDATA</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d&#8217;import d&#8217;un arbre de positionnement</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-d-un-arbre-vision-metier">Processus d&#8217;import d&#8217;un arbre (vision métier)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-d-un-arbre-holdingscheme-vision-metier">Processus d&#8217;import d&#8217;un arbre (HOLDINGSCHEME - vision métier)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage">Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow">Structure du Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rules.html">Workflow d&#8217;administration d&#8217;un référentiel de règles de gestion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="formats.html">Workflow d&#8217;import d&#8217;un référentiel des formats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d&#8217;administration d&#8217;un référentiel des services agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d&#8217;administration et de mise à jour d&#8217;un référentiel des contrats d&#8217;entrée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;entrée</a></li>
 <li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;accès</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d&#8217;import d&#8217;un référentiel des profils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security_profiles.html">Workflow d&#8217;administration d&#8217;un référentiel des profils de sécurité</a></li>
@@ -113,7 +115,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -164,14 +166,23 @@
 <h1>Workflow d&#8217;import d&#8217;un arbre de positionnement<a class="headerlink" href="#workflow-d-import-d-un-arbre-de-positionnement" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus permettant d&#8217;importer un arbre de positionnement dans la solution logicielle Vitam. La structure d&#8217;un arbre de positionnement diffère de celle d&#8217;un SIP en plusieurs points.</p>
+<p>Cette section décrit le processus  permettant d&#8217;importer un arbre de positionnement dans la solution logicielle Vitam. La structure d&#8217;un arbre de positionnement diffère de celle d&#8217;un SIP en plusieurs points.</p>
 <p>Un arbre ne doit pas avoir d&#8217;objet, ni de service producteur, ni de contrat. Il s&#8217;agit plus simplement d&#8217;une arborescence représentée par des unités archivistiques. Ce processus partage donc certaines étapes avec celui du transfert d&#8217;un SIP classique, en ignore certaines et rajoute des tâches additionnelles.</p>
-<p>Le workflow mis en place dans la solution logicielle Vitam est défini dans le fichier &#8220;DefaultHoldingSchemeWorkflow.json&#8221;. Ce fichier est disponible à sources/processing/processing-management/src/main/resources/workflows.</p>
 </div>
-<div class="section" id="processus-d-import-d-un-arbre-vision-metier">
-<h2>Processus d&#8217;import d&#8217;un arbre (vision métier)<a class="headerlink" href="#processus-d-import-d-un-arbre-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le processus d&#8217;import d&#8217;un arbre est identique au workflow d&#8217;entrée d&#8217;un SIP. Il débute lors du lancement du téléchargement de l&#8217;arbre dans la solution logicielle Vitam. De plus, toutes les étapes et tâches sont journalisées dans le journal des opérations.</p>
-<p>Les étapes et tâches associées ci-dessous décrivent le processus d&#8217;import d&#8217;un arbre (clé et description de la clé associée dans le journal des opérations), non encore abordées dans la description de l&#8217;entrée d&#8217;un SIP.</p>
+<div class="section" id="processus-d-import-d-un-arbre-holdingscheme-vision-metier">
+<h2>Processus d&#8217;import d&#8217;un arbre (HOLDINGSCHEME - vision métier)<a class="headerlink" href="#processus-d-import-d-un-arbre-holdingscheme-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus d&#8217;import d&#8217;un arbre est identique au workflow d&#8217;entrée d&#8217;un SIP. Il débute lors du lancement du téléchargement de l&#8217;arbre dans la solution logicielle Vitam. Par ailleurs, toutes les étapes, tâches et traitements sont journalisés dans le journal des opérations.</p>
+<p>La fin du processus peut prendre plusieurs statuts :</p>
+<ul>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul class="simple">
+<li>OK : l&#8217;arbre de positionnement a été importé (HOLDINGSCHEME.OK = Succès de l&#8217;import de l&#8217;arbre de positionnement)</li>
+<li>KO : l&#8217;arbre de positionnement n&#8217;a pas été importé (HOLDINGSCHEME.KO = Échec de l&#8217;import de l&#8217;arbre de positionnement)</li>
+<li>FATAL : une erreur technique est survenue lors de l&#8217;import de l&#8217;arbre de positionnement (HOLDINGSCHEME.FATAL = Erreur fatale lors de l&#8217;import de l&#8217;arbre de positionnement)</li>
+</ul>
+<p>Les étapes et tâches associées ci-dessous décrivent ce processus d&#8217;import (clé et description de la clé associée dans le journal des opérations), non encore abordées dans la description de l&#8217;entrée d&#8217;un SIP.</p>
+</li>
+</ul>
 <div class="section" id="traitement-additionnel-dans-la-tache-check-dataobjectpackage">
 <h3>Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE<a class="headerlink" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
@@ -186,7 +197,12 @@
 </ul>
 </li>
 </ul>
+<img alt="../_images/Workflow_HoldingScheme.jpg" class="align-center" src="../_images/Workflow_HoldingScheme.jpg" />
 </div>
+</div>
+<div class="section" id="structure-du-workflow">
+<h2>Structure du Workflow<a class="headerlink" href="#structure-du-workflow" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le workflow mis en place dans la solution logicielle Vitam est défini dans le fichier &#8220;DefaultHoldingSchemeWorkflow.json&#8221;. Ce fichier est disponible à sources/processing/processing-management/src/main/resources/workflows.</p>
 </div>
 </div>
 
@@ -200,7 +216,7 @@
         <a href="rules.html" class="btn btn-neutral float-right" title="Workflow d’administration d’un référentiel de règles de gestion" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -231,7 +247,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

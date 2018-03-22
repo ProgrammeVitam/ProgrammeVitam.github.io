@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Access-rest &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Access-rest &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,10 +33,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Access" href="_toc.html"/>
         <link rel="next" title="contrôle des flux d’accèss" href="access-securite.html"/>
-        <link rel="prev" title="Présentation" href="access-contract-id-filter.html"/> 
+        <link rel="prev" title="Filtre Contrat d’accès" href="access-contract-id-filter.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -93,14 +93,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Access</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="access.html">Composant Access</a></li>
-<li class="toctree-l3"><a class="reference internal" href="access.html#utilisation">Utilisation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="access-contract-id-filter.html">Présentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-contract-id-filter.html">Filtre Contrat d&#8217;accès</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Access-rest</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#presentation">Présentation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#fr-gouv-vitam-access-external-rest">fr.gouv.vitam.access.external.rest</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="access-securite.html">contrôle des flux d&#8217;accèss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html">vitam-pooling-client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html#utilisation">Utilisation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
@@ -108,6 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -118,13 +120,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -177,8 +176,8 @@
 <h1>Access-rest<a class="headerlink" href="#access-rest" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="presentation">
 <h2>Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>API REST EXT appelées par le client access external. Il y a un controle des paramètres (SanityChecker.checkJsonAll) transmis
-avec ESAPI.</p>
+<p>API REST EXT appelées par le client access external.
+Il y a un controle des paramètres (SanityChecker.checkJsonAll) et des headers transmis avec ESAPI.</p>
 </div>
 <div class="section" id="fr-gouv-vitam-access-external-rest">
 <h2>fr.gouv.vitam.access.external.rest<a class="headerlink" href="#fr-gouv-vitam-access-external-rest" title="Lien permanent vers ce titre">¶</a></h2>
@@ -313,8 +312,10 @@ récupérer le format ou la règle avec la filtre (le contenu de la requête) et
 Mise à jour du contrat d&#8217;accès</div>
 </div>
 <p>-Contrat d&#8217;entrée</p>
-<p><a href="#id4"><span class="problematic" id="id5">|</span></a>PUT <a class="reference external" href="https://vitam/admin-external/v1/ingestcontracts">https://vitam/admin-external/v1/ingestcontracts</a>
-Mise à jour du contrat d&#8217;entrès</p>
+<div class="line-block">
+<div class="line">PUT <a class="reference external" href="https://vitam/admin-external/v1/ingestcontracts">https://vitam/admin-external/v1/ingestcontracts</a></div>
+</div>
+<p>Mise à jour du contrat d&#8217;entrès</p>
 <ul class="simple">
 <li>Profiles</li>
 </ul>
@@ -375,7 +376,7 @@ Mise à jour d&#8217;un profile de sécurité par son id (identifier)</div>
         <a href="access-securite.html" class="btn btn-neutral float-right" title="contrôle des flux d’accèss" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="access-contract-id-filter.html" class="btn btn-neutral" title="Présentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="access-contract-id-filter.html" class="btn btn-neutral" title="Filtre Contrat d’accès" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -406,7 +407,7 @@ Mise à jour d&#8217;un profile de sécurité par son id (identifier)</div>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

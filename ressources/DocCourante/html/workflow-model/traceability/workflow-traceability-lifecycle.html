@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow de création de journal des cycles de vie sécurisé &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Workflow de création de journal des cycles de vie sécurisé &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="TRACEABILITY" href="_toc_traceability.html"/>
         <link rel="next" title="Création de journal sécurisé des journaux des écritures sécurisés" href="workflow-traceability-storage.html"/>
         <link rel="prev" title="Workflow de création d’un journal sécurisé" href="workflow-traceability.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -98,7 +98,8 @@
 <li class="toctree-l2"><a class="reference internal" href="workflow-traceability.html">Workflow de création d&#8217;un journal sécurisé</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow de création de journal des cycles de vie sécurisé</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-vision-metier">Processus de sécurisation des journaux des cycles de vie (vision métier)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-vision-metier">Processus de sécurisation des journaux des cycles de vie (vision métier)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securisation-des-journaux-du-cycle-de-vie-logbook-lc-securisation">Sécurisation des journaux du cycle de vie (LOGBOOK_LC_SECURISATION)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#preparation-des-listes-des-cycles-de-vie">Préparation des listes des cycles de vie</a></li>
 </ul>
 </li>
@@ -107,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="workflow-traceability-storage.html">Création de journal sécurisé des journaux des écritures sécurisés</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -166,10 +167,31 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <h2>Processus de sécurisation des journaux des cycles de vie (vision métier)<a class="headerlink" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le processus de sécurisation des journaux des cycles de vie consiste en la création d&#8217;un fichier .zip contenant l&#8217;ensemble des journaux du cycle de vie à sécuriser, ainsi que le tampon d&#8217;horodatage.</p>
 <p>Ce fichier zip est ensuite enregistré sur les offres de stockage, en fonction de la stratégie de stockage.</p>
+</div>
+<div class="section" id="securisation-des-journaux-du-cycle-de-vie-logbook-lc-securisation">
+<h2>Sécurisation des journaux du cycle de vie (LOGBOOK_LC_SECURISATION)<a class="headerlink" href="#securisation-des-journaux-du-cycle-de-vie-logbook-lc-securisation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La fin du processus peut prendre plusieurs statuts :</p>
+<ul>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul>
+<li><p class="first">OK : les journaux du cycle de vie ont été sécurisés (LOGBOOK_LC_SECURISATION.OK = Succès de la sécurisation des journaux du cycle de vie)</p>
+<blockquote>
+<div><ul class="simple">
+<li>WARNING : il n&#8217;y pas de nouveaux journaux à sécuriser depuis la dernière sécurisation (LOGBOOK_LC_SECURISATION.WARNING = Avertissement lors de la sécurisation des journaux du cycle de vie)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">KO : pas de cas KO</p>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la sécurisation du journal des opérations (LOGBOOK_LC_SECURISATION.FATAL = Erreur fatale lors de la sécurisation des journaux du cycle de vie)</p>
+</li>
+</ul>
+</li>
+</ul>
 <div class="section" id="preparation-des-listes-des-cycles-de-vie">
 <h3>Préparation des listes des cycles de vie<a class="headerlink" href="#preparation-des-listes-des-cycles-de-vie" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Step 1</strong> - STP_PREPARE_LC_TRACEABILITY -  distribution sur REF</li>
+<li><strong>Étape 1</strong> - STP_PREPARE_LC_TRACEABILITY -  distribution sur REF</li>
 </ul>
 <ul class="simple">
 <li>Liste cycles de vie à sécuriser - PREPARE_LC_TRACEABILITY - fichier out : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json<ul>
@@ -185,7 +207,7 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 </li>
 </ul>
 <ul class="simple">
-<li><strong>Step 2</strong> - STP_OG_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans GUID/ObjectGroup</li>
+<li><strong>Étape 2</strong> - STP_OG_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans GUID/ObjectGroup</li>
 </ul>
 <ul class="simple">
 <li>Traitement des cycles de vie groupe d&#8217;objets - OG_CREATE_SECURED_FILE<ul>
@@ -193,15 +215,26 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <li><strong>Règle</strong> : application de l&#8217;algorithme pour créer les fichiers sécurisés des cycles de vie des groupes d&#8217;objets, journal par journal, et génèration du fichier sécurisé.</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : le fichier sécurisé pour le cycle de vie en cours a été généré (STP_OG_CREATE_SECURED_FILE.OK=Succès du processus de sécurisation des groupes d&#8217;objets)</li>
+<li>WARNING : il n&#8217;y a pas de nouveaux journaux à sécuriser (STP_OG_CREATE_SECURED_FILE.WARNING=Avertissement lors du du processus de sécurisation des groupes d&#8217;objets)</li>
 <li>KO : le fichier pour le groupe d&#8217;objet n&#8217;a pas pu être trouvé (STP_OG_CREATE_SECURED_FILE.KO=Échec du processus de sécurisation des groupes d&#8217;objets)</li>
 <li>FATAL : une erreur technique est survenue lors de la génération des fichiers sécurisés (STP_OG_CREATE_SECURED_FILE.FATAL=Erreur fatale lors du processus de sécurisation des groupes d&#8217;objets)</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>Vérification de la liste des éléments à traiter (OBJECTS_LIST_EMPTY)</li>
 </ul>
 <ul class="simple">
-<li><strong>Step 3</strong> - STP_UNITS_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans GUID/ObjectGroup</li>
+<li><strong>Type</strong> : non applicable</li>
+<li><strong>Règle</strong> : vérification de la présence ou non d&#8217;objets à traiter. Cette action ne s&#8217;inscrit dans le journal des opérations uniquement dans les cas fatal et warning.</li>
+<li><strong>Statuts</strong> :<ul>
+<li>WARNING : il n&#8217;y a pas de nouveaux journaux à sécuriser (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l&#8217;établissement de la liste des objets : il n&#8217;y a pas d&#8217;objet pour cette étape)</li>
+<li>FATAL : une erreur technique est survenue lors de la génération des fichiers sécurisés (OBJECTS_LIST_EMPTY.FATAL = Erreur fatale lors de l&#8217;établissement de la liste des objets)</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><strong>Étape 3</strong> - STP_UNITS_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans GUID/ObjectGroup</li>
 </ul>
 <ul class="simple">
 <li>Traitement des cycles de vie pour les unités archivistiques - UNITS_CREATE_SECURED_FILE<ul>
@@ -209,15 +242,18 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <li><strong>Règle</strong> : application de l&#8217;algorithme pour créer les fichiers sécurisés des cycles de vie des unités archivistiques, journal par journal, et génèration du fichier sécurisé.</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : le fichier sécurisé pour le cycle de vie en cours a été généré (UNITS_CREATE_SECURED_FILE.OK=Succès du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
+<li>WARNING : il n&#8217;y a pas de nouveaux journaux à sécuriser (STP_UNITS_CREATE_SECURED_FILE.WARNING = Avertissement lors du processus de sécurisation des unités archivistiques)</li>
 <li>KO : le fichier pour le groupe d&#8217;objet n&#8217;a pas pu être trouvé (UNITS_CREATE_SECURED_FILE.KO=Échec du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 <li>FATAL : une erreur technique est survenue lors de la génération des fichiers sécurisés (UNITS_CREATE_SECURED_FILE.FATAL=Erreur fatale lors du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>Vérification de la liste des éléments à traiter (OBJECTS_LIST_EMPTY)</li>
 </ul>
+<p>Il s&#8217;agit du même contrôle que l&#8217;étape 2</p>
 <ul class="simple">
-<li><strong>Step 4</strong> - STP_GLOBAL_SECURISATION -  distribution sur REF</li>
+<li><strong>Étape 4</strong> - STP_GLOBAL_SECURISATION -  distribution sur REF</li>
 </ul>
 <ul class="simple">
 <li>Finalisation de la sécurisation - FINALIZE_LC_TRACEABILITY - fichier présent dans : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json<ul>
@@ -284,7 +320,7 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

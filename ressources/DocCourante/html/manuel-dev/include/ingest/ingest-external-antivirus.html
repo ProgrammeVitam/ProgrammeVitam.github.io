@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ingest-external-antivirus &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>ingest-external-antivirus &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Ingest" href="_toc.html"/>
         <link rel="next" title="INGEST" href="ingest.html"/>
         <link rel="prev" title="ingest-external-client" href="ingest-external-client.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -105,10 +105,9 @@
 <li class="toctree-l3"><a class="reference internal" href="ingest-external-client.html#utilisation">Utilisation</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ingest-external-antivirus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ingest.html">INGEST</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html">vitam-pooling-client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html#utilisation">Utilisation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -119,13 +118,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -181,8 +177,8 @@ pour le service ingest-external.</p>
 <ol class="arabic">
 <li><p class="first">Configuration pour ingest-external : ingest-external.conf</p>
 <blockquote>
-<div><p>Dans ce fichier de configuration, nous précisons le nom de la script antivirus utilisé et
-le temps limité pour le scan. pour le moment, nous utilisons le script de scan scan-clamav.sh
+<div><p>Dans ce fichier de configuration, nous précisons le nom du script antivirus utilisé, et
+le timeout pour le scan. Le script utilisé actuellement est scan-clamav.sh
 utilisant l’antivirus ClamAV.</p>
 </div></blockquote>
 </li>
@@ -196,12 +192,16 @@ utilisant l’antivirus ClamAV.</p>
 <blockquote>
 <div><p>Le script permettant de lancer d&#8217;un scan d’un fichier envoyé avec l’antivirus ClamAV et
 retourner le résulat :</p>
-<p>0: Analyse OK - no virus
+</div></blockquote>
+<dl class="docutils">
+<dt>-1: Analyse non effectuée</dt>
+<dd><p class="first">0: Analyse OK - no virus
 1: Virus trouvé et corrigé
 2: Virus trouvé mais non corrigé
 3: Analyse NOK</p>
-<p>Ce fichier est mis dans le répertoire vitam/conf avec le droit d&#8217;exécution.</p>
-</div></blockquote>
+<p class="last">Ce fichier est mis dans le répertoire vitam/conf avec le droit d&#8217;exécution.</p>
+</dd>
+</dl>
 </li>
 <li><p class="first">Lancer le script en Java et intégration</p>
 </li>
@@ -214,31 +214,31 @@ la section suivant montre comment on appelle le script depuis ingest-external en
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">antiVirusResult</span> <span class="o">=</span> <span class="n">JavaExecuteScript</span><span class="o">.</span><span class="na">executeCommand</span><span class="o">(</span><span class="n">antiVirusScriptName</span><span class="o">,</span> <span class="n">filePath</span><span class="o">,</span> <span class="n">timeoutScanDelay</span><span class="o">);</span>
 <span class="o">.......</span>
 <span class="k">switch</span> <span class="o">(</span><span class="n">antiVirusResult</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
-        <span class="n">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">OK_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
-            <span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">OK_VIRUS</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-        <span class="k">break</span><span class="o">;</span>
-    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-        <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">OK_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
-            <span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">KO_VIRUS</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-        <span class="k">break</span><span class="o">;</span>
-    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-        <span class="n">LOGGER</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">KO_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">KO</span><span class="o">);</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
-            <span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">KO_VIRUS</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-        <span class="n">isFileInfected</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="k">break</span><span class="o">;</span>
-    <span class="k">default</span><span class="o">:</span>
-        <span class="n">LOGGER</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">KO_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">LogbookOutcome</span><span class="o">.</span><span class="na">FATAL</span><span class="o">);</span>
-        <span class="n">endParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
-            <span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">KO_VIRUS</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-        <span class="n">isFileInfected</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">STATUS_ANTIVIRUS_OK</span><span class="o">:</span>
+          <span class="n">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">OK_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+          <span class="c1">// nothing to do, default already set to ok</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">STATUS_ANTIVIRUS_WARNING</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">STATUS_ANTIVIRUS_KO</span><span class="o">:</span>
+          <span class="n">LOGGER</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">KO_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+          <span class="n">antivirusParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">KO</span><span class="o">);</span>
+          <span class="n">antivirusParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetail</span><span class="o">,</span>
+              <span class="n">messageLogbookEngineHelper</span><span class="o">.</span><span class="na">getOutcomeDetail</span><span class="o">(</span><span class="n">SANITY_CHECK_SIP</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">KO</span><span class="o">));</span>
+          <span class="n">antivirusParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
+              <span class="n">messageLogbookEngineHelper</span><span class="o">.</span><span class="na">getLabelOp</span><span class="o">(</span><span class="n">SANITY_CHECK_SIP</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">KO</span><span class="o">));</span>
+          <span class="n">isFileInfected</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">STATUS_ANTIVIRUS_NOT_PERFORMED</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">STATUS_ANTIVIRUS_NOT_PERFORMED_2</span><span class="o">:</span>
+          <span class="n">LOGGER</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">IngestExternalOutcomeMessage</span><span class="o">.</span><span class="na">FATAL_VIRUS</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+          <span class="n">antivirusParameters</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">FATAL</span><span class="o">);</span>
+          <span class="n">antivirusParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetail</span><span class="o">,</span>
+              <span class="n">messageLogbookEngineHelper</span><span class="o">.</span><span class="na">getOutcomeDetail</span><span class="o">(</span><span class="n">SANITY_CHECK_SIP</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">FATAL</span><span class="o">));</span>
+          <span class="n">antivirusParameters</span><span class="o">.</span><span class="na">putParameterValue</span><span class="o">(</span><span class="n">LogbookParameterName</span><span class="o">.</span><span class="na">outcomeDetailMessage</span><span class="o">,</span>
+              <span class="n">messageLogbookEngineHelper</span><span class="o">.</span><span class="na">getLabelOp</span><span class="o">(</span><span class="n">SANITY_CHECK_SIP</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">FATAL</span><span class="o">));</span>
+          <span class="n">isFileInfected</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+          <span class="k">break</span><span class="o">;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
     <span class="o">.....................................................................................................</span>
 </pre></div>
@@ -286,7 +286,7 @@ la section suivant montre comment on appelle le script depuis ingest-external en
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

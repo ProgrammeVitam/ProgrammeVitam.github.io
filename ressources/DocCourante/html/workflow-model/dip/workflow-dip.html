@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’export d’un DIP &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Workflow d’export d’un DIP &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="DIP" href="_toc_dip.html"/>
         <link rel="next" title="INGEST" href="../ingest/_toc_ingest.html"/>
         <link rel="prev" title="DIP" href="_toc_dip.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -95,15 +95,15 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d&#8217;export d&#8217;un DIP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creation-du-bordereau-stp-create-manifest">Création du Bordereau (STP_CREATE_MANIFEST)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#creation-du-bordereau-create-manifest">Création du Bordereau (CREATE_MANIFEST)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creation-du-bordereau-create-manifest-createmanifest-java">Création du Bordereau (CREATE_MANIFEST - CreateManifest.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#deplacement-des-objets-binaires-vers-le-workspace-stp-put-binary-on-workspace">Déplacement des objets binaires vers le workspace (STP_PUT_BINARY_ON_WORKSPACE)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace">Déplacement des objets binaires vers le workspace (PUT_BINARY_ON_WORKSPACE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java">Déplacement des objets binaires vers le workspace (PUT_BINARY_ON_WORKSPACE - PutBinaryOnWorkspace.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#stockage-du-bordereau-compresse-stp-store-manifest">Stockage du bordereau compressé (STP_STORE_MANIFEST)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stockage-du-bordereau-compresse-store-manifest">Stockage du bordereau compressé (STORE_MANIFEST)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stockage-du-bordereau-compresse-store-manifest-storedip-java">Stockage du bordereau compressé (STORE_MANIFEST - StoreDIP.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow-d-export-de-dip">Structure du Workflow d&#8217;export de DIP</a></li>
@@ -114,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ingest/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -165,16 +165,16 @@
 <h1>Workflow d&#8217;export d&#8217;un DIP<a class="headerlink" href="#workflow-d-export-d-un-dip" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) d&#8217;export, utilisé lors de l&#8217;export d&#8217;un Dissemination Information Package (DIP) dans la solution logicielle Vitam.</p>
+<p>Cette section décrit le processus (workflow) d&#8217;export, utilisé lors de l&#8217;export d&#8217;un <code class="docutils literal"><span class="pre">Dissemination</span> <span class="pre">Information</span> <span class="pre">Package</span></code> (DIP) dans la solution logicielle Vitam.</p>
 <p>Toutes les étapes et actions sont journalisées dans le journal des opérations.
 Les étapes et actions associées ci-dessous décrivent le processus d&#8217;export de DIP (clé et description de la clé associée dans le journal des opérations) tel qu&#8217;implémenté dans la version actuelle de la solution logicielle Vitam.</p>
 </div>
 <div class="section" id="creation-du-bordereau-stp-create-manifest">
 <h2>Création du Bordereau (STP_CREATE_MANIFEST)<a class="headerlink" href="#creation-du-bordereau-stp-create-manifest" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="creation-du-bordereau-create-manifest">
-<h3>Création du Bordereau (CREATE_MANIFEST)<a class="headerlink" href="#creation-du-bordereau-create-manifest" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="creation-du-bordereau-create-manifest-createmanifest-java">
+<h3>Création du Bordereau (CREATE_MANIFEST - CreateManifest.java)<a class="headerlink" href="#creation-du-bordereau-create-manifest-createmanifest-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : création d&#8217;un bordereau contenant les unités archivistiques soumises au service d&#8217;export de DIP, ainsi que le groupes d&#8217;objets techniques et objets-données qui leurs sont associés</li>
+<li><strong>Règle</strong> : Création d&#8217;un bordereau contenant les unités archivistiques soumises au service d&#8217;export de DIP, ainsi que le groupes d&#8217;objets techniques et objets-données qui leurs sont associés</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : le bordereau contenant les descriptions des unités archivistiques, groupes d&#8217;objet techniques et objets-données a été créé avec succès (CREATE_MANIFEST.OK=Succès de la création du bordereau de mise à disposition)</li>
@@ -187,10 +187,10 @@ Les étapes et actions associées ci-dessous décrivent le processus d&#8217;exp
 </div>
 <div class="section" id="deplacement-des-objets-binaires-vers-le-workspace-stp-put-binary-on-workspace">
 <h2>Déplacement des objets binaires vers le workspace (STP_PUT_BINARY_ON_WORKSPACE)<a class="headerlink" href="#deplacement-des-objets-binaires-vers-le-workspace-stp-put-binary-on-workspace" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace">
-<h3>Déplacement des objets binaires vers le workspace (PUT_BINARY_ON_WORKSPACE)<a class="headerlink" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java">
+<h3>Déplacement des objets binaires vers le workspace (PUT_BINARY_ON_WORKSPACE - PutBinaryOnWorkspace.java)<a class="headerlink" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : déplacement des objets-données mentionnées dans le bordereau vers le workspace</li>
+<li><strong>Règle</strong> : Déplacement des objets-données mentionnées dans le bordereau vers le workspace</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : les objets-données ont été déplacés vers le workspace avec succès (PUT_BINARY_ON_WORKSPACE.OK=Succès du déplacement des objets binaires de l&#8217;offre de stockage vers le workspace)</li>
@@ -203,13 +203,13 @@ Les étapes et actions associées ci-dessous décrivent le processus d&#8217;exp
 </div>
 <div class="section" id="stockage-du-bordereau-compresse-stp-store-manifest">
 <h2>Stockage du bordereau compressé (STP_STORE_MANIFEST)<a class="headerlink" href="#stockage-du-bordereau-compresse-stp-store-manifest" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="stockage-du-bordereau-compresse-store-manifest">
-<h3>Stockage du bordereau compressé (STORE_MANIFEST)<a class="headerlink" href="#stockage-du-bordereau-compresse-store-manifest" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="stockage-du-bordereau-compresse-store-manifest-storedip-java">
+<h3>Stockage du bordereau compressé (STORE_MANIFEST - StoreDIP.java)<a class="headerlink" href="#stockage-du-bordereau-compresse-store-manifest-storedip-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li><strong>Règle</strong> : Création et enregistrement du DIP sur les offres de stockage</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : le DIP a été créé et stocké sur les offres de stockages avec succès (STORE_MANIFEST.OK=Succès de la création du DIP et de son déplacement vers l&#8217;offre de stockage)</li>
+<li>OK : le DIP a été créé et stocké sur les offres de stockages avec succès (STORE_MANIFEST.OK=Succès du processus de la création du DIP et de son déplacement vers l&#8217;offre de stockage)</li>
 <li>KO : pas de cas KO (STORE_MANIFEST.KO=Échec de la création du DIP et de son déplacement vers l&#8217;offre de stockage)</li>
 <li>FATAL :  une erreur technique est survenue lors de la création et de l&#8217;enregistrement du DIP sur les offres de stockage déplacement des objets binaires de stockage vers workspace (STORE_MANIFEST.FATAL=Erreur fatale lors de la création du DIP et de son déplacement vers l&#8217;offre de stockage)</li>
 </ul>
@@ -221,6 +221,7 @@ Les étapes et actions associées ci-dessous décrivent le processus d&#8217;exp
 <h2>Structure du Workflow d&#8217;export de DIP<a class="headerlink" href="#structure-du-workflow-d-export-de-dip" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le workflow d&#8217;export de DIP actuel mis en place dans la solution logicielle Vitam est défini dans l’unique fichier “ExportUnitWorkflow.json”. Ce fichier est disponible dans /sources/processing/processing-management/src/main/resources/workflows.</p>
 <p>D’une façon synthétique, le workflow est décrit de cette façon :</p>
+<img alt="Diagramme d'état / transitions du workflow d'export de DIP" class="align-center" src="../_images/workflow_dip.png" />
 </div>
 </div>
 
@@ -265,7 +266,7 @@ Les étapes et actions associées ci-dessous décrivent le processus d&#8217;exp
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

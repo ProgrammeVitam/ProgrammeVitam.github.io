@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ingest-internal-client &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>ingest-internal-client &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Ingest" href="_toc.html"/>
         <link rel="next" title="ingest-external-client" href="ingest-external-client.html"/>
         <link rel="prev" title="DAT : module ingest-external" href="ingest-external-dat.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -110,10 +110,9 @@
 <li class="toctree-l3"><a class="reference internal" href="ingest-external-client.html#utilisation">Utilisation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ingest-external-antivirus.html">ingest-external-antivirus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ingest.html">INGEST</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html">vitam-pooling-client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html#utilisation">Utilisation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -124,13 +123,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -210,31 +206,27 @@
 <h2>Le client<a class="headerlink" href="#le-client" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour instancier son client en mode Production :</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Ajouter un fichier functional-administration-client.conf dans /vitam/conf</span>
-    <span class="c1">// Récupération explicite du client</span>
+<span class="c1">// Récupération explicite du client</span>
 <span class="n">IngestInternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">IngestInternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getIngestInternalClient</span><span class="o">();</span>
 </pre></div>
 </div>
 <p>Le client propose trois méthodes :</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span>         <span class="n">Status</span> <span class="nf">status</span><span class="o">();</span>
-         <span class="n">UploadResponseDTO</span> <span class="nf">upload</span><span class="o">(</span><span class="n">String</span> <span class="n">archiveMimeType</span><span class="o">,</span><span class="n">List</span><span class="o">&lt;</span><span class="n">LogbookParameters</span><span class="o">&gt;</span> <span class="n">logbookParametersList</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">inputStream</span><span class="o">);</span>
-         <span class="c1">// Télécharger un object du serveur sauvegardé de l&#39;operation upload ci-dessus avec son ID et type</span>
-         <span class="n">Response</span> <span class="nf">downloadObjectAsync</span><span class="o">(</span><span class="n">String</span> <span class="n">objectId</span><span class="o">,</span> <span class="n">IngestCollection</span> <span class="n">type</span><span class="o">)</span>
-
-
-
-<span class="n">Cette</span> <span class="nf">méthde</span> <span class="o">(</span> <span class="n">à</span> <span class="n">la</span> <span class="n">version</span> <span class="mf">0.9.0</span><span class="o">)</span> <span class="n">capable</span> <span class="n">de</span> <span class="n">télécharger</span> <span class="n">un</span> <span class="n">sip</span> <span class="n">compressé</span> <span class="n">en</span> <span class="mi">3</span> <span class="n">formats</span> <span class="o">(</span><span class="n">zip</span><span class="o">,</span> <span class="n">tar</span><span class="o">,</span> <span class="n">tar</span><span class="o">.</span><span class="na">gz</span><span class="o">)</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="nf">status</span><span class="o">();</span>
+<span class="n">UploadResponseDTO</span> <span class="nf">upload</span><span class="o">(</span><span class="n">String</span> <span class="n">archiveMimeType</span><span class="o">,</span><span class="n">List</span><span class="o">&lt;</span><span class="n">LogbookParameters</span><span class="o">&gt;</span> <span class="n">logbookParametersList</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">inputStream</span><span class="o">);</span>
+<span class="c1">// Télécharger un object du serveur sauvegardé de l&#39;operation upload ci-dessus avec son ID et type</span>
+<span class="n">Response</span> <span class="nf">downloadObjectAsync</span><span class="o">(</span><span class="n">String</span> <span class="n">objectId</span><span class="o">,</span> <span class="n">IngestCollection</span> <span class="n">type</span><span class="o">)</span>
 </pre></div>
 </div>
+<p>Cette méthde ( à la version 0.9.0) capable de télécharger un sip compressé en 3 formats (zip, tar, tar.gz)</p>
 <ul>
-<li><dl class="first docutils">
-<dt>Paramètres :</dt>
-<dd><ul class="first last simple">
+<li><p class="first">Paramètres :</p>
+<blockquote>
+<div><ul class="simple">
 <li>archiveMimeType :: String (mimetype de l&#8217;archive ;par exemple application/x-tar)</li>
 <li>logbookParametersList :: List&lt;LogbookParameters&gt;</li>
 <li>inputStream : InputStream (stream de sip compressé dont le format doit être zip, tar ou tar.gz)</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p class="first">Retourne : ATR en format xml</p>
 </li>
@@ -285,7 +277,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Processing Management &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Processing Management &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Processing" href="_toc.html"/>
         <link rel="next" title="Processing Distributor" href="processing-distributor.html"/>
         <link rel="prev" title="Paramètres" href="parametres/parametres.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Processing</a><ul class="current">
@@ -107,6 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="processing-distributor.html">Processing Distributor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing-engine.html">Processing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="worker/_toc.html">Etudes en cours</a></li>
 </ul>
 </li>
@@ -117,13 +119,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -210,6 +209,7 @@
 <div class="line">- Relancer un processus en mode continu avec header X-ACTION==&gt; resume</div>
 <div class="line">- Exécuter l&#8217;étape suivante avec header X-ACTION==&gt; next</div>
 <div class="line">- Mettre en pause un processus avec header X-ACTION==&gt; pause</div>
+<div class="line">- Réexécuter l&#8217;étape précédemment exécutée avec header X-ACTION==&gt; replay</div>
 <div class="line">GET /operations/{id} -&gt; <strong>récupérer les details d&#8217;un processus workflow par id et tenant</strong></div>
 <div class="line">HEAD /operations/{id} -&gt; <strong>récupérer l&#8217;état d&#8217;éxécution d&#8217;un processus workflow par id et tenant</strong></div>
 <div class="line">DELETE /operations/{id} -&gt; <strong>Annuler un processus</strong></div>
@@ -227,6 +227,7 @@
 <ul class="simple">
 <li><strong>init</strong>: Initialiser un processus avec un workflow donné. Dans cette étape on attach avec un cardinalité un-à-un un ProcessEngine et une machine à état à ce processus.</li>
 <li><strong>next</strong>: Exécute l&#8217;action next (exécuter l&#8217;étape suivante mode step by step) sur un processus existant.</li>
+<li><strong>replay</strong>: Exécute l&#8217;action replay (relancer la dernière étape exécutée) sur un processus existant.</li>
 <li><strong>resume</strong>: Exécute l&#8217;action resume (exécuter toutes les étapes mode continu) sur un processus existant.</li>
 <li><strong>pause</strong>: Exécute l&#8217;action pause (mettre le processus en état pause dès que possible) sur un processus existant.</li>
 <li><strong>cancel</strong>: Exécute l&#8217;action cancel (annuler un processus dès que possible) sur un processus existant.</li>
@@ -242,26 +243,33 @@
 </ul>
 <p>Evaluer le passage de l&#8217;état actuel du processus vers l&#8217;état RUNNING en mode step by step.
 On ne peut passer à l&#8217;état RUNNING que depuis un état en cours PAUSE.
-Si cette évaluation ne lance pas d&#8217;exception alors lancer l&#8217;exéction d&#8217;un processus appel de ma la méthode <strong>doRunning</strong>.</p>
+Si cette évaluation ne lance pas d&#8217;exception alors on lance l&#8217;exécution d&#8217;un processus et appel de la méthode <strong>doRunning</strong></p>
+<ul class="simple">
+<li><strong>replay</strong>:</li>
+</ul>
+<p>Evaluer le passage de l&#8217;état actuel du processus vers l&#8217;état RUNNING en mode step by step.
+On ne peut passer à l&#8217;état RUNNING que depuis un état en cours PAUSE.
+Si cette évaluation ne lance pas d&#8217;exception alors on lance l&#8217;exécution d&#8217;un processus et appel de la méthode <strong>doReplay</strong>.</p>
 <ul class="simple">
 <li><strong>resume</strong>:</li>
 </ul>
 <p>Evaluer le passage de l&#8217;état actuel du processus vers l&#8217;état RUNNING en mode continu.
 On ne peut passer à l&#8217;état RUNNING que depuis un état en cours PAUSE.
-Si cette évaluation ne lance pas d&#8217;exception alors lancer l&#8217;exéction d&#8217;un processus appel de ma la méthode <strong>doRunning</strong>.</p>
+Si cette évaluation ne lance pas d&#8217;exception alors on lance l&#8217;exécution d&#8217;un processus et appel de la méthode <strong>doRunning</strong>.</p>
 <ul class="simple">
 <li><strong>pause</strong>:</li>
 </ul>
 <p>Evaluer le passage de l&#8217;état actuel du processus vers l&#8217;état PAUSE.
 On ne peut passer à l&#8217;état PAUSE que depuis un état en cours (PAUSE, RUNNING).
-Si cette évaluation ne lance pas d&#8217;exception alors , dans le cas d&#8217;un état en cours RUNNING, finir l&#8217;exécution de l&#8217;étape en cours et passer à l&#8217;état PAUSE, et si c&#8217;est la dernière étape, alors passer à l&#8217;état COMPLETED. Appel de ma la méthode <strong>doPause</strong></p>
+Si cette évaluation ne lance pas d&#8217;exception alors , dans le cas d&#8217;un état en cours RUNNING, finir l&#8217;exécution de l&#8217;étape en cours et passer à l&#8217;état PAUSE, et si c&#8217;est la dernière étape, alors passer à l&#8217;état COMPLETED. Appel de la méthode <strong>doPause</strong></p>
 <ul class="simple">
 <li><strong>cancel</strong>:</li>
 </ul>
 <p>Evaluer le passage de l&#8217;état actuel du processus vers l&#8217;état COMPLETED.
 On ne peut passer à l&#8217;état COMPLETED que depuis un état en cours (PAUSE, RUNNING).
-Si cette évaluation ne lance pas d&#8217;exception alors , dans le cas d&#8217;un état en cours RUNNING,  finir l&#8217;exécution de l&#8217;étape en cours et passer à l&#8217;état COMPLETED. Appel de ma la méthode <strong>doCompleted</strong></p>
+Si cette évaluation ne lance pas d&#8217;exception alors , dans le cas d&#8217;un état en cours RUNNING,  finir l&#8217;exécution de l&#8217;étape en cours et passer à l&#8217;état COMPLETED. Appel de la méthode <strong>doCompleted</strong></p>
 <p>-<strong>doRunning</strong>: Appelée depuis <strong>next</strong> ou <strong>resume</strong>.
+-<strong>doReplay</strong>: Appelée depuis <strong>replay</strong>.
 -<strong>doPause</strong>: Appelée depusi <strong>pause</strong>.
 -<strong>doCompleted</strong>: Appelée depuis <strong>cancel</strong>.</p>
 <p>-<strong>onComplete</strong>:</p>
@@ -386,7 +394,7 @@ Dans tous les cas, finaliser le logbook et persister le processus.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

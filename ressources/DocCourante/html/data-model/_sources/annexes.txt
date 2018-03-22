@@ -2,14 +2,14 @@ Annexes
 #######
 
 Valeurs possibles pour le champ evType du LogBook Operation
-------------------------------------------------------------
+-----------------------------------------------------------
 
-L'ensemble des étapes, tâches et traitements sont détaillés dans la documentation modèle de workflow
+L'ensemble des étapes, tâches et traitements sont détaillés dans la documentation Modèle de workflow.
 
 Valeurs possibles pour le champ evType du LogBook LifeCycle
-------------------------------------------------------------
+-----------------------------------------------------------
   
-L'ensemble des étapes, tâches et traitements sont détaillées dans la documentation modèle de workflow
+L'ensemble des étapes, tâches et traitements sont détaillées dans la documentation Modèle de workflow.
 
 Valeurs possibles pour le champ evTypeProc (type de processus)
 --------------------------------------------------------------
@@ -25,9 +25,10 @@ Valeurs possibles pour le champ evTypeProc (type de processus)
   "Rules Manager process","MASTERDATA", "Données de base"
   "Traceability type process","TRACEABILITY", "Sécurisation"
   "Update process","UPDATE", "Mise à jour"
+  "Evidence Audit type process", "EVIDENCEAUDIT", "Audit de traçabilité"
 
 Catégories de règles possibles
---------------------------------
+------------------------------
 
 .. csv-table::
   :header: "Prefixe (Peut être modifié)", "Type de règle correspondante", "Description du type de règle"
@@ -55,10 +56,13 @@ Valeurs possibles pour le champ Name de la collection VitamSecquence
 .. csv-table::
   :header: "Prefixe", "Type de collection correspondante", "Decription"
 
-  "AC", "AccessContract", "Contrat d'accès"
-  "IC", "IngestContract", "Contrat d'entrée"
+  "AC", "AccessContract", "Contrats d'accès"
+  "IC", "IngestContract", "Contrats d'entrée"
   "PR", "Profile", "Profils d'archivage"
   "CT", "Context", "Contextes applicatifs"
+  "AG", "Agencies", "Services agents"
+  "RULE", "FileRules", "Règles de gestion"
+  "SEC_PROFILE", "SecurityProfiles", "Profils de sécurité"
   
 Diagramme du modèle de données Vitam
 ------------------------------------
@@ -187,6 +191,7 @@ Type d'indexation dans ElasticSearch par collection et par champ
   "Metadata.", "Analysé"
   "OtherMetadata", "Analysé"
   "_ops", "Non analysé"
+  "_opi", "Non analysé"
   "_profil", "Non analysé"
   "_qualifiers.qualifier", "Non analysé"
   "_qualifiers.versions.Algorithm", "Non analysé"
@@ -448,6 +453,7 @@ Type d'indexation dans ElasticSearch par collection et par champ
 	"_mgt.StorageRule.Rules.Rule", "Non analysé"
 	"_og", "Non analysé"
 	"_ops", "Non analysé"
+   "_opi", "Non analysé"
 	"_sp", "Non analysé"
 	"_sps", "Non analysé"
 	"_storage.offerIds", "Non analysé"
@@ -465,3 +471,134 @@ Type d'indexation dans ElasticSearch par collection et par champ
 	"Name", "Analysé"
 	"Permissions", "Non analysé"
 
+
+Correspondances des champs spéciaux dans Vitam
+----------------------------------------------
+
+Les champs dont le nom est préfixé d'un "_" ne sont pas accessible directement, une correspondance est nécessaire pour y accéder.
+
+**Collection LogbookOperation**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+
+**Collection AccessContract**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+
+**Collection AccessionRegisterDetail**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+
+**Collection AccessionRegisterSummary**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+
+**Collection Agencies**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+
+**Collection Context**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+
+**Collection FileFormat**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+
+**Collection FileRule**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+	"#version","_v"
+
+**Collection IngestContract**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+	
+**Collection Profile**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#tenant","_tenant"
+
+**Collection Unit**
+
+.. warning:: Le champs "_uds" n'est pas accessible en externe.
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#management","_mgt"
+    "#min","_min"
+    "#max","_max"
+    "#nbunits","_nbc"
+    "#object","_og"
+    "#originating_agency","_sp"
+    "#originating_agencies","_sps"
+    "BLOQUÉ","_uds"
+    "#unitups","_up"
+    "#allunitups","_us"
+    "#nbunits","_nbc"
+    "#unitType","_unitType"
+    "#storage","_storage"
+    "#operations","_ops"
+    "#opi","_opi"
+    "#score","_score"
+    "#version","_v"
+	"#tenant","_tenant"
+
+**Collection ObjectGroup**
+
+.. csv-table::
+  :header: "Champ", "Champ interne"
+
+	"#id","_id"
+	"#profil","_profil"
+    "#qualifiers","_qualifiers"
+	"#size","_qualifiers.versions.size"
+    "#nbobjects","_nbc"
+    "#originating_agency","_sp"
+    "#originating_agencies","_sps"
+    "#unitups","_up"
+    "#storage","_storage"
+    "#operations","_ops"
+    "#opi","_opi"
+    "#score","_score"
+    "#version","_v"
+	"#tenant","_tenant"

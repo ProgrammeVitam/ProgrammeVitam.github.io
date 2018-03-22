@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1. Principes &mdash; documentation VITAM - Architecture 0.26.1</title>
+  <title>6.1. Principes &mdash; documentation VITAM - Architecture 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Architecture 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Architecture 1.0.0" href="../index.html"/>
         <link rel="up" title="6. Securite" href="_toc.html"/>
         <link rel="next" title="6.2. Liste des secrets" href="10-secrets.html"/>
         <link rel="prev" title="6. Securite" href="_toc.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -109,6 +109,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="10-secrets.html">6.2. Liste des secrets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20-certificates.html">6.3. Certificats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99-other-security-documents.html">6.4. Documentation de sécurité</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
@@ -178,6 +179,10 @@
 <div class="section" id="principes-de-cloisonnement">
 <h2>6.1.1. Principes de cloisonnement<a class="headerlink" href="#principes-de-cloisonnement" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les principes de cloisonnement en zones, et notamment les implications en termes de communication entre ces zones ont été décrits dans <a class="reference internal" href="../archi-exploit-infra/principes/30-principles-deployment.html"><span class="doc">la section dédiée aux principes de déploiement</span></a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Le principe de cloisonnement des flux ne peut être mené que par une équipe d&#8217;infrastructure. L&#8217;implémentation du filtrage des flux inter-zones doit etre effectuée lors du déploiement de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, conformément à la matrice de flux, en annexe du document.</p>
+</div>
 </div>
 <div class="section" id="principes-de-securisation-des-acces-externes">
 <h2>6.1.2. Principes de sécurisation des accès externes<a class="headerlink" href="#principes-de-securisation-des-acces-externes" title="Lien permanent vers ce titre">¶</a></h2>
@@ -194,7 +199,7 @@
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Dans cette version du système VITAM, les ciphers recommandés sont : <code class="docutils literal"><span class="pre">TLS_ECDHE.*</span></code>, <code class="docutils literal"><span class="pre">TLS_DHE_RSA.*</span></code></p>
+<p class="last">Les ciphers recommandés sont : <code class="docutils literal"><span class="pre">TLS_ECDHE.*</span></code>, <code class="docutils literal"><span class="pre">TLS_DHE_RSA.*</span></code></p>
 </div>
 <ul>
 <li><p class="first">Authentification par certificat x509 requise des applications externes (authentification M2M) basée sur une liste blanche de certificats valides ;</p>
@@ -205,16 +210,16 @@
 </div></blockquote>
 </li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Dans cette version du système VITAM, la liste des certificats reconnus est stockée dans un keystore Java.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">La révocation des certificats se fait par leur suppression dans les différents magasins et référentiels. Les CRL ne sont pas supportées dans cette version de la solution logicielle VITAM.</p>
 </div>
 <ul>
 <li><p class="first">Filtrage exhaustif des données et requêtes entrant dans le système basé sur :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Un WAF applicatif permettant le filtrage d&#8217;entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> protégeant notamment contre les attaques de type XSS)</li>
-<li>Support de l&#8217;utilisation d&#8217;un ou plusieurs antivirus (configurables et extensibles) dans le composant d&#8217;entrée (<code class="docutils literal"><span class="pre">ingest</span></code>) permettant de valider l&#8217;inocuité des données entrantes.</li>
+<li>Un WAF applicatif permettant le filtrage d&#8217;entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> dans les composants <code class="docutils literal"><span class="pre">*-external</span></code> protégeant notamment contre les attaques de type XSS)</li>
+<li>Support de l&#8217;utilisation d&#8217;un ou plusieurs antivirus (configurables et extensibles) dans le composant d&#8217;entrée (<code class="docutils literal"><span class="pre">ingest-external</span></code>) permettant de valider l&#8217;innocuité des données entrantes.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -230,7 +235,7 @@
 <p>Dans chaque requête, les deux headers suivants sont positionnés :</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">X-Request-Timestamp</span></code> : il contient le timestamp de la requête sous forme epoch (secondes depuis 1970)</li>
-<li><code class="docutils literal"><span class="pre">X-Platform-ID</span></code> : il contient la valeur suivante : SHA256(&#8220;&lt;methode&gt;;&lt;URL&gt;;&lt;Valeur du header X-Request-Timestamp&gt;;&lt;Secret partagé de plateforme&gt;&#8221;)</li>
+<li><code class="docutils literal"><span class="pre">X-Platform-ID</span></code> : il contient la valeur suivante : <code class="docutils literal"><span class="pre">SHA256(&quot;&lt;methode&gt;;&lt;URL&gt;;&lt;Valeur</span> <span class="pre">du</span> <span class="pre">header</span> <span class="pre">X-Request-Timestamp&gt;;&lt;Secret</span> <span class="pre">partagé</span> <span class="pre">de</span> <span class="pre">plateforme&gt;&quot;)</span></code></li>
 </ul>
 <p>Du côté du composant cible de la requête, le contrôle est alors le suivant :</p>
 <ul class="simple">
@@ -314,7 +319,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

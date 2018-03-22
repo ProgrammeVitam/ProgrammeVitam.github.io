@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Worker &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Détails par composant" href="../_toc.html"/>
         <link rel="next" title="Introduction" href="intro.html"/>
         <link rel="prev" title="Introduction" href="../technical-administration/introduction.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -105,19 +106,18 @@
 <li class="toctree-l3"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="worker.html">Worker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="worker-client.html">Worker Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin.html">Worker Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idempotent.html">Idempotence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -173,17 +173,38 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="worker.html">Worker</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="worker.html#presentation">1. Présentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-server">2. Worker-server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-core">3. Worker-core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="worker.html#details-des-handlers">4. Details des Handlers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-common">5. Worker-common</a></li>
-<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-client">6. Worker-client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#presentation">Présentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-server">Worker-server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-core">Worker-core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#details-des-handlers">Details des Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#logbook-lifecycle">logbook lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id4">4.8.1 description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id5">4.9.1 description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id6">4.10.1 Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id7">4.10.2 Détail des différentes maps utilisées :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id8">4.10.3 exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#journalisation-logbook-operation-logbook-life-cycle">4.10.4 journalisation : logbook operation? logbook life cycle?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id9">4.10.5 modules utilisés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#id10">4.10.6 cas d&#8217;erreur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-common">Worker-common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker.html#worker-client">Worker-client</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="worker-client.html">Worker Client</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="worker-client.html#la-factory">La factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="worker-client.html#les-services">Les services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin.html">Worker Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html#presentation">1. Présentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html#gestion-des-entrants-du-plugin">2. Gestion des entrants du plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html#gestion-des-statuts-du-plugin-itemstatus">3. Gestion des statuts du plugin : ItemStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html#integration-d-un-nouveau-plugin">4. Intégration d&#8217;un nouveau plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="idempotent.html">Idempotence</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="idempotent.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotent.html#modifications">Modifications</a></li>
 </ul>
 </li>
 </ul>
@@ -231,7 +252,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

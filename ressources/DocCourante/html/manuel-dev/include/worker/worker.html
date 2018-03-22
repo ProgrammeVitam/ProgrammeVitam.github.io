@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker &mdash; documentation VITAM - Manuel de développement 0.26.1</title>
+  <title>Worker &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 0.26.1" href="../../index.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
         <link rel="up" title="Worker" href="_toc.html"/>
         <link rel="next" title="Worker Client" href="worker-client.html"/>
         <link rel="prev" title="Introduction" href="intro.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
@@ -104,28 +105,36 @@
 <li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Worker</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Worker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#presentation">1. Présentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-server">2. Worker-server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-core">3. Worker-core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#details-des-handlers">4. Details des Handlers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-common">5. Worker-common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-client">6. Worker-client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#presentation">Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-server">Worker-server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-core">Worker-core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details-des-handlers">Details des Handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logbook-lifecycle">logbook lifecycle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4.8.1 description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.9.1 description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">4.10.1 Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">4.10.2 Détail des différentes maps utilisées :</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">4.10.3 exécution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#journalisation-logbook-operation-logbook-life-cycle">4.10.4 journalisation : logbook operation? logbook life cycle?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">4.10.5 modules utilisés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">4.10.6 cas d&#8217;erreur</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-common">Worker-common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-client">Worker-client</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="worker-client.html">Worker Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin.html">Worker Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idempotent.html">Idempotence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html#client">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -177,7 +186,7 @@
   <div class="section" id="worker">
 <h1>Worker<a class="headerlink" href="#worker" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="presentation">
-<h2>1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="line-block">
 <div class="line"><em>Parent package:</em> <strong>fr.gouv.vitam</strong></div>
 <div class="line"><em>Package proposition:</em> <strong>fr.gouv.vitam.worker</strong></div>
@@ -189,9 +198,9 @@
 - worker-server : incluant la partie REST.</p>
 </div>
 <div class="section" id="worker-server">
-<h2>2. Worker-server<a class="headerlink" href="#worker-server" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Worker-server<a class="headerlink" href="#worker-server" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="rest-api">
-<h3>2.1 Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour l&#8217;instant les uri suivantes sont déclarées :</p>
 <div class="line-block">
 <div class="line"><a class="reference external" href="http://server/worker/v1">http://server/worker/v1</a></div>
@@ -199,7 +208,7 @@
 </div>
 </div>
 <div class="section" id="registration">
-<h3>2.2 Registration<a class="headerlink" href="#registration" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Registration<a class="headerlink" href="#registration" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une partie registration permet de gérer la registration du Worker.</p>
 <p>La gestion de l&#8217;abonnement du <em>worker</em> auprès du serveur <em>processing</em> se fait à l&#8217;aide d&#8217;un ServletContextListener : <em>fr.gouv.vitam.worker.server.registration.WorkerRegistrationListener</em>.</p>
 <p>Le WorkerRegistrationListener va lancer l&#8217;enregistrement du <em>worker</em> au démarrage du serveur worker, dans un autre Thread utilisant l&#8217;instance <em>Runnable</em> : <em>fr.gouv.vitam.worker.server.registration.WorkerRegister</em>.</p>
@@ -209,7 +218,9 @@
 <li>un nombre d&#8217;essai (registerTry)</li>
 </ul>
 <p>Le lancement du serveur est indépendant de l&#8217;enregistrement du <em>worker</em> auprès du <em>processing</em> : le serveur <em>worker</em> ne s&#8217;arrêtera pas si l&#8217;enregistrement n&#8217;a pas réussi.</p>
-<p>2.3. Configuration de worker</p>
+</div>
+<div class="section" id="configuration-de-worker">
+<h3>Configuration de worker<a class="headerlink" href="#configuration-de-worker" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cela présente la configuration pour un worker quand il est déployé. Deux paramètres importants quand le worker fonctionne en mode parallèle.</p>
 <blockquote>
 <div><ul>
@@ -225,7 +236,9 @@ Il est précisé par le paramètre capacity dans le WorkerConfiguration.</p>
 <p>Chaque worker est configuré pour traiter groupe de tâches corresponsant à ses fonctions et on cela permetre de définir les familles de worker.
 Il est précisé par workerFamily dans le WorkerConfigration.</p>
 </div></blockquote>
-<p>2.4. WorkerBean</p>
+</div>
+<div class="section" id="workerbean">
+<h3>WorkerBean<a class="headerlink" href="#workerbean" title="Lien permanent vers ce titre">¶</a></h3>
 <p>présente l&#8217;information complète sur un worker pour la procédure d&#8217;enregistrement d&#8217;un worker. Il contient les information sur le nom,
 la famille et la capacité ... d&#8217;un worker et présente en mode json. Voici un example :</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;workername&quot;</span><span class="p">,</span> <span class="nt">&quot;family&quot;</span> <span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span> <span class="nt">&quot;capacity&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
@@ -234,7 +247,7 @@ la famille et la capacité ... d&#8217;un worker et présente en mode json. Voic
 </div>
 </div>
 <div class="section" id="persistence-des-workers">
-<h3>2.5. Persistence des workers<a class="headerlink" href="#persistence-des-workers" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Persistence des workers<a class="headerlink" href="#persistence-des-workers" title="Lien permanent vers ce titre">¶</a></h3>
 <blockquote>
 <div>La lise de workers est persistée dans une base de données. Pour le moment, la base est un fichier de données qui contient une tableau de
 workers en format ArrayNode et chaque worker est une élément JsonNode. Exemple ci-dessous est des données d&#8217;une liste de workers</div></blockquote>
@@ -261,7 +274,7 @@ workers en format ArrayNode et chaque worker est une élément JsonNode. Exemple
 </div>
 </div>
 <div class="section" id="desenregistrement-d-un-worker">
-<h3>2.6. Désenregistrement d&#8217;un worker<a class="headerlink" href="#desenregistrement-d-un-worker" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Désenregistrement d&#8217;un worker<a class="headerlink" href="#desenregistrement-d-un-worker" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lorsque le worker s&#8217;arrête ou se plante, ce worker doit être désenregistré.</p>
 <ul class="simple">
 <li>Si le worker s&#8217;arrête, la demande de désenregistrement sera lancé pour le contexte &#8220;contextDestroyed&#8221; de la WorkerRegistrationListener  (implémenté de ServletContextListener) en utilisant le ProcessingManagementClient pour appeler le service de desenregistrement de distributeur.</li>
@@ -275,7 +288,7 @@ workers en format ArrayNode et chaque worker est une élément JsonNode. Exemple
 </div>
 </div>
 <div class="section" id="worker-core">
-<h2>3. Worker-core<a class="headerlink" href="#worker-core" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Worker-core<a class="headerlink" href="#worker-core" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans la partie Core, sont présents les différents Handlers nécessaires pour exécuter les différentes actions.</p>
 <ul class="simple">
 <li>CheckConformityActionHandler</li>
@@ -310,7 +323,7 @@ le Handler correspondant.</p>
 </ul>
 <p>La classe WorkerImpl permet de lancer ces différents handlers.</p>
 <div class="section" id="focus-sur-la-gestion-des-entrees-sorties-des-handlers">
-<h3>3.1 Focus sur la gestion des entrées / sorties  des Handlers<a class="headerlink" href="#focus-sur-la-gestion-des-entrees-sorties-des-handlers" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Focus sur la gestion des entrées / sorties  des Handlers<a class="headerlink" href="#focus-sur-la-gestion-des-entrees-sorties-des-handlers" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Chaque Handler a un constructeur sans argument et est lancé avec la commande :</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">CompositeItemStatus</span> <span class="nf">execute</span><span class="o">(</span><span class="n">WorkerParameters</span> <span class="n">params</span><span class="o">,</span> <span class="n">HandlerIO</span> <span class="n">ioParam</span><span class="o">).</span>
 <span class="o">..</span>
@@ -424,7 +437,7 @@ le Handler correspondant.</p>
 </div>
 </div>
 <div class="section" id="cas-particulier-des-tests-unitaires">
-<h3>3.2 Cas particulier des Tests unitaires<a class="headerlink" href="#cas-particulier-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Cas particulier des Tests unitaires<a class="headerlink" href="#cas-particulier-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Afin d&#8217;avoir un handlerIO correctement initialisé, il faut redéfinir le handlerIO manuellement comme l&#8217;attend le handler :</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// In a common part (@Before for instance)</span>
 <span class="n">HandlerIO</span> <span class="n">handlerIO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HandlerIO</span><span class="o">(</span><span class="s">&quot;containerName&quot;</span><span class="o">,</span> <span class="s">&quot;workerid&quot;</span><span class="o">);</span>
@@ -489,7 +502,7 @@ le Handler correspondant.</p>
 </div>
 </div>
 <div class="section" id="creation-d-un-nouveau-handler">
-<h3>3.3 Création d&#8217;un nouveau handler<a class="headerlink" href="#creation-d-un-nouveau-handler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Création d&#8217;un nouveau handler<a class="headerlink" href="#creation-d-un-nouveau-handler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La création d&#8217;un nouveaux handler doit être motivée par certaines conditions nécessaires :</p>
 <ul class="simple">
 <li>lorsque qu&#8217;il n&#8217;y a pas de handler qui répond au besoin</li>
@@ -507,17 +520,17 @@ Celui-ci sert de clé pour :</p>
 </div>
 </div>
 <div class="section" id="details-des-handlers">
-<h2>4. Details des Handlers<a class="headerlink" href="#details-des-handlers" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Details des Handlers<a class="headerlink" href="#details-des-handlers" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="detail-du-handler-checkconformityactionhandler">
-<h3>4.1 Détail du handler : CheckConformityActionHandler<a class="headerlink" href="#detail-du-handler-checkconformityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckConformityActionHandler<a class="headerlink" href="#detail-du-handler-checkconformityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="description">
-<h4>4.1.1 description<a class="headerlink" href="#description" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#description" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de contrôle de l&#8217;empreinte. Il comprend désormais 2 tâches :</p>
 <p>&#8211; Vérification de l&#8217;empreinte par rapport à l&#8217;empreinte indiquée dans le manifeste (en utilisant algorithme déclaré dans manifeste)
 &#8211; Calcul d&#8217;une empreinte en SHA-512 si l&#8217;empreinte du manifeste est calculée avec un algorithme différent</p>
 </div>
 <div class="section" id="execution">
-<h4>4.1.2 exécution<a class="headerlink" href="#execution" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Exécution<a class="headerlink" href="#execution" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckConformityActionHandler recupère l&#8217;algorithme de Vitam (SHA-512) par l&#8217;input dans workflow et le fichier en InputStream par le workspace.</p>
 <p>Si l&#8217;algorithme est différent que celui dans le manifest, il calcul l&#8217;empreinte de fichier en SHA-512</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span>      <span class="n">DigestType</span> <span class="n">digestTypeInput</span> <span class="o">=</span> <span class="n">DigestType</span><span class="o">.</span><span class="na">fromValue</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">ALGO_RANK</span><span class="o">));</span>
@@ -548,10 +561,12 @@ sinon, c&#8217;est le cas WARNING. le nouveau empreint et son algorithme seront 
 Si nombre de KO est plus de 0, l&#8217;action est KO.</p>
 </div>
 <div class="section" id="journalisation">
-<h4>4.1.3 journalisation :<a class="headerlink" href="#journalisation" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>4.1.3 journalisation<a class="headerlink" href="#journalisation" title="Lien permanent vers ce titre">¶</a></h4>
+</div>
+</div>
 </div>
 <div class="section" id="logbook-lifecycle">
-<h4>logbook lifecycle<a class="headerlink" href="#logbook-lifecycle" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>logbook lifecycle<a class="headerlink" href="#logbook-lifecycle" title="Lien permanent vers ce titre">¶</a></h2>
 <p>CA 1 : Vérification de la conformité de l&#8217;empreinte. (empreinte en SHA-512 dans le manifeste)</p>
 <p>Dans le processus d&#8217;entrée, l&#8217;étape de vérification de la conformité de l&#8217;empreinte doit être appelée en position 450.
 Lorsque l&#8217;étape débute, pour chaque objet du groupe d&#8217;objet technique, une vérification d&#8217;empreinte doit être effectuée (celle de l&#8217;objet avec celle inscrite dans le manifeste SEDA). Cette étape est déjà existante actuellement.
@@ -598,13 +613,11 @@ Lorsque l&#8217;action débute, pour chaque objet du groupe d&#8217;objet techni
 <li>eventDetailData FR : &#8220;Empreinte Manifeste : &lt;MessageDigest&gt;, algorithme : &lt;MessageDigest attribut algorithm&gt;&#8221; &#8220;Empreinte calculée (&lt;algorithme utilisé &#8220;XXX&#8221;&gt;): &lt;Empreinte calculée par Vitam&gt;&#8221;</li>
 <li>objectIdentifierIncome : MessageIdentifier du manifest</li>
 </ul>
-</div>
 <div class="section" id="modules-utilises">
-<h4>4.1.5 modules utilisés<a class="headerlink" href="#modules-utilises" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>modules utilisés<a class="headerlink" href="#modules-utilises" title="Lien permanent vers ce titre">¶</a></h3>
 <p>processing, worker, workspace et logbook</p>
-</div>
 <div class="section" id="cas-d-erreur">
-<h4>4.1.4 cas d&#8217;erreur<a class="headerlink" href="#cas-d-erreur" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>cas d&#8217;erreur<a class="headerlink" href="#cas-d-erreur" title="Lien permanent vers ce titre">¶</a></h4>
 <p>XMLStreamException                          : problème de lecture SEDA
 InvalidParseOperationException              : problème de parsing du SEDA
 LogbookClientAlreadyExistsException         : un logbook client existe dans ce workflow
@@ -617,14 +630,14 @@ ContentAddressableStorageException          : erreur de stockage</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkobjectsnumberactionhandler">
-<h3>4.2 Détail du handler : CheckObjectsNumberActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectsnumberactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckObjectsNumberActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectsnumberactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id1">
-<h4>4.2.1 description<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>description<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de comparer le nombre d&#8217;objet stocké sur le workspace et le nombre d&#8217;objets déclaré dans le manifest.</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkobjectunitconsistencyactionhandler">
-<h3>4.3 Détail du handler : CheckObjectUnitConsistencyActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectunitconsistencyactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckObjectUnitConsistencyActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectunitconsistencyactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce handler permet de contrôler la cohérence entre l&#8217;object/object group et l&#8217;ArchiveUnit.</p>
 <p>Pour ce but, on détecte les groupes d&#8217;object qui ne sont pas référé par au moins d&#8217;un ArchiveUnit.
 Ce tache prend deux maps de données qui ont été crée dans l&#8217;étape précédente de workflow comme input :
@@ -667,7 +680,7 @@ invalide, le logbook lifecycles de group d&#8217;object sera mis à jour.</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-checksedaactionhandler">
-<h3>4.4 Détail du handler : CheckSedaActionHandler<a class="headerlink" href="#detail-du-handler-checksedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckSedaActionHandler<a class="headerlink" href="#detail-du-handler-checksedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce handler permet de valider la validité du manifest par rapport à un schéma XSD.
 Il permet aussi de vérifier que les informations remplies dans ce manifest sont correctes.</p>
 <ul class="simple">
@@ -675,17 +688,17 @@ Il permet aussi de vérifier que les informations remplies dans ce manifest sont
 </ul>
 </div>
 <div class="section" id="detail-du-handler-checkstorageavailabilityactionhandler">
-<h3>4.4 Détail du handler : CheckStorageAvailabilityActionHandler<a class="headerlink" href="#detail-du-handler-checkstorageavailabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckStorageAvailabilityActionHandler<a class="headerlink" href="#detail-du-handler-checkstorageavailabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>TODO</p>
 </div>
 <div class="section" id="detail-du-handler-checkversionactionhandler">
-<h3>4.5 Détail du handler : CheckVersionActionHandler<a class="headerlink" href="#detail-du-handler-checkversionactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckVersionActionHandler<a class="headerlink" href="#detail-du-handler-checkversionactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>TODO</p>
 </div>
 <div class="section" id="detail-du-handler-extractsedaactionhandler">
-<h3>4.6 Détail du handler : ExtractSedaActionHandler<a class="headerlink" href="#detail-du-handler-extractsedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : ExtractSedaActionHandler<a class="headerlink" href="#detail-du-handler-extractsedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id2">
-<h4>4.6.1 description<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>description<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet d&#8217;extraire le contenu du SEDA. Il y a :</p>
 <ul class="simple">
 <li>extraction des BinaryDataObject et PhysicalDataObject</li>
@@ -698,7 +711,7 @@ Il permet aussi de vérifier que les informations remplies dans ce manifest sont
 </ul>
 </div>
 <div class="section" id="detail-des-differentes-maps-utilisees">
-<h4>4.6.2 Détail des différentes maps utilisées :<a class="headerlink" href="#detail-des-differentes-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détail des différentes maps utilisées<a class="headerlink" href="#detail-des-differentes-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Map&lt;String, String&gt; dataObjectIdToGuid</p>
 <blockquote>
 <div>contenu         : cette map contient l&#8217;id du DO relié à son guid
@@ -780,7 +793,7 @@ suppression     : c&#8217;est un clean en fin d&#8217;execution du handler</div>
 <p>sauvegarde des maps (dataObjectIdToObjectGroupId, objectGroupIdToGuid) dans le workspace</p>
 </div>
 <div class="section" id="verifier-les-archiveunit-du-sip">
-<h4>4.6.3 Vérifier les ArchiveUnit du SIP<a class="headerlink" href="#verifier-les-archiveunit-du-sip" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Vérifier les ArchiveUnit du SIP<a class="headerlink" href="#verifier-les-archiveunit-du-sip" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans les cas où le SIP contient un objet numérique référencé par un groupe d&#8217;objet et qu&#8217;une unité archiviste
 référence cet objet directement (au lieu de déclarer le GOT), le résultat attendu est un statut KO au niveau de
 l&#8217;étape STP_INGEST_CONTROL_SIP dans l&#8217;action CHECK_MANIFEST. Ce contrôle est effectué dans la fonction
@@ -811,7 +824,7 @@ Fin Si
 </div>
 </div>
 <div class="section" id="details-du-data-dans-l-itemstatus-retourne">
-<h4>4.6.4 Détails du data dans l&#8217;itemStatus retourné<a class="headerlink" href="#details-du-data-dans-l-itemstatus-retourne" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détails du data dans l&#8217;itemStatus retourné<a class="headerlink" href="#details-du-data-dans-l-itemstatus-retourne" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le itemStatus est mis à jour avec les objets du manifest.xml remontées pour mettre à jour evDetData.
 Il contient dans data le json de evDetData en tant que String.
 Entre autre, le evDetData contient la valeur evDetDataType à &#8220;MASTER&#8221; qui définit une action de copie de ce evDetData dans le evDetData master de l&#8217;operation.
@@ -819,7 +832,7 @@ Les champs récupérés (s&#8217;ils existent dans le manifest) sont &#8220;evDe
 </div>
 </div>
 <div class="section" id="detail-du-handler-indexobjectgroupactionhandler">
-<h3>4.7 Détail du handler : IndexObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-indexobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : IndexObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-indexobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id3">
 <h4>4.7.1 description<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Indexation des objets groupes en récupérant les objets groupes du workspace. Il y a utilisation d&#8217;un client metadata.</p>
@@ -827,22 +840,24 @@ Les champs récupérés (s&#8217;ils existent dans le manifest) sont &#8220;evDe
 </div>
 <div class="section" id="detail-du-handler-indexunitactionhandler">
 <h3>4.8 Détail du handler : IndexUnitActionHandler<a class="headerlink" href="#detail-du-handler-indexunitactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+</div>
+</div>
 <div class="section" id="id4">
-<h4>4.8.1 description<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.8.1 description<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Indexation des units en récupérant les units du workspace. Il y a utilisation d&#8217;un client metadata.</p>
-</div>
-</div>
 <div class="section" id="detail-du-handler-storeobjectgroupactionhandler">
 <h3>4.9 Détail du handler : StoreObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-storeobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+</div>
+</div>
 <div class="section" id="id5">
-<h4>4.9.1 description<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.9.1 description<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Persistence des objets dans l&#8217;offre de stockage depuis le workspace.</p>
-</div>
-</div>
 <div class="section" id="detail-du-handler-formatidentificationactionhandler">
 <h3>4.10 Détail du handler : FormatIdentificationActionHandler<a class="headerlink" href="#detail-du-handler-formatidentificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+</div>
+</div>
 <div class="section" id="id6">
-<h4>4.10.1 Description<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.10.1 Description<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce handler permet d&#8217;identifier et contrôler automatiquement le format des objets versés.
 Il s&#8217;exécute sur les différents ObjectGroups déclarés dans le manifest. Pour chaque objectGroup, voici ce qui est effectué :</p>
 <ul class="simple">
@@ -865,7 +880,7 @@ Il s&#8217;exécute sur les différents ObjectGroups déclarés dans le manifest
 </ul>
 </div>
 <div class="section" id="id7">
-<h4>4.10.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.10.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Map&lt;String, String&gt; objectIdToUri</p>
 <blockquote>
 <div>contenu         : cette map contient l&#8217;id du BDO associé à son uri.
@@ -875,11 +890,11 @@ lecture, get    : lecture au fur et à mesure du traitement des BDO.
 suppression     : elle n&#8217;est pas enregistrée sur le workspace et est présente en mémoire uniquement.</div></blockquote>
 </div>
 <div class="section" id="id8">
-<h4>4.10.3 exécution<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.10.3 exécution<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce Handler est exécuté dans l&#8217;étape &#8220;Contrôle et traitements des objets&#8221;, juste après le Handler de vérification des empreintes.</p>
 </div>
 <div class="section" id="journalisation-logbook-operation-logbook-life-cycle">
-<h4>4.10.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#journalisation-logbook-operation-logbook-life-cycle" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.10.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#journalisation-logbook-operation-logbook-life-cycle" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans le traitement du Handler, sont mis à jour uniquement les journaux de cycle de vie des ObjectGroups.
 Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <ul class="simple">
@@ -891,7 +906,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <p>(Note : les messages sont informatifs et ne correspondent aucunement à ce qui sera vraiment inséré en base)</p>
 </div>
 <div class="section" id="id9">
-<h4>4.10.5 modules utilisés<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.10.5 modules utilisés<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le Handler utilise les modules suivants :</p>
 <ul class="simple">
 <li>Workspace (récupération / copie de fichiers)</li>
@@ -901,7 +916,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 </ul>
 </div>
 <div class="section" id="id10">
-<h4>4.10.6 cas d&#8217;erreur<a class="headerlink" href="#id10" title="Lien permanent vers ce titre">¶</a></h4>
+<h2>4.10.6 cas d&#8217;erreur<a class="headerlink" href="#id10" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les différentes exceptions pouvant être rencontrées :</p>
 <ul class="simple">
 <li>ReferentialException : si un problème est rencontré lors de l&#8217;interrogation du référentiel des formats de Vitam</li>
@@ -912,12 +927,10 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <li>Content*Exception : si un problème est rencontré lors de l&#8217;interrogation du workspace</li>
 <li>ProcessingException : si un problème plus général est rencontré dans le Handler</li>
 </ul>
-</div>
-</div>
 <div class="section" id="detail-du-handler-transfernotificationactionhandler">
-<h3>4.11 Détail du handler : TransferNotificationActionHandler<a class="headerlink" href="#detail-du-handler-transfernotificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : TransferNotificationActionHandler<a class="headerlink" href="#detail-du-handler-transfernotificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id11">
-<h4>4.11.1 Description<a class="headerlink" href="#id11" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id11" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de finaliser le processus d&#8217;entrée d&#8217;un SIP. Cet Handler est un peu spécifique car il sera lancé même si une étape précédente tombe en erreur.</p>
 <p>Il permet de générer un xml de notification qui sera :</p>
 <ul class="simple">
@@ -927,7 +940,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <p>La première étape dans ce handler est de déterminer l&#8217;état du Workflow : OK ou KO.</p>
 </div>
 <div class="section" id="id12">
-<h4>4.11.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id12" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détail des différentes maps utilisées<a class="headerlink" href="#id12" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Map&lt;String, Object&gt; archiveUnitSystemGuid</p>
 <blockquote>
 <div>contenu         : cette map contient la liste des archives units avec son identifiant tel que déclaré dans le manifest, associé à son GUID.</div></blockquote>
@@ -939,7 +952,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <div>contenu         : cette map contient la liste groupes d&#8217;objets avec leur GUID généré associé à l&#8217;identifiant déclaré dans le manifest.</div></blockquote>
 </div>
 <div class="section" id="id13">
-<h4>4.11.3 exécution<a class="headerlink" href="#id13" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id13" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce Handler est exécuté en dernière position. Il sera exécuté quoi qu&#8217;il se passe avant.
 Même si le processus est KO avant, le Handler sera exécuté.</p>
 <p><em>Cas OK :</em>
@@ -973,12 +986,12 @@ Voici sa structure générale :</p>
 <p>Le XML est alors enregistré sur le Workspace.</p>
 </div>
 <div class="section" id="id14">
-<h4>4.11.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#id14" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#id14" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans le traitement du Handler, le logbook est interrogé : opérations et cycles de vie.
 Cependant aucune mise à jour est effectuée lors de l&#8217;exécution de ce handler.</p>
 </div>
 <div class="section" id="id15">
-<h4>4.11.5 modules utilisés<a class="headerlink" href="#id15" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>modules utilisés<a class="headerlink" href="#id15" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le Handler utilise les modules suivants :</p>
 <ul class="simple">
 <li>Workspace (récupération / copie de fichiers)</li>
@@ -987,7 +1000,7 @@ Cependant aucune mise à jour est effectuée lors de l&#8217;exécution de ce ha
 </ul>
 </div>
 <div class="section" id="id16">
-<h4>4.11.6 cas d&#8217;erreur<a class="headerlink" href="#id16" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>cas d&#8217;erreur<a class="headerlink" href="#id16" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Les différentes exceptions pouvant être rencontrées :</p>
 <ul class="simple">
 <li>Logbook*Exception : si un problème est rencontré lors de l&#8217;interrogation du logbook</li>
@@ -998,14 +1011,14 @@ Cependant aucune mise à jour est effectuée lors de l&#8217;exécution de ce ha
 </div>
 </div>
 <div class="section" id="detail-du-handler-accessionregisteractionhandler">
-<h3>4.12 Détail du handler : AccessionRegisterActionHandler<a class="headerlink" href="#detail-du-handler-accessionregisteractionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : AccessionRegisterActionHandler<a class="headerlink" href="#detail-du-handler-accessionregisteractionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id17">
-<h4>4.12.1 Description<a class="headerlink" href="#id17" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id17" title="Lien permanent vers ce titre">¶</a></h4>
 <p>AccessionRegisterActionHandler permet de fournir une vue globale et dynamique des archives</p>
 <p>sous la responsabilité du service d&#8217;archives, pour chaque tenant.</p>
 </div>
 <div class="section" id="detail-des-maps-utilisees">
-<h4>4.12.2 Détail des maps utilisées<a class="headerlink" href="#detail-des-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détail des maps utilisées<a class="headerlink" href="#detail-des-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Map&lt;String, String&gt; objectGroupIdToGuid</p>
 <blockquote>
 <div>contenu         : cette map contient l&#8217;id du groupe d&#8217;objet relié à son guid</div></blockquote>
@@ -1017,7 +1030,7 @@ Cependant aucune mise à jour est effectuée lors de l&#8217;exécution de ce ha
 <div>contenu         : cette map contient l&#8217;id du data object relié à ses informations</div></blockquote>
 </div>
 <div class="section" id="id18">
-<h4>4.12.3 exécution<a class="headerlink" href="#id18" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Exécution<a class="headerlink" href="#id18" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L&#8217;alimentation du registre des fonds a lieu pendant la phase de finalisation de l&#8217;entrée,</p>
 <p>une fois que les objets et les units sont rangés. (&#8220;stepName&#8221;: &#8220;STP_INGEST_FINALISATION&#8221;)</p>
 <p>Le Registre des Fonds est alimenté de la manière suivante:</p>
@@ -1043,21 +1056,21 @@ Cependant aucune mise à jour est effectuée lors de l&#8217;exécution de ce ha
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkingestcontractactionhandler">
-<h3>4.13 Détail du handler : CheckIngestContractActionHandler<a class="headerlink" href="#detail-du-handler-checkingestcontractactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckIngestContractActionHandler<a class="headerlink" href="#detail-du-handler-checkingestcontractactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id19">
-<h4>4.13.1 Description<a class="headerlink" href="#id19" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id19" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckIngestContractHandler permet de vérifier la présence et contrôler le contrat d&#8217;entrée
 du SIP à télécharger.</p>
 </div>
 <div class="section" id="detail-des-donnees-utilisees">
-<h4>4.13.2 Détail des données utilisées<a class="headerlink" href="#detail-des-donnees-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détail des données utilisées<a class="headerlink" href="#detail-des-donnees-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
 <blockquote>
 <div>globalSEDAParameters.json
 Ce handler prend ce fichier comme le parametre d&#8217;entrée. Le fichier contient des données gobales sur l&#8217;ensemble des
 parametrès du bordereau et il a été généré à l&#8217;étape de l&#8217;ExtractSedeActionHandler (CHECK_MANIFEST).</div></blockquote>
 </div>
 <div class="section" id="id20">
-<h4>4.13.3 exécution<a class="headerlink" href="#id20" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Exécution<a class="headerlink" href="#id20" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le handler cherche d&#8217;abord dans globalSEDAParameters.json le nom du contrat déclaré dans le SIP associé au balise &lt;ArchivalAgreement&gt;.
 Si il n&#8217;y as pas de déclaration de contrat d&#8217;entrée, le handler retourne le status OK. Si il y a un déclaration de contrat, une liste
 des opérations suivantes sera effectué :</p>
@@ -1089,25 +1102,25 @@ Fin Si
 </div>
 </div>
 <div class="section" id="detail-du-handler-checknoobjectsactionhandler">
-<h3>4.14 Détail du handler : CheckNoObjectsActionHandler<a class="headerlink" href="#detail-du-handler-checknoobjectsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckNoObjectsActionHandler<a class="headerlink" href="#detail-du-handler-checknoobjectsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id21">
-<h4>4.14.1 Description<a class="headerlink" href="#id21" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id21" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckNoObjectsActionHandler permet de vérifier s&#8217;il y a des objects numériques dans le SIP à verser dans le système.</p>
 </div>
 <div class="section" id="id22">
-<h4>4.14.2 Détail des données utilisées<a class="headerlink" href="#id22" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détail des données utilisées<a class="headerlink" href="#id22" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le handler prend ce fichier manifest extrait du WORKSPACE comme le parametre d&#8217;entrée.</p>
 </div>
 <div class="section" id="id23">
-<h4>4.14.3 exécution<a class="headerlink" href="#id23" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id23" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le fichier manifest sera lu pour vérifier s&#8217;il y a des TAG &#8220;BinaryDataObject&#8221; ou &#8220;PhysicalDataObject&#8221;.
 S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkarchiveunitschema">
-<h3>4.15 Détail du plugin : CheckArchiveUnitSchema<a class="headerlink" href="#detail-du-plugin-checkarchiveunitschema" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du plugin : CheckArchiveUnitSchema<a class="headerlink" href="#detail-du-plugin-checkarchiveunitschema" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id24">
-<h4>4.15.1 Description<a class="headerlink" href="#id24" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id24" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckArchiveUnitSchema permet d&#8217;exécuter un contrôle intelligent des archive unit en vérifiant la conformité du JSON généré dans le process pour chaque archive unit, par rapport à un schéma défini.</p>
 <div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>   1
    2
@@ -3412,7 +3425,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;StartDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Startdate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-8]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3422,7 +3435,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Enddate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3490,7 +3503,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;StartDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Startdate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-8]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3500,7 +3513,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Enddate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3585,7 +3598,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;StartDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Startdate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-8]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3595,7 +3608,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Enddate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3609,7 +3622,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
                   <span class="p">},</span>
                   <span class="nt">&quot;ClassificationReassessingDate&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -3688,7 +3701,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;StartDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Startdate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-8]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3698,7 +3711,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Enddate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3771,7 +3784,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;StartDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Startdate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-8]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3781,7 +3794,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Enddate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3849,7 +3862,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;StartDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Startdate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-8]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -3859,7 +3872,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
                   <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Enddate schema.&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                       <span class="p">{</span>
                         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -4178,7 +4191,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
         <span class="p">},</span>
         <span class="nt">&quot;BirthDate&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
               <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -4215,7 +4228,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
         <span class="p">},</span>
         <span class="nt">&quot;DeathDate&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
               <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -4266,7 +4279,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
         <span class="p">}</span>
       <span class="p">},</span>
-      <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
@@ -4356,7 +4369,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;BirthDate&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}[Z]?$&quot;</span>
@@ -4393,7 +4406,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;DeathDate&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}[Z]?$&quot;</span>
@@ -4498,7 +4511,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;BirthDate&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -4535,7 +4548,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;DeathDate&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -4589,7 +4602,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
-        <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
             <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
@@ -4677,7 +4690,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;BirthDate&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -4714,7 +4727,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;DeathDate&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -4768,7 +4781,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
-        <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
             <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
@@ -5121,7 +5134,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
     <span class="p">},</span>
     <span class="nt">&quot;EndDate&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
           <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -5154,7 +5167,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
           <span class="p">},</span>
           <span class="nt">&quot;EventDateTime&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -5181,7 +5194,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
       <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;DateSignature&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
               <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -5209,7 +5222,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;BirthDate&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                   <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -5246,7 +5259,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;DeathDate&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                   <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -5298,7 +5311,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;SigningTime&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                   <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -5334,7 +5347,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
               <span class="p">}</span>
             <span class="p">}</span>
           <span class="p">},</span>
-          <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
               <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
@@ -5407,7 +5420,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;BirthDate&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                   <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -5444,7 +5457,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;DeathDate&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                   <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
@@ -5496,7 +5509,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;ValidationTime&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern: Date&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
                   <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
@@ -5532,7 +5545,7 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
               <span class="p">}</span>
             <span class="p">}</span>
           <span class="p">},</span>
-          <span class="nt">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
               <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
@@ -5646,22 +5659,18 @@ S&#8217;il en y a, le handler retourne KO, sinon OK.</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">À faire</p>
-<p class="last">ne semble pas marcher.</p>
-</div>
 </div>
 <div class="section" id="id25">
-<h4>4.15.2 Détail des données utilisées<a class="headerlink" href="#id25" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Détail des données utilisées<a class="headerlink" href="#id25" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le plugin récupère l&#8217;id de l&#8217;Archive Unit à vérifier.</p>
 </div>
 <div class="section" id="id26">
-<h4>4.15.3 exécution<a class="headerlink" href="#id26" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id26" title="Lien permanent vers ce titre">¶</a></h4>
 <p>A partir de l&#8217;Id de l&#8217;id de l&#8217;Archive Unit à vérifier, le plugin va télécharger le fichier json associé dans le Workspace.
 Par la suite, il va vérifier la validation de ce Json par rapport au schéma json de Vitam.</p>
 </div>
 <div class="section" id="detail-des-verifications">
-<h4>4.15.4 détail des vérifications<a class="headerlink" href="#detail-des-verifications" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>détail des vérifications<a class="headerlink" href="#detail-des-verifications" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans le schéma Json Vitam défini, voici les spécificités qui ont été ajoutées pour différents champs :</p>
 <ul class="simple">
 <li>StartDate pour les Rules : une date contenant une année égale à ou au dessus de l&#8217;année 9000 sera refusée.</li>
@@ -5670,13 +5679,13 @@ Par la suite, il va vérifier la validation de ce Json par rapport au schéma js
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkarchiveprofileactionhandler">
-<h3>4.16 Détail du handler : CheckArchiveProfileActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofileactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckArchiveProfileActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofileactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id27">
-<h4>4.16.1 Description<a class="headerlink" href="#id27" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id27" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de vérifier le profil dans manifeste</p>
 </div>
 <div class="section" id="id28">
-<h4>4.16.2 exécution<a class="headerlink" href="#id28" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id28" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le format du profil est XSD ou RNG.
 L&#8217;exécution de l&#8217;algorithme est présenté dans le preudo-code ci-dessous:</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>Si le format du profil est équal à XSD
@@ -5690,13 +5699,13 @@ Fin Si
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkarchiveprofilerelationactionhandler">
-<h3>4.17 Détail du handler : CheckArchiveProfileRelationActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofilerelationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : CheckArchiveProfileRelationActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofilerelationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id29">
-<h4>4.16.1 Description<a class="headerlink" href="#id29" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id29" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de vérifier la relation entre le contrat d&#8217;entrée et le profil dans manifeste</p>
 </div>
 <div class="section" id="id30">
-<h4>4.16.2 exécution<a class="headerlink" href="#id30" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id30" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Si le champ &#8220;ArchiveProfiles&#8221; dans le contrat d&#8217;entrée
 contient l&#8217;identifiant du profil, retourne true</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span>    <span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="o">();</span>
@@ -5712,13 +5721,13 @@ contient l&#8217;identifiant du profil, retourne true</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-listarchiveunitsactionhandler">
-<h3>4.18 Détail du handler : ListArchiveUnitsActionHandler<a class="headerlink" href="#detail-du-handler-listarchiveunitsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : ListArchiveUnitsActionHandler<a class="headerlink" href="#detail-du-handler-listarchiveunitsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id31">
-<h4>4.18.1 Description<a class="headerlink" href="#id31" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id31" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de lister les unités archivistiques qui devront être mises à jour.</p>
 </div>
 <div class="section" id="id32">
-<h4>4.18.2 exécution<a class="headerlink" href="#id32" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id32" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Il prend en entrée un fichier json représentant la liste règles de gestion ayant été modifiés dans le référentiel.
 Pour chaque règle mise à jour, une requête vers la collection units est effectuée.
 Le but de cette recherche est de générer une liste d&#8217;units avec les règles de gestion associées ayant été modifiées.
@@ -5726,13 +5735,13 @@ En sortie, pour chaque unité archivistique, on aura un fichier GUID_AU.json (da
 </div>
 </div>
 <div class="section" id="detail-du-handler-listrunningingestsactionhandler">
-<h3>4.19 Détail du handler : ListRunningIngestsActionHandler<a class="headerlink" href="#detail-du-handler-listrunningingestsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : ListRunningIngestsActionHandler<a class="headerlink" href="#detail-du-handler-listrunningingestsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id33">
-<h4>4.19.1 Description<a class="headerlink" href="#id33" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id33" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de lister les ingests toujours en cours d&#8217;exécution (processState RUNNING ou PAUSE).</p>
 </div>
 <div class="section" id="id34">
-<h4>4.19.2 exécution<a class="headerlink" href="#id34" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id34" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Une requête est effectuée sur ProcessManagement, pour récupérer la liste des ingests en cours.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">ProcessQuery</span> <span class="n">pq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProcessQuery</span><span class="o">();</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listStates</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
@@ -5752,44 +5761,58 @@ En sortie, pour chaque unité archivistique, on aura un fichier GUID_AU.json (da
 </div>
 </div>
 <div class="section" id="detail-du-plugin-archiveunitrulesupdateactionplugin">
-<h3>4.20 Détail du plugin : ArchiveUnitRulesUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-archiveunitrulesupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du plugin : ArchiveUnitRulesUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-archiveunitrulesupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id35">
-<h4>4.20.1 Description<a class="headerlink" href="#id35" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id35" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de mettre à jour les règles de gestion d&#8217;une unité archivistique. Il s&#8217;agit ici de mettre à jour le champ endDate pour les règles de gestion impactées.
 On se trouve ici en mode distribué, cela veut donc dire que l&#8217;on traite les mises à jour, unité par unité.</p>
 </div>
 <div class="section" id="id36">
-<h4>4.20.2 exécution<a class="headerlink" href="#id36" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id36" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le fichier json pour l&#8217;unité archivistique, généré dans le Handler &#8220;ListArchiveUnitsActionHandler&#8221; est récupéré.
 A partir de ce dernier, on va faire une première requète pour récupérer l&#8217;unité archivistique telle qu&#8217;enregistrée en base.</p>
 <p>Ensuite, catégorie par catégorie, des requêtes de mises à jour vont être créées.
 Une requête finale sera aggrégée, comprenant les différentes catégories mises à jour.
 Enfin, l&#8217;update final de la base de données sera exécuté, tel que ci-dessous :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">query</span><span class="o">.</span><span class="na">addActions</span><span class="o">(</span><span class="n">UpdateActionHelper</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">VitamFieldsHelper</span><span class="o">.</span><span class="na">operations</span><span class="o">(),</span> <span class="n">params</span><span class="o">.</span><span class="na">getProcessId</span><span class="o">()));</span>
+<span class="n">JsonNode</span> <span class="n">updateResultJson</span> <span class="o">=</span> <span class="n">metaDataClient</span><span class="o">.</span><span class="na">updateUnitbyId</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">getFinalUpdate</span><span class="o">(),</span> <span class="n">archiveUnitId</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">diffMessage</span> <span class="o">=</span> <span class="n">archiveUnitUpdateUtils</span><span class="o">.</span><span class="na">getDiffMessageFor</span><span class="o">(</span><span class="n">updateResultJson</span><span class="o">,</span> <span class="n">archiveUnitId</span><span class="o">);</span>
+<span class="n">itemStatus</span><span class="o">.</span><span class="na">setEvDetailData</span><span class="o">(</span><span class="n">diffMessage</span><span class="o">);</span>
+</pre></div>
+</div>
 <p>Le différentiel (résumant les champs modifiés, principalement les endDate des règles de gestion) sera enregistré également dans les cycles de vie de l&#8217;unité archivistique.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">//do some things</span>
+<span class="n">archiveUnitUpdateUtils</span><span class="o">.</span><span class="na">logLifecycle</span><span class="o">(</span><span class="n">params</span><span class="o">,</span> <span class="n">archiveUnitId</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span> <span class="n">diffMessage</span><span class="o">,</span> <span class="n">logbookLifeCycleClient</span><span class="o">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-runningingestsupdateactionplugin">
-<h3>4.21 Détail du plugin : RunningIngestsUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-runningingestsupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du plugin : RunningIngestsUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-runningingestsupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id37">
-<h4>4.21.1 Description<a class="headerlink" href="#id37" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id37" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de mettre à jour les règles de gestion des unités archivistiques des ingests en cours.</p>
 </div>
 <div class="section" id="id38">
-<h4>4.21.2 exécution<a class="headerlink" href="#id38" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id38" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le fichier json décrivant les ingests en cours, généré dans le Handler &#8220;ListRunningIngestsActionHandler&#8221; est récupéré.
 Il va permettre, de traiter au fur et à mesure les ingests n&#8217;ayant pas été encore impactés par la mise à jour du référentiel des règles de gestion.</p>
-<p>La manière de procéder est la suivante :
-- Une boucle while(true) va permettre de boucler continuellement sur une liste d&#8217;ingest.
-- Une boucle interne sur un iterator obtenu à partir de la liste des ingests va permettre de traiter les différents processus.</p>
+<p>La manière de procéder est la suivante :</p>
+<ul>
+<li><p class="first">Une boucle while(true) va permettre de boucler continuellement sur une liste d&#8217;ingest.</p>
+</li>
+<li><p class="first">Une boucle interne sur un iterator obtenu à partir de la liste des ingests va permettre de traiter les différents processus.</p>
 <blockquote>
 <div><ul class="simple">
 <li>Si l&#8217;ingest est finalisé (entre le moment de l&#8217;exécution du Handler ListRunningIngestsActionHandler, et l&#8217;exécution du plugin) alors on va vérifier la liste des règles de gestion pour chaque unité archivistique, puis procéder à des mises à jour (code commun avec le plugin ArchiveUnitRulesUpdateActionPlugin). L&#8217;ingest est alors, au final, supprimé de l&#8217;iterator.</li>
 <li>Si l&#8217;ingest est toujours en cours, alors on passe au suivant.</li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li>Tant que l&#8217;iterator contient des éléments, la boucle continue. (une pause de 10 secondes est prévue avant de reboucler sur l&#8217;iterator)</li>
-<li>Enfin quand l&#8217;iterator est vide, le plugin, renverra un statut OK notifiant la gestion de tous les ingests.</li>
+</li>
+<li><p class="first">Tant que l&#8217;iterator contient des éléments, la boucle continue. (une pause de 10 secondes est prévue avant de reboucler sur l&#8217;iterator)</p>
+</li>
+<li><p class="first">Enfin quand l&#8217;iterator est vide, le plugin, renverra un statut OK notifiant la gestion de tous les ingests.</p>
+</li>
 </ul>
 <p>A l&#8217;heure actuelle, pour éviter un nombre d&#8217;essais illimité, une limite d&#8217;essais à été positionné (NB_TRY = 600).
 A l&#8217;avenir, il conviendra certainement de ne pas avoir cette limite.</p>
@@ -5798,41 +5821,52 @@ Il apparait pertinent de rendre parallélisable le traitement des ingests en cou
 </div>
 </div>
 <div class="section" id="detail-du-handler-listlifecycletraceabilityactionhandler">
-<h3>4.22 Détail du handler : ListLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-listlifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du handler : ListLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-listlifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id39">
-<h4>4.22.1 Description<a class="headerlink" href="#id39" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id39" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de préparer les listes de cycles de vie des groupes d&#8217;objets, et des unités archivistiques.
 Il permet aussi la récupération des informations de la dernière opération de sécurisation des cycles de vie.</p>
 </div>
 <div class="section" id="id40">
-<h4>4.22.2 exécution<a class="headerlink" href="#id40" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id40" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Une première requête permet de récupérer la dernière opération de sécurisation des cycles de vie.
 S&#8217;il en existe une, on en tire les informations importantes (date d&#8217;exécution, etc.), l&#8217;opération sera exportée dans un fichier json.
 S&#8217;il n&#8217;en existe pas, une date minimale (LocalDateTime.MIN) sera utilisée pour la suite du process.</p>
 <p>A partir de cette date obtenue, on va interroger Mongo et récupérer 2 listes de cycles de vie (groupes d&#8217;objets et units) qui n&#8217;ont pas encore été sécurisés.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">Query</span> <span class="n">parentQuery</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">gte</span><span class="o">(</span><span class="s">&quot;evDateTime&quot;</span><span class="o">,</span> <span class="n">startDate</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+<span class="kd">final</span> <span class="n">Query</span> <span class="n">sonQuery</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">gte</span><span class="o">(</span><span class="n">LogbookDocument</span><span class="o">.</span><span class="na">EVENTS</span> <span class="o">+</span> <span class="s">&quot;.evDateTime&quot;</span><span class="o">,</span> <span class="n">startDate</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+<span class="kd">final</span> <span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="o">();</span>
+<span class="n">select</span><span class="o">.</span><span class="na">setQuery</span><span class="o">(</span><span class="n">QueryHelper</span><span class="o">.</span><span class="na">or</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">parentQuery</span><span class="o">,</span> <span class="n">sonQuery</span><span class="o">));</span>
+<span class="n">select</span><span class="o">.</span><span class="na">addOrderByAscFilter</span><span class="o">(</span><span class="s">&quot;evDateTime&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
 <p>A partir de ces 2 listes, on va créer X (X étant le nombre de GoT ou d&#8217;units) fichiers dans les sous répertoires GUID/ObjectGroup et GUID/UnitsWithoutLevel.
 Ces fichiers json seront utilisés plus tard dans le workflow, dans le cadre de la distribution.</p>
-<p>En traitant les différents cycles de vie, on en conclut les informations suivantes :
-- date maximum d&#8217;un cycle de vie traité
-- nombre de cycles de vie liés aux groupes d&#8217;objets traités
-- nombre de cycles de vie liés aux units traités</p>
+<p>En traitant les différents cycles de vie, on en conclut les informations suivantes :</p>
+<ul class="simple">
+<li>date maximum d&#8217;un cycle de vie traité</li>
+<li>nombre de cycles de vie liés aux groupes d&#8217;objets traités</li>
+<li>nombre de cycles de vie liés aux units traités</li>
+</ul>
 <p>Ces informations, combinées à la startDate obtenue précédemment, sont enregistrées dans un fichier json Operations/traceabilityInformation.json.</p>
-<p>En résumé, voici les output de ce handler :
-- GUID/Operations/lastOperation.json -&gt; informations sur la dernière opération de sécurisation des cycles de vie
-- GUID/Operations/traceabilityInformation.json -&gt; informations sur la sécurisation en cours
-- GUID/ObjectGroup/GUID_OG_n.json -&gt; n fichiers json représentant n cycles de vie des groupes d&#8217;objets
-- GUID/UnitsWithoutLevel/GUID_AU_n.json -&gt; n fichiers json représentant n cycles de vie des units.</p>
+<p>En résumé, voici les output de ce handler :</p>
+<ul class="simple">
+<li>GUID/Operations/lastOperation.json -&gt; informations sur la dernière opération de sécurisation des cycles de vie</li>
+<li>GUID/Operations/traceabilityInformation.json -&gt; informations sur la sécurisation en cours</li>
+<li>GUID/ObjectGroup/GUID_OG_n.json -&gt; n fichiers json représentant n cycles de vie des groupes d&#8217;objets</li>
+<li>GUID/UnitsWithoutLevel/GUID_AU_n.json -&gt; n fichiers json représentant n cycles de vie des units.</li>
+</ul>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-createobjectsecurefileactionplugin">
-<h3>4.23 Détail du plugin : CreateObjectSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createobjectsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du plugin : CreateObjectSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createobjectsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id41">
-<h4>4.23.1 Description<a class="headerlink" href="#id41" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id41" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de traiter, groupe d&#8217;objet par groupe d&#8217;objet, et de créer un fichier sécurisé.
 Chaque fichier sécurisé créé, sera par la suite, dans l&#8217;étape de finalisation, traité et intégré dans un fichier global.</p>
 </div>
 <div class="section" id="id42">
-<h4>4.23.2 exécution<a class="headerlink" href="#id42" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id42" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La première étape de ce plugin, consiste à récupérer le fichier json GUID/ObjectGroup/GUID_OG_n.json.
 A partir de ce json, représentant le cycle de vie devant être traité, on va créer un fichier sécurisé.
 Ce fichier sécurisé contient une ligne unique, organisée de la façon suivante :</p>
@@ -5849,14 +5883,14 @@ Ce fichier sécurisé contient une ligne unique, organisée de la façon suivant
 </div>
 </div>
 <div class="section" id="detail-du-plugin-createunitsecurefileactionplugin">
-<h3>4.24 Détail du plugin : CreateUnitSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createunitsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Détail du plugin : CreateUnitSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createunitsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id43">
-<h4>4.24.1 Description<a class="headerlink" href="#id43" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Description<a class="headerlink" href="#id43" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de traiter, cycle de vie unit par cycle de vie unit, et de créer un fichier sécurisé.
 Chaque fichier sécurisé créé, sera par la suite, dans l&#8217;étape de finalisation, traité et intégré dans un fichier global.</p>
 </div>
 <div class="section" id="id44">
-<h4>4.24.2 exécution<a class="headerlink" href="#id44" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>exécution<a class="headerlink" href="#id44" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La première étape de ce plugin, consiste à récupérer le fichier json GUID/UnitsWithoutLevel/GUID_AU_n.json.
 A partir de ce json, représentant le cycle de vie devant être traité, on va créer un fichier sécurisé.
 Ce fichier sécurisé contient une ligne unique, organisée de la façon suivante :</p>
@@ -5868,37 +5902,59 @@ Ce fichier sécurisé contient une ligne unique, organisée de la façon suivant
 </dd>
 </dl>
 <p>Ce fichier généré est ensuite sauvegardé sur le workspace dans : LFCObjects.</p>
-<p>Voici l&#8217;output de ce plugin :
-- GUID/LFCUnits/GUID_AU.json</p>
+<p>Voici l&#8217;output de ce plugin :</p>
+<ul class="simple">
+<li>GUID/LFCUnits/GUID_AU.json</li>
+</ul>
+</div>
+</div>
+<div class="section" id="detail-du-plugin-checkclassificationlevelactionplugin">
+<h3>Détail du plugin : CheckClassificationLevelActionPlugin<a class="headerlink" href="#detail-du-plugin-checkclassificationlevelactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id45">
+<h4>Description<a class="headerlink" href="#id45" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce plugin permet de vérifier que le niveau de classification déclaré par les ArchiveUnit du manifeste est conforme à ceux attendus dans la configuration de la plate-forme</p>
+</div>
+<div class="section" id="id46">
+<h4>exécution<a class="headerlink" href="#id46" title="Lien permanent vers ce titre">¶</a></h4>
+<p>A partir de l&#8217;Id de l&#8217;id de l&#8217;Archive Unit à vérifier, le plugin va télécharger le fichier json associé dans le Workspace.
+Par la suite, il va vérifier le champ ClassificationLevel par rapport au celui dans ClassificationLevelService</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-finalizelifecycletraceabilityactionhandler">
-<h3>4.25 Détail du handler : FinalizeLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-finalizelifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="id45">
-<h4>4.25.1 Description<a class="headerlink" href="#id45" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Détail du handler : FinalizeLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-finalizelifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id47">
+<h4>Description<a class="headerlink" href="#id47" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de finaliser la sécurisation des cycles de vie, en générant un fichier zip, et en le sauvegardant sur les offres de stockage.</p>
 </div>
-<div class="section" id="id46">
-<h4>4.25.2 exécution<a class="headerlink" href="#id46" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Le Handler va tout d&#8217;abord récupérer les fichiers json qui ont été générés dans l&#8217;étape 1 :
-- le fichier json de la dernière opération de sécurisation
-- le fichier json contenant les informations de la sécurisation en cours</p>
-<p>Ensuite, un objet TraceabilityFile va être généré. Cet objet représente un ZipArchiveOutputStream contenant 4 fichiers :
-- global_lifecycles.txt : contenant l&#8217;aggrégation des informations des cycles de vie sécurisés.
-- additional_information.txt : contenant des informations génériques (nombre de cycles de vie traités, startDate + endDate)
-- computing_information.txt : contenant les informations de hachage (hash actuel, hash de la dernière opération de sécurisation, hash d&#8217;il y a un mois, et d&#8217;il y a un an)
-- token.tsp : tampon d&#8217;horodatage du fichier de sécurisation</p>
+<div class="section" id="id48">
+<h4>exécution<a class="headerlink" href="#id48" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le Handler va tout d&#8217;abord récupérer les fichiers json qui ont été générés dans l&#8217;étape 1 :</p>
+<ul class="simple">
+<li>le fichier json de la dernière opération de sécurisation</li>
+<li>le fichier json contenant les informations de la sécurisation en cours</li>
+</ul>
+<p>Ensuite, un objet TraceabilityFile va être généré. Cet objet représente un ZipArchiveOutputStream contenant 4 fichiers :</p>
+<ul class="simple">
+<li>global_lifecycles.txt : contenant l&#8217;aggrégation des informations des cycles de vie sécurisés.</li>
+<li>additional_information.txt : contenant des informations génériques (nombre de cycles de vie traités, startDate + endDate)</li>
+<li>computing_information.txt : contenant les informations de hachage (hash actuel, hash de la dernière opération de sécurisation, hash d&#8217;il y a un mois, et d&#8217;il y a un an)</li>
+<li>token.tsp : tampon d&#8217;horodatage du fichier de sécurisation</li>
+</ul>
 <p>Les informations nécessaires sont récupérées pour générer et remplir les 4 différents fichiers :</p>
 <p><strong>global_lifecycles.txt :</strong>
-Ce fichier va être obtenu de la manière suivante :
-- On récupère la liste des fichiers présents dans les 2 sous-répertoires (GUID/LFCUnits/ et GUID/LFCObjects/).
-- Pour chaque fichier récupéré, on récupère son contenu et on ajoute une ligne au fichier global_lifecycles.txt
-- Le premier élément traité sera utilisé pour en conclure un hash, qui sera identifié étant comme le hashRoot du fichier.</p>
+Ce fichier va être obtenu de la manière suivante :</p>
+<ul class="simple">
+<li>On récupère la liste des fichiers présents dans les 2 sous-répertoires (GUID/LFCUnits/ et GUID/LFCObjects/).</li>
+<li>Pour chaque fichier récupéré, on récupère son contenu et on ajoute une ligne au fichier global_lifecycles.txt</li>
+<li>Le premier élément traité sera utilisé pour en conclure un hash, qui sera identifié étant comme le hashRoot du fichier.</li>
+</ul>
 <p><strong>additional_information.txt :</strong>
-Le fichier json Operations/traceabilityInformation.json va être utilisé pour construire le fichier de la manière suivante :
-- numberOfElement : nombre de cycles de vie traités
-- startDate : startDate (soit égale à LocalDateTime.MIN, soit à la plus petite date des cycles de vie traités)
-- endDate : plus grande date des cycles de vie traités.</p>
+Le fichier json Operations/traceabilityInformation.json va être utilisé pour construire le fichier de la manière suivante :</p>
+<ul class="simple">
+<li>numberOfElement : nombre de cycles de vie traités</li>
+<li>startDate : startDate (soit égale à LocalDateTime.MIN, soit à la plus petite date des cycles de vie traités)</li>
+<li>endDate : plus grande date des cycles de vie traités.</li>
+</ul>
 <p><strong>computing_information.txt :</strong>
 Ce fichier va être rempli de la manière suivante :
 - currentHash : le hash du cycle de vie traité en premier
@@ -5914,29 +5970,27 @@ Les différents hash nécessaires sont :
 - hash2 : hash de la dernière opération de sécurisation datant d&#8217;un mois
 - hash3 : hash de la dernière opération de sécurisation datant d&#8217;un an
 (hash1, hash2 et hash3 peuvent être null, si aucune opération n&#8217;a été effectué dans le passé)</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">joiner</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">rootHash</span><span class="o">,</span> <span class="n">hash1</span><span class="o">,</span> <span class="n">hash2</span><span class="o">,</span> <span class="n">hash3</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">DigestType</span> <span class="n">digestType</span> <span class="o">=</span> <span class="n">VitamConfiguration</span><span class="o">.</span><span class="na">getDefaultTimestampDigestType</span><span class="o">();</span>
+<span class="kd">final</span> <span class="n">Digest</span> <span class="n">digest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Digest</span><span class="o">(</span><span class="n">digestType</span><span class="o">);</span>
+<span class="n">digest</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">hash</span><span class="o">);</span>
+<span class="kd">final</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">hashDigest</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="na">digest</span><span class="o">();</span>
+<span class="kd">final</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">timeStampToken</span> <span class="o">=</span> <span class="n">timestampGenerator</span><span class="o">.</span><span class="na">generateToken</span><span class="o">(</span><span class="n">hashDigest</span><span class="o">,</span> <span class="n">digestType</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</pre></div>
+</div>
 <p>Le fichier zip est finalement créé et sauvegardé sur le Workspace. Ensuite, il sera sauvegardé sur les offres de stockage.</p>
 <p>Bien évidemment l&#8217;opération est enregistré dans le logbook. Les informations de Traceability sont enregistrés dans le champ evDetData.
 Elles seront utilisés par la suite, pour les sécurisations futures.</p>
 </div>
 </div>
-</div>
-<div class="section" id="worker-common">
-<h2>5. Worker-common<a class="headerlink" href="#worker-common" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le worker-common contient majoritairement des classes utilitaires.
-A terme, il faudra que SedaUtils notamment soit &#8220;retravaillé&#8221; pour que les différentes méthodes soit déplacées dans les bons Handlers.</p>
-</div>
-<div class="section" id="worker-client">
-<h2>6. Worker-client<a class="headerlink" href="#worker-client" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le worker client contient le code permettant l&#8217;appel vers les API Rest offert par le worker.
-Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail, voir la partie worker-client.</p>
 <div class="section" id="detail-du-handler-generateauditreportactionhandler">
-<h3>4.26 Détail du handler : GenerateAuditReportActionHandler<a class="headerlink" href="#detail-du-handler-generateauditreportactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="id47">
-<h4>4.26.1 Description<a class="headerlink" href="#id47" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Détail du handler : GenerateAuditReportActionHandler<a class="headerlink" href="#detail-du-handler-generateauditreportactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id49">
+<h4>Description<a class="headerlink" href="#id49" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de générer le rapport d&#8217;audit</p>
 </div>
-<div class="section" id="id48">
-<h4>4.26.2 exécution<a class="headerlink" href="#id48" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="id50">
+<h4>exécution<a class="headerlink" href="#id50" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La rapport commence par une partie généraliste contenant :
 * Le GUID de l&#8217;opération d&#8217;audit à l&#8217;origine de ce rapport
 * Le tenant sur lequel s&#8217;est exécuté l&#8217;audit
@@ -5962,25 +6016,25 @@ Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail
 </div>
 </div>
 <div class="section" id="detail-du-plugin-auditcheckobjectplugin">
-<h3>4.27 Détail du plugin : AuditCheckObjectPlugin<a class="headerlink" href="#detail-du-plugin-auditcheckobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="id49">
-<h4>4.27.1 Description<a class="headerlink" href="#id49" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Détail du plugin : AuditCheckObjectPlugin<a class="headerlink" href="#detail-du-plugin-auditcheckobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id51">
+<h4>Description<a class="headerlink" href="#id51" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de contrôler les objets dans le cadre d&#8217;un audit consultatif</p>
 </div>
-<div class="section" id="id50">
-<h4>4.27.2 exécution<a class="headerlink" href="#id50" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="id52">
+<h4>exécution<a class="headerlink" href="#id52" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Selon le parametre auditActions, il va appeler le plugin,
 soit CheckExistenceObjectPlugin, soit CheckIntegrityObjectPlugin</p>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkexistenceobjectplugin">
-<h3>4.28 Détail du plugin : CheckExistenceObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkexistenceobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="id51">
-<h4>4.28.1 Description<a class="headerlink" href="#id51" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Détail du plugin : CheckExistenceObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkexistenceobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id53">
+<h4>Description<a class="headerlink" href="#id53" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de contrôler l&#8217;existence d&#8217;un objet dans le cadre d&#8217;un audit</p>
 </div>
-<div class="section" id="id52">
-<h4>4.28.2 exécution<a class="headerlink" href="#id52" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="id54">
+<h4>exécution<a class="headerlink" href="#id54" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le plugin va tester l&#8217;existence de la cohérence entre les offres de stockages déclarées dans un GOT
 et les offres de stockages relatives à la stratégie de stockage connue du moteur de stockage</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span>    <span class="n">JsonNode</span> <span class="n">storageInformation</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;_storage&quot;</span><span class="o">);</span>
@@ -6001,13 +6055,13 @@ et les offres de stockages relatives à la stratégie de stockage connue du mote
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkintegrityobjectplugin">
-<h3>4.29 Détail du plugin : CheckIntegrityObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkintegrityobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="id53">
-<h4>4.29.1 Description<a class="headerlink" href="#id53" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Détail du plugin : CheckIntegrityObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkintegrityobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id55">
+<h4>Description<a class="headerlink" href="#id55" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de contrôler l&#8217;intégrité d&#8217;un objet archivé dans le cadre d&#8217;un audit</p>
 </div>
-<div class="section" id="id54">
-<h4>4.29.2 exécution<a class="headerlink" href="#id54" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="id56">
+<h4>exécution<a class="headerlink" href="#id56" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans le cadre de l&#8217;audit, on va vérifier une empreinte d&#8217;un objet est bien celle de l&#8217;objet audité,
 en fonction de son offre de stockage.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span>    <span class="n">JsonNode</span> <span class="n">offerToMetadata</span> <span class="o">=</span> <span class="n">storageClient</span><span class="o">.</span><span class="na">getObjectInformation</span><span class="o">(</span><span class="n">strategy</span><span class="o">,</span> <span class="n">version</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;_id&quot;</span><span class="o">).</span><span class="na">asText</span><span class="o">(),</span> <span class="n">offerIds</span><span class="o">);</span>
@@ -6031,6 +6085,16 @@ en fonction de son offre de stockage.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="worker-common">
+<h2>Worker-common<a class="headerlink" href="#worker-common" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le worker-common contient majoritairement des classes utilitaires.
+A terme, il faudra que SedaUtils notamment soit &#8220;retravaillé&#8221; pour que les différentes méthodes soit déplacées dans les bons Handlers.</p>
+</div>
+<div class="section" id="worker-client">
+<h2>Worker-client<a class="headerlink" href="#worker-client" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le worker client contient le code permettant l&#8217;appel vers les API Rest offert par le worker.
+Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail, voir la partie worker-client.</p>
 </div>
 </div>
 
@@ -6075,7 +6139,7 @@ en fonction de son offre de stockage.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

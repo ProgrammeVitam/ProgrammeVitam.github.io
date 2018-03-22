@@ -21,6 +21,7 @@ fatherref: presentation
 
 * Ministère de la Transition écologique et solidaire,
 * Centre Informatique National de l'Enseignement Supérieur (CINES),
-* Agence de Services et de Paiement (ASP).
+* Agence de Services et de Paiement (ASP),
+* Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES).
 
 ![Logos](/public/images/Partenaires.jpg)

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’administration et de mise à jour d’un référentiel des contrats d’entrée &mdash; documentation VITAM - Modèle de workflow 0.26.1</title>
+  <title>Workflow d’administration d’un référentiel des contrats d’entrée &mdash; documentation VITAM - Modèle de workflow 1.0.0</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de workflow 0.26.1" href="../index.html"/>
+    <link rel="top" title="documentation VITAM - Modèle de workflow 1.0.0" href="../index.html"/>
         <link rel="up" title="MASTERDATA" href="_toc_masterdata.html"/>
         <link rel="next" title="Workflow d’administration d’un référentiel des contrats d’accès" href="access-contracts.html"/>
         <link rel="prev" title="Workflow d’administration d’un référentiel des services agent" href="agencies.html"/> 
@@ -59,7 +59,7 @@
 
           
             
-            <img src="../_static/LogoVitamGrand2.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" />
           
           </a>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.26.1
+                1.0.0
               </div>
             
           
@@ -94,15 +94,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ingest/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc_masterdata.html">MASTERDATA</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow-tree.html">Workflow d&#8217;import d&#8217;un arbre de positionnement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rules.html">Workflow d&#8217;administration d&#8217;un référentiel de règles de gestion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="formats.html">Workflow d&#8217;import d&#8217;un référentiel des formats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d&#8217;administration d&#8217;un référentiel des services agent</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d&#8217;administration et de mise à jour d&#8217;un référentiel des contrats d&#8217;entrée</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;entrée</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-import-et-mise-a-jour-d-un-contrat-d-entree-vision-metier">Processus d&#8217;import  et mise à jour d&#8217;un contrat d&#8217;entrée (vision métier)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#import-d-un-contrat-d-entree-stp-import-ingest-contract">Import d&#8217;un contrat d&#8217;entrée (STP_IMPORT_INGEST_CONTRACT)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mise-a-jour-d-un-contrat-d-entree-stp-update-ingest-contract">Mise à jour d&#8217;un contrat d&#8217;entrée (STP_UPDATE_INGEST_CONTRACT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sauvegarde-du-json-stp-backup-ingest-contract">Sauvegarde du JSON (STP_BACKUP_INGEST_CONTRACT)</a></li>
 </ul>
 </li>
 </ul>
@@ -114,7 +116,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_update/_toc_rules_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
 </ul>
 
             
@@ -147,7 +149,7 @@
       
           <li><a href="_toc_masterdata.html">MASTERDATA</a> &raquo;</li>
       
-    <li>Workflow d&#8217;administration et de mise à jour d&#8217;un référentiel des contrats d&#8217;entrée</li>
+    <li>Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;entrée</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -161,8 +163,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="workflow-d-administration-et-de-mise-a-jour-d-un-referentiel-des-contrats-d-entree">
-<h1>Workflow d&#8217;administration et de mise à jour d&#8217;un référentiel des contrats d&#8217;entrée<a class="headerlink" href="#workflow-d-administration-et-de-mise-a-jour-d-un-referentiel-des-contrats-d-entree" title="Lien permanent vers ce titre">¶</a></h1>
+  <div class="section" id="workflow-d-administration-d-un-referentiel-des-contrats-d-entree">
+<h1>Workflow d&#8217;administration d&#8217;un référentiel des contrats d&#8217;entrée<a class="headerlink" href="#workflow-d-administration-d-un-referentiel-des-contrats-d-entree" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette section décrit le processus (workflow) permettant d&#8217;importer un contrat d&#8217;entrée.</p>
@@ -188,7 +190,7 @@
 </ul>
 <ul class="simple">
 <li>Le champ &#8220;Description&#8221; est peuplé avec une chaîne de caractères</li>
-<li>Le champ &#8220;Status&#8221; est peuplé soit de la valeur ACTIVE ou INACTIVE</li>
+<li>Le champ &#8220;Status&#8221; est peuplé avec de la valeur ACTIVE ou la valeur INACTIVE</li>
 <li>Le champ &#8220;ArchiveProfile&#8221; est peuplé avec un tableau d&#8217;une ou plusieurs chaînes de caractère. Chacune de ces chaînes de caractère doit correspondre au champ &#8220;Identifier&#8221; d&#8217;un profil d&#8217;archivage contenu dans le référentiel des profils</li>
 <li>Le champ &#8220;LinkedParentId&#8221; est peuplé par une chaîne de caractères devant correspondre au GUID d&#8217;une AU de plan de classement ou d&#8217;arbre de positionnement pris en charge par la solution logicielle Vitam sur le même tenant</li>
 </ul>
@@ -206,7 +208,28 @@
 </div>
 <div class="section" id="mise-a-jour-d-un-contrat-d-entree-stp-update-ingest-contract">
 <h3>Mise à jour d&#8217;un contrat d&#8217;entrée (STP_UPDATE_INGEST_CONTRACT)<a class="headerlink" href="#mise-a-jour-d-un-contrat-d-entree-stp-update-ingest-contract" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La modification d&#8217;un contrat d&#8217;entrée doit suivre les mêmes règles que celles décrites pour la création.</p>
+<p>La modification d&#8217;un contrat d&#8217;entrée doit suivre les mêmes règles que celles décrites pour la création. La clé de l&#8217;événement est &#8220;STP_UPDATE_INGEST_CONTRACT&#8221;, entraînant des statuts STP_UPDATE_INGEST_CONTRACT.OK, STP_UPDATE_INGEST_CONTRACT.KO et STP_UPDATE_INGEST_CONTRACT.FATAL sur les mêmes contrôles que l&#8217;import.</p>
+</div>
+<div class="section" id="sauvegarde-du-json-stp-backup-ingest-contract">
+<h3>Sauvegarde du JSON (STP_BACKUP_INGEST_CONTRACT)<a class="headerlink" href="#sauvegarde-du-json-stp-backup-ingest-contract" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette tâche est appellée que ce soit en import initial ou en modification.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Règle</strong> : enregistrement d&#8217;une copie de la base de données des contrats d&#8217;entrée sur le stockage</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : une copie de la base de donnée nouvellement importée est enregistrée (STP_BACKUP_INGEST_CONTRACT.OK = Succès du processus de sauvegarde des contrats d&#8217;entrée)</li>
+<li>KO : pas de cas KO</li>
+<li>FATAL : une erreur technique est survenue lors de la copie de la base de donnée nouvellement importée (STP_BACKUP_INGEST_CONTRACT.FATAL = Erreur fatale lors du processus de sauvegarde des contrats d&#8217;entrée)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 </div>
@@ -252,7 +275,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.26.1',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -12,9 +12,9 @@ Objectif du document
 Ce document a pour objectif de présenter les différents processus employés par la solution logicielle Vitam.
 Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux archivistes souhaitant une connaissance plus avancée du logiciel ainsi qu'aux développeurs.
 
-Il explicite chaque processus (appellés également "workflow"), et pour chacun leurs tâches, traitements et actions.
+Il explicite chaque processus (appelés également "workflow"), et pour chacun leurs tâches, traitements et actions.
 
-Ce document comprend également du matériel additionnel pour faciliter la compréhension des processus comme des fiches récaputilatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.
+Ce document comprend également du matériel additionnel pour faciliter la compréhension des processus comme des fiches récapitulatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.
 
 Description d'un processus
 ===========================
@@ -30,32 +30,29 @@ Pour chacun de ces éléments, le document décrit :
 Chaque étape, chaque action peuvent avoir les statuts suivants :
 
 - OK : le traitement associé s'est passé correctement. Le workflow continue.
-- Warning : le traitement associé a généré un avertissement (par exemple le format de l'objet est mal déclaré dans le bordereau de transfert). Le workflow continue.
+- WARNING : le traitement associé a généré un avertissement (par exemple le format de l'objet est mal déclaré dans le bordereau de transfert). Le workflow continue.
 - KO : le traitement associé a généré une erreur métier. Le workflow s'arrête si le modèle d'exécution est bloquant (cf. ci-dessous).
-- FATAL : le traitement associé a généré une erreur technique. Le workflow s'arrête.
+- FATAL : le traitement associé a généré une erreur technique. Le workflow se met en pause.
+
+Un workflow peut être terminé, en cours d'exécution ou être en pause. Un workflow en pause représente le processus arrêté à une étape donnée. Chaque étape peut être mise en pause : ce choix dépend du mode de versement (le mode pas à pas marque une pause à chaque étape), ou du statut (le statut FATAL met l'étape en pause). Les workflows en pause sont visibles dans l'IHM dans l'écran "Gestion des opérations".
+
+Lorsque le statut FATAL survient à l'intérieur d'une étape (par exemple dans une des tâches ou un des traitements de l'étape), c'est toute l'étape qui est mise en pause. Si cette étape est rejouée, les objets déjà traités avant le fatal ne sont pas traités à nouveau : le workflow reprend exactement là où il s'était arrêté et commence par rejouer l'action sur l'objet qui a provoqué l'erreur.
+
 
 Chaque action peut avoir les modèles d'exécutions suivants (toutes les étapes sont par défaut bloquantes) :
 
 - Bloquant
 
-    * Si une action est identifiée en erreur, l'action et l'étape en cours sont alors arrêtées dans un statut "KO" ou "fatal" et le workflow passe à l'étape suivante. Dans certains cas, il est directement terminé en erreur alors que dans d'autres, il passe à une étape de finalisation. Ces comportements spécifiques sont décrits dans chaque workflow.
+    * Si une action bloquante est identifiée en erreur, le workflow est alors arrêté en erreur. Seules actions nécessaire à l'arrête du workflow sont alors éxecutées.
 
 - Non bloquant
 
-    * Si une action est identifiée en erreur, elle passe en erreur puis le reste des actions de l'étape en cours est exécuté. Dans certains cas, le workflow est directement terminé en erreur alors que dans d'autres, il passe à une étape de finalisation. Dans les deux cas  Ces comportements spécifiques sont décrits dans chaque workflow.
+    * Si une action non bloquante est identifiée en erreur, elle seule sera en erreur et le workflow continuera normalement.
 
 Structure d'un fichier Properties du Worflow
 =============================================
 
 Les fichiers **Properties** (Par exemple *DefaultIngestWorkflow.json*) permettent de définir la structure du Workflow pour les étapes, tâches et actions réalisées dans le module d'Ingest Interne, en excluant les étapes et actions réalisées dans le module d'Ingest externe.
-
-La structure du fichier est la suivante :
-
-.. figure:: images/workflow.jpg
-  :align: center
-
-  Structure du fichier de définition du workflow
-
 
 Un Workflow est défini en JSON avec la structure suivante :
 
@@ -88,9 +85,13 @@ Un Workflow est défini en JSON avec la structure suivante :
 
     + ``Distribution`` : modèle de distribution, décrit comme suit :
 
-      - ``Kind`` : un type pouvant être REF (un élément unique) ou LIST (une liste d'éléments)
+      - ``Kind`` : un type pouvant être REF (un élément unique) ou LIST (une liste d'éléments hiérarchisés) ou encore LIST_IN_FILE (liste d'éléments)
 
       - ``Element`` : l'élément de distribution indiquant l'élément unique sous forme d'URI (REF) ou la liste d'éléments en pointant vers un dossier (LIST).
+
+      - ``Type`` : le type des objets traités (ObjectGroup uniquement pour le moment).
+
+      - ``statusOnEmptyDistribution`` : permet dans le cas d'un traitement d'une liste vide, de surcharger le statut WARNING par un statut prédéfini.
 
 
     + une liste d'Actions :
