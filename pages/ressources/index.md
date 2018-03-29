@@ -24,16 +24,19 @@ Ils sont accessibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.
 Ils permettent d'installer de manière outillée la solution, sous forme RPM 
 pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests. 
 
-Liens de téléchargement:
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-product/)/[deb](http://download.programmevitam/repo_vitam_1.0.0/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-external/)/[deb](http://download.programmevitam/repo_vitam_1.0.0/deb/vitam-external/)).
+Liens de téléchargement :
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/repo_vitam_1.0.0/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/repo_vitam_1.0.0/deb/vitam-external/)).
+  
+A noter, ces liens ne permettent pas de naviguer dans l'arborescence mais sont utilisables par les outils de gestion de paquets (yum/apt).
 
 * **une machine virtuelle**
 
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
-La VM peut être téléchargée en suivant ce lien : http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-1.ova
-L'empreinte sha256 est la suivante : http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-1.sha256
+
+La VM peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-1.ova).
+L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-1.sha256).
 
 Sa publication interviendra dans quelques jours.
 
