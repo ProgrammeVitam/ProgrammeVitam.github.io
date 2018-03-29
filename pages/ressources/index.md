@@ -28,7 +28,7 @@ Liens de téléchargement :
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/repo_vitam_1.0.0/deb/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/repo_vitam_1.0.0/deb/vitam-external/)).
   
-A noter, ces liens ne permettent pas de naviguer dans l'arborescence mais sont utilisables par les outils de gestion de paquets (yum/apt).
+A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/apt).
 
 * **une machine virtuelle**
 
