@@ -74,4 +74,6 @@ La collaboration repose sur 4 niveaux de partenariats variables selon les object
 
 - [Focus informaticiens](pres_informaticiens)
 
-- [Aperçu](/ressources/Doc0.11.1/20170116_NP_VITAM_presentation_solution_logicielle_V2.0.pdf) du projet solution logicielle (version Bêta)
+- [Aperçu](ressources/DocCourante/autres/fonctionnel/20180320_Vitam_Presentation_solution_logicielle.pdf) du projet solution logicielle (V1)
+
+- [Présentation de la Première version de production de la solution logicielle Vitam] ([pdf](/ressources/DocCourante/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))

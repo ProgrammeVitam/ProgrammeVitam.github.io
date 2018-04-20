@@ -35,8 +35,8 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-1.ova).
-L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-1.sha256).
+La VM peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.ova).
+L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.sha256).
 
 Sa publication interviendra dans quelques jours.
 
@@ -82,6 +82,10 @@ Elle décrit les fonctions du Générateur ainsi que son utilisation simple et a
 * **le code développé**
 
 Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.github.repoext }}). A noter que les packages java (.jar) sont sur le même point Maven que la solution logicielle.
+
+## Présentation de la Première version de production de la solution logicielle Vitam
+
+Une présentation de la Première version de production de la solution logicielle Vitam a eu lieu aux Archives nationales le 11 avril 2018, réunissant environ 250 personnes. Le support de présentation est consultable ici : ([pdf](/ressources/DocCourante/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
 
 
 <br>
