@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IHM Front &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Recherche" href="../../search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
+        <link rel="up" title="IHM demo" href="_toc.html"/>
+        <link rel="next" title="ihm-recette" href="rest-raml.html"/>
+        <link rel="prev" title="IHM demo" href="_toc.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">IHM demo</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IHM Front</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cette-documentation-decrit-la-partie-front-angular-de-l-ihm-et-en-particulier-sa-configuration-et-ses-ideologies-architecturales">Cette documentation décrit la partie front/Angular de l&#8217;IHM et en particulier sa configuration et ses idéologies architecturales</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rest-raml.html">ihm-recette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-recette-serveur.html">IHM Recette serveur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+      
+          <li><a href="_toc.html">IHM demo</a> &raquo;</li>
+      
+    <li>IHM Front</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/ihm-recette/front.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ihm-front">
+<h1>IHM Front<a class="headerlink" href="#ihm-front" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="cette-documentation-decrit-la-partie-front-angular-de-l-ihm-et-en-particulier-sa-configuration-et-ses-ideologies-architecturales">
+<h2>Cette documentation décrit la partie front/Angular de l&#8217;IHM et en particulier sa configuration et ses idéologies architecturales<a class="headerlink" href="#cette-documentation-decrit-la-partie-front-angular-de-l-ihm-et-en-particulier-sa-configuration-et-ses-ideologies-architecturales" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="utils-et-general-composition-du-projet-angular">
+<h3>Utils et général / Composition du projet Angular<a class="headerlink" href="#utils-et-general-composition-du-projet-angular" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Voici l&#8217;architecture des dossiers et fichiers composant l&#8217;application front IHM-recette (à partir de ihm-recette/ihm-recette-web-front)</p>
+<ul>
+<li><p class="first"><strong>e2e</strong>           Pour le moment inutilisé, pourra être utilisé pour les tests d&#8217;intégration end 2 end</p>
+</li>
+<li><p class="first"><strong>src</strong>           Dossier contenant les sources du projet</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>app</strong>           Dossier contenant les sources typescript des composants du projet</li>
+<li><strong>assets</strong>        Dossier contenant des fichiers statiques utilisés dans l&#8217;IHM recette (images, polices, ...)</li>
+<li><strong>deb</strong>           Dossier contenant des fichiers spécifiques utiles à la génération des packages debian</li>
+<li><strong>environments</strong>  Dossier contenant des règles spécifiques utilisés pour les builds en dev ou en prod</li>
+<li><em>styles.css</em>      Feuille de styles globale des composants de l&#8217;application.
+Les modifications sur ce fichiers doivent EXCLUSIVEMENT être faites à partir du build de theme.scss
+(Voir Build CSS)</li>
+<li><em>main.ts</em>         Point d&#8217;entrée de l&#8217;application</li>
+<li><em>test.ts</em>         Fichier de configuration des tests unitaires définissant entre autre les fichiers à inclure dans les tests.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt><strong>themes</strong>        Dossier contenant les pattern du thème vitam</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt><strong>vitam-red</strong>     Dossier contenant le thème rouge pour l&#8217;IHM recette</dt>
+<dd><ul class="first last simple">
+<li><em>theme.scss</em>      Fichier définissant des couleurs et des règles spécifiques au thème rouge pour l&#8217;IHM recette</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><em>_theme.scss</em>     Fichier définissant un template commun à tous les thèmes pour générer les thèmes vitam.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><em>karma.conf.js</em>   Fichier de configuration du framework de lancement des tests unitaires.</p>
+</li>
+<li><p class="first"><em>package.json</em>    Fichier de configuration des dépendances npm et des scripts utilisés pour les builds (dev/prod/tsts/...)</p>
+</li>
+<li><p class="first"><em>pom.xml</em>         Fichier de configuration du build maven</p>
+</li>
+<li><p class="first"><em>proxy.conf.json</em> Fichier de configuration du proxy utilisé sur poste de dev. Utilisé dans un des scripts du package.json.</p>
+</li>
+<li><p class="first"><em>tslint.json</em>     Fichier de configuration du formatage des fichiers typeScript.</p>
+</li>
+<li><p class="first"><em>zip-conf.xml</em>    Fichier de configuration du packaging du build front. Utilisé dans le pom.xml.</p>
+</li>
+</ul>
+<p>Voici l&#8217;architecture <em>théorique</em> des composants de l&#8217;application (à partir de ihm-recette/ihm-recette-web-front/src/app)</p>
+<ul>
+<li><p class="first"><strong>common</strong> Dossier contenant les composants globaux réutilisables pour l&#8217;ensemble des pages.</p>
+<p>Cela peut par exemple être le bandeau du menu ou un service de gestion des requêtes HTTP.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>componant-name</strong>        Dossier contenant un composant global tel que le menu, le fil d&#8217;ariane ou encore un composant d&#8217;affichage des données.</li>
+<li><em>service-name.service.ts</em> Fichier contenant un service utilitaire</li>
+<li><em>class-name.ts</em>           Fichier contenant une classe utilisée dans plusieurs composants</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt><strong>theme1</strong> Dossier contenant des composant sur un même theme (Pour l&#8217;ihm recette, nous aurons le theme d&#8217;administration, de sécurisation et de tests).</dt>
+<dd><ul class="first last">
+<li><p class="first"><strong>page1</strong>             Dossier contenant le composant d&#8217;une des pages de l&#8217;application.</p>
+<p>Ce composant à des particularités spécifiques (Voir &#8220;Composant de Page&#8221;)</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>component1</strong>            Dossier contenant un des sous-composant utilisé dans la page1.
+Ce composant à des particularités spécifiques (Voir &#8220;Sous Composant&#8221;)</p>
+</li>
+<li><p class="first"><em>page1.component.css</em>     Fichier contenant le style spécifique au composant page1. Le style définit ici n&#8217;est ni utilisable par les autres pages, ni par les sous-composants de la page1.</p>
+</li>
+<li><p class="first"><em>page1.component.html</em>    Fichier contenant le template HTML du composant page1. Les sous-composants peuvent êtres appelés ici grace à la balise &lt;vitam-composant-name /&gt;</p>
+</li>
+<li><p class="first"><em>page1.component.spec.ts</em> Fichier contenant les tests unitaires du composant page1.</p>
+</li>
+<li><p class="first"><em>page1.component.ts</em>      Fichier contenant la logique du composant page1. Les appels au(x) services sont à faire ici.</p>
+</li>
+<li><p class="first"><em>page1.service.ts</em>        Fichier contenant un service d&#8217;appels HTTP et/ou d&#8217;utilitaire pour le composant page1.
+Ce service à des particularités spécifiques (Voir &#8220;Service Composant&#8221;)</p>
+</li>
+<li><p class="first"><em>class-name.ts</em>           Fichier contenant une classe utilisée seulement dans la page1.</p>
+<p>Il peut s&#8217;agir d&#8217;une classe définissant les propriétés de la structure utilisée pour les appels HTTP du service.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><em>theme1.service.ts</em>   Fichier contenant un service utilitaire global aux pages de ce thème.</p>
+</li>
+<li><p class="first"><em>class-name.ts</em>       Fichier contenant une classe utilisée dans plusieurs composants du thème.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="builds-et-lancement-des-tests">
+<h4>Builds et lancement des tests<a class="headerlink" href="#builds-et-lancement-des-tests" title="Lien permanent vers ce titre">¶</a></h4>
+<p>NPM: npm est utilisé pour gérer les dépendances de l&#8217;application. Le fichier <em>package.json</em> définit deux types de dépendances:</p>
+<ul class="simple">
+<li>devDependencies: Dépendances utilisées pour les tests unitaire, le build ou la vérification du code. Ces dépendances ne sont pas utilisés par l&#8217;application finale en prod.</li>
+<li>dependencies: Dépendances utilisées par l&#8217;application finale en prod. Ils peuvent être des composants, des classes ou des utilitaires de l&#8217;application.</li>
+</ul>
+<p><em>Important</em>: Lors de la récupération de la branche, il est important de télécharger une première fois toutes les dépendances grâce à la commande <em>npm install</em></p>
+<p>Des scripts ont étés définis dans le fichier <em>package.json</em>. Ces scripts sont utilisables via la commande <em>npm run &lt;scriptName&gt;</em>.</p>
+<p>Scripts pour le developpement (A executer, sans erreurs avant toute demande de MR):</p>
+<ul>
+<li><p class="first"><em>start</em>: Lance la commande <em>ng serve &#8211;proxy-config proxy.conf.json</em> qui permet de déployer l&#8217;application à chaud en utilisant un proxy pour les appels vers le backoffice.</p>
+<p>Un watch est fait sur les fichiers sous le dossier src. Tout fichiers modifiers sous src mettra à jour, à chaud, l&#8217;application front.</p>
+</li>
+<li><p class="first"><em>test</em>: Lance la commande <em>ng test</em> qui lance les tests unitaire aussi bien sur Chrome que sur PhantomJS. Un watch est également activé pour relancer les tests su un fichier est modifié.</p>
+</li>
+<li><p class="first"><em>lint</em>: Lance la commande <em>ng lint</em> qui permet de vérifier les fichiers</p>
+</li>
+</ul>
+<p>Les scripts suivantes sont utilisés par le build maven:</p>
+<ul class="simple">
+<li><em>prod</em>: Lance la commande <em>ng build &#8211;env=prod</em> qui permet de builder l&#8217;application pour une cible de production (Actuelement similaire au script <em>build</em> qui lance <em>ng build &#8211;env=dev</em></li>
+<li><em>inttest</em>: Lance la commande <em>ng test &#8211;single-run=true &#8211;browsers PhantomJS &#8211;watch=false</em> qui permet de lancer les tests unitaire une seule fois sur PhantomJS.</li>
+</ul>
+<p>La configuration du proxy se fait dans le fichier <em>proxy.conf.json</em>.
+Pour le moment, aucun fichier de surcharge sur poste de dev n&#8217;est prévue pour avec des modifications locales ignorées par le git.</p>
+<p>Build du css:
+Pour mettre à jour le CSS (styles.css) il faut:</p>
+<ul class="simple">
+<li>Update theme in <em>themes/vitam-red/theme.scss</em> or template in <em>themes/_theme.scss</em></li>
+<li>Generate css with the command line <em>sass themes/vitam-red/theme.scss:src/styles.css</em></li>
+<li>Remove src/styles.css.map before commit</li>
+</ul>
+<p>Le build maven lance le script inttest dans la phase test (-DskipTests permet donc d&#8217;ignorer les TU front)
+Les commandes suivantes peuvent être lancés pour faire des packages rpm/debian:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">rpm:rpm</span></code></li>
+<li><code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">jdeb:jdeb</span></code></li>
+</ul>
+</div>
+<div class="section" id="composant-de-page">
+<h4>Composant de Page<a class="headerlink" href="#composant-de-page" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les composant de page ont pour but de:</p>
+<ul class="simple">
+<li>Initialiser les composant communs (fil d&#8217;ariane, titre, ...) à toute les pages (Héritage de PageComponent)</li>
+<li>Récupérer les données utiles en faisant appel au service (HTTP GET)</li>
+<li>Traiter les données si besoin (Utiliser des services utilitaires pour les gros traitement des données)</li>
+<li>Appeler des sous-composants pour afficher les donénes sur la page (Injecter des donénes / fonctions dans les sous-composants appelés)</li>
+</ul>
+<p>Le composant de page doit hériter du composant PageComponent (app/common/page/page-component) et utiliser pageOnInit().
+Cela permet d&#8217;initialiser le fil d&#8217;ariane et la titre sur toute les pages.</p>
+</div>
+<div class="section" id="service-de-composant">
+<h4>Service de Composant<a class="headerlink" href="#service-de-composant" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les service doit utiliser le resourcesService qui ajoute de lui même les headers importants (tenant) et qui connais le path vers les api vitam.
+Les service doit définir l&#8217;api sur laquelle taper dans url. Elle sera concatenée avec le base URL (qui termine par un /)
+Enfin, pour les requêtes GET, le service doit appliquer un plainToClass() pour transformer l&#8217;objet en une classe définie</p>
+<p>Exemple: resourcesService.get(&#8216;contrats&#8217;).map((x)=&gt;x.json()).map((json) =&gt; plainToClass(Contract, json.$results))</p>
+<p>Les services du composant ont dont principalement un rôle de gestion des requêtes HTTP et du format de la réponse.
+Ils peuvent aussi avoir quelques fonctions utilitaires pour parser/préparer la réponse pour le composant.</p>
+</div>
+<div class="section" id="sous-composant">
+<h4>Sous Composant<a class="headerlink" href="#sous-composant" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les sous-composant ont pour but de:</p>
+<ul class="simple">
+<li>Être initialisés grâce à des objets injectés par le composant parent,</li>
+<li>Faire le rendement graphique d&#8217;une partie de la page (partie potentiellement répétée plusieurs fois sur la page),</li>
+<li>Utiliser des services d&#8217;affichage des données ou des composants graphiques,</li>
+<li>Faire des actions (potentielle utilisation du service du composant pour les appels PUT/POST/DELETE).</li>
+</ul>
+<p>Le sous-composant ne devrait pas:</p>
+<ul class="simple">
+<li>Avoir de logique ni de traitement (Il doit se contenter d&#8217;afficher ce que le composant de page et ses services ont calculés pour lui),</li>
+<li>Utiliser le service pour des appels HTTP GET (C&#8217;est le rôle du composant de page).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rest-raml.html" class="btn btn-neutral float-right" title="ihm-recette" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc.html" class="btn btn-neutral" title="IHM demo" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

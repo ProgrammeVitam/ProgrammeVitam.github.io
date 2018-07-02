@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.8.2.5. Common-client &mdash; documentation VITAM - Architecture 1.0.0</title>
+  <title>7.8.2.5. Common-client &mdash; Documentation VITAM - Architecture 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Recherche" href="../../../search.html"/>
-    <link rel="top" title="documentation VITAM - Architecture 1.0.0" href="../../../index.html"/>
-        <link rel="up" title="7.8.2. Architecture technique" href="index.html"/>
-        <link rel="next" title="7.8.2.6. Commons" href="common.html"/>
-        <link rel="prev" title="7.8.2.4. Common-client" href="common-client.html"/> 
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.8.2.6. Commons" href="common.html" />
+    <link rel="prev" title="7.8.2.4. Common-client" href="common-client.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -59,7 +53,7 @@
 
           
             
-            <img src="../../../_static/logo_vitam.png" class="logo" />
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -67,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -88,10 +82,13 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Securite</a></li>
@@ -142,40 +139,60 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../index.html">VITAM - Architecture</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
-      
+        
           <li><a href="../_toc.html">7.8. Logbook</a> &raquo;</li>
-      
+        
           <li><a href="index.html">7.8.2. Architecture technique</a> &raquo;</li>
-      
-    <li>7.8.2.5. Common-client</li>
+        
+      <li>7.8.2.5. Common-client</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../../_sources/include/logbook/technique/common-server.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../../_sources/include/logbook/technique/common-server.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -202,22 +219,22 @@
 <p>La logique technique actuelle est la suivante :</p>
 <ul class="simple">
 <li>Chaque journal est une collection dans MongoDB</li>
-<li>Chaque entrée dans la collection est la somme des événements d&#8217;une opération / cycle de vie<ul>
-<li>Opération ingest x contient l&#8217;ensemble des étapes de cette opération</li>
-<li>Cycle de vie d&#8217;une archive x contient l&#8217;ensemble des événements associés à cette archive</li>
+<li>Chaque entrée dans la collection est la somme des événements d’une opération / cycle de vie<ul>
+<li>Opération ingest x contient l’ensemble des étapes de cette opération</li>
+<li>Cycle de vie d’une archive x contient l’ensemble des événements associés à cette archive</li>
 </ul>
 </li>
 </ul>
-<p>Ceci facilite les recherches sur la base de l&#8217;entrée primaire (la première) mais n&#8217;interdit pas la recherche sur les entrées secondaires qui sont dans le tableau &#8220;<strong>events</strong>&#8221;.</p>
+<p>Ceci facilite les recherches sur la base de l’entrée primaire (la première) mais n’interdit pas la recherche sur les entrées secondaires qui sont dans le tableau «&nbsp;<strong>events</strong>&nbsp;».</p>
 <p>Plus tard, ces journaux seront aussi écrits dans des fichiers.</p>
 <ul class="simple">
 <li>Opérations<ul>
 <li>Un par jour</li>
-<li>Chaque event (unitaire et non globalisé) devra être écrit au fur et à mesure, c&#8217;est à dire en respectant les dates d&#8217;events (dans l&#8217;ordre acquité par le Moteur de journalisation)</li>
+<li>Chaque event (unitaire et non globalisé) devra être écrit au fur et à mesure, c’est à dire en respectant les dates d’events (dans l’ordre acquité par le Moteur de journalisation)</li>
 </ul>
 </li>
 <li>LifeCycles<ul>
-<li>Un fichier unique, les events dans l&#8217;ordre chronologique (qui correspond à l&#8217;odre deans events)</li>
+<li>Un fichier unique, les events dans l’ordre chronologique (qui correspond à l’odre deans events)</li>
 </ul>
 </li>
 </ul>
@@ -230,26 +247,27 @@
 <li>un base index (EslasticSearch) qui contient uniquement les journaux de type operation</li>
 <li>les offres de stockage qui contienent des fichiers sécurisés des journaux de type opération</li>
 </ul>
-<p>La gestion de la base MongoDB se fait par le service d&#8217;accès <em>LogbookMongoDbAccessImpl</em> (implémentation de <em>LogbookDbAccess</em>).
-La gestion de la base ElasticSearch se fait par le service d&#8217;accès <em>LogbookElasticsearchAccess</em> (implémentation de <em>ElasticsearchAccess</em>).</p>
-<p>En cas d&#8217;ajout / mise à jour /suppresssion les données sont d&#8217;abord gérées dans MongoDB puis la modification est répercutée (si nécessaire) dans ElasticSearch.</p>
-<p>Pour le cas de la recherche, la requête de recherche est d&#8217;abord envoyée dans ElasticSearch pour récupérer une liste d&#8217;identifiants (List&lt;ID&gt;) qui sont ensuite envoyés en remplacement de la Query originale dans MongoDb pour récupérer le détail des données.
-La traduction d&#8217;une requête DSL vers une requête MongoDb se fait à l&#8217;aide des objets de traduction présent dans le package du module common-database-private : <strong>fr.gouv.vitam.common.database.translators.mongodb</strong>.
-La traduction d&#8217;une requête DSL et/ou MongoDb vers une requête Elasticsearch se fait à l&#8217;aide des objets de traduction présent dans le package du module common-database-private : <strong>fr.gouv.vitam.common.database.translators.elasticsearch</strong>.</p>
+<p>La gestion de la base MongoDB se fait par le service d’accès <em>LogbookMongoDbAccessImpl</em> (implémentation de <em>LogbookDbAccess</em>).
+La gestion de la base ElasticSearch se fait par le service d’accès <em>LogbookElasticsearchAccess</em> (implémentation de <em>ElasticsearchAccess</em>).</p>
+<p>En cas d’ajout / mise à jour /suppresssion les données sont d’abord gérées dans MongoDB puis la modification est répercutée (si nécessaire) dans ElasticSearch.</p>
+<p>Pour le cas de la recherche, la requête de recherche est d’abord envoyée dans ElasticSearch pour récupérer une liste d’identifiants (List&lt;ID&gt;) qui sont ensuite envoyés en remplacement de la Query originale dans MongoDb pour récupérer le détail des données.
+La traduction d’une requête DSL vers une requête MongoDb se fait à l’aide des objets de traduction présent dans le package du module common-database-private : <strong>fr.gouv.vitam.common.database.translators.mongodb</strong>.
+La traduction d’une requête DSL et/ou MongoDb vers une requête Elasticsearch se fait à l’aide des objets de traduction présent dans le package du module common-database-private : <strong>fr.gouv.vitam.common.database.translators.elasticsearch</strong>.</p>
 </div>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="common.html" class="btn btn-neutral float-right" title="7.8.2.6. Commons" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common.html" class="btn btn-neutral float-right" title="7.8.2.6. Commons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="common-client.html" class="btn btn-neutral" title="7.8.2.4. Common-client" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="common-client.html" class="btn btn-neutral" title="7.8.2.4. Common-client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -262,7 +280,7 @@ La traduction d&#8217;une requête DSL et/ou MongoDb vers une requête Elasticse
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -280,10 +298,12 @@ La traduction d&#8217;une requête DSL et/ou MongoDb vers une requête Elasticse
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -293,19 +313,13 @@ La traduction d&#8217;une requête DSL et/ou MongoDb vers une requête Elasticse
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

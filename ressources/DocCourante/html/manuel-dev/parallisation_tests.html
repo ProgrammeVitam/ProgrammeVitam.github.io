@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parallélisation des tests &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  <title>Parallélisation des tests &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,28 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Recherche" href="search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="index.html"/>
-        <link rel="next" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html"/>
-        <link rel="prev" title="workspace" href="include/workspace/workspace.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html" />
+    <link rel="prev" title="workspace" href="include/workspace/workspace.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -58,7 +53,7 @@
 
           
             
-            <img src="_static/logo_vitam.png" class="logo" />
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -66,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -87,10 +82,14 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dev-environnement.html">Configuration de l’environnement de développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parallélisation des tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d&#8217;intégration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d’intégration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
 </ul>
@@ -98,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -110,34 +109,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">VITAM - Manuel de développement</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Manuel de développement</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Parallélisation des tests</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Parallélisation des tests</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/parallisation_tests.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/parallisation_tests.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -147,35 +166,32 @@
 <h1>Parallélisation des tests<a class="headerlink" href="#parallelisation-des-tests" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Ce document présente la procédure pour réduire le temps de traitement des tests en
 les parallélisant. Ce travail réfère au US#714 et au techDesign IT01.</p>
-<p>Il y a des tests TDD et des tests d&#8217;intégration dans les modules existants de la plate-forme,
+<p>Il y a des tests TDD et des tests d’intégration dans les modules existants de la plate-forme,
 nous voulons faire paralléliser des classes de tests utilisant JUnit pour avoir la performance.
 Pour ce but, nous effectuons les étapes suivantes :</p>
 <ul class="simple">
-<li>Séparation des tests : tests unitaires et test d&#8217;intégration</li>
+<li>Séparation des tests : tests unitaires et test d’intégration</li>
 <li>Parallélisation des tests unitaires</li>
 <li>Configuration de build avec les options de tests</li>
 </ul>
 <div class="section" id="separation-des-tests-tdd-et-tests-d-integration">
-<h2>Séparation des tests TDD et tests d&#8217;intégration<a class="headerlink" href="#separation-des-tests-tdd-et-tests-d-integration" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Séparation des tests TDD et tests d’intégration<a class="headerlink" href="#separation-des-tests-tdd-et-tests-d-integration" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>Il y a plusieurs tests d&#8217;intégration présents dans le module <em>integration-test</em> :</li>
+<li>Il y a plusieurs tests d’intégration présents dans le module <em>integration-test</em> :</li>
 </ul>
-<p><a href="#id1"><span class="problematic" id="id2">*</span></a>.ProcessingIT : test d&#8217;intégration pour différents services : workspace, functional-administration, worker, metadata, logbook, processing</p>
+<p><em>ProcessingIT</em> : test d’intégration pour différents services : workspace, functional-administration, worker, metadata, logbook, processing</p>
 <blockquote>
-<div><blockquote>
-<div><p>StorageClientIT : test d&#8217;intégration pour le client du service de storage. Cela concerne deux modules:
+<div><p>StorageClientIT : test d’intégration pour le client du service de storage. Cela concerne deux modules:
 storage (client &amp; rest) et le client de workspace</p>
-<p>WorkerIT : test d&#8217;intégration pour les services : workspace, worker, metadata, logbook, processing</p>
+<p>WorkerIT : test d’intégration pour les services : workspace, worker, metadata, logbook, processing</p>
+<p>FunctionalAdminIT : test d’intégration pour le service FunctionalAdministration.</p>
+<p>IngestInternalIT : test d’intégration pour le service IngestInternal.</p>
+<p>LogbookCheckConsistencyIT : test d’intégration pour le service de vérification de cohérence des journaux.</p>
+<p>*.Reconstruction*.IT : test d’intégration pour les services de reconstruction et de backup.</p>
+<p>SecurityInternalIT : test d’intégration pour le service de sécurité interne.</p>
+<p>Ces tests d’intégration sont en mode séquentiel. Pour cela, nous indiquons dans le pom.xml de ce module de test-integration</p>
 </div></blockquote>
-<p>FunctionalAdminIT : test d&#8217;intégration pour le service FunctionalAdministration.</p>
-<p>IngestInternalIt : test d&#8217;intégration pour le service IngestInternal.</p>
-<p>LogbookCheckConsistencyIT : test d&#8217;intégration pour le service de vérification de cohérence des journaux.</p>
-<p>*.Reconstruction*.IT : test d&#8217;intégration pour les services de reconstruction et de backup.</p>
-<p>SecurityInternalIT : test d&#8217;intégration pour le service de sécurité interne.</p>
-<blockquote>
-<div>Ces tests d&#8217;intégration sont en mode séquentiel. Pour cela, nous indiquons dans le pom.xml de ce module de test-integration</div></blockquote>
-</div></blockquote>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;pluginManagement&gt;</span>
                 <span class="nt">&lt;plugins&gt;</span>
                         <span class="nt">&lt;plugin&gt;</span>
@@ -204,7 +220,7 @@ storage (client &amp; rest) et le client de workspace</p>
 <h2>Parallélisation de tests unitaires<a class="headerlink" href="#parallelisation-de-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les tests unitaires de chaque module sont configurés pour être lancés en mode parallèle.
 Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;plugins&gt;</span>
                 <span class="nt">&lt;plugin&gt;</span>
                         <span class="c">&lt;!-- Run the Junit unit tests in an isolated classloader. --&gt;</span>
@@ -228,12 +244,13 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 <div class="section" id="configuration-de-build-avec-les-options-de-tests">
 <h2>Configuration de build avec les options de tests<a class="headerlink" href="#configuration-de-build-avec-les-options-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>mvn install : lancer le build normal avec tous les tests</li>
-<li>mvn clean install -DskipTests : pour ignorer tous les tests:</li>
-<li>mvn clean test ou mvn clean install -DskipITs: pour ignorer les tests d&#8217;intégration</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">install</span></code> : lancer le build normal avec tous les tests</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">-DskipTests</span></code> : pour ignorer tous les tests:</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">test</span></code> ou <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">-DskipITs</span></code> : pour ignorer les tests d’intégration</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">integration-test</span></code> : pour lancer les tests d’intégration</li>
 </ul>
 <p>Pour cela, nous ajoutons le code suivant dans le pom parent.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
         <span class="nt">&lt;executions&gt;</span>
                 <span class="nt">&lt;execution&gt;</span>
                         <span class="nt">&lt;id&gt;</span>integration-test<span class="nt">&lt;/id&gt;</span>
@@ -256,10 +273,10 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li>mvn clean test-compile failsafe:integration-test: pour exécuter uniquement les tests d&#8217;intégration.</li>
+<li>mvn clean test-compile failsafe:integration-test: pour exécuter uniquement les tests d’intégration.</li>
 </ul>
 <p>Pour cela, nous ajoutons le code suivant dans le pom parent.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
                 <span class="c">&lt;!-- Run the Junit integration tests in an isolated classloader. --&gt;</span>
                 <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
@@ -282,15 +299,16 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plugin-icu-elasticsearch.html" class="btn btn-neutral float-right" title="Plugin ICU Elasticsearch" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plugin-icu-elasticsearch.html" class="btn btn-neutral float-right" title="Plugin ICU Elasticsearch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="include/workspace/workspace.html" class="btn btn-neutral" title="workspace" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="include/workspace/workspace.html" class="btn btn-neutral" title="workspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -303,7 +321,7 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -321,10 +339,12 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -334,19 +354,13 @@ Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

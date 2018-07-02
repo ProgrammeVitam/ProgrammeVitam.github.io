@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tests Automatisés &mdash; documentation VITAM - Scénarios de test 1.0.0</title>
+  <title>Tests Automatisés &mdash; Documentation VITAM - Scénarios de test 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,28 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Recherche" href="search.html"/>
-    <link rel="top" title="documentation VITAM - Scénarios de test 1.0.0" href="index.html"/>
-        <link rel="next" title="Ecriture des TNR" href="ecriture.html"/>
-        <link rel="prev" title="Tests Manuels" href="tests_manuels.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Ecriture des TNR" href="ecriture.html" />
+    <link rel="prev" title="Tests Manuels" href="tests_manuels.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -58,7 +53,7 @@
 
           
             
-            <img src="_static/logo_vitam.png" class="logo" />
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -66,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -87,7 +82,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Objectif du document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests_manuels.html">Tests Manuels</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tests Automatisés</a><ul>
@@ -110,7 +108,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ecriture.html">Ecriture des TNR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_cucumber.html">Guide d&#8217;écriture des tests Cucumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_cucumber.html">Guide d’écriture des tests Cucumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curl.html">Tests curl</a></li>
 </ul>
 
             
@@ -122,34 +121,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">VITAM - Scénarios de test</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Scénarios de test</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Tests Automatisés</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tests Automatisés</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/tests_automatises.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/tests_automatises.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -161,16 +180,16 @@
 <h2>Principes généraux<a class="headerlink" href="#principes-generaux" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="tests-de-non-regression">
 <h3>Tests de non régression<a class="headerlink" href="#tests-de-non-regression" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les Tests de Non Régression (TNR) ont pour objectif de tester la continuité des fonctionnalités de Vitam. L&#8217;ajout de nouvelles fonctionnalités pouvant entraîner des bugs ou anomalies (régressions) sur des fonctionnalités existantes. L&#8217;outil de test de non régression va permettre de tester automatiquement le périmètre fonctionnel pré-existant afin de s&#8217;assurer de son bon fonctionnement dans le temps. Les TNR peuvent aussi être utilisés comme indicateur de bonne santé d&#8217;une plateforme.</p>
-<p>L&#8217;ajout d&#8217;une nouvelle fonctionnalité dans la solution logicielle Vitam et parfois la correction d&#8217;un bug s&#8217;accompagne d&#8217;un ou plusieurs TNR.</p>
-<p>Idéalement, les développeurs doivent lancer les TNR avant d&#8217;effectuer une Merge Request visant à intégrer une nouvelle fonctionnalité, afin de valider que le nouveau code introduit ne provoque pas de régressions dans le reste de la solution logicielle Vitam.</p>
+<p>Les Tests de Non Régression (TNR) ont pour objectif de tester la continuité des fonctionnalités de Vitam. L’ajout de nouvelles fonctionnalités pouvant entraîner des bugs ou anomalies (régressions) sur des fonctionnalités existantes. L’outil de test de non régression va permettre de tester automatiquement le périmètre fonctionnel pré-existant afin de s’assurer de son bon fonctionnement dans le temps. Les TNR peuvent aussi être utilisés comme indicateur de bonne santé d’une plateforme.</p>
+<p>L’ajout d’une nouvelle fonctionnalité dans la solution logicielle Vitam et parfois la correction d’un bug s’accompagne d’un ou plusieurs TNR.</p>
+<p>Idéalement, les développeurs doivent lancer les TNR avant d’effectuer une Merge Request visant à intégrer une nouvelle fonctionnalité, afin de valider que le nouveau code introduit ne provoque pas de régressions dans le reste de la solution logicielle Vitam.</p>
 <p>Suite à une nouvelle installation du produit, le lancement des TNR permet également de vérifier le bon déploiement de la solution logicielle.</p>
 </div>
 <div class="section" id="tests-fonctionnels">
 <h3>Tests fonctionnels<a class="headerlink" href="#tests-fonctionnels" title="Lien permanent vers ce titre">¶</a></h3>
 <p><strong>Cucumber</strong></p>
-<p>Cucumber est un outil de tests fonctionnels, il est accessible via l&#8217;IHM recette dans le menu &#8220;Tests / Tests fonctionnels&#8221;. Ces tests sont effectués via des ordres écrits avec des phrases simples offrant une grande variété de combinaisons.</p>
-<p>Il existe une liste de contextes et de fonctions disponibles. Il s&#8217;agit ensuite de les associer et les manipuler afin de créer son propre test.</p>
+<p>Cucumber est un outil de tests fonctionnels, il est accessible via l’IHM recette dans le menu «&nbsp;Tests / Tests fonctionnels&nbsp;». Ces tests sont effectués via des ordres écrits avec des phrases simples offrant une grande variété de combinaisons.</p>
+<p>Il existe une liste de contextes et de fonctions disponibles. Il s’agit ensuite de les associer et les manipuler afin de créer son propre test.</p>
 <p>Les résultats sont retournés sous forme de tableau</p>
 <img alt="_images/RECETTE_test_fonctionnels_ecran_principal.png" src="_images/RECETTE_test_fonctionnels_ecran_principal.png" />
 <img alt="_images/RECETTE_detail_tests.png" src="_images/RECETTE_detail_tests.png" />
@@ -178,7 +197,7 @@
 </div>
 <div class="section" id="behavior-driven-development-bdd">
 <h3>Behavior-Driven Development (BDD)<a class="headerlink" href="#behavior-driven-development-bdd" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le BDD est une méthode de collaboration s&#8217;appuyant sur un langage de programmation naturel permettant aux intervenants non techniques de décrire des scénarios de fonctionnement.</p>
+<p>Le BDD est une méthode de collaboration s’appuyant sur un langage de programmation naturel permettant aux intervenants non techniques de décrire des scénarios de fonctionnement.</p>
 <p>Les mots de ce langage permettent de mobiliser des actions techniques qui sont, elles, réalisées par les développeurs.</p>
 <p>Le BDD est utilisé pour la réalisation des TNR, ce qui permet à tout intervenant du projet de pouvoir en réaliser.</p>
 <p>Le framework de test utilisé dans le cadre de Vitam est Cucumber (<a class="reference external" href="https://cucumber.io/">https://cucumber.io/</a>) qui utilise le langage Gherkin (<a class="reference external" href="https://github.com/cucumber/cucumber/wiki/Gherkin">https://github.com/cucumber/cucumber/wiki/Gherkin</a>)</p>
@@ -193,9 +212,9 @@
 </div>
 <div class="section" id="git-lfs">
 <h3>Git LFS<a class="headerlink" href="#git-lfs" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Afin de permettre la gestion de fichiers volumineux dans git, il est nécessaire d&#8217;installer l&#8217;extension Git-LFS (<a class="reference external" href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>).</p>
-<p>Une fois git lfs installé, il est nécessaire de l&#8217;activer pour le dépôt vitam-itest sur votre environnement. Pour réaliser cette opération, il faut se placer à la racine du dépôt et exécuter la commande :</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">lfs</span> <span class="n">install</span>
+<p>Afin de permettre la gestion de fichiers volumineux dans git, il est nécessaire d’installer l’extension Git-LFS (<a class="reference external" href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>).</p>
+<p>Une fois git lfs installé, il est nécessaire de l’activer pour le dépôt vitam-itest sur votre environnement. Pour réaliser cette opération, il faut se placer à la racine du dépôt et exécuter la commande :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">lfs</span> <span class="n">install</span>
 </pre></div>
 </div>
 </div>
@@ -204,28 +223,29 @@
 <h2>Méthodologie de test<a class="headerlink" href="#methodologie-de-test" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="sequencement">
 <h3>Séquencement<a class="headerlink" href="#sequencement" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les tests sont regroupés par lot intellectuellement cohérent dans des fichiers .feature. Chaque fichier .feature contient au moins un scénario de test. Lorsqu&#8217;un fichier feature est lancé, alors tous les scénarios qu&#8217;il spécifie sont exécutés séquentiellement. Lorsqu&#8217;un scénario est en échec alors que son exécution n&#8217;est pas terminée, celle-ci s&#8217;interrompt et le scénario suivant est lancé.</p>
-<p>Les fichiers feature sont lancés dans l&#8217;ordre alphabétique et sont indépendants les uns des autres. Il est donc possible d&#8217;exécuter une sélection de tests, sans devoir se soucier de dépendances inter-fichiers.</p>
-<p>Il y a une exception à ce principe : le fichier nommé &#8220;_init.feature&#8221; est un scénario qui met en place l&#8217;environnement de test en important les ressources nécessaires (référentiel des règles de gestions, des contrats, des services agents...) à la bonne exécution des tests suivants.</p>
+<p>Les tests sont regroupés par lot intellectuellement cohérent dans des fichiers .feature. Chaque fichier .feature contient au moins un scénario de test. Lorsqu’un fichier feature est lancé, alors tous les scénarios qu’il spécifie sont exécutés séquentiellement. Lorsqu’un scénario est en échec alors que son exécution n’est pas terminée, celle-ci s’interrompt et le scénario suivant est lancé.</p>
+<p>Les fichiers feature sont lancés dans l’ordre alphabétique et sont indépendants les uns des autres. Il est donc possible d’exécuter une sélection de tests, sans devoir se soucier de dépendances inter-fichiers.</p>
+<p>Il y a une exception à ce principe : le fichier nommé «&nbsp;_init.feature&nbsp;» est un scénario qui met en place l’environnement de test en important les ressources nécessaires (référentiel des règles de gestions, des contrats, des services agents…) à la bonne exécution des tests suivants.</p>
 </div>
 <div class="section" id="lancement-complet-des-tnr">
 <h3>Lancement complet des TNR<a class="headerlink" href="#lancement-complet-des-tnr" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il est possible de lancer tous les TNR via l&#8217;IHM recette en allant dans le menu Tests &gt; Tests fonctionnels puis de cliquer sur le bouton &#8220;Lancer les tests&#8221;. Lors de ce processus, les bases sont vidées avant le lancement de chaque campagne de test. Comme vu précédemment, elles sont immédiatement réinitialisées avec des données de test, suite à l&#8217;exécution en premier du fichier _init.feature.</p>
+<p>Il est possible de lancer tous les TNR via l’IHM recette en allant dans le menu Tests &gt; Tests fonctionnels puis de cliquer sur le bouton «&nbsp;Lancer les tests&nbsp;». Lors de ce processus, les bases sont vidées avant le lancement de chaque campagne de test. Comme vu précédemment, elles sont immédiatement réinitialisées avec des données de test, suite à l’exécution en premier du fichier _init.feature.</p>
 </div>
 </div>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ecriture.html" class="btn btn-neutral float-right" title="Ecriture des TNR" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ecriture.html" class="btn btn-neutral float-right" title="Ecriture des TNR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tests_manuels.html" class="btn btn-neutral" title="Tests Manuels" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tests_manuels.html" class="btn btn-neutral" title="Tests Manuels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -238,7 +258,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -256,10 +276,12 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -269,19 +291,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

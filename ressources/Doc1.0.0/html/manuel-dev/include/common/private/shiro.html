@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration de apache shiro &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Recherche" href="../../../search.html"/>
+    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../../index.html"/>
+        <link rel="up" title="Common-private" href="_toc.html"/>
+        <link rel="next" title="Présentation" href="security-filter.html"/>
+        <link rel="prev" title="Uniform Resource Identifier (URI) (vitam)" href="Uri.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">Access</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUID.html">Global Unique Identifier (GUID) pour Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Digest.html">Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Logger.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../JunitHelper.html">JunitHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../client.html">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph.html">DirectedCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph.html#graph">Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VitamCode.html">Code d&#8217;erreur Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../format-identifier.html">Common format identification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stockage.html">Common-storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vitam-metrics.html">Métriques dans VITAM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="_toc.html">Common-private</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="certs-auth.html">Génération de certificats et de keystore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esapi-utilisation.html">esapi utilisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="format-identifier.html">Format Identifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph-introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph-dat.html">DAT : module Graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="parametres.html">Paramètres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Uri.html">Uniform Resource Identifier (URI) (vitam)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Configuration de apache shiro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#presentation-authentification-via-certificats">Présentation authentification via certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decryptage-de-shiro-ini">Décryptage de shiro.ini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-des-certificats">Utilisation des certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html">Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#classes-de-filtres">Classes de filtres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#implementer-des-filters">Implémenter des filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#appliquer-le-filtre-pour-vitam">Appliquer le filtre pour Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html">Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#classe-de-filtre">Classe de filtre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#ajout-du-filtre">Ajout du filtre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#modules-vitam-impactes">Modules Vitam impactés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sanity-checker.html">Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultVitamApplicationConfiguration.html">Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Execution-request-dsl.html">Implémentation de l&#8217;éxécution des requêtes mono-query DSL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb-securite.html">Implémentation de l&#8217;authentification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="secret-plateforme.html">Implémentation du secret de la plateforme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../_toc.html">Détails par composant</a> &raquo;</li>
+      
+          <li><a href="../_toc.html">Common</a> &raquo;</li>
+      
+          <li><a href="_toc.html">Common-private</a> &raquo;</li>
+      
+    <li>Configuration de apache shiro</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/common/private/shiro.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration-de-apache-shiro">
+<h1>Configuration de apache shiro<a class="headerlink" href="#configuration-de-apache-shiro" title="Lien permanent vers ce titre">¶</a></h1>
+<p>TODO: présentation de apache shiro, configuration, ...</p>
+</div>
+<div class="section" id="presentation-authentification-via-certificats">
+<h1>Présentation authentification via certificats<a class="headerlink" href="#presentation-authentification-via-certificats" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Afin de pouvoir authentifier des clients via des certificats valides il suffit de bien configurer shiro.
+Pour ce faire vitam utilise le fichier shiro.ini qui a la forme suivante.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">x509 = fr.gouv.vitam.common.auth.web.filter.X509AuthenticationFilter</span>
+<span class="l l-Scalar l-Scalar-Plain">x509.useHeader = false</span>
+<span class="l l-Scalar l-Scalar-Plain">x509credentialsMatcher = fr.gouv.vitam.common.auth.core.authc.X509CredentialsSha256Matcher</span>
+<span class="l l-Scalar l-Scalar-Plain">x509Realm = fr.gouv.vitam.common.auth.core.realm.X509KeystoreFileRealm</span>
+<span class="l l-Scalar l-Scalar-Plain">x509Realm.grantedKeyStoreName = path/granted_certs.jks</span>
+<span class="l l-Scalar l-Scalar-Plain">x509Realm.grantedKeyStorePassphrase = password</span>
+<span class="l l-Scalar l-Scalar-Plain">x509Realm.trustedKeyStoreName = path/truststore.jks</span>
+<span class="l l-Scalar l-Scalar-Plain">x509Realm.trustedKeyStorePassphrase = password</span>
+<span class="l l-Scalar l-Scalar-Plain">x509Realm.credentialsMatcher = $x509credentialsMatcher</span>
+<span class="l l-Scalar l-Scalar-Plain">securityManager.realm = $x509Realm</span>
+<span class="l l-Scalar l-Scalar-Plain">securityManager.subjectDAO.sessionStorageEvaluator.sessionStorageEnabled = false</span>
+<span class="l l-Scalar l-Scalar-Plain">[urls]</span>
+<span class="l l-Scalar l-Scalar-Plain">/ingest-ext/v1/**= x509</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decryptage-de-shiro-ini">
+<h1>Décryptage de shiro.ini<a class="headerlink" href="#decryptage-de-shiro-ini" title="Lien permanent vers ce titre">¶</a></h1>
+<p>[main]
+Contient les déclaration de filters et classes comme par exemple X509AuthenticationFilter, X509CredentialsSha256Matcher, X509KeystoreFileReal, ...
+La clé (x509, x509Realm) sont custom et on peut donner le nom qu&#8217;on veut, par contre securityManager est un mot clé shiro.
+La ligne securityManager.realm = $x509Realm passe à shiro le Realm qu&#8217;on veut utiliser, ceci dit, les clé custom peut être passé à shiro de la même façon.</p>
+<p>[urls]
+Pour une url donnée on dit quel filter utiliser, exemple: /ingest-ext/v1/<strong>= x509 signifie que l&#8217;on veut utiliser le filter x509 pour toutes les urls de type  /ingest-ext/v1/</strong></p>
+</div>
+<div class="section" id="utilisation-des-certificats">
+<h1>Utilisation des certificats<a class="headerlink" href="#utilisation-des-certificats" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Vitam a une implémentation de filter pour utiliser des certificats x509 afin d&#8217;authentifier des clients.</p>
+<p>X509AuthenticationFilter (filter par defaut)</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Activation du filter dans le fichier shiro.ini: x509 = fr.gouv.vitam.common.auth.web.filter.X509AuthenticationFilter</p>
+</li>
+<li><p class="first">Ce filter récupère les certificats fournis dans la requête :</p>
+<blockquote>
+<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">X509Certificate</span><span class="o">[]</span> <span class="n">clientCertChain</span> <span class="o">=</span> <span class="o">(</span><span class="n">X509Certificate</span><span class="o">[])</span> <span class="n">request</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;javax.servlet.request.X509Certificate&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Si des certificats sont trouvé alors un token est crée qui sera passé à la méthode qui s&#8217;occupe d&#8217;authentifier un client.</p>
+</li>
+</ul>
+</div></blockquote>
+<div class="highlight-java"><div class="highlight"><pre><span></span>   new X509AuthenticationToken(clientCertChain, getHost(request));
+
+- X509AuthenticationFilter peut aussi authentifier via un certificat passé dans le header. La variable &quot;useHeader&quot; est égale à false par défaut. Donc cette option est désactivé par défaut. Si useHeader= true (qu&#39;on peut spécifier dans shiro.ini: x509.useHeader = false dans l&#39;exemple ci-dessus) et qu&#39;aucun cetificat n&#39;est fourni dans l&#39;attribute de la requête javax.servlet.request.X509Certificate alors il bascule vers une authentification via le header. Le nom du header est X-SSL-CLIENT-CERT, et il doit avoir comme valeur un certificat valide au format pem. Le certificat pem est ensuite converti vers un X509Certificate qui sera utilisé pour créer le token d&#39;authentification. Ci-dessous une snipet de code qui permets de récupérer la valeur du certificat depuis le header et le convertir au bon format.
+- Attention, jetty n&#39;accepte pas les retour à la ligne dans le header, d&#39;ou la nécessité d&#39;encoder le pem en base 64. X509AuthenticationFilter s&#39;occupe de déterminer si le certificat passé dans le header est encodé ou non en base 64 et fera en sorte d&#39;accepter même les certificats non encodés.
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>   final HttpServletRequest httpRequest = (HttpServletRequest) request;
+   String pem = httpRequest.getHeader(X_SSL_CLIENT_CERT);
+   byte[] pemByte = null;
+   if (null != pem) {
+       try {
+           try {
+               pemByte = Base64.getDecoder().decode(pem);
+           } catch (IllegalArgumentException ex) {
+               // the pem is not base64 encoded
+               pemByte = pem.getBytes();
+           }
+           final InputStream pemStream = new ByteArrayInputStream(pemByte);
+           final CertificateFactory cf = CertificateFactory.getInstance(&quot;X.509&quot;);
+           final X509Certificate cert = (X509Certificate) cf.generateCertificate(pemStream);
+           clientCertChain = new X509Certificate[] {cert};
+       } catch (Exception ce) {
+           throw new ShiroException(ce);
+       }
+   }
+
+
+- Il faut noter que l&#39;authentification via un certificat passé dans le header n&#39;est pas sécurisée (moins sécurisée que la solution via l&#39;attribute de la requête). En effet, il peut y avoir une injection lors de l&#39;acheminement de la requête depuis un client vers un serveur jetty. Nous recommendons donc l&#39;utilisation de certificats dans l&#39;attribute de la requête.
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security-filter.html" class="btn btn-neutral float-right" title="Présentation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Uri.html" class="btn btn-neutral" title="Uniform Resource Identifier (URI) (vitam)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

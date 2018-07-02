@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.13.2.3. Extraire les métadonnées des ArchiveUnit et DataObject &mdash; documentation VITAM - Architecture 1.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Recherche" href="../../../search.html"/>
+    <link rel="top" title="documentation VITAM - Architecture 1.0.0" href="../../../index.html"/>
+        <link rel="up" title="7.13.2. Architecture Technique" href="index.html"/>
+        <link rel="next" title="7.13.2.4. Généralités" href="notification-atr-ok.html"/>
+        <link rel="prev" title="7.13.2.2. Worker server" href="server.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.5. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.8. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.9. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.12. Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.13. Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../fonctionnelle/index.html">7.13.1. architecture-fontionnelle-processing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.13.2. Architecture Technique</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.13.2.1. Module Worker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server.html">7.13.2.2. Worker server</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.13.2.3. Extraire les métadonnées des ArchiveUnit et DataObject</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification-atr-ok.html">7.13.2.4. Généralités</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification-atr-ko.html">7.13.2.5. Généralités</a></li>
+<li class="toctree-l4"><a class="reference internal" href="worker-plugin.html">7.13.2.6. Plugin Worker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.13.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.14. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">VITAM - Architecture</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+      
+          <li><a href="../_toc.html">7.13. Worker</a> &raquo;</li>
+      
+          <li><a href="index.html">7.13.2. Architecture Technique</a> &raquo;</li>
+      
+    <li>7.13.2.3. Extraire les métadonnées des ArchiveUnit et DataObject</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/worker/technique/seda-extraction-indexation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="extraire-les-metadonnees-des-archiveunit-et-dataobject">
+<h1>7.13.2.3. Extraire les métadonnées des ArchiveUnit et DataObject<a class="headerlink" href="#extraire-les-metadonnees-des-archiveunit-et-dataobject" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="general">
+<h2>7.13.2.3.1. Général<a class="headerlink" href="#general" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;extraction du bordereau SEDA tranforme le fichier manifest.xml en plusieurs fichiers contenant les informations du manifest, les définitions des Archives Units et des Groupes d&#8217;Objets Techniques, ainsi que la structure des objets.
+Dans des étapes utlérieures, les fichiers OG et Unit extraits sont indexés en base lors de l&#8217;indexation.</p>
+<div class="section" id="workspace-avant-extraction">
+<h3>7.13.2.3.1.1. Workspace avant extraction :<a class="headerlink" href="#workspace-avant-extraction" title="Lien permanent vers ce titre">¶</a></h3>
+<p>containerId/SIP
+containerId/SIP/Content/
+containerId/SIP/manifest.xml</p>
+</div>
+<div class="section" id="workspace-apres-extraction">
+<h3>7.13.2.3.1.2. Workspace après extraction :<a class="headerlink" href="#workspace-apres-extraction" title="Lien permanent vers ce titre">¶</a></h3>
+<p>containerId/SIP
+containerId/SIP/Content/
+containerId/SIP/manifest.xml
+containerId/Units
+containerId/Units/AU_GUID.json
+containerId/Uits/...
+containerId/ObjectGroup
+containerId/ObjectGroup/GOT_GUID.json
+containerId/ObjectGroup/...
+containerId/Maps/
+containerId/Maps/ARCHIVE_ID_TO_GUID_MAP.json
+containerId/Maps/DATA_OBJECT_TO_OBJECT_GROUP_ID_MAP.json
+containerId/Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json
+containerId/Maps/DATA_OBJECT_ID_TO_GUID_MAP.json
+containerId/Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json
+containerId/UnitsLevel/
+containerId/UnitsLevel/ingestLevelStack.json
+containerId/ATR/
+containerId/ATR/globalSEDAParameters.json</p>
+</div>
+</div>
+<div class="section" id="algorithme">
+<h2>7.13.2.3.2. Algorithme<a class="headerlink" href="#algorithme" title="Lien permanent vers ce titre">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Récupération du GUID/objects/SIP/manifest.xml</p>
+<blockquote>
+<div><ul class="simple">
+<li>Voir RAML WEB/Internal_Workspace.html#containers__cid__objects__id_object__get</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Extraction SEDA</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Extraction des DataObject (Physical et Binary) dans workspace depuis manifest.xml (GUID/DataObject/GUID) (SedaUtils-&gt;extractSEDA)</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">En lisant le fichier XML, extraire les DataObject depuis xml (SedaUtils-&gt;writeDataObjectInLocal et extractArchiveUnitToLocalFile)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Mettre en place des MAP utiles</dt>
+<dd><ul class="first last simple">
+<li>Liaisons DataObject -&gt; object (MAP&lt;idDo, path&gt;)</li>
+<li>Liaisons DataObject &lt;-&gt; ObjectGroup (MAP&lt;idDo, idOg&gt; et MAP&lt;idOg, List&lt;idDo&gt;&gt;)</li>
+<li>Liaisons Unit -&gt; Unit (MAP&lt;idUFils, List&lt;idUPere&gt;&gt;)</li>
+<li>Liaisons Unit &lt;-&gt; ObjectGroup (MAP&lt;idx, idy&gt; avec x et y à décider)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Construction des ObjectGroup depuis les DataObject (SedaUtils-&gt;saveObjectGroupsToWorkspace)</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>A partir le map ObjectGroup -&gt; DataObject: construire l&#8217;objet ObjectGroup en Json</li>
+<li>Sauvegarde ces ObjectGroups dans workspace</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Sauvegarde des ArchiveUnit dans workspace depuis manifest.xml (GUID/Units/GUID) (SedaUtils-&gt;writeArchiveUnitToWorkspace)</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Journalisation de fin de l&#8217;action extraction SEDA (fait par le Distributeur)</p>
+</li>
+<li><p class="first">Indexation</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Lors de l&#8217;indexation des OGs, le worker va chercher les ObjectGroups dans workspace puis le worker se charge d&#8217;indexer dans metadata (SedaUtils-&gt;indexObjectGroup)</li>
+<li>Lors de l&#8217;indexation des Units, le worker va chercher dans le workspace, et le handler se charge de nettoyer et préparer les Units puis indexer dans metadata (SedaUtils-&gt;indexArchiveUnit)</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Journalisation de fin de l&#8217;action d&#8217;indexation (fait par le Distributeur)</p>
+</li>
+</ol>
+<div class="section" id="algorithme-d-update-pour-l-extract-seda">
+<h3>7.13.2.3.2.1. Algorithme d&#8217;update pour l&#8217;extract SEDA<a class="headerlink" href="#algorithme-d-update-pour-l-extract-seda" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Après la création de l&#8217;Archives Unit temporaire extraite du manifest.xml si une balise <em>&lt;SystemId&gt;EXISTING_GUID&lt;/SystemId&gt;</em> a été rencontrée les traitement suivant sont fait :
+* l&#8217;Archive Unit existant est récupéré en base à partir du EXISTING_GUID fourni dans le fichier, si il n&#8217;est pas trouvé l&#8217;extraction est arrêtée
+* un nouveau fichier d&#8217;archive temporaire <em>EXISTING_GUID.json</em> est créé à partir du fichier extrait (<em>GUID.json</em>) en changeant modifiant d&#8217;id l&#8217;objet <em>&#8220;ArchiveUnit&#8221;:{ &#8220;_id&#8221;:&#8221;GUID&#8221;, ...}</em>
+* l&#8217;ancien fichier <em>GUID.json</em> est supprimé
+* le nouveau guid <em>EXISTING_GUID</em> remplace l&#8217;ancien <em>GUID</em> dans la données temporaires d&#8217;extraction (correspondance des Id VITAM/SEDA, liste des GUID de unit extrait) et ajouté dans la liste des GUID existants
+* préparation du lifecycle de l&#8217;archive unit spécifique à la mise à jour (<em>message à définir</em>)</p>
+<p>Lors de la finalisation de l&#8217;extraction des units, si le unit est déclaré comme pré-existant on ajoute :
+* on ajoute une valeur <em>&#8220;existing&#8221;:true</em> dans l&#8217;objet <em>_work: {...}</em> pour indiquer aux prochaines étapes que l&#8217;archive unit manipulé est une mise à jour</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="notification-atr-ok.html" class="btn btn-neutral float-right" title="7.13.2.4. Généralités" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="server.html" class="btn btn-neutral" title="7.13.2.2. Worker server" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

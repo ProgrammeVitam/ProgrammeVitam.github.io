@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker Plugin &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  <title>Worker Plugin &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
-        <link rel="up" title="Worker" href="_toc.html"/>
-        <link rel="next" title="Idempotence" href="idempotent.html"/>
-        <link rel="prev" title="Worker Client" href="worker-client.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Idempotence" href="idempotent.html" />
+    <link rel="prev" title="Worker Client" href="worker-client.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -59,7 +53,7 @@
 
           
             
-            <img src="../../_static/logo_vitam.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -67,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -88,7 +82,11 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
@@ -110,7 +108,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#presentation">1. Présentation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gestion-des-entrants-du-plugin">2. Gestion des entrants du plugin</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gestion-des-statuts-du-plugin-itemstatus">3. Gestion des statuts du plugin : ItemStatus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#integration-d-un-nouveau-plugin">4. Intégration d&#8217;un nouveau plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-d-un-nouveau-plugin">4. Intégration d’un nouveau plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="idempotent.html">Idempotence</a></li>
@@ -123,7 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -135,38 +133,58 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">VITAM - Manuel de développement</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
-      
+        
           <li><a href="_toc.html">Worker</a> &raquo;</li>
-      
-    <li>Worker Plugin</li>
+        
+      <li>Worker Plugin</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/include/worker/plugin.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/include/worker/plugin.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -177,37 +195,37 @@
 <div class="section" id="presentation">
 <h2>1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un plugin est un programme informatique conçu pour ajouter des fonctionnalités à un autre logiciel (appelé logiciel hôte).
-En français, on utilise également les termes équivalents de &#8220;module d&#8217;extension&#8221; ou de &#8220;greffon&#8221;.
-Dans le cadre de VITAM, un plugin pourra être ajouté dans un ou plusieurs Workflow(s) spécifique(s) pour effectuer de nouvelles fonctionnalités sur un type d&#8217;objet prédéfini (archive unit, manifest, ...)</p>
+En français, on utilise également les termes équivalents de «&nbsp;module d’extension&nbsp;» ou de «&nbsp;greffon&nbsp;».
+Dans le cadre de VITAM, un plugin pourra être ajouté dans un ou plusieurs Workflow(s) spécifique(s) pour effectuer de nouvelles fonctionnalités sur un type d’objet prédéfini (archive unit, manifest, …)</p>
 <div class="section" id="presentation-de-l-architecture-vitam">
-<h3>1.1 Présentation de l&#8217;architecture VITAM<a class="headerlink" href="#presentation-de-l-architecture-vitam" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Dans VITAM, on appelle Workflow une liste d&#8217;étapes (steps) devant être exécutées sur un objet particulier.</p>
+<h3>1.1 Présentation de l’architecture VITAM<a class="headerlink" href="#presentation-de-l-architecture-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans VITAM, on appelle Workflow une liste d’étapes (steps) devant être exécutées sur un objet particulier.</p>
 <blockquote>
 <div><ul class="simple">
 <li>Un workflow est défini dans un fichier json. Ce fichier répertorie les différentes étapes et détaille également la liste des différentes actions à effectuer.</li>
-<li>Le moteur d&#8217;exécution de Workflow (processing-engine) de VITAM va donc à partir de ce fichier json, pouvoir fournir à un Worker une étape particulière à exécuter.</li>
-<li>Le Worker est responsable de l&#8217;exécution d&#8217;une étape, il devra retourner le résultat de son exécution à l&#8217;engine. Il est également responsable de lancer les différentes actions à exécuter décrites dans le fichier json.</li>
-<li>Une action exécutée par un Worker se fait via l&#8217;exécution d&#8217;un plugin spécifique.</li>
-<li>La liste des plugins disponibles pour le Worker est inscrite dans un fichier de configuration json. Dans ce fichier, on pourra trouver la déclaration des différentes actions (une action = un plugin). Un plugin est identifié par un nom de classe ainsi qu&#8217;un fichier de configuration. Au démarrage de l&#8217;application, le Worker va charger cette liste de plugins, afin d&#8217;être capable par la suite d&#8217;exécuter le code adéquat.</li>
+<li>Le moteur d’exécution de Workflow (processing-engine) de VITAM va donc à partir de ce fichier json, pouvoir fournir à un Worker une étape particulière à exécuter.</li>
+<li>Le Worker est responsable de l’exécution d’une étape, il devra retourner le résultat de son exécution à l’engine. Il est également responsable de lancer les différentes actions à exécuter décrites dans le fichier json.</li>
+<li>Une action exécutée par un Worker se fait via l’exécution d’un plugin spécifique.</li>
+<li>La liste des plugins disponibles pour le Worker est inscrite dans un fichier de configuration json. Dans ce fichier, on pourra trouver la déclaration des différentes actions (une action = un plugin). Un plugin est identifié par un nom de classe ainsi qu’un fichier de configuration. Au démarrage de l’application, le Worker va charger cette liste de plugins, afin d’être capable par la suite d’exécuter le code adéquat.</li>
 </ul>
-<p>Le plugin doit respecter un contrat afin qu&#8217;il puisse :</p>
+<p>Le plugin doit respecter un contrat afin qu’il puisse :</p>
 <blockquote>
 <div><ul class="simple">
-<li>recevoir du worker une liste de paramètre d&#8217;entrée contenant le nécessaire pour exécuter les actions que le plugin est censée prendre en charge.</li>
-<li>retourner au worker un statut d&#8217;exécution complet utilisable.</li>
+<li>recevoir du worker une liste de paramètre d’entrée contenant le nécessaire pour exécuter les actions que le plugin est censée prendre en charge.</li>
+<li>retourner au worker un statut d’exécution complet utilisable.</li>
 </ul>
 </div></blockquote>
 </div></blockquote>
-<p>D&#8217;une façon synthétique, voici la place du plugin dans l&#8217;architecture Vitam :</p>
+<p>D’une façon synthétique, voici la place du plugin dans l’architecture Vitam :</p>
 <img alt="../../_images/archi_plugin_globale.jpg" class="align-center" src="../../_images/archi_plugin_globale.jpg" />
 </div>
 <div class="section" id="definition-du-plugin-vitam">
 <h3>1.2 Définition du plugin VITAM<a class="headerlink" href="#definition-du-plugin-vitam" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Un plugin au sens VITAM propose une liste d&#8217;action(s) à réaliser sur un type spécifique d&#8217;objet.
-A l&#8217;heure actuelle, un plugin ne peut être ajouté qu&#8217;à froid. Un redémarrage de la plateforme est nécessaire pour prendre en considération l&#8217;ajout d&#8217;un nouveau plugin à un workflow existant.
+<p>Un plugin au sens VITAM propose une liste d’action(s) à réaliser sur un type spécifique d’objet.
+A l’heure actuelle, un plugin ne peut être ajouté qu’à froid. Un redémarrage de la plateforme est nécessaire pour prendre en considération l’ajout d’un nouveau plugin à un workflow existant.
 Au démarrage, le serveur worker charge tous les  plugins ainsi que leurs fichiers de properties.
 La liste des plugins à charger est déclarée dans un fichier de configuration du Worker :</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -295,7 +313,11 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 86
 87
 88
-89</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+89
+90
+91
+92
+93</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
@@ -334,6 +356,10 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 	<span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitSchemaActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_schema_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;CHECK_ARCHIVE_UNIT_PROFILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitProfileActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_profile_plugin.properties&quot;</span>
 	<span class="p">},</span>
 	<span class="s2">&quot;CHECK_CLASSIFICATION_LEVEL&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckClassificationLevelActionPlugin&quot;</span><span class="p">,</span>
@@ -387,8 +413,8 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 </pre></div>
 </td></tr></table></div>
 <p>Le plugin doit implémenter la classe ActionHandler et doit surcharger la méthode execute() prenant en paramètres :
-- WorkerParameters : objet contenant une liste de paramètres permettant d&#8217;exécuter des actions variées. Voici une liste non exhaustive des paramètres : url du service workspace, nom de l&#8217;étape en cours, container sur lequel l&#8217;action est exécutée, identifiant du process, url du service metadata, l&#8217;id de l&#8217;objet sur lequel on veut effectuer un traitement, etc...
-- HandlerIO qui a pour charge d&#8217;assurer la liaison avec le Workspace et la mémoire entre les différents traitements. Il permet de passer une liste d&#8217;input permettant le traitement du plugin.</p>
+- WorkerParameters : objet contenant une liste de paramètres permettant d’exécuter des actions variées. Voici une liste non exhaustive des paramètres : url du service workspace, nom de l’étape en cours, container sur lequel l’action est exécutée, identifiant du process, url du service metadata, l’id de l’objet sur lequel on veut effectuer un traitement, etc…
+- HandlerIO qui a pour charge d’assurer la liaison avec le Workspace et la mémoire entre les différents traitements. Il permet de passer une liste d’input permettant le traitement du plugin.</p>
 <p>La méthode doit retourner un objet de type ItemStatus, qui sera détaillé plus en détail dans un paragraphe dédié.</p>
 <p>De manière synthétique, voici le fonctionnement du plugin VITAM.</p>
 <div class="figure align-center">
@@ -400,22 +426,22 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 <h2>2. Gestion des entrants du plugin<a class="headerlink" href="#gestion-des-entrants-du-plugin" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="workerparameters">
 <h3>2.1 WorkerParameters<a class="headerlink" href="#workerparameters" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les paramètres WorkerParameters sont des paramètres permettant aux différents plugins d&#8217;exécuter leurs différentes actions.</p>
+<p>Les paramètres WorkerParameters sont des paramètres permettant aux différents plugins d’exécuter leurs différentes actions.</p>
 <p>Actuellement 5 paramètres sont obligatoires pour tous les workers :
-- urlMetadata afin d&#8217;intialiser le client metadata
-- urlWorkspace afin d&#8217;initialiser le client workspace
-- objectName le nom de l&#8217;object lorsque l&#8217;on boucle sur une liste
-- currentStep le nom de l&#8217;étape
-- containerName l&#8217;identifiant du container</p>
+- urlMetadata afin d’intialiser le client metadata
+- urlWorkspace afin d’initialiser le client workspace
+- objectName le nom de l’object lorsque l’on boucle sur une liste
+- currentStep le nom de l’étape
+- containerName l’identifiant du container</p>
 <p>Les autres paramètres sont les suivants :
-- processId : id du process en cours d&#8217;exécution. Le pattern du processId est de la forme : {CONTAINER_NAME}_{WORKFLOW_ID}_{STEP_RANK_IN_THE_WORKFLOW}_{STEP_NAME}
-- stepUniqId : id de l&#8217;étape en cours d&#8217;exécution
-- objectId : id de l&#8217;objet sur lequel l&#8217;action va s&#8217;exécuter une action
-- workerGUID : id du worker ayant lancé l&#8217;action
-- metadataRequest : indique si l&#8217;action doit utiliser le module metadata
+- processId : id du process en cours d’exécution. Le pattern du processId est de la forme : {CONTAINER_NAME}_{WORKFLOW_ID}_{STEP_RANK_IN_THE_WORKFLOW}_{STEP_NAME}
+- stepUniqId : id de l’étape en cours d’exécution
+- objectId : id de l’objet sur lequel l’action va s’exécuter une action
+- workerGUID : id du worker ayant lancé l’action
+- metadataRequest : indique si l’action doit utiliser le module metadata
 - workflowStatusKo : si le worklow en cours a un statut KO ou FATAL, il contient son statut.</p>
-<p>Pour récupérer un paramètre, il suffit d&#8217;appliquer :</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<p>Pour récupérer un paramètre, il suffit d’appliquer :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
  <span class="kd">public</span> <span class="n">ItemStatus</span> <span class="nf">execute</span><span class="o">(</span><span class="n">WorkerParameters</span> <span class="n">params</span><span class="o">,</span> <span class="n">HandlerIO</span> <span class="n">actionDefinition</span><span class="o">)</span> <span class="o">{</span>
 
    <span class="c1">// on récupère le nom de l&#39;objet sur lequel l&#39;action va être effectuée</span>
@@ -436,13 +462,13 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 </div>
 <div class="section" id="handlerio">
 <h3>2.2 HandlerIO<a class="headerlink" href="#handlerio" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le HandlerIO a pour charge d&#8217;assurer la liaison avec le Workspace et la mémoire entre les différentes actions d&#8217;un step, exécutées dans différents plugins.
-Dans un workflow, est spécifiée une liste d&#8217;objets (de fichiers, de valeurs, etc...) qui en complément des WorkerParameters peuvent être transmis à travers le HandlerIO.
-Il revient au HandlerIO d&#8217;assurer la livraison de ces différents objets.</p>
-<p>Dans un workflow, nous avons donc des listes d&#8217;inputs et d&#8217;outputs. Ces listes sont configurées dans un fichier json de configuration
+<p>Le HandlerIO a pour charge d’assurer la liaison avec le Workspace et la mémoire entre les différentes actions d’un step, exécutées dans différents plugins.
+Dans un workflow, est spécifiée une liste d’objets (de fichiers, de valeurs, etc…) qui en complément des WorkerParameters peuvent être transmis à travers le HandlerIO.
+Il revient au HandlerIO d’assurer la livraison de ces différents objets.</p>
+<p>Dans un workflow, nous avons donc des listes d’inputs et d’outputs. Ces listes sont configurées dans un fichier json de configuration
 Les inputs peuvent être utilisés par les différents plugins (selon la spécification dans la configuration du workflow.</p>
-<p>Voici un json d&#8217;exemple de configuration de workflow :</p>
-<div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<p>Voici un json d’exemple de configuration de workflow :</p>
+<div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -901,7 +927,13 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 457
 458
 459
-460</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+460
+461
+462
+463
+464
+465
+466</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultIngestWorkflow&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
@@ -1024,8 +1056,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_OG_CHECK_AND_TRANSFORME&quot;</span><span class="p">,</span>
       <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_IN_DIRECTORY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1065,8 +1098,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UNIT_CHECK_AND_PROCESS&quot;</span><span class="p">,</span>
       <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1129,8 +1163,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_OBJ_STORING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_IN_DIRECTORY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1164,8 +1199,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UNIT_METADATA&quot;</span><span class="p">,</span>
       <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1191,8 +1227,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_OG_STORING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_IN_DIRECTORY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1214,8 +1251,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
       <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UNIT_STORING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1363,8 +1401,8 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Voici un exemple, de ce que l&#8217;on pourrait trouver au seun d&#8217;une action en terme d&#8217;input et d&#8217;output :</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;action&quot;: {
+<p>Voici un exemple, de ce que l’on pourrait trouver au seun d’une action en terme d’input et d’output :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;action&quot;: {
   &quot;actionKey&quot;: &quot;CHECK_CONSISTENCY&quot;,
   &quot;behavior&quot;: &quot;NOBLOCKING&quot;,
   &quot;in&quot;: [
@@ -1390,9 +1428,9 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 }
 </pre></div>
 </div>
-<p>On peut noter qu&#8217;il existe plusieurs types d&#8217;inputs qui sont identifiés par :</p>
+<p>On peut noter qu’il existe plusieurs types d’inputs qui sont identifiés par :</p>
 <ul>
-<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d&#8217;une même étape</p>
+<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d’une même étape</p>
 </li>
 <li><p class="first">une cible (uri) comportant un schema (WORKSPACE, MEMORY, VALUE) et un path :</p>
 <blockquote>
@@ -1404,10 +1442,10 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div></blockquote>
 </li>
 </ul>
-<p>On peut noter qu&#8217;il existe plusieurs types d&#8217;outputs qui sont identifiés par :</p>
-<p>Il existe plusieurs manières de récupérer les différents objets dans les plugins, faisons un tour d&#8217;horizon.</p>
+<p>On peut noter qu’il existe plusieurs types d’outputs qui sont identifiés par :</p>
+<p>Il existe plusieurs manières de récupérer les différents objets dans les plugins, faisons un tour d’horizon.</p>
 <ul>
-<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d&#8217;une même étape</p>
+<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d’une même étape</p>
 </li>
 <li><p class="first">une cible (uri) comportant un schema (WORKSPACE, MEMORY) et un path :</p>
 <blockquote>
@@ -1418,10 +1456,10 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div></blockquote>
 </li>
 </ul>
-<p>Chaque plugin peut donc accéder aux différents inputs ou peut stocker différents outputs dès lors qu&#8217;ils sont bien déclarés dans la configuration.</p>
+<p>Chaque plugin peut donc accéder aux différents inputs ou peut stocker différents outputs dès lors qu’ils sont bien déclarés dans la configuration.</p>
 <div class="section" id="recuperer-un-json-sur-le-workspace">
 <h4>2.2.1 Récupérer un Json sur le workspace<a class="headerlink" href="#recuperer-un-json-sur-le-workspace" title="Lien permanent vers ce titre">¶</a></h4>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// récupérons sur le workspace un json répresenant un objet sur lequel l&#39;action est en cours</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// récupérons sur le workspace un json répresenant un objet sur lequel l&#39;action est en cours</span>
 <span class="kd">final</span> <span class="n">JsonNode</span> <span class="n">jsonOG</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getJsonFromWorkspace</span><span class="o">(</span>
                  <span class="n">IngestWorkflowConstants</span><span class="o">.</span><span class="na">OBJECT_GROUP_FOLDER</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="na">getObjectName</span><span class="o">());</span>
 </pre></div>
@@ -1429,7 +1467,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 <div class="section" id="transferer-un-fichier-sur-le-workspace">
 <h4>2.2.2 Transférer un fichier sur le Workspace<a class="headerlink" href="#transferer-un-fichier-sur-le-workspace" title="Lien permanent vers ce titre">¶</a></h4>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// transférons sur le workspace un inputstream</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// transférons sur le workspace un inputstream</span>
 <span class="n">InputStreamFromOutputStream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">isos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamFromOutputStream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
 <span class="n">handlerIO</span><span class="o">.</span><span class="na">transferInputStreamToWorkspace</span><span class="o">(</span>
                          <span class="n">IngestWorkflowConstants</span><span class="o">.</span><span class="na">OBJECT_GROUP_FOLDER</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="na">getObjectName</span><span class="o">(),</span>
@@ -1445,8 +1483,8 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 <div class="section" id="recuperer-un-objet-specifique-determine-dans-le-workflow">
 <h4>2.2.3 Récupérer un objet spécifique déterminé dans le workflow<a class="headerlink" href="#recuperer-un-objet-specifique-determine-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Soit la déclaration d&#8217;inputs :</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;in&quot;: [
+<p>Soit la déclaration d’inputs :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;in&quot;: [
           {
             &quot;name&quot;: &quot;testValue&quot;,
             &quot;uri&quot;: &quot;VALUE:SHA-512&quot;
@@ -1458,40 +1496,40 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 ],
 </pre></div>
 </div>
-<p>Si l&#8217;on souhaite réaliser les différentes opérations :</p>
+<p>Si l’on souhaite réaliser les différentes opérations :</p>
 <ul class="simple">
-<li>Récupérer un objet &#8220;VALUE&#8221; :</li>
+<li>Récupérer un objet «&nbsp;VALUE&nbsp;» :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span>  <span class="c1">// récupérons le fichier défini de rang 0 , en tant que VALUE dans le workflow</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>  <span class="c1">// récupérons le fichier défini de rang 0 , en tant que VALUE dans le workflow</span>
   <span class="kd">final</span> <span class="n">DigestType</span> <span class="n">digestTypeInput</span> <span class="o">=</span> <span class="n">DigestType</span><span class="o">.</span><span class="na">fromValue</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
 
 <span class="o">-</span> <span class="n">Récupérer</span> <span class="n">un</span> <span class="n">objet</span> <span class="s">&quot;WORKSPACE&quot;</span><span class="o">,</span> <span class="n">autrement</span> <span class="n">dit</span><span class="o">,</span> <span class="n">récupérer</span> <span class="n">un</span> <span class="n">FILE</span> <span class="n">sur</span> <span class="n">le</span> <span class="n">workspace</span> <span class="o">:</span>
 </pre></div>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// récupérons le fichier défini de rang 1 , en tant que WORKSPACE dans le workflow</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// récupérons le fichier défini de rang 1 , en tant que WORKSPACE dans le workflow</span>
 <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Récupérer un objet &#8220;MEMORY&#8221;, autrement dit, récupérer un object en mémoire :</li>
+<li>Récupérer un objet «&nbsp;MEMORY&nbsp;», autrement dit, récupérer un object en mémoire :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// récupérons l&#39;objet défini en rang 2, en mémoire</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// récupérons l&#39;objet défini en rang 2, en mémoire</span>
 <span class="n">Object</span> <span class="n">object</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getInput</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="travailler-sur-le-workspace-sur-un-fichier-temporaire">
 <h4>2.2.4 Travailler sur le Workspace sur un fichier temporaire<a class="headerlink" href="#travailler-sur-le-workspace-sur-un-fichier-temporaire" title="Lien permanent vers ce titre">¶</a></h4>
-<p>S&#8217;il est nécessaire de travailler sur un fichier temporaire sur le workspace, il est possible de faire :</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// créons un fichier temporaire sur le workspace</span>
+<p>S’il est nécessaire de travailler sur un fichier temporaire sur le workspace, il est possible de faire :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// créons un fichier temporaire sur le workspace</span>
 <span class="n">File</span> <span class="n">temporaryFile</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getNewLocalFile</span><span class="o">(</span><span class="s">&quot;MyTempFile&quot;</span> <span class="o">+</span> <span class="n">objectName</span><span class="o">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="enregistrer-un-output">
 <h4>2.2.5 Enregistrer un output<a class="headerlink" href="#enregistrer-un-output" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Soit la déclaration d&#8217;outputs :</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;out&quot;: [
+<p>Soit la déclaration d’outputs :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;out&quot;: [
   {
     &quot;name&quot;: &quot;test.file&quot;,
     &quot;uri&quot;: &quot;WORKSPACE:test.txt&quot;
@@ -1503,13 +1541,13 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 ],
 </pre></div>
 </div>
-<p>Si l&#8217;on souhaite réaliser les différentes opérations :</p>
+<p>Si l’on souhaite réaliser les différentes opérations :</p>
 <blockquote>
 <div><ul class="simple">
 <li>Stocker sur le workspace un fichier :</li>
 </ul>
 </div></blockquote>
-<div class="highlight-java"><div class="highlight"><pre><span></span> <span class="c1">// To get the filename as specified by the workflow</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span> <span class="c1">// To get the filename as specified by the workflow</span>
  <span class="n">ProcessingUri</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="o">.</span><span class="na">getOutput</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
  <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="na">getPath</span><span class="o">();</span>
  <span class="c1">// Write your own file</span>
@@ -1523,7 +1561,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 <span class="o">-</span> <span class="n">Stocker</span> <span class="n">en</span> <span class="n">mémoire</span> <span class="n">un</span> <span class="n">objet</span> <span class="o">:</span>
 </pre></div>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create your own Object</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Create your own Object</span>
 <span class="n">Map</span> <span class="n">myMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
 <span class="c1">// ... add some values in the map</span>
 <span class="c1">// Now give it back to handlerIO as ouput result</span>
@@ -1536,22 +1574,22 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 <div class="section" id="gestion-des-statuts-du-plugin-itemstatus">
 <h2>3. Gestion des statuts du plugin : ItemStatus<a class="headerlink" href="#gestion-des-statuts-du-plugin-itemstatus" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le plugin dans sa méthode execute, doit forcément retourner un objet de type ItemStatus.</p>
-<p>Il doit être instancié avec un identifiant tehnique précisant l&#8217;action exécutée.
-Cette instanciation est nécessaire pour pouvoir appliquer une liste de messages humains qui seront calculés en fonction du statut de l&#8217;action (cf paragraphe 3.1).</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">ItemStatus</span> <span class="n">itemStatus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ItemStatus</span><span class="o">(</span><span class="s">&quot;MON_ACTION_PLUGIN_1&quot;</span><span class="o">);</span>
+<p>Il doit être instancié avec un identifiant tehnique précisant l’action exécutée.
+Cette instanciation est nécessaire pour pouvoir appliquer une liste de messages humains qui seront calculés en fonction du statut de l’action (cf paragraphe 3.1).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">ItemStatus</span> <span class="n">itemStatus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ItemStatus</span><span class="o">(</span><span class="s">&quot;MON_ACTION_PLUGIN_1&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>Le plugin est ensuite libre d&#8217;exécuter le code qu&#8217;il souhaire ensuite.
-La mise à jour du statut de l&#8217;exécution du plugin se fait en appelant la méthode increment sur l&#8217;objet ItemStatus créé.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// mon exécution a fonctionné, le statut est OK :</span>
+<p>Le plugin est ensuite libre d’exécuter le code qu’il souhaire ensuite.
+La mise à jour du statut de l’exécution du plugin se fait en appelant la méthode increment sur l’objet ItemStatus créé.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// mon exécution a fonctionné, le statut est OK :</span>
 <span class="n">itemStatus</span><span class="o">.</span><span class="na">increment</span><span class="o">(</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
 <span class="c1">// mon exécution n&#39;a pas fonctionné, je n&#39;obtiens pas ce que je devais avoir, le statut est KO :</span>
 <span class="n">itemStatus</span><span class="o">.</span><span class="na">increment</span><span class="o">(</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">KO</span><span class="o">);</span>
 </pre></div>
 </div>
 <p><strong>Cas particulier du traitement de plusieurs objets dans un même plugin.</strong>
-Si l&#8217;on se trouve dans un plugin devant traiter une liste d&#8217;objets (ex : groupes d&#8217;objets pour une vérification de format) alors il sera possible d&#8217;ajouter des statuts sur les sous-tâches.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="kd">final</span> <span class="n">Object</span> <span class="n">monObjet</span> <span class="o">:</span> <span class="n">maListedOBjetsDansLeGroupeDobjets</span><span class="o">)</span> <span class="o">{</span>
+Si l’on se trouve dans un plugin devant traiter une liste d’objets (ex : groupes d’objets pour une vérification de format) alors il sera possible d’ajouter des statuts sur les sous-tâches.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="kd">final</span> <span class="n">Object</span> <span class="n">monObjet</span> <span class="o">:</span> <span class="n">maListedOBjetsDansLeGroupeDobjets</span><span class="o">)</span> <span class="o">{</span>
   <span class="c1">// j&#39;exécute ma sous tache</span>
   <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">monObjet</span><span class="o">.</span><span class="na">doSomething</span><span class="o">();</span>
   <span class="n">itemStatus</span><span class="o">.</span><span class="na">increment</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getStatus</span><span class="o">());</span>
@@ -1559,16 +1597,16 @@ Si l&#8217;on se trouve dans un plugin devant traiter une liste d&#8217;objets (
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>En fin de execute(), le plugin doit donc retourner l&#8217;objet ItemStatus instancié.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">new</span> <span class="n">ItemStatus</span><span class="o">(</span><span class="n">CHECK_RULES_TASK_ID</span><span class="o">).</span><span class="na">setItemsStatus</span><span class="o">(</span><span class="n">CHECK_RULES_TASK_ID</span><span class="o">,</span> <span class="n">itemStatus</span><span class="o">);</span>
+<p>En fin de execute(), le plugin doit donc retourner l’objet ItemStatus instancié.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">new</span> <span class="n">ItemStatus</span><span class="o">(</span><span class="n">CHECK_RULES_TASK_ID</span><span class="o">).</span><span class="na">setItemsStatus</span><span class="o">(</span><span class="n">CHECK_RULES_TASK_ID</span><span class="o">,</span> <span class="n">itemStatus</span><span class="o">);</span>
 </pre></div>
 </div>
 <div class="section" id="journalisation-operation-et-cycle-de-vie">
 <h3>3.1 Journalisation : opération et cycle de vie<a class="headerlink" href="#journalisation-operation-et-cycle-de-vie" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le worker, lorsqu&#8217;il récupérera le statut du plugin, devra traduire les différentes clés (ID_PLUGIN + STATUT) en messages humains en utilisant par défaut le fichier de properties VITAM (vitam-logbook-messages_fr.properties).
+<p>Le worker, lorsqu’il récupérera le statut du plugin, devra traduire les différentes clés (ID_PLUGIN + STATUT) en messages humains en utilisant par défaut le fichier de properties VITAM (vitam-logbook-messages_fr.properties).
 Si les clés ne sont pas définies dans le fichier de properties VITAM, alors le worker utilisera les labels définis dans le fichier de properties du plugin.</p>
-<p>Si l&#8217;on souhaite gérer les différents messages qui seront enregistrés dans les journaux d&#8217;opération, il faudra dans le plugin, ajouter un fichier de properties intégrant les différentes clés (identifiant du plugin + statut final éventuellement).</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">PLUGIN.MON_PLUGIN</span><span class="o">=</span><span class="s">Exécution de mon plugin</span>
+<p>Si l’on souhaite gérer les différents messages qui seront enregistrés dans les journaux d’opération, il faudra dans le plugin, ajouter un fichier de properties intégrant les différentes clés (identifiant du plugin + statut final éventuellement).</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">PLUGIN.MON_PLUGIN</span><span class="o">=</span><span class="s">Exécution de mon plugin</span>
 <span class="na">PLUGIN.MON_PLUGIN.OK</span><span class="o">=</span><span class="s">Succès de l&#39;exécution de mon plugin</span>
 <span class="na">PLUGIN.MON_PLUGIN.KO</span><span class="o">=</span><span class="s">Échec lors de l&#39;exécution de mon plugin</span>
 <span class="na">PLUGIN.MON_PLUGIN.WARNING</span><span class="o">=</span><span class="s">Avertissement lors de l&#39;exécution de mon plugin</span>
@@ -1576,12 +1614,12 @@ Si les clés ne sont pas définies dans le fichier de properties VITAM, alors le
 </pre></div>
 </div>
 <p><strong>Cas particulier du traitement des lifecycles.</strong>
-Lorsqu&#8217;un plugin s&#8217;exécute sur une liste d&#8217;objets (ex : &#8220;kind&#8221;: &#8220;LIST&#8221;, &#8220;element&#8221;: &#8220;ObjectGroup&#8221; ou &#8220;element&#8221;: &#8220;Units&#8221; dans la configuration du Workflow) on va pouvoir ajouter des enregistrements dans la journalisation des cycles de vie (ObjectGroup ou Unit).</p>
-<p>Prenons l&#8217;exemple de l&#8217;action CHECK_DIGEST dans le DefaultWorkflow qui est exécuté au sein d&#8217;une étape sur une liste d&#8217;ObjectGroups. Cette action va exécuter un plugin particulier (identifié via un fichier de configuration).
-Le journal de cycle de vie des objectgroups va donc être mis à jour en fonction de l&#8217;exécution du plugin sur chaque objet.
+Lorsqu’un plugin s’exécute sur une liste d’objets (ex : «&nbsp;kind&nbsp;»: «&nbsp;LIST_ORDERING_IN_FILE&nbsp;», «&nbsp;element&nbsp;»: «&nbsp;ObjectGroup&nbsp;» ou «&nbsp;element&nbsp;»: «&nbsp;Units&nbsp;» dans la configuration du Workflow) on va pouvoir ajouter des enregistrements dans la journalisation des cycles de vie (ObjectGroup ou Unit).</p>
+<p>Prenons l’exemple de l’action CHECK_DIGEST dans le DefaultWorkflow qui est exécuté au sein d’une étape sur une liste d’ObjectGroups. Cette action va exécuter un plugin particulier (identifié via un fichier de configuration).
+Le journal de cycle de vie des objectgroups va donc être mis à jour en fonction de l’exécution du plugin sur chaque objet.
 Ce plugin exécute un traitement ayant pour identifiant CALC_CHECK.
 En fonction du statut de chaque traitement on aura donc des messages différents dans les journaux de cycle de vie.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;evType&quot;</span> <span class="p">:</span> <span class="s2">&quot;LFC.CHECK_DIGEST&quot;</span><span class="p">,</span>
   <span class="nt">&quot;outcome&quot;</span> <span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
   <span class="nt">&quot;outDetail&quot;</span> <span class="p">:</span> <span class="s2">&quot;LFC.CHECK_DIGEST.OK&quot;</span><span class="p">,</span>
@@ -1593,8 +1631,8 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Il convient donc d&#8217;avoir dans le fichier de properties VITAM (vitam-logbook-messages_fr.properties) ou bien dans le fichier de properties du plugin (si les clés ne sont pas définies dans le VITAM) :</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">LFC.CHECK_DIGEST</span><span class="o">=</span><span class="s">Vérification de l&#39;&#39;intégrité des objets versés</span>
+<p>Il convient donc d’avoir dans le fichier de properties VITAM (vitam-logbook-messages_fr.properties) ou bien dans le fichier de properties du plugin (si les clés ne sont pas définies dans le VITAM) :</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">LFC.CHECK_DIGEST</span><span class="o">=</span><span class="s">Vérification de l&#39;&#39;intégrité des objets versés</span>
 <span class="na">LFC.CHECK_DIGEST.OK</span><span class="o">=</span><span class="s">Succès de la vérification de l&#39;&#39;intégrité des objets versés</span>
 <span class="na">LFC.CHECK_DIGEST.WARNING</span><span class="o">=</span><span class="s">Empreinte de l&#39;&#39;objet recalculée en enregistrées dans les métadonnées de l&#39;&#39;objet</span>
 <span class="na">LFC.CHECK_DIGEST.KO</span><span class="o">=</span><span class="s">Échec de la vérification de l&#39;&#39;intégrité des objets versés</span>
@@ -1605,16 +1643,16 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 <span class="na">LFC.CHECK_DIGEST.CALC_CHECK.FATAL</span><span class="o">=</span><span class="s">Erreur fatale lors calcul d&#39;&#39;une empreinte en SHA-512</span>
 </pre></div>
 </div>
-<p>Tous les différents cas d&#8217;erreur doivent être traités.</p>
+<p>Tous les différents cas d’erreur doivent être traités.</p>
 </div>
 </div>
 <div class="section" id="integration-d-un-nouveau-plugin">
-<h2>4. Intégration d&#8217;un nouveau plugin<a class="headerlink" href="#integration-d-un-nouveau-plugin" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Afin d&#8217;ajouter un nouveau plugin dans l&#8217;architecture VITAM, il convient de réaliser plusieurs opérations.</p>
+<h2>4. Intégration d’un nouveau plugin<a class="headerlink" href="#integration-d-un-nouveau-plugin" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Afin d’ajouter un nouveau plugin dans l’architecture VITAM, il convient de réaliser plusieurs opérations.</p>
 <div class="section" id="ajout-de-l-action-dans-le-workflow">
-<h3>4.1 Ajout de l&#8217;action dans le Workflow<a class="headerlink" href="#ajout-de-l-action-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Dans le bon Workflow, il s&#8217;agit d&#8217;ajouter une action dans l&#8217;étape adéquate.</p>
-<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<h3>4.1 Ajout de l’action dans le Workflow<a class="headerlink" href="#ajout-de-l-action-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le bon Workflow, il s’agit d’ajouter une action dans l’étape adéquate.</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -2073,7 +2111,13 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 457
 458
 459
-460</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+460
+461
+462
+463
+464
+465
+466</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;DefaultIngestWorkflow&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
@@ -2196,8 +2240,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_OG_CHECK_AND_TRANSFORME&quot;</span><span class="p">,</span>
       <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_IN_DIRECTORY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -2237,8 +2282,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_UNIT_CHECK_AND_PROCESS&quot;</span><span class="p">,</span>
       <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -2301,8 +2347,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_OBJ_STORING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_IN_DIRECTORY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -2336,8 +2383,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_UNIT_METADATA&quot;</span><span class="p">,</span>
       <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -2363,8 +2411,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_OG_STORING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_IN_DIRECTORY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -2386,8 +2435,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
       <span class="s2">&quot;stepName&quot;</span><span class="o">:</span> <span class="s2">&quot;STP_UNIT_STORING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
       <span class="s2">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span>
+        <span class="s2">&quot;kind&quot;</span><span class="o">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;element&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Units&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;actions&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -2536,9 +2586,9 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 </pre></div>
 </td></tr></table></div>
 <p>Par exemple, je souhaite ajouter une deuxième vérification, en plus de la vérification du manifest par rapport au XSD.
-Je souhaite valider le manifest avec un XSD &#8220;maison&#8221;. Cette vérification doit générer un fichier de report sur le Workspace, qui sera utilisé dans un futur proche.
-Il suffit donc d&#8217;ajouter les informations dans le Workflow adéquat.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>{
+Je souhaite valider le manifest avec un XSD «&nbsp;maison&nbsp;». Cette vérification doit générer un fichier de report sur le Workspace, qui sera utilisé dans un futur proche.
+Il suffit donc d’ajouter les informations dans le Workflow adéquat.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
   &quot;action&quot;: {
     &quot;actionKey&quot;: &quot;CHECK_SEDA&quot;,
     &quot;behavior&quot;: &quot;BLOCKING&quot;
@@ -2557,13 +2607,13 @@ Il suffit donc d&#8217;ajouter les informations dans le Workflow adéquat.</p>
 },
 </pre></div>
 </div>
-<p>De cette manière, l&#8217;action de vérification du manifest par un XSD maison se déroulera dans l&#8217;étape &#8220;STP_INGEST_CONTROL_SIP&#8221; et ne bloquera pas le processus en cas d&#8217;erreur (pour que l&#8217;on puisse continuer le workflow en cas d&#8217;erreur).</p>
+<p>De cette manière, l’action de vérification du manifest par un XSD maison se déroulera dans l’étape «&nbsp;STP_INGEST_CONTROL_SIP&nbsp;» et ne bloquera pas le processus en cas d’erreur (pour que l’on puisse continuer le workflow en cas d’erreur).</p>
 </div>
 <div class="section" id="ajout-du-plugin-dans-la-liste-des-plugins">
 <h3>4.2 Ajout du plugin dans la liste des plugins<a class="headerlink" href="#ajout-du-plugin-dans-la-liste-des-plugins" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Une fois l&#8217;action déclarée dans le Workflow, il convient de préciser les informations au Worker pour qu&#8217;il puisse connaitre le code à exécuter pour ce type d&#8217;action.
-Dans le fichier de configuration plugins.json de l&#8217;ansiblerie du Worker, il conviendra d&#8217;ajouter les lignes suivantes :</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;CHECK_MANIFEST_CUSTOM_XSD&quot;: {
+<p>Une fois l’action déclarée dans le Workflow, il convient de préciser les informations au Worker pour qu’il puisse connaitre le code à exécuter pour ce type d’action.
+Dans le fichier de configuration plugins.json de l’ansiblerie du Worker, il conviendra d’ajouter les lignes suivantes :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;CHECK_MANIFEST_CUSTOM_XSD&quot;: {
        &quot;className&quot;: &quot;mon.package.plugin.CheckManifestCustomXSD&quot;,
        &quot;propertiesFile&quot;: &quot;check_manifest_custom_xsd_plugin.properties&quot;
 }
@@ -2575,11 +2625,11 @@ Dans le fichier de configuration plugins.json de l&#8217;ansiblerie du Worker, i
 <h3>4.3 Création du plugin<a class="headerlink" href="#creation-du-plugin" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Maintenant le plugin déclaré, il convient enfin de coder le plugin à proprement parler.
 Pour ceci il faut donc créer unc classe CheckManifestCustomXSD.java qui doit implémenter la classe ActionHandler et notamment surcharger la méthode execute().
-Il faut, à minima l&#8217;arborescence suivante :</p>
+Il faut, à minima l’arborescence suivante :</p>
 <p>/src/main/java/mon/package/plugin/CheckManifestCustomXSD.java
 /src/main/resources/check_manifest_custom_xsd_plugin.properties</p>
 <p>On arrivera à quelque chose dans ce style :</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">mon.package.plugin</span><span class="o">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">mon.package.plugin</span><span class="o">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckManifestCustomXSD</span> <span class="kd">extends</span> <span class="n">ActionHandler</span> <span class="o">{</span>
   <span class="c1">// lets decide that the name of this task would be CHECK_TEST_MANIFEST</span>
   <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CHECK_TEST_MANIFEST</span> <span class="o">=</span> <span class="s">&quot;CHECK_TEST_MANIFEST&quot;</span><span class="o">;</span>
@@ -2623,7 +2673,7 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
 </pre></div>
 </div>
 <p>De plus, il faudra créer le fichier de properties (check_manifest_custom_xsd_plugin.properties) associé :</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">PLUGIN.CHECK_TEST_MANIFEST</span><span class="o">=</span><span class="s">Vérification de la cohérence du manifest avec le CUSTOM XSD</span>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">PLUGIN.CHECK_TEST_MANIFEST</span><span class="o">=</span><span class="s">Vérification de la cohérence du manifest avec le CUSTOM XSD</span>
 <span class="na">PLUGIN.CHECK_TEST_MANIFEST.OK</span><span class="o">=</span><span class="s">Manifest conforme au CUSTOM XSD</span>
 <span class="na">PLUGIN.CHECK_TEST_MANIFEST.KO</span><span class="o">=</span><span class="s">Échec lors de la vérification de la cohérence du manifest avec le CUSTOM XSD</span>
 <span class="na">PLUGIN.CHECK_TEST_MANIFEST.WARNING</span><span class="o">=</span><span class="s">Manifest non conforme au CUSTOM XSD</span>
@@ -2632,22 +2682,23 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
 </div>
 <div class="section" id="installation-du-plugin">
 <h3>4.4 Installation du plugin<a class="headerlink" href="#installation-du-plugin" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le plugin devra être fourni sous forme de jar (s&#8217;il provient d&#8217;une source externe à VITAM) et devra être installé dans le Worker, dans <code class="docutils literal"><span class="pre">/vitam/lib/worker/</span></code></p>
+<p>Le plugin devra être fourni sous forme de jar (s’il provient d’une source externe à VITAM) et devra être installé dans le Worker, dans <code class="docutils literal notranslate"><span class="pre">/vitam/lib/worker/</span></code></p>
 </div>
 </div>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="idempotent.html" class="btn btn-neutral float-right" title="Idempotence" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="idempotent.html" class="btn btn-neutral float-right" title="Idempotence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="worker-client.html" class="btn btn-neutral" title="Worker Client" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="worker-client.html" class="btn btn-neutral" title="Worker Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -2660,7 +2711,7 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -2678,10 +2729,12 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -2691,19 +2744,13 @@ Il faut, à minima l&#8217;arborescence suivante :</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
