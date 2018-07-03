@@ -6,7 +6,9 @@ level: page
 ---
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition. 
+
 Une nouveauté marque cette publication, deux versions de productions sont désormais livrées, la nouvelle release et la release précédente corrigée. Vous pouvez dorénavant installer la nouvelle version 1.4.0 (Release 7), mais également mettre à jour la V1 de production grâce à la version corrigée 1.0.4 (Release 6 corrigée dite aussi R6.4). 
+
 A noter, dans un contexte d'utilisation des versions en production, on débute un cycle régulier de publication des versions corrigées. Ainsi il est déjà prévu qu'une version corrigée de la Release 7 (1.4.1 ou encore R7.1) sera publiée d’ici la mi-juillet.
 
 ## Solution logicielle Vitam - toutes versions publiées
@@ -19,7 +21,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles ici : (http://download.programmevitam.fr/vitam_repository/1.4.0/mvn_repo/)
+Ils sont accessibles en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.0/mvn_repo/).
 
 * **les paquets de déploiement** 
 
