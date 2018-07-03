@@ -6,6 +6,8 @@ level: page
 ---
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition. 
+Une nouveauté marque cette publication, deux versions de productions sont désormais livrées, la nouvelle release et la release précédente corrigée. Vous pouvez dorénavant installer la nouvelle version 1.4 (Release 7), mais également mettre à jour la V1 de production grâce à la version corrigée 1.0.4 (Release 6 corrigée dite aussi R6.4). 
+A noter, dans un contexte d'utilisation des versions en production, on débute un cycle régulier de publication des versions corrigées. Ainsi il est déjà prévu qu'une version corrigée de la Release 7 (1.4.1 ou encore R7.1) sera publiée d’ici la mi-juillet.
 
 ## Solution logicielle Vitam - toutes versions publiées
 
@@ -21,12 +23,20 @@ Ils sont accessibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.
 
 * **les paquets de déploiement** 
 
-Ils permettent d'installer de manière outillée la solution, sous forme RPM 
-pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests. 
+Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests. 
+
 
 Liens de téléchargement :
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/repo_vitam_1.0.0/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/repo_vitam_1.0.0/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/repo_vitam_1.0.0/deb/vitam-external/)).
+
+Version 1.4.0 (Release 7)
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-external/)).
+
+  
+Version 1.0.4 (Release 6)
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-external/)).
+
   
 A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/apt).
 
@@ -35,7 +45,9 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.ova).
+La VM de la version 1.4.0. (Release 7) sera livrée prochainement
+
+La VM de la version 1.0.4. (Release 6) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.ova).
 L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.sha256).
 
 Sa publication interviendra dans quelques jours.
@@ -53,9 +65,10 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 
 Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiels et paquets SIP:
 
-* **Fichiers d'exemples du kit de prise en main** ([zip](http://download.programmevitam.fr/repo_vitam_1.0.0/tests/20180320-Jeu_de_tests_Kit_de_prise_en_main.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/20180320_Vitam_Kit_de_prise_en_main_V3.0.pdf))
+* **Fichiers d'exemples du kit de prise en main** 
+([zip](http://download.programmevitam.fr/vitam_repository/1.4.0/tests/SIP-Kit_de_prise_en_main.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
 
-* **Fichiers de test du cahier de tests** ([zip](http://download.programmevitam.fr/repo_vitam_1.0.0/tests/20180320-Jeux_de_tests_fonctionnels_RELEASE6.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/20180320_Vitam_Cahier_de_tests_metiers.pdf))
+* **Fichiers de test du cahier de tests** ([zip] http://download.programmevitam.fr/vitam_repository/1.4.0/tests/Jeux_de_tests_fonctionnels_RELEASE7_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
