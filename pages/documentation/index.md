@@ -8,15 +8,13 @@ level: page
 > Est ici présentée la documentation de la version publiée {{ site.version }} et des précédentes. 
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
 de développement.
-> Est ici présentée la documentation de la version publiée {{ site.version }} et des précédentes. 
-Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
-de développement.
+
 
 ## Première approche
 
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles (A venir)
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/1.4.0/tests/SIP-Kit_de_prise_en_main.zip))
 * **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
 
@@ -56,7 +54,7 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 \| [html](/ressources/DocCourante/html/ihm-recette))
 * **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/DocCourante/pdf/vitam-scenario-tests.1.4.0.pdf) 
 \| [html](/ressources/DocCourante/html/scenario-test))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/repo_vitam_1.0.0/tests/20180320-Jeux_de_tests_fonctionnels_RELEASE6.zip))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/1.4.0/tests/Jeux_de_tests_fonctionnels_RELEASE7_SEDA2.1.zip))
 
 
 ## Documentation technique
