@@ -5,7 +5,7 @@ fatherref: documentation
 level: page
 ---
 
-> Est ici présentée la documentation de la version publiée {{ site.version }} et des précédentes. 
+> Est ici présentée la documentation des versions publiées et des précédentes. 
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
 de développement.
 
