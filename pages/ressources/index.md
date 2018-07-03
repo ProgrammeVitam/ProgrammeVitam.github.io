@@ -19,7 +19,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles sur BinTray [{{ site.bintray.repomaven }}]({{ site.bintray.repomaven }}).
+Ils sont accessibles ici : ([jar] (http://download.programmevitam.fr/vitam_repository/1.4.0/mvn_repo/))
 
 * **les paquets de déploiement** 
 
