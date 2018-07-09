@@ -28,12 +28,12 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 Liens de téléchargement :
 
-**Version 1.4.0 (Release 7)**
+**Version 1.0.4 (Release 6)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.4/rpm/vitam-external/)).
 
   
-**Version 1.0.4 (Release 6)**
+**Version 1.4.0 (Release 7)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.0/rpm/vitam-external/)).
 
