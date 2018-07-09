@@ -43,9 +43,9 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
  opérations ([pdf](/ressources/DocCourante/pdf/vitam-modele-workflow.1.4.0.pdf) \| [html](/ressources/DocCourante/html/workflow-model))
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Valeur_probante.pdf))
 * **Présentation du générateur SEDA** - présentation de l'outil complémentaire Générateur SEDA 
-([pdf](/ressources/DocCourante/autres/fonctionnel/Presentation_generateur.pdf))
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_generateur.pdf))
 * **Présentation du générateur arbres et plans** - présentation de  l'outil de génération des arbres et plans 
-([pdf](/ressources/DocCourante/autres/fonctionnel/Presentation_generateur-plan-classement.pdf))
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_generateur-plan-classement.pdf))
 
 
 ## Documentation des tests

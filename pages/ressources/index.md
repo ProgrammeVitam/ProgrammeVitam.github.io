@@ -6,7 +6,9 @@ level: page
 ---
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition. 
+
 Une nouveauté marque cette publication, deux versions de productions sont désormais livrées, la nouvelle release et la release précédente corrigée. Vous pouvez dorénavant installer la nouvelle version 1.4.0 (Release 7), mais également mettre à jour la V1 de production grâce à la version corrigée 1.0.4 (Release 6 corrigée dite aussi R6.4). 
+
 A noter, dans un contexte d'utilisation des versions en production, on débute un cycle régulier de publication des versions corrigées. Ainsi il est déjà prévu qu'une version corrigée de la Release 7 (1.4.1 ou encore R7.1) sera publiée d’ici la mi-juillet.
 
 ## Solution logicielle Vitam - toutes versions publiées
@@ -19,7 +21,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles ici : (http://download.programmevitam.fr/vitam_repository/1.4.0/mvn_repo/)
+Ils sont accessibles en suivant utilisant ce lien : http://download.programmevitam.fr/vitam_repository/1.4.0/mvn_repo/
 
 * **les paquets de déploiement** 
 
@@ -67,7 +69,7 @@ Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiel
 * **Fichiers d'exemples du kit de prise en main** 
 ([zip](http://download.programmevitam.fr/vitam_repository/1.4.0/tests/SIP-Kit_de_prise_en_main.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
 
-* **Fichiers de test du Cahier de tests métier** ([zip] http://download.programmevitam.fr/vitam_repository/1.4.0/tests/Jeux_de_tests_fonctionnels_RELEASE7_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
+* **Fichiers de test du Cahier de tests métier** ([zip](http://download.programmevitam.fr/vitam_repository/1.4.0/tests/Jeux_de_tests_fonctionnels_RELEASE7_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
@@ -97,7 +99,7 @@ Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.gith
 
 ## Présentation de la Première version de production de la solution logicielle Vitam
 
-Une présentation de la Première version de production de la solution logicielle Vitam a eu lieu aux Archives nationales le 11 avril 2018, réunissant environ 250 personnes. Le support de présentation est consultable ici : ([pdf](/ressources/DocCourante/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
+Une présentation de la Première version de production de la solution logicielle Vitam a eu lieu aux Archives nationales le 11 avril 2018, réunissant environ 250 personnes. Le support de présentation est consultable ici : ([pdf](/ressources/Doc1.0.0/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
 
 
 <br>
