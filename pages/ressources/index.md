@@ -47,10 +47,11 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle. 
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM de la version 1.4.0. (Release 7) sera publiée prochainement
+La VM de la version 1.4.0. (Release 7) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.0/demo_vitam_1.4.0.ova).
+L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/vitam_repository/1.4.0/demo_vitam_1.4.0.ova.sha256).
 
-La VM de la version 1.0.4. (Release 6) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.ova).
-L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/demo_vitam_1.0.0/demo_vitam_1.0.0-2.sha256).
+La VM de la version 1.0.4. (Release 6 corrigée) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.0.4/demo_vitam_1.0.4.ova).
+L'empreinte sha256 de la VM est la [suivante](http://download.programmevitam.fr/vitam_repository/1.0.4/demo_vitam_1.0.4.ova.sha256).
 
 
 * **la documentation fonctionnelle et technique**
