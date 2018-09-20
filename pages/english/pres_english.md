@@ -83,10 +83,11 @@ The Vitam software meets the standards and norms applicable for archiving (Medon
 * **Administration**: technical and functional supervision of the system (logs, statistics, control and monitoring, management of repositories and storage spaces ...);
 * **Preservation**: management of file formats, their obsolescence, strategies and conversion methods;
 * **Access**: Search, download and view archived data.
+![Vitam functional Model](/public/images/SchemaSAEVitam_english.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
 ## ... As well as the addition of essential elements for archivists
 
-In order to better serve the core business of French archivists, a specific functional area called « management of current archives » has been added. It regroups all the activities of archives life-cycle management : modification and enrichment of the metadata, destruction, management rules (conservation lasting), declassifying, disposal preparation, transfer to another archiving system. This block of functionalities will allow the archivists to better perform their archive and records management tasks.
+In order to better serve the core business of French archivists, a specific functional area called « AIP Lifecycle management » has been added. It regroups all the activities of archives life-cycle management : modification and enrichment of the metadata, destruction, management rules (conservation lasting), declassifying, disposal preparation, transfer to another archiving system. This block of functionalities will allow the archivists to better perform their archive and records management tasks.
 
 ## Is the Vitam software suitable to the needs of my agency?
 
@@ -101,15 +102,15 @@ The workshops have two objectives:
 * Express the functional needs for the Vitam software developments (back-end), by a good understanding of the demands,
 * Share the reflections among interministerial projects and partners, on the adaptations of their Archive's front-end softwares. 
 
-## The workshops cycles 2015-2017
+## The workshops cycles 2015-2018
 
 In 2015, the two workshops carried out by the Vitam team were:
 
 * The preparation of digital archives Ingests;
 * The Search and access to archives held in digital archiving systems, from the Archives and producer services’ front-end.
 
-The results of this works were published for comment in the first quarter of 2016. In 2017, in parallel with the progress of the Vitam software developments, works will continue on the following subjects:
+The results of this works were published for comment in the first quarter of 2016. In 2017-2018, in parallel with the progress of the Vitam software developments, works will continued on the following subjects:
 
-* The extraction and processing of documents (format migration, automatic generation of metadata, de-identification ...),
+* Preservation : extraction and processing of documents (format migration, automatic generation of metadata, de-identification ...),
 * The digital evidence management,
 * The freeze of Data in judicial proceedings (judicial "set-aside").
