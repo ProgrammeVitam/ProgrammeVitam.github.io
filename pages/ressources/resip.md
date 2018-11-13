@@ -11,7 +11,9 @@ level: page
 
 L’application ReSIP, construite au dessus de la bibliothèque sedalib, sert à construire et manipuler des structures arborescentes d’archives, d’en éditer les métadonnées, de les importer  et exporter sous la forme de SIP, sous la forme de hiérarchie disque ou encore sous forme csv pour les plans de classement.
 
-Cette application présente de manière explicite les contenus XML, et nécessite donc une certaine connaissance du standard SEDA 2.1. Celui-ci est consultable sur le site du SIAF https://francearchives.fr/seda/. Pour comprendre l’essentiel, on visera notamment la documentation technique des:
+Cette application présente de manière explicite les contenus XML, et nécessite donc une certaine connaissance du standard SEDA 2.1. Celui-ci est consultable sur le site du ([SIAF](https://francearchives.fr/seda/)).
+
+Pour comprendre l’essentiel, on visera notamment la documentation technique des:
 *	manifest du SIP (message ArchiveTransfer)  qui au plus haut niveau définit  les métadonnées globales du versement 
 *	DescriptiveMetadata qui contient la structure des archives et des métadonnées
 *	ArchiveUnit qui contient toutes les informations de structure et de métadonnées d’une  unité d’archives
