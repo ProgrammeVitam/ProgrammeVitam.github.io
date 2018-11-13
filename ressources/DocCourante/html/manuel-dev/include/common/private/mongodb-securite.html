@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Implémentation de l’authentification &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  <title>Implémentation de l’authentification &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Recherche" href="../../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../../index.html"/>
-        <link rel="up" title="Common-private" href="_toc.html"/>
-        <link rel="next" title="Implémentation du secret de la plateforme" href="secret-plateforme.html"/>
-        <link rel="prev" title="Implémentation de l’éxécution des requêtes mono-query DSL" href="Execution-request-dsl.html"/> 
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="Implémentation du secret de la plateforme" href="secret-plateforme.html" />
+    <link rel="prev" title="Implémentation de l’éxécution des requêtes mono-query DSL" href="Execution-request-dsl.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -59,7 +53,7 @@
 
           
             
-            <img src="../../../_static/logo_vitam.png" class="logo" />
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -67,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -88,7 +82,11 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">Détails par composant</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">Access</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">Common</a><ul class="current">
@@ -100,7 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../client.html">Client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../graph.html">DirectedCycle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../graph.html#graph">Graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../VitamCode.html">Code d&#8217;erreur Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VitamCode.html">Code d’erreur Vitam</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../format-identifier.html">Common format identification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../stockage.html">Common-storage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vitam-metrics.html">Métriques dans VITAM</a></li>
@@ -126,8 +124,8 @@
 <li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#modules-vitam-impactes">Modules Vitam impactés</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sanity-checker.html">Présentation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="DefaultVitamApplicationConfiguration.html">Présentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Execution-request-dsl.html">Implémentation de l&#8217;éxécution des requêtes mono-query DSL</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Implémentation de l&#8217;authentification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Execution-request-dsl.html">Implémentation de l’éxécution des requêtes mono-query DSL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Implémentation de l’authentification</a></li>
 <li class="toctree-l4"><a class="reference internal" href="secret-plateforme.html">Implémentation du secret de la plateforme</a></li>
 </ul>
 </li>
@@ -151,7 +149,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -163,61 +161,81 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../index.html">VITAM - Manuel de développement</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Manuel de développement</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../_toc.html">Détails par composant</a> &raquo;</li>
-      
+        
           <li><a href="../_toc.html">Common</a> &raquo;</li>
-      
+        
           <li><a href="_toc.html">Common-private</a> &raquo;</li>
-      
-    <li>Implémentation de l&#8217;authentification</li>
+        
+      <li>Implémentation de l’authentification</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../../_sources/include/common/private/mongodb-securite.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../../_sources/include/common/private/mongodb-securite.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="implementation-de-l-authentification">
-<h1>Implémentation de l&#8217;authentification<a class="headerlink" href="#implementation-de-l-authentification" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>Implémentation de l’authentification<a class="headerlink" href="#implementation-de-l-authentification" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="implementation-de-l-authentification-mongodbaccess">
-<h2>Implémentation de l&#8217;authentification (MongoDbAccess)<a class="headerlink" href="#implementation-de-l-authentification-mongodbaccess" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L&#8217;authentification est le processus de vérification de l&#8217;identité du client, donc vous avez besoin d&#8217;utiliser quatre paramètres dans la fichier de configuration</p>
+<h2>Implémentation de l’authentification (MongoDbAccess)<a class="headerlink" href="#implementation-de-l-authentification-mongodbaccess" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’authentification est le processus de vérification de l’identité du client, donc vous avez besoin d’utiliser quatre paramètres dans la fichier de configuration</p>
 <blockquote>
-<div>&#8220;dbAuthentication&#8221;, &#8220;dbUserName&#8221;, &#8220;dbName&#8221;, &#8220;dbPassword&#8221;</div></blockquote>
-<p>La gestion de l&#8217;authentification doit être débrayable &#8211;
-Si &#8220;dbAuthentication&#8221; est égal à &#8220;false&#8221;, il doit être possible de continuer à
+<div>«&nbsp;dbAuthentication&nbsp;», «&nbsp;dbUserName&nbsp;», «&nbsp;dbName&nbsp;», «&nbsp;dbPassword&nbsp;»</div></blockquote>
+<p>La gestion de l’authentification doit être débrayable –
+Si «&nbsp;dbAuthentication&nbsp;» est égal à «&nbsp;false&nbsp;», il doit être possible de continuer à
 utiliser des bases de données Mongo sans authentification.</p>
-<p>Si &#8220;dbAuthentication&#8221; est égal à &#8220;true&#8221;, il faut créer le MongoClient contenant MongoCredential
-qui représente les informations d&#8217;identification pour l&#8217;authentification auprès d&#8217;un serveur mongo,
-ainsi que la source des informations d&#8217;identification et le mécanisme d&#8217;authentification à utiliser.</p>
-<p>Ici, Les utilisateurs &#8220;dbUserName&#8221; se lier à une base de données spécifique &#8220;dbName&#8221;.
-Il a besoin de mot de passe &#8220;dbPassword&#8221; pour entrer le base et CRUD.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span>   public static MongoClient createMongoClient(DbConfiguration configuration, MongoClientOptions options) {
+<p>Si «&nbsp;dbAuthentication&nbsp;» est égal à «&nbsp;true&nbsp;», il faut créer le MongoClient contenant MongoCredential
+qui représente les informations d’identification pour l’authentification auprès d’un serveur mongo,
+ainsi que la source des informations d’identification et le mécanisme d’authentification à utiliser.</p>
+<p>Ici, Les utilisateurs «&nbsp;dbUserName&nbsp;» se lier à une base de données spécifique «&nbsp;dbName&nbsp;».
+Il a besoin de mot de passe «&nbsp;dbPassword&nbsp;» pour entrer le base et CRUD.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>   public static MongoClient createMongoClient(DbConfiguration configuration, MongoClientOptions options) {
        List&lt;MongoDbNode&gt; nodes = configuration.getMongoDbNodes();
        List&lt;ServerAddress&gt; serverAddress = new ArrayList&lt;ServerAddress&gt;();
        for (MongoDbNode node : nodes){
@@ -250,15 +268,16 @@ Il a besoin de mot de passe &#8220;dbPassword&#8221; pour entrer le base et CRUD
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="secret-plateforme.html" class="btn btn-neutral float-right" title="Implémentation du secret de la plateforme" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="secret-plateforme.html" class="btn btn-neutral float-right" title="Implémentation du secret de la plateforme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Execution-request-dsl.html" class="btn btn-neutral" title="Implémentation de l’éxécution des requêtes mono-query DSL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Execution-request-dsl.html" class="btn btn-neutral" title="Implémentation de l’éxécution des requêtes mono-query DSL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -271,7 +290,7 @@ Il a besoin de mot de passe &#8220;dbPassword&#8221; pour entrer le base et CRUD
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -289,10 +308,12 @@ Il a besoin de mot de passe &#8220;dbPassword&#8221; pour entrer le base et CRUD
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -302,19 +323,13 @@ Il a besoin de mot de passe &#8220;dbPassword&#8221; pour entrer le base et CRUD
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

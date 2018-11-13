@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Storage Engine &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  <title>Storage Engine &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
-        <link rel="up" title="Storage" href="_toc.html"/>
-        <link rel="next" title="Technical administration" href="../technical-administration/_toc.html"/>
-        <link rel="prev" title="Storage Driver" href="storage-driver.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Technical administration" href="../technical-administration/_toc.html" />
+    <link rel="prev" title="Storage Driver" href="storage-driver.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -59,7 +53,7 @@
 
           
             
-            <img src="../../_static/logo_vitam.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -67,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -88,7 +82,11 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
@@ -120,7 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -132,38 +130,58 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">VITAM - Manuel de développement</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
-      
+        
           <li><a href="_toc.html">Storage</a> &raquo;</li>
-      
-    <li>Storage Engine</li>
+        
+      <li>Storage Engine</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/include/storage/storage-engine.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/include/storage/storage-engine.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -177,16 +195,16 @@
 <div class="section" id="la-factory">
 <h2>La factory<a class="headerlink" href="#la-factory" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Afin de récupérer le client une factory a été mise en place.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
 <span class="n">StorageClientFactory</span><span class="o">.</span><span class="na">changeMode</span><span class="o">(</span><span class="n">ClientConfiguration</span> <span class="n">configuration</span><span class="o">)</span>
 <span class="n">StorageClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">StorageClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
 </pre></div>
 </div>
-<p>A la demande l&#8217;instance courante du client, si un fichier de configuration storage-client.conf est présent dans le classpath le client en mode de production est envoyé, sinon il s&#8217;agit du mock.</p>
+<p>A la demande l’instance courante du client, si un fichier de configuration storage-client.conf est présent dans le classpath le client en mode de production est envoyé, sinon il s’agit du mock.</p>
 <div class="section" id="le-mock">
 <h3>Le Mock<a class="headerlink" href="#le-mock" title="Lien permanent vers ce titre">¶</a></h3>
-<p>En l&#8217;absence d&#8217;une configuration, le client est en mode Mock. Il est possible de récupérer directement le mock :</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+<p>En l’absence d’une configuration, le client est en mode Mock. Il est possible de récupérer directement le mock :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
 <span class="n">StorageClientFactory</span><span class="o">.</span><span class="na">changeMode</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
 <span class="c1">// Récupération explicite du client mock</span>
 <span class="n">StorageClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">StorageClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
@@ -196,7 +214,7 @@
 <div class="section" id="le-mode-de-production">
 <h3>Le mode de production<a class="headerlink" href="#le-mode-de-production" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour instancier son client en mode Production :</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
 <span class="n">StorageClientFactory</span><span class="o">.</span><span class="na">setConfiguration</span><span class="o">(</span><span class="n">StorageConfiguration</span> <span class="n">configuration</span><span class="o">);</span>
 <span class="c1">// Récupération explicite du client</span>
 <span class="n">StorageClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">StorageClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">();</span>
@@ -208,72 +226,72 @@
 <h2>Les services<a class="headerlink" href="#les-services" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le client propose actuellement des fonctionnalités nécéssitant toutes deux paramètres obligatoires :</p>
 <ul class="simple">
-<li>l&#8217;identifiant du tenant (valeur de test &#8220;0&#8221;)</li>
-<li>l&#8217;identifiant de la stratégie de stockage (valeur de test &#8220;default&#8221;)</li>
+<li>l’identifiant du tenant (valeur de test «&nbsp;0&nbsp;»)</li>
+<li>l’identifiant de la stratégie de stockage (valeur de test «&nbsp;default&nbsp;»)</li>
 </ul>
 <p>Ces fonctionnalités sont :</p>
 <ul class="simple">
 <li>la récupération des informations sur une offre de stockage pour une stratégie (disponibilité et capacité) :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">JsonNode</span> <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getStorageInformation</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JsonNode</span> <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getStorageInformation</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
-<dt>l&#8217;envoi d&#8217;un objet sur une offre de stockage selon une stratégie donnée :</dt>
-<dd><ul class="first last simple">
+<dt>l’envoi d’un objet sur une offre de stockage selon une stratégie donnée :</dt>
+<dd><ul class="first last">
 <li>pour les objets contenus dans le workspace (objets binaires) :</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span>      <span class="n">StoredInfoResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">storeFileFromWorkspace</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">StorageCollectionType</span><span class="o">.</span><span class="na">OBJECTS</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>      <span class="n">StoredInfoResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">storeFileFromWorkspace</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">StorageCollectionType</span><span class="o">.</span><span class="na">OBJECTS</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
 
 
 <span class="o">-</span> <span class="n">pour</span> <span class="n">les</span> <span class="n">metadatas</span> <span class="nf">Json</span> <span class="o">(</span><span class="n">objectGroup</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">logbook</span> <span class="o">--</span> <span class="n">pas</span> <span class="n">encore</span> <span class="n">implémenté</span> <span class="n">côté</span> <span class="n">serveur</span><span class="o">)</span> <span class="o">:</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
-<dt>la vérification de l&#8217;existance d&#8217;un objet dans l&#8217;offre de stockage selon  une stratégie donnée :</dt>
-<dd><ul class="first last simple">
+<dt>la vérification de l’existance d’un objet dans l’offre de stockage selon  une stratégie donnée :</dt>
+<dd><ul class="first last">
 <li>pour les conteneurs (pas encore implémenté côté serveur) :</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span>     <span class="kt">boolean</span> <span class="n">exist</span> <span class="o">=</span> <span class="n">existsContainer</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>     <span class="kt">boolean</span> <span class="n">exist</span> <span class="o">=</span> <span class="n">existsContainer</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">);</span>
 
 <span class="o">-</span> <span class="n">pour</span> <span class="n">les</span> <span class="n">autres</span> <span class="nf">objets</span> <span class="o">(</span><span class="n">object</span><span class="o">,</span> <span class="n">objectGroup</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">logbook</span> <span class="o">--</span> <span class="n">implémenté</span> <span class="n">côté</span> <span class="n">serveur</span> <span class="n">uniquement</span> <span class="n">pour</span> <span class="n">object</span><span class="o">)</span> <span class="o">:</span>
 </pre></div>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">exist</span> <span class="o">=</span> <span class="n">exists</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">StorageCollectionType</span><span class="o">.</span><span class="na">OBJECTS</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">exist</span> <span class="o">=</span> <span class="n">exists</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">StorageCollectionType</span><span class="o">.</span><span class="na">OBJECTS</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>la suppression d&#8217;un objet dans l&#8217;offre de stockage selon  une stratégie donnée :
+<li>la suppression d’un objet dans l’offre de stockage selon  une stratégie donnée :
 - pour les conteneurs  (pas encore implémenté côté serveur) :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">deleted</span> <span class="o">=</span> <span class="n">deleteContainer</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">deleted</span> <span class="o">=</span> <span class="n">deleteContainer</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">);</span>
 
  <span class="o">-</span> <span class="n">pour</span> <span class="n">les</span> <span class="n">autres</span> <span class="nf">objets</span> <span class="o">(</span><span class="n">object</span><span class="o">,</span> <span class="n">objectGroup</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">logbook</span> <span class="o">--</span> <span class="n">implémenté</span> <span class="n">côté</span> <span class="n">serveur</span> <span class="n">uniquement</span> <span class="n">pour</span> <span class="n">object</span><span class="o">)</span> <span class="o">:</span>
 </pre></div>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">deleted</span> <span class="o">=</span> <span class="n">delete</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">StorageCollectionType</span><span class="o">.</span><span class="na">OBJECTS</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">deleted</span> <span class="o">=</span> <span class="n">delete</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">StorageCollectionType</span><span class="o">.</span><span class="na">OBJECTS</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>la récupération d&#8217;un objet (InputStream) contenu dans un container :</li>
+<li>la récupération d’un objet (InputStream) contenu dans un container :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getContainerAsync</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getContainerAsync</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="s">&quot;aeaaaaaaaaaam7mxaaaamakv3x3yehaaaaaq&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>La récupération de la liste d&#8217;objets d&#8217;un certain type :</li>
+<li>La récupération de la liste d’objets d’un certain type :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Si cursorId non connu</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Si cursorId non connu</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">listContainerObjects</span><span class="o">(</span><span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">DataCategory</span><span class="o">.</span><span class="na">OBJECT</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
 <span class="c1">// Si cursorId connu</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">listContainerObjects</span><span class="o">(</span><span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">DataCategory</span><span class="o">.</span><span class="na">OBJECT</span><span class="o">,</span> <span class="s">&quot;idcursor&quot;</span><span class="o">)</span>
@@ -282,7 +300,7 @@
 <ul class="simple">
 <li>La récupération du status est également disponible :</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">StatusMessage</span> <span class="n">status</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getStatus</span><span class="o">();</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">StatusMessage</span> <span class="n">status</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getStatus</span><span class="o">();</span>
 </pre></div>
 </div>
 </div>
@@ -290,15 +308,16 @@
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../technical-administration/_toc.html" class="btn btn-neutral float-right" title="Technical administration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../technical-administration/_toc.html" class="btn btn-neutral float-right" title="Technical administration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="storage-driver.html" class="btn btn-neutral" title="Storage Driver" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="storage-driver.html" class="btn btn-neutral" title="Storage Driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -311,7 +330,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -329,10 +348,12 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -342,19 +363,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

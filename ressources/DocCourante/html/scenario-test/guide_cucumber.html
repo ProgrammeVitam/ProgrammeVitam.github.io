@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Guide d’écriture des tests Cucumber &mdash; documentation VITAM - Scénarios de test 1.0.0</title>
+  <title>Guide d’écriture des tests Cucumber &mdash; Documentation VITAM - Scénarios de test 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,27 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Recherche" href="search.html"/>
-    <link rel="top" title="documentation VITAM - Scénarios de test 1.0.0" href="index.html"/>
-        <link rel="prev" title="Ecriture des TNR" href="ecriture.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Tests curl" href="curl.html" />
+    <link rel="prev" title="Ecriture des TNR" href="ecriture.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +53,7 @@
 
           
             
-            <img src="_static/logo_vitam.png" class="logo" />
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -86,17 +82,20 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Objectif du document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests_manuels.html">Tests Manuels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests_automatises.html">Tests Automatisés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ecriture.html">Ecriture des TNR</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide d&#8217;écriture des tests Cucumber</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide d’écriture des tests Cucumber</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#guide-technique">Guide technique</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-ingest">Fonctionnalité : ingest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-recherche-simple-des-metadonnees-d-aus-et-de-gots">Fonctionnalité : recherche simple des métadonnées d&#8217;AUs et de GOTs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-recherche-complexe-d-une-au">Fonctionnalité : recherche complexe d&#8217;une AU</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-recherche-d-un-registre-des-fonds">Fonctionnalité : recherche d&#8217;un registre des fonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-recherche-simple-des-metadonnees-d-aus-et-de-gots">Fonctionnalité : recherche simple des métadonnées d’AUs et de GOTs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-recherche-complexe-d-une-au">Fonctionnalité : recherche complexe d’une AU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnalite-recherche-d-un-registre-des-fonds">Fonctionnalité : recherche d’un registre des fonds</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#scenarios-fonctionnels">Scénarios fonctionnels</a><ul>
@@ -108,6 +107,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="curl.html">Tests curl</a></li>
 </ul>
 
             
@@ -119,50 +119,70 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">VITAM - Scénarios de test</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Scénarios de test</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Guide d&#8217;écriture des tests Cucumber</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Guide d’écriture des tests Cucumber</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/guide_cucumber.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/guide_cucumber.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="guide-d-ecriture-des-tests-cucumber">
-<h1>Guide d&#8217;écriture des tests Cucumber<a class="headerlink" href="#guide-d-ecriture-des-tests-cucumber" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Voici des exemples sur les types de test qui peuvent être écrits avec l&#8217;outil Cucumber paramétré sur le projet Vitam.</p>
+<h1>Guide d’écriture des tests Cucumber<a class="headerlink" href="#guide-d-ecriture-des-tests-cucumber" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Voici des exemples sur les types de test qui peuvent être écrits avec l’outil Cucumber paramétré sur le projet Vitam.</p>
 <div class="section" id="guide-technique">
 <h2>Guide technique<a class="headerlink" href="#guide-technique" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les exemples suivants présentent l&#8217;exhaustivité des phrases définies par fonctionnalité.</p>
+<p>Les exemples suivants présentent l’exhaustivité des phrases définies par fonctionnalité.</p>
 <div class="section" id="fonctionnalite-ingest">
 <h3>Fonctionnalité : ingest<a class="headerlink" href="#fonctionnalite-ingest" title="Lien permanent vers ce titre">¶</a></h3>
-<p><strong>Scénario</strong> : Envoi d&#8217;une archive et vérification du journal de l&#8217;opération, de l&#8217;ATR, des journaux de cycle de vie d&#8217;un Unit et d&#8217;un GOT</p>
-<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d&#8217;entrée, les contrats d&#8217;accès, les référentiels des règles de gestions et des formats sont chargés.</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide ingest</span>
+<p><strong>Scénario</strong> : Envoi d’une archive et vérification du journal de l’opération, de l’ATR, des journaux de cycle de vie d’un Unit et d’un GOT</p>
+<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d’entrée, les contrats d’accès, les référentiels des règles de gestions et des formats sont chargés.</p>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide ingest</span>
 <span class="c"># Execution d&#39;un ingest</span><span class="nf"></span>
 <span class="k">  Etant donné </span><span class="nf">un fichier SIP nommé data/SIP_GUIDE_INGEST_OK.zip</span>
 <span class="nf">  </span><span class="k">Quand </span><span class="nf">je télécharge le SIP</span>
@@ -195,10 +215,10 @@
 </div>
 </div>
 <div class="section" id="fonctionnalite-recherche-simple-des-metadonnees-d-aus-et-de-gots">
-<h3>Fonctionnalité : recherche simple des métadonnées d&#8217;AUs et de GOTs<a class="headerlink" href="#fonctionnalite-recherche-simple-des-metadonnees-d-aus-et-de-gots" title="Lien permanent vers ce titre">¶</a></h3>
-<p><strong>Scénario</strong> Recherche de toutes les unités archivistiques et de groupes d&#8217;objets liés à un ingest</p>
-<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d&#8217;entrée, les contrats d&#8217;accès, les référentiels des règles de gestions et des formats sont chargés.</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide recherche simple</span>
+<h3>Fonctionnalité : recherche simple des métadonnées d’AUs et de GOTs<a class="headerlink" href="#fonctionnalite-recherche-simple-des-metadonnees-d-aus-et-de-gots" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Scénario</strong> Recherche de toutes les unités archivistiques et de groupes d’objets liés à un ingest</p>
+<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d’entrée, les contrats d’accès, les référentiels des règles de gestions et des formats sont chargés.</p>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide recherche simple</span>
 <span class="c"># Execution d&#39;un ingest</span><span class="nf"></span>
 <span class="k">  Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="nf">  </span><span class="k">Et </span><span class="nf">les données du jeu de test du SIP nommé data/SIP_GUIDE_OK.zip</span>
@@ -231,10 +251,10 @@
 </div>
 </div>
 <div class="section" id="fonctionnalite-recherche-complexe-d-une-au">
-<h3>Fonctionnalité : recherche complexe d&#8217;une AU<a class="headerlink" href="#fonctionnalite-recherche-complexe-d-une-au" title="Lien permanent vers ce titre">¶</a></h3>
-<p><strong>Scénario</strong> Recherche d&#8217;une unités archivistique particulière et de son groupe d&#8217;objet</p>
-<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d&#8217;entrée, les contrats d&#8217;accès, les référentiels des règles de gestions et des formats sont chargés.</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide recherche avancée</span>
+<h3>Fonctionnalité : recherche complexe d’une AU<a class="headerlink" href="#fonctionnalite-recherche-complexe-d-une-au" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Scénario</strong> Recherche d’une unités archivistique particulière et de son groupe d’objet</p>
+<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d’entrée, les contrats d’accès, les référentiels des règles de gestions et des formats sont chargés.</p>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide recherche avancée</span>
 <span class="c"># Execution d&#39;un ingest</span><span class="nf"></span>
 <span class="k">  Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="nf">  </span><span class="k">Et </span><span class="nf">les données du jeu de test du SIP nommé data/SIP_GUIDE_OK.zip</span>
@@ -253,7 +273,7 @@
 </pre></div>
 </div>
 <p>Le fichier <em>data/queries/query.json</em> contient :</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>{
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
   &quot;$roots&quot;: [&quot;{{guid}}&quot;],
   &quot;$query&quot;: [
     {
@@ -279,10 +299,10 @@
 </div>
 </div>
 <div class="section" id="fonctionnalite-recherche-d-un-registre-des-fonds">
-<h3>Fonctionnalité : recherche d&#8217;un registre des fonds<a class="headerlink" href="#fonctionnalite-recherche-d-un-registre-des-fonds" title="Lien permanent vers ce titre">¶</a></h3>
-<p><strong>Scénario</strong> Recherche d&#8217;un registre des fonds et de son détail pour une opération d&#8217;ingest</p>
-<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d&#8217;entrée, les contrats d&#8217;accès, les référentiels des règles de gestions et des formats sont chargés.</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide registre de fonds</span>
+<h3>Fonctionnalité : recherche d’un registre des fonds<a class="headerlink" href="#fonctionnalite-recherche-d-un-registre-des-fonds" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Scénario</strong> Recherche d’un registre des fonds et de son détail pour une opération d’ingest</p>
+<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d’entrée, les contrats d’accès, les référentiels des règles de gestions et des formats sont chargés.</p>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Scénario:</span><span class="nf"> Guide registre de fonds</span>
 <span class="c"># Execution d&#39;un ingest</span><span class="nf"></span>
 <span class="k">  Etant donné </span><span class="nf">un fichier SIP nommé data/SIP_GUIDE_OK.zip</span>
 <span class="nf">  </span><span class="k">Quand </span><span class="nf">je télécharge le SIP</span>
@@ -332,7 +352,7 @@
 <h3>Collection Unit<a class="headerlink" href="#collection-unit" title="Lien permanent vers ce titre">¶</a></h3>
 <p><strong>Fonctionnalité</strong> Recherche avancée</p>
 <p><strong>Scénario</strong> Recherche avancée d’archives – cas OK d’une recherche multicritère croisant métadonnées techniques, métadonnées descriptives et métadonnées de gestion (API)</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="k">Et </span><span class="nf">un fichier SIP nommé data/SIP_OK/ZIP/OK-RULES_TEST.zip</span>
 <span class="k">Et </span><span class="nf">je télécharge le SIP</span>
 <span class="k">Quand </span><span class="nf"> j&#39;utilise le fichier de requête suivant data/queries/select_multicriteres_md.json</span>
@@ -344,7 +364,7 @@
 </pre></div>
 </div>
 <p><strong>Scénario</strong> Recherche avancée d’archives – recherche d’archives dans un tenant sur la base de critères correspondant à des archives conservées dans un autre tenant (manuel)</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="k">Quand </span><span class="nf"> j&#39;utilise le fichier de requête suivant data/queries/select_multicriteres_md.json</span>
 <span class="k">Et </span><span class="nf">je recherche les unités archivistiques</span>
 <span class="k">Alors </span><span class="nf">les metadonnées sont</span>
@@ -361,7 +381,7 @@
 </div>
 <p><strong>Fonctionnalité</strong> Modification interdite via API</p>
 <p><strong>Scénario</strong> KO_UPDATE_UNIT__ID : Vérifier la non modification de _id</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="k">Quand </span><span class="nf">je modifie l&#39;unité archivistique avec la requete</span>
 <span class="k">&quot;&quot;&quot;</span><span class="s"></span>
 <span class="s">{&quot;$query&quot;: [],&quot;$filter&quot;: {},&quot;$action&quot;: [              {&quot;$set&quot;: {                              &quot;_id&quot; : &quot;toto_id&quot;                       }}]}</span>
@@ -369,9 +389,9 @@
 <span class="k">Et </span><span class="nf">le statut de la requete est Bad Request</span>
 </pre></div>
 </div>
-<p><strong>Fonctionnalité</strong> Affichage des métadonnées de l&#8217;objet physique</p>
-<p><strong>Scénario</strong> CAS OK = import SIP OK et métadonnées de l&#8217;objet physique OK</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
+<p><strong>Fonctionnalité</strong> Affichage des métadonnées de l’objet physique</p>
+<p><strong>Scénario</strong> CAS OK = import SIP OK et métadonnées de l’objet physique OK</p>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="k">Et </span><span class="nf">un fichier SIP nommé data/SIP_OK/ZIP/OK_ArchivesPhysiques.zip</span>
 <span class="k">Quand </span><span class="nf">je télécharge le SIP</span>
 <span class="k">Alors </span><span class="nf">le statut final du journal des opérations est OK</span>
@@ -389,7 +409,7 @@
 <h3>Collection FileRules<a class="headerlink" href="#collection-filerules" title="Lien permanent vers ce titre">¶</a></h3>
 <p><strong>Fonctionnalité</strong> Recherche de règle de gestion</p>
 <p><strong>Scénario</strong> Vérification et import des règles OK, recherche par id OK</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Quand </span><span class="nf">je vérifie le fichier nommé data/rules/jeu_donnees_OK_regles_CSV_regles.csv pour le référentiel RULES                                |   Quand j&#39;utilise le fichier de requête suivant data/queries/select_rule_by_id.json</span>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Quand </span><span class="nf">je vérifie le fichier nommé data/rules/jeu_donnees_OK_regles_CSV_regles.csv pour le référentiel RULES                                |   Quand j&#39;utilise le fichier de requête suivant data/queries/select_rule_by_id.json</span>
 <span class="k">Et </span><span class="nf">je recherche les données dans le référentiel RULES</span>
 <span class="k">Alors </span><span class="nf">le nombre de résultat est </span><span class="s">1</span><span class="nf"></span>
 <span class="k">Et </span><span class="nf">les metadonnées sont</span>
@@ -403,9 +423,9 @@
 <div class="section" id="collection-accessaccessionregister">
 <h3>Collection AccessAccessionRegister<a class="headerlink" href="#collection-accessaccessionregister" title="Lien permanent vers ce titre">¶</a></h3>
 <p><strong>Fonctionnalité</strong> Recherche dans les registres des fonds</p>
-<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d&#8217;entrée, les contrats d&#8217;accès, les référentiels des règles de gestions et des formats sont chargés.</p>
-<p><strong>Scénario</strong> Upload d&#8217;un SIP et vérification du contenu dans le registre de fonds</p>
-<div class="highlight-cucumber"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
+<p><strong>Contexte</strong> Avant de lancer ce scénario, je présuppose que les contrats d’entrée, les contrats d’accès, les référentiels des règles de gestions et des formats sont chargés.</p>
+<p><strong>Scénario</strong> Upload d’un SIP et vérification du contenu dans le registre de fonds</p>
+<div class="highlight-cucumber notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">les tests effectués sur le tenant </span><span class="s">0</span><span class="nf"></span>
 <span class="k">Et </span><span class="nf">un fichier SIP nommé data/SIP_OK/ZIP/OK_ARBO-COMPLEXE.zip</span>
 <span class="k">Quand </span><span class="nf">je télécharge le SIP</span>
 <span class="nf">      </span><span class="k">Et </span><span class="nf">j&#39;utilise le fichier de requête suivant data/queries/select_accession_register_by_id.json</span>
@@ -430,15 +450,15 @@
 </div>
 <div class="section" id="tests-de-stockage">
 <h3>Tests de stockage<a class="headerlink" href="#tests-de-stockage" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ces tests permettent de vérifier qu&#8217;un objet est bien stocké plusieurs fois sur la plateforme, afin d&#8217;assurer sa pérennité.</p>
+<p>Ces tests permettent de vérifier qu’un objet est bien stocké plusieurs fois sur la plateforme, afin d’assurer sa pérennité.</p>
 <p>Ce test vérifie :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Le tenant sur lequel est stocké l&#8217;objet</li>
-<li>Le nom de l&#8217;objet stocké</li>
+<li>Le tenant sur lequel est stocké l’objet</li>
+<li>Le nom de l’objet stocké</li>
 <li>La strategie de stockage</li>
-<li>La liste des stratégies où est stocké l&#8217;objet</li>
-<li>La présence de l&#8217;objet dans ces stratégies</li>
+<li>La liste des stratégies où est stocké l’objet</li>
+<li>La présence de l’objet dans ces stratégies</li>
 </ul>
 </div></blockquote>
 </div>
@@ -447,13 +467,16 @@
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="curl.html" class="btn btn-neutral float-right" title="Tests curl" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="ecriture.html" class="btn btn-neutral" title="Ecriture des TNR" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="ecriture.html" class="btn btn-neutral" title="Ecriture des TNR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -466,7 +489,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -484,10 +507,12 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -497,19 +522,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

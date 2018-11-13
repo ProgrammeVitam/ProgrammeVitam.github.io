@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5.1. Collections contenues dans la base &mdash; documentation VITAM - Modèle de données 1.0.0</title>
+  <title>5.1. Collections contenues dans la base &mdash; Documentation VITAM - Modèle de données 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Recherche" href="../search.html"/>
-    <link rel="top" title="documentation VITAM - Modèle de données 1.0.0" href="../index.html"/>
-        <link rel="up" title="5. Base MasterData" href="_toc_masterdata.html"/>
-        <link rel="next" title="5.2. Collection AccessContract" href="accesscontract.html"/>
-        <link rel="prev" title="5. Base MasterData" href="_toc_masterdata.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="5.2. Collection AccessContract" href="accesscontract.html" />
+    <link rel="prev" title="5. Base MasterData" href="_toc_masterdata.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -59,7 +53,7 @@
 
           
             
-            <img src="../_static/logo_vitam.png" class="logo" />
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -67,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -88,7 +82,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity/_toc_identity.html">2. Base Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logbook/_toc_logbook.html">3. Base Logbook</a></li>
@@ -109,6 +106,8 @@
 <li class="toctree-l2"><a class="reference internal" href="profile.html">5.10. Collection Profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="securityprofile.html">5.11. Collection SecurityProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vitamsequence.html">5.12. Collection VitamSequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiveunitprofile.html">5.13. Collection ArchiveUnitProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontology.html">5.14. Collection Ontology</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../annexes.html">6. Annexes</a></li>
@@ -123,36 +122,56 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">VITAM - Modèle de données</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de données</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="_toc_masterdata.html">5. Base MasterData</a> &raquo;</li>
-      
-    <li>5.1. Collections contenues dans la base</li>
+        
+      <li>5.1. Collections contenues dans la base</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/masterdata/introduction.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/masterdata/introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -178,7 +197,7 @@
 </div></blockquote>
 <div class="section" id="collections-cross-tenant">
 <h2>5.1.1. Collections Cross-tenant<a class="headerlink" href="#collections-cross-tenant" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Certaines collections sont enregistrées sur un tenant et utilisables pour tous les tenants. Elles sont qualifiées de &#8220;Cross-tenant&#8221;. Il s&#8217;agit des collections suivantes :</p>
+<p>Certaines collections sont enregistrées sur un tenant et utilisables pour tous les tenants. Elles sont qualifiées de «&nbsp;Cross-tenant&nbsp;». Il s’agit des collections suivantes :</p>
 <blockquote>
 <div><ul class="simple">
 <li>Context</li>
@@ -186,21 +205,22 @@
 <li>SecurityProfile</li>
 </ul>
 </div></blockquote>
-<p>Elles sont enregistrées sur le tenant d&#8217;administration.</p>
+<p>Elles sont enregistrées sur le tenant d’administration.</p>
 </div>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="accesscontract.html" class="btn btn-neutral float-right" title="5.2. Collection AccessContract" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="accesscontract.html" class="btn btn-neutral float-right" title="5.2. Collection AccessContract" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="_toc_masterdata.html" class="btn btn-neutral" title="5. Base MasterData" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="_toc_masterdata.html" class="btn btn-neutral" title="5. Base MasterData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -213,7 +233,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -231,10 +251,12 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -244,19 +266,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

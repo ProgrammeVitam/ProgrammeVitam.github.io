@@ -1,16 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Métadata-tenant &mdash; documentation VITAM - Manuel de développement 1.0.0</title>
+  <title>Métadata-tenant &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
   
 
+  
+  
   
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Recherche" href="../../search.html"/>
-    <link rel="top" title="documentation VITAM - Manuel de développement 1.0.0" href="../../index.html"/>
-        <link rel="up" title="Metadata" href="_toc.html"/>
-        <link rel="next" title="Métadata" href="metadata-inherited-rule.html"/>
-        <link rel="prev" title="Métadata : API REST Raml" href="metadata-api-rest-raml.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Métadata" href="metadata-inherited-rule.html" />
+    <link rel="prev" title="Métadata : API REST Raml" href="metadata-api-rest-raml.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -59,7 +53,7 @@
 
           
             
-            <img src="../../_static/logo_vitam.png" class="logo" />
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -67,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.4.0
               </div>
             
           
@@ -88,7 +82,11 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
@@ -122,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d&#8217;une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
 </ul>
 
             
@@ -134,38 +132,58 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">VITAM - Manuel de développement</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
-      
+        
           <li><a href="_toc.html">Metadata</a> &raquo;</li>
-      
-    <li>Métadata-tenant</li>
+        
+      <li>Métadata-tenant</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/include/metadata/metadata-tenant.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/include/metadata/metadata-tenant.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -173,9 +191,9 @@
             
   <div class="section" id="metadata-tenant">
 <h1>Métadata-tenant<a class="headerlink" href="#metadata-tenant" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les indices elasticsearch des unités archives et les groupes d&#8217;objets technique doivent être séparées par
+<p>Les indices elasticsearch des unités archives et les groupes d’objets technique doivent être séparées par
 les tenants. Ces indices doivent être créées lors de démarrage du serveur grâce au fichier de configuration.
-Par exemple, pour metadata.conf on ajourte d&#8217;une ligne suivante :</p>
+Par exemple, pour metadata.conf on ajourte d’une ligne suivante :</p>
 <ul>
 <li><p class="first">tenants : [0, 1, 2]</p>
 <blockquote>
@@ -187,22 +205,22 @@ Par exemple, pour metadata.conf on ajourte d&#8217;une ligne suivante :</p>
 <li>Valeur du tenant</li>
 </ol>
 <p>La valeur de tenant est sauvegardé dans VitamSession et cette valeur sera récupérée par la fonction suivante.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">VitamThreadUtils</span><span class="o">.</span><span class="na">getVitamSession</span><span class="o">().</span><span class="na">getTenantId</span><span class="o">()</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">VitamThreadUtils</span><span class="o">.</span><span class="na">getVitamSession</span><span class="o">().</span><span class="na">getTenantId</span><span class="o">()</span>
 </pre></div>
 </div>
 <p>Les indices sont créées basé sur les tenant pour chaque collection correspondante.</p>
 <ul class="simple">
-<li>Pour collection des unités archives, les indices sont : unit_0, unit_1, ... pour la liste de tenant 0, 1 ...</li>
-<li>Pour la collection des groupes d&#8217;objets technique, les indices sont objectgroups_0, objectgroups_1...</li>
+<li>Pour collection des unités archives, les indices sont : unit_0, unit_1, … pour la liste de tenant 0, 1 …</li>
+<li>Pour la collection des groupes d’objets technique, les indices sont objectgroups_0, objectgroups_1…</li>
 </ul>
 <ol class="arabic simple" start="2">
 <li>Refactor</li>
 </ol>
-<p>Pour permettre de réaliser les opérations sur les collections de métadata via l&#8217;elastichsearch par le tenant,
+<p>Pour permettre de réaliser les opérations sur les collections de métadata via l’elastichsearch par le tenant,
 nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata.</p>
 <p>2.1. ElasticsearchAccessMetadata</p>
-<p>Les fonctions d&#8217;ajout des indices pour la collection, mise à jour des indices ou delete des indices sont fait par le paramètre tenantId.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">deleteIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
+<p>Les fonctions d’ajout des indices pour la collection, mise à jour des indices ou delete des indices sont fait par le paramètre tenantId.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">deleteIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
 <span class="n">addIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
 <span class="n">refreshIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
 <span class="n">addEntryIndexesBlocking</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">mapIdJson</span><span class="o">)</span>
@@ -214,7 +232,7 @@ nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata
 <ul class="simple">
 <li>Le tenantId est récupéré dans la session par VitamThreadUtils.getVitamSession().getTenantId() pour appliquer au executeQuery() pour exécuter une requête.</li>
 </ul>
-<div class="highlight-java"><div class="highlight"><pre><span></span>    <span class="n">Result</span> <span class="nf">executeQuery</span><span class="o">(</span><span class="kd">final</span> <span class="n">RequestToAbstract</span> <span class="n">requestToMongodb</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">rank</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Result</span> <span class="n">previous</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="n">Result</span> <span class="nf">executeQuery</span><span class="o">(</span><span class="kd">final</span> <span class="n">RequestToAbstract</span> <span class="n">requestToMongodb</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">rank</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Result</span> <span class="n">previous</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="n">ParameterHelper</span><span class="o">.</span><span class="na">getTenantParameter</span><span class="o">();</span>
 
     <span class="o">...</span>
@@ -225,15 +243,16 @@ nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="metadata-inherited-rule.html" class="btn btn-neutral float-right" title="Métadata" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="metadata-inherited-rule.html" class="btn btn-neutral float-right" title="Métadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="metadata-api-rest-raml.html" class="btn btn-neutral" title="Métadata : API REST Raml" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="metadata-api-rest-raml.html" class="btn btn-neutral" title="Métadata : API REST Raml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -246,7 +265,7 @@ nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -264,10 +283,12 @@ nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -277,19 +298,13 @@ nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
