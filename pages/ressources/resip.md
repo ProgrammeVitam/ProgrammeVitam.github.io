@@ -11,6 +11,10 @@ level: page
 
 L’application ReSIP, construite au dessus de la bibliothèque sedalib, sert à construire et manipuler des structures arborescentes d’archives, d’en éditer les métadonnées, de les importer  et exporter sous la forme de SIP, sous la forme de hiérarchie disque ou encore sous forme csv pour les plans de classement.
 
+L’application est constituée d’un fichier exécutable portable (qui ne nécessite pas d’installation) ReSip.exe qui permet de lancer directement par double clic l’application en mode graphique. 
+
+Cet exécutable peut aussi être utilisé en ligne de commande (voir paragraphe Ligne de commande) ou le script ReSip.bat. Dans ce dernier cas un drag and drop d’une arborescence de fichier génère un SIP correspondant.
+
 Cette application présente de manière explicite les contenus XML, et nécessite donc une certaine connaissance du standard SEDA 2.1. Celui-ci est consultable sur le site du ([SIAF](https://francearchives.fr/seda/)).
 
 Pour comprendre l’essentiel, on visera notamment la documentation technique des:
@@ -19,9 +23,6 @@ Pour comprendre l’essentiel, on visera notamment la documentation technique de
 *	ArchiveUnit qui contient toutes les informations de structure et de métadonnées d’une  unité d’archives
 *	Management qui contient toutes les informations de gestion d’une unité d’archives
 *	Content qui contient toutes les métadonnées descriptives d’une unité d’archives
-
-L’application est constituée d’un fichier exécutable portable (qui ne nécessite pas d’installation) ReSip.exe qui permet de lancer directement par double clic l’application en mode graphique. 
-Cet exécutable peut aussi être utilisé en ligne de commande (voir paragraphe Ligne de commande) ou le script ReSip.bat. Dans ce dernier cas un drag and drop d’une arborescence de fichier génère un SIP correspondant.
 
 Sont mis à dispostion :
 
