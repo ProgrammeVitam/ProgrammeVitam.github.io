@@ -5,7 +5,7 @@ fatherref: ressources
 level: page
 ---
 
-> Cette page présente le générateur ReSIP. La version courante est 0.9-SNAPSHOT compilée 13/11/2018.
+> Cette page présente le générateur ReSIP (version courante 0.9-SNAPSHOT compilée 13/11/2018).
 
 ## ReSIP
 
