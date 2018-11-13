@@ -43,7 +43,7 @@ Il est accessible ([ici](http://download.programmevitam.fr/resip/0.9-SNAPSHOT/Ma
 
 * **un jeux de tests**
 
-il contient des hiérachie disque, SIP, DIP, csv... et toute une série de fichiers d'exemples importables et manipulable avec ReSIP.
+Il contient des hiérachie disque, SIP, DIP, csv... et toute une série de fichiers d'exemples importables et manipulable avec ReSIP.
 
 Il est accessible ([ici](http://download.programmevitam.fr/resip/0.9-SNAPSHOT/ResipSamples.zip)).
 
