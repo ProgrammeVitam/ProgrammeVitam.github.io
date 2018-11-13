@@ -5,7 +5,7 @@ fatherref: ressources
 level: page
 ---
 
-> Cette page présente le generateur ReSIP. 
+> Cette page présente le générateur ReSIP. 
 
 ## ReSIP
 
