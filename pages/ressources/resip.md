@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Resip
-fatherref: ressources
 ---
 
 > Cette page présente le générateur ReSIP (version courante 0.9-SNAPSHOT compilée 28/11/2018).
