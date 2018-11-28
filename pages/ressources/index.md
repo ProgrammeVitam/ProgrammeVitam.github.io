@@ -74,7 +74,7 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiels et paquets SIP:
 
 * **Fichiers d'exemples du kit de prise en main** 
-([zip](http://download.programmevitam.fr/vitam_repository/1.4.1/tests/Jeu_de_tests_guide_de_prise_en_main.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
+([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeu_de_tests_Guide_de_prise_en_main_R8.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
 
 * **Fichiers de test du Cahier de tests métier** ([zip] (http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeux_de_tests_fonctionnels_RELEASE8_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
