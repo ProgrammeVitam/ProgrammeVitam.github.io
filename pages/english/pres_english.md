@@ -52,7 +52,7 @@ Each release (approximately every 15 weeks) the Vitam software is publicated on 
 
 ## Collaboration the very heart of Vitam Program
 
-The program targeting wide dissemination and re-use, is open to those interested in participating in the realiszation of the software, in implementing the software to create their own digital archiving system or to a larger extend in discussing on the digital archiving issues.
+The program targeting wide dissemination and re-use, is open to those interested in participating in the realiszation of the software solution, in implementing the software to create their own digital archiving system or to a larger extend in discussing on the digital archiving issues.
 This actors benefit of an access to dedicated spaces in the Program collaborative tools and can participate in workshops and working groups. They become members of Vitam community.
 Collaboration is based on 4 differents levels of partnerships, that vary according to the objectives chosen. The two more important levels are the subject of signed agreements and open participation to the partnership committee. 
 
@@ -68,14 +68,14 @@ Collaboration is based on 4 differents levels of partnerships, that vary accordi
 
 # Archivists Focus
 
->The Vitam software will enable Departments creating digital archives to ingest them in a certified system, to manage their life-cycle (administrative and archival stages), to search and to access these data. It will also enable Archives services to fulfill their tasks of collecting, ingesting, store, use a preservation planning with a monitored data management policy.
+>Vitam software solution will enable Departments creating digital archives to ingest them in a certified system, to manage their life-cycle (administrative and archival stages), to search and to access these data. It will also enable Archives services to fulfill their tasks of collecting, ingesting, store, use a preservation planning with a monitored data management policy.
 
-Vitam is an open-source software which is freely reusable. To make a digital archiving system, it will have to be interfaced with other business applications of the Department: Human Resources Information System (HRIS), Document Management System (DMS)... and archive management software used by the Archives services. It can either use its own file system solution or it can be connected with the storage solutions provided by the IT services of the Department. Vitam solution will support any kind of objects: office files, data, pictures, sound recordings, e-mails. Most importantly, it will be able to manage a very large number of objects (up to 10 billion files). 
+Vitam is an open-source software solution which is freely reusable. To make a digital archiving system, it will have to be interfaced with other business applications of the Department: Human Resources Information System (HRIS), Document Management System (DMS)... and archive management software solution used by the Archives services. It can either use its own file system solution or it can be connected with the storage solutions provided by the IT services of the Department. Vitam solution will support any kind of objects: office files, data, pictures, sound recordings, e-mails. Most importantly, it will be able to manage a very large number of objects (up to 10 billion files). 
 It can also be used in a shared context, in order to manage in a single system a multiplicity of producer services with distinct Archives managers.
 
 ## OAIS model functionalities
 
-The Vitam software meets the standards and norms applicable for archiving (Medona, Seda, NF Z42-013) and is fundamentally based on the OAIS model which divides its functionalities into six areas:
+Vitam software solution meets the standards and norms applicable for archiving (Medona, Seda, NF Z42-013) and is fundamentally based on the OAIS model which divides its functionalities into six areas:
 
 * **Ingest**: receive and process ingests (submission information package) prepared by front-end: business applications or manual ingest preparation applications;
 * **Storage**: storage of archives;
