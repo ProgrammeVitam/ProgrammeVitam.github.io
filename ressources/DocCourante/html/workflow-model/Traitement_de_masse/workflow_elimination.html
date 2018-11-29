@@ -1,0 +1,720 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="MODIFICATION D’ARBORESCENCE" href="../tree_view_update/_toc_modification_arborescence.html" />
+    <link rel="prev" title="Workflow de mise à jour de masse des unités archivistiques" href="workflow_unit_mass_update.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.0-1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_traitement_de_masse.html">UNIT MASS UPDATE</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workflow_unit_mass_update.html">Workflow de mise à jour de masse des unités archivistiques</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-d-analyse-de-l-elimination-des-unites-archivistiques">Workflow d’analyse de l’élimination des unités archivistiques</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-preparation-de-l-analyse-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-preparation">Processus de préparation de l’analyse de l’élimination des unités archivistiques (STP_ELIMINATION_ANALYSIS_PREPARATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-des-seuils-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-check-distribution-threshold">Vérification des seuils de l’analyse de l’élimination des unités archivistiques ELIMINATION_ANALYSIS_CHECK_DISTRIBUTION_THRESHOLD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-d-indexation-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-unit-indexation">Processus d’indexation de l’élimination des unités archivistiques (STP_ELIMINATION_ANALYSIS_UNIT_INDEXATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-finalisation-de-l-analyse-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-finalization">Processus de finalisation de l’analyse de l’élimination des unités archivistiques (STP_ELIMINATION_ANALYSIS_FINALIZATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structure-de-workflow-d-analyse-de-l-elimination-des-unites-archivistiques">Structure de workflow d’analyse de l’élimination des unités archivistiques</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-d-elimination-definitive-des-unites-archivistiques">Workflow d’élimination définitive des unités archivistiques</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#analyse-des-eliminables-et-action-d-elimination-elimination-action">Analyse des éliminables et action d’élimination (ELIMINATION_ACTION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-d-elimination-definitive-des-unites-archivistiques-eliminables-stp-elimination-action-delete-unit">Processus d’élimination définitive des unités archivistiques éliminables (STP_ELIMINATION_ACTION_DELETE_UNIT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-preparation-de-l-elimination-definitive-des-groupes-d-objets-techniques-stp-elimination-action-object-group-preparation">Processus de préparation de l’élimination définitive des groupes d’objets techniques (STP_ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-d-elimination-definitive-des-groupes-d-objets-techniques-dont-les-unites-archivistiques-parentes-sont-eliminees-stp-elimination-action-delete-object-group">Processus d’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées (STP_ELIMINATION_ACTION_DELETE_OBJECT_GROUP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-detachement-des-groupes-d-objets-techniques-dont-certaines-unites-archivistiques-parentes-sont-eliminees-stp-elimination-action-detach-object-group">Processus de détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées (STP_ELIMINATION_ACTION_DETACH_OBJECT_GROUP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-accession-register-preparation">Processus de mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-accession-register-update">Processus de mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-generation-du-rapport-d-elimination-definitive-des-unites-archivistiques-stp-elimination-action-report-generation">Processus de génération du rapport d’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_REPORT_GENERATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-finalisation-de-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-finalization">Processus de finalisation de l’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_FINALIZATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structure-du-workflow-d-analyse-des-eliminables-et-action-d-elimination">Structure du workflow d’analyse des éliminables et action d’élimination</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rapport-d-elimination">Rapport d’élimination</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-de-json-rapport-d-elimination">Exemple de JSON : rapport d’élimination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details-du-rapport">Détails du rapport</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc_traitement_de_masse.html">UNIT MASS UPDATE</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Traitement_de_masse/workflow_elimination.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L’élimination est un traitement de masse permettant d’évaluer dans un lot conséquent d’unités archivistiques, celles qui sont éliminables (la durée d’utilité adminstrative est échue et le sort final déclaré est «&nbsp;Détruire&nbsp;») et de procéder à leur élimination du système.</p>
+<p>Ces deux étapes ne sont pas liées, l’action d’élimination peut être exécutée directement depuis le panier. La phase d’analyse peut servir à déterminer une liste d’unités archivistiques potentiellement éliminables.</p>
+<div class="section" id="workflow-d-analyse-de-l-elimination-des-unites-archivistiques">
+<h2>Workflow d’analyse de l’élimination des unités archivistiques<a class="headerlink" href="#workflow-d-analyse-de-l-elimination-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lors de la phase d’analyse, le système va effectuer pour chaque unité archivistique une vérification de ses règles de gestion, qu’elles soient portées par l’unité ou héritée et indexer les résultats de ce calcul. Il calcule un statut global de l’unité archivistique et l’indexe pour les statuts DESTROY et CONFLICT</p>
+<div class="section" id="processus-de-preparation-de-l-analyse-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-preparation">
+<h3>Processus de préparation de l’analyse de l’élimination des unités archivistiques (STP_ELIMINATION_ANALYSIS_PREPARATION)<a class="headerlink" href="#processus-de-preparation-de-l-analyse-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-preparation" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-preparation">
+<h4>Analyse de l’élimination des unités archivistiques ELIMINATION_ANALYSIS_PREPARATION<a class="headerlink" href="#analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-preparation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> :Analyse de l’élimination des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la préparation de l’analyse de l’unité archivistique a bien été effectuée (ELIMINATION_ANALYSIS_PREPARATION.OK = Succès de la préparation de l’analyse de l’élimination des unités archivistiques)</li>
+<li>KO : la préparation de l’analyse de l’unité archivistique n’a pas été effectuée (ELIMINATION_ANALYSIS_PREPARATION.KO = Échec de la préparation de l’analyse de l’élimination des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation de l’analyse de l’unité archivistique (ELIMINATION_ANALYSIS_PREPARATION.FATAL = Erreur technique lors de la préparation de l’analyse de l’élimination des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="verification-des-seuils-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-check-distribution-threshold">
+<h3>Vérification des seuils de l’analyse de l’élimination des unités archivistiques ELIMINATION_ANALYSIS_CHECK_DISTRIBUTION_THRESHOLD<a class="headerlink" href="#verification-des-seuils-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-check-distribution-threshold" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification des seuils de l’élimination définitive des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la vérification des seuils de l’analyse de l’élimination des unités archivistiques a bien été effectuée (ELIMINATION_ANALYSIS_CHECK_DISTRIBUTION_THRESHOLD.OK = Succès de la vérification des seuils de l’analyse de l’élimination des unités archivistiques)</li>
+<li>KO : la vérification des seuils de l’analyse de l’élimination des unités archivistiques n’a pas été effectuée (ELIMINATION_ANALYSIS_CHECK_DISTRIBUTION_THRESHOLD.KO = Échec de la vérification des seuils de l’analyse de l’élimination des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification des seuils de l’analyse de l’élimination des unités archivistiques (ELIMINATION_ANALYSIS_CHECK_DISTRIBUTION_THRESHOLD.FATAL = Erreur technique lors de la vérification des seuils de l’analyse de l’élimination des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="preparation-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-preparation">
+<h4>Préparation de l’analyse de l’élimination des unités archivistiques ELIMINATION_ANALYSIS_PREPARATION<a class="headerlink" href="#preparation-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-preparation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Préparation de l’analyse de l’élimination des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la préparation de l’analyse de l’élimination de l’unité archivistique a bien été effectuée (ELIMINATION_ANALYSIS_PREPARATION.OK = Succès de la préparation de l’analyse de l’élimination des unités archivistiques)</li>
+<li>KO : la préparation de l’analyse de l’élimination de l’unité archivistique n’a pas été effectuée (ELIMINATION_ANALYSIS_PREPARATION.KO = Échec de la préparation de l’analyse de l’élimination des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation de l’analyse de l’élimination de l’unité archivistique (ELIMINATION_ANALYSIS_PREPARATION.FATAL = Erreur technique lors de la préparation de l’analyse de l’élimination des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-d-indexation-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-unit-indexation">
+<h3>Processus d’indexation de l’élimination des unités archivistiques (STP_ELIMINATION_ANALYSIS_UNIT_INDEXATION)<a class="headerlink" href="#processus-d-indexation-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-unit-indexation" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="indexation-de-l-analyse-d-elimination-des-unites-archivistiques-elimination-analysis-unit-indexation">
+<h4>Indexation de l”“analyse d”“élimination des unités archivistiques ELIMINATION_ANALYSIS_UNIT_INDEXATION<a class="headerlink" href="#indexation-de-l-analyse-d-elimination-des-unites-archivistiques-elimination-analysis-unit-indexation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Indexation des unités archivistiques qui répondent aux critères d’éliminabilité (règle de gestion APP dont la date de fin est antèrieure à la date données par l’analyse)</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : l’indexation des unités archivistiques a bien été effectuée (ELIMINATION_ANALYSIS_UNIT_INDEXATION.OK = Succès de l’indexation de l’élimination des unités archivistiques)</li>
+<li>KO : l’indexation des unités archivistiques n’a pas été effectuée (ELIMINATION_ANALYSIS_UNIT_INDEXATION.KO = Échec lors de l’indexation de l’élimination des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de l’indexation des unités archivistiques (ELIMINATION_ANALYSIS_UNIT_INDEXATION.FATAL = Erreur technique lors de l’indexation de l’élimination des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-finalisation-de-l-analyse-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-finalization">
+<h3>Processus de finalisation de l’analyse de l’élimination des unités archivistiques (STP_ELIMINATION_ANALYSIS_FINALIZATION)<a class="headerlink" href="#processus-de-finalisation-de-l-analyse-de-l-elimination-des-unites-archivistiques-stp-elimination-analysis-finalization" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="finalisation-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-finalization">
+<h4>Finalisation de l’analyse de l’élimination des unités archivistiques ELIMINATION_ANALYSIS_FINALIZATION<a class="headerlink" href="#finalisation-de-l-analyse-de-l-elimination-des-unites-archivistiques-elimination-analysis-finalization" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Finalisation de l’analyse de l’élimination des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la finalisation de l’analyse des unités archivistiques a bien été effectuée (ELIMINATION_ANALYSIS_FINALIZATION.OK = Succès de la finalisation de l’analyse de l’élimination des unités archivistiques)</li>
+<li>KO : la finalisation de l’analyse des unités archivistiques n’a pas été effectuée (ELIMINATION_ANALYSIS_FINALIZATION.KO = Échec lors de la finalisation de l’analyse de l’élimination des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de l’analyse de l’élimination des unités archivistiques (ELIMINATION_ANALYSIS_FINALIZATION.FATAL = Erreur technique lors de la finalisation de l’analyse de l’élimination des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="structure-de-workflow-d-analyse-de-l-elimination-des-unites-archivistiques">
+<h3>Structure de workflow d’analyse de l’élimination des unités archivistiques<a class="headerlink" href="#structure-de-workflow-d-analyse-de-l-elimination-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h3>
+<img alt="../_images/workflow_elimination_analysis.png" class="align-center" src="../_images/workflow_elimination_analysis.png" />
+</div>
+</div>
+<div class="section" id="workflow-d-elimination-definitive-des-unites-archivistiques">
+<h2>Workflow d’élimination définitive des unités archivistiques<a class="headerlink" href="#workflow-d-elimination-definitive-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus d’élimination comprend deux phases, une première d’analyse consistant à s’assurer du statut global des unités archivistiques et que l’élimination des unités archivistiques de statut «&nbsp;DESTROY&nbsp;» ne produit pas de cas d’orphelinage. La seconde comprenant la phase d’action proprement dite.</p>
+<div class="section" id="analyse-des-eliminables-et-action-d-elimination-elimination-action">
+<h3>Analyse des éliminables et action d’élimination (ELIMINATION_ACTION)<a class="headerlink" href="#analyse-des-eliminables-et-action-d-elimination-elimination-action" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="verification-des-processus-concurrents-check-concurrent-workflow-lock">
+<h4>Vérification des processus concurrents (CHECK_CONCURRENT_WORKFLOW_LOCK)<a class="headerlink" href="#verification-des-processus-concurrents-check-concurrent-workflow-lock" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification des processus concurrents</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la vérification des processus concurrents a bien été effectuée (CHECK_CONCURRENT_WORKFLOW_LOCK.OK = Succès de la vérification des processus concurrents)</li>
+<li>KO : la vérification des processus concurrents n’a pas été effectuée  (CHECK_CONCURRENT_WORKFLOW_LOCK.KO = Echec de la vérification des processus concurrents)</li>
+<li>WARNING : avertissement lors de la vérification des processus concurrents (CHECK_CONCURRENT_WORKFLOW_LOCK.WARNING = Avertissement lors de la vérification des processus concurrents)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification des processus concurrents (CHECK_CONCURRENT_WORKFLOW_LOCK.FATAL = Erreur technique lors de la vérification des processus concurrents)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="verification-des-seuils-de-l-elimination-definitive-des-unites-archivistiques-elimination-action-check-distribution-threshold">
+<h4>Vérification des seuils de l’élimination définitive des unités archivistiques ELIMINATION_ACTION_CHECK_DISTRIBUTION_THRESHOLD<a class="headerlink" href="#verification-des-seuils-de-l-elimination-definitive-des-unites-archivistiques-elimination-action-check-distribution-threshold" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification des seuils de traitement des unités archivistiques par rapport à la liste des unités archivistiques à traiter</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> :  bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la vérification des seuils de l’élimination définitive des unités archivistiques a bien été effectuée (ELIMINATION_ACTION_CHECK_DISTRIBUTION_THRESHOLD.OK = Succès de la vérification des seuils de l’élimination définitive des unités archivistiques)</li>
+<li>KO : la vérification des seuils de l’élimination définitive des unités archivistiques n’a pas été effectuée (ELIMINATION_ACTION_CHECK_DISTRIBUTION_THRESHOLD.KO = Echec de la vérification des seuils de l’élimination définitive des unités archivistiques)</li>
+<li>WARNING : la vérification des seuils de l’élimination définitive des unités archivistiques est en warning (ELIMINATION_ACTION_CHECK_DISTRIBUTION_THRESHOLD.WARNING = Avertissement lors de la vérification des seuils de l’élimination définitive des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification des seuils de l’élimination définitive des unités archivistiques (ELIMINATION_ACTION_CHECK_DISTRIBUTION_THRESHOLD.FATAL = Erreur technique lors de la vérification des seuils de l’élimination définitive des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="preparation-de-l-elimination-definitive-des-unites-archivistiques-elimination-action-unit-preparation">
+<h4>Préparation de l’élimination définitive des unités archivistiques ELIMINATION_ACTION_UNIT_PREPARATION<a class="headerlink" href="#preparation-de-l-elimination-definitive-des-unites-archivistiques-elimination-action-unit-preparation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Préparation de l’élimination définitive des unités archivistiques (Vérification du statut global d’élimination et vérification d’orphelinage)</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la préparation de l’élimination définitive des unités archivistiques a bien été effectuée (ELIMINATION_ACTION_UNIT_PREPARATION.OK = Succès de la préparation de l’élimination définitive des unités archivistiques)</li>
+<li>KO : la préparation de l’élimination définitive des unités archivistiques n’a pas été effectuée (ELIMINATION_ACTION_UNIT_PREPARATION.KO = Echec de la préparation de l’élimination définitive des unités archivistiques)</li>
+<li>WARNING : la préparation de l’élimination définitive des unités archivistiques est en warning (ELIMINATION_ACTION_UNIT_PREPARATION.WARNING = Avertissement lors de la préparation de l’élimination définitive des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation de l’élimination définitive des unités archivistiques (ELIMINATION_ACTION_UNIT_PREPARATION.FATAL = Erreur technique lors de la préparation de l’élimination définitive des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-d-elimination-definitive-des-unites-archivistiques-eliminables-stp-elimination-action-delete-unit">
+<h3>Processus d’élimination définitive des unités archivistiques éliminables (STP_ELIMINATION_ACTION_DELETE_UNIT)<a class="headerlink" href="#processus-d-elimination-definitive-des-unites-archivistiques-eliminables-stp-elimination-action-delete-unit" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="elimination-definitive-des-unites-archivistiques-eliminables-elimination-action-delete-unit">
+<h4>Élimination définitive des unités archivistiques éliminables ELIMINATION_ACTION_DELETE_UNIT<a class="headerlink" href="#elimination-definitive-des-unites-archivistiques-eliminables-elimination-action-delete-unit" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Élimination définitive des unités archivistiques éliminables</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : l’élimination définitive des unités archivistiques éliminables a bien été effectuée (ELIMINATION_ACTION_DELETE_UNIT.OK = Succès de l’élimination définitive des unités archivistiques éliminables)</li>
+<li>KO : l’élimination définitive définitive des unités archivistiques éliminables n’a pas été effectuée (ELIMINATION_ACTION_DELETE_UNIT.KO = Echec de l’élimination définitive définitive des unités archivistiques éliminables)</li>
+<li>WARNING : Avertissement lors de l’élimination définitive des unités archivistiques éliminables (STP_ELIMINATION_ACTION_DELETE_UNIT.WARNING = Avertissement lors de l’élimination définitive des unités archivistiques éliminables)</li>
+<li>FATAL : une erreur technique est survenue lors de l’élimination définitive des unités archivistiques éliminables (STP_ELIMINATION_ACTION_DELETE_UNIT.FATAL= Erreur technique lors de l’élimination définitive des unités archivistiques éliminables</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="etablissement-de-la-liste-des-objets-objects-list-empty">
+<h4>Établissement de la liste des objets  OBJECTS_LIST_EMPTY<a class="headerlink" href="#etablissement-de-la-liste-des-objets-objects-list-empty" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : établissement de la liste des objets, visible seulement lorsqu’il n’y a pas d’objet</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>WARNING : Le processus d’établissement de la liste des objets est en warning (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-preparation-de-l-elimination-definitive-des-groupes-d-objets-techniques-stp-elimination-action-object-group-preparation">
+<h3>Processus de préparation de l’élimination définitive des groupes d’objets techniques (STP_ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION)<a class="headerlink" href="#processus-de-preparation-de-l-elimination-definitive-des-groupes-d-objets-techniques-stp-elimination-action-object-group-preparation" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="preparation-de-l-elimination-definitive-des-groupes-d-objets-techniques-elimination-action-object-group-preparation">
+<h4>Préparation de l’élimination définitive des groupes d’objets techniques ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION<a class="headerlink" href="#preparation-de-l-elimination-definitive-des-groupes-d-objets-techniques-elimination-action-object-group-preparation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Processus de préparation de l’élimination définitive des groupes d’objets techniques</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la préparation de l’élimination définitive des groupes d’objets techniques a bien été effectuée (ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION.OK = Succès de la préparation de l’élimination définitive des groupes d’objets techniques)</li>
+<li>KO : la préparation de l’élimination définitive des groupes d’objets techniques n’a pas été effectuée (ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION.KO = Echec de la préparation de l’élimination définitive des groupes d’objets techniques)</li>
+<li>WARNING : la préparation de l’élimination définitive des groupes d’objets techniques est en warning (ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION.WARNING = Avertissement lors de la préparation de l’élimination définitive des groupes d’objets techniques)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation de l’élimination définitive des groupes d’objets techniques (ELIMINATION_ACTION_OBJECT_GROUP_PREPARATION.FATAL = Erreur technique lors de la préparation de l’élimination définitive des groupes d’objets techniques</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-d-elimination-definitive-des-groupes-d-objets-techniques-dont-les-unites-archivistiques-parentes-sont-eliminees-stp-elimination-action-delete-object-group">
+<h3>Processus d’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées (STP_ELIMINATION_ACTION_DELETE_OBJECT_GROUP)<a class="headerlink" href="#processus-d-elimination-definitive-des-groupes-d-objets-techniques-dont-les-unites-archivistiques-parentes-sont-eliminees-stp-elimination-action-delete-object-group" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="elimination-definitive-des-groupes-d-objets-techniques-dont-toutes-les-unites-archivistiques-parentes-sont-eliminees-elimination-action-delete-object-group">
+<h4>Élimination définitive des groupes d’objets techniques dont toutes les unités archivistiques parentes sont éliminées ELIMINATION_ACTION_DELETE_OBJECT_GROUP<a class="headerlink" href="#elimination-definitive-des-groupes-d-objets-techniques-dont-toutes-les-unites-archivistiques-parentes-sont-eliminees-elimination-action-delete-object-group" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Élimination définitive des groupes d’objets techniques dont toutes les unités archivistiques parentes sont éliminées</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : L’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées a bien été effectuée (ELIMINATION_ACTION_DELETE_OBJECT_GROUP.OK = Succès de l’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées)</li>
+<li>KO : L’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées n’a pas été effectuée (ELIMINATION_ACTION_DELETE_OBJECT_GROUP.KO = Echec de l’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées)</li>
+<li>WARNING : Avertissement lors de l’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées (ELIMINATION_ACTION_DELETE_OBJECT_GROUP.WARNING = Avertissement lors de’lélimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées)</li>
+<li>FATAL : Une erreur technique est survenue lors de l’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées (ELIMINATION_ACTION_DELETE_OBJECT_GROUP.FATAL = Erreur technique lors de l’élimination définitive des groupes d’objets techniques dont les unités archivistiques parentes sont éliminées)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>Établissement de la liste des objets  OBJECTS_LIST_EMPTY<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : établissement de la liste des objets, visible seulement lorsqu’il n’y a pas d’objet</li>
+<li><strong>Statuts</strong> :<ul>
+<li>WARNING : Le processus d’établissement de la liste des objets est en warning (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-detachement-des-groupes-d-objets-techniques-dont-certaines-unites-archivistiques-parentes-sont-eliminees-stp-elimination-action-detach-object-group">
+<h3>Processus de détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées (STP_ELIMINATION_ACTION_DETACH_OBJECT_GROUP)<a class="headerlink" href="#processus-de-detachement-des-groupes-d-objets-techniques-dont-certaines-unites-archivistiques-parentes-sont-eliminees-stp-elimination-action-detach-object-group" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="detachement-des-groupes-d-objets-techniques-dont-certaines-unites-archivistiques-parentes-sont-eliminees-elimination-action-detach-object-group">
+<h4>Détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées ELIMINATION_ACTION_DETACH_OBJECT_GROUP<a class="headerlink" href="#detachement-des-groupes-d-objets-techniques-dont-certaines-unites-archivistiques-parentes-sont-eliminees-elimination-action-detach-object-group" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Le détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées a bien été effectuée (ELIMINATION_ACTION_DETACH_OBJECT_GROUP.OK = Succès du détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées)</li>
+<li>KO : Le détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées n’a pas été effectuée (ELIMINATION_ACTION_DETACH_OBJECT_GROUP.KO = Echec du détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées)</li>
+<li>WARNING : Avertissement lors du détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées (ELIMINATION_ACTION_DETACH_OBJECT_GROUP.WARNING = Avertissement lors du processus de détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées)</li>
+<li>FATAL : Une erreur technique est survenue lors du détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées (ELIMINATION_ACTION_DETACH_OBJECT_GROUP.FATAL = Erreur technique lors du processus de détachement des groupes d’objets techniques dont certaines unités archivistiques parentes sont éliminées)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4>Établissement de la liste des objets  OBJECTS_LIST_EMPTY<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : établissement de la liste des objets, visible seulement lorsqu’il n’y a pas d’objet</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>WARNING : Le processus d’établissement de la liste des objets est en warning (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-accession-register-preparation">
+<h3>Processus de mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION)<a class="headerlink" href="#processus-de-mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-accession-register-preparation" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-elimination-action-accession-register-preparation">
+<h4>Mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION<a class="headerlink" href="#mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-elimination-action-accession-register-preparation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Préparation de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques a bien été effectuée (ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION.OK = Succès de la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+<li>KO :la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques n’a pas été effectuée (ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION.KO = Echec de la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+<li>WARNING :la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques est en warning (ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION.WARNING = Avertissement lors de la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques (ELIMINATION_ACTION_ACCESSION_REGISTER_PREPARATION.FATAL = Erreur technique lors de la préparation du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-accession-register-update">
+<h3>Processus de mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE)<a class="headerlink" href="#processus-de-mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-accession-register-update" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-elimination-action-accession-register-update">
+<h4>Mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE<a class="headerlink" href="#mise-a-jour-du-registre-des-fonds-suite-a-l-elimination-definitive-des-unites-archivistiques-elimination-action-accession-register-update" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques a bien été effectuée (ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE.OK = Succès de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+<li>KO : la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques n’a pas été effectuée (ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE.KO = Echec de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+<li>WARNING : Avertissement lors de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques (ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE.WARNING = Avertissement lors de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques (ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE.FATAL = Erreur technique lors de la mise à jour du registre des fonds suite à l’élimination définitive des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="eetablissement-de-la-liste-des-objets-objects-list-empty">
+<h4>ÉÉtablissement de la liste des objets  OBJECTS_LIST_EMPTY<a class="headerlink" href="#eetablissement-de-la-liste-des-objets-objects-list-empty" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : établissement de la liste des objets, visible seulement lorsqu’il n’y a pas d’objet</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>WARNING : le processus d’établissement de la liste des objets est en warning (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-generation-du-rapport-d-elimination-definitive-des-unites-archivistiques-stp-elimination-action-report-generation">
+<h3>Processus de génération du rapport d’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_REPORT_GENERATION)<a class="headerlink" href="#processus-de-generation-du-rapport-d-elimination-definitive-des-unites-archivistiques-stp-elimination-action-report-generation" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="generation-du-rapport-d-elimination-definitive-des-unites-archivistiques-elimination-action-report-generation">
+<h4>Génération du rapport d’élimination définitive des unités archivistiques ELIMINATION_ACTION_REPORT_GENERATION<a class="headerlink" href="#generation-du-rapport-d-elimination-definitive-des-unites-archivistiques-elimination-action-report-generation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : génération du rapport d’élimination définitive des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la génération du rapport d’élimination définitive des unités archivistiques a bien été effectuée (ELIMINATION_ACTION_REPORT_GENERATION.OK = Succès de la génération du rapport d’élimination définitive des unités archivistiques)</li>
+<li>KO : la génération du rapport d’élimination définitive des unités archivistiques n’a pas été effectuée (ELIMINATION_ACTION_REPORT_GENERATION.KO = Echec de la génération du rapport d’élimination définitive des unités archivistiques)</li>
+<li>WARNING : la génération du rapport d’élimination définitive des unités archivistiques est en warning (ELIMINATION_ACTION_REPORT_GENERATION.WARNING = Avertissement lors de la génération du rapport d’élimination définitive des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la génération du rapport d’élimination définitive des unités archivistiques (ELIMINATION_ACTION_REPORT_GENERATION.FATAL = Erreur technique lors de la génération du rapport d’élimination définitive des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-finalisation-de-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-finalization">
+<h3>Processus de finalisation de l’élimination définitive des unités archivistiques (STP_ELIMINATION_ACTION_FINALIZATION)<a class="headerlink" href="#processus-de-finalisation-de-l-elimination-definitive-des-unites-archivistiques-stp-elimination-action-finalization" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="finalisation-de-l-elimination-definitive-des-unites-archivistiques-elimination-action-finalization">
+<h4>Finalisation de l’élimination définitive des unités archivistiques ELIMINATION_ACTION_FINALIZATION<a class="headerlink" href="#finalisation-de-l-elimination-definitive-des-unites-archivistiques-elimination-action-finalization" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : élimination définitive des unités archivistiques</li>
+</ul>
+<ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : La finalisation de l’élimination définitive des unités archivistiques a bien été effectuée (ELIMINATION_ACTION_FINALIZATION.OK = Succès de la finalisation de l’élimination définitive des unités archivistiques)</li>
+<li>KO : La finalisation de l’élimination définitive des unités archivistiques n’a pas été effectuée (ELIMINATION_ACTION_FINALIZATION.KO = Echec de la finalisation de l’élimination définitive des unités archivistiques)</li>
+<li>WARNING : La finalisation de l’élimination définitive des unités archivistiques est en warning (ELIMINATION_ACTION_FINALIZATION.WARNING = Avertissement lors de la finalisation de l’élimination définitive des unités archivistiques)</li>
+<li>FATAL : Une erreur technique est survenue lors de la finalisation de l’élimination définitive des unités archivistiques (ELIMINATION_ACTION_FINALIZATION.FATAL = Erreur technique lors de la finalisation de l’élimination définitive des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="structure-du-workflow-d-analyse-des-eliminables-et-action-d-elimination">
+<h3>Structure du workflow d’analyse des éliminables et action d’élimination<a class="headerlink" href="#structure-du-workflow-d-analyse-des-eliminables-et-action-d-elimination" title="Lien permanent vers ce titre">¶</a></h3>
+<img alt="../_images/workflow_elimination_action.png" class="align-center" src="../_images/workflow_elimination_action.png" />
+</div>
+</div>
+<div class="section" id="rapport-d-elimination">
+<h2>Rapport d’élimination<a class="headerlink" href="#rapport-d-elimination" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le rapport d’élimination est un fichier JSON généré par la solution logicielle Vitam lorsqu’une opération d’élimination se termine. Cette section décrit la manière dont ce rapport est structuré.</p>
+<div class="section" id="exemple-de-json-rapport-d-elimination">
+<h3>Exemple de JSON : rapport d’élimination<a class="headerlink" href="#exemple-de-json-rapport-d-elimination" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_unit_1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;DELETED&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_1&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_unit_2&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp2&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi2&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;GLOBAL_STATUS_KEEP&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_2&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_unit_3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;NON_DESTROYABLE_HAS_CHILD_UNITS&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_3&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_unit_4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;GLOBAL_STATUS_KEEP&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_2&quot;</span>
+  <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_unit_5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;DELETED&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_5&quot;</span>
+  <span class="p">},</span>
+<span class="p">],</span>
+<span class="nt">&quot;objectGroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objectIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;id_got_1_object_1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id_got_1_object_2&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;DELETED&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id_got_5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;originatingAgency&quot;</span><span class="p">:</span> <span class="s2">&quot;sp5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opi&quot;</span><span class="p">:</span> <span class="s2">&quot;opi5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PARTIAL_DETACHMENT&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;deletedParentUnitIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;id_unit_5&quot;</span> <span class="s2">&quot;status&quot;</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="details-du-rapport">
+<h3>Détails du rapport<a class="headerlink" href="#details-du-rapport" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Première partie : les unités archivistiques</strong><ul>
+<li>«&nbsp;id&nbsp;»: identifiant de l’unité archivistique</li>
+<li>«&nbsp;originatingAgency&nbsp;» : service producteur</li>
+<li>«&nbsp;opi&nbsp;» : identifiant de l’opération d’entrée</li>
+<li>«&nbsp;status&nbsp;» : statut au regard de l’action d’élimination :<ul>
+<li><strong>GLOBAL_STATUS_KEEP</strong> : unité archivistique non éliminables au regard des règles de gestion.</li>
+<li><strong>GLOBAL_STATUS_CONFLICT</strong> : unité archivistique portant des règles contradictoires<ul>
+<li>NOT_DESTROYABLE_HAS_CHILD_UNIT : unité non supprimable car elle a des enfants et sa suppression entrînerait une incohérence dans le graph.</li>
+<li>DELETED : l’unité a effectivment été supprimée</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>«&nbsp;objectIds&nbsp;»: identifiant du GOT rattaché à l’unité archivistique</li>
+</ul>
+</li>
+<li><strong>Deuxième partie : les GOT</strong><ul>
+<li>«&nbsp;id&nbsp;»: identifiant du GOT</li>
+<li>«&nbsp;originatingAgency&nbsp;» : service producteur</li>
+<li>«&nbsp;opi&nbsp;» : identifiant de l’opération d’entrée</li>
+<li>«&nbsp;objectIds&nbsp;»: identifiant des objets du GOT</li>
+<li>«&nbsp;status&nbsp;» : statut au regard de l’action d’élimination :<ul>
+<li>DELETED : le Got a été supprimé</li>
+<li>PARTIAL_DETACHEMENT : le GOT est détaché de la ou des unités archivistiques effectivement supprimés et conserve un ou plusieurs autres parents.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tree_view_update/_toc_modification_arborescence.html" class="btn btn-neutral float-right" title="MODIFICATION D’ARBORESCENCE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workflow_unit_mass_update.html" class="btn btn-neutral" title="Workflow de mise à jour de masse des unités archivistiques" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

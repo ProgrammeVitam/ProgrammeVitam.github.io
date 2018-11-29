@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow de l’audit de l’existence et de l’intégrité des fichiers &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow de l’audit de l’existence et de l’intégrité des fichiers &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -99,19 +99,22 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-execution-de-l-audit-stp-audit">Processus d’éxecution de l’audit (STP_AUDIT)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#audit-de-la-verification-des-objets-audit-check-object-auditcheckobjectplugin-java">Audit de la vérification des objets AUDIT_CHECK_OBJECT (AuditCheckObjectPlugin.java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#audit-de-l-existence-des-objets-audit-file-existing-checkexistenceobjectplugin-java">Audit de l’existence des objets AUDIT_FILE_EXISTING (CheckExistenceObjectPlugin.java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#audit-de-l-integrite-des-objets-audit-check-object-audit-file-integrity-checkintegrityobjectplugin-java">Audit de l’intégrité des objets AUDIT_CHECK_OBJECT.AUDIT_FILE_INTEGRITY (CheckIntegrityObjectPlugin.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#audit-de-l-existence-et-de-l-integrite-des-objets-audit-check-object-audit-check-object">Audit de l’existence et de l’intégrité des objets AUDIT_CHECK_OBJECT.AUDIT_CHECK_OBJECT</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-finalisation-de-l-audit-stp-finalise-audit">Processus de finalisation de l’audit (STP_FINALISE_AUDIT)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notification-de-la-fin-d-audit-report-audit-generateauditreportactionhandler-java">Notification de la fin d’audit REPORT_AUDIT (GenerateAuditReportActionHandler.java)</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow-de-l-audit-de-l-existence-et-de-l-integrite-des-fichiers">Structure du workflow de l’audit de l’existence et de l’intégrité des fichiers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rapportaudit.html">Rapport d’audit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow de l’audit de cohérence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow d’audit de cohérence des fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rapportauditconsistency.html">Rapport d’audit de cohérence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_correction_audit.html">Workflow de l’audit correctif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html">Workflow de relevé de valeur probante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html#rapport-du-releve-de-valeur-probante">Rapport du relevé de valeur probante</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
@@ -119,6 +122,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -189,8 +194,8 @@
 <h1>Workflow de l’audit de l’existence et de l’intégrité des fichiers<a class="headerlink" href="#workflow-de-l-audit-de-l-existence-et-de-l-integrite-des-fichiers" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) d’audit de l’existence des fichiers mis en place dans la solution logicielle Vitam.</p>
-<p>Celui-ci est défini dans le fichier «&nbsp;DefaultAuditWorkflow.json” (situé ici : sources/processing/processing-management/src/main/resources/workflows).</p>
+<p>Cette section décrit le processus (workflow) d’audit de l’existence et de l’intégrité des fichiers mis en place dans la solution logicielle Vitam.</p>
+<p>Celui-ci est défini dans le fichier <em>«&nbsp;DefaultAuditWorkflow.json”</em> (situé ici : sources/processing/processing-management/src/main/resources/workflows).</p>
 </div>
 <div class="section" id="processus-d-audit-d-existence-des-fichiers-vision-metier">
 <h2>Processus d’audit d’existence des fichiers (vision métier)<a class="headerlink" href="#processus-d-audit-d-existence-des-fichiers-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
@@ -206,7 +211,7 @@
 <div class="section" id="processus-d-audit-d-integrite-des-fichiers-vision-metier">
 <h2>Processus d’audit d’intégrité des fichiers (vision métier)<a class="headerlink" href="#processus-d-audit-d-integrite-des-fichiers-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Si l’audit d’intégrité des objets est lancé, le processus va également vérifier que les empreintes des objets stockés en base de données sont bien les mêmes que les empreintes fournies par les espaces de stockage, alors recalculées à la demande de l’audit.</p>
-<p>Dans une première étape technique, il prépare la liste des groupes d’objets à auditer afin de paralléliser la tâche.
+<p>Dans une première étape technique, le processus prépare la liste des groupes d’objets à auditer afin de paralléliser la tâche.
 Dans un second temps, il effectue la vérification elle même.
 Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 </div>
@@ -221,7 +226,7 @@ Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 <dt><strong>Statuts</strong> :</dt>
 <dd><ul class="first last">
 <li>OK : la liste a été créée avec succès (LIST_OBJECTGROUP_ID.OK=Succès de la création de la liste des groupes d’objets à auditer)</li>
-<li>FATAL : Une erreur fatale est survenue lors de la création de la liste (LIST_OBJECTGROUP_ID.FATAL=Erreur fatale lors de la création de la liste des groupes d’objets à auditer)</li>
+<li>FATAL : Une erreur technique est survenue lors de la création de la liste (LIST_OBJECTGROUP_ID.FATAL=Erreur technique lors de la création de la liste des groupes d’objets à auditer)</li>
 </ul>
 </dd>
 </dl>
@@ -241,18 +246,18 @@ Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 <dd><ul class="first last">
 <li>OK : l’action d’audit de la vérification des objets s’est terminée en OK (AUDIT_CHECK_OBJECT.OK=Succès de l’audit de la vérification des objets)</li>
 <li>KO : l’action d’audit de la vérification des objets s’est terminée en KO (AUDIT_CHECK_OBJECT.KO=Échec de l’audit de la vérification des objets : au moins un objet demandé n’existe pas ou des stratégies de stockage sont incohérentes avec les offres déclarées)</li>
-<li>FATAL : une erreur fatale est survenue lors du lancement de l’action d’audit (AUDIT_CHECK_OBJECT.FATAL=Erreur fatale lors de l’audit de la vérification des objets)</li>
+<li>FATAL : une erreur technique est survenue lors du lancement de l’action d’audit (AUDIT_CHECK_OBJECT.FATAL=Erreur technique lors de l’audit de la vérification des objets)</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
 </div>
-<div class="section" id="audit-de-l-existence-des-objets-audit-file-existing-checkexistenceobjectplugin-java">
-<h3>Audit de l’existence des objets AUDIT_FILE_EXISTING (CheckExistenceObjectPlugin.java)<a class="headerlink" href="#audit-de-l-existence-des-objets-audit-file-existing-checkexistenceobjectplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="audit-de-l-existence-et-de-l-integrite-des-objets-audit-check-object-audit-check-object">
+<h3>Audit de l’existence et de l’intégrité des objets AUDIT_CHECK_OBJECT.AUDIT_CHECK_OBJECT<a class="headerlink" href="#audit-de-l-existence-et-de-l-integrite-des-objets-audit-check-object-audit-check-object" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt><strong>Règle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Audit de l’existence des objets permettant la vérification de chaque groupe d’objets audités</span></dt>
+<dt><strong>Règle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Audit de l’existence et de l’intégrité des objets permettant la vérification de chaque groupe d’objets audités</span></dt>
 <dd><ul class="first last">
 <li>La stratégie de stockage du groupe d’objets est conforme à celle du moteur de stockage</li>
 <li>Les fichiers correspondant aux objets, déclarés dans le groupe d’objets, existent bien sous le même nom dans les offres de stockage</li>
@@ -264,44 +269,15 @@ Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 <li><dl class="first docutils">
 <dt><strong>Statuts</strong> :</dt>
 <dd><ul class="first last">
-<li>OK : tous les objets de tous les groupes d’objets audités existent bien sur les offres de stockage (AUDIT_CHECK_OBJECT.AUDIT_FILE_EXISTING.OK=Succès de l’audit de l’existence de fichiers )</li>
-<li>KO : au moins un objet n’existe pas pour au moins un groupe objets (AUDIT_CHECK_OBJECT.AUDIT_FILE_EXISTING.KO=Echec de l’audit de l’existence de fichiers)</li>
-<li>Warning : il n’y a aucun objet à auditer (cas par exemple d’un producteur sans objets) (AUDIT_CHECK_OBJECT.AUDIT_FILE_EXISTING.WARNING=Avertissement lors de l’audit de l’existence des objets : au moins un groupe d’objets n’a pas d’objet binaire à vérifier)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’audit de l’existence des objets (AUDIT_CHECK_OBJECT.AUDIT_FILE_EXISTING.FATAL=Erreur fatale lors de l’audit de l’existence des objets)</li>
+<li>OK : tous les objets de tous les groupes d’objet audités existent bien sur les offres de stockage et leurs empreintes sont identiques entre celles enregistrées en base de données et celles recalculées par les offres de stockage (AUDIT_CHECK_OBJECT.AUDIT_CHECK_OBJECT.OK=Succès de l’audit de l’existence et de l’intégrité des objets)</li>
+<li>KO : au moins un objet n’est pas intègre pour les groupes objets vérifiés, audités (AUDIT_CHECK_OBJECT.AUDIT_CHECK_OBJECT.KO=Echec de l’audit de l’existence de fichiers)</li>
+<li>Warning : il n’y a aucun objet à auditer (cas par exemple d’un producteur sans objets) (AUDIT_CHECK_OBJECT.AUDIT_CHECK_OBJECT.WARNING=Avertissement lors de l’audit de l’existence des objets : au moins un élément n’a pas d’objet binaire à vérifier)</li>
+<li>FATAL : une erreur technique est survenue lors de l’audit de l’existence des objets (AUDIT_CHECK_OBJECT.AUDIT_FILE_EXISTING.FATAL=Erreur technique lors de l’audit de l’existence des objets)</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="audit-de-l-integrite-des-objets-audit-check-object-audit-file-integrity-checkintegrityobjectplugin-java">
-<h3>Audit de l’intégrité des objets AUDIT_CHECK_OBJECT.AUDIT_FILE_INTEGRITY (CheckIntegrityObjectPlugin.java)<a class="headerlink" href="#audit-de-l-integrite-des-objets-audit-check-object-audit-file-integrity-checkintegrityobjectplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt><strong>Règle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Audit de l’intégrité des objets permettant la vérification de chaque groupe d’objets audités</span></dt>
-<dd><ul class="first last">
-<li>L’objet existe bien (voir «&nbsp;AUDIT_FILE_EXISTING&nbsp;»)</li>
-<li>L’empreinte de l’objet enregistrée en base de données est la même pour chaque objet que celle obtenue par l’offre de stockage, recalculée à la demande de l’audit</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><dl class="first docutils">
-<dt><strong>Statuts</strong> :</dt>
-<dd><ul class="first last">
-<li>OK : tous les objets de tous les groupes d’objet audités existent bien sur les offres de stockage et leurs empreintes sont identiques entre celles enregistrées en base de données et celles recalculées par les offres de stockage (AUDIT_CHECK_OBJECT.AUDIT_FILE_INTEGRITY.OK=Succès de l’audit de l’existence et de l’intégrité des objets)</li>
-<li>KO : au moins un objet n’existe pas pour au moins un objet (AUDIT_CHECK_OBJECT.AUDIT_FILE_INTEGRITY.KO=Échec de l’audit de l’existence et de l’intégrité des objets)</li>
-<li>Warning : il n’y a aucun objet à auditer (cas par exemple d’un producteur sans objets) (AUDIT_CHECK_OBJECT.AUDIT_FILE_INTEGRITY.WARNING=Avertissement lors de l’existence et de l’intégrité des objets)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’audit de l’existence des fichiers (AUDIT_CHECK_OBJECT.AUDIT_FILE_INTEGRITY.FATAL=Erreur fatale lors de l’existence et de l’intégrité des objets)</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="figure align-center">
-<img alt="../_images/workflow_audit_file_existing.png" src="../_images/workflow_audit_file_existing.png" />
-</div>
 </div>
 </div>
 <div class="section" id="processus-de-finalisation-de-l-audit-stp-finalise-audit">
@@ -315,12 +291,18 @@ Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 <dt><strong>Statuts</strong> :</dt>
 <dd><ul class="first last">
 <li>OK : le rapport a été créé avec succès (REPORT_AUDIT.OK=Succès de la notification de la fin de l’audit)</li>
-<li>FATAL : Une erreur fatale est survenue lors de la création du rapport d’audit (REPORT_AUDIT.OK.FATAL=Erreur fatale lors de la notification de la fin de l’audit)</li>
+<li>FATAL : Une erreur technique est survenue lors de la création du rapport d’audit (REPORT_AUDIT.OK.FATAL=Erreur technique lors de la notification de la fin de l’audit)</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
+</div>
+</div>
+<div class="section" id="structure-du-workflow-de-l-audit-de-l-existence-et-de-l-integrite-des-fichiers">
+<h2>Structure du workflow de l’audit de l’existence et de l’intégrité des fichiers<a class="headerlink" href="#structure-du-workflow-de-l-audit-de-l-existence-et-de-l-integrite-des-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center">
+<img alt="../_images/workflow_audit_file_existing.png" src="../_images/workflow_audit_file_existing.png" />
 </div>
 </div>
 </div>
@@ -345,7 +327,7 @@ Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -364,21 +346,24 @@ Enfin, il sécurise les journaux de cycle de vie qui ont été modifiés.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

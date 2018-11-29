@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Global Unique Identifier (GUID) pour Vitam &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Digest" href="Digest.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Global Unique Identifier (GUID) pour Vitam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#specifier-processid">Spécifier ProcessId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guid-factory">GUID Factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attention">Attention</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Digest.html">Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logger.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JunitHelper.html">JunitHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html">DirectedCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html#graph">Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VitamCode.html">Code d’erreur Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format-identifier.html">Common format identification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stockage.html">Common-storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-metrics.html">Métriques dans VITAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private/_toc.html">Common-private</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">Common</a> &raquo;</li>
+        
+      <li>Global Unique Identifier (GUID) pour Vitam</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/include/common/GUID.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="global-unique-identifier-guid-pour-vitam">
+<h1>Global Unique Identifier (GUID) pour Vitam<a class="headerlink" href="#global-unique-identifier-guid-pour-vitam" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="specifier-processid">
+<h2>Spécifier ProcessId<a class="headerlink" href="#specifier-processid" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour surcharger/spécifier le processId, qui par défaut prend la valeur du PID du processus Java, il faut utiliser la property suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Dfr.gouv.vitam.processId<span class="o">=</span>nnnnn
+</pre></div>
+</div>
+<p>Où nnnnn est un nombre entre 0 et 2^22 (4194304).</p>
+</div>
+<div class="section" id="guid-factory">
+<h2>GUID Factory<a class="headerlink" href="#guid-factory" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Usage:</p>
+<p>Il faut utiliser le helper approprié en fonction du type d’objet pour lequel on souhaite créer un GUID.</p>
+<div class="section" id="pour-la-partie-interne-vitam">
+<h3>Pour la partie interne Vitam<a class="headerlink" href="#pour-la-partie-interne-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>Obligatoire en <strong>Interne Vitam</strong>: le ServerIdentity doit être initialisé (inutile en mode client Vitam)</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ServerIdentity</span><span class="o">.</span><span class="na">getInstance</span><span class="o">.</span><span class="na">setFromMap</span><span class="o">(</span><span class="n">Map</span><span class="o">);</span>
+<span class="n">ServerIdentity</span><span class="o">.</span><span class="na">getInstance</span><span class="o">.</span><span class="na">setFromPropertyFile</span><span class="o">(</span><span class="n">File</span><span class="o">);</span>
+<span class="n">ServerIdentity</span><span class="o">.</span><span class="na">getInstance</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">String</span><span class="o">).</span><span class="na">setRole</span><span class="o">(</span><span class="n">String</span><span class="o">).</span><span class="na">setPlatformId</span><span class="o">(</span><span class="kt">int</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un Unit et son Unit Logbook associé :</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">unitGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newUnitGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un ObjectGroup et son ObjectGroup Logbook associé :</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">objectGroupGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newObjectGroupGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+<span class="c1">// or</span>
+<span class="n">GUID</span> <span class="n">objectGroupGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newObjectGroupGUID</span><span class="o">(</span><span class="n">unitParentGUID</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un Object et son Binary object associé :</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">objectGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newObjectGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+<span class="c1">// or</span>
+<span class="n">GUID</span> <span class="n">objectGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newObjectGUID</span><span class="o">(</span><span class="n">objectGroupParentGUID</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour une Opération (process):</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">operationGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newOperationIdGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un Request Id (X-Request-Id) :</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">requestIdGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newRequestIdGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un SIP / Manifest / Seda like informations Id:</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">manifestGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newManifestGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un Logbook daily Id (Operation, Write):</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">writeLogbookGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newWriteLogbookGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour un storage operation Id:</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">storageOperationGuid</span> <span class="o">=</span> <span class="n">GUIDFactory</span><span class="o">.</span><span class="na">newStorageOperationGUID</span><span class="o">(</span><span class="n">tenantId</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pour savoir si un GUID est par défaut associé à une Règle WORM :</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">storageOperationGuid</span><span class="o">.</span><span class="na">isWorm</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pour-la-partie-interne-et-public-vitam">
+<h3>Pour la partie interne et public Vitam<a class="headerlink" href="#pour-la-partie-interne-et-public-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>Pour récupérer un GUID depuis sa réprésentation :</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GUID</span> <span class="n">guid</span> <span class="o">=</span> <span class="n">GUIDReader</span><span class="o">.</span><span class="na">getGUID</span><span class="o">(</span><span class="n">stringGuid</span><span class="o">);</span>
+<span class="n">GUID</span> <span class="n">guid</span> <span class="o">=</span> <span class="n">GUIDReader</span><span class="o">.</span><span class="na">getGUID</span><span class="o">(</span><span class="n">byteArrayGuid</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Où le «&nbsp;stringGuid&nbsp;» peut être dans sa forme BASE16 / BASE32 / BASE64 ou ARK.</p>
+</div>
+</div>
+<div class="section" id="attention">
+<h2>Attention<a class="headerlink" href="#attention" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Personne ne devrait utiliser les helpers constructeurs directs (newUuid).
+* Ces méthodes sont réservées à des usages spéciaux futurs non encore définis.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Digest.html" class="btn btn-neutral float-right" title="Digest" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

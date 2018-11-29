@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’administration d’un référentiel des contextes &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow d’administration d’un référentiel des contextes applicatifs &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Workflow d’import d’un référentiel des documents types" href="documents-type.html" />
+    <link rel="next" title="Workflow d’administration du référentiel des profils d’unités archivistiques" href="documents-type.html" />
     <link rel="prev" title="Workflow d’administration d’un référentiel des profils de sécurité" href="security_profiles.html" /> 
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -98,9 +98,9 @@
 <li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d’administration d’un référentiel des services agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d’administration d’un référentiel des contrats d’entrée</a></li>
 <li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d’administration d’un référentiel des contrats d’accès</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d’import d’un référentiel des profils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d’admininstration d’un référentiel des profils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security_profiles.html">Workflow d’administration d’un référentiel des profils de sécurité</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d’administration d’un référentiel des contextes</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d’administration d’un référentiel des contextes applicatifs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-import-et-mise-a-jour-d-un-referentiel-des-contextes-applicatifs">Processus d’import  et mise à jour d’un référentiel des contextes applicatifs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#import-d-un-referentiel-des-contextes-stp-import-context-contextserviceimpl-java">Import d’un référentiel des contextes STP_IMPORT_CONTEXT (ContextServiceImpl.java)</a></li>
@@ -110,12 +110,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’import d’un référentiel des documents types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ontologie.html">Workflow d’import d’un référentiel des vocabulaires de l’ontologie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’administration du référentiel des profils d’unités archivistiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontologie.html">Workflow d’administration d’un référentiel des vocabulaires de l’ontologie</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -163,7 +165,7 @@
         
           <li><a href="_toc.html">MASTERDATA</a> &raquo;</li>
         
-      <li>Workflow d’administration d’un référentiel des contextes</li>
+      <li>Workflow d’administration d’un référentiel des contextes applicatifs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -182,11 +184,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="workflow-d-administration-d-un-referentiel-des-contextes">
-<h1>Workflow d’administration d’un référentiel des contextes<a class="headerlink" href="#workflow-d-administration-d-un-referentiel-des-contextes" title="Lien permanent vers ce titre">¶</a></h1>
+  <div class="section" id="workflow-d-administration-d-un-referentiel-des-contextes-applicatifs">
+<h1>Workflow d’administration d’un référentiel des contextes applicatifs<a class="headerlink" href="#workflow-d-administration-d-un-referentiel-des-contextes-applicatifs" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) d’import des contextes dans le référentiel des contextes. Cette opération n’est réalisable que sur le tenant administration.</p>
+<p>Cette section décrit le processus (workflow) d’import et de mise à jour des contextes dans le référentiel des contextes. Cette opération n’est réalisable que sur le tenant administration.</p>
 </div>
 <div class="section" id="processus-d-import-et-mise-a-jour-d-un-referentiel-des-contextes-applicatifs">
 <h2>Processus d’import  et mise à jour d’un référentiel des contextes applicatifs<a class="headerlink" href="#processus-d-import-et-mise-a-jour-d-un-referentiel-des-contextes-applicatifs" title="Lien permanent vers ce titre">¶</a></h2>
@@ -194,41 +196,62 @@
 <p>Tous les éléments réalisés au cours de ce processus sont exécutés dans une seule étape.</p>
 <div class="section" id="import-d-un-referentiel-des-contextes-stp-import-context-contextserviceimpl-java">
 <h3>Import d’un référentiel des contextes STP_IMPORT_CONTEXT (ContextServiceImpl.java)<a class="headerlink" href="#import-d-un-referentiel-des-contextes-stp-import-context-contextserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li>Vérification de la présence des informations minimales, de la cohérence des informations et affecter des données aux champs peuplés par la solution logicielle Vitam.<ul>
-<li><strong>Règle</strong> :   vérification et enregistrement du référentiel des contextes :<ul>
+<p>Vérification de la présence des informations minimales, de la cohérence des informations et affecter des données aux champs peuplés par la solution logicielle Vitam.</p>
+<ul>
+<li><p class="first"><strong>Règle</strong> :   vérification et enregistrement du référentiel des contextes :</p>
+<blockquote>
+<div><ul class="simple">
 <li>Le champ «&nbsp;Name&nbsp;» doit être peuplé avec une chaîne de caractères unique</li>
-<li>Le champ «&nbsp;Status&nbsp;» doit être à «&nbsp;true&nbsp;» ou «&nbsp;false&nbsp;»</li>
+<li>Le champ «&nbsp;Status&nbsp;» doit être à «&nbsp;ACTIVE&nbsp;» ou «&nbsp;INACTIVE&nbsp;»</li>
 <li>Le champ «&nbsp;EnableControl&nbsp;» doit être à «&nbsp;true&nbsp;» ou «&nbsp;false&nbsp;»</li>
 <li>Le champ «&nbsp;Permissions&nbsp;» doit être peuplé avec un tableau contenant des fichiers JSON</li>
-<li>Le champ «&nbsp;SecurityProfile&nbsp;» et «&nbsp;doit être peuplé avec une chaîne de caractères</li>
+<li>Le champ «&nbsp;SecurityProfile&nbsp;» doit être peuplé avec une chaîne de caractères</li>
 <li>Le champ «&nbsp;Identifier&nbsp;» doit être unique</li>
 </ul>
+</div></blockquote>
 </li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : Les règles ci-dessus sont respectées (STP_IMPORT_CONTEXT.OK = Succès du processus d’import du contexte)</li>
-<li>KO : une des règles ci-dessus n’est pas respectée (STP_IMPORT_CONTEXT.KO=Échec du processus d’import du contexte)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’import du contexte (STP_IMPORT_CONTEXT.FATAL=Erreur fatale lors du processus d’import du contexte)</li>
-<li>IDENTIFIER DPLICATION : L’identifiant est déjà utilisé ( STP_IMPORT_CONTEXT.IDENTIFIER_DUPLICATION.KO=Echec de l’import : l’identifiant est déjà utilisé )</li>
-<li>EMPTY REQUIRED FIELD : Un des champs obligatoires n’est pas renseigné ( STP_IMPORT_CONTEXT.EMPTY_REQUIRED_FIELD.KO=Echec de l’import : au moins un des champs obligatoires n’est pas renseigné )</li>
-<li>SECURITY PROFILE NOT FOUND : Le profil de sécurité mentionné est inconnu du système ( STP_IMPORT_CONTEXT.SECURITY_PROFILE_NOT_FOUND.KO=Echec de l’import : profil de sécurité non trouvé)</li>
-<li>UNKNOWN VALUE : Au moins un objet déclare une valeur inconnue ( STP_IMPORT_CONTEXT.UNKNOWN_VALUE.KO=Echec de l’import : au moins un objet déclare une valeur inconnue )</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">OK : Les règles ci-dessus sont respectées (STP_IMPORT_CONTEXT.OK = Succès du processus d’import du contexte)</p>
+</li>
+<li><p class="first">KO :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : une des règles ci-dessus n’est pas respectée (STP_IMPORT_CONTEXT.KO = Échec du processus d’import du contexte)</li>
+<li>Cas 2 : l’identifiant est déjà utilisé (STP_IMPORT_CONTEXT.IDENTIFIER_DUPLICATION.KO = Echec de l’import : l’identifiant est déjà utilisé)</li>
+<li>Cas 3 : un des champs obligatoires n’est pas renseigné (STP_IMPORT_CONTEXT.EMPTY_REQUIRED_FIELD.KO = Echec de l’import : au moins un des champs obligatoires n’est pas renseigné)</li>
+<li>Cas 4 : le profil de sécurité mentionné est inconnu du système (STP_IMPORT_CONTEXT.SECURITY_PROFILE_NOT_FOUND.KO = Echec de l’import : profil de sécurité non trouvé)</li>
+<li>Cas 5 : au moins un objet déclare une valeur inconnue (STP_IMPORT_CONTEXT.UNKNOWN_VALUE.KO = Echec de l’import : au moins un objet déclare une valeur inconnue )</li>
 </ul>
+</div></blockquote>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors de l’import du contexte (STP_IMPORT_CONTEXT.FATAL=Erreur technique lors du processus d’import du contexte)</p>
 </li>
 </ul>
+</div></blockquote>
 </li>
 </ul>
 </div>
 <div class="section" id="mise-a-jour-d-un-contexte-applicatif-stp-update-context-contextserviceimpl-java">
 <h3>Mise à jour d’un contexte applicatif STP_UPDATE_CONTEXT (ContextServiceImpl.java)<a class="headerlink" href="#mise-a-jour-d-un-contexte-applicatif-stp-update-context-contextserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : la modification d’un contexte applicatif doit suivre les mêmes règles que celles décrites pour la création.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
-<li>OK : Les règles ci-dessus sont respectées (STP_UPDATE_CONTEXT.OK=Succès du processus de mise à jour du contexte)</li>
-<li>KO : une des règles ci-dessus n’est pas respectée (STP_UPDATE_CONTEXT.KO=Échec du processus mise à jour du contexte)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’import du contexte (STP_UPDATE_CONTEXT.FATAL=Erreur fatale lors du processus de mise à jour du contexte)</li>
+<li>OK : Les règles ci-dessus sont respectées (STP_UPDATE_CONTEXT.OK = Succès du processus de mise à jour du contexte)</li>
+<li>KO : une des règles ci-dessus n’est pas respectée (STP_UPDATE_CONTEXT.KO = Échec du processus mise à jour du contexte)</li>
+<li>FATAL : une erreur technique est survenue lors de l’import du contexte (STP_UPDATE_CONTEXT.FATAL = Erreur technique lors du processus de mise à jour du contexte)</li>
 </ul>
 </div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="sauvegarde-du-json-stp-backup-context-contextserviceimpl-java">
 <h3>Sauvegarde du JSON STP_BACKUP_CONTEXT (ContextServiceImpl.java)<a class="headerlink" href="#sauvegarde-du-json-stp-backup-context-contextserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
@@ -242,9 +265,9 @@
 <li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
-<li>OK : une copie de la base de donnée nouvellement importée est enregistrée (STP_BACKUP_CONTEXT.OK = Succès du processus de sauvegarde des contextes)</li>
+<li>OK : une copie de la base de données nouvellement importée est enregistrée (STP_BACKUP_CONTEXT.OK = Succès du processus de sauvegarde des contextes)</li>
 <li>KO : pas de cas KO</li>
-<li>FATAL : une erreur fatale est survenue lors de la copie de la base de donnée nouvellement importée (STP_BACKUP_CONTEXT.FATAL = Erreur fatale lors du processus de sauvegarde des contextes)</li>
+<li>FATAL : une erreur technique est survenue lors de la copie de la base de données nouvellement importée (STP_BACKUP_CONTEXT.FATAL = Erreur technique lors du processus de sauvegarde des contextes)</li>
 </ul>
 </div></blockquote>
 </li>
@@ -262,7 +285,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="documents-type.html" class="btn btn-neutral float-right" title="Workflow d’import d’un référentiel des documents types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="documents-type.html" class="btn btn-neutral float-right" title="Workflow d’administration du référentiel des profils d’unités archivistiques" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="security_profiles.html" class="btn btn-neutral" title="Workflow d’administration d’un référentiel des profils de sécurité" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -274,7 +297,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -293,21 +316,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

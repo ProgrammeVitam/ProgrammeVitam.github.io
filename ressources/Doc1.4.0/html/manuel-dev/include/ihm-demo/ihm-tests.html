@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IHM Front - Tests &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="DAT : module IHM logbook operations" href="ihm-logbook-dat.html" />
+    <link rel="prev" title="Modules IHM Front" href="ihm-modules.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">IHM demo</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ihm-logbook-introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-front.html">IHM Front</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-modules.html">Modules IHM Front</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IHM Front - Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cette-documentation-decrit-la-partie-tests-unitaires-et-end-to-end-du-front-angular-de-l-ihm">Cette documentation décrit la partie tests (unitaires et end to end) du front/Angular de l’ihm.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-logbook-dat.html">DAT : module IHM logbook operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-rest-raml.html">ihm-demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-tenant-id.html">IHM Front - Requêtes HTTP et Tenant ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-authorization.html">Gestion des droits sur IHM demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-filter-requestID.html">IHM Filter for X-Request-ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-demo-serveur.html">IHM Demo serveur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">IHM demo</a> &raquo;</li>
+        
+      <li>IHM Front - Tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/include/ihm-demo/ihm-tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ihm-front-tests">
+<h1>IHM Front - Tests<a class="headerlink" href="#ihm-front-tests" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="cette-documentation-decrit-la-partie-tests-unitaires-et-end-to-end-du-front-angular-de-l-ihm">
+<h2>Cette documentation décrit la partie tests (unitaires et end to end) du front/Angular de l’ihm.<a class="headerlink" href="#cette-documentation-decrit-la-partie-tests-unitaires-et-end-to-end-du-front-angular-de-l-ihm" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de lancer tout les tests via la commande <cite>gulp tests</cite> (Protractor nécessite Chrome).
+Un <cite>npm install</cite> est nécessaire.</p>
+<div class="section" id="tests-unitaires">
+<h3>Tests unitaires<a class="headerlink" href="#tests-unitaires" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="installation-lancement-des-tests-unitaires">
+<h4>Installation / Lancement des tests unitaires<a class="headerlink" href="#installation-lancement-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Karma est installé automatiquement avec les autres dépendances via la commande <cite>npm install</cite>.
+Le lancement des tests s’effectue vià la commande <cite>gulp testKarma</cite></p>
+</div>
+<div class="section" id="informations-sur-la-configuration-des-tests-unitaires">
+<h4>Informations sur la configuration des tests unitaires<a class="headerlink" href="#informations-sur-la-configuration-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La configuration des tests unitaires se trouve dans webapp/karma.conf.js</p>
+<p>En particulier, la partie “files” définit les fichiers à charger pour les tests unitaires.
+Il sera nécessaire d’en ajouter lors de l’ajout de prochaines fonctionnalités et tests unitaires.</p>
+</div>
+<div class="section" id="exemples-de-tests-unitaires">
+<h4>Exemples de tests unitaires<a class="headerlink" href="#exemples-de-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h4>
+<p>4 samples de tests ont étés implémentés pour montrer ce qu’il est globalement possible de faire:</p>
+<div class="line-block">
+<div class="line"><strong>Base</strong>      beforeEach (Charger un service) / Test de retour de valeur en fonction du paramètre</div>
+<div class="line-block">
+<div class="line">Exemples: date-validator.service.js / response-validator.service.js</div>
+</div>
+<div class="line"><strong>Espion</strong>    SpyOn permettant de vérifier qu’une fonction est bien appelée comme il faut</div>
+<div class="line-block">
+<div class="line">Exemple: load-static-value.service.js (Test nombre appel) / response-validator.service.js (Bon paramètres)</div>
+</div>
+<div class="line"><strong>HTTPMock</strong>  httpBackend permettant de mocker un appel rest / afterEach permettant de vérifier les appels traités</div>
+<div class="line-block">
+<div class="line">Exemple: accession-register.service.js</div>
+</div>
+<div class="line"><strong>CallMock</strong>  initialisation d’un controller / mock de l’appel des méthodes d’un service / cohérence des résultats</div>
+<div class="line-block">
+<div class="line">accession-register-details.controller.js</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tests-end-to-end">
+<h3>Tests end to end<a class="headerlink" href="#tests-end-to-end" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="initialisation-lancement-des-tests-e2e">
+<h4>Initialisation / Lancement des tests e2e<a class="headerlink" href="#initialisation-lancement-des-tests-e2e" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour le moment, il est nécessaire d’avoir un environement lancé dans le serveur d’App pour servir les resources. Un gulp serve devrait régler le problème.</p>
+<p>[Inutile si lancé via gulp]Installation de protractor</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install -g protractor@2
+protractor --version
+</pre></div>
+</div>
+<p>Cette commande devrait avoir installer un “webdriver-manager” (Sélénium).</p>
+<p>[Inutile si lancé via gulp]Il est nécessaire de le mettre à jour et de le lancer pour lancer les tests e2e.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>node_modules/protractor/bin/webdriver-manager update
+node_modules/protractor/bin/webdriver-manager start
+</pre></div>
+</div>
+<p>Si une erreur “info: driver.version: unknown” est remontée, vérifier la compatibilité entre votre navigateur Chrome et son plugin ChromeDriver.
+Si besoin, modifiez le fichier webapp/node_modules/protractor/config.json, et mettez à jour la propriété «&nbsp;chromedriver&nbsp;» avec une valeur compatible (2.27 pour les plus récent).
+Cette modification “hardcodded” doit être faite après chaque mise à jour de npm (npm install).</p>
+<p>[Inutile si lancé via gulp]Le lancement des tests end to end se font grâce à la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>protractor protractor.conf.js
+</pre></div>
+</div>
+<p>Il est également possible de le lancer via gulp via la commande:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gulp testProtractor
+</pre></div>
+</div>
+<p>Il est possible de surcharger divers arguments grâce aux arguments suivants (donnés à titre d’exemple:</p>
+<ul class="simple">
+<li>–baseUrl=”<a class="reference external" href="http://localhost:8082/ihm-demo">http://localhost:8082/ihm-demo</a>/#!” Permet de modifier l’URL de base utilisée. Peut par exemple servir a lancer les tests e2e sur le serveur de recette.</li>
+<li>–params.&lt;paramName&gt;=”&lt;paramValue&gt;”           Permet de modifier un paramètre de la configuration protractor (params)</li>
+<li>–suite=”&lt;maSuite&gt;”                           Permet d’utiliser seulement une ou plusieurs suites de tests plutôt que de lancer toute la baterie.</li>
+</ul>
+<p>Ces paramètres sont aussi settables dans le json de configuration gulp de la tache testProtractor.</p>
+</div>
+<div class="section" id="informations-sur-la-configuration-des-tests-e2e">
+<h4>Informations sur la configuration des tests e2e<a class="headerlink" href="#informations-sur-la-configuration-des-tests-e2e" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La configuration définit des batteries de tests (suites). Lors de l’ajout d’un test e2e, il est nécessaire d’ajouter une entrée dans les suites en précisant les fichiers à éxécuter.</p>
+<p>La configuration permet aussi de:</p>
+<ul class="simple">
+<li>Définir un login/password (Via la surcharge des params userName/password)</li>
+<li>Utiliser ou non le mode mock http (Via la surcharge du param mock)</li>
+</ul>
+</div>
+<div class="section" id="exemple-d-utilisation-des-outils-e2e">
+<h4>Exemple d’utilisation des outils e2e<a class="headerlink" href="#exemple-d-utilisation-des-outils-e2e" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Création de fonctions réutilisables dans chaque test :</p>
+<ul class="simple">
+<li>Création d’un fichier utils/*.function.js</li>
+<li>Création d’une fonction éxportée via module.exports</li>
+<li>Import des fonctions dans le test via require(“./path/to/file”);</li>
+</ul>
+<p>Sélection des éléments</p>
+<ul class="simple">
+<li>Sélection d’une balise a laquelle le modèle associé est variable.name (&lt;input ng-model=&nbsp;»variable.name&nbsp;» /&gt;)</li>
+</ul>
+<p>– element(by.model(“variable.name”))</p>
+<ul class="simple">
+<li>Sélection d’une balise grâce à son identifiant (&lt;div id=&nbsp;»navbar&nbsp;»&gt;&lt;/div&gt;)</li>
+</ul>
+<p>– element(by.id(“navbar”));</p>
+<ul class="simple">
+<li>Sélection d’une balise contenant un attribut “type” et une valeur “submit” (&lt;button type=&nbsp;»submit&nbsp;» /&gt;)</li>
+</ul>
+<p>– element(by.css(“[type=&nbsp;»submit&nbsp;»]”))</p>
+<ul class="simple">
+<li>Sélection d’une balise grâce à son tag (&lt;ul&gt;&lt;/ul&gt;)</li>
+</ul>
+<p>– element(by.css(“ul”));</p>
+<ul class="simple">
+<li>Sélection multiple d’éléments (&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;)</li>
+</ul>
+<p>– element.all(by.css(“li”));</p>
+<ul class="simple">
+<li>Sélection d’un sous élément (&lt;div&gt; &lt;p&gt;xxx&lt;/p&gt;&lt;p&gt;yyy&lt;/p&gt; &lt;button/&gt; &lt;/div&gt;)</li>
+</ul>
+<p>– var div = element(by.css(“div”));
+– div.element(by.css(“button”)); / div.all(by.css(“p”));</p>
+<ul>
+<li><p class="first">Sélection d’une partie d’un ensemble d’éléments (&lt;p&gt;xxx&lt;/p&gt; &lt;p&gt;yyy&lt;/p&gt; &lt;p&gt;zzz&lt;/p&gt;)</p>
+<blockquote>
+<div><ul class="simple">
+<li>var ps = element.all(by.css(“p”));</li>
+<li>var firstP = ps.first(); // xxx</li>
+<li>var pNumber1 = ps.get(1); // yyy</li>
+<li>var lastP = ps.last(); // zzz</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Conclusion:</p>
+<ul class="simple">
+<li>Selection classique: element(by.xxx());</li>
+<li>Sélection multiple: element.all(by.yyy());</li>
+<li>Sélections Chaînées: element(by.xxx()).all(by.yyy()).get(2).element(by.zzz());</li>
+</ul>
+<p>Récupérations des propriétés configurés dans protractor.conf.js:</p>
+<ul class="simple">
+<li>browser.baseUrl (L’url configurée)</li>
+<li>browser.params.paramName (Récupère le paramètre paramName)</li>
+</ul>
+<p>Actions / promise et Expects:</p>
+<ul class="simple">
+<li>Les actions sur un élément (item.click() / item.count() / …) renvoient une promise qu’il faut traiter dans un then si on veut enchainer une action ou récupérer une valeur.</li>
+<li>Les expects expect(item.count())toBe(2); traitent la promise de la bonne manière pour comparer la valeur.</li>
+</ul>
+<p>Mock HTTP:</p>
+<ul class="simple">
+<li>Exemple simple dans login ou on configure le httpMocker dans beforeEach si le mode mock est activé.</li>
+<li>Exemple plus complexe dans accession-register où on renvoie une réponse en fonction des paramètres.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ihm-logbook-dat.html" class="btn btn-neutral float-right" title="DAT : module IHM logbook operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ihm-modules.html" class="btn btn-neutral" title="Modules IHM Front" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

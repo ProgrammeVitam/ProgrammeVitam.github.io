@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rapport d’audit de cohérence &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Rapport d’audit de cohérence &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="DIP" href="../dip/_toc_dip.html" />
-    <link rel="prev" title="Workflow de l’audit de cohérence des fichiers" href="workflow_audit_file_consistency.html" /> 
+    <link rel="next" title="Workflow de l’audit correctif" href="workflow_correction_audit.html" />
+    <link rel="prev" title="Workflow d’audit de cohérence des fichiers" href="workflow_audit_file_consistency.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -91,12 +91,15 @@
 <li class="toctree-l2"><a class="reference internal" href="workflow-check-traceability.html">Workflow de contrôle d’intégrité d’un journal sécurisé</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_existing_integrity.html">Workflow de l’audit de l’existence et de l’intégrité des fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rapportaudit.html">Rapport d’audit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow de l’audit de cohérence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow d’audit de cohérence des fichiers</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Rapport d’audit de cohérence</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-rapport-d-audit">Exemple de JSON : rapport d’audit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-rapport-d-audit-de-coherence-d-une-unite-archivistique">Exemple de JSON : rapport d’audit de cohérence d’une unité archivistique</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#details-du-rapport">Détails du rapport</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_correction_audit.html">Workflow de l’audit correctif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html">Workflow de relevé de valeur probante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html#rapport-du-releve-de-valeur-probante">Rapport du relevé de valeur probante</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
@@ -104,6 +107,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -172,20 +177,34 @@
             
   <div class="section" id="rapport-d-audit-de-coherence">
 <h1>Rapport d’audit de cohérence<a class="headerlink" href="#rapport-d-audit-de-coherence" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le rapport d’audit de cohérence est un fichier JSON généré par la solution logicielle Vitam lorsqu’une opération d’audit se termine. Cette section décrit la manière dont ce rapport est structuré.</p>
-<div class="section" id="exemple-de-json-rapport-d-audit">
-<h2>Exemple de JSON : rapport d’audit<a class="headerlink" href="#exemple-de-json-rapport-d-audit" title="Lien permanent vers ce titre">¶</a></h2>
-<img alt="../_images/auditconsistency.png" src="../_images/auditconsistency.png" />
+<p>Le rapport d’audit de cohérence est un fichier JSON généré par la solution logicielle Vitam lorsqu’une opération d’audit se termine. En cas de succès (EVIDENCE_AUDIT.OK) ou en warning (EVIDENCE_AUDIT.WARNING) le rapport est vide. il n’y pas d’information spécifié. Dans les cas de KO le rapport retourne les informations suivantes.</p>
+<div class="section" id="exemple-de-json-rapport-d-audit-de-coherence-d-une-unite-archivistique">
+<h2>Exemple de JSON : rapport d’audit de cohérence d’une unité archivistique<a class="headerlink" href="#exemple-de-json-rapport-d-audit-de-coherence-d-une-unite-archivistique" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaqaaaaaahjsaaiaabe6alggr7fv7aaaaba&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;KO&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Traceability audit KO  Database check failure Errors are :  [ </span><span class="se">\&quot;</span><span class="s2"> Metadata hash &#39;RHd+dg8mUQJ8kxURi+ENYmCHsb1n+IaN0VMHP061SdTghWw3t8CslyAfXXF80J70iI4xUt7apRSrF08JL8iClg==&#39; mismatch secured lfc hash &#39;DlFXvtZV+mreWR/8I1B3Hq5CenDxHE37gRQZEpl+wNhPrVX9YAIbm4++kPNf6RrteWR8clxA9RbH8xj8ATq+HQ==&#39; </span><span class="se">\&quot;</span><span class="s2"> ]&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;objectType&quot;</span><span class="p">:</span> <span class="s2">&quot;UNIT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;securedHash&quot;</span><span class="p">:</span> <span class="s2">&quot;e042f692e6a1b0af13e034db33265785a0825717843a30fec0c3fd864d294db9d58052e5ac45eafa9c165ecda07e11b017a325befca08858a9c20d534b0363b0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;offersHashes&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offer-fs-1.service.int.consul&quot;</span><span class="p">:</span> <span class="s2">&quot;e042f692e6a1b0af13e034db33265785a0825717843a30fec0c3fd864d294db9d58052e5ac45eafa9c165ecda07e11b017a325befca08858a9c20d534b0363b0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;offer-fs-2.service.int.consul&quot;</span><span class="p">:</span> <span class="s2">&quot;e042f692e6a1b0af13e034db33265785a0825717843a30fec0c3fd864d294db9d58052e5ac45eafa9c165ecda07e11b017a325befca08858a9c20d534b0363b0&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="details-du-rapport">
 <h2>Détails du rapport<a class="headerlink" href="#details-du-rapport" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Chaque section du rapport correspond au résultat de l’audit de cohérence pour chaque objet ou groupe d’objets ou unité archivistique audité. On y trouve les informations suivantes :</p>
 <ul class="simple">
 <li>«&nbsp;Identifier&nbsp;»: Identifiant de l’objet ou groupe d’objets ou unité archivistique audité.</li>
-<li>«&nbsp;EvidenceStatus&nbsp;»: Résultat de l’audit : OK si toutes les signatures des fichiers sécurisés, des offres de stockage et de la base de données sont présentes et identiques. Le résultat est KO si au moins une des signatures est absente, ou bien si une des 3 est différente.</li>
-<li>«&nbsp;ObjectType&nbsp;»: type de l’objet audit : objet ou groupe d’objets ou unité archivistique.</li>
+<li>«&nbsp;status&nbsp;»: «&nbsp;KO&nbsp;»: le statut de l’opération (dans le cadre de cette release le statut sera systèmatiquement KO).</li>
+<li>«&nbsp;message&nbsp;»: messsage qui signale une incohérence entre les signatures des fichiers sécurisés, des offres de stockage et de la base de données.</li>
+<li>«&nbsp;ObjectType&nbsp;»: type de l’objet audité : objet ou groupe d’objets ou unité archivistique.</li>
+<li>«&nbsp;securedHash&nbsp;»: hash du journal sécurisé de l’unité archivistique, objet ou groupe d’objets.</li>
+<li>«&nbsp;offersHashes&nbsp;»: signatures de l’élément audité de type unit ou GOT dans les offres de stockage.</li>
 </ul>
-<p>Note: pour les audits exécutés sur des groupes d’objets, le rapport comporte aussi une section «&nbsp;ObjectReports&nbsp;» qui donne les informations de chaque audit réalisé sur les objets du groupe. On y retrouve aussi les identifiants ( dans le champ «&nbsp;Identifier&nbsp;» ), le résultat ( dans le champ «&nbsp;EvidenceStatus&nbsp;» ).</p>
 </div>
 </div>
 
@@ -197,10 +216,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dip/_toc_dip.html" class="btn btn-neutral float-right" title="DIP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="workflow_correction_audit.html" class="btn btn-neutral float-right" title="Workflow de l’audit correctif" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="workflow_audit_file_consistency.html" class="btn btn-neutral" title="Workflow de l’audit de cohérence des fichiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="workflow_audit_file_consistency.html" class="btn btn-neutral" title="Workflow d’audit de cohérence des fichiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -209,7 +228,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -228,21 +247,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

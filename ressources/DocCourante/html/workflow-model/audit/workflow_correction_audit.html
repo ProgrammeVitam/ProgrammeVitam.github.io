@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow de l’audit correctif &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Workflow de relevé de valeur probante" href="workflow_probative_value.html" />
+    <link rel="prev" title="Rapport d’audit de cohérence" href="rapportauditconsistency.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.0-1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">AUDIT</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workflow-check-traceability.html">Workflow de contrôle d’intégrité d’un journal sécurisé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_existing_integrity.html">Workflow de l’audit de l’existence et de l’intégrité des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rapportaudit.html">Rapport d’audit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow d’audit de cohérence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rapportauditconsistency.html">Rapport d’audit de cohérence</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow de l’audit correctif</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-audit-correctif-des-fichiers-vision-metier">Processus d’audit correctif des fichiers (vision métier)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-preparation-d-audit-stp-evidence-audit-prepare">Processus de préparation d’audit (STP_EVIDENCE_AUDIT_PREPARE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation-de-la-liste-a-auditer-evidence-audit-list-object-evidenceauditprepare-java">Création de la liste à auditer EVIDENCE_AUDIT_LIST_OBJECT (EvidenceAuditPrepare.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-recuperation-des-donnees-de-la-base-stp-evidence-audit-check-database">Processus de récupération des données de la base (STP_EVIDENCE_AUDIT_CHECK_DATABASE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recuperation-des-donnees-dans-la-base-de-donnee-evidence-audit-check-database-evidenceauditdatabasecheck-java">Récupération des données dans la base de donnée EVIDENCE_AUDIT_CHECK_DATABASE (EvidenceAuditDatabaseCheck.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-preparation-des-signatures-a-partir-des-fichiers-securises-stp-evidence-audit-list-secured-files-to-download">Processus de préparation des signatures à partir des fichiers sécurisés (STP_EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-evidence-audit-list-secured-files-to-download-evidenceauditlistsecuredfiles-java">Préparation de la liste des signatures dans les fichiers sécurisés EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD (EvidenceAuditListSecuredFiles.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-extraction-des-signatures-a-partir-des-fichiers-securises-stp-evidence-audit-extract-zip-file">Processus d’extraction des signatures à partir des fichiers sécurisés (STP_EVIDENCE_AUDIT_EXTRACT_ZIP_FILE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#extraction-des-signatures-a-partir-des-fichiers-securises-evidence-audit-extract-zip-file-evidenceauditextractfromzip-java">Extraction des signatures à partir des fichiers sécurisés EVIDENCE_AUDIT_EXTRACT_ZIP_FILE (EvidenceAuditExtractFromZip.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-preparation-des-rapports-pour-chaque-objet-groupe-d-objets-ou-unite-audite-stp-evidence-audit-prepare-generate-reports">Processus de préparation des rapports pour chaque objet, groupe d’objets ou unité audité (STP_EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-evidence-audit-prepare-generate-reports-evidenceauditgeneratereports-java">Création du rapport pour chaque unité archivistique ou objet ou groupe d’objets EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS (EvidenceAuditGenerateReports.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-correction-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-stp-corrective-audit">Processus de correction des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante (STP_CORRECTIVE_AUDIT)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#correction-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-corrective-audit">Correction des signatures pour chaque objet, groupe d’objets ou unité auditée, défaillante (CORRECTIVE_AUDIT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-finalisation-des-corrections-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-stp-correction-finalize">Processus de finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante (STP_CORRECTION_FINALIZE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#finalisation-des-corrections-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-correction-finalize">Finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée, défaillante (CORRECTION_FINALIZE)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow-de-correction-d-audit">Structure du workflow de correction d’audit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html">Workflow de relevé de valeur probante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html#rapport-du-releve-de-valeur-probante">Rapport du relevé de valeur probante</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">AUDIT</a> &raquo;</li>
+        
+      <li>Workflow de l’audit correctif</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/audit/workflow_correction_audit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-de-l-audit-correctif">
+<h1>Workflow de l’audit correctif<a class="headerlink" href="#workflow-de-l-audit-correctif" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus (workflow) de l’audit correctif des fichiers mis en place dans la solution logicielle Vitam. Cette opération peut être effectuée suite à l’audit de cohérence. Cette action est effectuée via API. Cependant, dans un souci de démonstration et à titre d’écran expérimental un lancement de l’audit correctif peut-être effectué à partir de l’IHM recette (cf 2.4 Test Audit correctif)</p>
+</div>
+<div class="section" id="processus-d-audit-correctif-des-fichiers-vision-metier">
+<h2>Processus d’audit correctif des fichiers (vision métier)<a class="headerlink" href="#processus-d-audit-correctif-des-fichiers-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette action a pour but de corriger des objets défaillants. Cette correction fait suite à l’audit de cohérence. L’audit correctif veut résoudre une situation anormale : l’empreinte des fichiers ne correspond plus à l’empreinte enregistrée en base et sur les espaces de stockage. Afin de corriger et de rectifier ces erreurs, l’audit correctif va supprimer la copie défaillante (si cela est possible) et restaurer à partir de la stratégie de stockage une copie saine (copie dont l’empreinte est OK). Les premières parties du workflow de correction de l’audit suivent les mêmes étapes que l’audit de cohérence, le traitement de correction et de récupération des données dans les offres de stockage ou la base de données intervient dans la seconde partie du workflow.</p>
+</div>
+<div class="section" id="processus-de-preparation-d-audit-stp-evidence-audit-prepare">
+<h2>Processus de préparation d’audit (STP_EVIDENCE_AUDIT_PREPARE)<a class="headerlink" href="#processus-de-preparation-d-audit-stp-evidence-audit-prepare" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="creation-de-la-liste-a-auditer-evidence-audit-list-object-evidenceauditprepare-java">
+<h3>Création de la liste à auditer EVIDENCE_AUDIT_LIST_OBJECT (EvidenceAuditPrepare.java)<a class="headerlink" href="#creation-de-la-liste-a-auditer-evidence-audit-list-object-evidenceauditprepare-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : Création de la liste à auditer</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><dl class="first docutils">
+<dt><strong>Statuts</strong> :</dt>
+<dd><ul class="first last">
+<li>OK : la liste a été créée avec succès (EVIDENCE_AUDIT_LIST_OBJECT.OK=Création de la liste à auditer)</li>
+<li>KO : Echec de la création de la liste à auditer (EVIDENCE_AUDIT_LIST_OBJECT.KO=Echec lors de la création de la liste à auditer)</li>
+<li>FATAL : Une erreur technique est survenue lors de la création de la liste (EVIDENCE_AUDIT_LIST_OBJECT.FTAL=Erreur technique lors de la création de la liste à auditer)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-recuperation-des-donnees-de-la-base-stp-evidence-audit-check-database">
+<h2>Processus de récupération des données de la base (STP_EVIDENCE_AUDIT_CHECK_DATABASE)<a class="headerlink" href="#processus-de-recuperation-des-donnees-de-la-base-stp-evidence-audit-check-database" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="recuperation-des-donnees-dans-la-base-de-donnee-evidence-audit-check-database-evidenceauditdatabasecheck-java">
+<h3>Récupération des données dans la base de donnée EVIDENCE_AUDIT_CHECK_DATABASE (EvidenceAuditDatabaseCheck.java)<a class="headerlink" href="#recuperation-des-donnees-dans-la-base-de-donnee-evidence-audit-check-database-evidenceauditdatabasecheck-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tâche consistant à récupérer les informations nécéssaires à l’audit dans la base de données.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La récupération des données dans la base de données est un succès (EVIDENCE_AUDIT_CHECK_DATABASE.OK=Succès de la récupération des données dans la base de données)</li>
+<li>KO : La récupération des données dans la base de donnée est un échec (EVIDENCE_AUDIT_CHECK_DATABASE.KO=Echec de la récupération des données dans la base de données)</li>
+<li>FATAL : Une erreur technique est survenue dans la récupération des données dans la base de données (EVIDENCE_AUDIT_CHECK_DATABASE.FATAL=Erreur technique lors de la récupération des données dans la base de données)</li>
+<li>WARNING : Avertissement lors de la récupération des données dans la base de données (EEVIDENCE_AUDIT_CHECK_DATABASE.WARNING=Avertissement lors de la récupération des données dans la base de données)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-preparation-des-signatures-a-partir-des-fichiers-securises-stp-evidence-audit-list-secured-files-to-download">
+<h2>Processus de préparation des signatures à partir des fichiers sécurisés (STP_EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD)<a class="headerlink" href="#processus-de-preparation-des-signatures-a-partir-des-fichiers-securises-stp-evidence-audit-list-secured-files-to-download" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-evidence-audit-list-secured-files-to-download-evidenceauditlistsecuredfiles-java">
+<h3>Préparation de la liste des signatures dans les fichiers sécurisés EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD (EvidenceAuditListSecuredFiles.java)<a class="headerlink" href="#preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-evidence-audit-list-secured-files-to-download-evidenceauditlistsecuredfiles-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tâche consistant à préparer la liste des signatures des objets, groupes d’objets ou unités archivistiques archivées, dans les fichiers sécurisés.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La préparation de la liste des signatures dans les fichiers sécurisés est un succès (EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD.OK=Succès de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+<li>KO : La préparation de la liste des signatures dans les fichiers sécurisés est un échec (EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD.KO=Echec de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+<li>WARNING : Avertissement lors de la préparation de la liste des signatures (EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD.WARNING=Avertissement lors de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation de la liste des signatures dans les fichiers sécurisés (EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD.FATAL=Erreur technique lors de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-d-extraction-des-signatures-a-partir-des-fichiers-securises-stp-evidence-audit-extract-zip-file">
+<h2>Processus d’extraction des signatures à partir des fichiers sécurisés (STP_EVIDENCE_AUDIT_EXTRACT_ZIP_FILE)<a class="headerlink" href="#processus-d-extraction-des-signatures-a-partir-des-fichiers-securises-stp-evidence-audit-extract-zip-file" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="extraction-des-signatures-a-partir-des-fichiers-securises-evidence-audit-extract-zip-file-evidenceauditextractfromzip-java">
+<h3>Extraction des signatures à partir des fichiers sécurisés EVIDENCE_AUDIT_EXTRACT_ZIP_FILE (EvidenceAuditExtractFromZip.java)<a class="headerlink" href="#extraction-des-signatures-a-partir-des-fichiers-securises-evidence-audit-extract-zip-file-evidenceauditextractfromzip-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tâche consistant à extraire les signatures des objets, groupes d’objets ou unités archivistiques archivées, dans les fichiers sécurisés.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : L’extraction des signatures à partir des fichiers sécurisés est un succès (EVIDENCE_AUDIT_EXTRACT_ZIP_FILE.OK=Succès de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>KO : L’extraction des signatures à partir des fichiers sécurisés est un échec (EVIDENCE_AUDIT_EXTRACT_ZIP_FILE.KO=Echec de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>WARNING : Avertissement lors de l’extraction des signatures à partir des fichiers sécurisés (STP_EVIDENCE_AUDIT_EXTRACT_ZIP_FILE.WARNING=Avertissement lors de l’extraction des signatures à partir des fichiers sécurisés )</li>
+<li>FATAL : Une erreur technique est survenue lors de l’extraction des signatures à partir des fichiers sécurisés (EVIDENCE_AUDIT_EXTRACT_ZIP_FILE.FATAL=Erreur technique lors de l’extraction des signatures à partir des fichiers sécurisés)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-preparation-des-rapports-pour-chaque-objet-groupe-d-objets-ou-unite-audite-stp-evidence-audit-prepare-generate-reports">
+<h2>Processus de préparation des rapports pour chaque objet, groupe d’objets ou unité audité (STP_EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS)<a class="headerlink" href="#processus-de-preparation-des-rapports-pour-chaque-objet-groupe-d-objets-ou-unite-audite-stp-evidence-audit-prepare-generate-reports" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-evidence-audit-prepare-generate-reports-evidenceauditgeneratereports-java">
+<h3>Création du rapport pour chaque unité archivistique ou objet ou groupe d’objets EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS (EvidenceAuditGenerateReports.java)<a class="headerlink" href="#creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-evidence-audit-prepare-generate-reports-evidenceauditgeneratereports-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : Tâche consistant à créer le rapport pour chaque unité archivistique, objet ou groupe d’objets audité</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><dl class="first docutils">
+<dt><strong>Statuts</strong> :</dt>
+<dd><ul class="first last">
+<li>OK : La création du rapport pour chaque unité archivistique ou objet ou groupe d’objets est un succès (EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS.OK=Succès de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+<li>KO : La création du rapport pour chaque unité archivistique ou objet ou groupe d’objets est un échec (EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS.KO=Echec de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+<li>FATAL : une erreur technique est survenue de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS.FATAL=Erreur technique lors de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+<li>WARNING : Avertissement lors de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS.WARNING=Avertissement lors de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-correction-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-stp-corrective-audit">
+<h2>Processus de correction des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante (STP_CORRECTIVE_AUDIT)<a class="headerlink" href="#processus-de-correction-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-stp-corrective-audit" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="correction-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-corrective-audit">
+<h3>Correction des signatures pour chaque objet, groupe d’objets ou unité auditée, défaillante (CORRECTIVE_AUDIT)<a class="headerlink" href="#correction-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-corrective-audit" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tâche consistant à récupérer les données du/des fichiers corrompus auprès de la base de données ou d’une offre de stockage valide.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompue a bien été effectuée (CORRECTIVE_AUDIT.OK=Succès de la correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompue)</li>
+<li>KO : La correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompue n’a pas été effectuée (CORRECTIVE_AUDIT.KO=Échec de la correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompue)</li>
+<li>FATAL : une erreur technique est survenue lors de la correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompu (CORRECTIVE_AUDIT.FATAL=Erreur technique lors de la correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompue)</li>
+<li>WARNING : Avertissement lors de la correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompu (CORRECTIVE_AUDIT.WARNING=Avertissement lors de la correction des signatures de chaque unité archivistique ou objet ou groupe d’objets corrompue)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-finalisation-des-corrections-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-stp-correction-finalize">
+<h2>Processus de finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante (STP_CORRECTION_FINALIZE)<a class="headerlink" href="#processus-de-finalisation-des-corrections-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-stp-correction-finalize" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="finalisation-des-corrections-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-correction-finalize">
+<h3>Finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée, défaillante (CORRECTION_FINALIZE)<a class="headerlink" href="#finalisation-des-corrections-des-signatures-pour-chaque-objet-groupe-d-objets-ou-unite-auditee-defaillante-correction-finalize" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tâche consistant à finaliser la correction des signatures sur les données du/des fichiers corrompus auprès de la base de données ou d’une offre de stockage valide.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante a bien été effectuée (CORRECTION_FINALIZE.OK = Succès du processus de finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante)</li>
+<li>KO : La finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante n’a pas été effectuée (CORRECTION_FINALIZE.KO = Échec du processus de finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante)</li>
+<li>FATAL : une erreur technique est survenue lors de la finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante (CORRECTION_FINALIZE.FATAL = une Erreur technique est survenue lors du processus de finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante)</li>
+<li>WARNING : Avertissement lors de la finalisation des corrections des signatures pour chaque objet, groupe d’objets ou unité auditée défaillante (CORRECTION_FINALIZE.WARNING = Avertissement lors du processus de finalisation des corrections des signatures pour chaque objet, groupe d’”objets ou unité auditée défaillante)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="structure-du-workflow-de-correction-d-audit">
+<h2>Structure du workflow de correction d’audit<a class="headerlink" href="#structure-du-workflow-de-correction-d-audit" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center">
+<img alt="../_images/workflow_correction_audit.png" src="../_images/workflow_correction_audit.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow_probative_value.html" class="btn btn-neutral float-right" title="Workflow de relevé de valeur probante" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rapportauditconsistency.html" class="btn btn-neutral" title="Rapport d’audit de cohérence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

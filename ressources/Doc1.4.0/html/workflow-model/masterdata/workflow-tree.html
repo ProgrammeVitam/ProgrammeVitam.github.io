@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow d’import d’un arbre de positionnement &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Workflow d’administration d’un référentiel de règles de gestion" href="rules.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">MASTERDATA</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d’import d’un arbre de positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-d-un-arbre-holdingscheme-vision-metier">Processus d’import d’un arbre (HOLDINGSCHEME - vision métier)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage-checkdataobjectpackageactionhandler-java">Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE (CheckDataObjectPackageActionHandler.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow">Structure du Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">Workflow d’administration d’un référentiel de règles de gestion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formats.html">Workflow d’import d’un référentiel des formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d’administration d’un référentiel des services agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d’administration d’un référentiel des contrats d’entrée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d’administration d’un référentiel des contrats d’accès</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d’import d’un référentiel des profils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_profiles.html">Workflow d’administration d’un référentiel des profils de sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contextes.html">Workflow d’administration d’un référentiel des contextes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’import d’un référentiel des documents types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontologie.html">Workflow d’import d’un référentiel des vocabulaires de l’ontologie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">MASTERDATA</a> &raquo;</li>
+        
+      <li>Workflow d’import d’un arbre de positionnement</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masterdata/workflow-tree.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-d-import-d-un-arbre-de-positionnement">
+<h1>Workflow d’import d’un arbre de positionnement<a class="headerlink" href="#workflow-d-import-d-un-arbre-de-positionnement" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus  permettant d’importer un arbre de positionnement dans la solution logicielle Vitam. La structure d’un arbre de positionnement diffère de celle d’un SIP en plusieurs points.</p>
+<p>Un arbre ne doit pas avoir d’objet, ni de service producteur, ni de contrat. Il s’agit plus simplement d’une arborescence représentée par des unités archivistiques. Ce processus partage donc certaines étapes avec celui du transfert d’un SIP classique, en ignore certaines et rajoute des tâches additionnelles.</p>
+</div>
+<div class="section" id="processus-d-import-d-un-arbre-holdingscheme-vision-metier">
+<h2>Processus d’import d’un arbre (HOLDINGSCHEME - vision métier)<a class="headerlink" href="#processus-d-import-d-un-arbre-holdingscheme-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus d’import d’un arbre est identique au workflow d’entrée d’un SIP. Il débute lors du lancement du téléchargement de l’arbre dans la solution logicielle Vitam. Par ailleurs, toutes les étapes, tâches et traitements sont journalisés dans le journal des opérations.</p>
+<p>La fin du processus peut prendre plusieurs statuts :</p>
+<ul>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul class="simple">
+<li>OK : l’arbre de positionnement a été importé (HOLDINGSCHEME.OK = Succès de l’import de l’arbre de positionnement)</li>
+<li>KO : l’arbre de positionnement n’a pas été importé (HOLDINGSCHEME.KO = Échec de l’import de l’arbre de positionnement)</li>
+<li>FATAL : une erreur fatale est survenue lors de l’import de l’arbre de positionnement (HOLDINGSCHEME.FATAL = Erreur fatale lors de l’import de l’arbre de positionnement)</li>
+</ul>
+<p>Les étapes et tâches associées ci-dessous décrivent ce processus d’import (clé et description de la clé associée dans le journal des opérations), non encore abordées dans la description de l’entrée d’un SIP.</p>
+</li>
+</ul>
+<div class="section" id="traitement-additionnel-dans-la-tache-check-dataobjectpackage-checkdataobjectpackageactionhandler-java">
+<h3>Traitement additionnel dans la tâche CHECK_DATAOBJECTPACKAGE (CheckDataObjectPackageActionHandler.java)<a class="headerlink" href="#traitement-additionnel-dans-la-tache-check-dataobjectpackage-checkdataobjectpackageactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="verification-de-la-non-existence-d-objets-check-no-object-checkdataobjectpackageactionhandler">
+<h4>Vérification de la non existence d’objets CHECK_NO_OBJECT (CheckDataObjectPackageActionHandler)<a class="headerlink" href="#verification-de-la-non-existence-d-objets-check-no-object-checkdataobjectpackageactionhandler" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification qu’il n’y a pas d’objet numérique dans le bordereau de transfert de l’arbre de positionnement.<ul>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : aucun objet numérique n’est présent dans le bordereau de transfert (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.OK=Succès de la vérification de l’absence d’objet)</li>
+<li>KO : des objets numériques sont présent dans le bordereau de transfert (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.KO=Échec de la vérification de l’absence d’objet : objet(s) trouvé(s))</li>
+<li>FATAL : une erreur fatale est survenue lors de la vérification de la non existence d’objet numérique (CHECK_DATAOBJECTPACKAGE.CHECK_NO_OBJECT.FATAL=Erreur fatale lors de la vérification de l’absence d’objet)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="structure-du-workflow">
+<h2>Structure du Workflow<a class="headerlink" href="#structure-du-workflow" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le workflow mis en place dans la solution logicielle Vitam est défini dans le fichier «&nbsp;DefaultHoldingSchemeWorkflow.json&nbsp;». Ce fichier est disponible à sources/processing/processing-management/src/main/resources/workflows.</p>
+<img alt="../_images/Workflow_HoldingScheme.jpg" class="align-center" src="../_images/Workflow_HoldingScheme.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rules.html" class="btn btn-neutral float-right" title="Workflow d’administration d’un référentiel de règles de gestion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.1. Multi-sites &mdash; Documentation VITAM - Documentation d&#39;installation 1.4.0</title>
+  <title>4.2.1. Multi-sites &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -94,6 +94,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="_toc.html#procedures">4.2. Procédures</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.1. Multi-sites</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#procedure">4.2.1.1. Procédure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flux-entre-storage-et-offer">4.2.1.2. Flux entre Storage et offer</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="10-configuration.html">4.2.2. Configuration du déploiement</a></li>
@@ -183,10 +184,39 @@
 <p class="first admonition-title">Prudence</p>
 <p class="last">La variable <code class="docutils literal notranslate"><span class="pre">secret_plateforme</span></code> doit être commune sur les différents sites.</p>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Cas d’appel https au composant offer sur site secondaire. Dans ce cas, il convient également de rajouter, sur le site «&nbsp;primaire&nbsp;», les certificats relatifs ( CA du site secondaire ) à l’offre secondaire. Il faut également rapatrier sur site secondaire la CA et le certificat client du site primaire.</p>
 </div>
+<div class="section" id="flux-entre-storage-et-offer">
+<h2>4.2.1.2. Flux entre Storage et offer<a class="headerlink" href="#flux-entre-storage-et-offer" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans le cas d’appel en https entre les composants Storage et Offer, il convient également de rajouter:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Sur le site primaire</dt>
+<dd><ul class="first last">
+<li>Dans le truststore de Storage: la CA ayant signé le certificat de l’Offer du site secondaire</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sur le site secondaire</dt>
+<dd><ul class="first last">
+<li>Dans le truststore de Offer: la CA ayant signé le certificat du Storage du site primaire</li>
+<li>Dans le grantedstore de Offer: le certificat du storage du site primaire</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure align-center" id="id1">
+<img alt="../_images/certificats-multisite.png" src="../_images/certificats-multisite.png" />
+<p class="caption"><span class="caption-text">Vue détaillée des certificats entre le storage et l’offre en multi-site</span></p>
+</div>
+<p>Après la génération des keystore via le script deployment/generate_stores.sh, il convient donc de rajouter les CA et certificats indiqués ci-dessus.</p>
+<p>Ajout d’un certificat:
+<code class="docutils literal notranslate"><span class="pre">keytool</span> <span class="pre">-import</span> <span class="pre">-keystore</span> <span class="pre">-file</span> <span class="pre">&lt;certificat.crt&gt;</span> <span class="pre">-alias</span> <span class="pre">&lt;alias_certificat&gt;</span></code></p>
+<p>Ajout d’une CA:
+<code class="docutils literal notranslate"><span class="pre">keytool</span> <span class="pre">-import</span> <span class="pre">-trustcacerts</span> <span class="pre">-keystore</span> <span class="pre">-file</span> <span class="pre">&lt;ca.crt&gt;</span> <span class="pre">-alias</span> <span class="pre">&lt;alias_certificat&gt;</span></code></p>
+<p>Il est également possible de placer les fichiers CA et certificats directement dans les bons répertoires avant de lancer generate_stores.sh.</p>
 </div>
 </div>
 
@@ -210,7 +240,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -229,21 +259,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

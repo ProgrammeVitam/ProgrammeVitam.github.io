@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow de création de journal des cycles de vie sécurisé des groupes d’objets &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow de création de journal des cycles de vie sécurisé des groupes d’objets &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Création de journal sécurisé des journaux des écritures sécurisés" href="workflow-traceability-storage.html" />
-    <link rel="prev" title="Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques" href="workflow-traceability.html" /> 
+    <link rel="next" title="Création de journal sécurisé des journaux des écritures" href="workflow-traceability-storage.html" />
+    <link rel="prev" title="Workflow du processus de sécurisation du journal des opérations" href="workflow-op-traceability.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -92,34 +92,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc_traceability.html">TRACEABILITY</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="workflow-traceability.html">Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-op-traceability.html">Workflow du processus de sécurisation du journal des opérations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow de création de journal des cycles de vie sécurisé des groupes d’objets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-vision-metier">Processus de sécurisation des journaux des cycles de vie (vision métier)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-des-groupes-d-objets-vision-metier">Processus de sécurisation des journaux des cycles de vie des groupes d’objets (vision métier)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#securisation-des-journaux-du-cycle-de-vie-logbook-objectgroup-lfc-traceability-logbooklfcadministration-java">Sécurisation des journaux du cycle de vie LOGBOOK_OBJECTGROUP_LFC_TRACEABILITY (LogbookLFCAdministration.java)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#preparation-des-listes-des-cycles-de-vie">Préparation des listes des cycles de vie</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-des-unites-archivistiques-vision-metier">Processus de sécurisation des journaux des cycles de vie des unités archivistiques  (vision métier)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#securisation-des-journaux-du-cycle-de-vie-des-unites-archivistiques-logbook-unit-lfc-traceability-logbooklfcadministration-java">Sécurisation des journaux du cycle de vie  des unités archivistiques LOGBOOK_UNIT_LFC_TRACEABILITY (LogbookLFCAdministration.java)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Préparation des listes des cycles de vie</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow-du-processus-de-securisation-des-journaux-des-cycles-de-vie-des-groupes-d-objets">Structure du workflow du processus de sécurisation des journaux des cycles de vie des groupes d’objets</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques">Workflow de création de journal des cycles de vie sécurisé des unités archivistiques</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Processus de sécurisation des journaux des cycles de vie des unités archivistiques  (vision métier)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Sécurisation des journaux du cycle de vie  des unités archivistiques LOGBOOK_UNIT_LFC_TRACEABILITY (LogbookLFCAdministration.java)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Préparation des listes des cycles de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-des-unites-archivistiques-vision-metier">Processus de sécurisation des journaux des cycles de vie des unités archivistiques  (vision métier)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securisation-des-journaux-du-cycle-de-vie-des-unites-archivistiques-logbook-unit-lfc-traceability-logbooklfcadministration-java">Sécurisation des journaux du cycle de vie  des unités archivistiques LOGBOOK_UNIT_LFC_TRACEABILITY (LogbookLFCAdministration.java)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Préparation des listes des cycles de vie</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-storage.html">Création de journal sécurisé des journaux des écritures sécurisés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-storage.html">Création de journal sécurisé des journaux des écritures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-access-log.html">Processus de sauvegarde des journaux des accès</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -190,27 +189,35 @@
 <h1>Workflow de création de journal des cycles de vie sécurisé des groupes d’objets<a class="headerlink" href="#workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-groupes-d-objets" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) permettant la sécurisation des journaux du cycle de vie mis en place dans la solution logicielle Vitam des groupes d’objets.
+<p>Cette section décrit le processus (workflow) permettant la sécurisation des journaux du cycle de vie des groupes d’objets mis en place dans la solution logicielle Vitam.
 Le workflow mis en place dans la solution logicielle Vitam est défini dans le fichier «&nbsp;DefaultObjectGroupLifecycleTraceability.json&nbsp;».
 Ce fichier est disponible dans : sources/processing/processing-management/src/main/resources/workflows.</p>
-<p>Note : Le traitement permettant la sécurisation des journaux du cycle de vie procède par des tranches de lots de 100K. La solution Vitam à la fin de ce premier lot enclenche un autre traitement de 100K et ce jusqu’à avoir traités l’ensemble des groupes d’objets.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Le traitement permettant la sécurisation des journaux du cycle de vie procède par des tranches de lots de 100K. La solution Vitam à la fin de ce premier lot enclenche un autre traitement de 100K et ce jusqu’à avoir traités l’ensemble des groupes d’objets.</p>
 </div>
-<div class="section" id="processus-de-securisation-des-journaux-des-cycles-de-vie-vision-metier">
-<h2>Processus de sécurisation des journaux des cycles de vie (vision métier)<a class="headerlink" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+</div></blockquote>
+</div>
+<div class="section" id="processus-de-securisation-des-journaux-des-cycles-de-vie-des-groupes-d-objets-vision-metier">
+<h2>Processus de sécurisation des journaux des cycles de vie des groupes d’objets (vision métier)<a class="headerlink" href="#processus-de-securisation-des-journaux-des-cycles-de-vie-des-groupes-d-objets-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le processus de sécurisation des journaux des cycles de vie consiste en la création d’un fichier .zip contenant l’ensemble des journaux du cycle de vie à sécuriser, ainsi que le tampon d’horodatage.</p>
 <p>Ce fichier zip est ensuite enregistré sur les offres de stockage, en fonction de la stratégie de stockage.</p>
 </div>
 <div class="section" id="securisation-des-journaux-du-cycle-de-vie-logbook-objectgroup-lfc-traceability-logbooklfcadministration-java">
 <h2>Sécurisation des journaux du cycle de vie LOGBOOK_OBJECTGROUP_LFC_TRACEABILITY (LogbookLFCAdministration.java)<a class="headerlink" href="#securisation-des-journaux-du-cycle-de-vie-logbook-objectgroup-lfc-traceability-logbooklfcadministration-java" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La fin du processus peut prendre plusieurs statuts :</p>
 <ul>
+<li><p class="first"><strong>Règle</strong> : sécurisation des journaux des cycles de vie des groupes d’objets</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
 <li>OK : les journaux du cycle de vie ont été sécurisés (LOGBOOK_OBJECTGROUP_LFC_TRACEABILITY.OK = Succès de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
 <li>WARNING : il n’y pas de nouveaux journaux à sécuriser depuis la dernière sécurisation (LOGBOOK_OBJECTGROUP_LFC_TRACEABILITY.WARNING = Avertissement lors de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
 <li>KO : pas de cas KO</li>
-<li>FATAL : une erreur fatale est survenue lors de la sécurisation du journal des opérations (LOGBOOK_OBJECTGROUP_LFC_TRACEABILITY.FATAL = Erreur fatale lors de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation du journal des opérations (LOGBOOK_OBJECTGROUP_LFC_TRACEABILITY.FATAL = Erreur technique lors de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
 </ul>
 </div></blockquote>
 </li>
@@ -219,60 +226,86 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <h3>Préparation des listes des cycles de vie<a class="headerlink" href="#preparation-des-listes-des-cycles-de-vie" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="etape-1-stp-prepare-og-lfc-traceability-distribution-sur-ref">
 <h4><strong>Étape 1</strong> - STP_PREPARE_OG_LFC_TRACEABILITY -  distribution sur REF<a class="headerlink" href="#etape-1-stp-prepare-og-lfc-traceability-distribution-sur-ref" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li>Liste cycles de vie à sécuriser - PREPARE_OG_LFC_TRACEABILITY - fichier out : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json<ul>
+<p>Liste cycles de vie à sécuriser - PREPARE_OG_LFC_TRACEABILITY - fichier out : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>Règle</strong> : récupération des journaux des cycles de vie à sécuriser et récupération des informations concernant les dernières opérations de sécurisation.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : les fichiers des journaux des cycles de vie ont été exportés (dans ObjectGroup) ainsi que les informations concernant les dernières opérations de sécurisation (PREPARE_OG_LFC_TRACEABILITY.OK=Succès du listage des journaux du cycle de vie des groupes d’objets)</li>
-<li>KO : les informations sur la dernière opération de sécurisation n’ont pas pu être obtenues / exportées, ou un problème a été rencontré avec un journal de cycle de vie (PREPARE_OG_LFC_TRACEABILITY.KO=Échec du listage des journaux du cycle de vie des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue (PREPARE_LC_TRACEABILITY.FATAL=Erreur fatale lors du listage des journaux du cycle de vie des groupes d’objets)</li>
+<li>OK : les fichiers des journaux des cycles de vie ont été exportés (dans ObjectGroup) ainsi que les informations concernant les dernières opérations de sécurisation (PREPARE_OG_LFC_TRACEABILITY.OK = Succès de la préparation de la liste des journaux du cycle de vie des groupes d’objets)</li>
+<li>KO : les informations sur la dernière opération de sécurisation n’ont pas pu être obtenues / exportées, ou un problème a été rencontré avec un journal de cycle de vie (PREPARE_OG_LFC_TRACEABILITY.KO = Échec de la préparation de la liste des journaux du cycle de vie des groupes d’objets)</li>
+<li>FATAL : une erreur technique est survenue (PREPARE_LC_TRACEABILITY.FATAL=Erreur technique lors de la préparation de la liste des journaux du cycle de vie des groupes d’objets)</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+</div></blockquote>
 </div>
 <div class="section" id="etape-2-stp-og-create-secured-file-distribution-sur-list-fichiers-presents-dans-objectgroup">
 <h4><strong>Étape 2</strong> - STP_OG_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans ObjectGroup<a class="headerlink" href="#etape-2-stp-og-create-secured-file-distribution-sur-list-fichiers-presents-dans-objectgroup" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li>Traitement des journaux du cycle de vie des groupes d’objets - OG_CREATE_SECURED_FILE<ul>
+<p>Traitement des journaux du cycle de vie des groupes d’objets - OG_CREATE_SECURED_FILE</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>Règle</strong> : application de l’algorithme pour créer les fichiers sécurisés des journaux du cycle de vie des groupes d’objets, journal par journal, et génèration du fichier sécurisé.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : le fichier sécurisé pour le journal du cycle de vie en cours a été généré (STP_OG_CREATE_SECURED_FILE.OK=Succès du processus de sécurisation des groupes d’objets)</li>
-<li>WARNING : il n’y a pas de nouveaux journaux à sécuriser (STP_OG_CREATE_SECURED_FILE.WARNING=Avertissement lors du du processus de sécurisation des groupes d’objets)</li>
-<li>KO : le fichier pour le groupe d’objet n’a pas pu être trouvé (STP_OG_CREATE_SECURED_FILE.KO=Échec du processus de sécurisation des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue lors de la génération des fichiers sécurisés (STP_OG_CREATE_SECURED_FILE.FATAL=Erreur fatale lors du processus de sécurisation des groupes d’objets)</li>
+<li>OK : le fichier sécurisé pour le journal du cycle de vie en cours a été généré (STP_OG_CREATE_SECURED_FILE.OK = Succès du processus de sécurisation des groupes d’objets)</li>
+<li>WARNING : il n’y a pas de nouveaux journaux à sécuriser (STP_OG_CREATE_SECURED_FILE.WARNING = Avertissement lors du du processus de sécurisation des groupes d’objets)</li>
+<li>KO : le fichier pour le groupe d’objet n’a pas pu être trouvé (STP_OG_CREATE_SECURED_FILE.KO = Échec du processus de sécurisation des groupes d’objets)</li>
+<li>FATAL : une erreur technique est survenue lors de la génération des fichiers sécurisés (STP_OG_CREATE_SECURED_FILE.FATAL = Erreur technique lors du processus de sécurisation des groupes d’objets)</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>Vérification de la liste des éléments à traiter (OBJECTS_LIST_EMPTY)<ul>
+</div></blockquote>
+<p>Vérification de la liste des éléments à traiter (OBJECTS_LIST_EMPTY)</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>Règle</strong> : vérification de la présence ou non d’objets à traiter. Cette action ne s’inscrit dans le journal des opérations uniquement dans les cas fatal et warning.</li>
 <li><strong>Type</strong> : non applicable</li>
 <li><strong>Statuts</strong> :<ul>
-<li>WARNING : il n’y a pas de nouveaux journaux à sécuriser (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
-<li>FATAL : une erreur fatale est survenue lors de la génération des fichiers sécurisés (OBJECTS_LIST_EMPTY.FATAL = Erreur fatale lors de l’établissement de la liste des objets)</li>
+<li>WARNING : il n’y a pas de nouveaux objets (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
+<li>FATAL : une erreur technique est survenue lors de la génération des fichiers sécurisés (OBJECTS_LIST_EMPTY.FATAL = Erreur technique lors de l’établissement de la liste des objets)</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+</div></blockquote>
 </div>
 <div class="section" id="etape-3-stp-og-traceability-finalization-distribution-sur-ref">
 <h4><strong>Étape 3</strong> - STP_OG_TRACEABILITY_FINALIZATION -  distribution sur REF<a class="headerlink" href="#etape-3-stp-og-traceability-finalization-distribution-sur-ref" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li>Finalisation de la sécurisation - FINALIZE_OG_LFC_TRACEABILITY - fichier présent dans : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json<ul>
+<p>Finalisation de la sécurisation - FINALIZE_OG_LFC_TRACEABILITY - fichier présent dans : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>Règle</strong> : récupération des différents fichiers générés aux étapes 1 et 2 puis calcul du tampon d’horodatage</li>
+<li><strong>Type</strong> : non applicable</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la sécurisation des journaux du cycle de vie des groupes d’objets a bien été effectué (FINALIZE_OG_LFC_TRACEABILITY.OK = Succès de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
+<li>KO : la sécurisation des journaux du cycle de vie des groupes d’objets n’a pas été effectué (FINALIZE_OG_LFC_TRACEABILITY.KO = Échec de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
+<li>FATAL : une erreur technique est survenue lors de la la sécurisation des journaux du cycle de vie des groupes d’objets (FINALIZE_OG_LFC_TRACEABILITY.FATAL = Erreur technique lors de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
 </ul>
 </li>
 </ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="structure-du-workflow-du-processus-de-securisation-des-journaux-des-cycles-de-vie-des-groupes-d-objets">
+<h2>Structure du workflow du processus de sécurisation des journaux des cycles de vie des groupes d’objets<a class="headerlink" href="#structure-du-workflow-du-processus-de-securisation-des-journaux-des-cycles-de-vie-des-groupes-d-objets" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><div class="figure align-center">
+<img alt="../_images/workflow_lfc_og_traceability.png" src="../_images/workflow_lfc_og_traceability.png" />
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques">
+<h1>Workflow de création de journal des cycles de vie sécurisé des unités archivistiques<a class="headerlink" href="#workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="id1">
+<h2>Introduction<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette section décrit le processus (workflow) permettant la sécurisation des journaux du cycle de vie mis en place dans la solution logicielle Vitam des unités archivistiques.
 Le workflow mis en place dans la solution logicielle Vitam est défini dans le fichier «&nbsp;DefaultUnitLifecycleTraceability.json&nbsp;».
 Ce fichier est disponible dans : sources/processing/processing-management/src/main/resources/workflows.</p>
-<p>Note : Le traitement permettant la sécurisation des journaux du cycle de vie procède par des tranches de lots de 100K. La solution Vitam à la fin de ce premier lot enclenche un autre traitement de 100K et ce jusqu’à avoir traités l’ensemble des unités archivistiques.</p>
-</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Le traitement permettant la sécurisation des journaux du cycle de vie procède par des tranches de lots de 100K. La solution Vitam à la fin de ce premier lot enclenche un autre traitement de 100K et ce jusqu’à avoir traités l’ensemble des unités archivistiques.</p>
 </div>
 </div>
 <div class="section" id="processus-de-securisation-des-journaux-des-cycles-de-vie-des-unites-archivistiques-vision-metier">
@@ -290,107 +323,31 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <li>OK : les journaux du cycle de vie ont été sécurisés (LOGBOOK_UNIT_LFC_TRACEABILITY.OK = Succès de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 <li>WARNING : il n’y pas de nouveaux journaux à sécuriser depuis la dernière sécurisation (LOGBOOK_UNIT_LFC_TRACEABILITY.WARNING = Avertissement lors de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 <li>KO : pas de cas KO</li>
-<li>FATAL : une erreur fatale est survenue lors de la sécurisation du journal des opérations (LOGBOOK_UNIT_LFC_TRACEABILITY.FATAL = Erreur fatale lors de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation du journal des opérations (LOGBOOK_UNIT_LFC_TRACEABILITY.FATAL = Erreur technique lors de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-<div class="section" id="id1">
-<h3>Préparation des listes des cycles de vie<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id2">
+<h3>Préparation des listes des cycles de vie<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="etape-1-stp-prepare-unit-lfc-traceability-distribution-sur-ref">
 <h4><strong>Étape 1</strong> - STP_PREPARE_UNIT_LFC_TRACEABILITY -  distribution sur REF<a class="headerlink" href="#etape-1-stp-prepare-unit-lfc-traceability-distribution-sur-ref" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li>Liste cycles de vie à sécuriser - PREPARE_UNIT_LFC_TRACEABILITY - fichier out : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json<ul>
+<p>Liste cycles de vie à sécuriser - PREPARE_UNIT_LFC_TRACEABILITY - fichier out : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>Règle</strong> : récupération des journaux des cycles de vie à sécuriser et récupération des informations concernant les dernières opérations de sécurisation.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : les fichiers des cycles de vie ont été exportés (dans UnitsWithoutLevel et ObjectGroup) ainsi que les informations concernant les dernières opérations de sécurisation (PREPARE_UNIT_LFC_TRACEABILITY.OK=Succès du listage des journaux du cycle de vie)</li>
-<li>KO : les informations sur la dernière opération de sécurisation n’ont pas pu être obtenues / exportées, ou un problème a été rencontré avec un cycle de vie (PREPARE_UNIT_LFC_TRACEABILITY.KO=Échec du listage des journaux du cycle de vie)</li>
-<li>FATAL : une erreur fatale est survenue (PREPARE_UNIT_LFC_TRACEABILITY.FATAL=Erreur fatale lors du listage des journaux du cycle de vie)</li>
+<li>OK : les fichiers des cycles de vie ont été exportés (dans UnitsWithoutLevel et ObjectGroup) ainsi que les informations concernant les dernières opérations de sécurisation (PREPARE_UNIT_LFC_TRACEABILITY.OK = Succès du listage des journaux du cycle de vie)</li>
+<li>KO : les informations sur la dernière opération de sécurisation n’ont pas pu être obtenues / exportées, ou un problème a été rencontré avec un cycle de vie (PREPARE_UNIT_LFC_TRACEABILITY.KO = Échec du listage des journaux du cycle de vie)</li>
+<li>FATAL : une erreur technique est survenue (PREPARE_UNIT_LFC_TRACEABILITY.FATAL = Erreur technique lors du listage des journaux du cycle de vie)</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+</div></blockquote>
 </div>
 <div class="section" id="etape-3-stp-units-create-secured-file-distribution-sur-list-fichiers-presents-dans-guid">
 <h4><strong>Étape 3</strong> - STP_UNITS_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans GUID<a class="headerlink" href="#etape-3-stp-units-create-secured-file-distribution-sur-list-fichiers-presents-dans-guid" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li>Traitement des journaux du cycle de vie pour les unités archivistiques - UNITS_CREATE_SECURED_FILE<ul>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Règle</strong> : application de l’algorithme pour créer les fichiers sécurisés des cycles de vie des unités archivistiques, journal par journal, et génèration du fichier sécurisé.</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : le fichier zip final a été créé et sauvegarder sur les offres de stockage (FINALIZE_OG_LFC_TRACEABILITY.OK=Succès de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
-<li>KO : le fichier zip n’a pas pu être généré ou sauvegardé sur les offres (FINALIZE_OG_LFC_TRACEABILITY.KO=Échec de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue lors de la création du fichier zip final et de la sauvegarde sur les offres de stockage (FINALIZE_OG_LFC_TRACEABILITY.FATAL=Erreur fatale lors de la sécurisation des journaux du cycle de vie des groupes d’objets)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>D’une façon synthétique, le workflow est décrit de cette façon :</p>
-<p>Diagramme d’activité du workflow de sécurisation des cycles de vie des groupes d’objets</p>
-<blockquote>
-<div><div class="figure align-center">
-<img alt="../_images/workflow_lfc_og_traceability.png" src="../_images/workflow_lfc_og_traceability.png" />
-</div>
-</div></blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques">
-<h1>Workflow de création de journal des cycles de vie sécurisé des unités archivistiques<a class="headerlink" href="#workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="id2">
-<h2>Introduction<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) permettant la sécurisation des journaux du cycle de vie mis en place dans la solution logicielle Vitam des unités archivistiques.
-Le workflow mis en place dans la solution logicielle Vitam est défini dans le fichier «&nbsp;DefaultUnitLifecycleTraceability.json&nbsp;».
-Ce fichier est disponible dans : sources/processing/processing-management/src/main/resources/workflows.</p>
-<div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
-<p class="last">Le traitement permettant la sécurisation des journaux du cycle de vie procède par des tranches de lots de 100K. La solution Vitam à la fin de ce premier lot enclenche un autre traitement de 100K et ce jusqu’à avoir traités l’ensemble des unités archivistiques.</p>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>Processus de sécurisation des journaux des cycles de vie des unités archivistiques  (vision métier)<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le processus de sécurisation des journaux des cycles de vie consiste en la création d’un fichier .zip contenant l’ensemble des journaux du cycle de vie à sécuriser, ainsi que le tampon d’horodatage.</p>
-<p>Ce fichier zip est ensuite enregistré sur les offres de stockage, en fonction de la stratégie de stockage.</p>
-</div>
-<div class="section" id="id4">
-<h2>Sécurisation des journaux du cycle de vie  des unités archivistiques LOGBOOK_UNIT_LFC_TRACEABILITY (LogbookLFCAdministration.java)<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La fin du processus peut prendre plusieurs statuts :</p>
-<ul>
-<li><p class="first"><strong>Statuts</strong> :</p>
-<blockquote>
-<div><ul class="simple">
-<li>OK : les journaux du cycle de vie ont été sécurisés (LOGBOOK_UNIT_LFC_TRACEABILITY.OK = Succès de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
-<li>WARNING : il n’y pas de nouveaux journaux à sécuriser depuis la dernière sécurisation (LOGBOOK_UNIT_LFC_TRACEABILITY.WARNING = Avertissement lors de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
-<li>KO : pas de cas KO</li>
-<li>FATAL : une erreur fatale est survenue lors de la sécurisation du journal des opérations (LOGBOOK_UNIT_LFC_TRACEABILITY.FATAL = Erreur fatale lors de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-<div class="section" id="id5">
-<h3>Préparation des listes des cycles de vie<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="id6">
-<h4><strong>Étape 1</strong> - STP_PREPARE_UNIT_LFC_TRACEABILITY -  distribution sur REF<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li>Liste cycles de vie à sécuriser - PREPARE_UNIT_LFC_TRACEABILITY - fichier out : GUID/Operations/lastOperation.json &amp; Operations/traceabilityInformation.json<ul>
-<li><strong>Règle</strong> : récupération des journaux des cycles de vie à sécuriser et récupération des informations concernant les dernières opérations de sécurisation.</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : les fichiers des cycles de vie ont été exportés (dans UnitsWithoutLevel et ObjectGroup) ainsi que les informations concernant les dernières opérations de sécurisation (PREPARE_UNIT_LFC_TRACEABILITY.OK=Succès du listage des journaux du cycle de vie)</li>
-<li>KO : les informations sur la dernière opération de sécurisation n’ont pas pu être obtenues / exportées, ou un problème a été rencontré avec un cycle de vie (PREPARE_UNIT_LFC_TRACEABILITY.KO=Échec du listage des journaux du cycle de vie)</li>
-<li>FATAL : une erreur fatale est survenue (PREPARE_UNIT_LFC_TRACEABILITY.FATAL=Erreur fatale lors du listage des journaux du cycle de vie)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="id7">
-<h4><strong>Étape 3</strong> - STP_UNITS_CREATE_SECURED_FILE -  distribution sur LIST - fichiers présents dans GUID<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h4>
 <ul class="simple">
 <li>Traitement des journaux du cycle de vie pour les unités archivistiques - UNITS_CREATE_SECURED_FILE<ul>
 <li><strong>Type</strong> : bloquant</li>
@@ -398,8 +355,8 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <li><strong>Statuts</strong> :<ul>
 <li>OK : le fichier sécurisé pour les journaux du cycle de vie en cours a été généré (UNITS_CREATE_SECURED_FILE.OK=Succès du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 <li>WARNING : il n’y a pas de nouveaux journaux à sécuriser (STP_UNITS_CREATE_SECURED_FILE.WARNING = Avertissement lors du processus de sécurisation des unités archivistiques)</li>
-<li>KO : le fichier pour le groupe d’objet n’a pas pu être trouvé (UNITS_CREATE_SECURED_FILE.KO=Échec du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
-<li>FATAL : une erreur fatale est survenue lors de la génération des fichiers sécurisés (UNITS_CREATE_SECURED_FILE.FATAL=Erreur fatale lors du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
+<li>KO : le fichier pour le groupe d’objet n’a pas pu être trouvé (UNITS_CREATE_SECURED_FILE.KO = Échec du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la génération des fichiers sécurisés (UNITS_CREATE_SECURED_FILE.FATAL = Erreur technique lors du processus de sécurisation des journaux du cycle de vie des unités archivistiques)</li>
 </ul>
 </li>
 </ul>
@@ -415,9 +372,9 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Règle</strong> : récupération des différents fichiers générés aux étapes 2 et 3 puis calcul du tampon d’horodatage</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : le fichier zip final a été créé et sauvegarder sur les offres de stockage (FINALIZE_LC_TRACEABILITY.OK=Succès de la sécurisation des journaux du cycle de vie)</li>
-<li>KO : le fichier zip n’a pas pu être généré ou sauvegardé sur les offres (FINALIZE_LC_TRACEABILITY.KO=Échec de la sécurisation des journaux du cycle de vie)</li>
-<li>FATAL : une erreur fatale est survenue lors de la création du fichier zip final et de la sauvegarde sur les offres de stockage (FINALIZE_LC_TRACEABILITY.FATAL=Erreur fatale lors de la sécurisation des journaux du cycle de vie)</li>
+<li>OK : le fichier zip final a été créé et sauvegarder sur les offres de stockage (FINALIZE_UNIT_LFC_TRACEABILITY.OK = Succès de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
+<li>KO : le fichier zip n’a pas pu être généré ou sauvegardé sur les offres (FINALIZE_UNIT_LFC_TRACEABILITY.KO = Échec de la sécurisation des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la création du fichier zip final et de la sauvegarde sur les offres de stockage (FINALIZE_UNIT_LFC_TRACEABILITY.FATAL = Erreur technique lors de la sécurisation des journaux du cycle de vie  des unités archivistiques)</li>
 </ul>
 </li>
 </ul>
@@ -443,10 +400,10 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="workflow-traceability-storage.html" class="btn btn-neutral float-right" title="Création de journal sécurisé des journaux des écritures sécurisés" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="workflow-traceability-storage.html" class="btn btn-neutral float-right" title="Création de journal sécurisé des journaux des écritures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="workflow-traceability.html" class="btn btn-neutral" title="Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="workflow-op-traceability.html" class="btn btn-neutral" title="Workflow du processus de sécurisation du journal des opérations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -455,7 +412,7 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -474,21 +431,24 @@ Ce fichier est disponible dans : sources/processing/processing-management/src/ma
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

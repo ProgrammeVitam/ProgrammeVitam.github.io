@@ -1,0 +1,657 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow de relevé de valeur probante &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="DIP" href="../dip/_toc_dip.html" />
+    <link rel="prev" title="Workflow de l’audit correctif" href="workflow_correction_audit.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.0-1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">AUDIT</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workflow-check-traceability.html">Workflow de contrôle d’intégrité d’un journal sécurisé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_existing_integrity.html">Workflow de l’audit de l’existence et de l’intégrité des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rapportaudit.html">Rapport d’audit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow d’audit de cohérence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rapportauditconsistency.html">Rapport d’audit de cohérence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_correction_audit.html">Workflow de l’audit correctif</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow de relevé de valeur probante</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-preparation-du-releve-de-valeur-probante-stp-probative-value-prepare">Processus de préparation du relevé de valeur probante (STP_PROBATIVE_VALUE_PREPARE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation-de-la-liste-des-objects-du-releve-de-valeur-probante-probative-value-list-object">Création de la liste des objects du relevé de valeur probante (PROBATIVE_VALUE_LIST_OBJECT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#debut-de-la-recuperation-des-donnees-dans-la-base-de-donnee-stp-probative-value-check-object-group">Début de la récupération des données dans la base de donnée (STP_PROBATIVE_VALUE_CHECK_OBJECT_GROUP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recuperation-des-donnees-dans-la-base-de-donnee-probative-value-check-object-group">Récupération des données dans la base de donnée (PROBATIVE_VALUE_CHECK_OBJECT_GROUP)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-stp-probative-value-list-secured-files-to-download">Processus de préparation de la liste des signatures dans les fichiers sécurisés (STP_PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-probative-value-list-secured-files-to-download">Préparation de la liste des signatures dans les fichiers sécurisés (PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-unites-archivistiques-stp-probative-value-extract-zip-file">Extraction des signatures à partir des fichiers sécurisés des unités archivistiques (STP_PROBATIVE_VALUE_EXTRACT_ZIP_FILE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-unites-archivistiques-probative-value-extract-zip-file">Extraction des signatures à partir des fichiers sécurisés des unités archivistiques (PROBATIVE_VALUE_EXTRACT_ZIP_FILE)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-journaux-securises-stp-probative-value-extract-zip-file">Extraction des signatures à partir des fichiers sécurisés des journaux sécurisés (STP_PROBATIVE_VALUE_EXTRACT_ZIP_FILE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-journaux-securises-probative-value-extract-zip-file">Extraction des signatures à partir des fichiers sécurisés des journaux sécurisés (PROBATIVE_VALUE_EXTRACT_ZIP_FILE)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-stp-probative-value-prepare-generate-reports">Processus de création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (STP_PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-probative-value-prepare-generate-reports">Création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-verification-de-l-arbre-de-merkle-des-unites-archivistiques-stp-probative-value-check-merkle-tree">Processus de vérification de l’arbre de MERKLE des unités archivistiques (STP_PROBATIVE_VALUE_CHECK_MERKLE_TREE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-l-arbre-de-merkle-des-unites-archivistiques-probative-value-check-merkle-tree">Vérification de l’arbre de MERKLE des unités archivistiques PROBATIVE_VALUE_CHECK_MERKLE_TREE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-verification-de-l-arbre-de-merkle-des-journaux-securises-stp-probative-value-check-merkle-tree">Processus de vérification de l’arbre de MERKLE des journaux sécurisés (STP_PROBATIVE_VALUE_CHECK_MERKLE_TREE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-l-arbre-de-merkle-des-unites-archivistiques-des-journaux-securises-probative-value-check-merkle-tree">Vérification de l’arbre de MERKLE des unités archivistiques des journaux sécurisés PROBATIVE_VALUE_CHECK_MERKLE_TREE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-finalisation-de-l-audit-et-generation-du-rapport-final-stp-evidence-audit-finalize">Processus de finalisation de l’audit et génération du rapport final (STP_EVIDENCE_AUDIT_FINALIZE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation-du-rapport-de-l-audit-de-coherence-evidence-audit-finalize">Création du rapport de l’audit de cohérence EVIDENCE_AUDIT_FINALIZE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-de-workflow-du-releve-de-valeur-probante">Structure de workflow du relevé de valeur probante</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapport-du-releve-de-valeur-probante">Rapport du relevé de valeur probante</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-rapport-de-valeur-probante">Exemple de JSON : rapport de valeur probante</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#details-du-rapport">Détails du rapport</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">AUDIT</a> &raquo;</li>
+        
+      <li>Workflow de relevé de valeur probante</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/audit/workflow_probative_value.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-de-releve-de-valeur-probante">
+<h1>Workflow de relevé de valeur probante<a class="headerlink" href="#workflow-de-releve-de-valeur-probante" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus (workflow) de relevé de valeur probante.
+L’objectif est de rendre prouvable toute opération effectuée sur toute unité archivistique ou tout
+objet qui lui est associé. Ce relevé de valeur probante réunit les éléments permettant de fournir à un auditeur externe une présomption de confiance dans ce qui lui est communiqué.</p>
+</div>
+<div class="section" id="processus-de-preparation-du-releve-de-valeur-probante-stp-probative-value-prepare">
+<h2>Processus de préparation du relevé de valeur probante (STP_PROBATIVE_VALUE_PREPARE)<a class="headerlink" href="#processus-de-preparation-du-releve-de-valeur-probante-stp-probative-value-prepare" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="creation-de-la-liste-des-objects-du-releve-de-valeur-probante-probative-value-list-object">
+<h3>Création de la liste des objects du relevé de valeur probante (PROBATIVE_VALUE_LIST_OBJECT)<a class="headerlink" href="#creation-de-la-liste-des-objects-du-releve-de-valeur-probante-probative-value-list-object" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La création de la liste a bien été effectué (PROBATIVE_VALUE_LIST_OBJECT.OK = Succès de la création de la liste des objets du relevé de valeur probante)</li>
+<li>KO : La création de la liste n’a pas été effectué (PROBATIVE_VALUE_LIST_OBJECT.KO = Echec lors de la création de la liste des objets du relevé de valeur probante)</li>
+<li>FATAL : Une erreur technique est survenue lors de la création de la liste (PROBATIVE_VALUE_OBJECT.FATAL = Une Erreur technique est survenue lors de la création de la liste des objets du relevé de valeur probante)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="debut-de-la-recuperation-des-donnees-dans-la-base-de-donnee-stp-probative-value-check-object-group">
+<h2>Début de la récupération des données dans la base de donnée (STP_PROBATIVE_VALUE_CHECK_OBJECT_GROUP)<a class="headerlink" href="#debut-de-la-recuperation-des-donnees-dans-la-base-de-donnee-stp-probative-value-check-object-group" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="recuperation-des-donnees-dans-la-base-de-donnee-probative-value-check-object-group">
+<h3>Récupération des données dans la base de donnée (PROBATIVE_VALUE_CHECK_OBJECT_GROUP)<a class="headerlink" href="#recuperation-des-donnees-dans-la-base-de-donnee-probative-value-check-object-group" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La récupération des données dans la base de données est un succès (PROBATIVE_VALUE_CHECK_OBJECT_GROUP.OK = Succès de la récupération des données dans la base de donnée)</li>
+<li>KO : La récupération des données dans la base de donnée est un échec (PROBATIVE_VALUE_CHECK_OBJECT_GROUP.KO = Echec de la récupération des données dans la base de donnée)</li>
+<li>WARNING : Avertissement lors de la récupération des données dans la base de donnée (PROBATIVE_VALUE_CHECK_OBJECT_GROUP.WARNING = Avertissement lors la récupération des données dans la base de donnée)</li>
+<li>FATAL : Une erreur technique est survenue lors de la récupération des données dans la base de données (PROBATIVE_VALUE_CHECK_OBJECT_GROUP.FATAL = Erreur technique lors de la récupération des données dans la base de donnée</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-stp-probative-value-list-secured-files-to-download">
+<h2>Processus de préparation de la liste des signatures dans les fichiers sécurisés (STP_PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD)<a class="headerlink" href="#processus-de-preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-stp-probative-value-list-secured-files-to-download" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-probative-value-list-secured-files-to-download">
+<h3>Préparation de la liste des signatures dans les fichiers sécurisés (PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD)<a class="headerlink" href="#preparation-de-la-liste-des-signatures-dans-les-fichiers-securises-probative-value-list-secured-files-to-download" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La préparation de la liste des signatures dans les fichiers sécurisés est un succès (PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD.OK = Succès de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+<li>KO : La préparation de la liste des signatures dans les fichiers sécurisés est un échec (PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD.KO = Echec de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+<li>WARNING : Avertissement lors de la préparation de la liste des signatures dans les fichiers sécurisés (PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD.WARNING = Avertissement lors de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+<li>FATAL : Une erreur technique est survenue lors de la préparation de la liste des signatures dans les fichiers sécurisés (PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD.FATAL = Erreur fatale lors de la préparation de la liste des signatures dans les fichiers sécurisés)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="extraction-des-signatures-a-partir-des-fichiers-securises-des-unites-archivistiques-stp-probative-value-extract-zip-file">
+<h2>Extraction des signatures à partir des fichiers sécurisés des unités archivistiques (STP_PROBATIVE_VALUE_EXTRACT_ZIP_FILE)<a class="headerlink" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-unites-archivistiques-stp-probative-value-extract-zip-file" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="extraction-des-signatures-a-partir-des-fichiers-securises-des-unites-archivistiques-probative-value-extract-zip-file">
+<h3>Extraction des signatures à partir des fichiers sécurisés des unités archivistiques (PROBATIVE_VALUE_EXTRACT_ZIP_FILE)<a class="headerlink" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-unites-archivistiques-probative-value-extract-zip-file" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : L’extraction des signatures à partir des fichiers sécurisés des unités archivistiques a bien été effectué (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.OK = Succès de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>KO : L’extraction des signatures à partir des fichiers sécurisés des unités archivistiques n’a pas été effectué (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.KO = Echec de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>WARNING :  Avertissement lors de l’extraction des signatures à partir des fichiers sécurisés (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.WARNING = Avertissement lors de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>FATAL : Une erreur technique est survenue lors de la préparation de l’extraction des signatures à partir des fichiers sécurisés des unités archivistiques (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.FATAL=Erreur technique lors de la préparation de l’extraction des signatures à partir des fichiers sécurisés)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="extraction-des-signatures-a-partir-des-fichiers-securises-des-journaux-securises-stp-probative-value-extract-zip-file">
+<h2>Extraction des signatures à partir des fichiers sécurisés des journaux sécurisés (STP_PROBATIVE_VALUE_EXTRACT_ZIP_FILE)<a class="headerlink" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-journaux-securises-stp-probative-value-extract-zip-file" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="extraction-des-signatures-a-partir-des-fichiers-securises-des-journaux-securises-probative-value-extract-zip-file">
+<h3>Extraction des signatures à partir des fichiers sécurisés des journaux sécurisés (PROBATIVE_VALUE_EXTRACT_ZIP_FILE)<a class="headerlink" href="#extraction-des-signatures-a-partir-des-fichiers-securises-des-journaux-securises-probative-value-extract-zip-file" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : L’extraction des signatures à partir des fichiers sécurisés des journaux sécurisés a bien été effectué (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.OK = Extraction des signatures à partir des fichiers sécurisés)</li>
+<li>KO : L’extraction des signatures à partir des fichiers sécurisés des journaux sécurisésn’a pas été effectué (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.KO = Echec de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>WARNING :  Avertissement lors de l’extraction des signatures à partir des fichiers sécurisés (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.WARNING = Avertissement lors de l’extraction des signatures à partir des fichiers sécurisés)</li>
+<li>FATAL : Une erreur technique est survenue lors de la préparation de l’extraction des signatures des journaux sécurisés à partir des fichiers sécurisés (PROBATIVE_VALUE_EXTRACT_ZIP_FILE.FATAL = Erreur technique lors de la préparation de l’extraction des signatures à partir des fichiers sécurisés)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-stp-probative-value-prepare-generate-reports">
+<h2>Processus de création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (STP_PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS)<a class="headerlink" href="#processus-de-creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-stp-probative-value-prepare-generate-reports" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-probative-value-prepare-generate-reports">
+<h3>Création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS)<a class="headerlink" href="#creation-du-rapport-pour-chaque-unite-archivistique-ou-objet-ou-groupe-d-objets-probative-value-prepare-generate-reports" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La création du rapport pour chaque unité archivistique ou objet ou groupe d’objets a bien été effectué (PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS.OK = Succès de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+<li>KO :  La création du rapport pour chaque unité archivistique ou objet ou groupe d’objets n’a pas été effectué (PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS.KO = Echec de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+<li>WARNING : Avertissement lors de  la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS.WARNING = Avertissement lors de  la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets )</li>
+<li>FATAL : Une erreur technique est survenue lors de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets (PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS.FATAL = une erreur technique est survenue de la création du rapport pour chaque unité archivistique ou objet ou groupe d’objets)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-verification-de-l-arbre-de-merkle-des-unites-archivistiques-stp-probative-value-check-merkle-tree">
+<h2>Processus de vérification de l’arbre de MERKLE des unités archivistiques (STP_PROBATIVE_VALUE_CHECK_MERKLE_TREE)<a class="headerlink" href="#processus-de-verification-de-l-arbre-de-merkle-des-unites-archivistiques-stp-probative-value-check-merkle-tree" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="verification-de-l-arbre-de-merkle-des-unites-archivistiques-probative-value-check-merkle-tree">
+<h3>Vérification de l’arbre de MERKLE des unités archivistiques PROBATIVE_VALUE_CHECK_MERKLE_TREE<a class="headerlink" href="#verification-de-l-arbre-de-merkle-des-unites-archivistiques-probative-value-check-merkle-tree" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La vérification de l’arbre de MERKLE des unités archivistiques a bien été effectué (PROBATIVE_VALUE_CHECK_MERKLE_TREE.OK = Succès de la vérification de l’arbre de MERKLE)</li>
+<li>KO : La vérification de l’arbre de MERKLE des unités archivistiques n’a pas été effectué (PROBATIVE_VALUE_CHECK_MERKLE_TREE.KO = Échec de la vérification de l’arbre de MERKLE)</li>
+<li>WARNING : Avertissement lors de la vérification de l’arbre de MERKLE (PROBATIVE_VALUE_CHECK_MERKLE_TREE.WARNING = Avertissement lors de la vérification de l’arbre de MERKLE)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de l’arbre de MERKLE des unités archivistiques (PROBATIVE_VALUE_CHECK_MERKLE_TREE.FATAL = Erreur technique lors de la vérification de l’arbre de MERKLE)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-verification-de-l-arbre-de-merkle-des-journaux-securises-stp-probative-value-check-merkle-tree">
+<h2>Processus de vérification de l’arbre de MERKLE des journaux sécurisés (STP_PROBATIVE_VALUE_CHECK_MERKLE_TREE)<a class="headerlink" href="#processus-de-verification-de-l-arbre-de-merkle-des-journaux-securises-stp-probative-value-check-merkle-tree" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="verification-de-l-arbre-de-merkle-des-unites-archivistiques-des-journaux-securises-probative-value-check-merkle-tree">
+<h3>Vérification de l’arbre de MERKLE des unités archivistiques des journaux sécurisés PROBATIVE_VALUE_CHECK_MERKLE_TREE<a class="headerlink" href="#verification-de-l-arbre-de-merkle-des-unites-archivistiques-des-journaux-securises-probative-value-check-merkle-tree" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La vérification de l’arbre de MERKLE des journaux sécurisés a bien été effectué (PROBATIVE_VALUE_CHECK_MERKLE_TREE.OK = Succès de la vérification de l’arbre de MERKLE)</li>
+<li>KO : La vérification de l’arbre de MERKLE des journaux sécurisés n’a pas été effectué (PROBATIVE_VALUE_CHECK_MERKLE_TREE.KO = Échec de la vérification de l’arbre de MERKLE)</li>
+<li>WARNING : Avertissement lors de la vérification de l’arbre de MERKLE (PROBATIVE_VALUE_CHECK_MERKLE_TREE.WARNING = Avertissement lors de la vérification de l’arbre de MERKLE)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de l’arbre de MERKLE des journaux sécurisés (PROBATIVE_VALUE_CHECK_MERKLE_TREE.FATAL = Erreur technique lors de la vérification de l’arbre de MERKLE)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="processus-de-finalisation-de-l-audit-et-generation-du-rapport-final-stp-evidence-audit-finalize">
+<h2>Processus de finalisation de l’audit et génération du rapport final (STP_EVIDENCE_AUDIT_FINALIZE)<a class="headerlink" href="#processus-de-finalisation-de-l-audit-et-generation-du-rapport-final-stp-evidence-audit-finalize" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="creation-du-rapport-de-l-audit-de-coherence-evidence-audit-finalize">
+<h3>Création du rapport de l’audit de cohérence EVIDENCE_AUDIT_FINALIZE<a class="headerlink" href="#creation-du-rapport-de-l-audit-de-coherence-evidence-audit-finalize" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tâche consistant à créer le rapport permettant de comparer les signatures extraites des fichiers sécurisés avec les données de la base de données et de l’offre de stockage.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : La création du rapport d’audit de cohérence a bien été effectué (EVIDENCE_AUDIT_FINALIZE.OK = Succès de la création du rapport de l’audit de cohérence)</li>
+<li>KO : La création du rapport d’audit de cohérence n’a pas été effectué (EVIDENCE_AUDIT_FINALIZE.KO = Echec de la création du rapport de l’audit de cohérence)</li>
+<li>FATAL : une erreur technique est survenue lors de la création du rapport d’audit de cohérence (EVIDENCE_AUDIT_FINALIZE.FATAL = Erreur technique lors de la création du rapport d’audit de cohérence)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="structure-de-workflow-du-releve-de-valeur-probante">
+<h2>Structure de workflow du relevé de valeur probante<a class="headerlink" href="#structure-de-workflow-du-releve-de-valeur-probante" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center">
+<img alt="../_images/workflow_probative_value.png" src="../_images/workflow_probative_value.png" />
+</div>
+</div>
+</div>
+<div class="section" id="rapport-du-releve-de-valeur-probante">
+<h1>Rapport du relevé de valeur probante<a class="headerlink" href="#rapport-du-releve-de-valeur-probante" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le relevé de valeur probante est un fichier JSON généré par la solution logicielle Vitam. Le relevé de valeur probante réunit les éléments permettant de fournir à un auditeur externe une présomption de confiance dans ce qui lui est communiqué.</p>
+<div class="section" id="exemple-de-json-rapport-de-valeur-probante">
+<h2>Exemple de JSON : rapport de valeur probante<a class="headerlink" href="#exemple-de-json-rapport-de-valeur-probante" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ReportVersion&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;OperationInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dslQuery&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;$query&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;$or&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;$in&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;#id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                    <span class="s2">&quot;aeaqaaaaamhfbxyzab2tsalgpwzlrcqaaacq&quot;</span>
+                                <span class="p">]</span>
+                            <span class="p">}</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;$in&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;#allunitups&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;$projection&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;usage&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;BinaryMaster&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;LAST&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;OperationId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohfbxyzaaiicalgtk4qd2qaaaaq&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OperationControlEnDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-22T07:41:50.301&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Tenant&quot;</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">},</span>
+<span class="s2">&quot;ObjectsCheckReport&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Usages&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;UsageName&quot;</span><span class="p">:</span> <span class="s2">&quot;BinaryMaster&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;BinaryVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FirstStorageDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-16T16:26:00.582&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;BinaryId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaahfbxyzab2tsalgpwzlq5aaaaaq&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObjectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaamhfbxyzab2tsalgpwzlq5iaaaaq&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;MessageDigest&quot;</span><span class="p">:</span> <span class="s2">&quot;86c0bc701ef6b5dd21b080bc5bb2af38097baa6237275da83a52f092c9eae3e4e4b0247391620bd732fe824d18bd3bb6c37e62ec73a8cf3585c6a799399861b1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;SHA-512&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;BinaryCreationOpId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohfbxyzaayaialgpwzlitaaaaaq&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;SecuredOperationId&quot;</span><span class="p">:</span> <span class="s2">&quot;aecaaaaaaohlfylyabzj6algpxjpovyaaaaq&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;SecureOperationIdForOpId&quot;</span><span class="p">:</span> <span class="s2">&quot;aecaaaaaaohlfylyabzj6algpxjpokyaaaaq&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Checks&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkLogbookSecureInfoForOpi&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;CheckObjectHash&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkLfcStorageEvent&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkLogbookStorageEventContract&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Checking secured info from logbook&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Check Secure object  Hash And LFC Events&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;Operations Reports&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;EvTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;TRACEABILITY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="s2">&quot;aecaaaaaaohlfylyabzj6algpxjpovyaaaaq&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OperationCheckStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Details&quot;</span><span class="p">:</span> <span class="s2">&quot;merkleJsonRootHash is : &#39;7M+vrLf0rmxy/YVzcPDfA92NYe9qcjJmhS9MZVS3K9YeRGkMV8ywB6KXwrHK5xHUabnPv1AibBEhaw22I85kWg==&#39;, merkleDataRootHash is :&#39;7M+vrLf0rmxy/YVzcPDfA92NYe9qcjJmhS9MZVS3K9YeRGkMV8ywB6KXwrHK5xHUabnPv1AibBEhaw22I85kWg==&#39;, merkleLogbookRootHash is &#39;7M+vrLf0rmxy/YVzcPDfA92NYe9qcjJmhS9MZVS3K9YeRGkMV8ywB6KXwrHK5xHUabnPv1AibBEhaw22I85kWg==&#39; &quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;EvTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;TRACEABILITY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="s2">&quot;aecaaaaaaohlfylyabzj6algpxjpokyaaaaq&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OperationCheckStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Details&quot;</span><span class="p">:</span> <span class="s2">&quot;merkleJsonRootHash is : &#39;hHPxdcODJoYfGOxjFMu9XX+CB2pKgzRsKzDRA3PzMVyx2RFugnYS1Pc6PStYr+++1S7ehMP4DkHO365QbOsz/A==&#39;, merkleDataRootHash is :&#39;hHPxdcODJoYfGOxjFMu9XX+CB2pKgzRsKzDRA3PzMVyx2RFugnYS1Pc6PStYr+++1S7ehMP4DkHO365QbOsz/A==&#39;, merkleLogbookRootHash is &#39;hHPxdcODJoYfGOxjFMu9XX+CB2pKgzRsKzDRA3PzMVyx2RFugnYS1Pc6PStYr+++1S7ehMP4DkHO365QbOsz/A==&#39; &quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohfbxyzaayaialgpwzlitaaaaaq&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;EvTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;EvIdAppSession&quot;</span><span class="p">:</span> <span class="s2">&quot;IC-000001&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;agIdApp&quot;</span><span class="p">:</span> <span class="s2">&quot;CT-000001&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OperationCheckStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="details-du-rapport">
+<h2>Détails du rapport<a class="headerlink" href="#details-du-rapport" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La première partie du rapport fait état de la requête initiale. La requête pour constituer un relevé de valeur probante comprend : la requête DSL, l’usage et la version à prendre en compte pour le ou les unités archivistiques ou objets.</p>
+<ul class="simple">
+<li>«&nbsp;ReportVersion&nbsp;»: le numéro de version de rapport</li>
+<li>«&nbsp;OperationInfo&nbsp;»: bloc qui contient les informations de l’opération en question</li>
+<li>«&nbsp;request&nbsp;» :  requête DSL</li>
+<li>«&nbsp;usage&nbsp;»: un tableau qui peut contenir les différents usages présent dans la solution : BinaryMaster, PhysicalMaster, Dissemination…</li>
+<li>«&nbsp;version&nbsp;»: «&nbsp;LAST&nbsp;» = la version des usages à prendre en considération pour le relevé de valeur probante. Par defaut la valeur est «&nbsp;LAST&nbsp;».</li>
+</ul>
+<p>La deuxième partie est constituée par le contexte du relevé : l’id de l’opération, la date de fin de l’opération et le tenant sur lequel le relevé a été demandé.</p>
+<ul class="simple">
+<li>«&nbsp;OperationId&nbsp;»: identifiant de l’opération</li>
+<li>«&nbsp;OperationControlEnDate&nbsp;»: date de fin de l’opération</li>
+<li>«&nbsp;Tenant&nbsp;»: tenant sur lequel l’opération a été lancée</li>
+</ul>
+<p>La troisième partie rend compte des opérations sur les groupes d’objets concernés.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>«&nbsp;ObjectsCheckReport&nbsp;»: tableau rendant compte des différentes opérations pour les groupes d’objets concernés</dt>
+<dd><ul class="first last simple">
+<li>«&nbsp;Usages&nbsp;»: tableau concernant chaque usage</li>
+<li>«&nbsp;UsageName&nbsp;»: type d’usage «&nbsp;BinaryMaster&nbsp;», «&nbsp;PhysicalMaster&nbsp;»</li>
+<li>«&nbsp;BinaryVersion&nbsp;»: numéro de version de l’usage considéré</li>
+<li>«&nbsp;FirstStorageDate&nbsp;»: date de stockage</li>
+<li>«&nbsp;BinaryId&nbsp;»: identifiant du binary</li>
+<li>«&nbsp;ObjectGroupId&nbsp;»: identifiant du groupe d’objets</li>
+<li>«&nbsp;MessageDigest&nbsp;»: empreinte de l’objet dans le bordereau de transfert. Chaîne de caractères, reprenant le champ « MessageDigest » du message ArchiveTransfer.</li>
+<li>«&nbsp;Algorithm&nbsp;»: hash de l’objet</li>
+<li>«&nbsp;BinaryCreationOpId&nbsp;»: journal de la création du binaire de l’opération relatant le binary existant dans la solution</li>
+<li>«&nbsp;SecuredOperationId&nbsp;»: identifiant de l’opération de sécurisation</li>
+<li>«&nbsp;SecureOperationIdForOpId&nbsp;»: sécurisation de l’opération de sécurisation</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">«&nbsp;Checks&nbsp;»: tableau retraçant les contrôles sur les logbook en question, conformité à la sécurisation et l’arbre de Merkle</p>
+<blockquote>
+<div><ul class="simple">
+<li>«&nbsp;Name&nbsp;»: nom du logbook concerné «&nbsp;checkLogbookSecureInfoForOpi&nbsp;»</li>
+<li>«&nbsp;Status&nbsp;»: statut du contrôle</li>
+<li>«&nbsp;Name&nbsp;»: «&nbsp;CheckObjectHash&nbsp;»,  vérification du hash de l’objet</li>
+<li>«&nbsp;Status&nbsp;»: statut du contrôle</li>
+<li>«&nbsp;Name&nbsp;»: «&nbsp;checkLfcStorageEvent&nbsp;», vérification de la sécurisation des évenements à la date de la dernière sauvegarde</li>
+<li>«&nbsp;Status&nbsp;»: statut du contrôle</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">«&nbsp;Operations Reports&nbsp;»: tableaux rassemblant les différents journaux des opérations logbook, liste des opérations et vérification des logbook en question</p>
+<blockquote>
+<div><ul class="simple">
+<li>«&nbsp;EvTypeProc&nbsp;»: «&nbsp;TRACEABILITY&nbsp;» nom de l’opération</li>
+<li>«&nbsp;Id&nbsp;»: identifiant de l’opération</li>
+<li>«&nbsp;OperationCheckStatus&nbsp;»: le résultat du contrôle de l’opération</li>
+<li>«&nbsp;Details&nbsp;»: message de vérification de l’opération en question par rapport à la sécurisation</li>
+</ul>
+<p><strong>Dans le cas d’un Ingest</strong></p>
+<ul class="simple">
+<li>«&nbsp;EvIdAppSession&nbsp;»: mention du contrat d’entrée utilisé lors de l’ingest</li>
+<li>«&nbsp;agIdApp&nbsp;»: mention du contexte utilisé lors de l’ingest</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dip/_toc_dip.html" class="btn btn-neutral float-right" title="DIP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workflow_correction_audit.html" class="btn btn-neutral" title="Workflow de l’audit correctif" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

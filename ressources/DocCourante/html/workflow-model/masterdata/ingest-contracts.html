@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’administration d’un référentiel des contrats d’entrée &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow d’administration d’un référentiel des contrats d’entrée &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -107,15 +107,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d’administration d’un référentiel des contrats d’accès</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d’import d’un référentiel des profils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d’admininstration d’un référentiel des profils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security_profiles.html">Workflow d’administration d’un référentiel des profils de sécurité</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contextes.html">Workflow d’administration d’un référentiel des contextes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’import d’un référentiel des documents types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ontologie.html">Workflow d’import d’un référentiel des vocabulaires de l’ontologie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contextes.html">Workflow d’administration d’un référentiel des contextes applicatifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’administration du référentiel des profils d’unités archivistiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontologie.html">Workflow d’administration d’un référentiel des vocabulaires de l’ontologie</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -186,7 +188,7 @@
 <h1>Workflow d’administration d’un référentiel des contrats d’entrée<a class="headerlink" href="#workflow-d-administration-d-un-referentiel-des-contrats-d-entree" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) permettant d’importer un contrat d’entrée.</p>
+<p>Cette section décrit le processus (workflow) permettant d’importer et de mettre à jour un contrat d’entrée.</p>
 </div>
 <div class="section" id="processus-d-import-et-mise-a-jour-d-un-contrat-d-entree-vision-metier">
 <h2>Processus d’import  et mise à jour d’un contrat d’entrée (vision métier)<a class="headerlink" href="#processus-d-import-et-mise-a-jour-d-un-contrat-d-entree-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
@@ -194,11 +196,9 @@
 <p>Tous les élements réalisés au cours de ce processus sont exécutés dans une seule étape.</p>
 <div class="section" id="import-d-un-contrat-d-entree-stp-import-ingest-contract">
 <h3>Import d’un contrat d’entrée (STP_IMPORT_INGEST_CONTRACT)<a class="headerlink" href="#import-d-un-contrat-d-entree-stp-import-ingest-contract" title="Lien permanent vers ce titre">¶</a></h3>
-<ul>
-<li><p class="first">Vérification de la présence des informations minimales, de la cohérence des informations et affectation des données aux champs peuplés par la solution logicielle Vitam.</p>
-<ul>
-<li><p class="first"><strong>Type</strong> : bloquant</p>
-</li>
+<p>Vérification de la présence des informations minimales, de la cohérence des informations et affectation des données aux champs peuplés par la solution logicielle Vitam.</p>
+<blockquote>
+<div><ul>
 <li><p class="first"><strong>Règle</strong> : vérification et enregistrement du contrat :</p>
 <ul class="simple">
 <li>Le champ «&nbsp;Name&nbsp;» est peuplé d’une chaîne de caractères</li>
@@ -208,31 +208,49 @@
 <li>Les données suivantes optionnelles si elles sont remplies le sont en respectant les règles énnonées pour chacune :</li>
 </ul>
 <ul class="simple">
-<li>Le champ «&nbsp;Description&nbsp;» est peuplé avec une chaîne de caractères</li>
-<li>Le champ «&nbsp;Status&nbsp;» est peuplé avec de la valeur ACTIVE ou la valeur INACTIVE</li>
-<li>Le champ «&nbsp;ArchiveProfile&nbsp;» est peuplé avec un tableau d’une ou plusieurs chaînes de caractère. Chacune de ces chaînes de caractère doit correspondre au champ «&nbsp;Identifier&nbsp;» d’un profil d’archivage contenu dans le référentiel des profils</li>
-<li>Le champ «&nbsp;CheckParentLink&nbsp;»: est peuplé avec de la valeur ACTIVE ou la valeur INACTIVE</li>
-<li>Le champ «&nbsp;LinkedParentId&nbsp;» est peuplé par une chaîne de caractères devant correspondre au GUID d’une AU de plan de classement ou d’arbre de positionnement pris en charge par la solution logicielle Vitam sur le même tenant</li>
+<li>Le champ «&nbsp;Description&nbsp;» doit être une chaîne de caractères</li>
+<li>Le champ «&nbsp;Status&nbsp;» doit avoir la valeur ACTIVE ou INACTIVE</li>
+<li>Le champ «&nbsp;ArchiveProfile&nbsp;» doit être un tableau d’une ou plusieurs chaînes de caractère. Chacune de ces chaînes de caractère doit correspondre au champ «&nbsp;Identifier&nbsp;» d’un profil d’archivage contenu dans le référentiel des profils</li>
+<li>Le champ «&nbsp;CheckParentLink&nbsp;»: doit avoir la valeur ACTIVE ou INACTIVE</li>
+<li>Le champ «&nbsp;LinkedParentId&nbsp;» doit être une chaîne de caractères devant correspondre au GUID d’une AU de plan de classement ou d’arbre de positionnement pris en charge par la solution logicielle Vitam sur le même tenant</li>
+<li>Le champ «&nbsp;MasterMandatory&nbsp;» doit avoir la valeur true ou false</li>
+<li>Le champ «&nbsp;EveryDataObjectVersion&nbsp;» doit avoir la valeur true ou false</li>
+<li>Le champ «&nbsp;DataObjectVersion&nbsp;» devrait être un tableau dont chaque élément est dans l’énumération suivantes (ou être vide) : «&nbsp;BinaryMaster&nbsp;», «&nbsp;TextContent&nbsp;», «&nbsp;Thumbnail&nbsp;», «&nbsp;PhysicalMaster&nbsp;», «&nbsp;Dissemination&nbsp;»</li>
+<li>Le champ «&nbsp;FormatUnidentifiedAuthorized&nbsp;» doit avoir la valeur true ou false</li>
+<li>Le champ «&nbsp;EveryFormatType&nbsp;» doit avoir la valeur true ou false</li>
+<li>Le champ «&nbsp;FormatType&nbsp;» doit être un tableau dont chaque élément est une PUID du référentiel des formats (exemple : «&nbsp;fmt/17&nbsp;»)</li>
 </ul>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <ul class="simple">
-<li>OK : le contrat répond aux exigences des règles (STP_IMPORT_INGEST_CONTRACT.OK=Succès du processus d’import du contrat d’entrée)</li>
-<li>KO : une des règles ci-dessus n’a pas été respectée (STP_IMPORT_INGEST_CONTRACT.KO=Échec du processus d’import du contrat d’entrée)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification de l’import du contrat (STP_IMPORT_INGEST_CONTRACT.FATAL=Erreur fatale du processus d’import du contrat d’entrée)</li>
-<li>WARNING : Avertissement lors du processus d’import du contrat d”“entrée ( STP_IMPORT_INGEST_CONTRACT.WARNING=Avertissement lors du processus d’import du contrat d’entrée )</li>
-<li>DUPLICATION : L’identifiant utilisé existe déjà ( STP_IMPORT_INGEST_CONTRACT.IDENTIFIER_DUPLICATION.KO=Échec de l’import : l’identifiant est déjà utilisé )</li>
-<li>EMPTY REQUIRED FIELD : un champ obligatoire n’est pas renseigné ( STP_IMPORT_INGEST_CONTRACT.EMPTY_REQUIRED_FIELD.KO=Échec de l’import : au moins un des champs obligatoires n’est pas renseigné )</li>
-<li>PROFILE NOT FOUND : Le profil d’archivage mentionné n” existe pas ( STP_IMPORT_INGEST_CONTRACT.PROFILE_NOT_FOUND.KO=Échec de l’import : profil d’archivage non trouvé )</li>
+<li>OK : le contrat répond aux exigences des règles (STP_IMPORT_INGEST_CONTRACT.OK = Succès du processus d’import du contrat d’entrée)</li>
+<li>KO : une des règles ci-dessus n’a pas été respectée (STP_IMPORT_INGEST_CONTRACT.KO = Échec du processus d’import du contrat d’entrée)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de l’import du contrat (STP_IMPORT_INGEST_CONTRACT.FATAL = Erreur technique du processus d’import du contrat d’entrée)</li>
+<li>WARNING : Avertissement lors du processus d’import du contrat d’entrée (STP_IMPORT_INGEST_CONTRACT.WARNING = Avertissement lors du processus d’import du contrat d’entrée)</li>
+<li>DUPLICATION : L’identifiant utilisé existe déjà (STP_IMPORT_INGEST_CONTRACT.IDENTIFIER_DUPLICATION.KO = Échec de l’import : l’identifiant est déjà utilisé)</li>
+<li>EMPTY REQUIRED FIELD : un champ obligatoire n’est pas renseigné (STP_IMPORT_INGEST_CONTRACT.EMPTY_REQUIRED_FIELD.KO = Échec de l’import : au moins un des champs obligatoires n’est pas renseigné)</li>
+<li>PROFILE NOT FOUND : Le profil d’archivage mentionné n’existe pas (STP_IMPORT_INGEST_CONTRACT.PROFILE_NOT_FOUND.KO = Échec de l’import : profil d’archivage non trouvé)</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+</div></blockquote>
 </div>
 <div class="section" id="mise-a-jour-d-un-contrat-d-entree-stp-update-ingest-contract">
 <h3>Mise à jour d’un contrat d’entrée (STP_UPDATE_INGEST_CONTRACT)<a class="headerlink" href="#mise-a-jour-d-un-contrat-d-entree-stp-update-ingest-contract" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La modification d’un contrat d’entrée doit suivre les mêmes règles que celles décrites pour la création. La clé de l’événement est «&nbsp;STP_UPDATE_INGEST_CONTRACT&nbsp;», entraînant des statuts STP_UPDATE_INGEST_CONTRACT.OK, STP_UPDATE_INGEST_CONTRACT.KO et STP_UPDATE_INGEST_CONTRACT.FATAL sur les mêmes contrôles que l’import.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : La modification d’un contrat d’entrée doit suivre les mêmes règles que celles décrites pour la création</li>
+<li><strong>Type</strong> :  bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la mise à jour du contrat d’entrée a bien été effectuée (STP_UPDATE_INGEST_CONTRACT.OK = Succès du processus de mise à jour du contrat d’entrée)</li>
+<li>KO : la mise à jour du contrat d’entrée n’a pas été effectuée (STP_UPDATE_INGEST_CONTRACT.KO = Échec du processus de mise à jour du contrat d’entrée)</li>
+<li>FATAL : une erreur technique est survenue lors du processus de mise à jour du contrat d’entrée (STP_UPDATE_INGEST_CONTRACT.FATAL = Erreur technique lors du processus de mise à jour du contrat d’entrée)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="sauvegarde-du-json-stp-backup-ingest-contract">
 <h3>Sauvegarde du JSON (STP_BACKUP_INGEST_CONTRACT)<a class="headerlink" href="#sauvegarde-du-json-stp-backup-ingest-contract" title="Lien permanent vers ce titre">¶</a></h3>
@@ -246,9 +264,9 @@
 <li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
-<li>OK : une copie de la base de donnée nouvellement importée est enregistrée (STP_BACKUP_INGEST_CONTRACT.OK = Succès du processus de sauvegarde des contrats d’entrée)</li>
+<li>OK : une copie de la base de données nouvellement importée est enregistrée (STP_BACKUP_INGEST_CONTRACT.OK = Succès du processus de sauvegarde des contrats d’entrée)</li>
 <li>KO : pas de cas KO</li>
-<li>FATAL : une erreur fatale est survenue lors de la copie de la base de donnée nouvellement importée (STP_BACKUP_INGEST_CONTRACT.FATAL = Erreur fatale lors du processus de sauvegarde des contrats d’entrée)</li>
+<li>FATAL : une erreur technique est survenue lors de la copie de la base de données nouvellement importée (STP_BACKUP_INGEST_CONTRACT.FATAL = Erreur technique lors du processus de sauvegarde des contrats d’entrée)</li>
 </ul>
 </div></blockquote>
 </li>
@@ -278,7 +296,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -297,21 +315,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

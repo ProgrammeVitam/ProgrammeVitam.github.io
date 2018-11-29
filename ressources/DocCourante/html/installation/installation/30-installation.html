@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.5. Procédure de première installation &mdash; Documentation VITAM - Documentation d&#39;installation 1.4.0</title>
+  <title>4.2.5. Procédure de première installation &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -289,12 +289,91 @@ Actuellement la solution logicielle Vitam est capable de gérer 2 interfaces ré
 <p>A l’issue, vérifier le contenu des fichiers générés sous <code class="docutils literal notranslate"><span class="pre">environments/host_vars/</span></code> et les adapter au besoin.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">Cas d’une installation multi-sites. Sur site secondaire, s’assurer que, pour les machines hébergeant les offres, la directive <code class="docutils literal notranslate"><span class="pre">ip_wan</span></code>  a bein été déclarée (l’ajouter manuelleent, le cas échéant), pour que site le site «&nbsp;primaire&nbsp;» sache les contacter via une IP particulière. Par cdéfaut, c’est l’IP de service.</p>
+<p class="last">Cas d’une installation multi-sites. Sur site secondaire, s’assurer que, pour les machines hébergeant les offres, la directive <code class="docutils literal notranslate"><span class="pre">ip_wan</span></code> a bien été déclarée (l’ajouter manuellement, le cas échéant), pour que site le site «&nbsp;primaire&nbsp;» sache les contacter via une IP particulière. Par défaut, c’est l’IP de service qui sera utilisée.</p>
 </div>
 </div>
+</div>
+<div class="section" id="passage-des-identifiants-des-referentiels-en-mode-esclave">
+<h3>4.2.5.1.5. Passage des identifiants des référentiels en mode esclave<a class="headerlink" href="#passage-des-identifiants-des-referentiels-en-mode-esclave" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La génération des identifiants des référentiels est géré par Vitam quand il fonctionne en mode maître.</p>
+<p>Par exemple :</p>
+<ul class="simple">
+<li>Préfixé par PR- pour les profils</li>
+<li>Préfixé par IC- pour les contrats d’entrée</li>
+<li>Préfixé par AC- pour les contrats d’accès</li>
+</ul>
+<p>Si vous souhaitez gérer vous-même les identifiants sur un service référentiel, il faut qu’il soit en mode esclave.
+Par défaut tous les services référentiels de Vitam fonctionnent en mode maître. Pour désactiver le mode maître de Vitam, il faut modifier le fichier ansible <code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/vitam/templates/functional-administration/functional-administration.conf.j2</span></code>.
+Un exemple de ce fichier se trouve dans la Documentation d’exploitation au chapitre «&nbsp;Exploitation des composants de la solution logicielle VITAM&nbsp;».</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># ExternalId configuration
+
+listEnableExternalIdentifiers:
+ 0:
+   - INGEST_CONTRACT
+   - ACCESS_CONTRACT
+ 1:
+   - INGEST_CONTRACT
+   - ACCESS_CONTRACT
+   - PROFILE
+   - SECURITY_PROFILE
+   - CONTEXT
+</pre></div>
+</div>
+<p>Depuis la version 1.0.4, la configuration par défaut de Vitam autorise des identifiants externes (ceux qui sont dans le fichier json importé).</p>
+<blockquote>
+<div><ul class="simple">
+<li>pour le tenant 0 pour les référentiels : contrat d’entrée et contrat d’accès.</li>
+<li>pour le tenant 1 pour les référentiels : contrat d’entrée, contrat d’accès, profil, profil de sécurité et contexte.</li>
+</ul>
+</div></blockquote>
+<p>La liste des choix possibles, pour chaque tenant, est :</p>
+<blockquote>
+<div><ul class="simple">
+<li>INGEST_CONTRACT : contrats d’entrée</li>
+<li>ACCESS_CONTRACT : contrats d’accès</li>
+<li>PROFILE : profils SEDA</li>
+<li>SECURITY_PROFILE : profils de sécurité (utile seulement sur le tenant d’administration)</li>
+<li>CONTEXT : contextes applicatifs (utile seulement sur le tenant d’administration)</li>
+<li>ARCHIVEUNITPROFILE : profils d’unités archivistiques</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="durees-minimales-permettant-de-controler-les-valeurs-saisies">
+<h3>4.2.5.1.6. Durées minimales permettant de contrôler les valeurs saisies<a class="headerlink" href="#durees-minimales-permettant-de-controler-les-valeurs-saisies" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Afin de se prémunir contre une alimentation du référentiel des règles de gestion avec des durées trop courtes susceptibles de déclencher des actions indésirables sur la plate-forme (ex. éliminations) – que cette tentative soit intentionnelle ou non –, la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> vérifie que l’association de la durée et de l’unité de mesure saisies pour chaque champ est supérieure ou égale à une durée minimale définie lors du paramétrage de la plate-forme, dans un fichier de configuration.</p>
+<p>Pour mettre en place le comportement attendu par le métier, il faut modifier le contenu de la directive <code class="docutils literal notranslate"><span class="pre">listMinimumRuleDuration</span></code> dans le fichier ansible <code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/vitam/templates/functional-administration/functional-administration.conf.j2</span></code>.</p>
+<p>Exemple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listMinimumRuleDuration</span><span class="p">:</span>
+  <span class="mi">2</span><span class="p">:</span>
+    <span class="n">AppraisalRule</span> <span class="p">:</span> <span class="mi">1</span> <span class="n">year</span>
+    <span class="n">DisseminationRule</span> <span class="p">:</span> <span class="mi">10</span> <span class="n">year</span>
+
+  <span class="mi">3</span><span class="p">:</span>
+    <span class="n">AppraisaleRule</span> <span class="p">:</span> <span class="mi">5</span> <span class="n">year</span>
+    <span class="n">StorageRule</span> <span class="p">:</span> <span class="mi">5</span> <span class="n">year</span>
+    <span class="n">ReuseRule</span> <span class="p">:</span> <span class="mi">2</span> <span class="n">year</span>
+</pre></div>
+</div>
+<p>Par tenant, les directives possibles sont :</p>
+<ul class="simple">
+<li>AppraisalRule</li>
+<li>DisseminationRule</li>
+<li>StorageRule</li>
+<li>ReuseRule</li>
+<li>AccessRule (valeur par défaut : 0 year)</li>
+<li>ClassificationRule</li>
+</ul>
+<p>Les valeurs associées sont une durée au format &lt;nombre&gt; &lt;unité en angais, au singulier&gt;</p>
+<p>Exemples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="n">month</span>
+<span class="mi">1</span> <span class="n">year</span>
+<span class="mi">5</span> <span class="n">year</span>
+</pre></div>
+</div>
+<p>Pour plus de détails, se rapporter à la documentation métier «&nbsp;Règles de gestion&nbsp;».</p>
 </div>
 <div class="section" id="id1">
-<h3>4.2.5.1.5. Déploiement<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.5.1.7. Déploiement<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le déploiement s’effectue depuis la machine «&nbsp;ansible&nbsp;» et va distribuer la solution VITAM selon l’inventaire correctement renseigné.</p>
 <p>Une fois l’étape de la génération des hosts a été effectuée avec succès, le déploiement est à réaliser avec la commande suivante&nbsp;:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ansible-playbook ansible-vitam/vitam.yml -i environments/&lt;ficher d&#39;inventaire&gt; --ask-vault-pass</span>
@@ -303,6 +382,10 @@ Actuellement la solution logicielle Vitam est capable de gérer 2 interfaces ré
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Une confirmation est demandée pour lancer ce script. Il est possible de rajouter le paramètre <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">confirmation=yes</span></code> pour bypasser cette demande de confirmation (cas d’un déploiement automatisé).</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Dans le cas où l’installateur souhaite utiliser un <cite>repository</cite> de binaires qu’il gère par lui-même, il est fortement recommandé de rajouter <code class="docutils literal notranslate"><span class="pre">--skip-tags</span> <span class="pre">&quot;enable_vitam_repo&quot;</span></code> à la commande <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> ; dans ce cas, le comportement de <code class="docutils literal notranslate"><span class="pre">yum</span></code> n’est pas impacté par la solution de déploiement.</p>
 </div>
 </div>
 </div>
@@ -328,7 +411,7 @@ Actuellement la solution logicielle Vitam est capable de gérer 2 interfaces ré
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -347,21 +430,24 @@ Actuellement la solution logicielle Vitam est capable de gérer 2 interfaces ré
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

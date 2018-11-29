@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.3. Orientations générales &mdash; Documentation VITAM - Architecture 1.4.0</title>
+  <title>3.3. Orientations générales &mdash; Documentation VITAM - Architecture 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -107,7 +107,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../archi-applicative/_toc.html">4. Architecture applicative</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Sécurité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
 </ul>
 
@@ -206,7 +206,7 @@
 <li><p class="first">IHM de démonstration&nbsp;: elle porte des exemples d’implémentations limitatives tant en fonctionnalité qu’en garantie de fonctionnement. Ces IHM ne doivent pas être mises en production mais sont des exemples dont peuvent s’inspirer les concepteurs d’applications front-offices.</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cette IHM porte notamment des codes de démonstration, des cas particulier d’exemples pour de futures implémentations de front-offices, mais uniquement sur un aspect codage (requêtes et réponses) pour illustrer des cas d’usages</li>
+<li>Cette IHM porte notamment des codes de démonstration, des cas particulier d’exemples pour de futures implémentations de front-offices, mais uniquement sur un aspect codage (requêtes et réponses) pour illustrer des cas d’usages.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -217,15 +217,15 @@
 <p>Pour assurer l’interconnexion entre le back-office et les front-offices, il est proposé d’utiliser des interfaces HTTPS REST (hors protocoles spécifiques additionnels de transferts de fichiers). Ainsi toutes les fonctionnalités accessibles aux front-offices seront offertes via ces API. Les IHM minimales et de démonstration utiliseront ces API. Les IHM d’administration pourront utiliser des API spécifiques si nécessaire (mais ce n’est pas une obligation, ces API pouvant elles aussi être exposées in fine).</p>
 <p>Une analogie peut être faite entre Vitam et une base de données&nbsp;:</p>
 <ul class="simple">
-<li>une base de données peut héberger une ou plusieurs tables communes à de multiples applications clientes</li>
-<li>les applications clientes utilisent des API (SQL) pour échanger avec le moteur de la base de données</li>
-<li>la base de données dispose d’une IHM spécifique d’administration pouvant utiliser les mêmes API (SQL) ou des API spécifiques du moteur</li>
+<li>une base de données peut héberger une ou plusieurs tables communes à de multiples applications clientes ;</li>
+<li>les applications clientes utilisent des API (SQL) pour échanger avec le moteur de la base de données ;</li>
+<li>la base de données dispose d’une IHM spécifique d’administration pouvant utiliser les mêmes API (SQL) ou des API spécifiques du moteur.</li>
 </ul>
 </div>
 <div class="section" id="big-data-et-cloud-computing">
 <h2>3.3.3. Big Data et Cloud computing<a class="headerlink" href="#big-data-et-cloud-computing" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les contraintes de volumétrie (plusieurs dizaines de milliards d’objets) conduisent à une volumétrie (en nombre) dépassant les capacités des logiciels usuels (type SGBDR). Les technologies NoSQL ou Cloud computing à forte distribution permettent de palier à ce problème.</p>
-<p>Pour chaque objet numérique, les métadonnées associées sont variables ([Nom, Prénom, …] pour un dossier RH, [Projet, Domaine, …] pour un dossier projet, [Action, Plan comptable, … ] pour de la comptabilité, …). Cette variabilité peut être assumée par des technologies NoSQL dites «&nbsp;schema less&nbsp;».</p>
+<p>Les contraintes de volumétrie (plusieurs dizaines de milliards d’objets) conduisent à une volumétrie (en nombre) dépassant les capacités des logiciels usuels (type SGBDR). Les technologies NoSQL ou Cloud computing à forte distribution permettent de pallier ce problème.</p>
+<p>Pour chaque objet numérique, les métadonnées associées sont variables ([Nom, Prénom, …] pour un dossier RH, [Projet, Domaine, …] pour un dossier projet, [Action, Plan comptable, … ] pour de la comptabilité, …). Cette variabilité peut être assumée par des technologies NoSQL dites «&nbsp;schemaless&nbsp;».</p>
 <p>Chaque objet numérique peut être d’un format différent (Word, PDF, JPG, AVI, …). La lisibilité dans le temps d’un objet numérique est un enjeu majeur. Si on ne peut plus le lire (le consulter par exemple), il n’est plus compréhensible par l’humain. Les transformations de format pour en assurer la lisibilité sont donc indispensables dans le temps. Du fait de la masse (dizaines de milliards d’objets numériques), cette contrainte impose de gérer une vélocité de grande masse.</p>
 <p>Du fait de la prolifération des formats et des usages (usage dit de master pour la conservation, usage dit de diffusion dans une qualité moindre, voire d’autres usages comme une qualité de type vignette ou contenu textuel (TEXTE)), ces formats induisent eux-aussi une grande variabilité qui doit être gérée de manière efficiente (vélocité).</p>
 <p>De plus l’accès aux métadonnées ou aux objets numériques doit pouvoir se faire dans des temps acceptables (de la seconde à quelques dizaines de secondes pour certains éléments massifs). Là aussi la vélocité est donc un point important.</p>
@@ -233,7 +233,7 @@
 </div>
 <div class="section" id="cloud-storage">
 <h2>3.3.4. Cloud storage<a class="headerlink" href="#cloud-storage" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La particularité de l’accès aux objets numériques est un accès unitaire a minima (l’accès à un lot se résumant à faire des accès unitaires pour chacun des éléments de ce lot). Ainsi on accède à un courriel et non uniquement à une boîte aux lettres. Ainsi chaque objet étant accédé unitairement, la logique retenue pour le stockage est une logique Objet («&nbsp;Content Adressable Storage = CAS&nbsp;») et non une logique systèmes de fichiers. L’implémentation réelle peut s’appuyer sur une logique de systèmes de fichiers, mais l’interface visible elle sera objet. Le modèle de référence (ce qui ne veut pas dire l’implémentation réelle ni l’interface exacte) s’inspire de la NF Z 42-020 et du modèle SWIFT ou CEPH. L’avantage des deux dernières technologies est qu’elles permettent d’envisager un modèle qui peut croître en taille sans avoir à tout changer à chaque fois. Il s’agit donc du modèle Cloud Storage.</p>
+<p>La particularité de l’accès aux objets numériques est un accès unitaire a minima (l’accès à un lot se résumant à faire des accès unitaires pour chacun des éléments de ce lot). Ainsi on accède à un courriel et non uniquement à une boîte aux lettres. Ainsi chaque objet étant accédé unitairement, la logique retenue pour le stockage est une logique Objet («&nbsp;Content Adressable Storage = CAS&nbsp;») et non une logique systèmes de fichiers. L’implémentation réelle peut s’appuyer sur une logique de systèmes de fichiers, mais l’interface visible sera bien objet. Le modèle de référence (ce qui ne veut pas dire l’implémentation réelle ni l’interface exacte) s’inspire de la NF Z 42-020 et du modèle SWIFT ou CEPH. L’avantage des deux dernières technologies est qu’elles permettent d’envisager un modèle qui peut croître en taille sans avoir à tout changer à chaque fois. Il s’agit donc du modèle Cloud Storage.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Les notions de Cloud computing ou Cloud Storage ne sont pas à prendre au sens hébergement chez Amazon, Google ou Azure, mais au sens des technologies sous-jacentes.</p>
@@ -294,7 +294,7 @@
 <h2>3.3.8. Solution exploitable<a class="headerlink" href="#solution-exploitable" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Du fait de la complexité des composants à mettre en oeuvre et donc de l’exploitation associée, tant par composant que dans des visions de suivi d’opérations, la solution logicielle Vitam doit apporter un maximum d’aides et de facilités aux administrateurs techniques et exploitants, sans forcément se substituer aux outils d’administration propres à chacun des composants.</p>
 <p>Ainsi il est nécessaire de disposer d’un outillage permettant la configuration, l’installation et la mise à jour des composants et des services pour une plate-forme Vitam.</p>
-<p>Il est nécessaire d’avoir de disposer d’un outillage permettant de suivre l’activité du système global&nbsp;:</p>
+<p>Il est également nécessaire de disposer d’un outillage permettant de suivre l’activité du système global&nbsp;:</p>
 <ul class="simple">
 <li>Gestion des logs centralisés</li>
 <li>Suivi des opérations ou d’une opération en cours</li>
@@ -329,7 +329,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -348,21 +348,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

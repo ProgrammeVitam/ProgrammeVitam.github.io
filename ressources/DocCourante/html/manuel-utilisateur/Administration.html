@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. Administration &mdash; Documentation VITAM - Manuel utilisateur 1.4.0</title>
+  <title>7. Administration &mdash; Documentation VITAM - Manuel utilisateur 1.10.0-1</title>
   
 
   
@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="8. Traitements de masse" href="traitements_de_masse.html" />
     <link rel="prev" title="6. Gestion des archives" href="gestion.html" /> 
 
   
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -89,7 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="general.html">2. Généralités</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Authentification.html">3. Authentification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Entree.html">4. Entrée d’un SIP et plan de classement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche et Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche, Consultation et Modification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestion.html">6. Gestion des archives</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">7. Administration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fonctionnalites-presentes-sur-tous-les-tenants">7.1. Fonctionnalités présentes sur tous les tenants</a><ul>
@@ -110,6 +111,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#import-du-referentiel-des-services-agents">7.1.3.1. Import du référentiel des services agents</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#recherche-dun-service-agents">7.1.3.2. Recherche d’un service agents</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#detail-dun-service-agent">7.1.3.3. Détail d’un service agent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modification-d-un-service-agent">7.1.3.4. Modification d’un service agent</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#contrats-d-entree">7.1.4. Contrats d’entrée</a><ul>
@@ -133,16 +135,16 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#profils-d-archivage">7.1.7. Profils d’archivage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#import-d-notice-descriptive-de-profil-d-archivage">7.1.7.1. Import d’notice descriptive de profil d’archivage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-de-notice-descriptive-de-profil-d-archivage">7.1.7.1. Import de notice descriptive de profil d’archivage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#recherche-d-une-notice-de-profil-d-archivage">7.1.7.2. Recherche d’une notice de profil d’archivage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#detail-d-une-notice-descriptive-d-un-profil-d-archivage">7.1.7.3. Détail d’une notice descriptive d’un profil d’archivage</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#documents-types-profils-d-unites-archivistiques">7.1.8. Documents types (Profils d’unités archivistiques)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#importer-une-notice-de-document-type-profil-d-unite-archivistique">7.1.8.1. Importer une notice de document type (profil d’unité archivistique)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ajout-d-un-schema-de-controle">7.1.8.2. Ajout d’un Schéma de contrôle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#recherche-d-un-document-type">7.1.8.3. Recherche d” un document type</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#detail-d-un-document-type">7.1.8.4. Détail d’un document type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profils-d-unites-archivistiques">7.1.8. Profils d’unités archivistiques</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#importer-une-notice-de-profil-d-unite-archivistique-document-type">7.1.8.1. Importer une notice de profil d’unité archivistique (document type)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ajout-d-un-schema-de-controle">7.1.8.2. Ajout d’un schéma de contrôle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recherche-d-un-profil-d-unite-archivistique">7.1.8.3. Recherche d’un profil d’unité archivistique</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detail-d-un-profil-d-unite-archivistique">7.1.8.4. Détail d’un profil d’unité archivistique</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#import-d-un-arbre-de-positionnement">7.1.9. Import d’un arbre de positionnement</a><ul>
@@ -167,30 +169,40 @@
 <li class="toctree-l4"><a class="reference internal" href="#verification-d-un-journal-securise">7.1.12.3. Vérification d’un journal sécurisé</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#ontologie">7.1.13. Ontologie</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#importer-ou-modifier-une-ontologie">7.1.13.1. Importer ou modifier une ontologie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recherche-dans-l-ontologie">7.1.13.2. Recherche dans l” ontologie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detail-d-une-ontologie">7.1.13.3. Détail d’une ontologie</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#fonctionnalites-presentes-sur-le-tenant-d-administration-uniquement">7.2. Fonctionnalités présentes sur le tenant d’administration uniquement</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">7.2.1. Référentiel des formats</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#import-des-referentiels">7.2.1.1. Import des référentiels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">7.2.1.1. Import du référentiel des formats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modification-du-referentiel-des-formats">7.2.1.2. Modification du référentiel des formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">7.2.1.3. Recherche d’un format</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">7.2.2. Contextes applicatifs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">7.2.2. Contextes applicatifs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#import-des-contextes-applicatifs">7.2.2.1. Import des contextes applicatifs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modifier-un-contexte-applicatif">7.2.2.2. Modifier un contexte applicatif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">7.2.2.3. Rechercher un contexte applicatif</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#ontologie">7.2.3. Ontologie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">7.2.3. Ontologie</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#importer-une-ontologie">7.2.3.1. Importer une ontologie</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#recherche-d-une-ontologie">7.2.3.2. Recherche d” une ontologie</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#detail-d-une-ontologie">7.2.3.3. Détail d’une ontologie</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modifier-une-ontologie">7.2.3.4. Modifier une ontologie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modifier-une-ontologie">7.2.3.2. Modifier une ontologie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">7.2.3.3. Recherche dans l’ontologie</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html">8. Traitements de masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html#mise-a-jour-de-metadonnees-en-masse">9. Mise à jour de métadonnées en masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html#elimination-en-masse">10. Elimination en masse</a></li>
 </ul>
 
             
@@ -260,7 +272,7 @@
 <p>Cette partie décrit les fonctionnalités d’administration proposées à l’utilisateur ayant un rôle d’administrateur :</p>
 <ul class="simple">
 <li>Consultation des référentiels (contextes applicatifs, contrats d’entrée, contrats d’accès, formats, profils d’archivage, règles de gestion et services agents, documents types et ontologie)</li>
-<li>Import des référentiels (arbre de positionnement, contextes applicatifs, contrats d’entrée, contrats d’accès, formats, profils d’archivage, règles de gestion et services agents)</li>
+<li>Import des référentiels (arbre de positionnement, contrats d’entrée, contrats d’accès, profils d’archivage, règles de gestion, services agents et profil d’unités archivistiques)</li>
 <li>Consultation et suivi des opérations et des opérations de sécurisation</li>
 </ul>
 <p>La plupart des fonctionnalités d’administration sont accessibles avec un compte d’administrateur sur tous les tenants. Les référentiels trans-tenants font exceptions à cette règle et ne peuvent être gérés que depuis le tenant d’administration (référentiel des formats par exemple).</p>
@@ -276,17 +288,22 @@
 <div class="section" id="recherche-d-un-format">
 <h4>7.1.1.2. Recherche d’un format<a class="headerlink" href="#recherche-d-un-format" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La recherche d’un format dans le référentiel des formats s’effectue depuis l’écran «&nbsp;Formats&nbsp;». Pour y accéder, l’utilisateur clique le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Formats&nbsp;».</p>
-<img alt="_images/menu_formats.png" src="_images/menu_formats.png" />
-<p>Par défaut, les formats sont affichés sous le formulaire de recherche et sont classés par ordre alphabétique de leur intitulé.</p>
+<a class="reference internal image-reference" href="_images/menu_formats.png"><img alt="_images/menu_formats.png" class="align-center" src="_images/menu_formats.png" style="width: 604.0px; height: 411.2px;" /></a>
+<p>Par défaut, les formats sont affichés sous le formulaire de recherche.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
-<p>-Intitulé  : permet d’effectuer une recherche approchante sur les intitulés des formats disponibles dans la solution logicielle Vitam
-La recherche par intitulé peut être approximative : chaîne de caractères avec ou sans accent, mots au singulier comme au pluriel, voire une légère tolérance de faute.</p>
-<p>-PUID (identifiant unique du format dans PRONOM) : permet d’effectuer une recherche exacte sur l’identifiant d’un format</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Intitulé <span class="classifier-delimiter">:</span> <span class="classifier">permet d’effectuer une recherche approchante sur les intitulés des formats disponibles dans la solution logicielle Vitam</span></dt>
+<dd>La recherche par intitulé peut être approximative : chaîne de caractères avec ou sans accent, mots au singulier comme au pluriel, voire une légère tolérance de faute.</dd>
+</dl>
+</li>
+<li>PUID (identifiant unique du format dans PRONOM) : permet d’effectuer une recherche exacte sur l’identifiant d’un format</li>
+</ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Il est impossible d’effectuer une recherche croisée par PUID et intitulé.</p>
+<p class="last">Il est impossible d’effectuer une recherche croisée par PUID et intitulé</p>
 </div>
-<img alt="_images/rechch_formats.png" src="_images/rechch_formats.png" />
+<img alt="_images/rechch_formats.png" class="align-center" src="_images/rechch_formats.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste du référentiel est alors actualisée avec les résultats correspondants à la recherche souhaitée. Suite à la recherche, les résultats sont affichés dans un tableau comportant les informations suivantes :</p>
 <ul class="simple">
 <li>PUID : identifiant unique du format</li>
@@ -298,7 +315,7 @@ La recherche par intitulé peut être approximative : chaîne de caractères ave
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/res_formats.png" src="_images/res_formats.png" />
+<img alt="_images/res_formats.png" class="align-center" src="_images/res_formats.png" />
 </div>
 <div class="section" id="detail-d-un-format">
 <h4>7.1.1.3. Détail d’un format<a class="headerlink" href="#detail-d-un-format" title="Lien permanent vers ce titre">¶</a></h4>
@@ -307,7 +324,7 @@ La recherche par intitulé peut être approximative : chaîne de caractères ave
 <div class="line"><br /></div>
 </div>
 <blockquote>
-<div><img alt="_images/detail_format.png" src="_images/detail_format.png" />
+<div><img alt="_images/detail_format.png" class="align-center" src="_images/detail_format.png" />
 </div></blockquote>
 <p>Le détail d’un format est composé des informations suivantes :</p>
 <ul class="simple">
@@ -329,7 +346,7 @@ Pour plus de détails se référer à la documentation «&nbsp;Règles de gestio
 <h4>7.1.2.1. Import du référentiel des règles de gestion<a class="headerlink" href="#import-du-referentiel-des-regles-de-gestion" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’import des règles de gestion est une fonctionnalité réservée à un utilisateur ayant des droits d’administration. La structure et les valeurs des règles de gestion sont décrites dans la documentation du modèle de données.</p>
 <p>Pour accéder à la page d’import, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import des référentiels&nbsp;» et sélectionne «&nbsp;Import des règles de gestion&nbsp;».</p>
-<img alt="_images/menu_imports.png" src="_images/menu_imports.png" />
+<a class="reference internal image-reference" href="_images/menu_imports.png"><img alt="_images/menu_imports.png" class="align-center" src="_images/menu_imports.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur doit au préalable créer le référentiel des règles de gestion au format CSV afin de l’importer dans Vitam. Plusieurs critères doivent être respectés pour s’assurer de la bonne construction du référentiel des règles de gestion :</p>
 <ul class="simple">
 <li>Identifiants de la règle (obligatoire et unique)</li>
@@ -354,18 +371,11 @@ Pour plus de détails se référer à la documentation «&nbsp;Règles de gestio
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<a class="reference internal image-reference" href="_images/import_rg.png"><img alt="_images/import_rg.png" src="_images/import_rg.png" style="width: 330.5px; height: 217.0px;" /></a>
+<a class="reference internal image-reference" href="_images/import_rg.png"><img alt="_images/import_rg.png" class="align-center" src="_images/import_rg.png" style="width: 330.5px; height: 217.0px;" /></a>
 <p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
 <ul class="simple">
 <li>Que le référentiel a bien été importé</li>
-<li><dl class="first docutils">
-<dt>Un échec de l’import du fichier, pouvant être causé par :</dt>
-<dd><ul class="first last">
-<li>Le fait que le fichier est invalide (mauvais format)</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>Que l’import du fichier est en échec (fichier au mauvais format, valeurs obligatoires non renseignées, etc)</li>
 </ul>
 <p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
 </div>
@@ -375,7 +385,7 @@ Pour plus de détails se référer à la documentation «&nbsp;Règles de gestio
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/menu_rg.png" src="_images/menu_rg.png" />
+<a class="reference internal image-reference" href="_images/menu_rg.png"><img alt="_images/menu_rg.png" class="align-center" src="_images/menu_rg.png" style="width: 645.6px; height: 268.0px;" /></a>
 <p>Par défaut, les règles de gestion sont affichées sous le formulaire de recherche et sont classées par ordre alphabétique de leur intitulé.</p>
 <p>Pour effectuer une recherche précise, on utilise le champ «&nbsp;Intitulé&nbsp;» ou le champ «&nbsp;Type&nbsp;».</p>
 <div class="admonition note">
@@ -385,7 +395,7 @@ Pour plus de détails se référer à la documentation «&nbsp;Règles de gestio
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/rechch_rg.png" src="_images/rechch_rg.png" />
+<img alt="_images/rechch_rg.png" class="align-center" src="_images/rechch_rg.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste du référentiel est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche, les résultats sont affichés dans un tableau comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Intitulé</li>
@@ -394,12 +404,12 @@ Pour plus de détails se référer à la documentation «&nbsp;Règles de gestio
 <li>Description</li>
 <li>Identifiant</li>
 </ul>
-<img alt="_images/res_rg.png" src="_images/res_rg.png" />
+<a class="reference internal image-reference" href="_images/res_rg.png"><img alt="_images/res_rg.png" class="align-center" src="_images/res_rg.png" style="width: 1045.6px; height: 371.2px;" /></a>
 </div>
 <div class="section" id="detail-d-une-regle-de-gestion">
 <h4>7.1.2.3. Détail d’une règle de gestion<a class="headerlink" href="#detail-d-une-regle-de-gestion" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour accéder au détail de chaque règle de gestion, l’utilisateur clique sur la ligne souhaitée.</p>
-<img alt="_images/detail_rg.png" src="_images/detail_rg.png" />
+<img alt="_images/detail_rg.png" class="align-center" src="_images/detail_rg.png" />
 <p>Le détail d’une règle de gestion est composé des informations suivantes :</p>
 <ul class="simple">
 <li>Identifiant</li>
@@ -419,8 +429,8 @@ Pour plus de détails se référer à la documentation «&nbsp;Règles de gestio
 <li>échec de la mise à jour si celle-ci a demandé la suppression d’une règle déjà utilisée ;</li>
 <li>succès avec avertissement de la mise à jour si celle-ci a demandé la modification d’une règle déjà utilisée.</li>
 </ul>
-<p>NOTE: le dernier fichier enregistré est disponible à l’export via le bouton «&nbsp;Exporter le référentiel&nbsp;»</p>
-<img alt="_images/reglesgestion_export.png" src="_images/reglesgestion_export.png" />
+<p>NOTE: le dernier fichier enregistré est disponible à l’export en format CSV via le bouton «&nbsp;Exporter le référentiel&nbsp;»</p>
+<img alt="_images/reglesgestion_export.png" class="align-center" src="_images/reglesgestion_export.png" />
 </div>
 </div>
 <div class="section" id="referentiel-des-services-agents">
@@ -431,7 +441,7 @@ Ce référentiel interne à la solution logicielle Vitam, décrit les services (
 <h4>7.1.3.1. Import du référentiel des services agents<a class="headerlink" href="#import-du-referentiel-des-services-agents" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’import des services agents est une fonctionnalité réservée à un utilisateur ayant des droits d’administration.
 Pour accéder à la page d’import, l’utilisateur clique sur le menu « Administration », puis le sous-menu « Import des référentiels » et sélectionne « Import des services agents ».</p>
-<img alt="_images/menu_services_agents.png" src="_images/menu_services_agents.png" />
+<a class="reference internal image-reference" href="_images/menu_services_agents.png"><img alt="_images/menu_services_agents.png" class="align-center" src="_images/menu_services_agents.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur doit au préalable créer le référentiel des services agents au format CSV afin de l’importer dans Vitam.</p>
 <p>Le référentiel doit comporter les champs suivants :</p>
 <ul class="simple">
@@ -446,33 +456,45 @@ Pour accéder à la page d’import, l’utilisateur clique sur le menu « Admin
 <li>Sélectionner le fichier CSV</li>
 <li>Cliquer sur le bouton «Importer»</li>
 </ul>
-<p>Une fenêtre modale s’ouvre alors pour indiquer que le référentiel a bien été importé soit un échec de l’import du fichier, pouvant être causé par : le fait que le fichier est invalide (mauvais format)</p>
+<p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
+<ul class="simple">
+<li>Que le référentiel a bien été importé</li>
+<li>Que l’import du fichier est en échec (fichier au mauvais format, valeurs obligatoires non renseignées, etc)</li>
+</ul>
 <p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
 </div>
 <div class="section" id="recherche-dun-service-agents">
 <h4>7.1.3.2. Recherche d’un service agents<a class="headerlink" href="#recherche-dun-service-agents" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour consulter et rechercher les services agents, l’utilisateur clique sur le menu « Administration », puis le sous-menu « Référentiels » et sélectionne « Services agents ».</p>
-<img alt="_images/menu_services_agents_3.png" src="_images/menu_services_agents_3.png" />
+<img alt="_images/menu_services_agents_3.png" class="align-center" src="_images/menu_services_agents_3.png" />
 <p>Par défaut, les  services agents sont affichés sous le formulaire de recherche et sont classées par ordre alphabétique de leur intitulé.
 Pour effectuer une recherche précise, on utilise les champs « Intitulé&nbsp;», «&nbsp;Identifiant&nbsp;» et/ou «&nbsp;Description »</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">La recherche par intitulé peut être approximative : chaîne de caractères avec ou sans accent, mots au singulier comme au pluriel, voire une légère tolérance de faute.</p>
 </div>
-<img alt="_images/menu_services_agents_4.png" src="_images/menu_services_agents_4.png" />
+<img alt="_images/menu_services_agents_4.png" class="align-center" src="_images/menu_services_agents_4.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton « Rechercher ». La liste du référentiel est alors actualisée avec les résultats correspondants à la recherche souhaitée. Suite à la recherche, les résultats sont affichés dans un tableau comportant les informations suivantes :
 « Intitulé&nbsp;», «&nbsp;Description », «&nbsp;Identifiant&nbsp;»</p>
-<img alt="_images/menu_services_agents_5.png" src="_images/menu_services_agents_5.png" />
+<img alt="_images/menu_services_agents_5.png" class="align-center" src="_images/menu_services_agents_5.png" />
 </div>
 <div class="section" id="detail-dun-service-agent">
 <h4>7.1.3.3. Détail d’un service agent<a class="headerlink" href="#detail-dun-service-agent" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour accéder au détail de chaque service agents, l’utilisateur clique sur la ligne souhaitée.</p>
-<img alt="_images/menu_services_agents_6.png" src="_images/menu_services_agents_6.png" />
+<p>Pour accéder au détail de chaque service agent, l’utilisateur clique sur la ligne souhaitée.</p>
+<a class="reference internal image-reference" href="_images/menu_services_agents_6.png"><img alt="_images/menu_services_agents_6.png" class="align-center" src="_images/menu_services_agents_6.png" style="width: 928.0px; height: 196.8px;" /></a>
 <p>Le détail d’un service agent est composé des informations suivantes : « Identifiant&nbsp;», « Intitulé&nbsp;», «&nbsp;Description »</p>
-<p>Cette page de détail permet également d’accéder le cas échéant au registre des fonds de cet agent</p>
-<p>Pour plus de détail sur le registre des fonds, se référer à la partie 5.4.4  Consultation du registre des fonds</p>
-<p>NOTE: la dernière version du référentiel est disponible à l’export via le bouton «&nbsp;Exporter le référentiel&nbsp;»</p>
-<img alt="_images/serviceagent_export.png" src="_images/serviceagent_export.png" />
+<p>Cette page de détail permet également d’accéder le cas échéant au registre des fonds de ce service agent, si ce dernier a déjà effectué un versement</p>
+<p>Pour plus de détail sur le registre des fonds, se référer à la parte «&nbsp;Consultation du registre des fonds&nbsp;»</p>
+<p>NOTE: la dernière version du référentiel est disponible à l’export au format CSV via le bouton «&nbsp;Exporter le référentiel&nbsp;»</p>
+<img alt="_images/serviceagent_export.png" class="align-center" src="_images/serviceagent_export.png" />
+</div>
+<div class="section" id="modification-d-un-service-agent">
+<h4>7.1.3.4. Modification d’un service agent<a class="headerlink" href="#modification-d-un-service-agent" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il est possible de modifier ou mettre à jour le référentiel des services agent, en important un nouveau référentiel complet. Les cas suivants sont possibles :</p>
+<ul class="simple">
+<li>échec de la mise à jour si celle-ci a demandé la suppression d’un service agent déjà utilisé</li>
+<li>succès lorsqu’il n’y a aucun conflit</li>
+</ul>
 </div>
 </div>
 <div class="section" id="contrats-d-entree">
@@ -481,9 +503,9 @@ Pour effectuer une recherche précise, on utilise les champs « Intitulé&nbsp;�
 Pour plus de détail se référer à la documentation «&nbsp;Gestion des habilitations&nbsp;».</p>
 <div class="section" id="import-de-contrats-d-entree">
 <h4>7.1.4.1. Import de contrats d’entrée<a class="headerlink" href="#import-de-contrats-d-entree" title="Lien permanent vers ce titre">¶</a></h4>
-<p>L’import d’un contrat est une fonctionnalité réservée à un utilisateur ayant des droits d’administration. L’utilisateur construit au préalable son contrat d’entrée au format JSON. La structure et les valeurs des contrats sont décrites dans la documentation du modèle de données.</p>
+<p>L’import d’un contrat est une fonctionnalité réservée à un utilisateur ayant des droits d’administration. Cette opération n’est valable que pour le tenant sélectionné. L’utilisateur construit au préalable son contrat d’entrée au format JSON. La structure et les valeurs des contrats sont décrites dans la documentation du «&nbsp;Modèle de données&nbsp;».</p>
 <p>Pour importer un contrat d’entrée, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import des référentiels&nbsp;» et sélectionne «&nbsp;Import des contrats d’entrée&nbsp;».</p>
-<a class="reference internal image-reference" href="_images/menu_import_entree.png"><img alt="_images/menu_import_entree.png" src="_images/menu_import_entree.png" style="width: 259.6px; height: 103.6px;" /></a>
+<a class="reference internal image-reference" href="_images/menu_import_entree.png"><img alt="_images/menu_import_entree.png" class="align-center" src="_images/menu_import_entree.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>Plusieurs critères doivent être respectés pour s’assurer de la bonne construction du fichier :</p>
 <ul class="simple">
 <li>Nom (obligatoire)</li>
@@ -491,26 +513,20 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <li>Statut (facultatif) : si aucun statut n’est défini, le contrat sera inactif par défaut</li>
 </ul>
 <p>L’utilisateur sélectionne le fichier (.json) à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement, puis clique sur «&nbsp;Importer&nbsp;» pour lancer l’opération.</p>
-<a class="reference internal image-reference" href="_images/import_ce.png"><img alt="_images/import_ce.png" src="_images/import_ce.png" style="width: 264.0px; height: 172.0px;" /></a>
-<p>Une fenêtre modale s’ouvre alors pour indiquer:</p>
-<ul class="simple">
-<li>Que le contrat a bien été importé</li>
-<li><dl class="first docutils">
-<dt>Un échec de l’import du fichier, pouvant être causé par :</dt>
-<dd><ul class="first last">
-<li>Le fait que le contrat mentionné existe déjà pour le tenant ( si la solution est en mode «&nbsp;esclave&nbsp;»)</li>
-<li>Le fait que le fichier est invalide (mauvais format ou champ obligatoire absent)</li>
+<a class="reference internal image-reference" href="_images/import_ce.png"><img alt="_images/import_ce.png" class="align-center" src="_images/import_ce.png" style="width: 330.0px; height: 215.0px;" /></a>
+<p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Que le référentiel a bien été importé</li>
+<li>Que l’import du fichier est en échec (fichier au mauvais format, identifiant du contrat déjà existant, etc)</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
+</div></blockquote>
 <p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
 </div>
 <div class="section" id="recherche-d-un-contrat-d-entree">
 <h4>7.1.4.2. Recherche d’un contrat d’entrée<a class="headerlink" href="#recherche-d-un-contrat-d-entree" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour consulter et rechercher les contrats d’entrée, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Contrats d’entrée&nbsp;».</p>
-<img alt="_images/menu_ce.png" src="_images/menu_ce.png" />
+<a class="reference internal image-reference" href="_images/menu_ce.png"><img alt="_images/menu_ce.png" class="align-center" src="_images/menu_ce.png" style="width: 645.6px; height: 268.0px;" /></a>
 <p>Par défaut, les contrats d’entrée sont affichés sous le formulaire de recherche et sont classés par ordre alphabétique de leur intitulé.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
 <ul class="simple">
@@ -521,7 +537,7 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <p class="first admonition-title">Note</p>
 <p class="last">Il est impossible d’effectuer une recherche croisée entre identifiant et intitulé. La recherche par intitulé peut être approximative : chaîne de caractères avec ou sans accent, mots au singulier comme au pluriel, voire une légère tolérance de faute.</p>
 </div>
-<img alt="_images/rechch_ce.png" src="_images/rechch_ce.png" />
+<img alt="_images/rechch_ce.png" class="align-center" src="_images/rechch_ce.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste du référentiel est alors actualisée avec les résultats correspondants à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Intitulé</li>
@@ -531,22 +547,43 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <li>Date de création</li>
 <li>Dernière modification</li>
 </ul>
-<img alt="_images/res_ce.png" src="_images/res_ce.png" />
+<img alt="_images/res_ce.png" class="align-center" src="_images/res_ce.png" />
 </div>
 <div class="section" id="detail-d-un-contrat-d-entree">
 <h4>7.1.4.3. Détail d’un contrat d’entrée<a class="headerlink" href="#detail-d-un-contrat-d-entree" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour accéder au détail d’un contrat, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail d’un contrat d’entrée&nbsp;» contient les informations suivantes :</p>
-<p>Identifiant, Intitulé, Description, Statut, Date de création, Date de dernière modification, Profils d’archivage, Nœud de rattachement, Contrôle sur noeud de rattachement, Tenant, Présence Obligatoire d’un master, Tous les usages, Liste blanche des usages</p>
+<blockquote>
+<div><ul class="simple">
+<li>Identifiant</li>
+<li>Intitulé</li>
+<li>Description</li>
+<li>Statut</li>
+<li>Date de création</li>
+<li>Date de dernière modification</li>
+<li>Profils d’archivage</li>
+<li>Nœud de rattachement</li>
+<li>Contrôle sur noeud de rattachement</li>
+<li>Tenant</li>
+<li>Présence Obligatoire d’un master</li>
+<li>Tous les usages (pour les rattachement des objets)</li>
+<li>Liste blanche des usages</li>
+<li>Formats non identifiés autorisés</li>
+<li>Tous les formats</li>
+<li>Liste blanche des format</li>
+</ul>
+</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/detail_ce.png" src="_images/detail_ce.png" />
+<img alt="_images/detail_ce.png" class="align-center" src="_images/detail_ce.png" />
 </div>
 <div class="section" id="modifier-un-contrat-d-entree">
 <h4>7.1.4.4. Modifier un contrat d’entrée<a class="headerlink" href="#modifier-un-contrat-d-entree" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Il est possible de modifier un contrat d’entrée en cliquant sur le bouton «&nbsp;Modifier&nbsp;» sur l’écran de détail du contrat. L’interface permet la modification de plusieurs champs du contrat: l’intitulé, la description, le statut, le profil d’archivage, les contrôles sur les noeuds de rattachement, etc.
-|</p>
-<img alt="_images/detail_ce_modif.png" src="_images/detail_ce_modif.png" />
+<p>Il est possible de modifier un contrat d’entrée en cliquant sur le bouton «&nbsp;Modifier&nbsp;» sur l’écran de détail du contrat. L’interface permet la modification de plusieurs champs du contrat: l’intitulé, la description, le statut, le profil d’archivage, les contrôles sur les noeuds de rattachement, etc.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<img alt="_images/detail_ce_modif.png" class="align-center" src="_images/detail_ce_modif.png" />
 <ul class="simple">
 <li>Statut</li>
 </ul>
@@ -564,51 +601,53 @@ Pour cela, l’utilisateur ajoute dans le champ l’identifiant (GUID) d’une u
 <ul class="simple">
 <li>Contrôle sur noeud de rattachement</li>
 </ul>
-<p>En activant cette option un contrôle est effectué sur la cohérence du rattachement parent / enfant du SIP.</p>
+<p>En activant cette option un contrôle est effectué sur la cohérence du rattachement parent / enfant déclaré dans le SIP. Il n’y a pas de rattachement automatique.</p>
 <ul class="simple">
 <li>Contrôle sur les usages déclarés dans le SIP</li>
 </ul>
-<p>Il est possible de réaliser un contrôle sur le type d’usages lié aux objets lors du rattachement, ainsi que de rendre obligatoire la présence d’un objet de type Master lors d’une entré.</p>
-<p>Pour cela, l’utilisateur active / désactive le contrôle sur une liste d’usages via les options dans le détail des contrats d’accès : &nbsp;» Tous les usages &nbsp;» permet d’autoriser la présence de tous les usages ou bien d’en sélectionner que certains via la «&nbsp;Liste blanche des usages&nbsp;».</p>
+<p>Il est possible de réaliser un contrôle sur le type d’usages lié aux objets lors du rattachement, ainsi que de rendre obligatoire la présence d’un objet de type Master lors d’une entrée.</p>
+<p>Pour cela, l’utilisateur active / désactive le contrôle sur une liste d’usages via les options dans le détail des contrats d’entrée : «&nbsp;Tous les usages&nbsp;» permet d’autoriser la présence de tous les usages ou bien de n’en sélectionner que certains via la «&nbsp;Liste blanche des usages&nbsp;».</p>
+<ul class="simple">
+<li>Formats non identifiés autorisés</li>
+</ul>
+<p>Ce paramètre permet d’autoriser ou non la solution logicielle Vitam à accepter les versements comportant des objets dont le système n’arrive pas à identifier. Si la valeur de ce paramètre est à «&nbsp;Non&nbsp;», les entrées de ces archives avec objets non identifiés seront rejetés. Si il est à «&nbsp;Oui&nbsp;», elles pourront être acceptées.</p>
+<ul class="simple">
+<li>Tous les formats</li>
+</ul>
+<p>Un contrat d’entrée peut limiter les formats acceptés par la solution logicielle Vitam au moment du versement. Lorsque ce paramètre est à «&nbsp;Oui&nbsp;», tous les formats sont acceptés. Quand il est à «&nbsp;Non&nbsp;», seuls les formats déclarés dans la «&nbsp;Liste des formats&nbsp;» (voir ci-dessous) seront autorisés.</p>
+<ul class="simple">
+<li>Liste des formats</li>
+</ul>
+<p>Cette option n’est disponible que lorsque le paramètre «&nbsp;Tous les formats&nbsp;» est à «&nbsp;Non&nbsp;». Dans ce cas seuls les versements d’archives comportant des objets dont le format est déclaré dans cette liste seront acceptés. Si une archive possède au moins un objet dont le format n’est pas dans la liste, son versement sera rejeté.</p>
+<p>Cette liste de format est une liste de PUID, c’est à dire d’identifiants de format déjà enregistrés dans la solution logicelle Vitam dans le référentiel des formats. (Par exemple, si l’on se base sur le référentiel des formats PRONOM, l’identifiant «&nbsp;fmt/17&nbsp;» correspond au format PDF version 1.3).</p>
+<p>Pour enregistrer un nouvel identifiant dans la liste des formats, il est nécessaire de l’écrire sur l’écran de modification des formats et de valider avec la touche entrée. Le format se transforme alors en «&nbsp;tag&nbsp;». Une fois terminée la saisie d’un ou plusieurs identifiants de formats, le bouton «&nbsp;Sauvegarder&nbsp;» permet d’enregistrer les changements.</p>
+<p>Si dans cette liste l’utilisateur ne saisit pas un identifiant de format valide, c’est à dire un identifiant qui est un PUID du référentiel des formats de la solution logicielle Vitam, alors les modifications seront rejetées au moment de cliquer sur «&nbsp;Sauvegarder&nbsp;».</p>
 <p>Une fois les modifications saisies, un clic sur le bouton «&nbsp;Sauvegarder&nbsp;» permet de les enregistrer. A l’inverse, le bouton «&nbsp;Annuler&nbsp;» permet de retourner à l’état initial de l’écran du détail du contrat.</p>
 </div>
 </div>
 <div class="section" id="contrats-d-acces">
 <h3>7.1.5. Contrats d’accès<a class="headerlink" href="#contrats-d-acces" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les contrats d’accès permettent de gérer les droits donnés aux utilisateurs et applications de rechercher et consulter les archives transférés dans la solution logicielle Vitam.
+<p>Les contrats d’accès permettent de gérer les droits donnés aux utilisateurs et applications de rechercher et consulter les archives transférées dans la solution logicielle Vitam.
 Pour plus de détail se référer à la documentation «&nbsp;Gestion des habilitations&nbsp;».</p>
 <div class="section" id="import-de-contrats-d-acces">
 <h4>7.1.5.1. Import de contrats d’accès<a class="headerlink" href="#import-de-contrats-d-acces" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’import de contrats d’accès est une fonctionnalité réservée à un utilisateur ayant des droits d’administration, cette opération n’est valable que pour le tenant sélectionné.</p>
-<p>L’administrateur devra au préalable construire son contrat sous la forme d’un contrat JSON. plusieurs critères doivent en effet être respectés :</p>
-<ul class="simple">
-<li>Nom (obligatoire)</li>
-<li>Description (obligatoire)</li>
-<li>Statut (facultatif) : si aucun statut n’est défini, le contrat sera inactif par défaut et les consultations seront impossibles.</li>
-</ul>
-<p>La structure et les valeurs des contrats sont décrites dans la documentation «&nbsp;Gestion des habilitations&nbsp;».</p>
+<p>L’utilisateur construit au préalable son contrat d’accès au format JSON. Plusieurs critères doivent en effet être respectés pour s’assurer de la bonne construction du fichier, par exemple le nom du contrat et sa description sont obligatoires. La structure et les valeurs précises des contrats JSON sont décrites dans la documentation «&nbsp;Gestion des habilitations&nbsp;» et leurs enregistrements en base de données dans la documentation «&nbsp;Modèle de données&nbsp;».</p>
 <p>Pour importer un contrat d’accès, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import des référentiels&nbsp;» et sélectionne «&nbsp;Import des contrats d’accès&nbsp;».</p>
-<img alt="_images/menu_import_acces.png" src="_images/menu_import_acces.png" />
+<a class="reference internal image-reference" href="_images/menu_import_acces.png"><img alt="_images/menu_import_acces.png" class="align-center" src="_images/menu_import_acces.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur sélectionne ensuite le fichier (.json) à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement, puis clique sur «&nbsp;Importer&nbsp;» pour lancer l’opération.</p>
-<a class="reference internal image-reference" href="_images/import_ca.png"><img alt="_images/import_ca.png" src="_images/import_ca.png" style="width: 332.5px; height: 212.5px;" /></a>
+<a class="reference internal image-reference" href="_images/import_ca.png"><img alt="_images/import_ca.png" class="align-center" src="_images/import_ca.png" style="width: 332.5px; height: 212.5px;" /></a>
 <p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
 <ul class="simple">
 <li>Que le contrat a bien été importé</li>
-<li><dl class="first docutils">
-<dt>Un échec de l’import du fichier, pouvant être causé par :</dt>
-<dd><ul class="first last">
-<li>Le fait que le fichier est invalide (mauvais format ou champ obligatoire absent)</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>Un échec de l’import du fichier, pouvant être causé par le fait que le fichier est invalide (mauvais format ou champ obligatoire absent)</li>
 </ul>
 <p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
 </div>
 <div class="section" id="recherche-d-un-contrat-d-acces">
 <h4>7.1.5.2. Recherche d’un contrat d’accès<a class="headerlink" href="#recherche-d-un-contrat-d-acces" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour consulter et rechercher les contrats d’accès, l’utilisateur clique sur sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Contrats d’accès&nbsp;».</p>
-<img alt="_images/menu_ca.png" src="_images/menu_ca.png" />
+<a class="reference internal image-reference" href="_images/menu_ca.png"><img alt="_images/menu_ca.png" class="align-center" src="_images/menu_ca.png" style="width: 645.6px; height: 268.0px;" /></a>
 <p>Par défaut, les contrats d’accès sont affichés sous le formulaire de recherche et sont classés par ordre alphabétique de leur intitulé.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
 <ul class="simple">
@@ -622,7 +661,7 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/rechch_ca.png" src="_images/rechch_ca.png" />
+<img alt="_images/rechch_ca.png" class="align-center" src="_images/rechch_ca.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste du référentiel est alors actualisée avec les résultats correspondants à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Intitulé</li>
@@ -635,13 +674,31 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/res_ca.png" src="_images/res_ca.png" />
+<img alt="_images/res_ca.png" class="align-center" src="_images/res_ca.png" />
 </div>
 <div class="section" id="detail-d-un-contrat-d-acces">
 <h4>7.1.5.3. Détail d’un contrat d’accès<a class="headerlink" href="#detail-d-un-contrat-d-acces" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour accéder au détail d’un contrat, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail d’un contrat d’accès&nbsp;» contient les informations suivantes :</p>
-<p>Identifiant, Intitulé, Description, Statut, Tous les services producteurs, Liste blanche des services producteurs (permet de restreindre l’accès à certains producteurs), Date de création, Dernière modification, Droit d’écriture, Tous les usages, Liste blanche des usages (permet de restreindre l’accès à certains usages), Nœuds de consultation, Tenant, Noeuds inaccessibles</p>
-<img alt="_images/detail_ca.png" src="_images/detail_ca.png" />
+<blockquote>
+<div><ul class="simple">
+<li>Identifiant</li>
+<li>Intitulé</li>
+<li>Description</li>
+<li>Statut</li>
+<li>Tous les services producteurs</li>
+<li>Liste blanche des services producteurs (permet de restreindre l’accès à certains producteurs)</li>
+<li>Date de création</li>
+<li>Dernière modification</li>
+<li>Droit d’écriture</li>
+<li>Tous les usages</li>
+<li>Liste blanche des usages (permet de restreindre l’accès à certains usages)</li>
+<li>Nœuds de consultation</li>
+<li>Tenant, Noeuds inaccessibles</li>
+<li>Log des accès</li>
+<li>Restriction d’écriture aux métadonnées de description</li>
+</ul>
+</div></blockquote>
+<img alt="_images/detail_ca.png" class="align-center" src="_images/detail_ca.png" />
 </div>
 <div class="section" id="modifier-un-contrat-d-acces">
 <h4>7.1.5.4. Modifier un contrat d’accès<a class="headerlink" href="#modifier-un-contrat-d-acces" title="Lien permanent vers ce titre">¶</a></h4>
@@ -651,9 +708,12 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <li>Modifier plusieurs champs du contrat</li>
 <li>Changer son statut (actif/inactif).</li>
 <li>Ajouter ou supprimer des services producteurs (identifiant)</li>
-<li>Ajouter des noeuds de consultation (identifiant) ainsi que des usages à sélectionner via une liste.</li>
+<li>Autoriser ou non l’accès à certains usages uniquement</li>
+<li>Permettre la modification des métadonnées des unités archivistiques et des groupes d’objets</li>
+<li>Ajouter des noeuds de consultation (identifiant) pour ne permettre l’accès qu’à une partie de l’arborescence des unités archivistiques</li>
+<li>Ajouter des noeuds d’exclusion (identifiant) pour interdire l’accès à une partie de l’arborescence des unités archivistiques</li>
 </ul>
-<img alt="_images/ca_update.png" src="_images/ca_update.png" />
+<img alt="_images/ca_update.png" class="align-center" src="_images/ca_update.png" />
 </div></blockquote>
 <ul class="simple">
 <li>Activation / désactivation</li>
@@ -665,8 +725,8 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <p>Un contrat d’accès peut autoriser l’accès à tous les services producteurs ou uniquement à certains inclus dans une liste blanche. Deux options sont disponibles :</p>
 <blockquote>
 <div><ul class="simple">
-<li>accès à «&nbsp;Tous les services producteurs&nbsp;» en cliquant afin de changer la valeur à «&nbsp;oui&nbsp;»</li>
-<li>accès à une sélection de services producteurs en cliquant sur le bouton «&nbsp;Tous les services producteurs&nbsp;» afin de changer la valeur à «&nbsp;non&nbsp;», puis en saisissant l’identifiant du producteur souhaité dans la liste blanche des services producteurs (système de tag, appuyer sur entrée)</li>
+<li>Accès à «&nbsp;Tous les services producteurs&nbsp;» en cliquant afin de changer la valeur à «&nbsp;oui&nbsp;»</li>
+<li>Accès à une partie des services producteurs, listés dans une liste blanche. Cette liste s’obtient en cliquant sur le bouton «&nbsp;Tous les services producteurs&nbsp;» afin de changer sa valeur à «&nbsp;non&nbsp;» et est peut être complétée en saisissant les identifiants des services producteurs souhaités (système de tag, appuyer sur entrée)</li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -675,19 +735,27 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <p>Un contrat d’accès peut autoriser l’accès à tous ou certains usages d’objets inclus dans une liste blanche. (Ex. : l’utilisateur peut accéder aux usages de diffusion mais pas à l’original). Deux options sont disponibles:</p>
 <blockquote>
 <div><ul class="simple">
-<li>accès à «&nbsp;Tous les usages&nbsp;» en cliquant afin de changer la valeur à «&nbsp;oui&nbsp;»</li>
-<li>accès à une sélection d’usages en cliquant sur le bouton «&nbsp;Tous les usages&nbsp;» afin de porter sa valeur à «&nbsp;non&nbsp;» puis en sélectionnant les usages voulus dans la liste blanche des usages.</li>
+<li>Accès à «&nbsp;Tous les usages&nbsp;» en cliquant afin de changer la valeur à «&nbsp;oui&nbsp;»</li>
+<li>Accès à une sélection d’usages, listés dans une liste blanche. Cette liste s’obtient en cliquant sur le bouton «&nbsp;Tous les usages&nbsp;» afin de changer sa valeur à «&nbsp;non&nbsp;» puis en sélectionnant les usages autorisés dans la liste.</li>
 </ul>
 </div></blockquote>
 <ul class="simple">
 <li>Restriction par nœud de consultation</li>
 </ul>
-<p>Un contrat peut restreindre l’accès aux unités archivistiques listées en tant que nœuds de consultation ainsi qu’à leurs enfants. Chaque unité archivistique renseignée est identifiée par son identifiant. Si aucune unité archivistique n’est renseignée, alors l’accès du détenteur du contrat n’est pas restreint à des nœuds de consultation (sytème de tag).</p>
-<p>Une fois les modifications saisies, un clic sur le bouton «&nbsp;Sauvegarder&nbsp;» permet de les enregistrer. A l’inverse, le bouton «&nbsp;Annuler&nbsp;» permet de retourner à l’état initial de l’écran du détail du contrat.</p>
+<p>Un contrat d’accès peut restreindre l’accès à une partie de l’arborescence des unités archivistiques. Chaque identifiant d’unité listée dans ce champ (système de tag) représente le point le plus haut d’une arborescence auquel l’utilisateur peut accéder. Les unités archivistiques en dehors de cette arborescence sont alors inaccessible. Si aucune unité archivistique n’est renseignée, alors l’accès du détenteur du contrat n’est pas restreint par ce champ.</p>
 <ul class="simple">
 <li>Restriction par nœud inaccessible</li>
 </ul>
-<p>Un contrat peut restreindre l’accès à la consultation à partir de certains noeuds, grâce à l’option «&nbsp;Noeud inaccessible&nbsp;». Pour cela il faut déclarer l’identifiant de l’unité archivistique dans le champs, et toutes les unités archivistiques de la descendance ne seront pas disponibles à la consultation.</p>
+<p>Un contrat peut interdire l’accès à la consultation à partir de certains noeuds grâce à l’option «&nbsp;Noeud inaccessible&nbsp;». Déclarer l’identifiant de l’unité archivistique dans le champs (système de tag) interdira la consultation de celle-ici ainsi que toutes les unités archivistiques de sa descendance dans l’arborescence.</p>
+<ul class="simple">
+<li>Log des accès</li>
+</ul>
+<p>Si le log des accès est activé, alors à chaque fois qu’un utilisateur télécharge avec succès un objet ou procède à un export DIP contenant des objets depuis la solution logicielle Vitam, une trace de cette action est enregistrée dans un journal des accès (le «&nbsp;log des accès&nbsp;») renseignant des informations sur cette action.</p>
+<ul class="simple">
+<li>Restriction d’écriture aux métadonnées de description</li>
+</ul>
+<p>Si cette option est activée, alors seulement les métadonnées descriptives peuvent être modifiées, les métadonnées liées aux règles de gestion et aux profils d’unité archivistique ne pourront pas être modifiées. Si cette option n’est pas activée, toutes les catégories de métadonnées (descriptives et de gestion) peuvent être modifiées.</p>
+<p>Une fois les modifications saisies, un clic sur le bouton «&nbsp;Sauvegarder&nbsp;» permet de les enregistrer. A l’inverse, le bouton «&nbsp;Annuler&nbsp;» permet de retourner à l’état initial de l’écran du détail du contrat.</p>
 </div>
 </div>
 <div class="section" id="contextes-applicatifs">
@@ -699,8 +767,8 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 </div>
 <div class="section" id="rechercher-un-contexte-applicatif">
 <h4>7.1.6.2. Rechercher un contexte applicatif<a class="headerlink" href="#rechercher-un-contexte-applicatif" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour consulter et rechercher les contextes applicatifs, l’utilisateur survole le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Contextes applicatifs&nbsp;».</p>
-<img alt="_images/menu_contextes.png" src="_images/menu_contextes.png" />
+<p>Pour consulter et rechercher les contextes applicatifs, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Contextes applicatifs&nbsp;».</p>
+<a class="reference internal image-reference" href="_images/menu_contextes.png"><img alt="_images/menu_contextes.png" class="align-center" src="_images/menu_contextes.png" style="width: 645.6px; height: 268.0px;" /></a>
 <p>Par défaut, les contextes applicatifs sont affichés sous le formulaire de recherche et sont classés par ordre alphabétique de leur intitulé.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
 <blockquote>
@@ -710,8 +778,8 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 </ul>
 </div></blockquote>
 <p>Note: la recherche croisée intitulé et identifiant n’est pas possible, lorsque l’utilisateur écrit dans le champ réservé, le champ de l’intitulé est grisé.</p>
-<img alt="_images/rechch_contextes.png" src="_images/rechch_contextes.png" />
-<p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des contextes applicatifs est alors actualisée avec les résultats correspondants à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
+<img alt="_images/rechch_contextes.png" class="align-center" src="_images/rechch_contextes.png" />
+<p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des contextes applicatifs est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <blockquote>
 <div><ul class="simple">
 <li>Intitulé</li>
@@ -728,12 +796,23 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <p class="last">une coche indique la présence d’au moins un contrat lié à ce contexte, une croix indique qu’aucun contrat n’est lié à ce contexte.</p>
 </div>
 <p>Le bouton «&nbsp;Informations supplémentaires&nbsp;» permet d’afficher des informations supplémentaires sur les contextes applicatifs. Il suffit de cocher dans la liste les informations voulues.</p>
-<img alt="_images/res_contextes.png" src="_images/res_contextes.png" />
+<img alt="_images/res_contextes.png" class="align-center" src="_images/res_contextes.png" />
 </div>
 <div class="section" id="detail-d-un-contexte">
 <h4>7.1.6.3. Détail d’un contexte<a class="headerlink" href="#detail-d-un-contexte" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour accéder au détail d’un contexte applicatif, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail du contexte applicatif&nbsp;» contient les informations suivantes :</p>
-<p>Identifiant, Intitulé, Date de création, Dernière modification, Statut (Actif ou Inactif), Profil de sécurité (permet de définir les accès d’une application), Permissions,  Activation des permissions accordées dans le profil de sécurité (Actif ou Inactif)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Identifiant</li>
+<li>Intitulé</li>
+<li>Date de création</li>
+<li>Dernière modification</li>
+<li>Statut (Actif ou Inactif)</li>
+<li>Profil de sécurité (permet de définir les accès d’une application)</li>
+<li>Permissions</li>
+<li>Activation des permissions accordées dans le profil de sécurité (Actif ou Inactif)</li>
+</ul>
+</div></blockquote>
 <p>Les tenants sont affichés par bloc. Chaque bloc contenant les informations suivantes :</p>
 <ul class="simple">
 <li>L’identifiant du tenant</li>
@@ -744,9 +823,9 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <div class="line"><br /></div>
 </div>
 <blockquote>
-<div><img alt="_images/detail_contexte.png" src="_images/detail_contexte.png" />
+<div><img alt="_images/detail_contexte.png" class="align-center" src="_images/detail_contexte.png" />
 </div></blockquote>
-<p>Point d’attention : la modification des contextes applicatifs est une opération d’administration délicate qui peut bloquer le fonctionnement de la solution logicielle. Elle doit être évitée ou réalisée avec précaution.</p>
+<p>Point d’attention : la modification des contextes applicatifs est une opération d’administration délicate qui peut bloquer le fonctionnement de la solution logicielle. Elle doit être évitée ou réalisée avec précaution. Tout comme l’import, elle ne peut être effectuée que sur le tenant d’administration.</p>
 </div>
 </div>
 <div class="section" id="profils-d-archivage">
@@ -755,8 +834,8 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <p>Il constitue une déclinaison du modèle de description propre au Standard d’échanges de données pour l’archivage (SEDA).</p>
 <p>Il s’accompagne dans la solution logicielle Vitam d’une notice descriptive au format JSON.</p>
 <p>Pour plus d’information se référer à la documentation «&nbsp;Profil d’archivage&nbsp;»</p>
-<div class="section" id="import-d-notice-descriptive-de-profil-d-archivage">
-<h4>7.1.7.1. Import d’notice descriptive de profil d’archivage<a class="headerlink" href="#import-d-notice-descriptive-de-profil-d-archivage" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="import-de-notice-descriptive-de-profil-d-archivage">
+<h4>7.1.7.1. Import de notice descriptive de profil d’archivage<a class="headerlink" href="#import-de-notice-descriptive-de-profil-d-archivage" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’import de notice détaillant les profils d’archivage est une fonctionnalité réservée à un utilisateur ayant des droits d’administration.</p>
 <p>L’utilisateur construit au prélable la notice descriptive du profil d’archivage au format JSON. Plusieurs critères doivent être respectés pour s’assurer de la bonne construction du fichier :</p>
 <blockquote>
@@ -769,29 +848,23 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 </div></blockquote>
 <p>La structure et les valeurs des notices descriptives de profils d’archivages sont décrites dans la documentation «&nbsp;Profil d’archivage&nbsp;».</p>
 <p>Pour importer une notice descriptive de profil d’archivage, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import de référentiels&nbsp;» et sélectionne «&nbsp;Import des profils d’archivage&nbsp;».</p>
-<img alt="_images/menu_import_profil.png" src="_images/menu_import_profil.png" />
+<a class="reference internal image-reference" href="_images/menu_import_profil.png"><img alt="_images/menu_import_profil.png" class="align-center" src="_images/menu_import_profil.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur sélectionne ensuite le fichier (.json) à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement, puis clique sur «&nbsp;Importer&nbsp;» pour lancer l’opération.</p>
-<a class="reference internal image-reference" href="_images/import_profils.png"><img alt="_images/import_profils.png" src="_images/import_profils.png" style="width: 328.0px; height: 214.0px;" /></a>
-<p>Une fenêtre modale indique alors soit :</p>
-<ul class="simple">
-<li>Le profil a été importé</li>
-<li><dl class="first docutils">
-<dt>Échec de l’import du fichier, pouvant être causé par :</dt>
-<dd><ul class="first last">
-<li>le fait que le(s) profil(s) d’archivage mentionné(s) existe(nt) déjà pour le tenant (si Vitam est en mode esclave)</li>
-<li>le fait que le fichier est invalide (mauvais format ou champ obligatoire absent)</li>
+<a class="reference internal image-reference" href="_images/import_profils.png"><img alt="_images/import_profils.png" class="align-center" src="_images/import_profils.png" style="width: 328.0px; height: 214.0px;" /></a>
+<p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Que le référentiel a bien été importé</li>
+<li>Que l’import du fichier est en échec (fichier au mauvais format, identifiant du contrat déjà existant ou invalide…)</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
+</div></blockquote>
 <p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
 <p>Point d’attention : l’import du profil d’archivage SEDA à lier à cette notice s’effectue via l’opération décrite dans la partie «&nbsp;modifier un profil d’archivage&nbsp;»</p>
 </div>
 <div class="section" id="recherche-d-une-notice-de-profil-d-archivage">
 <h4>7.1.7.2. Recherche d’une notice de profil d’archivage<a class="headerlink" href="#recherche-d-une-notice-de-profil-d-archivage" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour consulter et rechercher les notices de profils d’archivage, l’utilisateur survole le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Profils d’archivage&nbsp;».</p>
-<img alt="_images/menu_profil.png" src="_images/menu_profil.png" />
+<p>Pour consulter et rechercher les notices de profils d’archivage, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Profils d’archivage&nbsp;».</p>
+<a class="reference internal image-reference" href="_images/menu_profil.png"><img alt="_images/menu_profil.png" class="align-center" src="_images/menu_profil.png" style="width: 645.6px; height: 268.0px;" /></a>
 <p>Par défaut, les notices descriptives de profils d’archivage sont affichées sous le formulaire de recherche et sont classées par ordre alphabétique de leur intitulé.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
 <ul class="simple">
@@ -802,7 +875,7 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <p class="first admonition-title">Note</p>
 <p class="last">Il est impossible d’effectuer une recherche croisée entre identifiant et intitulé. La recherche par intitulé peut être approximative : chaîne de caractères avec ou sans accent, mots au singulier comme au pluriel, voire une légère tolérance de faute.</p>
 </div>
-<img alt="_images/rechch_profil.png" src="_images/rechch_profil.png" />
+<img alt="_images/rechch_profil.png" class="align-center" src="_images/rechch_profil.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des notices est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Intitulé</li>
@@ -812,53 +885,65 @@ Pour plus de détail se référer à la documentation «&nbsp;Gestion des habili
 <li>Dernière modification</li>
 <li>Profil</li>
 </ul>
-<p>Lorsqu’un profil SEDA a été associé à la notice du profil, une flèche indiquant la possibilité de le télécharger apparaît dans la colonne «&nbsp;Profil&nbsp;». L’utilisateur peut lancer le téléchargement en cliquant dessus. la notice de profil est donc consultable via l’IHM tandis que le profil ne l’est que par téléchargement.</p>
-<img alt="_images/res_profil.png" src="_images/res_profil.png" />
+<p>Lorsqu’un profil SEDA a été associé à la notice du profil, une flèche indiquant la possibilité de le télécharger apparaît dans la colonne «&nbsp;Profil&nbsp;». L’utilisateur peut lancer le téléchargement en cliquant dessus. La notice de profil est donc consultable via l’IHM tandis que le profil ne l’est que par téléchargement.</p>
+<img alt="_images/res_profil.png" class="align-center" src="_images/res_profil.png" />
 </div>
 <div class="section" id="detail-d-une-notice-descriptive-d-un-profil-d-archivage">
 <h4>7.1.7.3. Détail d’une notice descriptive d’un profil d’archivage<a class="headerlink" href="#detail-d-une-notice-descriptive-d-un-profil-d-archivage" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour accéder au détail d’une notice de profil d’archivage, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail du profil&nbsp;» contient les informations suivantes :
-Identifiant, Intitulé, Description, Statut, Tenant, Date de création, Dernière modification, Format, Fichier.</p>
+<p>Pour accéder au détail d’une notice de profil d’archivage, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail du profil&nbsp;» contient les informations suivantes :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Identifiant</li>
+<li>Intitulé</li>
+<li>Description</li>
+<li>Statut</li>
+<li>Tenant</li>
+<li>Date de création</li>
+<li>Dernière modification</li>
+<li>Format</li>
+<li>Fichier.</li>
+</ul>
+</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/detail_profil.png" src="_images/detail_profil.png" />
+<img alt="_images/detail_profil.png" class="align-center" src="_images/detail_profil.png" />
 <p><strong>Modifier une notice descriptive de profil d’archivage</strong></p>
-<p>Il est possible de modifier la notice descriptive du profil d’archivage en cliquant sur le bouton «&nbsp;Modifier&nbsp;» sur l’écran «&nbsp;Détail du profil&nbsp;». L’interface permet la modification de plusieurs champs.</p>
+<p>Il est possible de modifier la notice descriptive du profil d’archivage en cliquant sur le bouton «&nbsp;Modifier&nbsp;» sur l’écran «&nbsp;Détail du profil&nbsp;». L’interface permet la modification des champs intitulé, description et statut.</p>
 <p>Une fois les modifications saisies, un clic sur le bouton «&nbsp;Sauvegarder&nbsp;» permet de les enregistrer. A l’inverse, le bouton «&nbsp;Annuler&nbsp;» permet de retourner à l’état initial de l’écran du détail du contrat.</p>
-<p><em>Associer un fichier XSD ou RNG à un profil d’archivage</em></p>
-<p>Pour importer un profil SEDA au format XSD ou RNG à associer à une notice descriptive de profil d’archivage, l’utilisateur clique sur le bouton «&nbsp;Parcourir&nbsp;» à côté du champ «&nbsp;Fichier&nbsp;» puis clique sur «&nbsp;Importer&nbsp;». Le format du fichier doit correspondre au format attendu, indiqué dans le champ format (XSD, RNG) .</p>
+<p><strong>Associer un fichier XSD ou RNG à un profil d’archivage</strong></p>
+<p>Pour importer un profil SEDA au format XSD ou RNG à associer à une notice descriptive de profil d’archivage, l’utilisateur clique sur le bouton «&nbsp;Parcourir&nbsp;» à côté du champ «&nbsp;Fichier&nbsp;» puis clique sur «&nbsp;Sauvegarder&nbsp;». Le format du fichier doit correspondre au format attendu, indiqué dans le champ format (XSD, RNG) .</p>
 <p>A la fin de l’opération d’import, une fenêtre modale indique l’un des deux messages suivants :</p>
 <ul class="simple">
-<li>Le profil a bien été importé</li>
-<li>Echec de l’import du fichier</li>
+<li>Les modifications ont bien été enregistrée</li>
+<li>Echec de l’import du fichier (par exemple pour cause de mauvais format de fichier)</li>
 </ul>
 <p>L’opération est journalisée et disponible depuis l’écran de consultation du journal des opérations.</p>
 <p>En cas de succès de l’import du profil XSD ou RNG, la date de mise à jour de la notice descriptive de profil est ajustée en conséquence. Si l’utilisateur importe un nouveau profil SEDA au format XSD ou RNG alors qu’un autre profil SEDA a déjà été importé, alors le nouveau fichier remplace l’ancien.</p>
 </div>
 </div>
-<div class="section" id="documents-types-profils-d-unites-archivistiques">
-<h3>7.1.8. Documents types (Profils d’unités archivistiques)<a class="headerlink" href="#documents-types-profils-d-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Un document type (profil d’unité archivistique) est un fichier JSON qui permet de définir précisément&nbsp;et d’effectuer des contrôles sur la structure des métadonnées attendues des archives destinées à être transférées à la solution logicielle Vitam.</p>
+<div class="section" id="profils-d-unites-archivistiques">
+<h3>7.1.8. Profils d’unités archivistiques<a class="headerlink" href="#profils-d-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un profil d’unité archivistique est un fichier JSON qui permet de définir précisément&nbsp;et d’effectuer des contrôles sur la structure des métadonnées attendues des archives destinées à être transférées à la solution logicielle Vitam.</p>
 <p>Il s’accompagne dans la solution logicielle Vitam d’une notice descriptive en JSON.</p>
 <p>Pour plus d’information se référer à la documentation «&nbsp;Document Type&nbsp;»</p>
-<div class="section" id="importer-une-notice-de-document-type-profil-d-unite-archivistique">
-<h4>7.1.8.1. Importer une notice de document type (profil d’unité archivistique)<a class="headerlink" href="#importer-une-notice-de-document-type-profil-d-unite-archivistique" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="importer-une-notice-de-profil-d-unite-archivistique-document-type">
+<h4>7.1.8.1. Importer une notice de profil d’unité archivistique (document type)<a class="headerlink" href="#importer-une-notice-de-profil-d-unite-archivistique-document-type" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’import de notice détaillant les profils d’unité archivistiques est une fonctionnalité réservée à un utilisateur ayant des droits d’administration.</p>
-<p>L’utilisateur construit au prélable la notice descriptive du document type au format JSON. Plusieurs critères doivent être respectés pour s’assurer de la bonne construction du fichier :</p>
+<p>L’utilisateur construit au préalable la notice descriptive du profil d’unité archivistique au format JSON. Plusieurs critères doivent être respectés pour s’assurer de la bonne construction du fichier :</p>
 <blockquote>
 <div><ul>
 <li><p class="first">Nom : intitulé (obligatoire)</p>
 </li>
-<li><p class="first">Description : description (Facultative)</p>
+<li><p class="first">Description : description (facultative)</p>
 </li>
-<li><p class="first">Date de Création (Facultative)</p>
+<li><p class="first">Date de Création (facultative)</p>
 </li>
-<li><p class="first">Date d’Activation: Date au format JJ/MM/AA (Facultative)</p>
+<li><p class="first">Date d’Activation: date au format JJ/MM/AA (facultative)</p>
 </li>
-<li><p class="first">Date de désactivation: Date au format JJ/MM/AA (Facultative)</p>
+<li><p class="first">Date de désactivation: date au format JJ/MM/AA (facultative)</p>
 </li>
-<li><p class="first">Statut : Date au format JJ/MM/AA (Facultatif)</p>
+<li><p class="first">Statut : Date au format JJ/MM/AA (facultatif)</p>
 </li>
 <li><p class="first">Schéma de contrôle: bloc au format JSON (obligatoire , même vide)</p>
 <p>NOTE : si aucun statut n’est défini, le profil sera inactif par défaut</p>
@@ -866,43 +951,35 @@ Identifiant, Intitulé, Description, Statut, Tenant, Date de création, Dernièr
 </ul>
 </div></blockquote>
 <p>Pour importer une notice descriptive, l’utilisateur survole le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import de référentiels&nbsp;» et sélectionne «&nbsp;Import des documents type&nbsp;».</p>
-<img alt="_images/menu_import_doctype.png" src="_images/menu_import_doctype.png" />
+<a class="reference internal image-reference" href="_images/menu_import_doctype.png"><img alt="_images/menu_import_doctype.png" class="align-center" src="_images/menu_import_doctype.png" style="width: 377.5px; height: 257.0px;" /></a>
 <p>L’utilisateur sélectionne ensuite le fichier (.json) à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement, puis clique sur «&nbsp;Importer&nbsp;» pour lancer l’opération.</p>
-<img alt="_images/import_doctype.png" src="_images/import_doctype.png" />
-<p>Une fenêtre modale indique alors soit :</p>
+<a class="reference internal image-reference" href="_images/import_doctype.png"><img alt="_images/import_doctype.png" class="align-center" src="_images/import_doctype.png" style="width: 305.5px; height: 201.5px;" /></a>
+<p>A la fin de l’opération d’import, une fenêtre modale indique l’un des deux messages suivants :</p>
 <ul class="simple">
-<li>Les documents types ont bien été importés</li>
-<li><dl class="first docutils">
-<dt>Échec de l’import du fichier, pouvant être causé par :</dt>
-<dd><ul class="first last">
-<li>le fait que le document type existe déjà pour le tenant</li>
-<li>le fait que le fichier est invalide (mauvais format ou champ obligatoire absent)</li>
+<li>Le profil d’unité archivistique a bien été importé</li>
+<li>Echec de l’import du fichier (mauvais format, champ obligatoire absent…)</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
+<p>L’opération est journalisée et disponible depuis l’écran de consultation du journal des opérations.</p>
 </div>
 <div class="section" id="ajout-d-un-schema-de-controle">
-<h4>7.1.8.2. Ajout d’un Schéma de contrôle<a class="headerlink" href="#ajout-d-un-schema-de-controle" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>7.1.8.2. Ajout d’un schéma de contrôle<a class="headerlink" href="#ajout-d-un-schema-de-controle" title="Lien permanent vers ce titre">¶</a></h4>
 <ul>
-<li><p class="first">L’utilisateur peut ajouter des schémas de contrôles de 2 façons:</p>
+<li><p class="first">L’utilisateur peut ajouter des schémas de contrôles de deux façons:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Soit via le référentiel JSON directement, en rajoutant le bloc de métadonnées à contrôler à l’INGEST des fichiers directement dans le détail du Champ &nbsp;» Controlschema «&nbsp;</li>
-<li>Soit via l” IHM, dans le détail de la notice de document type importée précédemment.</li>
+<li>Soit dans le fichier JSON du profil d’unité archivistique directement, en rajoutant le bloc de métadonnées à contrôler à l’entrée dans le champ «&nbsp;Controlschema&nbsp;»</li>
+<li>Soit via l’IHM, dans le détail de la notice du profil d’unité archivistique importé précédemment.</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-<img alt="_images/ref_json.png" src="_images/ref_json.png" />
-<p>Note: Pour que le contrôle supplémentaire sur les données soit pris en compte, l” intitulé du référentiel devra être présent dans le bordeau d’envoi.</p>
+<img alt="_images/ref_json.png" class="align-center" src="_images/ref_json.png" />
+<p>Note: Pour que le contrôle supplémentaire sur les données soit pris en compte, l’intitulé du référentiel devra être présent dans le bordereau de versement.</p>
 </div>
-<div class="section" id="recherche-d-un-document-type">
-<h4>7.1.8.3. Recherche d” un document type<a class="headerlink" href="#recherche-d-un-document-type" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour consulter et rechercher les documents types, l’utilisateur survole le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Documents type&nbsp;».</p>
-<p>Par défaut, les documents types sont affichées sous le formulaire de recherche et sont classées par ordre alphabétique de leur intitulé.</p>
+<div class="section" id="recherche-d-un-profil-d-unite-archivistique">
+<h4>7.1.8.3. Recherche d’un profil d’unité archivistique<a class="headerlink" href="#recherche-d-un-profil-d-unite-archivistique" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour consulter et rechercher les profils d’unités archivistique, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Documents type&nbsp;».</p>
+<p>Par défaut, les documents types sont affichés sous le formulaire de recherche et sont classés par ordre alphabétique de leur intitulé.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
 <ul class="simple">
 <li>Intitulé : permet d’effectuer une recherche approchante sur les noms des notices descriptives de profils d’archivage disponibles dans la solution logicielle Vitam.</li>
@@ -912,7 +989,7 @@ Identifiant, Intitulé, Description, Statut, Tenant, Date de création, Dernièr
 <p class="first admonition-title">Note</p>
 <p class="last">Il est impossible d’effectuer une recherche croisée entre identifiant et intitulé. La recherche par intitulé peut être approximative : chaîne de caractères avec ou sans accent, mots au singulier comme au pluriel, voire une légère tolérance de faute.</p>
 </div>
-<img alt="_images/recherche_doctype.png" src="_images/recherche_doctype.png" />
+<img alt="_images/recherche_doctype.png" class="align-center" src="_images/recherche_doctype.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des notices est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Intitulé</li>
@@ -923,9 +1000,9 @@ Identifiant, Intitulé, Description, Statut, Tenant, Date de création, Dernièr
 <li>Document</li>
 </ul>
 </div>
-<div class="section" id="detail-d-un-document-type">
-<h4>7.1.8.4. Détail d’un document type<a class="headerlink" href="#detail-d-un-document-type" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour accéder au détail d’une notice de profil d’archivage, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail du profil&nbsp;» contient les informations suivantes :</p>
+<div class="section" id="detail-d-un-profil-d-unite-archivistique">
+<h4>7.1.8.4. Détail d’un profil d’unité archivistique<a class="headerlink" href="#detail-d-un-profil-d-unite-archivistique" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour accéder au détail d’un profil d’unité archivistique, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail du document type&nbsp;» contient les informations suivantes :</p>
 <ul class="simple">
 <li>Identifiant</li>
 <li>Intitulé</li>
@@ -936,39 +1013,33 @@ Identifiant, Intitulé, Description, Statut, Tenant, Date de création, Dernièr
 <li>Dernière modification</li>
 <li>Schéma de contrôle</li>
 </ul>
-<p><strong>Modifier un document type</strong></p>
-<p>Il est possible de modifier le document type en cliquant sur le bouton «&nbsp;Modifier&nbsp;» sur l’écran «&nbsp;Détail du document type&nbsp;». L’interface permet la modification de plusieurs champs.</p>
+<p><strong>Modifier un profil d’unité archivistique</strong></p>
+<p>Il est possible de modifier le profil d’unité archivistique en cliquant sur le bouton «&nbsp;Modifier&nbsp;» sur l’écran «&nbsp;Détail du document type&nbsp;». L’interface permet la modification de plusieurs champs.</p>
 <p>Une fois les modifications saisies, un clic sur le bouton «&nbsp;Sauvegarder&nbsp;» permet de les enregistrer. A l’inverse, le bouton «&nbsp;Annuler&nbsp;» permet de retourner à l’état initial de l’écran du détail du contrat.</p>
+<p>L’opération est journalisée et disponible depuis l’écran de consultation du journal des opérations.</p>
 </div>
 </div>
 <div class="section" id="import-d-un-arbre-de-positionnement">
 <h3>7.1.9. Import d’un arbre de positionnement<a class="headerlink" href="#import-d-un-arbre-de-positionnement" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les arbres de positionnement correspondent à des ensembles logiques hiérarchisés les uns par rapport aux autres sous forme arborescente. Ils permettent à un service d’archives d’organiser des fonds. Ils s’apparentent à la notion de cadre de classement qu’ils utilisent.</p>
+<p>Les arbres de positionnement correspondent à des ensembles logiques hiérarchisés les uns par rapport aux autres sous forme arborescente. Ils permettent à un service d’archives d’organiser des fonds. Ils s’apparentent à la notion de cadre de classement.</p>
 <p>Pour plus d’informations, consulter la documentation «&nbsp;Arbres et Plans&nbsp;».</p>
 <div class="section" id="id1">
 <h4>7.1.9.1. Import d’un arbre de positionnement<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
-<p>L’administrateur aura préalablement constitué son fichier d’arbre de positionnement au format CSV comportant les informations suivantes :</p>
-<ul class="simple">
-<li>id&nbsp;: numéro de l’enregistrement&nbsp;;</li>
-<li>nom&nbsp;: intitulés présents dans l’arbre de positionnement, tous niveaux confondus</li>
-<li>observ&nbsp;: informations complémentaires (facultatif)</li>
-<li>cote et série rang&nbsp;: ordre attribué à chaque niveau.</li>
-</ul>
 <p>Pour importer un arbre de positionnement, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import de référentiels&nbsp;» et sélectionne «&nbsp;Arbre de positionnement&nbsp;».</p>
-<img alt="_images/menu_import_arbre.png" src="_images/menu_import_arbre.png" />
+<a class="reference internal image-reference" href="_images/menu_import_arbre.png"><img alt="_images/menu_import_arbre.png" class="align-center" src="_images/menu_import_arbre.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur sélectionne ensuite le dossier à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement.</p>
 <p>Plusieurs options sont présentes sur l’écran :</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>Mode d’exécution :</dt>
 <dd><ul class="first last">
-<li>le mode d’exécution «&nbsp;en continu&nbsp;» permettant de lancer le processus d’entrée dans sa globalité en une seule fois. Dans la grande majorité des cas, ce mode d’exécution sera le choix adopté.</li>
-<li>le mode d’exécution «&nbsp;pas à pas&nbsp;» permettant de réaliser progressivement l’entrée en passant d’une étape à une autre. (NB : Les actions liées au processus d’entrée en mode «&nbsp;pas à pas&nbsp;» se retrouvent dans la partie Administration du manuel utilisateur).</li>
+<li>le mode d’exécution «&nbsp;En continu&nbsp;» permettant de lancer le processus d’entrée dans sa globalité en une seule fois. Dans la grande majorité des cas, ce mode d’exécution sera le choix adopté.</li>
+<li>le mode d’exécution «&nbsp;pas à pas&nbsp;» permettant de réaliser progressivement l’entrée en passant d’une étape à une autre. (NB : les actions liées au processus d’entrée en mode «&nbsp;pas à pas&nbsp;» se retrouvent dans la partie Administration du manuel utilisateur).</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>Destination : actuellement, seule l’option «&nbsp;production&nbsp;» est disponible pour verser directement l’arbre de positionnement.</li>
+<li>Destination : actuellement, seule l’option «&nbsp;En production&nbsp;» est disponible pour verser directement l’arbre de positionnement.</li>
 </ul>
 <p>Le mode d’exécution et la destination sont obligatoires.</p>
 <p>Pour lancer le transfert de l’arbre, l’utilisateur clique sur le bouton « Importer ».</p>
@@ -986,7 +1057,7 @@ Identifiant, Intitulé, Description, Statut, Tenant, Date de création, Dernièr
 <p class="first admonition-title">Note</p>
 <p class="last">Suite au téléchargement de l’arbre, un temps d’attente est nécessaire, correspondant au traitement de l’arbre par le système avant affichage du statut final. Dans ce cas, une roue de chargement est affichée au niveau du statut.</p>
 </div>
-<img alt="_images/import_arbre.png" src="_images/import_arbre.png" />
+<a class="reference internal image-reference" href="_images/import_arbre.png"><img alt="_images/import_arbre.png" class="align-center" src="_images/import_arbre.png" style="width: 706.5px; height: 184.0px;" /></a>
 <p>Les formats de SIP attendus sont : ZIP, TAR, TAR.GZ, TAR.BZ2, TAR.GZ2</p>
 <p>Si l’utilisateur tente d’importer un arbre dans un format non conforme, alors le système empêche le téléchargement et une fenêtre modale s’ouvre indiquant que le fichier est invalide.</p>
 <p>Toute opération d’entrée (succès, avertissement et erreur technique ou métier) fait l’objet d’une écriture dans le journal des opérations et génère une notification qui est proposée en téléchargement à l’utilisateur.</p>
@@ -1014,27 +1085,28 @@ Lors d’une entrée en succès dans la solution logicielle Vitam, l’ATR compr
 </div>
 <div class="section" id="consulter-un-arbre-de-positionnement">
 <h4>7.1.9.2. Consulter un arbre de positionnement<a class="headerlink" href="#consulter-un-arbre-de-positionnement" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Il est possible de consulter un arbre de positionnement importé dans la solution Vitam, de la même façon que pour les unités archivistiques: via par exemple un identifiant récupéré sur l” ATR lors de l’entrée de l’arbre de positionnement.
-La page de recherche permet d’effectuer des recherches avancées, notamment au niveau de l’identifiant, afin de pouvoir accéder au détail.</p>
+<p>Il est possible de consulter un arbre de positionnement importé dans la solution Vitam, de la même façon que pour les unités archivistiques: via par exemple un identifiant récupéré dans l’ATR lors de l’entrée de l’arbre de positionnement.</p>
 </div>
 </div>
 <div class="section" id="journal-des-operations">
 <h3>7.1.10. Journal des opérations<a class="headerlink" href="#journal-des-operations" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour consulter le journal des opérations, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Opérations&nbsp;» et sélectionne «&nbsp;Journal des opérations&nbsp;».</p>
-<img alt="_images/menu_jdo.png" src="_images/menu_jdo.png" />
+<a class="reference internal image-reference" href="_images/menu_jdo.png"><img alt="_images/menu_jdo.png" class="align-center" src="_images/menu_jdo.png" style="width: 611.2px; height: 169.6px;" /></a>
 <p>Il permet à l’utilisateur d’accéder à toutes les opérations effectuées dans la solution logicielle Vitam, par catégorie d’opération.</p>
 <p>Ces catégories d’opérations sont :</p>
 <ul class="simple">
 <li>Audit</li>
 <li>Données de base</li>
-<li>Elimination (pas encore développé)</li>
+<li>Elimination</li>
 <li>Entrée</li>
 <li>Export DIP</li>
-<li>Mise à jour des métadonnées de description</li>
+<li>Mise à jour</li>
+<li>Mise à jour de format autorisé (pas encore développé)</li>
 <li>Préservation (pas encore développé)</li>
 <li>Sécurisation</li>
 <li>Vérification (pas encore développé)</li>
 <li>Sauvegarde des écritures</li>
+<li>Reclassification</li>
 </ul>
 <p>Par défaut, l’ensemble des opérations effectuées s’affiche, de la date d’opération la plus récente à la plus ancienne.</p>
 <div class="section" id="recherche-d-operations">
@@ -1042,14 +1114,14 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 <p>Par défaut, les opérations sont affichées sous le formulaire de recherche et sont classées par ordre ante chronologique. Pour effectuer une recherche précise, on utilise les champs «&nbsp;Identifiant&nbsp;» ou «&nbsp;Catégorie d’opération&nbsp;» :</p>
 <ul class="simple">
 <li>Identifiant : identifiant de l’opération donné par le système</li>
-<li>Catégories d’opération : présentées sous forme de liste triée alphabétiquement, elles permettent à l’utilisateur de sélectionner une catégorie d’opération</li>
+<li>Catégories d’opération : liste triée alphabétiquement permettant à l’utilisateur de sélectionner une catégorie d’opération</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Il est impossible d’effectuer une recherche croisée par identifiant et catégorie d’opération.</p>
 </div>
 <p>Pour initier la recherche, l’utilisateur saisit un critère de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des opérations est alors actualisée avec les résultats correspondant à la recherche.</p>
-<img alt="_images/rechch_jdo.png" src="_images/rechch_jdo.png" />
+<img alt="_images/rechch_jdo.png" class="align-center" src="_images/rechch_jdo.png" />
 </div>
 <div class="section" id="consultation-des-resultats">
 <h4>7.1.10.2. Consultation des résultats<a class="headerlink" href="#consultation-des-resultats" title="Lien permanent vers ce titre">¶</a></h4>
@@ -1061,7 +1133,7 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 <li>statut de l’opération (en cours, erreur, succès, avertissement)</li>
 <li>message de l’opération indiquant le début de l’opération</li>
 </ul>
-<img alt="_images/res_jdo.png" src="_images/res_jdo.png" />
+<img alt="_images/res_jdo.png" class="align-center" src="_images/res_jdo.png" />
 <p>Le bouton «&nbsp;Informations supplémentaires&nbsp;» permet d’afficher les autres informations du journal des opérations. Il suffit pour cela de cocher dans la liste les informations voulues.</p>
 <p>Liste des informations supplémentaires disponibles :</p>
 <ul class="simple">
@@ -1087,8 +1159,8 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 <h4>7.1.10.3. Détail d’une opération<a class="headerlink" href="#detail-d-une-operation" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’utilisateur peut consulter le détail des événements intervenus durant l’opération en cliquant sur la ligne souhaitée de l’opération ou du processus.</p>
 <p>Le détail est composé de deux parties, le descriptif global de l’opération qui récapitule les informations de l’opération avec la possibilité d’afficher les informations supplémentaires.</p>
-<img alt="_images/desc_jdo.png" src="_images/desc_jdo.png" />
-<p>Puis les processus constituant le détail de l’opération qui sont présentés sous forme de liste comportant, pour chaque événement, les éléments suivants :</p>
+<img alt="_images/desc_jdo.png" class="align-center" src="_images/desc_jdo.png" />
+<p>Puis le processus constituant le détail de l’opération présenté sous forme de liste comportant, pour chaque événement, les éléments suivants :</p>
 <ul class="simple">
 <li>le nom de l’étape</li>
 <li>la date à laquelle l’étape a été effectuée</li>
@@ -1096,24 +1168,24 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 <li>le statut présenté sous forme de pictogramme</li>
 </ul>
 <p>Un clic sur la flèche située à côté du message permet d’afficher davantage d’informations concernant cette étape. Un clic sur un signe «&nbsp;+&nbsp;» situé à côté d’un message affiche les détails des données de l’évènement.</p>
-<img alt="_images/detail_jdo.png" src="_images/detail_jdo.png" />
+<img alt="_images/detail_jdo.png" class="align-center" src="_images/detail_jdo.png" />
 </div>
 </div>
 <div class="section" id="gestion-des-operations">
 <h3>7.1.11. Gestion des opérations<a class="headerlink" href="#gestion-des-operations" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Cette partie décrit les fonctionnalités de la page “Gestion des opérations”. Elle permet de suivre l’évolution des opérations et d’utiliser le mode pas à pas.</p>
+<p>Cette partie décrit les fonctionnalités de la page «&nbsp;Gestion des opérations&nbsp;». Elle permet de suivre l’évolution des opérations et d’utiliser le mode pas à pas.</p>
 <div class="section" id="recherche-d-une-operation">
 <h4>7.1.11.1. Recherche d’une opération<a class="headerlink" href="#recherche-d-une-operation" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Pour consulter et rechercher une opération, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Opérations&nbsp;» et sélectionne «&nbsp;Gestion des opérations&nbsp;».</p>
-<img alt="_images/menu_gestion.png" src="_images/menu_gestion.png" />
-<p>Par défaut, les opérations sont classées par ordre ante chronologique selon leur date et seules les opérations en cours de traitement sont affichées sur cet écran.</p>
+<a class="reference internal image-reference" href="_images/menu_gestion.png"><img alt="_images/menu_gestion.png" class="align-center" src="_images/menu_gestion.png" style="width: 611.2px; height: 169.6px;" /></a>
+<p>Par défaut, les opérations sont affichées sous le formulaire de recherche et sont classées par ordre ante chronologique et seules les opérations en cours de traitement, en pause ou en statut fatal sont affichées sur cet écran.</p>
 <p>La page affiche un formulaire de recherche composé des champs suivants :</p>
 <ul class="simple">
 <li>Identifiant : identifiant unique de l’opération d’entrée</li>
 <li>Process: indique le type d’opération</li>
 <li>Dates de début : date de début de l’opération</li>
 <li>Statut : statut actuel de l’opération</li>
-<li>Etats : état actuel de l’opération</li>
+<li>États : état actuel de l’opération</li>
 <li>Dates de fin : date de fin de l’opération</li>
 <li>Dernière étape : dernière étape à laquelle le workflow s’est arrêté</li>
 </ul>
@@ -1121,19 +1193,11 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 <p class="first admonition-title">Note</p>
 <p class="last">Il est impossible d’effectuer une recherche croisée par identifiant et tout autre champ.</p>
 </div>
-<img alt="_images/rechch_gestion.png" src="_images/rechch_gestion.png" />
+<img alt="_images/rechch_gestion.png" class="align-center" src="_images/rechch_gestion.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des opérations est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Identifiant de la demande d’entrée : identifiant unique de l’opération</li>
-<li><dl class="first docutils">
-<dt>Catégorie de l’opération <span class="classifier-delimiter">:</span> <span class="classifier">indique le type d’opération</span></dt>
-<dd><ul class="first last">
-<li>Entrée : indique une opération d’entrée normale</li>
-<li>Entrée test : indique une opération d’entrée en test à blanc</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>Catégorie de l’opération : indique le type d’opération (entrée, export DIP…)</li>
 <li>Date [de l’entrée] : date à laquelle l’entrée a été soumise à la solution logicielle Vitam</li>
 <li><dl class="first docutils">
 <dt>Mode d’exécution <span class="classifier-delimiter">:</span> <span class="classifier">indique le mode d’exécution choisi, celui-ci peut être</span></dt>
@@ -1161,19 +1225,19 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 <li>Avertissement</li>
 <li>En cours</li>
 <li>Echec</li>
-<li>Erreur technique</li>
+<li>Erreur fatale</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li>Précédente étape du workflow / étape en cours</li>
 <li>Prochaine étape du workflow</li>
-<li>Action : Contient des boutons d’action permettant d’interagir avec l’entrée réalisée en mode d’exécution pas à pas</li>
+<li>Action : Contient des boutons d’action permettant d’interagir avec l’opération</li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/res_gestion.png" src="_images/res_gestion.png" />
+<img alt="_images/res_gestion.png" class="align-center" src="_images/res_gestion.png" />
 </div>
 <div class="section" id="utilisation-du-mode-pas-a-pas-pour-les-entrees">
 <h4>7.1.11.2. Utilisation du mode pas à pas pour les entrées<a class="headerlink" href="#utilisation-du-mode-pas-a-pas-pour-les-entrees" title="Lien permanent vers ce titre">¶</a></h4>
@@ -1181,9 +1245,9 @@ La page de recherche permet d’effectuer des recherches avancées, notamment au
 Les boutons disponibles sont :</p>
 <ul class="simple">
 <li>Suivant : permet de passer à l’étape suivante du workflow - lorsqu’une étape est terminée, il faut cliquer sur “suivant” pour continuer l’entrée</li>
-<li>Pause : permet de mettre l’opération d’entrée en pause</li>
+<li>Pause : permet de mettre l’opération en pause si cette dernière est en cours d’exécution</li>
 <li>Rejouer : permet de rejouer l’étape dernièrement exécutée du workflow - lorsque cette étape est terminée, il faut cliquer sur “suivant” pour continuer l’entrée</li>
-<li>Reprise : permet de reprendre une entrée en pause</li>
+<li>Reprise : permet de reprendre une opération en pause</li>
 <li>Arrêt : permet d’arrêter complètement une opération d’entrée. Elle passera alors en statut “terminée” et il sera impossible de la redémarrer</li>
 </ul>
 </div>
@@ -1201,8 +1265,8 @@ Les éléments de valeur probante apportés par la solution Vitam sont détaill�
 </ul>
 <div class="section" id="recherche-de-journaux-securises">
 <h4>7.1.12.1. Recherche de journaux sécurisés<a class="headerlink" href="#recherche-de-journaux-securises" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour accéder à la page de “Opérations de sécurisation”, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Opérations&nbsp;» et sélectionne «&nbsp;Opérations de sécurisation&nbsp;».</p>
-<img alt="_images/menu_secu.png" src="_images/menu_secu.png" />
+<p>Pour accéder à la page des «&nbsp;Opérations de sécurisation&nbsp;», l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Opérations&nbsp;» et sélectionne «&nbsp;Opérations de sécurisation&nbsp;».</p>
+<a class="reference internal image-reference" href="_images/menu_secu.png"><img alt="_images/menu_secu.png" class="align-center" src="_images/menu_secu.png" style="width: 611.2px; height: 169.6px;" /></a>
 <p>Par défaut, les journaux sont affichés sous le formulaire de recherche et sont classés par ordre ante chronologique.
 La page affiche un formulaire de recherche composé des champs suivants :</p>
 <ul class="simple">
@@ -1223,7 +1287,7 @@ La page affiche un formulaire de recherche composé des champs suivants :</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/rechch_secu.png" src="_images/rechch_secu.png" />
+<img alt="_images/rechch_secu.png" class="align-center" src="_images/rechch_secu.png" />
 <p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste du référentiel est alors actualisée avec les résultats correspondants à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
 <ul class="simple">
 <li>Type de journal sécurisé : affiche le type de journal sécurisé</li>
@@ -1232,8 +1296,9 @@ La page affiche un formulaire de recherche composé des champs suivants :</p>
 <li>Télécharger : icône permettant de télécharger le journal sécurisé. En cliquant sur ce symbole, le journal est téléchargé sous forme de zip. Le nom de ce fichier correspond à la valeur du champ FileName du dernier event du journal de l’opération.</li>
 </ul>
 <div class="line-block">
-<div class="line">.. image:: images/res_secu.png</div>
+<div class="line"><br /></div>
 </div>
+<img alt="_images/res_secu.png" class="align-center" src="_images/res_secu.png" />
 </div>
 <div class="section" id="detail-d-un-journal-securise">
 <h4>7.1.12.2. Détail d’un journal sécurisé<a class="headerlink" href="#detail-d-un-journal-securise" title="Lien permanent vers ce titre">¶</a></h4>
@@ -1254,7 +1319,7 @@ La page affiche un formulaire de recherche composé des champs suivants :</p>
 <dd><ul class="first last">
 <li>Nom du fichier : nom du journal sécurisé</li>
 <li>Taille du fichier : taille du journal sécurisé</li>
-<li>Le fichier peut être téléchargé</li>
+<li>Télécharger : icône permettant de télécharger le journal</li>
 </ul>
 </dd>
 </dl>
@@ -1274,13 +1339,75 @@ La page affiche un formulaire de recherche composé des champs suivants :</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/detail_secu.png" src="_images/detail_secu.png" />
+<img alt="_images/detail_secu.png" class="align-center" src="_images/detail_secu.png" />
 </div>
 <div class="section" id="verification-d-un-journal-securise">
 <h4>7.1.12.3. Vérification d’un journal sécurisé<a class="headerlink" href="#verification-d-un-journal-securise" title="Lien permanent vers ce titre">¶</a></h4>
 <p>En cliquant sur le bouton «&nbsp;Lancer la vérification&nbsp;», la solution logicielle Vitam vérifie que les informations de l’arbre de hashage sont à la fois conformes au contenu du journal sécurisé et aux journaux disponibles dans la solution logicielle Vitam. Le tableau détaille les étapes du processus de vérification.</p>
-<p>Une fois l’opération terminée, son détail est affiché dans une partie «&nbsp;Rapport de vérification&nbsp;». Il est également disponible dans le Journal des opérations.
-Le téléchargement du fichier lié à la sécurisation peut être realisé via le détail de l’opération.</p>
+<p>Une fois l’opération terminée, son détail est affiché dans une partie «&nbsp;Rapport de vérification&nbsp;». Il est également disponible dans le Journal des opérations.</p>
+</div>
+</div>
+<div class="section" id="ontologie">
+<h3>7.1.13. Ontologie<a class="headerlink" href="#ontologie" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’ontologie référence l’ensemble des vocabulaires ou métadonnées acceptés et indexés dans la solution logicielle Vitam. Elle se compose :</p>
+<blockquote>
+<div><ul class="simple">
+<li>des vocabulaires conformes au SEDA, inclus par défaut,</li>
+<li>des vocabulaires propres à la solution logicielle Vitam, inclus par défaut,</li>
+<li>de vocabulaires non gérés par les deux précédents et ajoutés pour répondre à un besoin particulier.</li>
+</ul>
+</div></blockquote>
+<p>Pour chacun de ces vocabulaires, elle définit un nom et type d’indexation particulier (par exemple, texte, décimal, entier).
+Les vocabulaires utilisés implicitement par des profils d’archivage, des profils d’unité archivistique et des unités archivistiques. Ils permettent :</p>
+<blockquote>
+<div><ul class="simple">
+<li>d’identifier et de contrôler les vocabulaires entrant dans la solution logicielle Vitam,</li>
+<li>d’identifier les vocabulaires qui font l’objet d’une indexation par le moteur de recherche.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="importer-ou-modifier-une-ontologie">
+<h4>7.1.13.1. Importer ou modifier une ontologie<a class="headerlink" href="#importer-ou-modifier-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce référentiel étant trans-tenant, cette fonctionnalité n’est présente que pour le tenant d’administration. Voir paragraphe : «&nbsp;Fonctionnalités présentes sur le tenant d’administration uniquement&nbsp;»</p>
+</div>
+<div class="section" id="recherche-dans-l-ontologie">
+<h4>7.1.13.2. Recherche dans l” ontologie<a class="headerlink" href="#recherche-dans-l-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour consulter et rechercher des vocabulaires, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Ontologies&nbsp;».</p>
+<p>Par défaut, les vocabulaires sont affichés sous le formulaire de recherche.</p>
+<p>La page affiche un formulaire de recherche composé des champs suivants :</p>
+<ul class="simple">
+<li>Intitulé : permet d’effectuer une recherche exacte sur les noms des vocabulaires de l’ontologie disponibles dans la solution logicielle Vitam.</li>
+<li>Identifiant : permet d’effectuer une recherche exacte sur les identifiants des vocabulaires de l’ontologie.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est impossible d’effectuer une recherche croisée entre identifiant et intitulé.</p>
+</div>
+<img alt="_images/recherche_ontologie.png" class="align-center" src="_images/recherche_ontologie.png" />
+<p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des vocabulaires est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche le résultat est affiché sous forme de tableau, aux colonnes triables, comportant les informations suivantes :</p>
+<ul class="simple">
+<li>Intitulé</li>
+<li>Traduction</li>
+<li>Identifiant</li>
+<li>Description</li>
+<li>Collections</li>
+<li>Type d’indexation</li>
+</ul>
+</div>
+<div class="section" id="detail-d-une-ontologie">
+<h4>7.1.13.3. Détail d’une ontologie<a class="headerlink" href="#detail-d-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour accéder au détail d’une ontologie, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail de l’ontologie&nbsp;» contient les informations suivantes :</p>
+<ul class="simple">
+<li>Identifiant</li>
+<li>Intitulé</li>
+<li>Description</li>
+<li>Traduction</li>
+<li>Tenant</li>
+<li>Type d’indexation dans le moteur d’indexation (champ technique)</li>
+<li>Date de création</li>
+<li>Dernière modification</li>
+<li>Contexte de création, INTERNAL s’il s’agit d’un vocabulaire déjà utilisé par la solution logicielle Vitam, EXTERNAL si c’est un vocabulaire décrivant une métadonnées externe</li>
+<li>Collections de la base de donnée concernées par ce vocabulaire (champ technique)</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1289,16 +1416,17 @@ Le téléchargement du fichier lié à la sécurisation peut être realisé via 
 <p>Les fonctionnalités suivantes ne sont disponibles que sur le tenant d’administration de la solution logicielle Vitam, qui est configurable et dont le numéro dépend du paramétrage de la plateforme. Les opérations d’import de référentiels trans-tenant ne sont journalisées que sur ce tenant d’administration.</p>
 <div class="section" id="id2">
 <h3>7.2.1. Référentiel des formats<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="section" id="import-des-referentiels">
-<h4>7.2.1.1. Import des référentiels<a class="headerlink" href="#import-des-referentiels" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="id3">
+<h4>7.2.1.1. Import du référentiel des formats<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce référentiel étant trans-tenant, cette fonctionnalité n’est présente que pour le tenant d’administration. Voir paragraphe : «&nbsp;Fonctionnalités présentes sur le tenant d’administration uniquement&nbsp;»</p>
 <p>Pour accéder à l’écran d’import du référentiel, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import des référentiels&nbsp;» et sélectionne «&nbsp;Import des formats&nbsp;».</p>
-<img alt="_images/menu_formats.png" src="_images/menu_formats.png" />
-<p>Le référentiel à importer est le fichier PRONOM que l’utilisateur peut récupérer ce fichier dans sa version la plus récente sur le site des Archives nationales britanniques :</p>
+<a class="reference internal image-reference" href="_images/menu_formats.png"><img alt="_images/menu_formats.png" class="align-center" src="_images/menu_formats.png" style="width: 604.0px; height: 411.2px;" /></a>
+<p>Le référentiel à importer est le fichier PRONOM que l’utilisateur peut récupérer dans sa version la plus récente sur le site des Archives nationales britanniques :</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.nationalarchives.gov.uk">http://www.nationalarchives.gov.uk</a></li>
 <li>Section «&nbsp;PRONOM&nbsp;» &gt; «&nbsp;DROID signature files&nbsp;»</li>
 </ul>
-<p>Pour importer un référentiel des formats, l’administrateur:</p>
+<p>Pour importer un référentiel des formats dans la solution logicielle Vitam, l’administrateur:</p>
 <ul class="simple">
 <li>Accède à l’écran d’import du référentiel des formats</li>
 <li>Clique sur le bouton «&nbsp;sélectionner un fichier&nbsp;» ou fait glisser le fichier sur l’espace de téléchargement</li>
@@ -1309,58 +1437,62 @@ Le téléchargement du fichier lié à la sécurisation peut être realisé via 
 <div class="line"><br /></div>
 </div>
 <blockquote>
-<div><a class="reference internal image-reference" href="_images/import_formats.png"><img alt="_images/import_formats.png" src="_images/import_formats.png" style="width: 333.5px; height: 213.5px;" /></a>
+<div><a class="reference internal image-reference" href="_images/import_formats.png"><img alt="_images/import_formats.png" class="align-center" src="_images/import_formats.png" style="width: 333.5px; height: 213.5px;" /></a>
 </div></blockquote>
 <p>A l’issue du contrôle de cohérence et d’intégrité du fichier, plusieurs cas sont possibles :</p>
 <ul class="simple">
 <li>Erreur de fichier: la solution logicielle Vitam détecte des erreurs contenues dans le fichier, l’import de ce dernier n’est pas possible, un message d’erreur s’affiche. L’utilisateur doit corriger ces erreurs et soumettre à nouveau le fichier s’il souhaite toujours effectuer son import.</li>
 <li>En cas d’erreur pour cause de référentiel déjà existant détecté par la solution logicielle Vitam, un message d’erreur s’affiche. L’import devient impossible.</li>
 </ul>
-<a class="reference internal image-reference" href="_images/import_ko.png"><img alt="_images/import_ko.png" src="_images/import_ko.png" style="width: 130.0px; height: 80.0px;" /></a>
+<a class="reference internal image-reference" href="_images/import_ko.png"><img alt="_images/import_ko.png" class="align-center" src="_images/import_ko.png" style="width: 130.0px; height: 80.0px;" /></a>
 <ul class="simple">
 <li>En cas de succès : la solution logicielle Vitam indique à l’utilisateur que son fichier est valide et lui propose d’importer définitivement le fichier. L’utilisateur peut ainsi accepter l’import définitif et le référentiel des formats est créé à partir des informations contenues dans le fichier XML soumis.</li>
 </ul>
 </div>
 <div class="section" id="modification-du-referentiel-des-formats">
 <h4>7.2.1.2. Modification du référentiel des formats<a class="headerlink" href="#modification-du-referentiel-des-formats" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Il n’est pas possible de modifier un référentiel des formats via l’IHM, il n’y a pas de bouton «&nbsp;Modifier&nbsp;» affiché.
-Mais il est possible de re-importer un fichier afin de modifier les informations.</p>
+<p>Il n’est pas possible de modifier unitairement un référentiel des formats via l’IHM mais il est possible de re-importer un fichier dans sa globalité afin de modifier des informations.</p>
+</div>
+<div class="section" id="id4">
+<h4>7.2.1.3. Recherche d’un format<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce référentiel étant trans-tenant, la fonctionnalité de recherche dans ce référentiel est présente sur tous les tenants. Voir paragraphe : «&nbsp;Fonctionnalités présentes sur tous les tenants&nbsp;»</p>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>7.2.2. Contextes applicatifs<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id5">
+<h3>7.2.2. Contextes applicatifs<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le contexte permet de définir les droits des applications utilisatrices en fonction de leurs certificats. Pour plus de détails, se référer à la documentation métier «&nbsp;Gestions des habilitations&nbsp;».</p>
 <div class="section" id="import-des-contextes-applicatifs">
 <h4>7.2.2.1. Import des contextes applicatifs<a class="headerlink" href="#import-des-contextes-applicatifs" title="Lien permanent vers ce titre">¶</a></h4>
-<p>L’import de contextes applicatifs est une fonctionnalité réservée au tenant d’administration et pour un utilisateur ayant des droits d’administration. La structure et les valeurs des contextes sont décrites dans la documentation du modèle de données.</p>
-<p>L’administrateur devra au préalable construire son contexte applicatif, sous la forme d’un fichier CSV, comportant les champs suivants:</p>
+<p>L’import de contextes applicatifs est une fonctionnalité réservée au tenant d’administration et pour un utilisateur ayant des droits d’administration.</p>
+<p>L’administrateur devra au préalable construire un contexte applicatif, sous la forme d’un fichier JSON, comportant les champs suivants:</p>
 <ul class="simple">
-<li>identifiant</li>
-<li>nom du contexte</li>
-<li>identifiant unique donné au contexte</li>
-<li>version du contexte</li>
-<li>identifiant du profil de sécurité associé au contexte</li>
-<li>contrôle sur les tenants: détail des tenants régis par ce contexte</li>
-<li>statut «&nbsp;Actif&nbsp;» ou «&nbsp;Inactif&nbsp;»</li>
-<li>date de création du contexte</li>
-<li>dernière date de modification du contexte</li>
+<li>Identifiant</li>
+<li>Nom du contexte</li>
+<li>Identifiant du profil de sécurité associé au contexte</li>
+<li>Activation des permissions : cette fonctionnalité donnant tous les droits quel que soit le tenant</li>
+<li>Statut «&nbsp;Actif&nbsp;» ou «&nbsp;Inactif&nbsp;»</li>
+</ul>
+<p>Les champs suivants sont facultatifs :</p>
+<ul class="simple">
+<li>Date de création du contexte</li>
+<li>Dernière date de modification du contexte</li>
 </ul>
 <p>Un bloc Permissions détaille le périmètre du contexte, tenant par tenant. Il comprend&nbsp;:</p>
 <blockquote>
 <div><ul class="simple">
-<li>le tenant dans lequel vont s’appliquer un ou plusieurs contrats</li>
-<li>le(s) identifiant(s) de(s) contrat(s) d’accès appliqué(s) sur le tenant</li>
-<li>le(s) identifiant(s) de(s) contrat(s) d’entrée appliqué(s) sur le tenant</li>
+<li>Le tenant dans lequel vont s’appliquer un ou plusieurs contrats</li>
+<li>Le(s) identifiant(s) de(s) contrat(s) d’accès appliqué(s) sur le tenant</li>
+<li>Le(s) identifiant(s) de(s) contrat(s) d’entrée appliqué(s) sur le tenant</li>
 </ul>
 </div></blockquote>
-<p>La structure et les valeurs des contextes applicatifs sont décrites dans la documentation «&nbsp;Gestion des habilitations&nbsp;».</p>
+<p>La structure et les valeurs des contextes applicatifs sont décrites dans la documentation «&nbsp;Modèle de données&nbsp;».</p>
 <p>Pour importer un contexte, l’utilisateur clique sur  le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import des référentiels&nbsp;» et sélectionne «&nbsp;Import des contextes applicatifs&nbsp;».</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/menu_import_contexte.png" src="_images/menu_import_contexte.png" />
+<a class="reference internal image-reference" href="_images/menu_import_contexte.png"><img alt="_images/menu_import_contexte.png" class="align-center" src="_images/menu_import_contexte.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur sélectionne ensuite le fichier (.json) à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement, puis clique sur «&nbsp;Importer&nbsp;» pour lancer l’opération.</p>
-<a class="reference internal image-reference" href="_images/import_contextes.png"><img alt="_images/import_contextes.png" src="_images/import_contextes.png" style="width: 335.5px; height: 212.0px;" /></a>
+<a class="reference internal image-reference" href="_images/import_contextes.png"><img alt="_images/import_contextes.png" class="align-center" src="_images/import_contextes.png" style="width: 335.5px; height: 212.0px;" /></a>
 <p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
 <ul>
 <li><p class="first">Que les contextes ont bien été importés</p>
@@ -1375,155 +1507,57 @@ Mais il est possible de re-importer un fichier afin de modifier les informations
 </div></blockquote>
 </li>
 </ul>
-<p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
+<p>Cette opération est journalisée et disponible dans le Journal des opérations du tenant d’administration.</p>
 </div>
 <div class="section" id="modifier-un-contexte-applicatif">
 <h4>7.2.2.2. Modifier un contexte applicatif<a class="headerlink" href="#modifier-un-contexte-applicatif" title="Lien permanent vers ce titre">¶</a></h4>
 <p><strong>Point d’attention : la modification des contextes applicatifs est une opération d’administration délicate qui peut bloquer le fonctionnement de la solution logicielle. Elle doit être évitée ou réalisée avec précaution.</strong></p>
-<p>Il est possible de modifier un contexte applicatif depuis l’écran du détail en cliquant sur le bouton «&nbsp;Modifier&nbsp;». L’interface permet la modification de plusieurs champs du contexte, ainsi que de changer ses permissions (actif/inactif).</p>
-<p><em>Activation / désactivation du contexte applicatif</em></p>
+<p>Il est possible de modifier un contexte applicatif depuis l’écran du détail en cliquant sur le bouton «&nbsp;Modifier&nbsp;». L’interface permet la modification de plusieurs champs du contexte, ainsi que de changer ses permissions (Actif/Inactif).</p>
+<p><strong>Activation / désactivation du contexte applicatif</strong></p>
 <p>L’administrateur a la possibilité d’activer / désactiver un contexte en cliquant sur le bouton &nbsp;» Statut&nbsp;».</p>
-<p><em>Activation / désactivation du contrôle des permissions</em></p>
+<p><strong>Activation / désactivation du contrôle des permissions</strong></p>
 <p>L’administrateur a la possibilité d’activer / désactiver le contrôle du contexte en cliquant sur le bouton «&nbsp;Actif&nbsp;» ou «&nbsp;Inactif&nbsp;».</p>
-<p><em>Tenants</em></p>
+<p><strong>Tenants</strong></p>
 <p>Il est possible d’ajouter ou supprimer des tenants concernés par le contexte en sélectionnant un identifiant de tenant en haut à droite et en cliquant sur «&nbsp;Ajouter&nbsp;». Il est impossible d’ajouter un tenant qui se trouve déjà dans la liste des tenants de ce contexte.
 Pour supprimer un tenant, il suffit de cliquer sur le bouton supprimer correspondant au tenant à retirer, et de valider cette suppression en utilisant le bouton «&nbsp;Enregistrer&nbsp;».
 Au sein de chacun de ces tenant, il est possible d’ajouter ou supprimer des contrats d’accès et des contrats d’entrée par un système de tag.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<img alt="_images/contexte_update.png" src="_images/contexte_update.png" />
+<img alt="_images/contexte_update.png" class="align-center" src="_images/contexte_update.png" />
 <p>Une fois les modifications saisies, un clic sur le bouton «&nbsp;Sauvegarder&nbsp;» permet de les enregistrer. A l’inverse, le bouton «&nbsp;Annuler&nbsp;» permet de retourner à l’état initial de l’écran du détail du contexte.</p>
+<p>Cette opération est journalisée et disponible dans le Journal des opérations du tenant d’administration.</p>
+</div>
+<div class="section" id="id6">
+<h4>7.2.2.3. Rechercher un contexte applicatif<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce référentiel étant trans-tenant, la fonctionnalité de recherche dans ce référentiel est présente sur tous les tenants. Voir paragraphe : «&nbsp;Fonctionnalités présentes sur tous les tenants&nbsp;»</p>
 </div>
 </div>
-<div class="section" id="ontologie">
-<h3>7.2.3. Ontologie<a class="headerlink" href="#ontologie" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’ontologie référence l’ensemble des vocabulaires ou métadonnées acceptés et indexés dans la solution logicielle Vitam. Elle se compose :
-- des vocabulaires conformes au SEDA, inclus par défaut,
-- des vocabulaires propres à la solution logicielle Vitam, inclus par défaut,
-- de vocabulaires non gérés par les deux précédents et ajoutés pour répondre à un besoin particulier.</p>
-<p>Pour chacun de ces vocabulaires, elle définit un nom et type d’indexation particulier (par exemple, texte, décimal, entier).
-Les ontologies peuvent être utiliséés facultativement par des profils d’archivage, des profils d’unité archivistique et des unités archivistiques. Elles permettent :
-- d’identifier et de contrôler les vocabulaires entrant dans la solution logicielle Vitam,
-- d’identifier les vocabulaires qui font l’objet d’une indexation par le moteur de recherche.</p>
+<div class="section" id="id7">
+<h3>7.2.3. Ontologie<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="importer-une-ontologie">
 <h4>7.2.3.1. Importer une ontologie<a class="headerlink" href="#importer-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
-<p>L’import d’un fichier JSON déclarant des métadonnées est une fonctionnalité réservée à un utilisateur ayant des droits d’administration.</p>
-<p>L’utilisateur construit au prélable le fichier au format JSON. Plusieurs critères doivent être respectés pour s’assurer de la bonne construction du fichier :</p>
-<blockquote>
-<div><ul class="simple">
-<li>Identifiant ( obligatoire - «&nbsp;Identifier&nbsp;»): l’identifiant pour le vocabulaire externe doit : être unique, ne pas commencer par «&nbsp;_&nbsp;» ou «&nbsp;#&nbsp;» et ne pas contenir d’espace</li>
-<li>Intitulé API ( obligatoire - «&nbsp;ApiField&nbsp;» )</li>
-<li>Intitulé XML ( obligatoire - «&nbsp;SedaField&nbsp;» )</li>
-<li>Origine interne ou externe ( obligatoire -«&nbsp;Origin&nbsp;»: «&nbsp;INTERNAL&nbsp;» / «&nbsp;EXTERNAL&nbsp;» )</li>
-<li>Type: Type du vocabulaire ( obligatoire ) : valeur à choisir parmi la liste:  Text, Keyword, Date, Long, Double, Boolean, Geo-point, Enumération de valeur</li>
-<li>Traduction du vocabulaire (obligatoire - «&nbsp;ShortName&nbsp;»)</li>
-<li>Intitulé d’une ou plusieurs des collections (obligatoire - «&nbsp;Collections&nbsp;»)</li>
-<li>Description ( Facultative )</li>
-<li>Date de création ( Facultative )</li>
-</ul>
-</div></blockquote>
-<p>Note: Compatibilité des modifications possibles concernant les types de vocabulaires :</p>
-<blockquote>
-<div><ul class="simple">
-<li>Text -&gt; Keyword, Text</li>
-<li>Keyword -&gt; Keyword, Text</li>
-<li>Date -&gt; Keyword, Text</li>
-<li>Long -&gt; Keyword, Text, Double</li>
-<li>Double -&gt; Keyword, Text</li>
-<li>Boolean -&gt; Keyword, Text</li>
-<li>Geo-point -&gt; Keyword, Text</li>
-<li>Enumération de valeur -&gt; Keyword, Text</li>
-</ul>
-</div></blockquote>
-<p>Pour importer un fichier JSON, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import de référentiels&nbsp;» et sélectionne «&nbsp;Import des ontologies&nbsp;».</p>
-<img alt="_images/menu_import_ontologie.png" src="_images/menu_import_ontologie.png" />
+<p>L’import d’une ontologie est une fonctionnalité réservée à un utilisateur ayant des droits d’administration.</p>
+<p>L’utilisateur construit au prélable le fichier au format JSON. Pour plus de détails sur la structure des fichiers d’import de l’ontologie, se référer aux documentations «&nbsp;ontologie&nbsp;» et «&nbsp;modèle de données&nbsp;»</p>
+<p>Pour importer un fichier JSON, l’utilisateur clique sur le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Import de référentiels&nbsp;» et sélectionne «&nbsp;Import des ontologies&nbsp;» dans le tenant d’administration.</p>
+<a class="reference internal image-reference" href="_images/menu_import_ontologie.png"><img alt="_images/menu_import_ontologie.png" class="align-center" src="_images/menu_import_ontologie.png" style="width: 604.0px; height: 411.2px;" /></a>
 <p>L’utilisateur sélectionne ensuite le fichier (.json) à importer en cliquant sur «&nbsp;sélectionner un fichier&nbsp;» ou en le faisant glisser sur l’espace de téléchargement, puis clique sur «&nbsp;Importer&nbsp;» pour lancer l’opération.</p>
-<img alt="_images/import_ontologie.png" src="_images/import_ontologie.png" />
-<p>Une fenêtre modale indique alors soit :</p>
+<img alt="_images/import_ontologie.png" class="align-center" src="_images/import_ontologie.png" />
+<p>Une fenêtre modale s’ouvre alors pour indiquer soit :</p>
 <ul class="simple">
-<li>Les ontologies ont bien été importées</li>
-<li><dl class="first docutils">
-<dt>Échec de l’import du fichier, pouvant être causé par :</dt>
-<dd><ul class="first last">
-<li>le fait que les identifiants déclarés existent déjà</li>
-<li>le fait que l’intitulé XML déclaré existe déjà</li>
-<li>le fait que l’identifiant commence par un «&nbsp;_&nbsp;» ou un&nbsp;»#&nbsp;» ou contient des espaces</li>
-<li>le fait que le type déclaré ne soit pas valide ( parmi la liste des valeurs permises )</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>le fait que la collection déclarée ne soit pas valide ( parmi la liste des valeurs permises )</li>
-<li><dl class="first docutils">
-<dt>le fait que l’origine déclarée soit interne</dt>
-<dd><ul class="first last">
-<li>le fait que le fichier soit invalide (mauvais format ou champ obligatoire absent)</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>Que le référentiel a bien été importé</li>
+<li>Que l’import du fichier est en échec (identifiants déjà existant, type d’indexation invalide, origine déclaré comme INTERNAL pour une métadonnées externe…)</li>
 </ul>
 <p>Cette opération est journalisée et disponible dans le Journal des opérations.</p>
 </div>
-<div class="section" id="recherche-d-une-ontologie">
-<h4>7.2.3.2. Recherche d” une ontologie<a class="headerlink" href="#recherche-d-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour consulter et rechercher les documents types, l’utilisateur survole le menu «&nbsp;Administration&nbsp;», puis le sous-menu «&nbsp;Référentiels&nbsp;» et sélectionne «&nbsp;Ontologies&nbsp;».</p>
-<p>Par défaut, les ontologies sont affichées sous le formulaire de recherche et sont classées par ordre alphabétique de leur intitulé.</p>
-<p>La page affiche un formulaire de recherche composé des champs suivants :</p>
-<ul class="simple">
-<li>Intitulé : permet d’effectuer une recherche exacte sur les noms des vocabulaires de l’ontologie disponibles dans la solution logicielle Vitam.</li>
-<li>Identifiant : permet d’effectuer une recherche exacte sur les identifiants des notices descriptives de l’ontologie.</li>
-</ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Il est impossible d’effectuer une recherche croisée entre identifiant et intitulé.</p>
-</div>
-<img alt="_images/recherche_ontologie.png" src="_images/recherche_ontologie.png" />
-<p>Pour initier la recherche, l’utilisateur saisit ses critères de recherche et clique sur le bouton «&nbsp;Rechercher&nbsp;». La liste des notices est alors actualisée avec les résultats correspondant à la recherche souhaitée. Suite à la recherche, le résultat est affiché sous forme de tableau, comportant les informations suivantes :</p>
-<ul class="simple">
-<li>Intitulé</li>
-<li>Traduction</li>
-<li>Identifiant</li>
-<li>Description</li>
-<li>Collections</li>
-<li>Type d’indexation</li>
-</ul>
-</div>
-<div class="section" id="detail-d-une-ontologie">
-<h4>7.2.3.3. Détail d’une ontologie<a class="headerlink" href="#detail-d-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Pour accéder au détail d’une ontologie, l’utilisateur clique sur la ligne souhaitée. La page «&nbsp;Détail de l’ontologie&nbsp;» contient les informations suivantes :</p>
-<ul class="simple">
-<li>Identifiant</li>
-<li>Intitulé</li>
-<li>Description</li>
-<li>Traduction</li>
-<li>Tenant</li>
-<li>Type</li>
-<li>Date de création</li>
-<li>Dernière modification</li>
-<li>Contexte de création</li>
-<li>Collections</li>
-</ul>
-</div>
 <div class="section" id="modifier-une-ontologie">
-<h4>7.2.3.4. Modifier une ontologie<a class="headerlink" href="#modifier-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
-<p><strong>Point d’attention : la modification des contextes applicatifs est une opération d’administration délicate qui peut bloquer le fonctionnement de la solution logicielle. Elle doit être évitée ou réalisée avec précaution.</strong></p>
-<p>Il est possible de modifier les ontologies en re-important un fichier, et non via l” IHM.</p>
-<dl class="docutils">
-<dt>Note: en re-important le fichier JSON , il est possible de modifier les types de vocabulaire, mais seulement certaines combinaisons sont autorisées:</dt>
-<dd><ul class="first last simple">
-<li>Text -&gt; Keyword, Text</li>
-<li>Keyword -&gt; Keyword, Text</li>
-<li>Date -&gt; Keyword, Text</li>
-<li>Long -&gt; Keyword, Text, Double</li>
-<li>Double -&gt; Keyword, Text</li>
-<li>Boolean -&gt; Keyword, Text</li>
-<li>Geo-point -&gt; Keyword, Text</li>
-<li>Enumération de valeur -&gt; Keyword, Text</li>
-</ul>
-</dd>
-</dl>
+<h4>7.2.3.2. Modifier une ontologie<a class="headerlink" href="#modifier-une-ontologie" title="Lien permanent vers ce titre">¶</a></h4>
+<p><strong>Point d’attention : la modification de l’ontologie est une opération d’administration délicate qui peut bloquer le fonctionnement de la solution logicielle. Elle doit être évitée ou réalisée avec précaution.</strong></p>
+<p>Il est possible de modifier les ontologies en ré-important un fichier, contenant l’ensemble du référentiel. Le nouveau référentiel remplace alors le précédent.</p>
+</div>
+<div class="section" id="id8">
+<h4>7.2.3.3. Recherche dans l’ontologie<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Ce référentiel étant trans-tenant, la fonctionnalité de recherche de ce référentiel est présente sur tous les tenants. Voir paragraphe : «&nbsp;Fonctionnalités présentes sur tous les tenants&nbsp;»</p>
 </div>
 </div>
 </div>
@@ -1537,6 +1571,8 @@ Les ontologies peuvent être utiliséés facultativement par des profils d’arc
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="traitements_de_masse.html" class="btn btn-neutral float-right" title="8. Traitements de masse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="gestion.html" class="btn btn-neutral" title="6. Gestion des archives" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
@@ -1547,7 +1583,7 @@ Les ontologies peuvent être utiliséés facultativement par des profils d’arc
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -1566,21 +1602,24 @@ Les ontologies peuvent être utiliséés facultativement par des profils d’arc
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
 
   
 

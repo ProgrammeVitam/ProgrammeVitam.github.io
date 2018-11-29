@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.4. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 1.4.0</title>
+  <title>4.2.4. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -99,8 +99,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#tuning-jvm">4.2.4.1. Tuning JVM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parametrage-de-l-antivirus-ingest-externe">4.2.4.2. Paramétrage de l’antivirus (ingest-externe)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parametrage-des-certificats-externes-externe">4.2.4.3. Paramétrage des certificats externes (*-externe)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-la-centralisation-des-logs-vitam">4.2.4.4. Paramétrage de la centralisation des logs Vitam</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fichiers-complementaires">4.2.4.5. Fichiers complémentaires</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#placer-hors-vitam-le-composant-ihm-demo">4.2.4.4. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-la-centralisation-des-logs-vitam">4.2.4.5. Paramétrage de la centralisation des logs Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fichiers-complementaires">4.2.4.6. Fichiers complémentaires</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="30-installation.html">4.2.5. Procédure de première installation</a></li>
@@ -246,15 +247,24 @@ Pour cela, il faut modifier le fichier <code class="docutils literal notranslate
 <h2>4.2.4.3. Paramétrage des certificats externes (*-externe)<a class="headerlink" href="#parametrage-des-certificats-externes-externe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Se reporter au chapitre dédié à la gestion des certificats: <a class="reference internal" href="20-certificats.html"><span class="doc">Gestion des certificats</span></a></p>
 </div>
+<div class="section" id="placer-hors-vitam-le-composant-ihm-demo">
+<h2>4.2.4.4. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo<a class="headerlink" href="#placer-hors-vitam-le-composant-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/host_vars</span></code>, créer ou éditer un fichier nommé par le nom de machine hébergeant le composant ihm-demo et ajouter le contenu ci-dessous</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">consul_disabled</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>A l’issue, le déploiement n’installera pas l’agent Consul. Le composant ihm-demo appellera, alors, par l’adresse IP de services les composants «&nbsp;access-external&nbsp;» et «&nbsp;ingest-external&nbsp;».</p>
+<p>Il est également fortement recommandé de positionner la valeur de la directive <code class="docutils literal notranslate"><span class="pre">vitam.ihm_demo.metrics_enabled</span></code> à  <code class="docutils literal notranslate"><span class="pre">false</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>, afin que ce composant ne tente pas d’envoyer de données sur «&nbsp;elasticsearch-log&nbsp;».</p>
+</div>
 <div class="section" id="parametrage-de-la-centralisation-des-logs-vitam">
-<h2>4.2.4.4. Paramétrage de la centralisation des logs Vitam<a class="headerlink" href="#parametrage-de-la-centralisation-des-logs-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.5. Paramétrage de la centralisation des logs Vitam<a class="headerlink" href="#parametrage-de-la-centralisation-des-logs-vitam" title="Lien permanent vers ce titre">¶</a></h2>
 <p>2 cas sont possibles :</p>
 <ul class="simple">
 <li>Utiliser le sous-système de gestion des logs fournis par la solution logicielle VITAM ;</li>
 <li>Utiliser un SIEM tiers.</li>
 </ul>
 <div class="section" id="gestion-par-vitam">
-<h3>4.2.4.4.1. Gestion par Vitam<a class="headerlink" href="#gestion-par-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.4.5.1. Gestion par Vitam<a class="headerlink" href="#gestion-par-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <dl class="docutils">
 <dt>Pour une gestion des logs par Vitam, il est nécessaire de déclarer les serveurs ad-hoc dans le fichier d’inventaire pour les 3 groupes suivants:</dt>
 <dd><ul class="first last simple">
@@ -266,7 +276,7 @@ Pour cela, il faut modifier le fichier <code class="docutils literal notranslate
 </dl>
 </div>
 <div class="section" id="redirection-des-logs-sur-un-siem-tiers">
-<h3>4.2.4.4.2. Redirection des logs sur un SIEM tiers<a class="headerlink" href="#redirection-des-logs-sur-un-siem-tiers" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.4.5.2. Redirection des logs sur un SIEM tiers<a class="headerlink" href="#redirection-des-logs-sur-un-siem-tiers" title="Lien permanent vers ce titre">¶</a></h3>
 <p>En configuration par défaut, les logs Vitam sont tout d’abord routés vers un serveur rsyslog installé sur chaque machine.
 Il est possible d’en modifier le routage, qui par défaut redirige vers le serveur logstash via le protocole syslog en TCP.</p>
 <p>Pour cela, il est nécessaire de placer un fichier de configuration dédié dans le dossier <code class="docutils literal notranslate"><span class="pre">/etc/rsyslog.d/</span></code> ; ce fichier sera automatiquement pris en compte par rsyslog. Pour la syntaxe de ce fichier de configuration rsyslog, se référer à la <a class="reference external" href="http://www.rsyslog.com/doc/v7-stable/">documentation rsyslog</a>.</p>
@@ -277,7 +287,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 </div>
 </div>
 <div class="section" id="fichiers-complementaires">
-<h2>4.2.4.5. Fichiers complémentaires<a class="headerlink" href="#fichiers-complementaires" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.6. Fichiers complémentaires<a class="headerlink" href="#fichiers-complementaires" title="Lien permanent vers ce titre">¶</a></h2>
 <p>A titre informatif, le positionnement des variables ainsi que des dérivations des déclarations de variables sont effectuées dans les fichiers suivants :</p>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">environments</span></code> <code class="docutils literal notranslate"><span class="pre">/group_vars/all/vitam_vars.yml</span></code>, comme suit :</p>
@@ -516,7 +526,41 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 233
 234
 235
-236</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1">### global ###</span>
 
@@ -539,13 +583,21 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">start_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
         <span class="l l-Scalar l-Scalar-Plain">stop_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
         <span class="l l-Scalar l-Scalar-Plain">port_service_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">86400</span>
+        <span class="l l-Scalar l-Scalar-Plain">api_call_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
     <span class="c1"># Filter for the vitam package version to install</span>
     <span class="c1"># FIXME : commented as has to be removed becuase doesn&#39;t work under Debain</span>
     <span class="c1">#package_version: &quot;*&quot;</span>
     <span class="c1">### Trust X-SSL-CLIENT-CERT header for external api auth ? (true | false) ###</span>
     <span class="l l-Scalar l-Scalar-Plain">vitam_ssl_user_header</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="c1">### Force chunk mode : set true if chunk header should be checked</span>
+    <span class="l l-Scalar l-Scalar-Plain">vitam_force_chunk_mode</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="c1"># syslog_facility</span>
     <span class="l l-Scalar l-Scalar-Plain">syslog_facility</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local0</span>
+
+<span class="c1"># Used in ingest, unitary update, mass-update</span>
+<span class="l l-Scalar l-Scalar-Plain">classificationList</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;Secret</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Confidentiel</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">]</span>
+<span class="c1"># Used in ingest, unitary update, mass-update</span>
+<span class="l l-Scalar l-Scalar-Plain">classificationLevelOptional</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 
 <span class="c1">### consul ###</span>
@@ -559,7 +611,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="l l-Scalar l-Scalar-Plain">consul_folder_conf</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/{{</span><span class="nv"> </span><span class="s">consul_component</span><span class="nv"> </span><span class="s">}}&quot;</span>
 
 <span class="c1"># Workspace should be useless but storage have a dependency to it...</span>
-<span class="l l-Scalar l-Scalar-Plain">vitam_secondary_site_components</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;logbook&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;metadata&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;functional-administration&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storage&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storageofferdefault&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;offer&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-log&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-data&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;logstash&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;kibana&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongoc&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongod&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongos&quot;</span> <span class="p p-Indicator">]</span>
+<span class="c1"># elastic-kibana-interceptor is present as kibana is present, if kibana-data &amp; interceptor are not needed in the secondary site, just do not add them in the hosts file</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_secondary_site_components</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;logbook&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;metadata&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;functional-administration&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storage&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storageofferdefault&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;offer&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-log&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-data&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;logstash&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;kibana&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongoc&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongod&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongos&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;elastic-kibana-interceptor&quot;</span> <span class="p p-Indicator">]</span>
 
 
 <span class="c1">### Composants Vitam ###</span>
@@ -568,7 +621,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="l l-Scalar l-Scalar-Plain">accessexternal</span><span class="p p-Indicator">:</span>
         <span class="c1"># Component name: do not modify</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">access-external</span>
-        <span class="c1"># DNS record for the service: do not modify</span>
+        <span class="c1"># DNS record for the service:</span>
+        <span class="c1"># Modify if ihm-demo is not using consul (typical production deployment)</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;access-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port_admin</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">28102</span>
         <span class="l l-Scalar l-Scalar-Plain">port_service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8444</span>
@@ -579,6 +633,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="c1"># Force the log level for this component: this are logback values (TRACE, DEBUG, INFO, WARN, ERROR, OFF)</span>
         <span class="c1"># If this var is not set, the default one will be used (vitam_defaults.services.log_level)</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">accessinternal</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">access-internal</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;access-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -588,6 +643,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">functional_administration</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">functional-administration</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;functional-administration.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -598,6 +654,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">cluster_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">elastickibanainterceptor</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">elastic-kibana-interceptor</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;elastic-kibana-interceptor.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -608,8 +665,21 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;false&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">cluster_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">batchreport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">batch-report</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;batch-report.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">port_service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8015</span>
+        <span class="l l-Scalar l-Scalar-Plain">port_admin</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18015</span>
+        <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;batch-report&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">ingestexternal</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-external</span>
+        <span class="c1"># DNS record for the service:</span>
+        <span class="c1"># Modify if ihm-demo is not using consul (typical production deployment)</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;ingest-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port_admin</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">28001</span>
         <span class="l l-Scalar l-Scalar-Plain">port_service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8443</span>
@@ -626,6 +696,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="c1"># Action done to file after local ingest (see below for further information)</span>
         <span class="l l-Scalar l-Scalar-Plain">upload_final_action</span><span class="p p-Indicator">:</span> <span class="s">&quot;MOVE&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="c1"># upload_final_action can be set to three different values (lower or upper case does not matter)</span>
+        <span class="c1">#   MOVE : After upload, the local file will be moved to either success_dir or fail_dir depending on the status of the ingest towards ingest-internal</span>
+        <span class="c1">#   DELETE : After upload, the local file will be deleted if the upload succeeded</span>
+        <span class="c1">#   NONE : After upload, nothing will be done to the local file (default option set if the value entered for upload_final_action does not exist)</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">ingestinternal</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-internal</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;ingest-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -635,6 +710,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">ihm_demo</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="s">&quot;ihm-demo&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;ihm-demo.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -663,6 +739,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">iniRealm</span>
             <span class="c1"># - ldapRealm</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">logbook</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">logbook</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;logbook.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -680,8 +757,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">lifecycleTraceabilityTemporizationDelay</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
         <span class="c1"># Max entries selected per (Unit or Object Group) LFC traceability operation</span>
         <span class="l l-Scalar l-Scalar-Plain">lifecycleTraceabilityMaxEntries</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
-        <span class="l l-Scalar l-Scalar-Plain">disablePurgeForTempLFC</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;metadata.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -692,6 +769,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">cluster_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">processing</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">processing</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;processing.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -701,6 +779,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">security_internal</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">security-internal</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;security-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -710,6 +789,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">storageengine</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">storage</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;storage.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -721,6 +801,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">storageTraceabilityOverlapDelay</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
         <span class="l l-Scalar l-Scalar-Plain">restoreBulkSize</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">storageofferdefault</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="s">&quot;offer&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port_service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9900</span>
@@ -729,6 +810,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">worker</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
         <span class="l l-Scalar l-Scalar-Plain">port_service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9104</span>
@@ -737,6 +819,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">workspace</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;workspace.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -746,12 +829,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
-
-<span class="c1"># ingestexternal:</span>
-<span class="c1"># upload_final_action can be set to three different values (lower or upper case does not matter)</span>
-<span class="c1">#   MOVE : After upload, the local file will be moved to either success_dir or fail_dir depending on the status of the ingest towards ingest-internal</span>
-<span class="c1">#   DELETE : After upload, the local file will be deleted if the upload succeeded</span>
-<span class="c1">#   NONE : After upload, nothing will be done to the local file (default option set if the value entered for upload_final_action does not exist)</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -759,6 +837,10 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Cas du composant ingest-external. Les directives <code class="docutils literal notranslate"><span class="pre">upload_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">success_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">fail_dir</span></code> et <code class="docutils literal notranslate"><span class="pre">upload_final_action</span></code> permettent de prendre en charge (ingest) des fichiers déposés dans <code class="docutils literal notranslate"><span class="pre">upload_dir</span></code> et appliquer une règle <code class="docutils literal notranslate"><span class="pre">upload_final_action</span></code> à l’issue du traitement (NONE, DELETE ou MOVE dans <code class="docutils literal notranslate"><span class="pre">success_dir</span></code> ou <code class="docutils literal notranslate"><span class="pre">fail_dir</span></code> selon le cas). Se référer au <a class="reference internal" href="../introduction.html#term-dex"><span class="xref std std-term">DEX</span></a> pour de plus amples détails. Se référer au manuel de développement pour plus de détails sur l’appel à ce cas.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Selon les informations apportées par le métier, redéfinir les valeurs associées dans les directives <code class="docutils literal notranslate"><span class="pre">classificationList</span></code> et <code class="docutils literal notranslate"><span class="pre">classificationLevelOptional</span></code>. Cela permet de définir quels niveaux de protection du secret de la défense nationale supporte l’instance. Attention : une instance de niveau supérieur doit toujours supporter les niveaux inférieurs</p>
 </div>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">environments</span></code> <code class="docutils literal notranslate"><span class="pre">/group_vars/all/cots_vars.yml</span></code>, comme suit :</p>
@@ -865,7 +947,44 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 101
 102
 103
-104</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="l l-Scalar l-Scalar-Plain">consul</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">dns_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">53</span>
+
 <span class="l l-Scalar l-Scalar-Plain">consul_remote_sites</span><span class="p p-Indicator">:</span>
     <span class="c1"># wan contains the wan addresses of the consul server instances of the external vitam sites</span>
     <span class="c1"># Exemple, if our local dc is dc1, we will need to set dc2 &amp; dc3 wan conf:</span>
@@ -883,14 +1002,26 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">cluster_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="c1"># default index template</span>
+        <span class="l l-Scalar l-Scalar-Plain">index_templates</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+                <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;elasticsearch-data.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="c1"># default is 0.1 (10%) and should be quite enough in most cases</span>
+        <span class="c1">#index_buffer_size_ratio: &quot;0.15&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port_http</span><span class="p p-Indicator">:</span> <span class="s">&quot;9200&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port_tcp</span><span class="p p-Indicator">:</span> <span class="s">&quot;9300&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">groupe</span><span class="p p-Indicator">:</span> <span class="s">&quot;data&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">cluster_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="c1"># default index template</span>
+        <span class="l l-Scalar l-Scalar-Plain">index_templates</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+                <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 
 <span class="l l-Scalar l-Scalar-Plain">mongodb</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">mongos_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
@@ -922,10 +1053,16 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
             <span class="l l-Scalar l-Scalar-Plain">delete</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
 
 <span class="l l-Scalar l-Scalar-Plain">kibana</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">header_value</span><span class="p p-Indicator">:</span> <span class="s">&quot;reporting&quot;</span>
     <span class="l l-Scalar l-Scalar-Plain">log</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;kibana_log&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">api_call_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
         <span class="l l-Scalar l-Scalar-Plain">groupe</span><span class="p p-Indicator">:</span> <span class="s">&quot;log&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_index_pattern</span><span class="p p-Indicator">:</span> <span class="s">&quot;logstash-vitam*&quot;</span>
+        <span class="c1"># default shards &amp; replica</span>
+        <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+        <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="c1"># pour index logstash-*</span>
         <span class="l l-Scalar l-Scalar-Plain">metrics</span><span class="p p-Indicator">:</span>
             <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
@@ -934,13 +1071,24 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="l l-Scalar l-Scalar-Plain">logs</span><span class="p p-Indicator">:</span>
             <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
             <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="c1"># KWA FIXME : changing port doesn&#39;t work, yet (not taken into account in kibana configuration)</span>
+        <span class="c1"># pour index metricbeat-*</span>
+        <span class="l l-Scalar l-Scalar-Plain">metricbeat</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span> <span class="c1"># must be a factor of 30</span>
+            <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;kibana_data&quot;</span>
+        <span class="c1"># OMA : bugdette : api_call_timeout is used for retries ; should ceate a separate variable rather than this one</span>
+        <span class="l l-Scalar l-Scalar-Plain">api_call_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
         <span class="l l-Scalar l-Scalar-Plain">groupe</span><span class="p p-Indicator">:</span> <span class="s">&quot;data&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
-        <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-        <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_index_pattern</span><span class="p p-Indicator">:</span> <span class="s">&quot;logbookoperation_*&quot;</span>
+        <span class="c1"># index template for .kibana</span>
+        <span class="l l-Scalar l-Scalar-Plain">shards</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="l l-Scalar l-Scalar-Plain">replica</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">syslog</span><span class="p p-Indicator">:</span>
+    <span class="c1"># value can be syslog-ng or rsyslog</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;rsyslog&quot;</span>
 
 <span class="l l-Scalar l-Scalar-Plain">cerebro</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;cerebro&quot;</span>
@@ -1066,7 +1214,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 85
 86
 87
-88</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+88
+89
+90
+91
+92
+93</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="l l-Scalar l-Scalar-Plain">vitam</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">accessinternal</span><span class="p p-Indicator">:</span>
@@ -1084,6 +1237,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
             <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">batchreport</span><span class="p p-Indicator">:</span>
+          <span class="l l-Scalar l-Scalar-Plain">jvm_opts</span><span class="p p-Indicator">:</span>
+              <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+              <span class="c1"># gc: &quot;&quot;</span>
+              <span class="c1"># java: &quot;&quot;</span>
     <span class="l l-Scalar l-Scalar-Plain">ingestinternal</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">jvm_opts</span><span class="p p-Indicator">:</span>
             <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
@@ -1185,7 +1343,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -1204,21 +1362,24 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

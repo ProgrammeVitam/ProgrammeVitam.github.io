@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’export d’un DIP &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow d’export d’un DIP &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -95,12 +95,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#creation-du-bordereau-create-manifest-createmanifest-java">Création du Bordereau CREATE_MANIFEST (CreateManifest.java)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-de-deplacement-des-objets-binaires-vers-le-workspace-stp-put-binary-on-workspace">Processus de déplacement des objets binaires vers le workspace (STP_PUT_BINARY_ON_WORKSPACE)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java">Déplacement des objets binaires vers le workspace PUT_BINARY_ON_WORKSPACE  (PutBinaryOnWorkspace.java)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-deplacement-des-objets-binaires-vers-l-espace-de-travail-interne-stp-put-binary-on-workspace">Processus de déplacement des objets binaires vers l’espace de travail interne (STP_PUT_BINARY_ON_WORKSPACE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java">Déplacement des objets binaires vers le workspace PUT_BINARY_ON_WORKSPACE (PutBinaryOnWorkspace.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-creation-du-dip-et-de-son-deplacement-vers-l-offre-de-stockage-stp-store-manifest">Processus de création du DIP et de son déplacement vers l’offre de stockage (STP_STORE_MANIFEST)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stockage-du-bordereau-compresse-store-manifest-storedip-java">Stockage du bordereau compressé (STORE_MANIFEST - StoreDIP.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stockage-du-bordereau-compresse-de-celui-ci-store-manifest-storedip-java">Stockage du bordereau compressé de celui-ci STORE_MANIFEST (StoreDIP.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow-d-export-de-dip">Structure du Workflow d’export de DIP</a></li>
@@ -112,6 +112,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -183,6 +185,7 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette section décrit le processus (workflow) d’export, utilisé lors de l’export d’un Dissemination Information Package (DIP) dans la solution logicielle Vitam.</p>
+<p>Le workflow d’export de DIP actuel mis en place dans la solution logicielle Vitam est défini dans l’unique fichier <em>“ExportUnitWorkflow.json”</em>. Ce fichier est disponible dans /sources/processing/processing-management/src/main/resources/workflows.</p>
 <p>Toutes les étapes et actions sont journalisées dans le journal des opérations.
 Les étapes et actions associées ci-dessous décrivent le processus d’export de DIP (clé et description de la clé associée dans le journal des opérations) tel qu’implémenté dans la version actuelle de la solution logicielle Vitam.</p>
 </div>
@@ -191,28 +194,28 @@ Les étapes et actions associées ci-dessous décrivent le processus d’export 
 <div class="section" id="creation-du-bordereau-create-manifest-createmanifest-java">
 <h3>Création du Bordereau CREATE_MANIFEST (CreateManifest.java)<a class="headerlink" href="#creation-du-bordereau-create-manifest-createmanifest-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Création d’un bordereau contenant les unités archivistiques soumises au service d’export de DIP, ainsi que le groupes d’objets techniques et objets-données qui leurs sont associés</li>
+<li><strong>Règle</strong> : Création d’un bordereau contenant les unités archivistiques soumises au service d’export de DIP, ainsi que les groupes d’objets techniques et objets-données qui leurs sont associés</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : le bordereau contenant les descriptions des unités archivistiques, groupes d’objets techniques et objets-données a été créé avec succès (CREATE_MANIFEST.OK=Succès de la création du bordereau de mise à disposition)</li>
-<li>KO : la création du bordereau contenant les descriptions des unités archivistiques, groupes d’objets techniques et objets-données a échouée car des informations étaient manquantes, érronées ou inconnues (CREATE_MANIFEST.KO=Échec de la création du bordereau de mise à disposition)</li>
-<li>FATAL : une erreur fatale est survenue lors de la création du bordereau (CREATE_MANIFEST.FATAL=Erreur fatale lors de la création du bordereau de mise à disposition)</li>
+<li>OK : le bordereau contenant les descriptions des unités archivistiques, groupes d’objets techniques et objets-données a été créé avec succès (CREATE_MANIFEST.OK = Succès de la création du bordereau de mise à disposition)</li>
+<li>KO : la création du bordereau contenant les descriptions des unités archivistiques, groupes d’objets techniques et objets-données a échouée car des informations étaient manquantes, érronées ou inconnues (CREATE_MANIFEST.KO = Échec de la création du bordereau de mise à disposition)</li>
+<li>FATAL : une erreur technique est survenue lors de la création du bordereau (CREATE_MANIFEST.FATAL = Erreur technique lors de la création du bordereau de mise à disposition)</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="processus-de-deplacement-des-objets-binaires-vers-le-workspace-stp-put-binary-on-workspace">
-<h2>Processus de déplacement des objets binaires vers le workspace (STP_PUT_BINARY_ON_WORKSPACE)<a class="headerlink" href="#processus-de-deplacement-des-objets-binaires-vers-le-workspace-stp-put-binary-on-workspace" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="processus-de-deplacement-des-objets-binaires-vers-l-espace-de-travail-interne-stp-put-binary-on-workspace">
+<h2>Processus de déplacement des objets binaires vers l’espace de travail interne (STP_PUT_BINARY_ON_WORKSPACE)<a class="headerlink" href="#processus-de-deplacement-des-objets-binaires-vers-l-espace-de-travail-interne-stp-put-binary-on-workspace" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java">
-<h3>Déplacement des objets binaires vers le workspace PUT_BINARY_ON_WORKSPACE  (PutBinaryOnWorkspace.java)<a class="headerlink" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Déplacement des objets binaires vers le workspace PUT_BINARY_ON_WORKSPACE (PutBinaryOnWorkspace.java)<a class="headerlink" href="#deplacement-des-objets-binaires-vers-le-workspace-put-binary-on-workspace-putbinaryonworkspace-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Déplacement des objets-données mentionnées dans le bordereau vers le workspace</li>
+<li><strong>Règle</strong> : Déplacement des objets-données mentionnés dans le bordereau vers l’espace de travail interne («&nbsp;workspace&nbsp;»)</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : les objets-données ont été déplacés vers le workspace avec succès (PUT_BINARY_ON_WORKSPACE.OK=Succès du déplacement des objets binaires de l’offre de stockage vers le workspace)</li>
-<li>KO : le déplacement des objet-données vers le workspace a échoué car un ou plusieurs de ces objets étaient introuvables (PUT_BINARY_ON_WORKSPACE.KO=Échec du déplacement des objets binaires de l’offre de stockage vers le workspace)</li>
-<li>FATAL : une erreur fatale est survenue lors du déplacement des objets binaires de stockage vers le workspace (PUT_BINARY_ON_WORKSPACE.FATAL=Erreur fatale lors du déplacement des objets binaires de l’offre de stockage vers le workspace)</li>
+<li>OK : les objets-données ont été déplacés vers le workspace avec succès (PUT_BINARY_ON_WORKSPACE.OK = Succès du déplacement des objets binaires de l’offre de stockage vers l’espace de travail interne</li>
+<li>KO : le déplacement des objet-données vers le workspace a échoué car un ou plusieurs de ces objets étaient introuvables (PUT_BINARY_ON_WORKSPACE.KO = Échec du déplacement des objets binaires de l’offre de stockage vers l’espace de travail interne)</li>
+<li>FATAL : une erreur technique est survenue lors du déplacement des objets binaires de stockage vers le workspace (PUT_BINARY_ON_WORKSPACE.FATAL = Erreur technique lors du déplacement des objets binaires de l’offre de stockage vers l’espace de travail interne)</li>
 </ul>
 </li>
 </ul>
@@ -220,14 +223,14 @@ Les étapes et actions associées ci-dessous décrivent le processus d’export 
 </div>
 <div class="section" id="processus-de-creation-du-dip-et-de-son-deplacement-vers-l-offre-de-stockage-stp-store-manifest">
 <h2>Processus de création du DIP et de son déplacement vers l’offre de stockage (STP_STORE_MANIFEST)<a class="headerlink" href="#processus-de-creation-du-dip-et-de-son-deplacement-vers-l-offre-de-stockage-stp-store-manifest" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="stockage-du-bordereau-compresse-store-manifest-storedip-java">
-<h3>Stockage du bordereau compressé (STORE_MANIFEST - StoreDIP.java)<a class="headerlink" href="#stockage-du-bordereau-compresse-store-manifest-storedip-java" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="stockage-du-bordereau-compresse-de-celui-ci-store-manifest-storedip-java">
+<h3>Stockage du bordereau compressé de celui-ci STORE_MANIFEST (StoreDIP.java)<a class="headerlink" href="#stockage-du-bordereau-compresse-de-celui-ci-store-manifest-storedip-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Création du DIP et de son déplacement vers l’offre de stockage</li>
+<li><strong>Règle</strong> : Création du DIP et déplacement vers l’offre de stockage</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : le DIP a été créé et stocké sur les offres de stockages avec succès (STORE_MANIFEST.OK=Succès du processus de la création du DIP et de son déplacement vers l’offre de stockage)</li>
-<li>FATAL :  une erreur fatale est survenue lors de la création et de l’enregistrement du DIP sur les offres de stockage déplacement des objets binaires de stockage vers workspace (STORE_MANIFEST.FATAL=Erreur fatale lors de la création du DIP et de son déplacement vers l’offre de stockage)</li>
+<li>OK : le DIP a été créé et stocké sur les offres de stockages avec succès (STORE_MANIFEST.OK = Succès du processus de la création du DIP et de son déplacement vers l’offre de stockage)</li>
+<li>FATAL :  une erreur technique est survenue lors de la création et de l’enregistrement du DIP sur les offres de stockage déplacement des objets binaires de stockage vers l”“espace de travail interne  (STORE_MANIFEST.FATAL = Erreur technique lors de la création du DIP et de son déplacement vers l’offre de stockage)</li>
 </ul>
 </li>
 </ul>
@@ -235,8 +238,6 @@ Les étapes et actions associées ci-dessous décrivent le processus d’export 
 </div>
 <div class="section" id="structure-du-workflow-d-export-de-dip">
 <h2>Structure du Workflow d’export de DIP<a class="headerlink" href="#structure-du-workflow-d-export-de-dip" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le workflow d’export de DIP actuel mis en place dans la solution logicielle Vitam est défini dans l’unique fichier “ExportUnitWorkflow.json”. Ce fichier est disponible dans /sources/processing/processing-management/src/main/resources/workflows.</p>
-<p>D’une façon synthétique, le workflow est décrit de cette façon :</p>
 <img alt="Diagramme d'état / transitions du workflow d'export de DIP" class="align-center" src="../_images/workflow_dip.png" />
 </div>
 </div>
@@ -261,7 +262,7 @@ Les étapes et actions associées ci-dessous décrivent le processus d’export 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -280,21 +281,24 @@ Les étapes et actions associées ci-dessous décrivent le processus d’export 
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

@@ -307,6 +307,30 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
        { "$set" : { "Description" : "Description" } }
     ]
 }
+</code></pre><h3 id="requ-tes-de-reclassification">Requêtes de reclassification</h3><p>La requête DSL de mise à jour des parents d&#39;unités archivistiques (<strong>RECLASSIFICATION</strong>) permet d&#39;attacher et/ou détacher des unités archivistiques. Elle comporte une ou plusieurs requêtes avec pour chacune :</p><ul><li>Champs <strong>$roots</strong> et <strong>$query</strong> : sélection des unités archivistiques à modifier</li><li>Champ <strong>$action</strong> : Liste des unités archivistiques parentes à rattacher / détacher via les opérateur "$add" et "$pull" sur le champ "#unitups".</li></ul><pre><code class="lang-JSON">[
+  {
+    "$roots": [ ... ],
+    "$query": [ ... ],
+    "$action": [
+      {
+        "$add": { "#unitups": [ ... ] },
+        "$pull": { "#unitups": [ ... ] }
+      }
+    ]
+  }
+]
+</code></pre><p><strong>Exemple :</strong></p><pre><code class="lang-json">[
+  {
+    "$roots": [],
+    "$query": [ { "$match": { "Title": "My Title" } } ],
+    "$action": [
+      {
+        "$add": { "#unitups": [ "aeaqaaaaaagdmvr3abnwoak7fzjq75qaaaca" ] },
+        "$pull": { "#unitups": [ "aeaqaaaaaagdmvr3abnwoak7fzjq75qaaacc", "aeaqaaaaaagdmvr3abnwoak7fzjq75qaaacb" ] }
+      }
+    ]
+  }
+]
 </code></pre><h2 id="query">Query</h2><p>Les commandes de la Query peuvent être :</p><table class="table"><thead><tr><th>Catégorie</th><th>Opérateurs</th><th>Arguments</th><th>Utilisable sur champs analysés ?</th><th>Utilisable sur champs non analysés ?</th><th>Commentaire</th></tr></thead><tbody><tr><td>Booléens</td><td>$and, $or, $not</td><td>Opérateurs</td><td>NA</td><td>NA</td><td>Combinaison logique d&#39;opérateurs</td></tr><tr><td>Comparaison</td><td>$eq, $ne, $lt, $lte, $gt, $gte</td><td>Champ et valeur</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ et la valeur passée en argument</td></tr><tr><td></td><td>$range</td><td>Champ, $lt, $lte, $gt, $gte et valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ avec l&#39;intervalle passé en argument</td></tr><tr><td>Existence</td><td>$exists</td><td>Champ</td><td><strong>Oui</strong></td><td><strong>Oui</strong></td><td></td></tr><tr><td>Tableau</td><td>$in, $nin</td><td>Champ, valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Présence de valeurs dans un tableau</td></tr><tr><td>Textuel</td><td>$wildcard</td><td>Champ, expression</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de champs mots-clefs à valeur exacte</td></tr><tr><td></td><td>$regex</td><td>Champ, expression régulière</td><td>Non</td><td><strong>Oui</strong></td><td>Recherche via une expression régulière</td></tr><tr><td></td><td>$match, $match_all, $match_phrase, $match_phrase_prefix</td><td>Champ, phrase</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche plein texte soit sur des mots, expressions, ou débuts d&#39;expressions</td></tr><tr><td></td><td>$search</td><td>Champ, string avec opérateur du $search</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche du type moteur de recherche</td></tr><tr><td>Parcours de graphe</td><td>$depth</td><td>entier positif ou nul</td><td>NA</td><td>NA</td><td>Recherche jusqu&#39;à un niveau de profondeur</td></tr></tbody></table><h3 id="op-rateurs-and-or-not-combinaison-logique-d-op-rateurs">Opérateurs $and, $or, $not : combinaison logique d&#39;opérateurs</h3><p><strong>Format :</strong></p><ul><li><code>{ $and : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>toutes</em> les commandes doivent être vérifiées</li><li><code>{ $or  : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>au moins une</em> commande doit être vérifiée</li><li><code>{ $not : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>aucune</em> ne doit être vérifiée ($not[condition A, condition B] peut donc s&#39;écrire sous une forme plus explicite de : $and[$not(condition A), $not(condition B)]).</li></ul><p><strong>Exemple :</strong></p><pre><code class="lang-json">{
   "$query": [
     {
@@ -371,13 +395,13 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
 { "$match_phrase_prefix" : { "Title" : "fou koala" } }        /* KO (Ordre non respecté) */
 { "$match_phrase_prefix" : { "Title" : "koala chocolat" } }   /* KO (Pas de correspondance partielle */
 { "$match_phrase_prefix" : { "Title" : "Dessert chocolat" } } /* KO (Pas de correspondance) */
-</code></pre><h3 id="op-rateur-search-recherche-approchante-avec-op-rateurs">Opérateur $search : recherche approchante avec opérateurs</h3><p>Permet des recherches approchantes avec des expression exactes, des opérateurs ET / OU / NON, préfixes...</p><p><strong>Format :</strong> <code>{ "$search" : { name : searchParameter } }</code> : où <em>name</em> est le nom du champ, <em>searchParameter</em> est une expression de recherche.</p><p>L&#39;expression <em>searchParameter</em> peut être formulée avec les opérateurs suivants :</p><ul><li><strong>« + »</strong> signifie <strong>AND</strong></li><li><strong>« | »</strong> signifie <strong>OR</strong></li><li><strong>« - »</strong> signifie <strong>NOT</strong> (tout sauf)</li><li><strong>« " »</strong> signifie <strong>"expression exacte"</strong> (l&#39;ordre des mots est impératif dans la recherche)</li><li><strong>« ( »</strong> et <strong>« ) »</strong> signifie une précédence dans les opérateurs (priorisation des recherches <strong>AND</strong> et <strong>OR</strong>)</li><li><strong>« * »</strong> à la fin d&#39;un mot signifie une recherche par préfixe.<ul><li>La recherche est effecuté sur les racines des mots. En particulier, l&#39;utilisation du <strong>« * »</strong> empêche les recherches avec des accents. Ainsi un search de "éco*" ne trouvera pas "école", en revanche "eco" trouvera "école".</li><li>ne pas confondre avec l&#39;opérateur <strong>$wildcard</strong> qui permet de chercher des expression sur champs de type chaine non analysée.</li></ul></li><li><strong>« ~N »</strong> à la fin d&#39;un mot permet de réaliser une recherche approchante, <em>N</em> étant la distance d&#39;édition (nombre d&#39;insertions, de suppressions ou de substitutions nécessaires pour transformer un nom en un autre)</li><li><strong>« ~N »</strong> après une expression (encadrée par <strong>« * »</strong>) autorise des "trous" dans l&#39;expression recherchée, <em>N</em> étant le nombre de mots maximums autorisés pour la complétion</li></ul><p><strong>Important</strong> : Par défaut, <em>$search</em> effectue un OR entre chaque mot de l&#39;expression de recherche.</p><p><strong>Exemples :</strong></p><pre><code class="lang-json">{ "$search" : { "Title" : "alpha bravo charlie" } }             /* cherche un titre contenant au moins un mot entre alpha, bravo et charlie */
+</code></pre><h3 id="op-rateur-search-recherche-approchante-avec-op-rateurs">Opérateur $search : recherche approchante avec opérateurs</h3><p>Permet des recherches approchantes avec des expression exactes, des opérateurs ET / OU / NON, préfixes...</p><p><strong>Format :</strong> <code>{ "$search" : { name : searchParameter } }</code> : où <em>name</em> est le nom du champ, <em>searchParameter</em> est une expression de recherche.</p><p>L&#39;expression <em>searchParameter</em> peut être formulée avec les opérateurs suivants :</p><ul><li><strong>« + »</strong> signifie <strong>AND</strong></li><li><strong>« | »</strong> signifie <strong>OR</strong></li><li><strong>« - »</strong> signifie <strong>NOT</strong> (tout sauf)</li><li><strong>« " »</strong> signifie <strong>"expression exacte"</strong> (l&#39;ordre des mots est impératif dans la recherche)</li><li><strong>« ( »</strong> et <strong>« ) »</strong> signifie une précédence dans les opérateurs (priorisation des recherches <strong>AND</strong> et <strong>OR</strong>)</li><li><p><strong>« "mot-1…mot-n"~N »</strong> recherche la séquence de mots <em>mot-1…mot-n</em> dans le texte, N étant le nombre de mots maximum à rajouter à la séquence pour qu&#39;elle correspondent à un morceau de texte.</p><ul><li>Ex : "documentaire end"~2 → <strong>documentaire</strong> ce week end.</li></ul></li><li><p>Opérateurs fonctionnant sur les racines de mots : lors de l&#39;indexation des métadonnées analysées, les mots sont indexés en y enlevant des suffixes connus, afin que différentes formes puissent correspondre à une même requête :</p><ul><li>archivage → archivag</li><li>archivages → archivag</li><li>archiver → archiv</li><li>archivons → archivon</li><li>archiverez → archiv</li><li>archivent → archivent</li><li>archivistique → archivist</li><li>numérique → num</li><li>numériser → numer</li></ul></li><li><p><strong>« * »</strong> à la fin d&#39;un mot fait une recherche par préfixe.</p><ul><li>Ex : archiv* → archiver, archivistique</li><li>Ne pas confondre avec l&#39;opérateur <strong>$wildcard</strong> qui permet de chercher des expression sur champs de type chaine non analysée.</li></ul></li><li><strong>« ~N »</strong> à la fin d&#39;un mot permet de réaliser une recherche approchante, <em>N</em> étant la distance d&#39;édition (nombre d&#39;insertions, de suppressions ou de substitutions nécessaires pour transformer un nom en un autre). N peut valoir 0, 1 ou 2</li><li><p><strong>« ~ »</strong> à la fin d&#39;un mot permet de réaliser une recherche approchante, en fonction du nombre de caractère du mots :</p><ul><li>Jusqu&#39;à 2 : correspondance exacte</li><li>De 3 à 5 : équivalent à ~1</li><li>Au-delà de 5 : équivalent à ~2.</li></ul></li></ul><p><strong>Important</strong> : Par défaut, <em>$search</em> effectue un OR entre chaque mot de l&#39;expression de recherche.</p><p><strong>Exemples :</strong></p><pre><code class="lang-json">{ "$search" : { "Title" : "alpha bravo charlie" } }             /* cherche un titre contenant au moins un mot entre alpha, bravo et charlie */
 { "$search" : { "Title" : "alpha +bravo charlie" } }            /* cherche un titre contenant le mot bravo obligatoirement */
 { "$search" : { "Title" : "+alpha -bravo" } }                   /* cherche un titre contenant le mot alpha ou ne contenant pas le mot bravo */
 { "$search" : { "Title" : "+alpha +-bravo" } }                  /* cherche un titre contenant le mot alpha et ne contenant pas le mot bravo */
 { "$search" : { "Title" : "+alpha -\"bravo charlie\"" } }       /* cherche un titre contenant le mot alpha et ne contenant pas l&#39;expression &#39;bravo charlie&#39; */
 { "$search" : { "Title" : "+alpha +(bravo | charlie)" } }       /* cherche un titre contenant le mot alpha et contenant soit le mot bravo et/ou le mot charlie */
-</code></pre><p><strong>Note :</strong></p><ul><li>Cet opérateur ne doit être utilisé que pour les champs de type chaîne analysée. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li></ul><h3 id="cas-particuli-r-recherches-par-id">Cas particulièr : recherches par #id</h3><p>Un cas particulier est traité dans ce paragraphe, il s&#39;agit de la recherche par identifiant technique. Sur les différentes collections, le champ #id est un champ obligatoire peuplé par Vitam. Il s&#39;agit de l&#39;identifiant unique du document (unité archivistique, groupe d&#39;objets, différents référentiels...) représentée sous la forme d&#39;une chaîne de 36 caractères correspondant à un GUID. Il est possible de faire des requêtes sur ce champ, voici les opérateurs à privilégier dans ce cadre :</p><ul><li>{ <strong>"$eq" : { "#id" : value }</strong> } : où value est la valeur recherchée sous forme d&#39;un GUID</li><li>{ <strong>"$in" : { "#id" : [ value1, value2, ... ] }</strong> } : où valueN sont les valeurs recherchées sous forme de GUID.</li></ul><p>Il est aussi possible, mais moins recommandé, de faire :</p><ul><li>{ <strong>"$ne" : { "#id" : value }</strong> } : étant la recherche eq inversée</li><li>{ <strong>"$nin" : { "#id" : [ value1, value2, ... ] }</strong> } : étant la recherche in inversée</li></ul><p>L&#39;utilisation des autres opérateurs avec ce champ #id est non supportée.</p><h2 id="filtres">Filtres</h2><p>Les filtres permettent de spécifier des comportement additionnels à la recherce :</p><ul><li>$limit: le nombre maximum d&#39;items retournés (positionné à 10000 par défaut)</li><li>$offset: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li>$orderby: { fieldname: 1, fieldname: -1 } : permet de définir un tri ascendant (1) ou descendant (-1).<ul><li>Pour un champ non analysé : l&#39;ordre est lexicographique pour un texte, l&#39;ordre est naturel pour un champ date ou nombre</li><li>Pour un champ analysé (plein texte), le tri n&#39;est pas lexicographique mais basé sur le score de correspondance</li><li>L&#39;ordre de déclaration des tris est respectés dans la réponse</li></ul></li></ul><p><strong>Note :</strong> Le nombre de résultats ne doit être être trop important (<strong>$limit</strong> + <strong>$offset</strong> &gt; 10000+) au risque d&#39;un comportement de recherche non déterminé (la recherche ne pourra aboutir).</p><h2 id="projections">Projections</h2><p>Par défaut, les requêtes de recherche DSL renvoient tous les champs des documents. Ce qui correspond à un <code>SELECT *</code> dans le language SQL.</p><p>Cependant, il est fortement recommandé de limiter les champs à retourner en les spécifiant dans la section <strong>$projection</strong>. Ce qui correspond au <code>SELECT X, Y, Z</code> dans le langage SQL.</p><pre><code class="lang-json">{
+</code></pre><p><strong>Note :</strong></p><ul><li>Cet opérateur ne doit être utilisé que pour les champs de type chaîne analysée. Le comportement dans le cas d&#39;un champ de type texte analysé ou null est non supporté.</li></ul><h3 id="cas-particulier-recherches-par-id">Cas particulier : recherches par #id</h3><p>Un cas particulier est traité dans ce paragraphe, il s&#39;agit de la recherche par identifiant technique. Sur les différentes collections, le champ #id est un champ obligatoire peuplé par Vitam. Il s&#39;agit de l&#39;identifiant unique du document (unité archivistique, groupe d&#39;objets, différents référentiels...) représentée sous la forme d&#39;une chaîne de 36 caractères correspondant à un GUID. Il est possible de faire des requêtes sur ce champ, voici les opérateurs à privilégier dans ce cadre :</p><ul><li>{ <strong>"$eq" : { "#id" : value }</strong> } : où value est la valeur recherchée sous forme d&#39;un GUID</li><li>{ <strong>"$in" : { "#id" : [ value1, value2, ... ] }</strong> } : où valueN sont les valeurs recherchées sous forme de GUID.</li></ul><p>Il est aussi possible, mais moins recommandé, de faire :</p><ul><li>{ <strong>"$ne" : { "#id" : value }</strong> } : étant la recherche eq inversée</li><li>{ <strong>"$nin" : { "#id" : [ value1, value2, ... ] }</strong> } : étant la recherche in inversée</li></ul><p>L&#39;utilisation des autres opérateurs avec ce champ #id est non supportée.</p><h2 id="filtres">Filtres</h2><p>Les filtres permettent de spécifier des comportement additionnels à la recherce :</p><ul><li>$limit: le nombre maximum d&#39;items retournés (positionné à 10000 par défaut)</li><li>$offset: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li>$orderby: { fieldname: 1, fieldname: -1 } : permet de définir un tri ascendant (1) ou descendant (-1).<ul><li>Pour un champ non analysé : l&#39;ordre est lexicographique pour un texte, l&#39;ordre est naturel pour un champ date ou nombre</li><li>Pour un texte champ analysé (plein texte) : <strong>Le tri sur un champ analysé n&#39;est pas supporté</strong> tel quel sur Elasticsearch. Cependant, par défault, Elasticsearch trie automatiquement les résultats par pertinence.</li><li>L&#39;ordre de déclaration des tris est respectés dans la réponse</li></ul></li></ul><p><strong>Note :</strong> Le nombre de résultats ne doit être être trop important (<strong>$limit</strong> + <strong>$offset</strong> &gt; 10000+) au risque d&#39;un comportement de recherche non déterminé (la recherche ne pourra aboutir).</p><h2 id="projections">Projections</h2><p>Par défaut, les requêtes de recherche DSL renvoient tous les champs des documents. Ce qui correspond à un <code>SELECT *</code> dans le language SQL.</p><p>Cependant, il est fortement recommandé de limiter les champs à retourner en les spécifiant dans la section <strong>$projection</strong>. Ce qui correspond au <code>SELECT X, Y, Z</code> dans le langage SQL.</p><pre><code class="lang-json">{
   "$projection": {
     "$fields": {
       "Champ1": 1,
@@ -393,7 +417,7 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
     }
   }
 }
-</code></pre><p><strong>Remarque :</strong></p><ul><li>Pour la collection <em>unit</em>, il est possible de demander la construction de l&#39;ensemble des règles héritées en utilisant une projection <em>spéciale</em> <strong>$rules</strong>. Si cette projection est utilisée, l&#39;ensemble des champs de l&#39;unité archivistique est remonté. Cette projection ne devrait être utilisée que dans le point d&#39;API <em>/units/{id}</em> (GET BY ID).</li></ul><pre><code class="lang-json">{
+</code></pre><p><strong>Remarque :</strong></p><ul><li><p>Pour la collection <em>unit</em>, il est possible de demander la construction de l&#39;ensemble des règles héritées en utilisant une projection <em>spéciale</em> <strong>$rules</strong>. Si cette projection est utilisée, l&#39;ensemble des champs de l&#39;unité archivistique est remonté. Cette projection ne devrait être utilisée que dans le point d&#39;API <em>/units/{id}</em> (GET BY ID).</p><p>Il est également à noter que la projection <em>$rules</em> est <strong>dépréciée</strong> et devrait être supprimée dans une prochaine release. Elle est remplacée par une nouvelle API GET /unitsWithInheritedRules**.</p></li></ul><pre><code class="lang-json">{
   "$projection": { "$fields": { "$rules": 1 } }
 }
 </code></pre><h2 id="facets">Facets</h2><p>Les commandes de la Facet peuvent être :</p><table class="table"><thead><tr><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>$terms</td><td>nom du champ, nombre et ordre des résulats</td><td>Répartition selon des valeurs textuelles du champ</td></tr><tr><td>$date_range</td><td>nom de champ, format, ranges</td><td>Répartition selon les dates selon un intervalle défini "ranges"</td></tr><tr><td>$filters</td><td>requêtes de filtre</td><td>Répartition selon les requêtes définies (même format qu&#39;une $query)</td></tr></tbody></table><h3 id="op-rateur-terms-r-partition-selon-des-valeurs-textuelles-du-champ">Opérateur $terms : répartition selon des valeurs textuelles du champ</h3><p><strong>Format :</strong></p><ul><li><code>{ "$terms" : { "$field" : "field_name", "$size" : x, "$order": "field_order" } }</code> : où <em>field_name</em> (obligatoire) est le nom du champ, <em>x</em> (obligatoire) le nombre de valeurs textuelles remontées et <em>field_order</em> est l&#39;ordre (valeurs : ASC/DESC).</li></ul><p><strong>Exemple :</strong> Recherche la répartition de tous les résultats de recherche pour les 3 valeurs les plus utilisées du champ DescriptionLevel :</p><ul><li><code>{ "$name": "facet_desclevel", "$terms" : { "$field" : "DescriptionLevel", "$size" : 3, "$order" : "ASC"  } }</code></li></ul><h3 id="op-rateur-date_range-">Opérateur $date_range :</h3><p><strong>Format :</strong></p><ul><li><code>{ "$date_range" : { "$field" : "field_name", "$format" : "format" , "$ranges": [ {"$from": "from","$to": "to"}]} }</code> : où <em>field_name</em> (obligatoire) est le nom du champ, <em>format</em>(obligatoire) le format de la date (Ex :&#39;dd-mm-yyyy), <em>ranges</em>(obligatoire) une liste d&#39;object possedant un champ <em>from</em> et/ou un champ <em>to</em></li></ul><p><strong>Exemple :</strong> Recherche du nombre de résultats pour une date EndDate située entre 2010 et 2018 et une EndDate supèrieure à 1900 :</p><pre><code class="lang-json"> "$facets": [
@@ -433,7 +457,7 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
       ]
     }
   }
-</code></pre><h3 id="notes-sur-les-op-rateurs">Notes sur les opérateurs</h3><ul><li>Les champs analysés ne peuvent pas être utilisés en argument <em>$field</em>.</li></ul><h2 id="actions">Actions</h2><p>Dans le cas d&#39;un update, les opérateurs suivants sont utilisables</p><table class="table"><thead><tr><th>Opérateur</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>Crée ou modifie la valeur d&#39;un ou plusieurs champs</td></tr><tr><td>$unset</td><td>Supprime un ou plusieurs champs</td></tr></tbody></table><h1 id="response">Response</h1><p>Une réponse est composée de plusieurs parties :</p><ul><li><strong>$hits</strong>:<ul><li><strong>limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut)</li><li><strong>offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li><strong>total</strong>: le nombre total potentiel (estimation) des résultats possibles</li><li><strong>size</strong>: le nombre réel d&#39;items retournés</li></ul></li><li><strong>$context</strong>: rapelle la requête exprimée</li><li><strong>$results</strong>: contient le résultat de la requête sous forme d&#39;une liste d&#39;items</li><li><strong>$facetResults</strong>: contient le résultat des requêtes d&#39;aggrégation sous forme d&#39;une liste d&#39;items</li></ul><h2 id="exemples">Exemples</h2><h3 id="r-ponse-pour-units">Réponse pour Units</h3><pre><code class="lang-json">{
+</code></pre><h3 id="notes-sur-les-op-rateurs">Notes sur les opérateurs</h3><ul><li>Les champs analysés ne peuvent pas être utilisés en argument <em>$field</em>.</li></ul><h2 id="actions">Actions</h2><p>Dans le cas d&#39;un update, les opérateurs suivants sont utilisables</p><table class="table"><thead><tr><th>Opérateur</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>Crée ou modifie la valeur d&#39;un ou plusieurs champs (requêtes de modification uniquement)</td></tr><tr><td>$unset</td><td>Supprime un ou plusieurs champs (requêtes de modification uniquement)</td></tr><tr><td>$add</td><td>Ajout d&#39;une valeur à un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr><tr><td>$pull</td><td>Supprime une valeur d&#39;un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr></tbody></table><h1 id="response">Response</h1><p>Une réponse est composée de plusieurs parties :</p><ul><li><strong>$hits</strong>:<ul><li><strong>limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut)</li><li><strong>offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li><strong>total</strong>: le nombre total potentiel (estimation) des résultats possibles</li><li><strong>size</strong>: le nombre réel d&#39;items retournés</li></ul></li><li><strong>$context</strong>: rapelle la requête exprimée</li><li><strong>$results</strong>: contient le résultat de la requête sous forme d&#39;une liste d&#39;items</li><li><strong>$facetResults</strong>: contient le résultat des requêtes d&#39;aggrégation sous forme d&#39;une liste d&#39;items</li></ul><h2 id="exemples">Exemples</h2><h3 id="r-ponse-pour-units">Réponse pour Units</h3><pre><code class="lang-json">{
   "$hits": {
     "total": 3,
     "size": 3,
@@ -517,46 +541,37 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
   "$filter": {},
   "$projection": {}
 }
-</code></pre><p>Dans les résultats on récupère une AU dont le titre est : "Buttes-Chaumont". Cette AU ne possède pas de règle de gestion et c&#39;est normal : seule les règles de gestions enregistrées en base sont retournées, il n&#39;y a pas de calcul d&#39;héritage.</p><p>Pour voir les règles réellement appliquées à l&#39;AU au travers l&#39;héritage, il faut utiliser l&#39;opérateur $rules dans la $projection. En reprenant la même requête que ci dessus et en lui demandant l&#39;héritage :</p><pre><code class="lang-json">{
-  "$roots": [],
-  "$query": [
-    {
-      "$eq": {
-        "#allunitups": "aeaqaaaaaahexbfjaallkaldvongvhyaaaba"
-      }
-    }
-  ],
-  "$filter": {},
-  "$projection": {
-    "$fields": {
-      "$rules": 1
+</code></pre><p>Dans les résultats on récupère une AU dont le titre est : "Buttes-Chaumont". Cette AU ne possède pas de règle de gestion et c&#39;est normal : seule les règles de gestions enregistrées en base sont retournées, il n&#39;y a pas de calcul d&#39;héritage.</p><p>Pour voir les règles réellement appliquées à l&#39;AU au travers l&#39;héritage, on peut utiliser l&#39;API <strong>GET /unitsWithInheritedRules</strong>. On obtient un bloc "InheritedRuled" (règles héritées) dans les réponses dont voici un extrait :</p><pre><code class="lang-json">{
+  "InheritedRules": {
+    "DisseminationRule": {
+      "Rules": [
+        {
+          "UnitId": "aeaqaaaaaagmqmplab2rqale23iwrmqaaaba",
+          "OriginatingAgency": "RATP",
+          "Paths": [
+            [
+              "aeaqaaaaaagmqmplab2rqale23iwrniaaabq",
+              "aeaqaaaaaagmqmplab2rqale23iwrnaaaabq",
+              "aeaqaaaaaagmqmplab2rqale23iwrnyaaaba",
+              "aeaqaaaaaagmqmplab2rqale23iwrmqaaaba"
+            ],
+            [
+              "aeaqaaaaaagmqmplab2rqale23iwrniaaabq",
+              "aeaqaaaaaagmqmplab2rqale23iwrnaaaabq",
+              "aeaqaaaaaagmqmplab2rqale23iwrmyaaaba",
+               "aeaqaaaaaagmqmplab2rqale23iwrmqaaaba"
+            ]
+          ],
+          "Rule": "DIS-00001",
+          "StartDate": "2000-01-01",
+          "EndDate": "2025-01-01"
+        }
+      ],
+      "Properties": []
     }
   }
 }
-</code></pre><p>On obtient un bloc "inheritedRule" (règles héritées) dans les réponses dont voici un extrait :</p><pre><code class="lang-json">  "inheritedRule": {
-       "DisseminationRule": {
-         "DIS-00001": {
-           "aeaqaaaaaahexbfjaallkaldvongvhiaaaba": {
-             "StartDate": "2000-01-01",
-             "EndDate": "2025-01-01",
-             "path": [
-               [
-                 "aeaqaaaaaahexbfjaallkaldvongvhiaaaba",
-                 "aeaqaaaaaahexbfjaallkaldvongviaaaacq",
-                 "aeaqaaaaaahexbfjaallkaldvongvhyaaaba",
-                 "aeaqaaaaaahexbfjaallkaldvongvhyaaacq"
-               ],
-               [
-                 "aeaqaaaaaahexbfjaallkaldvongvhiaaaba",
-                 "aeaqaaaaaahexbfjaallkaldvongvhiaaacq",
-                 "aeaqaaaaaahexbfjaallkaldvongvhyaaaba",
-                 "aeaqaaaaaahexbfjaallkaldvongvhyaaacq"
-               ]
-             ]
-           }
-         }
-       }}
-</code></pre><p>Comprenant donc :</p><ul><li>L&#39;objet "inheritedRule"</li><li>Les catégories de règles, ici "DisseminationRule"</li><li>Les identifiant de règles dans chaque catégorie ("DIS-00001")</li><li>Les dates de débuts et fin d&#39;applications</li><li>Les chemins d&#39;héritage, c&#39;est à dire tous les chemins possibles ayant pour conséquence que cette AU hérite de cette règle (dans l&#39;exemple il y a deux chemins possibles). Le chemin étant une succession d&#39;identifiant d&#39;AU</li></ul><p><strong>Attention : les requêtes utilisant $rules peuvent être très coûteuses pour le système. Il convient de limiter le périmètre de la requête au maximum pour éviter un recalcul massif inutilement</strong></p><h1 id="les-m-tadonn-es-de-cat-gories">Les métadonnées de catégories</h1><p>Dans le SIP utilisé pour ce jeu de test, on peut chercher l&#39;AU de titre "Eglise de Pantin". On remarquera dans cette AU le retour concernant la métadonnée de sort final (FinalAction) et celles des règles de classification (ClassificationLevel et ClassificationOwner), dont voici un extrait :</p><pre><code class="lang-json">"StorageRule": {
+</code></pre><p>Comprenant donc :</p><ul><li>L&#39;objet "InheritedRules"</li><li>Les catégories de règles, ici "DisseminationRule"</li><li>Pour chaque catégorie, la liste des règles (Rules)</li><li>Chaque règle contient :<ul><li>L&#39;identifiant de la règle (Rule)</li><li>L&#39;unité archivistique qui la porte (UnitId).</li><li>Le service producteur de la règle qui la porte (OriginatingAgency)</li><li>L&#39;ensemble des chemins par laquelle la règle est héritée (Paths). Ici, il y&#39;a deux chemins possibles. Un chemin étant l&#39;ensemble des identifiants des unités archivistiques.</li><li>Les dates de débuts et fin d&#39;applications</li></ul></li></ul><p><strong>Attention :</strong></p><ul><li>Le calcul des règles de gestion peut être très coûteux pour le système. Il convient de limiter le périmètre de la requête au maximum pour éviter un recalcul massif inutilement</li><li>Il est également possible d&#39;utiliser la projection spéciale "$rules" afin de calculer les règles de gestion depuis le endpoint <strong>GET /units</strong>. Cependant cette API est dépréciée et sera supprimée dans une prochaine release.</li></ul><h1 id="les-m-tadonn-es-de-cat-gories">Les métadonnées de catégories</h1><p>Dans le SIP utilisé pour ce jeu de test, on peut chercher l&#39;AU de titre "Eglise de Pantin". On remarquera dans cette AU le retour concernant la propriété de sort final (FinalAction) et celles des règles de classification (ClassificationLevel et ClassificationOwner), dont voici un extrait :</p><pre><code class="lang-json">    "StorageRule": {
       "Rules": [
         {
           "Rule": "STO-00001",
@@ -567,18 +582,37 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
       "FinalAction": "Copy"
     },
     "ClassificationRule": {
-           "ClassificationLevel": "Secret Défense",
-           "ClassificationOwner": "RATP",
-           "Rules": [
-             {
-               "Rule": "CLASS-00001",
-               "StartDate": "2000-01-01",
-               "EndDate": "2010-01-01"
-             }
-           ]
-         }
-       },
-</code></pre><p>Pour finir en cherchant l&#39;AU de titre "1_Saint Denis Université" on peut voir la structure de PreventInheritance (qui indique que toutes les AU sous celle ci n&#39;hériteront pas des règles AccessRule)</p><pre><code class="lang-json">"#management": {
+      "ClassificationLevel": "Secret Défense",
+      "ClassificationOwner": "RATP",
+      "Rules": [
+        {
+          "Rule": "CLASS-00001",
+          "StartDate": "2000-01-01",
+          "EndDate": "2010-01-01"
+        }
+      ]
+    }
+  },
+</code></pre><p>Les properités des règles sont également héritées depuis les unités archivistiques parentes. On peut utiliser l&#39;API <strong>GET /unitsWithInheritedRules</strong> afin de calculer l&#39;ensemble des proprités héritées :</p><pre><code class="lang-json">"InheritedRules": {
+  "StorageRule": {
+    "Rules": [],
+    "Properties": [
+      {
+        "UnitId": "aeaqaaaaaagmqmplab2rqale23iwrbiaaaba",
+        "OriginatingAgency": "RATP",
+        "Paths": [
+          [
+            "aeaqaaaaaagmqmplab2rqale23iwrbyaaaaq",
+            "aeaqaaaaaagmqmplab2rqale23iwrbiaaaba"
+          ]
+        ],
+        "PropertyName": "FinalAction",
+        "PropertyValue": "Copy"
+      }
+    ]
+  }
+}
+</code></pre><p>où on retrouve :</p><ul><li>L&#39;objet "InheritedRules"</li><li>Les catégories de règles, ici "StorageRule"</li><li>Pour chaque catégorie, la liste des propriétés (Properties)</li><li>Chaque propriété contient :<ul><li>Le nom de la propriété, ici "FinalAction"</li><li>La valeur de la propriété, ici "Copy"</li><li>L&#39;unité archivistique qui la porte (UnitId).</li><li>Le service producteur de la règle qui la propriété (OriginatingAgency)</li><li>L&#39;ensemble des chemins par laquelle la règle est héritée (Paths).</li></ul></li></ul><p>Pour finir en cherchant l&#39;AU de titre "1_Saint Denis Université" on peut voir la métadonnée de PreventInheritance (qui indique que toutes les AU sous celle ci n&#39;hériteront pas des règles et des propriétés de la catégorie AccessRule)</p><pre><code class="lang-json">"#management": {
       "AccessRule": {
         "Inheritance": {
           "PreventInheritance": true,
@@ -611,7 +645,7 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
   },
   "$projection": {
     "$fields": {
-        "$rules" : 1, "Title" : 1
+        "#id" : 1, "Title" : 1
     }
   }
 }

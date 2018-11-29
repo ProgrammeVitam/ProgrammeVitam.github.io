@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1. Principes &mdash; Documentation VITAM - Architecture 1.4.0</title>
+  <title>6.1. Principes &mdash; Documentation VITAM - Architecture 1.10.0-1</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="6.2. Liste des secrets" href="10-secrets.html" />
-    <link rel="prev" title="6. Securite" href="_toc.html" /> 
+    <link rel="prev" title="6. Sécurité" href="_toc.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -91,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview/_toc.html">3. Vue d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archi-applicative/_toc.html">4. Architecture applicative</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">6. Securite</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">6. Sécurité</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Principes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#principes-de-cloisonnement">6.1.1. Principes de cloisonnement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#principes-de-securisation-des-acces-externes">6.1.2. Principes de sécurisation des accès externes</a></li>
@@ -155,7 +155,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="_toc.html">6. Securite</a> &raquo;</li>
+          <li><a href="_toc.html">6. Sécurité</a> &raquo;</li>
         
       <li>6.1. Principes</li>
     
@@ -190,7 +190,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Validation périodique des listes de CRL pour toutes les CA trustées par VITAM.</p>
+<li><p class="first">Validation périodique des listes de CRL pour toutes les AC trustées par VITAM (non implémentée dans cette version de VITAM, cf. ci-dessous).</p>
 </li>
 </ul>
 <div class="section" id="principes-de-cloisonnement">
@@ -219,10 +219,11 @@
 <p class="last">Les ciphers recommandés sont : <code class="docutils literal notranslate"><span class="pre">TLS_ECDHE.*</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_DHE_RSA.*</span></code></p>
 </div>
 <ul>
-<li><p class="first">Authentification par certificat x509 requise des applications externes (authentification M2M) basée sur une liste blanche de certificats valides ;</p>
+<li><p class="first">Authentification par certificat x509 requise des applications externes (authentification M2M) basée sur une liste blanche de certificats valides :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Lors d’une connexion, la vérification synchrone confirme que le certificat proposé n’est pas expiré (not before, not after) et est bien présent dans le référentiel d’authentification des certificats valides (qui est un fichier keystore contenant la liste des certificats valides).</li>
+<li>Lors d’une connexion, la vérification synchrone confirme que le certificat proposé n’est pas expiré (not before, not after) et qu’il est validé par une Autorité de Certification connue (liste des AC potée par un fichier truststore) ;</li>
+<li>Avant de valider tout appel d’API, l’applicatif vérifie que le certificat proposé est bien présent dans le référentiel d’authentification des certificats valides (un des référentiels métier portés par la base des métadonnées).</li>
 </ul>
 </div></blockquote>
 </li>
@@ -235,7 +236,7 @@
 <li><p class="first">Filtrage exhaustif des données et requêtes entrant dans le système basé sur :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Un WAF applicatif permettant le filtrage d’entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> dans les composants <code class="docutils literal notranslate"><span class="pre">*-external</span></code> protégeant notamment contre les attaques de type XSS)</li>
+<li>Un WAF applicatif permettant le filtrage d’entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> dans les composants <code class="docutils literal notranslate"><span class="pre">*-external</span></code> protégeant notamment contre les attaques de type XSS) ;</li>
 <li>Support de l’utilisation d’un ou plusieurs antivirus (configurables et extensibles) dans le composant d’entrée (<code class="docutils literal notranslate"><span class="pre">ingest-external</span></code>) permettant de valider l’innocuité des données entrantes.</li>
 </ul>
 </div></blockquote>
@@ -289,8 +290,8 @@
 <h2>6.1.5. Principes de sécurisation des secrets de déploiement<a class="headerlink" href="#principes-de-securisation-des-secrets-de-deploiement" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les secrets de l’intégralité de la solution VITAM déployée sont tous présents sur le serveur de déploiement ; par conséquent, ils doivent y être stockés de manière sécurisée, avec les principes suivants :</p>
 <ul class="simple">
-<li>Les mot de passe et token utilisés par ansible doivent être stockés dans des fichiers d’inventaire chiffrés par ansible-vault ;</li>
-<li>Les clé privées des certificats doivent être protégées par des mot de passe complexes ; ces derniers doivent suivre la règle précédente.</li>
+<li>Les mots de passe et tokens utilisés par ansible doivent être stockés dans des fichiers d’inventaire chiffrés par ansible-vault ;</li>
+<li>Les clés privées des certificats doivent être protégées par des mots de passe complexes ; ces derniers doivent suivre la règle précédente.</li>
 </ul>
 </div>
 </div>
@@ -306,7 +307,7 @@
         <a href="10-secrets.html" class="btn btn-neutral float-right" title="6.2. Liste des secrets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="_toc.html" class="btn btn-neutral" title="6. Securite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="_toc.html" class="btn btn-neutral" title="6. Sécurité" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -315,7 +316,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -334,21 +335,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

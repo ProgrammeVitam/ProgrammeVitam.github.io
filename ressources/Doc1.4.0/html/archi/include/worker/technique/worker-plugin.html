@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.13.2.6. Plugin Worker &mdash; Documentation VITAM - Architecture 1.4.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.13.3. Securite" href="../securite/index.html" />
+    <link rel="prev" title="7.13.2.5. Généralités" href="notification-atr-ko.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.5. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.8. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.9. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.12. Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.13. Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../fonctionnelle/index.html">7.13.1. architecture-fontionnelle-processing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.13.2. Architecture Technique</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.13.2.1. Module Worker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server.html">7.13.2.2. Worker server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="seda-extraction-indexation.html">7.13.2.3. Extraire les métadonnées des ArchiveUnit et DataObject</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification-atr-ok.html">7.13.2.4. Généralités</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification-atr-ko.html">7.13.2.5. Généralités</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.13.2.6. Plugin Worker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.13.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.14. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">7.13. Worker</a> &raquo;</li>
+        
+          <li><a href="index.html">7.13.2. Architecture Technique</a> &raquo;</li>
+        
+      <li>7.13.2.6. Plugin Worker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/include/worker/technique/worker-plugin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugin-worker">
+<h1>7.13.2.6. Plugin Worker<a class="headerlink" href="#plugin-worker" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="but-de-cette-documentation">
+<h2>7.13.2.6.1. But de cette documentation<a class="headerlink" href="#but-de-cette-documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’objectif de cette documentation est d’expliquer l’architecture technique des plugins de worker.</p>
+</div>
+<div class="section" id="introduction">
+<h2>7.13.2.6.2. Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le plugin worker est une classe java qui réaslise des actions dans le workflow comme les Handler.
+Dans le workflow, si l’action traite une action qui a besoin un enregistrement JCV, le plugin sera remplacé
+le Handler.</p>
+<p>Le plugin prends en entrée une interface HandlerIO pour charger les fichier de vitam, les paramètres du worker
+En sortie, il retourne les status des traitements et chaque status contient un code de traitement
+(définit dans le fichier properties du plugin, si ce n’est pas définit on utilise le code par défaut)</p>
+<p>D’une façon synthétique, le plugin worker est décrit de cette façon :</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/plugin.png"><img alt="../../../_images/plugin.png" src="../../../_images/plugin.png" style="height: 25cm;" /></a>
+</div>
+</div>
+<div class="section" id="appel-du-plugin">
+<h2>7.13.2.6.3. Appel du plugin<a class="headerlink" href="#appel-du-plugin" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Au démarrage du service, le serveur worker charger tous les  plugins et leurs fichier de properties.
+Les référentiels de plugin sont déclaré dans un fichier de configuration&nbsp;:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;NOM_DE_PLUGIN_1&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;className&quot;</span><span class="p">:</span> <span class="s2">&quot;package.plugin.class_1&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;propertyFile&quot;</span><span class="p">:</span> <span class="s2">&quot;le_fichier_de_properties_1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;NOM_DE_PLUGIN_2&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;className&quot;</span><span class="p">:</span> <span class="s2">&quot;package.plugin.class_2&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;propertyFile&quot;</span><span class="p">:</span> <span class="s2">&quot;le_fichier_de_properties_2&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Au démarrage de chaque worker, la liste des plugins va être analysé. Puis le serveur va tenter d’instancier chaque plugin de la liste.
+Si un des plugins ne se lance pas pour une raison quelconque (nom de classe incorrect, impossible d’instancier la classe, …), alors le serveur ne démarrera pas.</p>
+<p>Les plugins ne sont pas pour l’instant thread safe dans Vitam, ce qui signifie que un plugin est réinstancié pour chaque appel au serveur worker.</p>
+</div>
+<div class="section" id="resultat-du-plugin">
+<h2>7.13.2.6.4. Résultat du plugin<a class="headerlink" href="#resultat-du-plugin" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Après ses traitements, Plugin doit retourner au Worker un ItemStatus. Quand le Worker reçoit le résultat&nbsp;:</p>
+<ul class="simple">
+<li>Il doit le traduire en utilisant par défaut le fichier de properties VITAM (vitam-logbook-messages_fr.properties)</li>
+</ul>
+<p>si les clés ne sont pas définies dans ce fichier alors il va chercher la valeur du label dans le fichier properties
+du plug-in puis envoit à Engine pour écrire dans les journaux des opération.</p>
+<ul class="simple">
+<li>Construire et écrire LogbookLifeCycle.</li>
+</ul>
+</div>
+<div class="section" id="implementation">
+<h2>7.13.2.6.5. Implémentation<a class="headerlink" href="#implementation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="worker">
+<h3>7.13.2.6.5.1. Worker<a class="headerlink" href="#worker" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>getActionHandler: pour chaque action, le worker vérifie si l’action est dans la liste des plugins, il va le charger, si non on utilise les handlers prédéfinis dans Vitam</li>
+<li>writeLogbookLifeCycle&nbsp;: traduire le code d’action d’un ItemStatus du Plugin en LogbookLifeCycleParameters puis en fonction du type d’élément dans la distribution (Unit ou ObjectGroup), il écrit dans la base de données correspondante</li>
+</ul>
+<p>Exemple: Le plugin CHECK_DIGEST fait un traitement CALC_CHECK qui donne un status OK.</p>
+<p>Le résultat retourné du plugin contiendra</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+      «globalStatus » : OK ,
+      « itemsStatus » : [ {« CALC_CHECK » :  { «globalStatus » : OK  }}]
+}
+</pre></div>
+</div>
+<p>Alors le Worker va écrire ces événements ci-dessous dans LFC&nbsp;:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    {
+         &quot;evType&quot; : &quot;LFC.CHECK_DIGEST &quot;,
+         &quot;outcome&quot; : &quot;OK&quot;,
+         &quot;outDetail&quot; : &quot;LFC.CHECK_DIGEST..OK&quot;,
+    }
+    {
+         &quot;evType&quot; : &quot;LFC.CHECK_DIGEST.CALC_CHECK &quot;,
+         &quot;outcome&quot; : &quot;OK&quot;,
+         &quot;outDetail&quot; : &quot;LFC.CHECK_DIGEST.CALC_CHECK.OK&quot;,
+    }
+}
+</pre></div>
+</div>
+<p>L’écriture des journaux des opérations garde son implémentation.</p>
+</div>
+<div class="section" id="pluginpropertiesloader">
+<h3>7.13.2.6.5.2. PluginPropertiesLoader<a class="headerlink" href="#pluginpropertiesloader" title="Lien permanent vers ce titre">¶</a></h3>
+<p>c’est un service pour charger les définitions du code dans le fichier de properties du plugin</p>
+</div>
+<div class="section" id="integration">
+<h3>7.13.2.6.5.3. Intégration<a class="headerlink" href="#integration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cela définit comment Worker appelle les plugins.</p>
+<p><code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-cp</span> <span class="pre">&quot;/vitam/lib/${unix.name}/*&quot;</span> <span class="pre">fr.gouv.vitam.worker.server.rest.WorkerApplication</span></code>
+au lieu de
+<code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">&quot;/vitam/lib/${unix.name}/${project.build.finalName}.jar&quot;</span></code></p>
+<p>Donc les JAR du plugin doit être placé dans <code class="docutils literal notranslate"><span class="pre">/vitam/lib/worker/</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../securite/index.html" class="btn btn-neutral float-right" title="7.13.3. Securite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="notification-atr-ko.html" class="btn btn-neutral" title="7.13.2.5. Généralités" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

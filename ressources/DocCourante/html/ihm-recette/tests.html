@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Tests &mdash; Documentation VITAM - IHM Recette 1.4.0</title>
+  <title>3. Tests &mdash; Documentation VITAM - IHM Recette 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -108,6 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#visualisation-du-graphe">3.4. Visualisation du graphe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-feature-test-tnr">3.5. Test feature (Test tnr)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="securisation.html">4. Sécurisation des journaux</a></li>
@@ -208,6 +209,7 @@
 <li>STP_SANITY_CHECK_SIP</li>
 <li>SANITY_CHECK_SIP</li>
 <li>CHECK_CONTAINER</li>
+<li>MANIFEST_FILE_NAME_CHECK</li>
 <li>STP_UPLOAD_SIP</li>
 <li>STP_INGEST_CONTROL_SIP</li>
 <li>PREPARE_STORAGE_INFO</li>
@@ -228,7 +230,8 @@
 <li>CHECK_ARCHIVE_UNIT_PROFILE</li>
 <li>CHECK_CLASSIFICATION_LEVEL</li>
 <li>UNITS_RULES_COMPUTE</li>
-<li>STP_STORAGE_AVAILABILITY_CHECK        STORAGE_AVAILABILITY_CHECK</li>
+<li>STP_STORAGE_AVAILABILITY_CHECK</li>
+<li>STP_STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK</li>
 <li>STORAGE_AVAILABILITY_CHECK</li>
 <li>STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK</li>
 <li>STP_OBJ_STORING</li>
@@ -267,21 +270,21 @@
 <p>La page est divisée en deux parties :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Boutons de gestion</li>
+<li>Tests fonctionnels</li>
 <li>Résultats des derniers tests</li>
 </ul>
 </div></blockquote>
 <img alt="_images/RECETTE_test_fonctionnels_ecran_principal.png" src="_images/RECETTE_test_fonctionnels_ecran_principal.png" />
-<p>Boutons de gestion</p>
-<p>Bouton «&nbsp;Lancer les tests&nbsp;» : permet de rejouer les tests configurés. Ceci donnera lieu à la création d’un nouveau rapport.
-Bouton «&nbsp;Mise à jour référentiel&nbsp;» : permet de récupérer les derniers fichiers de configuration des tests depuis «&nbsp;Git&nbsp;» (gestionnaire de sources). Ainsi, si un utilisateur a ajouté des tests et que ceux-ci ont été intégrés à Git, le fait de cliquer sur ce bouton permet de les prendre en compte au prochain clic sur le bouton «&nbsp;Lancer les Tests&nbsp;».</p>
-<blockquote>
-<div>Résultat des derniers tests</div></blockquote>
+<p>Tests fonctionnels</p>
+<p>Bouton «&nbsp;Lancer les tests&nbsp;» : permet de rejouer les tests configurés. Ceci donnera lieu à la création d’un nouveau rapport.</p>
+<p>Bouton «&nbsp;Mise à jour référentiel&nbsp;» : permet de récupérer les derniers fichiers de configuration des tests depuis «&nbsp;Git&nbsp;» (gestionnaire de sources). Ainsi, si un utilisateur a ajouté des tests et que ceux-ci ont été intégrés à Git, le fait de cliquer sur ce bouton permet de les prendre en compte au prochain clic sur le bouton «&nbsp;Lancer les Tests&nbsp;».</p>
+<p>Résultat des derniers tests</p>
 <p>Les résultats de tests sont affichés dans un tableau à deux colonnes :</p>
 <blockquote>
-<div>Rapport
-Détail</div></blockquote>
-<p>Chaque ligne représente le rapport issu d’une campagne de tests. La colonne «&nbsp;Rapport&nbsp;» indique le nom du rapport. Celui-ci est constitué de la façon suivante : report_AAAAMMJJ_HHmmss.json. Ainsi le rapport correspondant à la dernière campagne de tests se trouve au-dessus de la liste.</p>
+<div><p>Rapport</p>
+<p>Détail</p>
+</div></blockquote>
+<p>Chaque ligne représente le rapport issu d’une campagne de tests. La colonne «&nbsp;Rapport&nbsp;» indique le nom du rapport. Celui-ci est constitué de la façon suivante : report_AAAAMMJJ_HHmmss.json. Ainsi le rapport correspondant à la dernière campagne de tests se trouve en bas de la liste.</p>
 <p>La colonne détail affiche simplement la mention «&nbsp;Accès au détail&nbsp;».</p>
 <p>Au clic sur une ligne, la page du détail du rapport concerné s’affiche sur l’écran.</p>
 </div>
@@ -330,24 +333,37 @@ Détail</div></blockquote>
 <div class="section" id="id3">
 <h3>3.3.2. Champs disponibles<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
 <p><strong>Tenant</strong> : champ obligatoire. Indique le tenant sur lequel la requête va être exécutée. Ce champ est renseigné automatiquement avec le numéro du tenant sélectionné par l’administrateur.</p>
-<p><strong>Contrat</strong> : champ obligatoire. Liste permettant de sélectionner un contrat d’accès qui sera associé à la requête.</p>
+<p><strong>Contrat</strong> : champ obligatoire. Liste permettant de sélectionner le contrat d’accès qui sera associé à la requête.</p>
 <p><strong>Collection</strong> : champ obligatoire. Liste permettant de sélectionner la collection sur laquelle la requête va être exécutée.</p>
-<p><strong>Action</strong> : champ obligatoire. Liste permettant de sélectionner le type d’action à effectuer. Il est possible de sélectionner l’action «&nbsp;Rechercher&nbsp;» pour l’ensemble des collections.</p>
-<p>Pour les collections suivantes, il est également possible de choisir l’action «&nbsp;Mettre à jour&nbsp;» :</p>
-<ul class="simple">
+<p><strong>Action</strong> : champ obligatoire. Liste permettant de sélectionner le type d’action à effectuer.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Il est possible de sélectionner l’action «&nbsp;Rechercher&nbsp;» pour l’ensemble des collections.</p>
+</li>
+<li><p class="first">Pour les collections suivantes, il est également possible de choisir l’action «&nbsp;Mettre à jour&nbsp;» :</p>
+<blockquote>
+<div><ul class="simple">
 <li>Unit</li>
 <li>Profil</li>
 <li>Contrat d’accès</li>
 <li>Contrat d’entrée</li>
 <li>Contexte</li>
 </ul>
-<p><strong>Opération</strong>: Pour la collection Opération, il est également possible de choisir les actions suivantes:</p>
-<ul class="simple">
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Pour la collection Opération, il est également possible de choisir les actions suivantes :</dt>
+<dd><ul class="first last simple">
 <li>Action Suivante</li>
 <li>Action Pause</li>
 <li>Action Reprendre</li>
 <li>Action Stop</li>
 </ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <p><strong>Identifiant</strong> : champs optionnel. Permet de renseigner le GUID de l’objet ciblé dans la collection.</p>
 <p><strong>Requête DSL</strong> : champ obligatoire. Permet de saisir la requête DSL au format Json.</p>
 </div>
@@ -368,23 +384,55 @@ Détail</div></blockquote>
 </div>
 <div class="section" id="visualisation-du-graphe">
 <h2>3.4. Visualisation du graphe<a class="headerlink" href="#visualisation-du-graphe" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li>L’interface est accessible par le Menu: Tests &gt; Visualisation du graphe.</li>
-</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">l’écran utilisé est expérimental.</p>
+</div>
+<p>L’interface est accessible par le Menu: Tests &gt; Visualisation du graphe.</p>
 <p>Cette partie permet d’avoir une répresentation visuelle d’un graphe contenu dans un SIP.
 La première étape consiste donc à récupérer les information suivantes :</p>
 <ul class="simple">
 <li>L’identifiant de l’opération</li>
 <li>L’intitulé du contrat utilisé</li>
 </ul>
-<p>Note : la page correspondant à l’écran utilisé est expérimentale.</p>
 <p>Il faut ensuite rajouter les informations dans les champs prévus à cet effet : «&nbsp;Contrat&nbsp;» et «&nbsp;Identifiant d’opération&nbsp;»</p>
 <p>Puis il suffit de cliquer sur le bouton &nbsp;» Envoyer la requête&nbsp;» pour visualiser plusieurs choses :</p>
 <ul class="simple">
 <li>Sur la partie gauche, la représentation visuelle du graphe contenu dans le SIP</li>
-<li>sur la partie droite, lorsqu’on clique sur la représentation de chaque unité archivistique, le détail des données reliées à l’unité archivistique s’affiche</li>
+<li>Sur la partie droite, lorsqu’on clique sur la représentation de chaque unité archivistique, le détail des données liées à l’unité archivistique s’affiche</li>
 </ul>
 <img alt="_images/visualisation_graphe.png" src="_images/visualisation_graphe.png" />
+</div>
+<div class="section" id="test-feature-test-tnr">
+<h2>3.5. Test feature (Test tnr)<a class="headerlink" href="#test-feature-test-tnr" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’interface est accessible par le Menu: Tests &gt; Test feature</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cette fonctionnalité est utilisée uniquement par l’équipe Vitam pour écrire et tester les tnr.</p>
+</div>
+<p>Cette interface permet d’exécuter des TNR sans devoir disposer d’un environnement local complet. Ces TNR seront exécutés sur l’environnement où se situe l’IHM recette.</p>
+<p>Cette fonctionnalité nécessite l’existence d’une branche git nommée «&nbsp;tnr_master&nbsp;» sur laquelle l’IHM recette va se brancher pour l’exécution.</p>
+<p>La page est composé de deux champs de texte :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Celui du haut prend en entrée des TNR à exécuter</li>
+<li>Celui du bas est la sortie et affiche la réponse à l’exécution</li>
+</ul>
+</div></blockquote>
+<p>Cette page contient aussi 3 boutons :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Mise à jour référentiel : récupère les commits de la branch tnr_master. La mise à jour est utile lorsqu’un nouveau jeu de donnée est envoyé sur tnr_master et que l’IHM-recette doit le récupérer</li>
+<li>Lancer le TNR :<ul>
+<li>Si l’IHM recette utilise la branche «&nbsp;master&nbsp;», alors elle change pour aller sur la branch tnr_master et récupère son contenu. Puis, elle exécute le TNR écrit dans le premier champ de texte.</li>
+<li>Si l’IHM recette est déjà branchée sur tnr_master, alors elle exécute directement le TNR écrit dans le premier champ de texte</li>
+<li>Dans les deux cas le contenu de la réponse est effacé avant le lancement du TNR</li>
+</ul>
+</li>
+<li>Effacer : supprime le contenu de la réponse</li>
+</ul>
+</div></blockquote>
+<img alt="_images/test_tnr.png" src="_images/test_tnr.png" />
 </div>
 </div>
 
@@ -408,7 +456,7 @@ La première étape consiste donc à récupérer les information suivantes :</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -427,21 +475,24 @@ La première étape consiste donc à récupérer les information suivantes :</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
 
   
 

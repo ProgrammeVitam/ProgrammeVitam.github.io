@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.3. Services métiers &mdash; Documentation VITAM - Architecture 1.4.0</title>
+  <title>4.3. Services métiers &mdash; Documentation VITAM - Architecture 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -111,7 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Sécurité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
 </ul>
 
@@ -208,7 +208,6 @@
 <p>Fonctions :</p>
 <ul class="simple">
 <li>Upload HTTP de fichiers au format SEDA</li>
-<li>Sas de validation antivirus des fichiers entrants</li>
 <li>Persistance du SEDA dans workspace</li>
 <li>Lancement des workflows de traitements liés à l’entrée dans processing</li>
 </ul>
@@ -225,9 +224,9 @@
 </ul>
 <p>Fonction :</p>
 <ul class="simple">
-<li>Exposition des fonctions de recherche d’archives offertes par metadata ;</li>
-<li>Exposition des fonctions de parcours de journaux offertes par logbook.</li>
-<li>Exposition des fonctions d’admnistration métier du système offertes par functional-administration.</li>
+<li>Exposition des fonctions de recherche d’archives offertes par metadata</li>
+<li>Exposition des fonctions de parcours de journaux offertes par logbook</li>
+<li>Exposition des fonctions d’admnistration métier du système offertes par functional-administration</li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
@@ -244,12 +243,12 @@
 <ul class="simple">
 <li>Gestion des certificats d’accès des applications (SIA)</li>
 <li>Gestion des certificats personnels</li>
-<li>Gestion des endpoints nécessitant le contrôle des certificats personnels.</li>
+<li>Gestion des endpoints nécessitant le contrôle des certificats personnels</li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
-<li>Certificats des applications appelant Vitam (SIA).</li>
-<li>Certificates personnels (pour les endpoints nécessitant une authentification personae)</li>
+<li>Certificats des applications appelant VITAM (SIA)</li>
+<li>Certificats personnels (pour les endpoints nécessitant une authentification personae)</li>
 </ul>
 </div>
 <div class="section" id="moteur-dexecution-processing">
@@ -270,7 +269,7 @@
 <ul class="simple">
 <li>Grand nombre de tâches</li>
 <li>La durée d’exécution d’un ensemble de tâches peut être longue (ex: une campagne de transformation de document&nbsp;peut durer plusieurs semaines, voire plusieurs mois)</li>
-<li>Possibilité de devoir gérer des objets lourds ; cela implique notamment l’usage de l’espace de travail pour passer des informations entre tâches, et des optimisations (colocalisations ou copies directes) permettant de limiter les contraintes sur le réseau.</li>
+<li>Possibilité de devoir gérer des objets lourds ; cela implique notamment l’usage de l’espace de travail pour passer des informations entre tâches, et des optimisations (colocalisations ou copies directes) permettant de limiter les contraintes sur le réseau</li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
@@ -281,7 +280,7 @@
 <h2>4.3.6. Espace de travail (workspace)<a class="headerlink" href="#espace-de-travail-workspace" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Rôle :</p>
 <ul class="simple">
-<li>Fourniture d’un espace pour l’échange de fichiers (et faire un appel par pointeur lors des appels entre composants) entre les différents composants de Vitam</li>
+<li>Fourniture d’un espace pour l’échange de fichiers (et faire un appel par pointeur lors des appels entre composants) entre les différents composants de VITAM</li>
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
@@ -304,8 +303,8 @@
 </ul>
 <p>Fonction :</p>
 <ul class="simple">
-<li>Déclenchement des opérations sur requête du moteur d’exécution ;</li>
-<li>Gestion d’un cache local des éléments traités, en interactions avec l’espace de travail ;</li>
+<li>Déclenchement des opérations sur requête du moteur d’exécution</li>
+<li>Gestion d’un cache local des éléments traités, en interaction avec l’espace de travail</li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
@@ -324,7 +323,7 @@
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
-<li>Métadonnées et structures des archives : Archive Units, Object Group ;</li>
+<li>Métadonnées et structures des archives : Archive Units, Object Group</li>
 </ul>
 </div>
 <div class="section" id="moteur-de-journalisation-logbook">
@@ -335,8 +334,8 @@
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
-<li>Gestion des journaux (ajout, lecture) ;</li>
-<li>Sécurisation des journaux (cron)</li>
+<li>Gestion des journaux (ajout, lecture)</li>
+<li>Sécurisation des journaux (timer systemd)</li>
 </ul>
 <p>Contraintes techniques :</p>
 <ul class="simple">
@@ -397,7 +396,7 @@
 <h2>4.3.12. Offre de stockage par défaut (storage-offer-default)<a class="headerlink" href="#offre-de-stockage-par-defaut-storage-offer-default" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Rôle :</p>
 <ul class="simple">
-<li>Fournir une offre de stockage par défaut permettant la persistance des objets sur un système de fichier local</li>
+<li>Fournir une offre de stockage par défaut permettant la persistance des objets sur un système de fichiers local</li>
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
@@ -456,7 +455,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -475,21 +474,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

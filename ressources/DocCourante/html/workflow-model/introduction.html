@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Introduction &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -87,7 +87,6 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#avertissement">Avertissement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#objectif-du-document">Objectif du document</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#description-d-un-processus">Description d’un processus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#structure-d-un-fichier-properties-du-worflow">Structure d’un fichier Properties du Worflow</a></li>
@@ -99,6 +98,8 @@
 <li class="toctree-l1"><a class="reference internal" href="masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -165,35 +166,50 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="avertissement">
-<h2>Avertissement<a class="headerlink" href="#avertissement" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette documentation est un travail en cours. Elle est susceptible de changer dans les prochaines releases pour tenir compte des développements de la solution logicielle Vitam.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Cette documentation reflète l’état actuel de la solution Vitam. Elle est susceptible de changer dans les prochaines releases pour tenir compte des développements de la solution logicielle Vitam.</p>
 </div>
 <div class="section" id="objectif-du-document">
 <h2>Objectif du document<a class="headerlink" href="#objectif-du-document" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce document a pour objectif de présenter les différents processus employés par la solution logicielle Vitam.
 Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux archivistes souhaitant une connaissance plus avancée du logiciel ainsi qu’aux développeurs.</p>
-<p>Il explicite chaque processus (appelés également «&nbsp;workflow&nbsp;»), et pour chacun leurs tâches, traitements et actions.</p>
-<p>Ce document comprend également du matériel additionnel pour faciliter la compréhension des processus comme des fiches récapitulatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.</p>
+<p>Il explicite chaque processus (appelé également «&nbsp;workflow&nbsp;»), et pour chacun leurs tâches, traitements et actions.</p>
+<p>Ce document comprend du matériel additionnel pour faciliter la compréhension des processus comme des fiches récapitulatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.</p>
 </div>
 <div class="section" id="description-d-un-processus">
 <h2>Description d’un processus<a class="headerlink" href="#description-d-un-processus" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un workflow est un processus composé d’étapes (macro-workflow), elles-mêmes composées d’une liste de tâches et d’actions à exécuter de manière séquentielle, une seule fois ou répétées sur une liste d’éléments (micro-workflow).</p>
+<p>Un workflow est un processus composé d’étapes (macro-workflow), elles-mêmes composées d’une liste de tâches et d’actions à exécuter de manière séquentielle, unitairement ou de manière itérative sur une liste d’éléments (micro-workflow).</p>
 <p>Pour chacun de ces éléments, le document décrit :</p>
 <ul class="simple">
 <li>La règle générale qui s’applique à cet élément</li>
 <li>Les statuts de sortie possibles (OK, KO…), avec les raisons de ces sorties et les clés associées</li>
 <li>Des informations complémentaires, selon le type d’élément traité</li>
 </ul>
-<p>Chaque étape, chaque action peuvent avoir les statuts suivants :</p>
+<p>Un «&nbsp;traitement&nbsp;» désigne ci-dessous une opération, une étape ou une tâche. Chaque traitement peut avoir à son issue un des statuts suivant :</p>
+<ul>
+<li><p class="first">OK : le traitement s’est déroulé comme attendu et le système a été modifié en conséquence.</p>
+</li>
+<li><p class="first">Warning : le traitement a atteint son objectif mais le système émet une réserve. Soit :</p>
 <ul class="simple">
-<li>OK : le traitement associé s’est passé correctement. Le workflow continue.</li>
-<li>WARNING : le traitement associé a généré un avertissement (par exemple le format de l’objet est mal déclaré dans le bordereau de transfert). Le workflow continue.</li>
-<li>KO : le traitement associé a généré une erreur métier. Le workflow s’arrête si le modèle d’exécution est bloquant (cf. ci-dessous).</li>
-<li>FATAL : le traitement associé a généré une erreur technique. Le workflow se met en pause.</li>
+<li>Le système suspecte une anomalie lors du déroulement du traitement sans pouvoir le confirmer lui même et lève une alerte à destination de l’utilisateur afin que celui ci puisse valider qu’il s’agit du comportement souhaité.</li>
+</ul>
+<p>Exemple : un SIP versé sans objets provoque une opération en warning car le fait de ne verser qu’une arborescence d’unités archivistiques sans aucun objet peut être suspecte (au sens métier).</p>
+<ul class="simple">
+<li>Le système a effectué un traitement entraînant une modification de données initialement non prévue par l’utilisateur.</li>
+</ul>
+<p>Exemple : la solution logicielle Vitam a détecté un format de fichier en contradiction avec le format décrit dans le bordereau de transfert. Elle enregistre alors ses propres valeurs en base de données au lieu de prendre celles du bordereau et utilise le warning pour en avertir l’utilisateur.</p>
+<ul class="simple">
+<li>Le système a effectué un traitement dont seule une partie a entraîné une modification de données. L’autre partie de ce traitement s’est terminée en échec sans modification (KO).</li>
+</ul>
+<p>Exemple : une modification de métadonnées en masse d’unités archivistiques dont une partie de la modification est OK et une partie est KO : le statut de l’étape et de l’opération sera Warning.</p>
+</li>
+<li><p class="first">KO : le traitement s’est terminé en échec et le système n’a pas été modifié en dehors des éléments de traçabilités tels que les journaux et les logs. L’intégralité du traitement pourrait être rejouée sans provoquer l’insertion de doublons.</p>
+</li>
+<li><p class="first">Fatal : le traitement s’est terminé en échec a cause d’un problème technique. L’état du système dépend de la nature du traitement en fatal et une intervention humaine est requise pour expertiser et résoudre la situation. Lorsque le statut FATAL survient à l’intérieur d’une étape (par exemple dans une des tâches ou une des actions de l’étape), c’est toute l’étape qui est mise en pause. Si cette étape est rejouée, les objets déjà traités avant le fatal ne sont pas traités à nouveau : le workflow reprend exactement là où il s’était arrêté et commence par rejouer l’action sur l’objet qui a provoqué l’erreur.</p>
+</li>
 </ul>
 <p>Un workflow peut être terminé, en cours d’exécution ou être en pause. Un workflow en pause représente le processus arrêté à une étape donnée. Chaque étape peut être mise en pause : ce choix dépend du mode de versement (le mode pas à pas marque une pause à chaque étape), ou du statut (le statut FATAL met l’étape en pause). Les workflows en pause sont visibles dans l’IHM dans l’écran «&nbsp;Gestion des opérations&nbsp;».</p>
-<p>Lorsque le statut FATAL survient à l’intérieur d’une étape (par exemple dans une des tâches ou un des traitements de l’étape), c’est toute l’étape qui est mise en pause. Si cette étape est rejouée, les objets déjà traités avant le fatal ne sont pas traités à nouveau : le workflow reprend exactement là où il s’était arrêté et commence par rejouer l’action sur l’objet qui a provoqué l’erreur.</p>
 <p>Chaque action peut avoir les modèles d’exécutions suivants (toutes les étapes sont par défaut bloquantes) :</p>
 <ul>
 <li><p class="first">Bloquant</p>
@@ -214,7 +230,7 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 </div>
 <div class="section" id="structure-d-un-fichier-properties-du-worflow">
 <h2>Structure d’un fichier Properties du Worflow<a class="headerlink" href="#structure-d-un-fichier-properties-du-worflow" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les fichiers <strong>Properties</strong> (Par exemple <em>DefaultIngestWorkflow.json</em>) permettent de définir la structure du Workflow pour les étapes, tâches et actions réalisées dans le module d’Ingest Interne, en excluant les étapes et actions réalisées dans le module d’Ingest externe.</p>
+<p>Les fichiers <strong>Properties</strong> (par exemple <em>DefaultIngestWorkflow.json</em>) permettent de définir la structure du Workflow pour les étapes, tâches et traitements réalisées dans le module d’Ingest Interne, en excluant les étapes et traitements réalisées dans le module d’Ingest externe.</p>
 <p>Un Workflow est défini en JSON avec la structure suivante :</p>
 <ul>
 <li><p class="first">un bloc en-tête contenant :</p>
@@ -230,30 +246,43 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 </li>
 <li><p class="first">une liste d’étapes dont la structure est la suivante :</p>
 <blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">workerGroupId</span></code> : identifiant de famille de Workers,</li>
-<li><code class="docutils literal notranslate"><span class="pre">stepName</span></code> : nom de l’étape, servant de clé pour identifier l’étape,</li>
-<li><code class="docutils literal notranslate"><span class="pre">Behavior</span></code> : modèle d’exécution pouvant avoir les types suivants :<ul>
+<div><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">WorkerGroupId</span></code> : identifiant de famille de Workers,</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">StepName</span></code> : nom de l’étape, servant de clé pour identifier l’étape,</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Behavior</span></code> : modèle d’exécution pouvant avoir les types suivants :</p>
+<ul class="simple">
 <li>BLOCKING : le traitement est bloqué en cas d’erreur, il est nécessaire de recommencer à la tâche en erreur. Les étapes FINALLY (définition ci-dessous) sont tout de même exécutées</li>
 <li>NOBLOCKING : le traitement peut continuer malgré les éventuels erreurs ou avertissements,</li>
 <li>FINALLY : le traitement correspondant est toujours exécuté, même si les étapes précédentes se sont terminées en échec</li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">Distribution</span></code> : modèle de distribution, décrit comme suit :<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Distribution</span></code> : modèle de distribution, décrit comme suit :</p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">Kind</span></code> : un type pouvant être REF (un élément unique) ou LIST (une liste d’éléments hiérarchisés) ou encore LIST_IN_FILE (liste d’éléments)</li>
 <li><code class="docutils literal notranslate"><span class="pre">Element</span></code> : l’élément de distribution indiquant l’élément unique sous forme d’URI (REF) ou la liste d’éléments en pointant vers un dossier (LIST).</li>
 <li><code class="docutils literal notranslate"><span class="pre">Type</span></code> : le type des objets traités (ObjectGroup uniquement pour le moment).</li>
-<li><code class="docutils literal notranslate"><span class="pre">statusOnEmptyDistribution</span></code> : permet dans le cas d’un traitement d’une liste vide, de surcharger le statut WARNING par un statut prédéfini.</li>
+<li><code class="docutils literal notranslate"><span class="pre">StatusOnEmptyDistribution</span></code> : permet dans le cas d’un traitement d’une liste vide, de surcharger le statut WARNING par un statut prédéfini.</li>
+<li><code class="docutils literal notranslate"><span class="pre">BulkSize</span></code>: taille de la liste, valeur à spécifier ex: «&nbsp;bulkSize&nbsp;»: 1000. La valeur par défault est de 16.</li>
 </ul>
 </li>
-<li>une liste d’Actions :<ul>
-<li><code class="docutils literal notranslate"><span class="pre">ActionKey</span></code> : nom de l’action</li>
-<li><code class="docutils literal notranslate"><span class="pre">Behavior</span></code> : modèle d’exécution pouvant avoir les types suivants :<ul>
+<li><p class="first">une liste d’Actions :</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ActionKey</span></code> : nom de l’action</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Behavior</span></code> : modèle d’exécution pouvant avoir les types suivants :</p>
+<blockquote>
+<div><ul class="simple">
 <li>BLOCKING : l’action est bloquante en cas d’erreur. Les actions suivantes (de la même étape) ne seront pas éxécutées.</li>
 <li>NOBLOCKING : l’action peut continuer malgré les éventuels erreurs ou avertissements.</li>
 </ul>
+</div></blockquote>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">In</span></code> : liste de paramètres d’entrées :<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">lifecycleLog</span></code>: action indiquant le calcul sur les LFC. Valeur du champ «&nbsp;DISABLED&nbsp;».</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">In</span></code> : liste de paramètres d’entrées :</p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">Name</span></code> : nom utilisé pour référencer cet élément entre différents handlers d’une même étape,</li>
 <li><code class="docutils literal notranslate"><span class="pre">URI</span></code> : cible comportant un schéma (WORKSPACE, MEMORY, VALUE) et un path où chaque handler peut accéder à ces valeurs via le handlerIO :<ul>
 <li>WORKSPACE : path indiquant le chemin relatif sur le workspace (implicitement un File),</li>
@@ -263,7 +292,8 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 </li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">Out</span></code> : liste de paramètres de sorties :<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Out</span></code> : liste de paramètres de sorties :</p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">Name</span></code> : nom utilisé pour référencer cet élément entre différents handlers d’une même étape,</li>
 <li><code class="docutils literal notranslate"><span class="pre">URI</span></code> : cible comportant un schéma (WORKSPACE, MEMORY) et un path où chaque handler peut stocker les valeurs finales via le handlerIO :<ul>
 <li>WORKSPACE : path indiquant le chemin relatif sur le workspace (implicitement un File local),</li>
@@ -302,7 +332,7 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -321,21 +351,24 @@ Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux 
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
 
   
 

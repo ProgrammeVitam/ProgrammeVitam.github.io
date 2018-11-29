@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Entrée d’un SIP et plan de classement &mdash; Documentation VITAM - Manuel utilisateur 1.4.0</title>
+  <title>4. Entrée d’un SIP et plan de classement &mdash; Documentation VITAM - Manuel utilisateur 1.10.0-1</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="5. Recherche et Consultation" href="Consultation.html" />
+    <link rel="next" title="5. Recherche, Consultation et Modification" href="Consultation.html" />
     <link rel="prev" title="3. Authentification" href="Authentification.html" /> 
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -100,9 +100,12 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche et Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche, Consultation et Modification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestion.html">6. Gestion des archives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Administration.html">7. Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html">8. Traitements de masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html#mise-a-jour-de-metadonnees-en-masse">9. Mise à jour de métadonnées en masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html#elimination-en-masse">10. Elimination en masse</a></li>
 </ul>
 
             
@@ -172,13 +175,13 @@
 <p>Cette partie décrit l’entrée manuelle d’archives dans la solution logicielle Vitam, c’est-à-dire le processus de transfert du SIP ou plan de classement via l’IHM standard vers la solution logicielle Vitam, ainsi que le suivi de l’ensemble des transferts via le journal des opérations d’entrées.</p>
 <p>Dans l’univers numérique, peuvent être transférées à un service d’archives des archives nativement numériques, des versions numérisées d’archives papier. Chacune d’elles accompagnée de ses métadonnées, mais aussi des références à des archives physiques.</p>
 <p>Le SIP est un fichier compressé comportant le bordereau de versement SEDA au format XML et les objets à archiver.</p>
-<p>Avertissement : le bordereau doit être conforme au SEDA et respecter les consignes de formalisation des SIP décrites dans le document «&nbsp;Structuration des Submissions Information Package (SIP)&nbsp;».</p>
+<p>Avertissement : le bordereau doit être conforme au SEDA et respecter les consignes de formalisation des SIP décrites dans le document «&nbsp;Structuration des Submission Information Package (SIP)&nbsp;».</p>
 <div class="section" id="transfert-d-un-sip">
 <h2>4.1. Transfert d’un SIP<a class="headerlink" href="#transfert-d-un-sip" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le transfert d’un SIP dans la solution logicielle Vitam s’effectue depuis l’écran de «&nbsp;Transfert SIP et plan de classement&nbsp;». Par défaut, lors de sa connexion, l’utilisateur est dirigé vers cette page. Il peut également y accéder depuis le menu «&nbsp;Entrée&nbsp;» en sélectionnant le sous-menu «&nbsp;Transfert de SIP et plan de classement&nbsp;».</p>
+<p>Le transfert d’un SIP dans la solution logicielle Vitam s’effectue depuis l’écran de «&nbsp;Transfert de SIP et plan de classement&nbsp;». Par défaut, lors de sa connexion, l’utilisateur est dirigé vers cette page. Il peut également y accéder depuis le menu «&nbsp;Entrée&nbsp;» en sélectionnant le sous-menu «&nbsp;Transfert de SIP et plan de classement&nbsp;».</p>
 <img alt="_images/menu_transfert.png" src="_images/menu_transfert.png" />
 <p>Pour débuter une entrée, l’utilisateur doit sélectionner le lot d’archives (SIP) à transférer dans la solution logicielle Vitam. Pour cela, il est possible de faire glisser le SIP sur l’espace de téléchargement ou de cliquer sur le lien « sélectionner un fichier ».</p>
-<p>Une fois le SIP sélectionné, il apparaît sur l’écran «&nbsp;Transfert du SIP et plan de classement&nbsp;» et le nom du fichier s’affiche sous le lien «&nbsp;sélectionner un fichier&nbsp;» ainsi que le nom du fichier, sa taille ainsi qu’un champ statut pour l’instant vide.</p>
+<p>Une fois le SIP sélectionné, il apparaît sur l’écran «&nbsp;Transfert de SIP et plan de classement&nbsp;» et le nom du fichier s’affiche sous le lien «&nbsp;sélectionner un fichier&nbsp;» ainsi que le nom du fichier, sa taille et un champ statut pour l’instant vide.</p>
 <p>Les informations visibles à l’écran sont :</p>
 <ul class="simple">
 <li>Un tableau comportant les champs suivants :<ul>
@@ -203,17 +206,17 @@
 <dt>Destination :</dt>
 <dd><ul class="first last">
 <li>«&nbsp;en production&nbsp;», option d’entrée classique, l’entrée est réellement effectuée, les objets et métadonnées sont enregistrés dans la solution logicielle Vitam, l’opération est journalisée.</li>
-<li>«&nbsp;à blanc&nbsp;», option permettant de tester une entrée afin de s’assurer de la cohérence du SIP, l’opération est journalisée mais les objets ne sont pas enregistrés. L’utilisateur pourra ainsi corriger les erreurs éventuelles avant de procéder à une nouvelle entrée en production.</li>
+<li>«&nbsp;à blanc&nbsp;», option permettant de tester une entrée afin de s’assurer de la cohérence du SIP, l’opération est journalisée mais les objets et métadonnées ne sont pas enregistrés. L’utilisateur pourra ainsi corriger les erreurs éventuelles avant de procéder à une nouvelle entrée en production.</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<p>Le mode d’exécution et la destination sont obligatoires. Par défaut le mode d’exécution «&nbsp;continu&nbsp;» et la destination «&nbsp;en production&nbsp;» sont sélectionnés.</p>
+<p>Le mode d’exécution et la destination sont obligatoires. Par défaut le mode d’exécution «&nbsp;en continu&nbsp;» et la destination «&nbsp;en production&nbsp;» sont sélectionnés.</p>
 <p>Pour lancer le transfert du SIP, l’utilisateur clique sur le bouton « Importer ».</p>
-<p>Les informations visibles à l’écran sont:
-- Une barre de progression affichant l’avancement du téléchargement du SIP dans la solution logicielle Vitam (une barre de progression complète signifie que le téléchargement est achevé).</p>
+<p>Les informations visibles à l’écran sont:</p>
 <ul class="simple">
+<li>Une barre de progression affichant l’avancement du téléchargement du SIP dans la solution logicielle Vitam (une barre de progression complète signifie que le téléchargement est achevé).</li>
 <li>Une roue animée symbolisant l’avancement du traitement du SIP par la solution logicielle Vitam.</li>
 </ul>
 <div class="line-block">
@@ -229,15 +232,15 @@
 <ul class="simple">
 <li>Date : date d’émission de l’ATR</li>
 <li>MessageIdentifier : identifiant de l’ATR. Cet identifiant correspond à l’identification attribuée à la demande de transfert par la solution logicielle Vitam</li>
-<li>ArchivalAgreement : Identifiant ou nom du contrat d’entrée</li>
+<li>ArchivalAgreement : identifiant ou nom du contrat d’entrée</li>
 <li>CodeListVersion : la liste des référentiels utilisés</li>
 <li>La liste des groupes d’objets avec l’identifiant fourni dans la demande de transfert et l’identifiant généré par la solution logicielle Vitam (SystemId)</li>
 <li>La liste des unités archivistiques avec l’identifiant fourni dans la demande de transfert et l’identifiant généré par la solution logicielle Vitam (SystemId)</li>
 <li>ReplyCode : statut final de l’entrée</li>
-<li>MessageRequestIdentifier : Identifiant de la demande</li>
+<li>MessageRequestIdentifier : identifiant de la demande</li>
 <li>GrantDate : date de prise en charge du SIP</li>
-<li>ArchivalAgency : l’identifiant du service d’archives</li>
-<li>TransferringAgency : l’identifiant service producteur</li>
+<li>ArchivalAgency : identifiant du service d’archives</li>
+<li>TransferringAgency : identifiant du service de transfert d’archives</li>
 </ul>
 <p>Lors d’une entrée en avertissement ou en KO, l’ATR contient les mêmes informations que l’ATR d’une entrée en succès et le statut final de l’entrée (ou ReplyCode) est «&nbsp;WARNING&nbsp;» ou «&nbsp;KO&nbsp;».</p>
 <p>La notification comprend ensuite la liste des erreurs rencontrées sous la forme de blocs &lt;event&gt;, tout d’abord au niveau des blocs &lt;Operation&gt;, puis au niveau des unités archivistiques comme au niveau des groupes d’objets.</p>
@@ -247,10 +250,14 @@
 <li>EventType : l’intitulé de l’étape ou de la tâche</li>
 <li>EventDateTime : date de l’évènement.</li>
 <li>Outcome : statut de l’étape ou de la tâche ayant rencontré au moins une erreur ou un avertissement</li>
-<li>OutcomeDetail : code interne à la solution logicielle Vitam correspondant à l’erreur ou à l” avertissement rencontré</li>
+<li>OutcomeDetail : code interne à la solution logicielle Vitam correspondant à l’erreur ou à l’avertissement rencontré</li>
 <li>OutcomeDetailMessage : message d’erreur ou d’avertissement</li>
+<li>EventDetailData : détail de l’événement</li>
 </ul>
-<p>La notification comprend ensuite la liste des erreurs rencontrées (échec ou avertissement), au niveau des unités archivistiques comme au niveau des groupes d’objets, sous la forme de blocs &lt;event&gt;.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si l’import de SIP rencontre une erreur de type «&nbsp;FATAL&nbsp;» lié à une erreur technique, cette dernière est consultable via la page «&nbsp;Gestion des opérations&nbsp;»</p>
+</div>
 </div>
 <div class="section" id="transfert-d-un-sip-de-plan-de-classement">
 <h2>4.2. Transfert d’un SIP de plan de classement<a class="headerlink" href="#transfert-d-un-sip-de-plan-de-classement" title="Lien permanent vers ce titre">¶</a></h2>
@@ -279,7 +286,7 @@
 </li>
 <li>Destination : actuellement, seule l’option «&nbsp;production&nbsp;» est disponible pour transférer directement le plan.</li>
 </ul>
-<p>Le mode d’exécution et la destination sont obligatoires. Par défaut le mode exécution «&nbsp;continu&nbsp;» et la destination «&nbsp;en production&nbsp;» sont sélectionnés.</p>
+<p>Le mode d’exécution et la destination sont obligatoires. Par défaut le mode exécution «&nbsp;En continu&nbsp;» et la destination «&nbsp;En production&nbsp;» sont sélectionnés.</p>
 <p>Pour lancer le transfert du plan, l’utilisateur clique sur le bouton « Importer ».</p>
 <ul class="simple">
 <li>Une barre de progression affiche l’avancement du téléchargement du plan dans la solution logicielle Vitam (une barre de progression complète signifie que le téléchargement est achevé).</li>
@@ -294,17 +301,17 @@ Lors d’une entrée de plan de classement en succès dans la solution logiciell
 <ul class="simple">
 <li>Date : date d’émission de l’ATR</li>
 <li>MessageIdentifier : identifiant de l’ATR. Correspondant à l’identification attribuée à la demande de transfert par la solution logicielle Vitam</li>
-<li>ArchivalAgreement : l’identifiant du contrat d’entrée</li>
-<li>CodeListVersion : la liste des référentiels utilisés</li>
+<li>ArchivalAgreement : identifiant du nom du contrat d’entrée</li>
+<li>CodeListVersion : liste des référentiels utilisés</li>
 <li>La liste des unités archivistiques avec l’identifiant fourni dans la demande de transfert et l’identifiant généré par la solution logicielle Vitam (SystemId)</li>
 <li>ReplyCode : statut final de l’entrée</li>
 <li>MessagerequestIdentifier: identifiant de la demande</li>
 <li>GrantDate : date de prise en charge du plan</li>
 <li>ArchivalAgency : service d’archives</li>
-<li>TransferringAgency : l’identifiant du service de transfert d’archives</li>
+<li>TransferringAgency : identifiant du service de transfert d’archives</li>
 </ul>
 <p>Lors d’une entrée en avertissement, l’ATR contient les mêmes informations que l’ATR en succès et le ReplyCode est «&nbsp;WARNING&nbsp;» ainsi que les détails de l’avertissement.</p>
-<p>En cas de rejet de l’entrée, l’ATR contient les mêmes informations que l’ATR en succès, mais le ReplyCode est KO. La notification comprend ensuite la liste des erreurs rencontrées sous la forme de blocs &lt;event&gt;, tout d’abord au niveau des blocs &lt;Operation&gt;, puis au niveau des unités archivistiques comme au niveau des groupes d’objets.</p>
+<p>En cas de rejet de l’entrée, l’ATR contient les mêmes informations que l’ATR en succès, mais le ReplyCode est KO. La notification comprend ensuite la liste des erreurs rencontrées sous la forme de blocs &lt;event&gt;, tout d’abord au niveau des blocs &lt;Operation&gt;, puis au niveau des unités archivistiques.</p>
 <p>Les blocs &lt;event&gt; sont composés des balises suivantes :</p>
 <ul class="simple">
 <li>EventTypeCode : code de l’étape ou de la tâche en erreur</li>
@@ -314,8 +321,6 @@ Lors d’une entrée de plan de classement en succès dans la solution logiciell
 <li>OutcomeDetail : code interne à la solution logicielle Vitam correspondant à l’erreur rencontrée</li>
 <li>OutcomeDetailMessage : message d’erreur</li>
 </ul>
-<p>La notification comprend ensuite la liste des erreurs rencontrées (échecs ou avertissement), au niveau des unités archivistiques, sous la forme de blocs &lt;event&gt;.</p>
-<p>NOTE : si l’import du SIP rencontre une erreur de type «&nbsp;FATAL&nbsp;» liée à une erreur technique, cette dernière est consultable via la page &nbsp;» Gestion des opérations&nbsp;»</p>
 </div>
 <div class="section" id="journal-des-operations-d-entree">
 <h2>4.3. Journal des opérations d’entrée<a class="headerlink" href="#journal-des-operations-d-entree" title="Lien permanent vers ce titre">¶</a></h2>
@@ -389,7 +394,7 @@ Pour accéder au détail d’une opération d’entrée, l’utilisateur clique 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Consultation.html" class="btn btn-neutral float-right" title="5. Recherche et Consultation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Consultation.html" class="btn btn-neutral float-right" title="5. Recherche, Consultation et Modification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Authentification.html" class="btn btn-neutral" title="3. Authentification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -401,7 +406,7 @@ Pour accéder au détail d’une opération d’entrée, l’utilisateur clique 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -420,21 +425,24 @@ Pour accéder au détail d’une opération d’entrée, l’utilisateur clique 
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
 
   
 

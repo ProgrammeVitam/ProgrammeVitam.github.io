@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.6. Elements extras de l’installation &mdash; Documentation VITAM - Documentation d&#39;installation 1.4.0</title>
+  <title>4.2.6. Elements extras de l’installation &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -181,6 +181,10 @@
 <p class="first admonition-title">Prudence</p>
 <p class="last">Les élements décrits dans cette section sont des élements «&nbsp;extras&nbsp;» ; il ne sont pas officiellement supportés, et ne sont par conséquence pas inclus dans l’installation de base. Cependant, ils peuvent s’avérer utile, notamment pour les installation sur des environnements hors production.</p>
 </div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Dans le cas où l’installateur souhaite utiliser un <cite>repository</cite> de binaires qu’il gère par lui-même, il est fortement recommandé de rajouter <code class="docutils literal notranslate"><span class="pre">--skip-tags</span> <span class="pre">&quot;enable_vitam_repo&quot;</span></code> à la commande <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> ; dans ce cas, le comportement de <code class="docutils literal notranslate"><span class="pre">yum</span></code> n’est pas impacté par la solution de déploiement.</p>
+</div>
 <div class="section" id="configuration-des-extra">
 <h2>4.2.6.1. Configuration des extra<a class="headerlink" href="#configuration-des-extra" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le fichier <code class="docutils literal notranslate"><span class="pre">environments</span></code> <code class="docutils literal notranslate"><span class="pre">/group_vars/all/extra_vars.yml</span></code> contient la configuration des extra :</p>
@@ -223,7 +227,9 @@
 37
 38
 39
-40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="l l-Scalar l-Scalar-Plain">vitam</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">ihm_recette</span><span class="p p-Indicator">:</span>
@@ -242,6 +248,7 @@
         <span class="l l-Scalar l-Scalar-Plain">session_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1800000</span>
         <span class="l l-Scalar l-Scalar-Plain">secure_cookie</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="l l-Scalar l-Scalar-Plain">use_proxy_to_clone_tests</span><span class="p p-Indicator">:</span> <span class="s">&quot;yes&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="l l-Scalar l-Scalar-Plain">library</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">vitam_component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">library</span>
         <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="s">&quot;library.service.{{consul_domain}}&quot;</span>
@@ -250,6 +257,7 @@
         <span class="l l-Scalar l-Scalar-Plain">baseuri</span><span class="p p-Indicator">:</span> <span class="s">&quot;doc&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">https_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="l l-Scalar l-Scalar-Plain">secret_platform</span><span class="p p-Indicator">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">metrics_enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="c1"># Period units in seconds</span>
 <span class="l l-Scalar l-Scalar-Plain">metricbeat</span><span class="p p-Indicator">:</span>
@@ -342,7 +350,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -361,21 +369,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

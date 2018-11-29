@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Création d’une machine de dev contenant swift &mdash; Documentation VITAM - Manuel de développement 1.4.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Ressources et clients" href="client-ressource-rest.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Création d’une machine de dev contenant swift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparation-de-la-machine-virtuelle-avec-qemu">Préparation de la machine virtuelle avec Qemu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparation-de-la-machine-virtuelle-avec-virtualbox">Préparation de la machine virtuelle avec Virtualbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-de-devstack">Installation de devstack</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Création d’une machine de dev contenant swift</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/devstack_vm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creation-d-une-machine-de-dev-contenant-swift">
+<h1>Création d’une machine de dev contenant swift<a class="headerlink" href="#creation-d-une-machine-de-dev-contenant-swift" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Afin de pouvoir tester facilement swift en local, il est possible de créer en local une machine virtuelle contenant une implémentation de swift.
+Cette documentation décrit la procédure d’installation d’une machine virtuelle basé sur devstack, avec comme hyperviseur Qemu/Kvm ou virtualbox.</p>
+<div class="section" id="preparation-de-la-machine-virtuelle-avec-qemu">
+<h2>Préparation de la machine virtuelle avec Qemu<a class="headerlink" href="#preparation-de-la-machine-virtuelle-avec-qemu" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Télécharger une version d’ubuntu server [16.04](<a class="reference external" href="http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso">http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso</a>).</p>
+<p>Pendant la phase d’installation,  préciser bien comme locale en_US.UTF-8.</p>
+<p>Exemple de commmande pour lancer une vm avec Qemu en spécifiant l’iso à utiliser :</p>
+<p>qemu-system-x86_64 -enable-kvm -hda devstack_img -cdrom ../Téléchargements/ubuntu-16.04.3-server-amd64.iso -m 4096 -boot d</p>
+<p>Le paramètre devstack_img correspond au fichier contenant le disque dur qui peut être crée avec la commande</p>
+<p>qemu-img create -f raw devstack_img 10G</p>
+</div>
+<div class="section" id="preparation-de-la-machine-virtuelle-avec-virtualbox">
+<h2>Préparation de la machine virtuelle avec Virtualbox<a class="headerlink" href="#preparation-de-la-machine-virtuelle-avec-virtualbox" title="Lien permanent vers ce titre">¶</a></h2>
+<p>// TODO</p>
+</div>
+<div class="section" id="installation-de-devstack">
+<h2>Installation de devstack<a class="headerlink" href="#installation-de-devstack" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Création d’un user stack</p>
+<p># sudo useradd -s /bin/bash -d /opt/stack -m stack
+# echo «&nbsp;stack ALL=(ALL) NOPASSWD: ALL&nbsp;» | sudo tee /etc/sudoers.d/stack
+# sudo su - stack</p>
+<p>Cloner le projet :</p>
+<p># git clone <a class="reference external" href="https://git.openstack.org/openstack-dev/devstack">https://git.openstack.org/openstack-dev/devstack</a>
+# cd devstack</p>
+<p>Configurer devstack</p>
+<p># créer un fichier local.conf with:</p>
+<p>[[local|localrc]]
+ADMIN_PASSWORD=secret
+DATABASE_PASSWORD=$ADMIN_PASSWORD
+RABBIT_PASSWORD=$ADMIN_PASSWORD
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+# FIXED_RANGE=10.0.0.0/24
+HOST_IP=127.0.0.1
+SWIFT_HASH=a4ef4e78cde09a21</p>
+<p>OFFLINE=True</p>
+<p>disable_all_services
+enable_service key mysql s-proxy s-object s-container s-account</p>
+<p># lancer la commande
+./stack.sh</p>
+<p>Liste des ports à partager :</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Host</th>
+<th class="head">Guest</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2222</td>
+<td>22</td>
+</tr>
+<tr class="row-odd"><td>5000</td>
+<td>5000</td>
+</tr>
+<tr class="row-even"><td>8080</td>
+<td>8080</td>
+</tr>
+<tr class="row-odd"><td>8000</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+<p>Commande pour lancer Qemu avec le transfert de port :</p>
+<p>qemu-system-x86_64 -enable-kvm -drive format=raw,file=devstack_img -m 4096 -net nic -net user,hostfwd=tcp::8080-:8080,hostfwd=tcp::5000-:5000,hostfwd=tcp::8000-:80,hostfwd=tcp::2222-:22</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="client-ressource-rest.html" class="btn btn-neutral" title="Ressources et clients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.4.0',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

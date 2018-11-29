@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow d’entrée &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow d’entrée &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -95,14 +95,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#processus-des-controles-prealables-a-l-entree-stp-sanity-check-sip">Processus des contrôles préalables à l’entrée (STP_SANITY_CHECK_SIP)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#controle-sanitaire-du-sip-sanity-check-sip-ingestexternalimpl-java">Contrôle sanitaire du SIP SANITY_CHECK_SIP (IngestExternalImpl.java)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#controle-du-format-du-conteneur-du-sip-check-container-ingestexternalimpl-java">Contrôle du format du conteneur du SIP CHECK_CONTAINER (IngestExternalImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controle-du-nom-du-bordereau-de-transfert-manifest-file-name-check-ingestexternalimpl-java">Contrôle du nom du bordereau de transfert MANIFEST_FILE_NAME_CHECK (IngestExternalImpl.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-reception-du-sip-dans-vitam-stp-upload-sip-ingestinternalresource-java">Processus de réception du SIP dans Vitam STP_UPLOAD_SIP (IngestInternalResource.java)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-controle-du-sip-stp-ingest-control-sip">Processus de  contrôle du SIP (STP_INGEST_CONTROL_SIP)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#preparation-des-informations-de-stockage-prepare-storage-info-preparestorageinfoactionhandler-java">Préparation des informations de stockage PREPARE_STORAGE_INFO (PrepareStorageInfoActionHandler.java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#verification-globale-du-sip-check-seda-checksedaactionhandler-java">Vérification globale du SIP CHECK_SEDA (CheckSedaActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-globale-du-check-seda-checksedaactionhandler-java">Vérification globale du CHECK_SEDA (CheckSedaActionHandler.java)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#verification-de-l-en-tete-du-bordereau-de-transfert-check-header-checkheaderactionhandler-java">Vérification de l’en-tête du bordereau de transfert CHECK_HEADER (CheckHeaderActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-la-presence-et-controle-des-services-agents-check-agent">Vérification de la présence et contrôle des services agents (CHECK_AGENT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-la-presence-et-controle-du-contrat-d-entree-check-contract-ingest">Vérification de la présence et contrôle du contrat d’entrée (CHECK_CONTRACT_INGEST)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-la-relation-entre-le-contrat-d-entree-et-le-profil-d-archivage-check-ic-ap-relation">Vérification de la relation entre le contrat d’entrée et le profil d’archivage (CHECK_IC_AP_RELATION)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-la-conformite-du-bordereau-de-transfert-par-le-profil-d-archivage-check-archiveprofile">Vérification de la conformité du bordereau de transfert par le profil d’archivage (CHECK_ARCHIVEPROFILE)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#verification-du-contenu-du-bordereau-check-dataobjectpackage-checkdataobjectpackageactionhandler-java">Vérification du contenu du bordereau CHECK_DATAOBJECTPACKAGE (CheckDataObjectPackageActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-des-usages-des-groupes-d-objets-check-dataobjectpackage-check-manifest-dataobject-version-checkversionactionhandler-java">Vérification des usages des groupes d’objets CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION (CheckVersionActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-du-nombre-d-objets-check-manifest-objectnumber-checkobjectsnumberactionhandler-java">Vérification du nombre d’objets CHECK_MANIFEST_OBJECTNUMBER (CheckObjectsNumberActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-la-coherence-du-bordereau-de-transfert-check-manifest-extractsedaactionhandler-java">Vérification de la cohérence du bordereau de transfert CHECK_MANIFEST (ExtractSedaActionHandler.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-controle-et-traitement-des-objets-stp-og-check-and-transforme">Processus de contrôle et traitement des objets (STP_OG_CHECK_AND_TRANSFORME)</a><ul>
@@ -122,7 +130,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-ecriture-et-indexation-des-objets-et-groupes-d-objets-stp-obj-storing">Processus d’écriture et indexation des objets et groupes d’objets (STP_OBJ_STORING)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#ecriture-des-objets-sur-l-offre-de-stockage-obj-storage-storeobjectactionhandler-java">Ecriture des objets sur l’offre de stockage OBJ_STORAGE (StoreObjectActionHandler.java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#indexation-des-metadonnees-des-groupes-d-objets-og-metadata-indexation-indexobjectgroupactionplugin-java">Indexation des métadonnées des groupes d’objets (OG_METADATA_INDEXATION - IndexObjectGroupActionPlugin.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexation-des-metadonnees-des-groupes-d-objets-et-objets-og-metadata-indexation-indexobjectgroupactionplugin-java">Indexation des métadonnées des groupes d’objets et objets (OG_METADATA_INDEXATION - IndexObjectGroupActionPlugin.java)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-indexation-des-unites-archivistiques-stp-unit-metadata">Processus d’indexation des unités archivistiques (STP_UNIT_METADATA)</a><ul>
@@ -131,7 +139,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-enregistrement-et-ecriture-des-metadonnees-des-objets-et-groupes-d-objets-stp-og-storing">Processus d’enregistrement et écriture des métadonnées des objets et groupes d’objets(STP_OG_STORING)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#enregistrement-des-journaux-du-cycle-de-vie-des-groupes-d-objets-commit-life-cycle-object-group-commitlifecycleobjectgroupactionhandler-java">Enregistrement des journaux du cycle de vie des groupes d’objets COMMIT_LIFE_CYCLE_OBJECT_GROUP (CommitLifeCycleObjectGroupActionHandler.java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ecriture-des-metadonnees-du-groupe-d-objets-sur-l-offre-de-stockage-og-metadata-storage-storemetadataobjectgroupactionplugin">Ecriture des métadonnées du groupe d’objets sur l’offre de stockage OG_METADATA_STORAGE (StoreMetaDataObjectGroupActionPlugin)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ecriture-des-metadonnees-du-groupe-d-objets-et-objets-sur-l-offre-de-stockage-og-metadata-storage-storemetadataobjectgroupactionplugin">Ecriture des métadonnées du groupe d’objets et objets sur l’offre de stockage OG_METADATA_STORAGE (StoreMetaDataObjectGroupActionPlugin)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-d-enregistrement-et-ecriture-des-unites-archivistiques-stp-unit-storing">Processus d’enregistrement et écriture des unités archivistiques (STP_UNIT_STORING)</a><ul>
@@ -139,27 +147,25 @@
 <li class="toctree-l4"><a class="reference internal" href="#ecriture-des-metadonnees-de-l-unite-archivistique-sur-l-offre-de-stockage-unit-metadata-storage-accessinternalmoduleimpl-java">Ecriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT_METADATA_STORAGE (AccessInternalModuleImpl.java)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#processus-de-mise-a-jour-du-groupe-d-objets-stp-update-object-group">Processus de mise à jour du groupe d’objets (STP_UPDATE_OBJECT_GROUP)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#creation-du-differentiel-object-group-update-updateobjectgroupplugin-java">Création du différentiel OBJECT_GROUP_UPDATE (UpdateObjectGroupPlugin.java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#etablissement-de-la-liste-des-objets-objects-list-empty">Etablissement de la liste des objets (OBJECTS_LIST_EMPTY)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#alimentation-du-registre-des-fonds-accession-registration-accessionregisteractionhandler-java">Alimentation du registre des fonds ACCESSION_REGISTRATION (AccessionRegisterActionHandler.java)</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-alimentation-du-registre-des-fonds-stp-accession-registration">Processus d’alimentation du registre des fonds (STP_ACCESSION_REGISTRATION)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-finalisation-de-l-entree-stp-ingest-finalisation">Processus de finalisation de l’entrée (STP_INGEST_FINALISATION)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notification-de-la-fin-de-l-operation-d-entree-atr-notification-transfernotificationactionhandler-java">Notification de la fin de l’opération d’entrée ATR_NOTIFICATION (TransferNotificationActionHandler.java)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mise-en-coherence-des-journaux-du-cycle-de-vie-roll-back-rollbackactionhandler-java">Mise en cohérence des journaux du cycle de vie ROLL_BACK (RollBackActionHandler.java)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow">Structure du Workflow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#le-cas-du-processus-d-entree-test-a-blanc">Le cas du processus d’entrée «&nbsp;test à blanc&nbsp;»</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-du-workflow-de-l-entree">Structure du Workflow de l’entrée</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow-plan.html">Workflow d’entrée d’un plan de classement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-plan.html#structure-de-workflow-d-entree-d-un-plan-de-classement">Structure de workflow d’entrée d’un plan de classement</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -230,10 +236,9 @@
 <h1>Workflow d’entrée<a class="headerlink" href="#workflow-d-entree" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit le processus (workflow) d’entrée, utilisé lors du transfert d’un Submission Information Package (SIP) dans la solution logicielle Vitam. Ce workflow se décompose en deux grandes catégories : le processus d’entrée externe dit «&nbsp;ingest externe&nbsp;» et le processus d’entrée interne dit «&nbsp;ingest interne&nbsp;». Le premier prend en charge le SIP et effectue des contrôles techniques préalables, tandis que le second débute dès le premier traitement métier.</p>
+<p>Cette section décrit le processus (workflow) d’entrée, utilisé lors du transfert d’un Submission Information Package (SIP) dans la solution logicielle Vitam. Ce workflow se décompose en deux grandes catégories : le processus d’entrée externe dit «&nbsp;ingest externe&nbsp;» et le processus d’entrée interne dit «&nbsp;ingest interne&nbsp;». Le premier prend en charge le SIP et effectue des contrôles techniques préalables, tandis que le second débute dès le premier traitement métier. Ex: Le processus d’entrée externe comprend l’étape : STP_SANITY_CHECK_SIP (Contrôle sanitaire du SIP). Les autres étapes font partie du processus d’entrée interne.</p>
 <p>Toutes les étapes, tâches et traitements sont journalisés dans le journal des opérations.
-Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et description de la clé associée dans le journal des opérations) tel qu’implémenté dans la version actuelle de la solution logicielle Vitam.</p>
-<p>Le processus d’entrée externe comprend l’étape : STP_SANITY_CHECK_SIP (Contrôle sanitaire du SIP). Les autres étapes font partie du processus d’entrée interne.</p>
+Ces derniers sont décrits dans le processus d’entrée (clé et description de la clé associée dans le journal des opérations) tel qu’implémenté dans la version actuelle de la solution logicielle Vitam.</p>
 </div>
 <div class="section" id="processus-des-controles-prealables-a-l-entree-stp-sanity-check-sip">
 <h2>Processus des contrôles préalables à l’entrée (STP_SANITY_CHECK_SIP)<a class="headerlink" href="#processus-des-controles-prealables-a-l-entree-stp-sanity-check-sip" title="Lien permanent vers ce titre">¶</a></h2>
@@ -243,23 +248,49 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><strong>Règle</strong> : Vérification de l’absence de virus dans le SIP</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : aucun virus n’est détecté dans le SIP (SANITY_CHECK_SIP.OK = Succès du processus des contrôles préalables à l’entrée)</li>
+<li>OK : aucun virus n’a été détecté dans le SIP (SANITY_CHECK_SIP.OK = Succès du processus des contrôles préalables à l’entrée)</li>
 <li>KO : un ou plusieurs virus ont été détectés dans le SIP (SANITY_CHECK_SIP.KO = Échec du processus des contrôles préalables à l’entrée)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification de la présence de virus dans le SIP (SANITY_CHECK_SIP.FATAL = Erreur fatale lors du processus des contrôles préalables à l’entrée)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de la présence de virus dans le SIP (SANITY_CHECK_SIP.FATAL = Erreur technique lors du processus des contrôles préalables à l’entrée)</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="controle-du-format-du-conteneur-du-sip-check-container-ingestexternalimpl-java">
 <h3>Contrôle du format du conteneur du SIP CHECK_CONTAINER (IngestExternalImpl.java)<a class="headerlink" href="#controle-du-format-du-conteneur-du-sip-check-container-ingestexternalimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Vérification du format du SIP via un outil d’identification de format qui se base sur le référentiel des formats qu’il intègre</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Formats acceptés</strong> : .zip, .tar, .tar.gz, .tar.bz2 et tar.gz2</p>
+</div>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
 <ul class="simple">
-<li><strong>Règle</strong> : Vérification du format du SIP via un outil d’identification de format qui se base sur le référentiel des formats qu’il intègre</li>
-<li><strong>Formats acceptés</strong> : .zip, .tar, .tar.gz, .tar.bz2 et tar.gz2</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
 <li>OK : le conteneur du SIP est au bon format (CHECK_CONTAINER.OK = Succès du contrôle du format du conteneur du SIP)</li>
 <li>KO : le conteneur du SIP n’est pas au bon format (CHECK_CONTAINER.KO = Échec du contrôle du format du conteneur du SIP)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification du format du conteneur du SIP, liée à l’outil d’identification des formats (CHECK_CONTAINER.FATAL = Erreur fatale lors du contrôle du format du conteneur du SIP)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification du format du conteneur du SIP, liée à l’outil d’identification des formats (CHECK_CONTAINER.FATAL = Erreur technique lors du contrôle du format du conteneur du SIP)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="controle-du-nom-du-bordereau-de-transfert-manifest-file-name-check-ingestexternalimpl-java">
+<h3>Contrôle du nom du bordereau de transfert MANIFEST_FILE_NAME_CHECK (IngestExternalImpl.java)<a class="headerlink" href="#controle-du-nom-du-bordereau-de-transfert-manifest-file-name-check-ingestexternalimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Vérification du nom du bordereau de transfert. Le nom du bordereau doit être conforme avec l’expression régulière suivante :</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">^(([a-zA-Z0-9]{1,56}[_-]{1}){0,1}|_{0,1})(manifest.xml)\b&nbsp;»} A savoir : une chaîne de caractères débutant par des caractères alphanumériques sans accent, jusqu’à 56 caractères, suivi d’un «&nbsp;-&nbsp;» ou d’un «&nbsp;_&nbsp;» puis suivi de «&nbsp;manifest.xml&nbsp;». Exemples valides : «&nbsp;MonNouveau-manifest.xml&nbsp;», «&nbsp;UnAutreBordereau_manifest.xml&nbsp;». «&nbsp;manifest.xml&nbsp;» tout court est également valide. Un SIP ne possédant pas du tout de bordereau de transfert verra également son entrée terminer en KO à cette tâche.</p>
+</div>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul class="simple">
+<li>OK : le nom du bordereau de transfert est conforme (MANIFEST_FILE_NAME_CHECK.OK = Succès du contrôle du nom du bordereau de transfert : nom du fichier conforme)</li>
+<li>KO : le nom du bordereau de transfert n’est pas conforme (MANIFEST_FILE_NAME_CHECK.KO = Échec du contrôle du nom du bordereau de transfert : nom du fichier conforme)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification du nom du bordereau de transfert (MANIFEST_FILE_NAME_CHECK.FATAL = Erreur technique lors du contrôle du nom du bordereau de transfert)</li>
 </ul>
 </li>
 </ul>
@@ -273,7 +304,7 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><strong>Statuts</strong> :<ul>
 <li>OK : le SIP a été réceptionné sur l’espace de travail interne (STP_UPLOAD_SIP.OK = Succès du processus de réception du SIP)</li>
 <li>KO : le SIP n’a pas été réceptionné sur l’espace de travail interne (STP_UPLOAD_SIP.KO = Échec du processus de réception du SIP)</li>
-<li>FATAL : une erreur fatale est survenue lors de la réception du SIP dans la solution logicielle Vitam, par exemple une indisponibilité du serveur (STP_UPLOAD_SIP.FATAL = Erreur fatale lors du processus de réception du SIP)</li>
+<li>FATAL : une erreur technique est survenue lors de la réception du SIP dans la solution logicielle Vitam, par exemple une indisponibilité du serveur (STP_UPLOAD_SIP.FATAL = Erreur technique lors du processus de réception du SIP)</li>
 </ul>
 </li>
 </ul>
@@ -288,36 +319,47 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><strong>Statuts</strong> :<ul>
 <li>OK : Succès de la préparation des informations de stockage (PREPARE_STORAGE_INFO.OK = Succès de la préparation des informations de stockage)</li>
 <li>KO : Echec de la préparation des informations de stockage (PREPARE_STORAGE_INFO.KO = Echec de la préparation des informations de stockage)</li>
-<li>FATAL :erreur fatale est survenue lors de la préparation des informations de stockage (PREPARE_STORAGE_INFO.FATAL = Erreur fatale lors de la préparation des informations de stockage)</li>
+<li>FATAL :erreur technique est survenue lors de la préparation des informations de stockage (PREPARE_STORAGE_INFO.FATAL = Erreur technique lors de la préparation des informations de stockage)</li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="verification-globale-du-sip-check-seda-checksedaactionhandler-java">
-<h3>Vérification globale du SIP CHECK_SEDA (CheckSedaActionHandler.java)<a class="headerlink" href="#verification-globale-du-sip-check-seda-checksedaactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="verification-globale-du-check-seda-checksedaactionhandler-java">
+<h3>Vérification globale du CHECK_SEDA (CheckSedaActionHandler.java)<a class="headerlink" href="#verification-globale-du-check-seda-checksedaactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification de la cohérence physique du SIP reçu par rapport au modèle de SIP accepté</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Type de SIP accepté</strong> : le bordereau de transfert, obligatoire dans le SIP, doit être conforme au schéma xsd par défaut fourni avec le standard SEDA v. 2.1, le SIP doit satisfaire les exigences du document «&nbsp;Structuration des SIP&nbsp;» et doit posséder un répertoire unique nommé «&nbsp;Content&nbsp;».</p>
+</div>
 <ul>
-<li><p class="first"><strong>Règle</strong> : Vérification de la cohérence physique du SIP reçu par rapport au modèle de SIP accepté</p>
-</li>
-<li><p class="first"><strong>Type de SIP accepté</strong> : le bordereau de transfert, obligatoire dans le SIP, doit être nommé manifest.xml, doit être conforme au schéma xsd par défaut fourni avec le standard SEDA v. 2.1, doit satisfaire les exigences du document «&nbsp;Structuration des SIP&nbsp;» et doit posséder un répertoire unique nommé «&nbsp;Content&nbsp;»</p>
-</li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <ul>
-<li><p class="first">OK : le SIP est présent, nommé manifest.xml et conforme au schéma xsd par défaut fourni avec le standard SEDA v.2.1. (CHECK_SEDA.OK = Succès de la vérification globale du SIP)</p>
+<li><p class="first">OK : le SIP est présent et conforme au schéma xsd par défaut fourni avec le standard SEDA v.2.1. il satisfait aux exigences de «&nbsp;structuration des SIP&nbsp;» et possède un repertoire unique «&nbsp;Content&nbsp;»(CHECK_SEDA.OK = Succès de la vérification globale du SIP)</p>
 </li>
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : le bordereau de transfert est introuvable dans le SIP ou n’est pas au format XML (CHECK_SEDA.NO_FILE.KO = Échec de la vérification globale du SIP : absence du bordereau de transfert ou bordereau de transfert au mauvais format)</li>
+<li>Cas 1 : le bordereau de transfert est introuvable dans le SIP ou n’est pas au format XML (CHECK_SEDA.NO_FILE.KO = Absence du bordereau de transfert ou bordereau de transfert au mauvais format)</li>
 <li>Cas 2 : le bordereau de transfert n’est pas au format XML (CHECK_SEDA.NOT_XML_FILE.KO = Échec de la vérification globale du SIP : bordereau de transfert non conforme aux caractéristiques d’un fichier xml)</li>
 <li>Cas 3 : le bordereau de transfert ne respecte pas le schéma par défaut fourni avec le standard SEDA 2.1 (CHECK_SEDA.NOT_XSD_VALID.KO = Échec de la vérification globale du SIP : bordereau de transfert non conforme au schéma SEDA 2.1)</li>
-<li>Cas 4 : le SIP contient plus d’un dossier «&nbsp;Content&nbsp;» (CHECK_SEDA.CONTAINER_FORMAT.DIRECTORY.KO = Le SIP contient plus d’un dossier ou un dossier dont le nommage est invalide)</li>
-<li>Cas 5 : le SIP contient plus d’un seul fichier à la racine (CHECK_SEDA.CONTAINER_FORMAT.FILE.KO = Le SIP contient plus d’un fichier à sa racine)</li>
+<li>Cas 4 : le SIP contient plus d’un dossier «&nbsp;Content&nbsp;» (CHECK_SEDA.CONTAINER_FORMAT.DIRECTORY.KO = Échec de la vérification globale du SIP : le SIP contient plus d’un dossier ou un dossier dont le nommage est invalide)</li>
+<li>Cas 5 : le SIP contient plus d’un seul fichier à la racine (CHECK_SEDA.CONTAINER_FORMAT.FILE.KO = Échec de la vérification globale du SIP : le SIP contient plus d’un fichier à sa racine)</li>
+<li>Cas 6 : l’action est déjà exécutée  CHECK_SEDA.ALREADY_EXECUTED = Action déjà exécutée : Pas de vérification globale du SIP</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de du contrôle de cohérence (CHECK_SEDA.FATAL = Erreur fatale lors de la vérification globale du SIP)</p>
+<li><p class="first">FATAL :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : une erreur technique est survenue lors de la vérification globale du SIP (CHECK_SEDA.FATAL = Erreur technique lors de la vérification globale du SIP)</li>
+<li>Cas 2 : une erreur technique est survenue lors de la vérification globale du SIP (CHECK_SEDA.NOT_XML_FILE.FATAL=Erreur technique lors de la vérification globale du SIP)</li>
+<li>Cas 3 : une erreur technique est survenue lors de la vérification globale du SIP (CHECK_SEDA.NOT_XSD_VALID.FATAL=Erreur technique lors de la vérification globale du SIP)</li>
+</ul>
+</div></blockquote>
 </li>
 </ul>
 </li>
@@ -325,84 +367,94 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 </div>
 <div class="section" id="verification-de-l-en-tete-du-bordereau-de-transfert-check-header-checkheaderactionhandler-java">
 <h3>Vérification de l’en-tête du bordereau de transfert CHECK_HEADER (CheckHeaderActionHandler.java)<a class="headerlink" href="#verification-de-l-en-tete-du-bordereau-de-transfert-check-header-checkheaderactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règles</strong> : Vérification des informations générales du bordereau de transfert (nommées «&nbsp;header&nbsp;» dans le fichier «&nbsp;manifest.xml&nbsp;») et de l’existence du service producteur (OriginatingAgencyIdentifier)</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : les informations du bordereau de transfert sont conformes et le service producteur est déclaré (CHECK_HEADER.OK = Succès de la vérification générale du bordereau de transfert)</li>
-<li>KO : les informations du bordereau de transfert ne sont pas conformes ou il n’y a pas de service producteur déclaré (CHECK_HEADER.KO = Échec de la vérification générale du bordereau de transfert)</li>
-<li>FATAL : une erreur fatale est survenue lors des contrôles sur les informations générales du bordereau de transfert (CHECK_HEADER.FATAL = Erreur fatale lors de la vérification générale du bordereau de transfert)</li>
-</ul>
-</li>
-</ul>
-<div class="section" id="la-tache-check-header-contient-les-traitements-suivants">
-<h4>La tâche check_header contient les traitements suivants :<a class="headerlink" href="#la-tache-check-header-contient-les-traitements-suivants" title="Lien permanent vers ce titre">¶</a></h4>
-</div>
-<div class="section" id="verification-de-la-presence-et-controle-des-services-agents-check-agent">
-<h4>Vérification de la présence et contrôle des services agents (CHECK_AGENT).<a class="headerlink" href="#verification-de-la-presence-et-controle-des-services-agents-check-agent" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Cette tâche est exécutée si la valeur IN de checkOriginatingAgency est true.</p>
-<blockquote>
-<div><ul>
-<li><p class="first"><strong>Règle</strong> : Vérification du service producteur ainsi que du service versant déclarés dans le SIP par rapport au référentiel des services agents présent dans la solution logicielle Vitam</p>
+<ul>
+<li><p class="first"><strong>Règles</strong> : Vérification des informations générales du bordereau de transfert (nommées «&nbsp;header&nbsp;» dans le fichier «&nbsp;manifest.xml&nbsp;») et de l’existence du service producteur (OriginatingAgencyIdentifier)</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
+<ul>
+<li><p class="first">OK : les informations du bordereau de transfert sont conformes et le service producteur est déclaré (CHECK_HEADER.OK = Succès de la vérification générale du bordereau de transfert)</p>
+</li>
+<li><p class="first">KO :</p>
+<ul>
+<li><p class="first">Cas 1 : les informations du bordereau de transfert ne sont pas conformes ou il n’y a pas de service producteur déclaré (CHECK_HEADER.KO = Échec de la vérification générale du bordereau de transfert)</p>
 <blockquote>
 <div><ul class="simple">
+<li>Cas 2 : les données référentielles sont inactives (CHECK_HEADER.INACTIVE.KO = Échec de la vérification générale du bordereau de transfert : donnée référentielle inactive)</li>
+<li>Cas 3 : les données référentielles sont inconnues (CHECK_HEADER.UNKNOWN.KO = Échec de la vérification générale du bordereau de transfert : donnée référentielle inconnue)</li>
+<li>Cas 4 : il y a une différence entre le profil déclaré dans le bordereau de transfert et celui déclaré dans le contrat (CHECK_HEADER.DIFF.KO = Échec de la vérification générale du bordereau de transfert : différence entre le profil déclaré dans le bordereau de transfert et celui déclaré dans le contrat)</li>
+<li>Cas 5 : un des champs obligatoires n’est pas remplie (CHECK_HEADER.EMPTY_REQUIRED_FIELD.KO = Vérification générale du bordereau de transfert : champ obligatoire vide)</li>
+<li>Cas 6 : la vérification a déjà été effectuée (CHECK_HEADER.ALREADY_EXECUTED = Action déjà exécutée : Pas de vérification générale du bordereau de transfert)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors des contrôles sur les informations générales du bordereau de transfert (CHECK_HEADER.FATAL = Erreur technique lors de la vérification générale du bordereau de transfert)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>La tâche check_header contient les traitements suivants :</strong></p>
+</div>
+<div class="section" id="verification-de-la-presence-et-controle-des-services-agents-check-agent">
+<h3>Vérification de la présence et contrôle des services agents (CHECK_AGENT)<a class="headerlink" href="#verification-de-la-presence-et-controle-des-services-agents-check-agent" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette tâche est exécutée si la valeur IN de <em>checkOriginatingAgency</em> est true.</p>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification du service producteur ainsi que du service versant déclarés dans le SIP par rapport au référentiel des services agents présent dans la solution logicielle Vitam</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
 <li>OK : le service producteur et/ou le service versant déclaré dans le SIP est valide (service agent existant dans le référentiel des services agents)(CHECK_HEADER.CHECK_AGENT.OK=Succès de la vérification de la présence et du contrôle des services agents)</li>
 <li>KO :<ul>
-<li>Cas 1 : aucun service producteur n’est déclaré dans la balise dédiée dans le bordereau de transfert (CHECK_HEADER.CHECK_AGENT.EMPTY_REQUIRED_FIELD.KO= Échec de la vérification de la présence et du contrôle des services agents : champ obligatoire vide)</li>
-<li>Cas 2 : le service producteur et/ou le service versant déclaré dans le SIP n’est pas connue du référentiel des services agents (CHECK_HEADER.CHECK_AGENT.UNKNOWN.KO= Échec de la vérification de la présence et du contrôle des services agents : services agents inconnus du référentiel des services agents)</li>
+<li>Cas 1 : aucun service producteur n’est déclaré dans la balise dédiée dans le bordereau de transfert (CHECK_HEADER.CHECK_AGENT.EMPTY_REQUIRED_FIELD.KO = Échec de la vérification de la présence et du contrôle des services agents : champ obligatoire vide)</li>
+<li>Cas 2 : le service producteur et/ou le service versant déclaré dans le SIP n’est pas connu du référentiel des services agents (CHECK_HEADER.CHECK_AGENT.UNKNOWN.KO = Échec de la vérification de la présence et du contrôle des services agents : services agents inconnus du référentiel des services agents)</li>
 <li>Cas 3 : la balise permettant de déclarer un service producteur est absente du bordereau de tranfert (CHECK_HEADER.CHECK_AGENT.KO=Échec de la vérification de la présence et du contrôle des services agents)</li>
 </ul>
 </li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification de la présence et du contrôle des services agents (CHECK_HEADER.CHECK_AGENT.FATAL=Erreur fatale lors de la vérification de la présence et du contrôle des services agents)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de la présence et du contrôle des services agents (CHECK_HEADER.CHECK_AGENT.FATAL = Erreur technique lors de la vérification de la présence et du contrôle des services agents)</li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="verification-de-la-presence-et-controle-du-contrat-d-entree-check-contract-ingest">
-<h4>Vérification de la présence et contrôle du contrat d’entrée (CHECK_CONTRACT_INGEST)<a class="headerlink" href="#verification-de-la-presence-et-controle-du-contrat-d-entree-check-contract-ingest" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Vérification de la présence et contrôle du contrat d’entrée (CHECK_CONTRACT_INGEST)<a class="headerlink" href="#verification-de-la-presence-et-controle-du-contrat-d-entree-check-contract-ingest" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette tâche est exécutée si la valeur IN de checkContract est true.</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first"><strong>Règle</strong> : Vérification du contrat d’entrée déclaré dans le SIP par rapport au référentiel des contrats d’entrée présent dans la solution logicielle Vitam</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <ul>
-<li><p class="first">OK : le contrat déclaré dans le SIP est valide (contrat existant dans le référentiel des contrats et dont le statut est actif)(CHECK_HEADER.CHECK_CONTRACT_INGEST.OK=Succès de la vérification de la présence et du contrôle du contrat d’entrée)</p>
+<li><p class="first">OK : le contrat déclaré dans le SIP est valide (contrat existant dans le référentiel des contrats et dont le statut est actif)(CHECK_HEADER.CHECK_CONTRACT_INGEST.OK = Succès de la vérification de la présence et du contrôle du contrat d’entrée)</p>
 </li>
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : le contrat déclaré dans le SIP est inexistant (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_UNKNOWN.KO=Échec du contrôle de la présence du contrat d’entrée : contrat d’entrée inconnu du référentiel des contrats d’entrée)</li>
-<li>Cas 2 : le contrat déclaré dans le SIP est inactif (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_INACTIVE.KO=Échec du contrôle du caractère actif du contrat d’entrée)</li>
-<li>Cas 3 : Aucun contrat d’entrée trouvé dans le manifest (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_NOT_IN_MANIFEST.KO=Échec du contrôle de la présence du contrat d’entrée dans le bordereau de transfert)</li>
+<li>Cas 1 : le contrat déclaré dans le SIP est inexistant (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_UNKNOWN.KO = Échec de la vérification de la présence du contrat d’entrée : contrat d’entrée inconnu du référentiel des contrats d’entrée)</li>
+<li>Cas 2 : le contrat déclaré dans le SIP est inactif (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_INACTIVE.KO = Échec de la vérification du caractère actif du contrat d’entrée)</li>
+<li>Cas 3 : aucun contrat d’entrée n’a été trouvé dans le manifeste (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_NOT_IN_MANIFEST.KO = Échec de la vérification de la présence du contrat d’entrée : le champ archival agreement est absent du bordereau de transfert)</li>
 <li>Cas 4 : le contrat déclaré dans le SIP n’existe pas dans le contexte applicatif (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTRACT_NOT_IN_CONTEXT.KO=Échec du contrôle de la présence du contrat d’entrée dans le contexte applicatif)</li>
-<li>Cas 5 : le contexte applicatif est inexistant (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTEXT_UNKNOWN.KO=Échec du contrôle de la présence du contexte applicatif : contexte inconnu du référentiel des contextes)</li>
+<li>Cas 5 : le contexte applicatif est inexistant (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTEXT_UNKNOWN.KO = Échec du contrôle de la présence du contexte applicatif : contexte inconnu du référentiel des contextes)</li>
 <li>Cas 6 : le contexte applicatif est inactif (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTEXT_INACTIVE.KO=Échec du contrôle du caractère actif du contexte applicatif)</li>
-<li>Cas 7 : Erreur lors de la récupération du contexte applicatif (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTEXT_CHECK_ERROR.KO=Échec de la vérification de la présence et du contrôle du contexte applicatif)</li>
+<li>Cas 7 : Erreur lors de la récupération du contexte applicatif (CHECK_HEADER.CHECK_CONTRACT_INGEST.CONTEXT_CHECK_ERROR.KO = Échec de la vérification de la présence et du contrôle du contexte applicatif)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de la vérification de la présence et du contrôle du contrat d’entrée ou du contexte applicatif (CHECK_HEADER.CHECK_CONTRACT_INGEST.FATAL=Erreur fatale lors de la vérification de la présence et du contrôle du contrat d’entrée ou du contexte applicatif)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de la présence et du contrôle du contrat d’entrée ou du contexte applicatif (CHECK_HEADER.CHECK_CONTRACT_INGEST.FATAL=Erreur technique lors de la vérification de la présence et du contrôle du contrat d’entrée ou du contexte applicatif)</p>
 </li>
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="verification-de-la-relation-entre-le-contrat-d-entree-et-le-profil-d-archivage-check-ic-ap-relation">
-<h4>Vérification de la relation entre le contrat d’entrée et le profil d’archivage (CHECK_IC_AP_RELATION)<a class="headerlink" href="#verification-de-la-relation-entre-le-contrat-d-entree-et-le-profil-d-archivage-check-ic-ap-relation" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Cette tâche est exécutée si la valeur IN de checkProfile est true.</p>
-<blockquote>
-<div><ul>
+<h3>Vérification de la relation entre le contrat d’entrée et le profil d’archivage (CHECK_IC_AP_RELATION)<a class="headerlink" href="#verification-de-la-relation-entre-le-contrat-d-entree-et-le-profil-d-archivage-check-ic-ap-relation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette tâche est exécutée si la valeur IN de <em>checkProfile</em> est true.</p>
+<ul>
 <li><p class="first"><strong>Règle</strong> : le profil d’archivage déclaré dans le contrat d’entrée du SIP doit être le même que celui déclaré dans son bordereau de transfert.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <ul>
@@ -411,89 +463,72 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : le profil déclaré dans le SIP est inexistant (CHECK_HEADER.CHECK_IC_AP_RELATION.UNKNOWN.KO=Échec du contrôle de la présence du profil d’archivage dans le référentiel des profils d’archivage)</li>
-<li>Cas 2 : le profil déclaré dans le SIP est inactif (CHECK_HEADER.CHECK_IC_AP_RELATION.INACTIVE.KO=Échec du contrôle du caractère actif du profil d’archivage)</li>
-<li>Cas 3 : le profil déclaré dans le contrat d’entrée et celui déclaré dans le bordereau de transfert ne sont pas les mêmes (CHECK_HEADER.CHECK_IC_AP_RELATION.DIFF.KO=Échec du contrôle de cohérence entre le profil d’archivage déclaré dans le bordereau de transfert et celui déclaré dans le contrat d’entrée)</li>
+<li>Cas 1 : le profil déclaré dans le SIP est inexistant (CHECK_HEADER.CHECK_IC_AP_RELATION.UNKNOWN.KO = Échec du contrôle de la présence du profil d’archivage dans le référentiel des profils d’archivage)</li>
+<li>Cas 2 : le profil déclaré dans le SIP est inactif (CHECK_HEADER.CHECK_IC_AP_RELATION.INACTIVE.KO = Échec du contrôle du caractère actif du profil d’archivage)</li>
+<li>Cas 3 : le profil déclaré dans le contrat d’entrée et celui déclaré dans le bordereau de transfert ne sont pas les mêmes (CHECK_HEADER.CHECK_IC_AP_RELATION.DIFF.KO = Échec du contrôle de cohérence entre le profil d’archivage déclaré dans le bordereau de transfert et celui déclaré dans le contrat d’entrée)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de la vérification de la relation entre le contrat d’entrée et le profil d’archivage (CHECK_HEADER.CHECK_IC_AP_RELATION.FATAL = Erreur fatale lors de la vérification de la relation entre le contrat d’entrée et le profil d’archivage)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de la relation entre le contrat d’entrée et le profil d’archivage (CHECK_HEADER.CHECK_IC_AP_RELATION.FATAL = Erreur technique lors de la vérification de la relation entre le contrat d’entrée et le profil d’archivage)</p>
 </li>
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="verification-de-la-conformite-du-bordereau-de-transfert-par-le-profil-d-archivage-check-archiveprofile">
-<h4>Vérification de la conformité du bordereau de transfert par le profil d’archivage (CHECK_ARCHIVEPROFILE)<a class="headerlink" href="#verification-de-la-conformite-du-bordereau-de-transfert-par-le-profil-d-archivage-check-archiveprofile" title="Lien permanent vers ce titre">¶</a></h4>
-<blockquote>
-<div><ul>
-<li><p class="first"><strong>Règle</strong> : le bordereau de transfert du SIP doit être conforme aux exigences du profil d’archivage. Si aucun profil SEDA ne s’applique au SIP, ce traitement est ignoré.</p>
+<h3>Vérification de la conformité du bordereau de transfert par le profil d’archivage (CHECK_ARCHIVEPROFILE)<a class="headerlink" href="#verification-de-la-conformite-du-bordereau-de-transfert-par-le-profil-d-archivage-check-archiveprofile" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : le bordereau de transfert du SIP doit être conforme aux exigences du profil d’archivage. Si aucun profil d’archivage ne s’applique au SIP, ce traitement est ignoré.</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : le bordereau de transfert est conforme aux exigences du profil d’archivage (CHECK_HEADER.CHECK_ARCHIVEPROFILE.OK = Succès de la vérification de la conformité au profil d’archivage)</li>
+<li>KO : le bordereau de transfert n’est pas conforme aux exigences du profil d’archivage (CHECK_HEADER.CHECK_ARCHIVEPROFILE.KO = Échec de la vérification de la conformité au profil d’archivage)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification du bordereau de transfert par le profil d’archivage (CHECK_HEADER.CHECK_ARCHIVEPROFILE.FATAL = Erreur technique lors de la vérification de la conformité au profil d’archivage)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="verification-du-contenu-du-bordereau-check-dataobjectpackage-checkdataobjectpackageactionhandler-java">
+<h3>Vérification du contenu du bordereau CHECK_DATAOBJECTPACKAGE (CheckDataObjectPackageActionHandler.java)<a class="headerlink" href="#verification-du-contenu-du-bordereau-check-dataobjectpackage-checkdataobjectpackageactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>La tâche CHECK_DATAOBJECTPACKAGE contient plusieurs traitements.</strong></p>
+</div>
+<div class="section" id="verification-des-usages-des-groupes-d-objets-check-dataobjectpackage-check-manifest-dataobject-version-checkversionactionhandler-java">
+<h3>Vérification des usages des groupes d’objets CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION (CheckVersionActionHandler.java)<a class="headerlink" href="#verification-des-usages-des-groupes-d-objets-check-dataobjectpackage-check-manifest-dataobject-version-checkversionactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Tous les objets décrits dans le bordereau de transfert du SIP doivent déclarer un usage conforme à la liste des usages acceptés dans la solution logicielle Vitam ainsi qu’un numéro de version respectant la norme de ce champ</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
-<blockquote>
-<div><ul class="simple">
-<li>OK : le bordereau de transfert est conforme aux exigences du profil d’archivage (CHECK_HEADER.CHECK_ARCHIVEPROFILE.OK = Succès de la vérification de la conformité au profil d’archivage)</li>
-<li>KO : le bordereau de transfert n’est pas conforme aux exigences du profil d’archivage (CHECK_HEADER.CHECK_ARCHIVEPROFILE.KO = Échec de la vérification de la conformité au profil d’archivage)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification du bordereau de transfert par le profil d’archivage (CHECK_HEADER.CHECK_ARCHIVEPROFILE.FATAL = Erreur fatale lors de la vérification de la conformité au profil d’archivage)</li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="verification-du-contenu-du-bordereau-check-dataobjectpackage-checkdataobjectpackageactionhandler-java">
-<h3>Vérification du contenu du bordereau CHECK_DATAOBJECTPACKAGE (CheckDataObjectPackageActionHandler.java)<a class="headerlink" href="#verification-du-contenu-du-bordereau-check-dataobjectpackage-checkdataobjectpackageactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règles</strong> : Vérification du contenu du bordereau de transfert et de sa cohérence.</li>
-<li><strong>Type</strong> : bloquant.</li>
-</ul>
-<div class="section" id="la-tache-check-dataobjectpackage-contient-plusieurs-traitements">
-<h4>La tâche CHECK_DATAOBJECTPACKAGE contient plusieurs traitements.<a class="headerlink" href="#la-tache-check-dataobjectpackage-contient-plusieurs-traitements" title="Lien permanent vers ce titre">¶</a></h4>
-</div>
-<div class="section" id="verification-des-usages-des-groupes-d-objets-check-dataobjectpackage-check-manifest-dataobject-version-checkversionactionhandler-java">
-<h4>Vérification des usages des groupes d’objets CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION (CheckVersionActionHandler.java)<a class="headerlink" href="#verification-des-usages-des-groupes-d-objets-check-dataobjectpackage-check-manifest-dataobject-version-checkversionactionhandler-java" title="Lien permanent vers ce titre">¶</a></h4>
-<blockquote>
-<div><ul>
-<li><p class="first"><strong>Règle</strong> : Tous les objets décrits dans le bordereau de transfert du SIP doivent déclarer un usage conforme à la liste des usages acceptés dans la solution logicielle Vitam ainsi qu’un numéro de version respectant la norme de ce champ</p>
-</li>
-<li><p class="first"><strong>Types d’usages acceptés</strong>: original papier (PhysicalMaster), original numérique (BinaryMaster), diffusion (Dissemination), vignette (Thumbnail), contenu brut (TextContent). Les numéros de versions sont optionnels, il s’agit d’un entier positif ou nul (0, 1, 2…). La grammaire est : «&nbsp;usage_version&nbsp;». Exemples : «&nbsp;BinaryMaster_2&nbsp;», «&nbsp;TextContent_10&nbsp;» ou sans numéro de versions «&nbsp;PhysicalMaster&nbsp;».</p>
-</li>
-<li><p class="first"><strong>Statuts</strong> :</p>
 <ul>
-<li><p class="first">OK : les objets contenus dans le SIP déclarent tous dans le bordereau de transfert un usage cohérent avec ceux acceptés et optionnellement un numéro de version respectant la norme de ce champ usage, par exemple «&nbsp;BinaryMaster_2&nbsp;» (CHECK_MANIFEST_DATAOBJECT_VERSION.OK = Succès de la vérification des usages des objets)</p>
+<li><p class="first">OK : les objets contenus dans le SIP déclarent tous dans le bordereau de transfert un usage cohérent avec ceux acceptés et optionnellement un numéro de version respectant la norme de ce champ usage, par exemple «&nbsp;BinaryMaster_2&nbsp;» (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.DATAOBJECT.VERSION.OK = Succès de la vérification des usages des objets)</p>
 </li>
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : un ou plusieurs BinaryMaster sont déclarées dans un ou plusieurs objets physiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.PDO_DATAOBJECTIONVERSION_BINARYMASTER.KO = L’objet physique déclare un usage «&nbsp;BinaryMaster&nbsp;». Cet usage n’est pas autorisé pour les objets physiques</li>
-<li>Cas 2 : un ou plusieurs PhysicalMaster sont déclarés dans un ou plusieurs objets binaires (CHECK_DATAOBJECTPACKAGE.BDO_DATAOBJECTIONVERSION_PHYSICALMASTER.KO=Au moins un objet binaire déclare un usage «&nbsp;PhysicalMaster&nbsp;». Cet usage n’est pas autorisé pour les objets binaires)</li>
-<li>Cas 3 : un ou plusieurs objets contenus dans le SIP déclarent dans le bordereau de transfert un usage ou un numéro de version incohérent avec ceux acceptés (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.INVALID_DATAOBJECTVERSION.KO=Cet objet déclare un usage incorrect. L’usage doit s’écrire sous la forme [usage] ou [usage]_[version]. «&nbsp;Usage&nbsp;» doit être parmi l’énumération DataObjectVersion définie pour Vitam, «&nbsp;version&nbsp;» doit être un entier positif)</li>
-<li>Cas 4 : une ou plusieurs URI sont vides (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.EMPTY_REQUIRED_FIELD.KO=Il existe au moins un champ non renseigné dont la valeur est obligatoire)</li>
+<li>Cas 1 : un ou plusieurs BinaryMaster sont déclarés dans un ou plusieurs objets physiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.PDO_DATAOBJECTIONVERSION_BINARYMASTER.KO = L’objet physique déclare un usage «&nbsp;BinaryMaster&nbsp;». Cet usage n’est pas autorisé pour les objets physiques</li>
+<li>Cas 2 : un ou plusieurs PhysicalMaster sont déclarés dans un ou plusieurs objets binaires (CHECK_DATAOBJECTPACKAGE.BDO_DATAOBJECTIONVERSION_PHYSICALMASTER.KO = Au moins un objet binaire déclare un usage «&nbsp;PhysicalMaster&nbsp;». Cet usage n’est pas autorisé pour les objets binaires)</li>
+<li>Cas 3 : un ou plusieurs objets contenus dans le SIP déclarent dans le bordereau de transfert un usage ou un numéro de version incohérent avec ceux acceptés (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.INVALID_DATAOBJECTVERSION.KO = Cet objet déclare un usage incorrect. L’usage doit s’écrire sous la forme [usage] ou [usage]_[version]. «&nbsp;Usage&nbsp;» doit être parmi l’énumération DataObjectVersion définie pour Vitam, «&nbsp;version&nbsp;» doit être un entier positif)</li>
+<li>Cas 4 : une ou plusieurs URI sont vides (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.EMPTY_REQUIRED_FIELD.KO = Il existe au moins un champ non renseigné dont la valeur est obligatoire)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors du contrôle des usages déclarés dans le bordereau de transfert pour les objets contenus dans le SIP (CHECK_MANIFEST_DATAOBJECT_VERSION.FATAL = Erreur fatale lors de la vérification des usages des objets)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors du contrôle des usages déclarés dans le bordereau de transfert pour les objets contenus dans le SIP (CHECK_MANIFEST_DATAOBJECT_VERSION.FATAL = Erreur technique lors de la vérification des usages des objets)</p>
 </li>
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="verification-du-nombre-d-objets-check-manifest-objectnumber-checkobjectsnumberactionhandler-java">
-<h4>Vérification du nombre d’objets CHECK_MANIFEST_OBJECTNUMBER (CheckObjectsNumberActionHandler.java)<a class="headerlink" href="#verification-du-nombre-d-objets-check-manifest-objectnumber-checkobjectsnumberactionhandler-java" title="Lien permanent vers ce titre">¶</a></h4>
-<blockquote>
-<div><ul>
+<h3>Vérification du nombre d’objets CHECK_MANIFEST_OBJECTNUMBER (CheckObjectsNumberActionHandler.java)<a class="headerlink" href="#verification-du-nombre-d-objets-check-manifest-objectnumber-checkobjectsnumberactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
 <li><p class="first"><strong>Règle</strong> : Le nombre d’objets binaires reçus dans la solution logicielle Vitam doit être strictement égal au nombre d’objets binaires déclaré dans le manifeste du SIP</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant.</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <ul>
-<li><p class="first">OK : le nombre d’objets reçus dans la solution logicielle Vitam est strictement égal au nombre d’objets déclaré dans le bordereau de transfert du SIP (CHECK_MANIFEST_OBJECTNUMBER.OK = Succès de la vérification du nombre d’objets)</p>
+<li><p class="first">OK : le nombre d’objets reçus dans la solution logicielle Vitam est strictement égal au nombre d’objets déclarés dans le bordereau de transfert du SIP (CHECK_MANIFEST_OBJECTNUMBER.OK = Succès de la vérification du nombre d’objets)</p>
 </li>
 <li><p class="first">KO :</p>
 <blockquote>
@@ -504,49 +539,71 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de la vérification du nombre d’objets (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_OBJECTNUMBER.FATAL = Erreur fatale lors de la vérification du nombre d’objets)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification du nombre d’objets (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_OBJECTNUMBER.FATAL = Erreur technique lors de la vérification du nombre d’objets)</p>
 </li>
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="verification-de-la-coherence-du-bordereau-de-transfert-check-manifest-extractsedaactionhandler-java">
-<h4>Vérification de la cohérence du bordereau de transfert CHECK_MANIFEST (ExtractSedaActionHandler.java)<a class="headerlink" href="#verification-de-la-coherence-du-bordereau-de-transfert-check-manifest-extractsedaactionhandler-java" title="Lien permanent vers ce titre">¶</a></h4>
+<h3>Vérification de la cohérence du bordereau de transfert CHECK_MANIFEST (ExtractSedaActionHandler.java)<a class="headerlink" href="#verification-de-la-coherence-du-bordereau-de-transfert-check-manifest-extractsedaactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Création des journaux du cycle de vie des unités archivistiques et des groupes d’objets, extraction des unités archivistiques, objets binaires et objets physiques, vérification de la présence de récursivités dans les arborescences des unités archivistiques et création de l’arbre d’ordre d’indexation, extraction des métadonnées contenues dans la balise ManagementMetadata du bordereau de transfert pour le calcul des règles de gestion, vérification de la validité du rattachement des unités du SIP aux unités présentes dans la solution logicielle Vitam si demandé, détection des problèmes d’encodage dans le bordereau de transfert et vérification que les objets ne font pas référence directement à des unités si ces objets possèdent des groupes d’objets, vérification de la présence obligatoire d&nbsp;»un objet de type Master pour une entrée, et vérification des usages d’objets autorisés pour les rattachements.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>Règle</strong> : Création des journaux du cycle de vie des unités archivistiques et des groupes d’objets, extraction des unités archivistiques, objets binaires et objets physiques, vérification de la présence de récursivités dans les arborescences des unités archivistiques et création de l’arbre d’ordre d’indexation, extraction des métadonnées contenues dans la balise ManagementMetadata du bordereau de transfert pour le calcul des règles de gestion, vérification de la validité du rattachement des unités du SIP aux unités présentes dans la solution logicielle Vitam si demandé, détection des problèmes d’encodage dans le bordereau de transfert et vérification que les objets ne font pas référence directement à des unités si ces objets possèdent des groupes d’objets.</li>
-<li><strong>Type</strong> : bloquant.</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : les journaux du cycle de vie des unités archivistiques et des groupes d’objets ont été créés avec succès, aucune récursivité n’a été détectée dans l’arborescence des unités archivistiques, la structure de rattachement déclarée existe (par exemple, un SIP peut être rattaché à un plan de classement, mais pas l’inverse), le type de structure de rattachement est autorisé, aucun problème d’encodage détecté et les objets avec groupe d’objets ne référencent pas directement les unités. L’extraction des unités archivistiques, objets binaires et physiques, la création de l’arbre d’indexation et l’extraction des métadonnées des règles de gestion ont été effectuées avec succès. (CHECK_MANIFEST.OK = Succès du contrôle de cohérence du bordereau de transfert). L’extraction des unités archivistiques, objets binaires et physiques, la création de l’arbre d’indexation et l’extraction des métadonnées des règles de gestion ont été effectuées avec succès.</li>
-<li>KO :<ul>
-<li>Cas 1 : une ou plusieurs balises de rattachement vers un GOT existant déclarent autre chose que le GUID d’un GOT existant (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.EXISTING_OG_NOT_DECLARED.KO=Une unité archivistique déclare un objet à la place du groupe d’objets correspondant)</li>
-<li>Cas 2 : une ou plusieurs balises de rattachement vers une AU existant déclarent autre chose que le GUID d’une AU existante (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_WRONG_ATTACHMENT.KO=Le bordereau de transfert procède à un rattachement en utilisant des éléments inexistants dans le système)</li>
-<li>Cas 3 : il y a un problème lors du contrôle à un noeud de  rattachement  CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_WRONG_ATTACHMENT_LINK.KO=Le bordereau de transfert procède à un rattachement en utilisant des éléments hors périmètre.</li>
-<li>Cas 4 : Une récursivité a été détectée dans l’arborescence des unités archivistiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_LOOP.KO=Le bordereau de transfert présente une récursivité dans l’arborescence de ses unités archivistiques)</li>
-<li>Cas 5 : il y a un problème d’encodage ou des objets référencent directement des unités archivistiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.KO = Échec du contrôle de cohérence du bordereau de transfert)</li>
-</ul>
-</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification de la cohérence du bordereau, par exemple les journaux du cycle de vie n’ont pu être créés (CHECK_MANIFEST.FATAL = Erreur fatale lors du contrôle de cohérence du bordereau de transfert)</li>
-</ul>
-</li>
+<li>OK : les journaux du cycle de vie des unités archivistiques et des groupes d’objets ont été créés avec succès, aucune récursivité n’a été détectée dans l’arborescence des unités archivistiques, la structure de rattachement déclarée existe, le type de structure de rattachement est autorisé, (par exemple, un SIP peut être rattaché à un plan de classement, mais pas l’inverse) aucun problème d’encodage n’a été détecté et les objets avec groupe d’objets ne référencent pas directement les unités. L’extraction des unités archivistiques, objets binaires et physiques, la création de l’arbre d’indexation et l’extraction des métadonnées des règles de gestion ont été effectuées avec succès, les vérifications au niveau des types d’usages autorisés ont bien été effectués. (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.OK = Succès du contrôle de cohérence du bordereau de transfert).</li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="verification-de-la-coherence-entre-objets-groupes-d-objets-et-unites-archivistiques-check-consistency-checkobjectunitconsistencyactionhandler-java">
-<h4>Vérification de la cohérence entre objets, groupes d’objets et unités archivistiques CHECK_CONSISTENCY (CheckObjectUnitConsistencyActionHandler.java)<a class="headerlink" href="#verification-de-la-coherence-entre-objets-groupes-d-objets-et-unites-archivistiques-check-consistency-checkobjectunitconsistencyactionhandler-java" title="Lien permanent vers ce titre">¶</a></h4>
+<ul>
+<li><p class="first">KO :</p>
+<ul>
+<li><p class="first">Cas 1 : une ou plusieurs balises de rattachement procède à un rattachement en utilisant des éléments inexistants dans le système   (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_WRONG_ATTACHMENT.KO=Le bordereau de transfert procède à un rattachement en utilisant des éléments inexistants dans le système)</p>
+</li>
+<li><p class="first">Cas 2 : une ou plusieurs balises de rattachement vers un GOT existant déclarent autre chose que le GUID d’un GOT existant (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.EXISTING_OG_NOT_DECLARED.KO = Une unité archivistique déclare un objet à la place du groupe d’objets correspondant)</p>
+</li>
+<li><p class="first">Cas 3 : une ou plusieurs balises de rattachement vers une AU existante déclarent autre chose que le GUID d’une AU existante (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_WRONG_ATTACHMENT.KO = Le bordereau de transfert procède à un rattachement en utilisant des éléments inexistants dans le système)</p>
+</li>
+<li><p class="first">Cas 4 : il y a un problème lors du contrôle du noeud de  rattachement  (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_WRONG_ATTACHMENT_LINK.KO = Le bordereau de transfert procède à un rattachement en utilisant des éléments hors périmètre).</p>
+</li>
+<li><p class="first">Cas 5 : Une récursivité a été détectée dans l’arborescence des unités archivistiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.CHECK_MANIFEST_LOOP.KO = Le bordereau de transfert présente une récursivité dans l’arborescence de ses unités archivistiques)</p>
+</li>
+<li><p class="first">Cas 6 : il y a un problème d’encodage ou des objets référencent directement des unités archivistiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.KO = Échec du contrôle de cohérence du bordereau de transfert)</p>
 <blockquote>
 <div><ul class="simple">
+<li>Cas 7 : présence attendue d’un objet de type Master: Binary ou physical CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.MASTER_MANDATORY_REQUIRED.KO = Absence d’un BinaryMaster ou PhysicalMaster dans le groupe d’objet</li>
+<li>Cas 8 : le contrat d’entrée n’autorise pas un ou plusieurs usages d’objets (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST.ATTACHMENT_OBJECTGROUP.KO = Le contrat d’entrée n’autorise pas le rattachement d’un objet à un groupe d’objets existant)</li>
+<li>Cas 9 : il y a une donnée malformatée (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_MALFORMED_DATA.KO=Le bordereau de transfert possède une donnée malformée)</li>
+<li>Cas 10 : L’objet physique déclare un usage «&nbsp;BinaryMaster&nbsp;». Cet usage n’est pas autorisé pour les objets physiques (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.PDO_DATAOBJECTIONVERSION_BINARYMASTER.KO = L’objet physique déclare un usage «&nbsp;BinaryMaster&nbsp;». Cet usage n’est pas autorisé pour les objets physiques)</li>
+<li>Cas 11 : L’objet binaire déclare un usage «&nbsp;PhysicalMaster&nbsp;». Cet usage n’est pas autorisé pour les objets binaires (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.BDO_DATAOBJECTIONVERSION_PHYSICALMASTER.KO = L’objet binaire déclare un usage «&nbsp;PhysicalMaster&nbsp;». Cet usage n’est pas autorisé pour les objets binaires)</li>
+<li>Cas 12 : Au moins un objet déclare un usage incorrect. L’usage doit s’écrire sous la forme [usage] ou [usage]_[version]. «&nbsp;Usage&nbsp;» doit être parmi l’énumération DataObjectVersion définie pour Vitam, «&nbsp;version&nbsp;» doit être un entier positif (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.INVALID_DATAOBJECTVERSION.KO = Au moins un objet déclare un usage incorrect. L’usage doit s’écrire sous la forme [usage] ou [usage]_[version]. «&nbsp;Usage&nbsp;» doit être parmi l’énumération DataObjectVersion définie pour Vitam, «&nbsp;version&nbsp;» doit être un entier positif)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Cas 13 : Au moins une unité archivistique contient un champ non renseigné dont la valeur est obligatoire (CHECK_DATAOBJECTPACKAGE.CHECK_MANIFEST_DATAOBJECT_VERSION.EMPTY_REQUIRED_FIELD.KO = Il existe au moins un champ non renseigné dont la valeur est obligatoire)</p>
+</li>
+</ul>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de la cohérence du bordereau, par exemple les journaux du cycle de vie n’ont pu être créés (CHECK_MANIFEST.FATAL = Erreur technique lors du contrôle de cohérence du bordereau de transfert)</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="verification-de-la-coherence-entre-objets-groupes-d-objets-et-unites-archivistiques-check-consistency-checkobjectunitconsistencyactionhandler-java">
+<h4>Vérification de la cohérence entre objets, groupes d’objets et unités archivistiques CHECK_CONSISTENCY (CheckObjectUnitConsistencyActionHandler.java)<a class="headerlink" href="#verification-de-la-coherence-entre-objets-groupes-d-objets-et-unites-archivistiques-check-consistency-checkobjectunitconsistencyactionhandler-java" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
 <li><strong>Règle</strong> : Vérification que chaque objet ou groupe d’objets est référencé par une unité archivistique, rattachement à un groupe d’objets pour les objets sans groupe d’objets mais référencés par une unité archivistique, création de la table de concordance (MAP) pour les identifiants des objets et des unités archivistiques du SIP et génération de leurs identifiants Vitam (GUID)</li>
 <li><strong>Type</strong> : bloquant.</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : aucun objet ou groupe d’objets n’est orphelin (c’est à dire non référencé par une unité archivistique) et tous les objets sont rattachés à un groupe d’objets. La table de concordance est créée et les identifiants des objets et unités archivistiques ont été générés. (CHECK_CONSISTENCY.OK = Succès de la vérification de la cohérence entre objets, groupes d’objets et unités archivistiques)</li>
 <li>KO : au moins un objet ou groupe d’objets est orphelin (c’est-à-dire non référencé par une unité archivistique) (CHECK_CONSISTENCY.KO = Échec de la vérification de la cohérence entre objets, groupes d’objets et unités archivistiques)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification de la cohérence entre objets, groupes d’objets et unités archivistiques (CHECK_CONSISTENCY.FATAL = Erreur fatale lors de la vérification de la cohérence entre objets, groupes d’objets et unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de la cohérence entre objets, groupes d’objets et unités archivistiques (CHECK_CONSISTENCY.FATAL = Erreur technique lors de la vérification de la cohérence entre objets, groupes d’objets et unités archivistiques)</li>
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 </div>
@@ -554,11 +611,14 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <h2>Processus de contrôle et traitement des objets (STP_OG_CHECK_AND_TRANSFORME)<a class="headerlink" href="#processus-de-controle-et-traitement-des-objets-stp-og-check-and-transforme" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="verification-de-l-integrite-des-objets-check-digest-checkconformityactionplugin-java">
 <h3>Vérification de l’intégrité des objets CHECK_DIGEST (CheckConformityActionPlugin.java)<a class="headerlink" href="#verification-de-l-integrite-des-objets-check-digest-checkconformityactionplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : Vérification de la cohérence entre l’empreinte de l’objet binaire calculée par la solution logicielle Vitam et celle déclarée dans le bordereau de transfert. Si l’empreinte déclarée dans le bordereau de transfert n’a pas été calculée avec l’algorithme SHA-512, alors l’empreinte est recalculée avec cet algorithme. Elle sera alors enregistrée dans la solution logicielle Vitam.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Algorithmes autorisés en entrée</strong> : MD5, SHA-1, SHA-256, SHA-512</p>
+</div>
 <ul>
-<li><p class="first"><strong>Règle</strong> : Vérification de la cohérence entre l’empreinte de l’objet binaire calculée par la solution logicielle Vitam et celle déclarée dans le bordereau de transfert. Si l’empreinte déclarée dans le bordereau de transfert n’a pas été calculée avec l’algorithme SHA-512, alors l’empreinte est recalculée avec cet algorithme. Elle sera alors enregistrée dans la solution logicielle Vitam.</p>
-</li>
-<li><p class="first"><strong>Algorithmes autorisés en entrée</strong> : MD5, SHA-1, SHA-256, SHA-512</p>
-</li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
@@ -568,13 +628,13 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : au moins un objet reçu n’a pas d’empreinte dans le bordereau (CHECK_DIGEST.EMPTY.KO=Échec lors de la vérification de l’empreinte des objets : Il existe au moins un objet dont l’empreinte est absente dans le bordereau de transfert)</li>
-<li>Cas 2 : au moins une empreinte d’un objet reçu n’est pas conforme à son empreinte dans le bordereau (CHECK_DIGEST.INVALID.KO=Échec lors de la vérification de l’empreinte des objets : Il existe au moins un objet dont l’empreinte est invalide dans le bordereau de transfert)</li>
-<li>Cas 3 : le SIP soumis à la solution logicielle Vitam contient à la fois le cas 1 et le cas 2 (CHECK_DIGEST.KO=Échec de la vérification de l’empreinte des objets)</li>
+<li>Cas 1 : au moins un objet reçu n’a pas d’empreinte dans le bordereau (CHECK_DIGEST.EMPTY.KO = Échec lors de la vérification de l’empreinte des objets : Il existe au moins un objet dont l’empreinte est absente dans le bordereau de transfert)</li>
+<li>Cas 2 : au moins une empreinte d’un objet reçu n’est pas conforme à son empreinte dans le bordereau (CHECK_DIGEST.INVALID.KO = Échec lors de la vérification de l’empreinte des objets : Il existe au moins un objet dont l’empreinte est invalide dans le bordereau de transfert)</li>
+<li>Cas 3 : le SIP soumis à la solution logicielle Vitam contient à la fois le cas 1 et le cas 2 (CHECK_DIGEST.KO = Échec de la vérification de l’empreinte des objets)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de la vérification de l’intégrité des objets binaires, par exemple lorsque l’algorithme est inconnu (CHECK_DIGEST.FATAL = Erreur fatale lors de la vérification de l’empreinte des objets)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de l’intégrité des objets binaires, par exemple lorsque l’algorithme est inconnu (CHECK_DIGEST.FATAL = Erreur technique lors de la vérification de l’empreinte des objets)</p>
 </li>
 </ul>
 </li>
@@ -588,20 +648,26 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 </li>
 <li><p class="first"><strong>Statuts</strong> :</p>
 <ul>
-<li><p class="first">OK : l’identification s’est bien passée, les formats identifiés sont référencés dans le référentiel interne et les informations sont cohérentes avec celles déclarées dans le manifeste (OG_OBJECTS_FORMAT_CHECK.OK = Succès de la vérification des formats)</p>
+<li><p class="first">OK : l’identification s’est bien passée, les formats ont tous été identifiés, sont référencés dans le référentiel interne et sont soit dans la liste des formats autorisés du contrat d’entrée, soit ce contrat autorise tous les formats. De plus les informations de formats trouvées par la solution logicelle Vitam sont cohérentes avec celles déclarées dans le manifeste (OG_OBJECTS_FORMAT_CHECK.OK = Succès de la vérification des formats)</p>
 </li>
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : au moins un objet reçu a un format qui n’a pas été trouvé (OG_OBJECTS_FORMAT_CHECK.KO = Échec de l’identification des formats)</li>
+<li>Cas 1 : au moins un objet reçu a un format qui n’a pas été trouvé et le contrat d’entrée utilisé interdit le versement d’objets aux formats non identifiés (OG_OBJECTS_FORMAT_CHECK.KO = Échec de l’identification des formats)</li>
 <li>Cas 2 : au moins un objet reçu a un format qui n’est pas référencé dans le référentiel interne (OG_OBJECTS_FORMAT_CHECK.UNCHARTED.KO=Échec lors de l’identification des formats, le format de ou des objet(s) est identifié mais est inconnu du référentiel des formats)</li>
-<li>Cas 3 : le SIP soumis à la solution logicielle Vitam contient à la fois le cas 1 et le cas 2 (OG_OBJECTS_FORMAT_CHECK.KO = Échec de l’identification des formats)</li>
+<li>Cas 3 : au moins objet reçu possède un format qui n’est pas indiqué dans la liste des formats autorisés du contrat d’entrée du SIP (OG_OBJECTS_FORMAT_CHECK.REJECTED_FORMAT.KO=Échec de l’identification des formats : le contrat d’entrée interdit le versement d’objet au format inconnu et le SIP versé contient au moins un objet au format inconnu, ou bien le SIP contient un format interdit par le contrat d’entrée)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de l’indentification des formats (OG_OBJECTS_FORMAT_CHECK.FATAL = Erreur fatale lors de l’identification des formats)</p>
+<li><p class="first">WARNING :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : l’identification s’est bien passée, les formats identifiés sont référencés dans le référentiel interne mais les informations ne sont pas cohérentes avec celles déclarées dans le manifeste (OG_OBJECTS_FORMAT_CHECK.WARNING = Avertissement lors de l’identification des formats)</li>
+<li>Cas 2 : au moins un objet reçu a un format qui n’a pas été trouvé mais le contrat d’entrée utilisé autorise le versement d’objets aux formats non identifiés. Dans ce cas Vitam remplace le champ «&nbsp;FormatId&nbsp;» du manifest.xml par le mot «&nbsp;unknown&nbsp;» (OG_OBJECTS_FORMAT_CHECK.WARNING = Avertissement lors de l’identification des formats)</li>
+</ul>
+</div></blockquote>
 </li>
-<li><p class="first">WARNING : l’identification s’est bien passée, les formats identifiés sont référencés dans le référentiel interne mais les informations ne sont pas cohérentes avec celles déclarées dans le manifeste (OG_OBJECTS_FORMAT_CHECK.WARNING = Avertissement lors de la vérification des formats)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de l’identification des formats (OG_OBJECTS_FORMAT_CHECK.FATAL = Erreur technique lors de l’identification des formats)</p>
 </li>
 </ul>
 </li>
@@ -625,15 +691,15 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : au moins un champ d’une unité archivistique dont le schéma n’est pas conforme par rapport au schéma prédéfini du référentiel Vitam. (CHECK_UNIT_SCHEMA.INVALID_UNIT.KO=Échec lors de la vérification globale de l’unité archivistique : champs non conformes)</li>
-<li>Cas 2 : au moins un champ obligatoire d’une unité archivistique est vide(CHECK_UNIT_SCHEMA.EMPTY_REQUIRED_FIELD.KO=Échec lors de la vérification globale de l’unité archivistique : champs obligatoires vides)</li>
-<li>Cas 3 : au moins un champ date d’une unité archivistique est supérieur à 9000 (titre vide, date incorrecte…) ou la date de fin des dates extrêmes est strictement inférieure à la date de début (CHECK_UNIT_SCHEMA.RULE_DATE_THRESHOLD.KO=Échec du calcul des dates d’échéance, la date ne peut être gérée)</li>
+<li>Cas 1 : il y a au moins un champ d’une unité archivistique dont le schéma n’est pas conforme par rapport au schéma prédéfini du référentiel Vitam. (CHECK_UNIT_SCHEMA.INVALID_UNIT.KO = Échec lors de la vérification globale de l’unité archivistique : champs non conformes)</li>
+<li>Cas 2 : au moins un champ obligatoire d’une unité archivistique est vide(CHECK_UNIT_SCHEMA.EMPTY_REQUIRED_FIELD.KO = Échec lors de la vérification globale de l’unité archivistique : champs obligatoires vides)</li>
+<li>Cas 3 : au moins un champ date d’une unité archivistique est supérieur à 9000 (titre vide, date incorrecte…) ou la date de fin des dates extrêmes est strictement inférieure à la date de début (CHECK_UNIT_SCHEMA.RULE_DATE_THRESHOLD.KO = Échec du calcul des dates d’échéance, la date ne peut être gérée)</li>
 <li>Cas 4 : Échec du calcul des dates : au moins un champ date d’une unité archivistique possède un format non conforme ( CHECK_UNIT_SCHEMA.RULE_DATE_FORMAT.KO=Échec du calcul des dates d’échéance, la date ne peut être gérée )</li>
 <li>Cas 5 : Au moins une valeur de l’unité archivistique n’est pas conforme à son schéma en raison d’un problème de cohérence entre champs. Par exemple, la valeur contenue dans le champs «&nbsp;StartDate&nbsp;» est postérieure à la date définie dans la «&nbsp;EndDate&nbsp;»  ( CHECK_UNIT_SCHEMA.CONSISTENCY.KO=Au moins une unité archivistique n’est pas conforme à son schéma en raison d’un problème de cohérence entre champs)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de la vérification de l’unité archivistique (CHECK_UNIT_SCHEMA.FATAL=Erreur fatale lors de la vérification globale de l’unité archivistique)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de l’unité archivistique (CHECK_UNIT_SCHEMA.FATAL=Erreur technique lors de la vérification globale de l’unité archivistique)</p>
 </li>
 </ul>
 </li>
@@ -641,15 +707,27 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 </div>
 <div class="section" id="verification-du-profil-d-unite-archivistique-si-celui-ci-est-declare-check-archive-unit-profile-checkarchiveunitprofileactionplugin-java">
 <h3>Vérification du profil d’unité archivistique - si celui-ci est déclaré CHECK_ARCHIVE_UNIT_PROFILE (CheckArchiveUnitProfileActionPlugin.java)<a class="headerlink" href="#verification-du-profil-d-unite-archivistique-si-celui-ci-est-declare-check-archive-unit-profile-checkarchiveunitprofileactionplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règle</strong> : Vérification de la conformité au niveau des unités archivistiques: si celles ci font référence à un profil d’unité archivistique, présent dans la balise «&nbsp;ArchiveUnitProfile&nbsp;»</li>
-<li><strong>Type</strong> : non bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : les unités archivistiques versées et ayant un profil d’unité archivistique de référence bien conformes au schéma décrit dans le profil d’unité archivistique, et ceux ci existent bien dans le système ( CHECK_ARCHIVE_UNIT_PROFILE.OK = Succès de la vérification de la conformité aux profils d’unité archivistique )</li>
-<li>KO : au moins une unité archivistique n’est pas conforme au schéma décrit dans le profil d’unité archivistique associé ( CHECK_ARCHIVE_UNIT_PROFILE.KO = Echec de la vérification de la conformité au profil d’unité archivistique)</li>
-<li>PROFILE NOT FOUND : au moins une unité archivistique est déclarée en lien avec un profil d’unité archivistique via la balise ArchiveUnitProfile , et ce référentiel n’existe pas dans le système ( CHECK_ARCHIVE_UNIT_PROFILE.PROFILE_NOT_FOUND.KO=Échec de la vérification de la conformité au profil d’unité archivistique : profil d’unité archivistique non trouvé )</li>
-<li>INVALID UNIT : au moins une unité archivistique n’est pas conforme au schéma décrit dans le profil d’unité archivistique associé ( CHECK_ARCHIVE_UNIT_PROFILE.INVALID_UNIT.KO = Échec de la vérification de la conformité au profil d’unité archivistique : champs non conformes)</li>
-<li>INVALID AU: le profil d’unité archivistique cité dans le référentiel est mal formaté ( CHECK_ARCHIVE_UNIT_PROFILE.INVALID_AU_PROFILE.KO=Échec de la vérification de la conformité aux documents type : document type non conforme)</li>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Vérification de la conformité au niveau des unités archivistiques: si celles ci font référence à un profil d’unité archivistique, présent dans la balise «&nbsp;ArchiveUnitProfile&nbsp;». Les profils référencés doivent être en état «&nbsp;Actif&nbsp;» et ne pas avoir un schéma de contrôle vide</p>
+</li>
+<li><p class="first"><strong>Type</strong> : non bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul>
+<li><p class="first">OK : les unités archivistiques versées et ayant un profil d’unité archivistique de référence bien conformes au schéma décrit dans le profil d’unité archivistique, et ceux ci existent bien dans le système en état actif ( CHECK_ARCHIVE_UNIT_PROFILE.OK = Succès de la vérification de la conformité aux profils d’unité archivistique )</p>
+</li>
+<li><p class="first">KO :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : il y a au moins une unité archivistique qui n’est pas conforme au schéma décrit dans le profil d’unité archivistique associé (CHECK_ARCHIVE_UNIT_PROFILE.KO = Echec de la vérification de la conformité au profil d’unité archivistique)</li>
+<li>Cas 2 : il y a au moins une unité archivistique qui déclare un lien avec un profil d’unité archivistique inéxistant dans le référentiel (CHECK_ARCHIVE_UNIT_PROFILE.PROFILE_NOT_FOUND.KO = Échec de la vérification de la conformité au profil d’unité archivistique : profil d’unité archivistique non trouvé)</li>
+<li>Cas 3 : il y au moins une unité archivistique qui n’est pas conforme au schéma décrit dans le profil d’unité archivistique associé (CHECK_ARCHIVE_UNIT_PROFILE.INVALID_UNIT.KO = Échec de la vérification de la conformité au profil d’unité archivistique : champs non conformes)</li>
+<li>Cas 4 : le profil d’unité archivistique cité dans le référentiel est mal formaté (CHECK_ARCHIVE_UNIT_PROFILE.INVALID_AU_PROFILE.KO = Échec de la vérification de la conformité aux documents type : profil d’unité archivistique  non conforme)</li>
+<li>Cas 5 : le profil d’unité archivistique est dans l’état «&nbsp;inactif&nbsp;» (CHECK_ARCHIVE_UNIT_PROFILE.INACTIVE_STATUS.KO = Échec de la vérification de la conformité aux documents type : profil d’unité archivistique</li>
+<li>Cas 6 : le profil d’unité archivistique possède un schéma de contrôle qui est vide (CHECK_ARCHIVE_UNIT_PROFILE.EMPTY_CONTROL_SCHEMA.KO = Échec de la vérification de la conformité aux documents type : schéma de contrôle du profil d’unité archivistique vide)</li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </li>
 </ul>
@@ -657,28 +735,39 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <div class="section" id="verification-du-niveau-de-classification-check-classification-level-checkclassificationlevelactionplugin-java">
 <h3>Vérification du niveau de classification CHECK_CLASSIFICATION_LEVEL (CheckClassificationLevelActionPlugin.java)<a class="headerlink" href="#verification-du-niveau-de-classification-check-classification-level-checkclassificationlevelactionplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Vérification des niveaux de classification associés, s’il existe, aux unités archivistiques. Ces niveaux doivent exister dans la liste des niveaux de classifications autorisés par la plateforme (paramètre configuré dans la configuration des workers). Pour les unités archivistiques sans niveau de classification, la vérification contrôle que la plateforme autorise le versement d’unités archivistiques sans niveau de classification.</li>
+<li><strong>Règle</strong> : Vérification des niveaux de classification associés, s’il en existe, aux unités archivistiques. Ces niveaux doivent exister dans la liste des niveaux de classifications autorisés par la plateforme (paramètre configuré dans la configuration des workers). Pour les unités archivistiques sans niveau de classification, la vérification contrôle que la plateforme autorise le versement d’unités archivistiques sans niveau de classification.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : les unités archivistiques versées ont un niveau de classification autorisé par la plateforme. S’il existe dans le SIP des unités archivistiques sans niveau de classification, c’est que la plateforme autorise le versement d’unités archivistiques sans niveau de classification. (CHECK_CLASSIFICATION_LEVEL.OK=Succès de la vérification du niveau de classification)</li>
-<li>KO : au moins une unité archivistique du SIP possède un niveau de classification qui n’est pas un niveau de classification autorisé par la plateforme, ou une unité archivistique n’a pas de niveau de classification alors que la plateforme requiert que toutes les unités archivistiques possèdent un niveau de classification. (CHECK_CLASSIFICATION_LEVEL.KO=Échec de la vérification du niveau de classification, non autorisés par la plateforme : le bordereau de transfert déclare un niveau de classification non autorisé par la plateforme)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification des niveaux de classifications (CHECK_CLASSIFICATION_LEVEL.FATAL=Erreur fatale lors de la vérification du niveau de classification)</li>
+<li>OK : les unités archivistiques versées ont un niveau de classification autorisé par la plateforme. S’il existe dans le SIP des unités archivistiques sans niveau de classification, il faut que la plateforme autorise le versement d’unités archivistiques sans niveau de classification. (CHECK_CLASSIFICATION_LEVEL.OK = Succès de la vérification du niveau de classification)</li>
+<li>KO : au moins une unité archivistique du SIP possède un niveau de classification qui n’est pas un niveau de classification autorisé par la plateforme, ou une unité archivistique n’a pas de niveau de classification alors que la plateforme requiert que toutes les unités archivistiques possèdent un niveau de classification. (CHECK_CLASSIFICATION_LEVEL.KO = Échec de la vérification du niveau de classification, non autorisés par la plateforme : le bordereau de transfert déclare un niveau de classification non autorisé par la plateforme)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification des niveaux de classifications (CHECK_CLASSIFICATION_LEVEL.FATAL = Erreur technique lors de la vérification du niveau de classification)</li>
 </ul>
 </li>
 </ul>
 <div class="section" id="application-des-regles-de-gestion-et-calcul-des-dates-d-echeances-units-rules-compute-unitsrulescomputeplugin-java">
 <h4>Application des règles de gestion et calcul des dates d’échéances UNITS_RULES_COMPUTE (UnitsRulesComputePlugin.java)<a class="headerlink" href="#application-des-regles-de-gestion-et-calcul-des-dates-d-echeances-units-rules-compute-unitsrulescomputeplugin-java" title="Lien permanent vers ce titre">¶</a></h4>
-<ul class="simple">
-<li><strong>Règle</strong> : Calcul des dates d’échéances des unités archivistiques du SIP. Pour les unités racines, c’est à dire les unités déclarées dans le SIP et n’ayant aucun parent dans l’arborescence, la solution logicielle Vitam utilise les règles de gestion incluses dans le bloc Management de chacune de ces unités ainsi que celles présentes dans le bloc ManagementMetadata. La solution logicielle Vitam effectue également ce calcul pour les autres unités archivistiques du SIP possédant des règles de gestion déclarées dans leurs balises Management, sans prendre en compte le ManagementMetadata. Le référentiel utilisé pour ces calculs est le référentiel des règles de gestion de la solution logicielle Vitam.</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : les règles de gestion sont référencées dans le référentiel interne et ont été appliquées avec succès (UNITS_RULES_COMPUTE.OK = Succès de l’application des règles de gestion et du calcul des dates d’échéance)</li>
-<li>KO :<ul>
-<li>Cas 1 : au moins une règle de gestion déclarée dans le manifeste n’est pas référencée dans le référentiel interne ou au moins une règle est incohérent avec sa catégorie (UNITS_RULES_COMPUTE.UNKNOWN.KO=Échec lors de l’application des règles de gestion et du calcul des dates d’échéance : règle de gestion inconnue)</li>
-<li>Cas 2 : une balise RefnonRuleId a un identifiant d’une règle d’une autre catégorie que la sienne (UNITS_RULES_COMPUTE.REF_INCONSISTENCY.KO=Échec lors de l’application des règles de gestion et du calcul des dates d’échéance : exclusion d’héritage incohérente)</li>
-</ul>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Calcul des dates d’échéances des unités archivistiques du SIP. Pour les unités racines, c’est à dire les unités déclarées dans le SIP et n’ayant aucun parent dans l’arborescence, la solution logicielle Vitam utilise les règles de gestion incluses dans le bloc Management de chacune de ces unités ainsi que celles présentes dans le bloc ManagementMetadata. La solution logicielle Vitam effectue également ce calcul pour les autres unités archivistiques du SIP possédant des règles de gestion déclarées dans leurs balises Management, sans prendre en compte le ManagementMetadata. Le référentiel utilisé pour ces calculs est le référentiel des règles de gestion de la solution logicielle Vitam.</p>
 </li>
-<li>FATAL : une erreur fatale est survenue lors du calcul des dates d’échéances (UNITS_RULES_COMPUTE.FATAL = Erreur fatale lors de l’application des règles de gestion et du calcul des dates d’échéance)</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul>
+<li><p class="first">OK : les règles de gestion sont référencées dans le référentiel interne et ont été appliquées avec succès (UNITS_RULES_COMPUTE.OK = Succès de l’application des règles de gestion et du calcul des dates d’échéance)</p>
+</li>
+<li><p class="first">KO :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : Au moins une unité archivistique déclare un champ dont la valeur n”“est pas conforme à celle attendue (UNITS_RULES_COMPUTE.KO=Au moins une unité archivistique déclare un champ dont la valeur n”“est pas conforme à celle attendue)</li>
+<li>Cas 2 : au moins une règle de gestion déclarée dans le manifeste n’est pas référencée dans le référentiel interne ou au moins une règle est incohérente avec sa catégorie (UNITS_RULES_COMPUTE.UNKNOWN.KO = Échec lors de l’application des règles de gestion et du calcul des dates d’échéance : règle de gestion inconnue)</li>
+<li>Cas 3 : une balise RefnonRuleId a un identifiant d’une règle d’une autre catégorie que la sienne (UNITS_RULES_COMPUTE.REF_INCONSISTENCY.KO=Échec lors de l’application des règles de gestion et du calcul des dates d’échéance : exclusion d’héritage incohérente)</li>
+<li>Cas 4 : il y a une incohérence dans l’héritage des règles de gestion (UNITS_RULES_COMPUTE.REF_INCONSISTENCY.KO = Échec lors de l”“application des règles de gestion et du calcul des dates d”“échéance : exclusion d”“héritage incohérente)</li>
+<li>Cas 5 : Au moins une unité archivistique déclare une règle non cohérente avec sa catégorie (UNITS_RULES_COMPUTE.CONSISTENCY.KO=Échec lors de l’application des règles de gestion et du calcul des dates d”“échéance : Au moins une unité archivistique déclare une règle non cohérente avec sa catégorie)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors du calcul des dates d’échéances (UNITS_RULES_COMPUTE.FATAL = Erreur technique lors de l’application des règles de gestion et du calcul des dates d’échéance)</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -701,12 +790,12 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><p class="first">KO :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Cas 1 : les offres de stockage ne sont pas disponibles (STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_KO_UNAVAILABLE.KO= Au moins une offre de stockage n’est pas disponible)</li>
-<li>Cas 2 : les offres ne disposent pas d’assez d’espace pour stocker le contenu du SIP (STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_SPACE_KO.KO= Au moins une offre de stockage est insuffisante)</li>
+<li>Cas 1 : les offres de stockage ne sont pas disponibles (STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_KO_UNAVAILABLE.KO = Échec de la vérification de la disponibilité d’au moins une offre de stockage)</li>
+<li>Cas 2 : les offres ne disposent pas d’assez d’espace pour stocker le contenu du SIP (STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_SPACE_KO.KO = Échec de la vérification de l’espace disponible)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">FATAL : une erreur fatale est survenue lors de la vérification de la disponibilité de l’offre de stockage (STORAGE_AVAILABILITY_CHECK.FATAL = Erreur fatale lors de la vérification de la disponibilité d’au moins une offre de stockage)</p>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de la disponibilité de l’offre de stockage (STORAGE_AVAILABILITY_CHECK.FATAL = Erreur technique lors de la vérification de la disponibilité d’au moins une offre de stockage)</p>
 </li>
 </ul>
 </li>
@@ -714,17 +803,25 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 </div>
 <div class="section" id="verification-de-la-disponibilite-de-l-offre-de-stockage-storage-availability-check-storage-availability-check-checkstorageavailabilityactionhandler-java">
 <h3>Vérification de la disponibilité de l’offre de stockage STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK (CheckStorageAvailabilityActionHandler.java)<a class="headerlink" href="#verification-de-la-disponibilite-de-l-offre-de-stockage-storage-availability-check-storage-availability-check-checkstorageavailabilityactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règle</strong> :  Vérification de la disponibilité de l’offres de stockage et de l’espace disponible pour y stocker le contenu du SIP compte tenu de la taille des objets à stocker</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : l’offre de stockage est accessible et dispose d’assez d’espace pour stocker le contenu du SIP (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.OK=Succès de la vérification de la disponibilité de l’offre de stockage)</li>
-<li>KO :<ul>
-<li>Cas 1 : l’offre de stockage n’est pas disponible (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_KO_UNAVAILABLE.KO=L’offre de stockage n’est pas disponible)</li>
-<li>Cas 2 : l’offre de stockage ne dispose pas d’assez d’espace pour stocker le contenu du SIP (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_SPACE_KO.KO=Disponibilité de l’offre de stockage insuffisante)</li>
-</ul>
+<ul>
+<li><p class="first"><strong>Règle</strong> :  Vérification de la disponibilité de l’offre de stockage et de l’espace disponible pour y stocker le contenu du SIP compte tenu de la taille des objets à stocker</p>
 </li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification de la disponibilité de l’offre de stockage (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.FATAL=Erreur fatale lors de la vérification de la disponibilités de l’offre de stockage)</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul>
+<li><p class="first">OK : l’offre de stockage est accessible et dispose d’assez d’espace pour stocker le contenu du SIP (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.OK = Succès de la vérification de la disponibilité de l’offre de stockage)</p>
+</li>
+<li><p class="first">KO :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : l’offre de stockage n’est pas disponible (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_KO_UNAVAILABLE.KO = L’offre de stockage n’est pas disponible)</li>
+<li>Cas 2 : l’offre de stockage ne dispose pas d’assez d’espace pour stocker le contenu du SIP (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.STORAGE_OFFER_SPACE_KO.KO = Disponibilité de l’offre de stockage insuffisante)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de la disponibilité de l’offre de stockage (STORAGE_AVAILABILITY_CHECK.STORAGE_AVAILABILITY_CHECK.FATAL = Erreur technique lors de la vérification de la disponibilités de l’offre de stockage)</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -741,20 +838,20 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li>OK : tous les objets binaires contenus dans le SIP ont été écrits sur les offres de stockage (OBJ_STORAGE.OK = Succès de l’écriture des objets et des groupes d’objets sur les offres de stockage)</li>
 <li>KO : au moins un des objets binaires contenus dans le SIP n’a pas pu être écrit sur les offres de stockage (OBJ_STORAGE.KO = Échec de l’écriture des objets et des groupes d’objets sur les offres de stockage)</li>
 <li>WARNING : le SIP ne contient pas d’objet (OBJECTS_LIST_EMPTY.WARNING = Avertissement lors de l’établissement de la liste des objets : il n’y a pas d’objet pour cette étape)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’écriture des objets binaires sur les offres de stockage (OBJ_STORAGE.FATAL = Erreur fatale lors de l’écriture des objets et des groupes d’objets sur les offres de stockage)</li>
+<li>FATAL : une erreur technique est survenue lors de l’écriture des objets binaires sur les offres de stockage (OBJ_STORAGE.FATAL = Erreur technique lors de l’écriture des objets et des groupes d’objets sur les offres de stockage)</li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="indexation-des-metadonnees-des-groupes-d-objets-og-metadata-indexation-indexobjectgroupactionplugin-java">
-<h3>Indexation des métadonnées des groupes d’objets (OG_METADATA_INDEXATION - IndexObjectGroupActionPlugin.java)<a class="headerlink" href="#indexation-des-metadonnees-des-groupes-d-objets-og-metadata-indexation-indexobjectgroupactionplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="indexation-des-metadonnees-des-groupes-d-objets-et-objets-og-metadata-indexation-indexobjectgroupactionplugin-java">
+<h3>Indexation des métadonnées des groupes d’objets et objets (OG_METADATA_INDEXATION - IndexObjectGroupActionPlugin.java)<a class="headerlink" href="#indexation-des-metadonnees-des-groupes-d-objets-et-objets-og-metadata-indexation-indexobjectgroupactionplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Indexation des métadonnées des groupes d’objets dans les bases internes de la solution logicielle Vitam, comme la taille des objets, les métadonnées liées aux formats (Type MIME, PUID, etc.), l’empreinte des objets, etc.</li>
+<li><strong>Règle</strong> : Indexation des métadonnées des groupes d’objets et objets dans les bases internes de la solution logicielle Vitam, comme la taille des objets, les métadonnées liées aux formats (Type MIME, PUID, etc.), l’empreinte des objets, etc.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : les métadonnées des groupes d’objets ont été indexées avec succès (OG_METADATA_INDEXATION.OK = Succès de l’indexation des métadonnées des objets et des groupes d’objets)</li>
-<li>KO : les métadonnées des groupes d’objets n’ont pas été indexées (OG_METADATA_INDEXATION.KO = Échec de l’indexation des métadonnées des objets et des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’indexation des métadonnées des groupes d’objets (OG_METADATA_INDEXATION.FATAL = Erreur fatale lors de l’indexation des métadonnées des objets et des groupes d’objets)</li>
+<li>OK : les métadonnées des groupes d’objets et objets ont été indexées avec succès (OG_METADATA_INDEXATION.OK = Succès de l’indexation des métadonnées des objets et des groupes d’objets)</li>
+<li>KO : au moins une des métadonnées des groupes d’objets et objets n’a pas été indexée (OG_METADATA_INDEXATION.KO = Échec de l’indexation des métadonnées des objets et des groupes d’objets)</li>
+<li>FATAL : une erreur technique est survenue lors de l’indexation des métadonnées des groupes d’objets (OG_METADATA_INDEXATION.FATAL = Erreur technique lors de l’indexation des métadonnées des objets et des groupes d’objets)</li>
 </ul>
 </li>
 </ul>
@@ -769,8 +866,8 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : les métadonnées des unités archivistiques ont été indexées avec succès (UNIT_METADATA_INDEXATION.OK = Succès de l’indexation des métadonnées de l’unité archivistique)</li>
-<li>KO : les métadonnées des unités archivistiques n’ont pas été indexées (UNIT_METADATA_INDEXATION.KO = Échec de l’indexation des métadonnées de l’unité archivistique)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’indexation des métadonnées des unités archivistiques (UNIT_METADATA_INDEXATION.FATAL = Erreur fatale lors de l’indexation des métadonnées de l’unité archivistique)</li>
+<li>KO : au moins une des métadonnées des unités archivistiques n’a pas été indexée (UNIT_METADATA_INDEXATION.KO = Échec de l’indexation des métadonnées de l’unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de l’indexation des métadonnées des unités archivistiques (UNIT_METADATA_INDEXATION.FATAL = Erreur technique lors de l’indexation des métadonnées de l’unité archivistique)</li>
 </ul>
 </li>
 </ul>
@@ -781,23 +878,24 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <div class="section" id="enregistrement-des-journaux-du-cycle-de-vie-des-groupes-d-objets-commit-life-cycle-object-group-commitlifecycleobjectgroupactionhandler-java">
 <h3>Enregistrement des journaux du cycle de vie des groupes d’objets COMMIT_LIFE_CYCLE_OBJECT_GROUP (CommitLifeCycleObjectGroupActionHandler.java)<a class="headerlink" href="#enregistrement-des-journaux-du-cycle-de-vie-des-groupes-d-objets-commit-life-cycle-object-group-commitlifecycleobjectgroupactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Sécurisation en base des journaux du cycle de vie des groupes d’objets (avant cette étape, les journaux du cycle de vie des groupes d’objets sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec)( Pas d’évènements créées dans le journal du cycle de vie )</li>
+<li><strong>Règle</strong> : Sécurisation en base des journaux du cycle de vie des groupes d’objets. Avant cette étape, les journaux du cycle de vie des groupes d’objets sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec, il n’y a pas d’évènements créées dans le journal du cycle de vie.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : la sécurisation des journaux du cycle de vie s’est correctement déroulée (COMMIT_LIFE_CYCLE_OBJECT_GROUP.OK = Succès de l’enregistrement des journaux du cycle de vie des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue lors de la sécurisation du journal du cycle de vie (COMMIT_LIFE_CYCLE_OBJECT_GROUP.FATAL = Erreur fatale lors de l’enregistrement des journaux du cycle de vie des groupes d’objets)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (COMMIT_LIFE_CYCLE_OBJECT_GROUP.FATAL = Erreur technique lors de l’enregistrement des journaux du cycle de vie des groupes d’objets)</li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="ecriture-des-metadonnees-du-groupe-d-objets-sur-l-offre-de-stockage-og-metadata-storage-storemetadataobjectgroupactionplugin">
-<h3>Ecriture des métadonnées du groupe d’objets sur l’offre de stockage OG_METADATA_STORAGE (StoreMetaDataObjectGroupActionPlugin)<a class="headerlink" href="#ecriture-des-metadonnees-du-groupe-d-objets-sur-l-offre-de-stockage-og-metadata-storage-storemetadataobjectgroupactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="ecriture-des-metadonnees-du-groupe-d-objets-et-objets-sur-l-offre-de-stockage-og-metadata-storage-storemetadataobjectgroupactionplugin">
+<h3>Ecriture des métadonnées du groupe d’objets et objets sur l’offre de stockage OG_METADATA_STORAGE (StoreMetaDataObjectGroupActionPlugin)<a class="headerlink" href="#ecriture-des-metadonnees-du-groupe-d-objets-et-objets-sur-l-offre-de-stockage-og-metadata-storage-storemetadataobjectgroupactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li><strong>Règle</strong> : Sauvegarde des métadonnées liées aux groupes d’objets ainsi que leurs journaux de cycle de vie sur les offres de stockage en fonction de la stratégie de stockage</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : les métadonnées des groupes d’objets ont été sauvegardées avec succès (OG_METADATA_STORAGE.OK = Succès de l’écriture des métadonnées des objets et groupes d’objets sur l’offre de stockage)</li>
-<li>KO : les métadonnées des groupes d’objets n’ont pas été sauvegardées (OG_METADATA_STORAGE.KO = Échec de l’écriture des métadonnées des objets et groupes d’objets sur l’offre de stockage)</li>
+<li>OK : les métadonnées des groupes d’objets et objets ont été sauvegardées avec succès (OG_METADATA_STORAGE.OK = Succès de l’écriture des métadonnées des objets et groupes d’objets sur l’offre de stockage)</li>
+<li>KO : les métadonnées des groupes d’objets et objets n’ont pas été sauvegardées (OG_METADATA_STORAGE.KO = Échec de l’écriture des métadonnées des objets et groupes d’objets sur l’offre de stockage)</li>
+<li>FATAL : une erreur technique est survenue lors de l’écriture des métadonnées du groupe d’objets sur les offres de stockage (OG_METADATA_STORAGE.FATAL=Erreur technique lors de l’écriture des métadonnées du groupe d’objets sur les offres de stockage)</li>
 </ul>
 </li>
 </ul>
@@ -808,11 +906,11 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <div class="section" id="enregistrement-du-journal-du-cycle-de-vie-des-unites-archivistiques-commit-life-cycle-unit-accessinternalmoduleimpl-java">
 <h3>Enregistrement du journal du cycle de vie des unités archivistiques COMMIT_LIFE_CYCLE_UNIT (AccessInternalModuleImpl.java)<a class="headerlink" href="#enregistrement-du-journal-du-cycle-de-vie-des-unites-archivistiques-commit-life-cycle-unit-accessinternalmoduleimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Sécurisation en base des journaux du cycle de vie des unités archivistiques (avant cette étape, les journaux du cycle de vie des unités archivistiques sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec)</li>
+<li><strong>Règle</strong> : Sécurisation en base des journaux du cycle de vie des unités archivistiques. Avant cette étape, les journaux du cycle de vie des unités archivistiques sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec.</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : le différentiel est créé et est enregistré dans l’evDetData (OBJECT_GROUP_UPDATE.OK = Succès de l’enregistrement des journaux du cycle de vie des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue (OBJECT_GROUP_UPDATE.FATAL = )</li>
+<li>OK : la sécurisation des journaux du cycle de vie s’est correctement déroulée (COMMIT_LIFE_CYCLE_UNIT.OK=Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation des journaux du cycle de vie (COMMIT_LIFE_CYCLE_UNIT.FATAL=Erreur technique lors de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
 </ul>
 </li>
 </ul>
@@ -820,56 +918,29 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <div class="section" id="ecriture-des-metadonnees-de-l-unite-archivistique-sur-l-offre-de-stockage-unit-metadata-storage-accessinternalmoduleimpl-java">
 <h3>Ecriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT_METADATA_STORAGE (AccessInternalModuleImpl.java)<a class="headerlink" href="#ecriture-des-metadonnees-de-l-unite-archivistique-sur-l-offre-de-stockage-unit-metadata-storage-accessinternalmoduleimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li><strong>Règle</strong> : Sauvegarde des métadonnées et des journaux de cycle de vie des unités archivistiques sur les offres de stockage en fonction de la stratégie de stockage.( Pas d’évènements stockés dans le journal de cycle de vie</li>
+<li><strong>Règle</strong> : Sauvegarde des métadonnées et des journaux de cycle de vie des unités archivistiques sur les offres de stockage en fonction de la stratégie de stockage. Pas d’évènements stockés dans le journal de cycle de vie</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
-<li>OK : la sécurisation des journaux du cycle de vie s’est correctement déroulée (COMMIT_LIFE_CYCLE_OBJECT_GROUP.OK = Succès de l’enregistrement des journaux du cycle de vie des groupes d’objets)</li>
-<li>FATAL : une erreur fatale est survenue lors de la sécurisation du journal du cycle de vie (COMMIT_LIFE_CYCLE_OBJECT_GROUP.FATAL = Erreur fatale lors de l’enregistrement des journaux du cycle de vie des groupes d’objets)</li>
+<li>OK : l’écriture des métadonnées de l’unité archivistique sur les offres de stockage s’est correctement déroulée (UNIT_METADATA_STORAGE.OK = Succès de l’écriture des métadonnées de l’unité archivistique sur les offres de stockage)</li>
+<li>KO : l’écriture des métadonnées de l’unité archivistique sur les offres de stockage n’a pas été effectué (UNIT_METADATA_STORAGE.KO = Échec de l”“écriture des métadonnées de l’unité archivistique sur les offres de stockage)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (UNIT_METADATA_STORAGE.FATAL = Erreur technique lors de l’écriture des métadonnées de l’unité archivistique sur les offres de stockage)</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="processus-de-mise-a-jour-du-groupe-d-objets-stp-update-object-group">
-<h2>Processus de mise à jour du groupe d’objets (STP_UPDATE_OBJECT_GROUP)<a class="headerlink" href="#processus-de-mise-a-jour-du-groupe-d-objets-stp-update-object-group" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="creation-du-differentiel-object-group-update-updateobjectgroupplugin-java">
-<h3>Création du différentiel OBJECT_GROUP_UPDATE (UpdateObjectGroupPlugin.java)<a class="headerlink" href="#creation-du-differentiel-object-group-update-updateobjectgroupplugin-java" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="processus-d-alimentation-du-registre-des-fonds-stp-accession-registration">
+<h2>Processus d’alimentation du registre des fonds (STP_ACCESSION_REGISTRATION)<a class="headerlink" href="#processus-d-alimentation-du-registre-des-fonds-stp-accession-registration" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li><strong>Règle</strong> : création du différentiel pour le groupe d’objets.</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK : le différentiel est créé et est enregistré dans l’evDetData (OBJECT_GROUP_UPDATE.OK = Succès lors du processus de mise à jour du groupe d’objets)</li>
-<li>FATAL : une erreur fatale est survenue (OBJECT_GROUP_UPDATE.FATAL = Erreur fatale lors du processus de mise à jour du groupe d”“objets)</li>
-<li>FATAL : une erreur fatale est survenue (OBJECT_GROUP_UPDATE.FATAL = )</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="etablissement-de-la-liste-des-objets-objects-list-empty">
-<h3>Etablissement de la liste des objets (OBJECTS_LIST_EMPTY)<a class="headerlink" href="#etablissement-de-la-liste-des-objets-objects-list-empty" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règle</strong> : Etablissement de la liste des objets pré existante dans le groupe d’objet technique avant le rattachement à l’unité archivistique. Si aucun rattachement n’est déclaré dans le bordereau de transfert, alors cette tâche est OK.</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><strong>Statuts</strong> :<ul>
-<li>OK :  La liste des objets a été créé avec succès (STP_UPDATE_OBJECT_GROUP.OK = Succès lors de l” établissement de la liste des objets  )</li>
-<li>FATAL : La liste des objets n’a pas été créée (STP_UPDATE_OBJECT_GROUP.FATAL = Erreur fatale lors de l” établissement de la liste des objets  )</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="alimentation-du-registre-des-fonds-accession-registration-accessionregisteractionhandler-java">
-<h3>Alimentation du registre des fonds ACCESSION_REGISTRATION (AccessionRegisterActionHandler.java)<a class="headerlink" href="#alimentation-du-registre-des-fonds-accession-registration-accessionregisteractionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règle</strong> : Enregistrement dans le registre des fonds des informations concernant la nouvelle entrée (nombre d’objets, volumétrie). Ces informations viennent s’ajouter aux informations existantes pour un même service producteur. Si le service producteur n’était pas déjà présent pas le registre des fonds, alors cette entrée est enregistrée et le service producteur est créé dans le registre des fonds.</li>
+<li><strong>Règle</strong> : Enregistrement dans le registre des fonds des informations concernant la nouvelle entrée (nombre d’objets, volumétrie). Ces informations viennent s’ajouter aux informations existantes pour un même service producteur. Si aucune information n’existait préalablement, alors un nouveau document est créé dans la base de données concernant ce producteur. Une fois cette action d’ajout ou de mise à jour effectuée, la solution logicielle Vitam calcule et enregistre une information agrégée de l’état des stock du service producteur concerné (dans la collection AccessionRegisterDetail).</li>
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : le registre des fonds est correctement alimenté (ACCESSION_REGISTRATION.OK = Succès de l’alimentation du registre des fonds)</li>
 <li>KO : le registre des fonds n’a pas pu être alimenté (ACCESSION_REGISTRATION.KO = Échec de l’alimentation du registre des fonds)</li>
-<li>FATAL : une erreur fatale est survenue lors de l’alimentation du registre des fonds (ACCESSION_REGISTRATION.FATAL = Erreur fatale lors de l’alimentation du registre des fonds)</li>
+<li>FATAL : une erreur technique est survenue lors de l’alimentation du registre des fonds (ACCESSION_REGISTRATION.FATAL = Erreur technique lors de l’alimentation du registre des fonds)</li>
 </ul>
 </li>
 </ul>
-</div>
 </div>
 <div class="section" id="processus-de-finalisation-de-l-entree-stp-ingest-finalisation">
 <h2>Processus de finalisation de l’entrée (STP_INGEST_FINALISATION)<a class="headerlink" href="#processus-de-finalisation-de-l-entree-stp-ingest-finalisation" title="Lien permanent vers ce titre">¶</a></h2>
@@ -881,7 +952,7 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><strong>Statuts</strong> :<ul>
 <li>OK : Le message de réponse a été correctement généré, écrit sur l’offre de stockage et envoyé au service versant (ATR_NOTIFICATION.OK = Succès de la notification de la fin de l’opération d’entrée à l’opérateur de versement)</li>
 <li>KO : Le message de réponse n’a pas été correctement généré, écrit sur l’offre de stockage ou reçu par le service versant (ATR_NOTIFICATION.KO = Échec de la notification de la fin de l’opération d’entrée à l’opérateur de versement)</li>
-<li>FATAL : une erreur fatale est survenue lors de la notification de la fin de l’opération (ATR_NOTIFICATION.FATAL = Erreur fatale lors de la notification de la fin de l’opération d’entrée à l’opérateur de versement)</li>
+<li>FATAL : une erreur technique est survenue lors de la notification de la fin de l’opération (ATR_NOTIFICATION.FATAL = Erreur technique lors de la notification de la fin de l’opération d’entrée à l’opérateur de versement)</li>
 </ul>
 </li>
 </ul>
@@ -893,18 +964,11 @@ Ces derniers associées ci-dessous décrivent le processus d’entrée (clé et 
 <li><strong>Type</strong> : bloquant</li>
 <li><strong>Statuts</strong> :<ul>
 <li>OK : la purge s’est correctement déroulée (ROLL_BACK.OK = Succès de la mise en cohérence des journaux du cycle de vie)</li>
-<li>FATAL : une erreur fatale est survenue lors de la purge (ROLL_BACK.FATAL = Erreur fatale lors de la mise en cohérence des journaux du cycle de vie)</li>
+<li>FATAL : une erreur technique est survenue lors de la purge (ROLL_BACK.FATAL = Erreur technique lors de la mise en cohérence des journaux du cycle de vie)</li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="structure-du-workflow">
-<h2>Structure du Workflow<a class="headerlink" href="#structure-du-workflow" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le workflow mis en place dans la solution logicielle Vitam est défini dans l’unique fichier «&nbsp;DefaultIngestWorkflow.json&nbsp;». Ce fichier est disponible dans /sources/processing/processing-management/src/main/resources/workflows.
-Il décrit le processus d’entrée (hors Ingest externe) pour entrer un SIP, indexer les métadonnées et stocker les objets contenus dans le SIP.</p>
-<p>D’une façon synthétique, le workflow est décrit de cette façon :</p>
-<img alt="Diagramme d'état / transitions du workflow d'ingest" class="align-center" src="../_images/workflow_ingest.png" />
 </div>
 <div class="section" id="le-cas-du-processus-d-entree-test-a-blanc">
 <h2>Le cas du processus d’entrée «&nbsp;test à blanc&nbsp;»<a class="headerlink" href="#le-cas-du-processus-d-entree-test-a-blanc" title="Lien permanent vers ce titre">¶</a></h2>
@@ -919,6 +983,13 @@ Il décrit le processus d’entrée (hors Ingest externe) pour entrer un SIP, in
 </ul>
 <p>Les tâches et traitements relatifs à toutes ces étapes sont donc également ignorées.</p>
 </div>
+</div>
+<div class="section" id="structure-du-workflow-de-l-entree">
+<h1>Structure du Workflow de l’entrée<a class="headerlink" href="#structure-du-workflow-de-l-entree" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le workflow mis en place dans la solution logicielle Vitam est défini dans l’unique fichier <em>«&nbsp;DefaultIngestWorkflow.json&nbsp;»</em>. Ce fichier est disponible dans /sources/processing/processing-management/src/main/resources/workflows.
+Il décrit le processus d’entrée (hors Ingest externe) pour entrer un SIP, indexer les métadonnées et stocker les objets contenus dans le SIP.</p>
+<p>D’une façon synthétique, le workflow est décrit de cette façon :</p>
+<img alt="Diagramme d'état / transitions du workflow d'ingest" class="align-center" src="../_images/workflow_ingest.png" />
 </div>
 
 
@@ -941,7 +1012,7 @@ Il décrit le processus d’entrée (hors Ingest externe) pour entrer un SIP, in
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -960,21 +1031,24 @@ Il décrit le processus d’entrée (hors Ingest externe) pour entrer un SIP, in
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

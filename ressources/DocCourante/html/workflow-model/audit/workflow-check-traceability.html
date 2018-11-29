@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Workflow de contrôle d’intégrité d’un journal sécurisé &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Workflow de contrôle d’intégrité d’un journal sécurisé &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -96,19 +96,27 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#processus-de-verification-de-l-arbre-de-merkle-stp-merkle-tree">Processus de vérification de l’arbre de Merkle (STP_MERKLE_TREE)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#verification-de-l-arbre-de-merklecheck-merkle-tree-verifymerkletreeactionhandler-java">Vérification de l’arbre de MERKLECHECK_MERKLE_TREE (VerifyMerkleTreeActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-l-arbre-de-merkle-check-merkle-tree-verifymerkletreeactionhandler-java">Vérification de l’arbre de MERKLE_CHECK_MERKLE_TREE (VerifyMerkleTreeActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparaison-de-l-arbre-de-merkle-avec-le-hash-enregistre-compare-merkle-hash-with-saved-hash">Comparaison de l’arbre de Merkle avec le Hash enregistré (COMPARE_MERKLE.HASH.WITH.SAVED.HASH)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparaison-de-l-arbre-de-merkle-avec-le-hash-indexe-compare-merkle-hash-with-saved-hash">Comparaison de l’arbre de MERKLE avec le Hash indexé (COMPARE_MERKLE.HASH.WITH.SAVED.HASH)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#procesus-de-verification-de-l-horodatage-stp-verify-stamp">Procesus de vérification de l’horodatage (STP_VERIFY_STAMP)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#verification-et-validation-du-tampon-d-horodatage-verify-timestamp-verifytimestampactionhandler-java">Vérification et validation du tampon d’horodatage VERIFY_TIMESTAMP (VerifyTimeStampActionHandler.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparaison-du-tampon-du-fichier-token-tsp-par-rapport-au-tampon-enregistre-dans-le-logbook-compare-token-timestamp">Comparaison du tampon du fichier (token.tsp) par rapport au tampon enregistré dans le logbook (COMPARE_TOKEN_TIMESTAMP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#validation-du-tampon-d-horodatage-validate-token-timestamp">Validation du tampon d’horodatage (VALIDATE_TOKEN_TIMESTAMP)</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-du-workflow-de-controle-d-integrite-d-un-journal-securise">Structure du workflow de contrôle d’intégrité d’un journal sécurisé</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_existing_integrity.html">Workflow de l’audit de l’existence et de l’intégrité des fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rapportaudit.html">Rapport d’audit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow de l’audit de cohérence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow d’audit de cohérence des fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rapportauditconsistency.html">Rapport d’audit de cohérence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_correction_audit.html">Workflow de l’audit correctif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html">Workflow de relevé de valeur probante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html#rapport-du-releve-de-valeur-probante">Rapport du relevé de valeur probante</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
@@ -116,6 +124,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -187,11 +197,11 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette section décrit le processus (workflow) de contrôle d’intégrité d’un journal sécurisé mis en place dans la solution logicielle Vitam.</p>
-<p>Celui-ci est défini dans le fichier “DefaultCheckTraceability.json” (situé ici : sources/processing/processing-management/src/main/resources/workflows).</p>
+<p>Celui-ci est défini dans le fichier <em>“DefaultCheckTraceability.json”</em> (situé ici : sources/processing/processing-management/src/main/resources/workflows).</p>
 </div>
 <div class="section" id="processus-de-controle-d-integrite-d-un-journal-securise-vision-metier">
 <h2>Processus de contrôle d’intégrité d’un journal sécurisé (vision métier)<a class="headerlink" href="#processus-de-controle-d-integrite-d-un-journal-securise-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le processus de contrôle d’intégrité débute lorsqu’un identifiant d’opération de sécurisation des journaux d’opération, des journaux du cycles de vie, ou du journal des écritures est soumis au service de contrôle d’intégrité des journaux sécurisés. Le service permet de récupérer le journal sécurisé, d’en extraire son contenu et de valider que son contenu n’a pas été altéré.</p>
+<p>Le processus de contrôle d’intégrité débute lorsqu’un identifiant d’opération de sécurisation des journaux d’opération, des journaux du cycles de vie, ou du journal des écritures est soumis au service de contrôle d’intégrité des journaux sécurisés. Le service permet de récupérer le journal sécurisé, d’extraire son contenu et de valider que son contenu n’a pas été altéré.</p>
 <p>Pour cela, il calcule un arbre de Merkle à partir des journaux d’opérations que contient le journal sécurisé, puis en calcule un second à partir des journaux correspondants disponibles dans la solution logicielle Vitam. Une comparaison est ensuite effectuée entre ces deux arbres et celui contenu dans les métadonnées du journal sécurisé.</p>
 <p>Ensuite, dans une dernière étape, le tampon d’horodatage est vérifié et validé.</p>
 </div>
@@ -199,44 +209,47 @@
 <h2>Processus de préparation de la  vérification des journaux sécurisés (STP_PREPARE_TRACEABILITY_CHECK)<a class="headerlink" href="#processus-de-preparation-de-la-verification-des-journaux-securises-stp-prepare-traceability-check" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="preparation-de-la-verification-des-journaux-securises-prepare-traceability-check-preparetraceabilitycheckprocessactionhandler-java">
 <h3>Préparation de la vérification des journaux sécurisés PREPARE_TRACEABILITY_CHECK (PrepareTraceabilityCheckProcessActionHandler.java)<a class="headerlink" href="#preparation-de-la-verification-des-journaux-securises-prepare-traceability-check-preparetraceabilitycheckprocessactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règle</strong> : vérification que l’opération donnée en entrée est de type TRACEABILITY. Récupération du zip associé à cette opération et extraction de son contenu.</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><dl class="first docutils">
-<dt><strong>Statuts</strong> :</dt>
-<dd><ul class="first last">
+<ul>
+<li><p class="first"><strong>Règle</strong> : vérification que l’opération donnée en entrée est de type TRACEABILITY. Récupération du zip associé à cette opération et extraction de son contenu.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
 <li>OK : l’opération donnée en entrée est une opération de type TRACEABILITY, le zip a été trouvé et son contenu extrait (PREPARE_TRACEABILITY_CHECK.OK=Succès de la préparation de la vérification des journaux sécurisés)</li>
 <li>KO : l’opération donnée en entrée n’est pas une opération de type TRACEABILITY (PREPARE_TRACEABILITY_CHECK.KO=Échec de la préparation de la vérification des journaux sécurisés)</li>
-<li>FATAL : une erreur fatale est survenue lors de la préparation du processus de vérification (PREPARE_TRACEABILITY_CHECK.FATAL=Erreur fatale lors de la préparation de la vérification des journaux sécurisés)</li>
+<li>FATAL : une erreur technique est survenue lors de la préparation du processus de vérification (PREPARE_TRACEABILITY_CHECK.FATAL=Erreur technique lors de la préparation de la vérification des journaux sécurisés)</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ul>
 </div>
 </div>
 <div class="section" id="processus-de-verification-de-l-arbre-de-merkle-stp-merkle-tree">
 <h2>Processus de vérification de l’arbre de Merkle (STP_MERKLE_TREE)<a class="headerlink" href="#processus-de-verification-de-l-arbre-de-merkle-stp-merkle-tree" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="verification-de-l-arbre-de-merklecheck-merkle-tree-verifymerkletreeactionhandler-java">
-<h3>Vérification de l’arbre de MERKLECHECK_MERKLE_TREE (VerifyMerkleTreeActionHandler.java)<a class="headerlink" href="#verification-de-l-arbre-de-merklecheck-merkle-tree-verifymerkletreeactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
-<ul class="simple">
-<li><strong>Règle</strong> : Recalcul de l’arbre de Merkle des journaux contenus dans le journal sécurisé, calcul d’un autre arbre à partir des journaux indexés correspondants et vérification que tous deux correspondent à celui stocké dans les métadonnées du journal sécurisé</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><dl class="first docutils">
-<dt>Statuts :</dt>
-<dd><ul class="first last">
+<div class="section" id="verification-de-l-arbre-de-merkle-check-merkle-tree-verifymerkletreeactionhandler-java">
+<h3>Vérification de l’arbre de MERKLE_CHECK_MERKLE_TREE (VerifyMerkleTreeActionHandler.java)<a class="headerlink" href="#verification-de-l-arbre-de-merkle-check-merkle-tree-verifymerkletreeactionhandler-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Recalcul de l’arbre de Merkle des journaux contenus dans le journal sécurisé, calcul d’un autre arbre à partir des journaux indexés correspondants et vérification que tous deux correspondent à celui stocké dans les métadonnées du journal sécurisé</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first">Statuts :</p>
+<blockquote>
+<div><ul class="simple">
 <li>OK : les arbres de Merkle correspondent (CHECK_MERKLE_TREE.OK=Succès de la vérification de l’arbre de MERKLE)</li>
-<li>KO : les arbres de Merkle ne correspondent pas (CHECK_Merkle_TREE.KO=Échec de la vérification de l’arbre de MERKLE)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification des arbres de Merkle (CHECK_MERKLE_TREE.FATAL=Erreur fatale lors de la vérification de l’arbre de MERKLE)</li>
+<li>KO : les arbres de Merkle ne correspondent pas (CHECK_MERKLE_TREE.KO=Échec de la vérification de l’arbre de MERKLE)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification des arbres de Merkle (CHECK_MERKLE_TREE.FATAL=Erreur technique lors de la vérification de l’arbre de MERKLE)</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ul>
 <p><strong>La tâche contient les traitements suivants</strong></p>
-<dl class="docutils">
-<dt>Comparaison de l’arbre de MERKLE avec le Hash enregistré</dt>
-<dd><ul class="first last">
+</div>
+<div class="section" id="comparaison-de-l-arbre-de-merkle-avec-le-hash-enregistre-compare-merkle-hash-with-saved-hash">
+<h3>Comparaison de l’arbre de Merkle avec le Hash enregistré (COMPARE_MERKLE.HASH.WITH.SAVED.HASH)<a class="headerlink" href="#comparaison-de-l-arbre-de-merkle-avec-le-hash-enregistre-compare-merkle-hash-with-saved-hash" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
 <li><p class="first"><strong>Règle</strong> : Vérification que l’arbre de Merkle calculé à partir des journaux contenus dans le journal sécurisé est identique à celui stocké dans les métadonnées du journal sécurisé</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
@@ -246,17 +259,15 @@
 <div><ul class="simple">
 <li>OK : l’arbre de Merkle des journaux contenus dans le journal sécurisé correspond à celui stocké dans les métadonnées du journal sécurisé (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_SAVED_HASH.OK=Succès de la comparaison de l’arbre de MERKLE avec le Hash enregistré)</li>
 <li>KO : l’arbre de Merkle des journaux contenus dans le journal sécurisé ne correspond pas à celui stocké dans les métadonnées du journal sécurisé (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_SAVED_HASH.KO=Échec de la comparaison de l’arbre de MERKLE avec le Hash enregistré)</li>
-<li>FATAL : une erreur fatale est survenue lors de la comparaison de l’arbre de MERKLE avec le Hash enregistré (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_SAVED_HASH.FATAL=Erreur fatale lors de la comparaison de l’arbre de MERKLE avec le Hash enregistré)</li>
+<li>FATAL : une erreur technique est survenue lors de la comparaison de l’arbre de MERKLE avec le Hash enregistré (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_SAVED_HASH.FATAL=Erreur technique lors de la comparaison de l’arbre de MERKLE avec le Hash enregistré)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-</dd>
-</dl>
+</div>
+<div class="section" id="comparaison-de-l-arbre-de-merkle-avec-le-hash-indexe-compare-merkle-hash-with-saved-hash">
+<h3>Comparaison de l’arbre de MERKLE avec le Hash indexé (COMPARE_MERKLE.HASH.WITH.SAVED.HASH)<a class="headerlink" href="#comparaison-de-l-arbre-de-merkle-avec-le-hash-indexe-compare-merkle-hash-with-saved-hash" title="Lien permanent vers ce titre">¶</a></h3>
 <ul>
-<li><p class="first">Comparaison de l’arbre de MERKLE avec le Hash indexé</p>
-<blockquote>
-<div><ul>
 <li><p class="first"><strong>Règle</strong> : Vérification que l’arbre de Merkle calculé à partir des journaux indexés est identique à celui stocké dans les métadonnées du journal sécurisé</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
@@ -266,10 +277,7 @@
 <div><ul class="simple">
 <li>OK : l’arbre de Merkle des journaux indexés correspond à celui stocké dans les métadonnées du journal sécurisé (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_INDEXED_HASH.OK=Succès de la comparaison de l’arbre de MERKLE avec le Hash indexé)</li>
 <li>KO : l’arbre de Merkle des journaux indexés ne correspond pas à celui stocké dans les métadonnées du journal sécurisé (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_INDEXED_HASH.KO=Échec de la comparaison de l’arbre de MERKLE avec le Hash indexé)</li>
-<li>FATAL : une erreur fatale est survenue lors de la comparaison l’arbre de Merkle des journaux indexés et de celui stocké dans les métadonnées du journal sécurisé (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_INDEXED_HASH.FATAL=Erreur fatale lors de la comparaison de l’arbre de MERKLE avec le Hash indexé)</li>
-</ul>
-</div></blockquote>
-</li>
+<li>FATAL : une erreur technique est survenue lors de la comparaison l’arbre de Merkle des journaux indexés et de celui stocké dans les métadonnées du journal sécurisé (CHECK_MERKLE_TREE.COMPARE_MERKLE_HASH_WITH_INDEXED_HASH.FATAL=Erreur technique lors de la comparaison de l’arbre de MERKLE avec le Hash indexé)</li>
 </ul>
 </div></blockquote>
 </li>
@@ -290,55 +298,55 @@
 <div><ul class="simple">
 <li>OK : le tampon d’horadatage est correct (VERIFY_TIMESTAMP.OK=Succès de la vérification de l’horodatage)</li>
 <li>KO : le tampon d’horadatage est incorrect (VERIFY_TIMESTAMP.KO=Échec de la vérification de l’horodatage)</li>
-<li>FATAL : une erreur fatale est survenue lors de la vérification du tampon d’horodatage (VERIFY_TIMESTAMP.FATAL=Erreur fatale lors de la vérification de l’horodatage)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification du tampon d’horodatage (VERIFY_TIMESTAMP.FATAL=Erreur technique lors de la vérification de l’horodatage)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
 <p><strong>La tâche contient les traitements suivants</strong></p>
+</div>
+<div class="section" id="comparaison-du-tampon-du-fichier-token-tsp-par-rapport-au-tampon-enregistre-dans-le-logbook-compare-token-timestamp">
+<h3>Comparaison du tampon du fichier (token.tsp) par rapport au tampon enregistré dans le logbook (COMPARE_TOKEN_TIMESTAMP)<a class="headerlink" href="#comparaison-du-tampon-du-fichier-token-tsp-par-rapport-au-tampon-enregistre-dans-le-logbook-compare-token-timestamp" title="Lien permanent vers ce titre">¶</a></h3>
 <ul>
-<li><p class="first">Comparaison du tampon du fichier (token.tsp) par rapport au tampon enregistré dans le logbook (COMPARE_TOKEN_TIMESTAMP)</p>
-<blockquote>
-<div><ul>
 <li><p class="first"><strong>Règle</strong> : Vérification que le tampon enregistré dans la collection logbookOperation est le même que celui présent dans le fichier zip généré</p>
 </li>
 <li><p class="first"><strong>Type</strong> : bloquant</p>
 </li>
-<li><p class="first"><strong>Status</strong> :</p>
+<li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
 <li>OK : les tampons sont identiques (VERIFY_TIMESTAMP.COMPARE_TOKEN_TIMESTAMP.OK=Succès de la comparaison des tampons d’horodatage)</li>
 <li>KO : les tampons sont différents (VERIFY_TIMESTAMP.COMPARE_TOKEN_TIMESTAMP.KO=Échec de la comparaison des tampons d’horadatage)</li>
-<li>FATAL : erreur fatale lors de la vérification des tampons (VERIFY_TIMESTAMP.COMPARE_TOKEN_TIMESTAMP.FATAL=Erreur fatale lors de la comparaison des tampons d’horadatage)</li>
+<li>FATAL : erreur technique lors de la vérification des tampons (VERIFY_TIMESTAMP.COMPARE_TOKEN_TIMESTAMP.FATAL=Erreur technique lors de la comparaison des tampons d’horadatage)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
+</div>
+<div class="section" id="validation-du-tampon-d-horodatage-validate-token-timestamp">
+<h3>Validation du tampon d’horodatage (VALIDATE_TOKEN_TIMESTAMP)<a class="headerlink" href="#validation-du-tampon-d-horodatage-validate-token-timestamp" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : Vérification cryptographique du tampon et vérification de la chaîne de certification</p>
 </li>
-<li><p class="first">Validation du tampon d’horodatage (VALIDATE_TOKEN_TIMESTAMP)</p>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>Règle</strong> : Vérification cryptographique du tampon et vérification de la chaîne de certification</li>
-<li><strong>Type</strong> : bloquant</li>
-<li><dl class="first docutils">
-<dt><strong>Status</strong> :</dt>
-<dd><ul class="first last">
 <li>OK : le tampon est validé (VERIFY_TIMESTAMP.VALIDATE_TOKEN_TIMESTAMP.OK=Succès de la validation du tampon d’horodatage)</li>
 <li>KO : le tampon est invalidé (VERIFY_TIMESTAMP.VALIDATE_TOKEN_TIMESTAMP.KO=Échec de la validation du tampon d’horodatage)</li>
-<li>FATAL : erreur fatale lors de la validation du tampon d’horodatage (VERIFY_TIMESTAMP.VALIDATE_TOKEN_TIMESTAMP.FATAL=Erreur fatale lors de la validation du tampon d”“horodatage)</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>FATAL : erreur technique lors de la validation du tampon d’horodatage (VERIFY_TIMESTAMP.VALIDATE_TOKEN_TIMESTAMP.FATAL=Erreur technique lors de la validation du tampon d’horodatage)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
+</div>
+</div>
+<div class="section" id="structure-du-workflow-de-controle-d-integrite-d-un-journal-securise">
+<h2>Structure du workflow de contrôle d’intégrité d’un journal sécurisé<a class="headerlink" href="#structure-du-workflow-de-controle-d-integrite-d-un-journal-securise" title="Lien permanent vers ce titre">¶</a></h2>
 <p>D’une façon synthétique, le workflow est décrit de cette façon :</p>
 <div class="figure align-center">
 <img alt="../_images/workflow_traceability.png" src="../_images/workflow_traceability.png" />
-</div>
 </div>
 </div>
 </div>
@@ -363,7 +371,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -382,21 +390,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

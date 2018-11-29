@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2. Architecture des données &amp; multisite &mdash; Documentation VITAM - Architecture 1.4.0</title>
+  <title>4.2. Architecture des données &amp; multisite &mdash; Documentation VITAM - Architecture 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -100,7 +100,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Securite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Sécurité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
 </ul>
 
@@ -295,7 +295,7 @@
 </tr>
 <tr class="row-odd"><td>métier</td>
 <td>JOP sécurisé</td>
-<td>logbook (cron)</td>
+<td>logbook (timer systemd)</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -315,7 +315,7 @@
 </tr>
 <tr class="row-odd"><td>métier</td>
 <td>JCV sécurisé</td>
-<td>logbook (cron)</td>
+<td>logbook (timer systemd)</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -365,7 +365,7 @@
 </tr>
 <tr class="row-even"><td>métier</td>
 <td>Sécurisation du journal des écritures</td>
-<td>storage (cron)</td>
+<td>storage (timer systemd)</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -448,7 +448,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Toute donnée liées aux archives est systématiquement écrite dans les offre de stockage (le cas échéant, en même temps que dans les bases de données), donc sur les 2 sites en même temps ;</p>
+<li><p class="first">Toute donnée liée aux archives est systématiquement écrite dans les offres de stockage (le cas échéant, en même temps que dans les bases de données), donc sur les 2 sites en même temps ;</p>
 </li>
 <li><p class="first">Sur le site secondaire, des processus viennent régulièrement récupérer les données écrites en dernier dans l’offre de stockage de ce site (en se basant sur le contenu des logs d’écriture de l’offre) pour alimenter en update le contenu des bases de données «&nbsp;secondaires&nbsp;» :</p>
 <blockquote>
@@ -459,14 +459,14 @@
 </div></blockquote>
 </li>
 </ul>
-<p>En cas de perte du site primaire, l’intégralité des données est donc présente dans le stockage sur le site secondaire, et est presque entièrement reconstruit dans les bases de données du même site. Une fois la reconstruction complètement terminée, le site secondaire est donc accessible ; le niveau d’accessibilité dépendra de la stratégie de stockage sur le site secondaire :</p>
+<p>En cas de perte du site primaire, l’intégralité des données est donc présente dans le stockage sur le site secondaire, et est presque entièrement reconstruite dans les bases de données du même site. Une fois la reconstruction complètement terminée, le site secondaire est donc accessible ; le niveau d’accessibilité dépendra de la stratégie de stockage sur le site secondaire :</p>
 <ul class="simple">
 <li>Soit la dégradation du niveau de résilience des offres est acceptée, et la stratégie de stockage devra être modifiée pour limiter les écritures à une seule offre.</li>
 <li>Soit cette stratégie continue à requérir l’écriture sur 2 offres de stockage, et le système ne sera accessible qu’en lecture seule ; seule une recréation de l’offre de stockage sur le site principal permettra le retour à un fonctionnement nominal (Cf. admonition ci-dessous). Ce scénario est délicat à implémenter, et nécessite notamment la mise en place d’un contrat d’accès spécifique permettant de bloquer les accès en modification.</li>
 </ul>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">En cas de bascule de site, les traitements en cours sur le site 1 sont perdus ; en particulier, les ingests non terminés doivent être renvoyés à VITAM et les autres batchs en cours doivent être relancés. L’incohérence des données sera réglée dans une version ultérieure du système VITAM.</p>
+<p class="last">En cas de bascule de site (PRA), les traitements en cours sur le site 1 sont perdus ; en particulier, les ingests non terminés doivent être renvoyés à VITAM et les autres batchs en cours doivent être relancés. L’incohérence des données sera réglée dans une version ultérieure du système VITAM.</p>
 </div>
 </div>
 </div>
@@ -491,7 +491,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -510,21 +510,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

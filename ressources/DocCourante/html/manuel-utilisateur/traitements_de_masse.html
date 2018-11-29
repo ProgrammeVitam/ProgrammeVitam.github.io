@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. Traitements de masse &mdash; Documentation VITAM - Manuel utilisateur 1.10.0-1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="7. Administration" href="Administration.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel utilisateur
+          
+
+          
+            
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.0-1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">2. Généralités</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentification.html">3. Authentification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Entree.html">4. Entrée d’un SIP et plan de classement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche, Consultation et Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestion.html">6. Gestion des archives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Administration.html">7. Administration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Traitements de masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#mise-a-jour-de-metadonnees-en-masse">9. Mise à jour de métadonnées en masse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modification-de-metadonnees-descriptives">9.1. Modification de métadonnées descriptives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ajouter-ou-modifier-une-metadonnee">9.1.1. Ajouter ou modifier une métadonnée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifier-une-chaine-de-caracteres">9.1.2. Modifier une chaîne de caractères</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vider-une-metadonnee-descriptive">9.1.3. Vider une métadonnée descriptive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modification-de-metadonnees-de-gestion">9.2. Modification de métadonnées de gestion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#elements-communs-relatifs-a-l-ajout-la-modification-et-la-suppression-de-regles-de-gestion">9.2.1. Eléments communs relatifs à l’ajout, la modification et la suppression de règles de gestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modification-des-proprietes-d-heritage">9.2.2. Modification des propriétés d’héritage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ajouter-une-regle-de-gestion">9.2.3. Ajouter une règle de gestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifier-une-regle-de-gestion">9.2.4. Modifier une règle de gestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supprimer-une-regle-de-gestion">9.2.5. Supprimer une règle de gestion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nombre-d-unites-archivistiques-maximum-concernes-par-les-modifications-en-masse">9.3. Nombre d’unités archivistiques maximum concernés par les modifications en masse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#elimination-en-masse">10. Elimination en masse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#analyse-1-rechercher-des-unites-archivistiques-potentiellement-eliminables">10.1. Analyse 1 / Rechercher des unités archivistiques potentiellement éliminables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analyse-2-evaluation-des-unites-archivistiques-eliminables">10.2. Analyse 2 / Evaluation des unités archivistiques éliminables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acceder-aux-resultats-de-l-analyse">10.2.1. Accéder aux résultats de l’analyse</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#analyse-3-et-action-elimination-des-unites-archivistiques-eliminables">10.3. Analyse 3 et action  / Elimination des unités archivistiques éliminables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resultats-de-l-operation-d-elimination">10.3.1. Résultats de l’opération d’élimination</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Manuel utilisateur</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. Traitements de masse</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/traitements_de_masse.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="traitements-de-masse">
+<h1>8. Traitements de masse<a class="headerlink" href="#traitements-de-masse" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette partie décrit les fonctionnalités permettant d’effectuer des actions sur un grand nombre d’unités archivistiques stockées dans la solution logicielle Vitam. Cette fonctionnalité nécessite d’avoir les droits requis pour pouvoir intervenir sur les métadonnées. Les actions de traitement de masse sont accessibles via le panier et peuvent être effectuées sur la totalité du panier ou une sélection (cf Chapitre 2.12 sur utilisation du panier).</p>
+<p>Chaque traitement de masse donne lieu à une entrée dans le journal des opérations. En vous rendant dans l’onglet «&nbsp;Administration&nbsp;» rubrique «&nbsp;Opération&nbsp;» puis «&nbsp;Journal des opérations&nbsp;» vous pouvez suivre le détail de l’opération. Vous pouvez également consulter le rapport en cliquant sur «&nbsp;Informations supplémentaires&nbsp;», puis «&nbsp;rapport&nbsp;». Le rapport du traitement détaille les cas de succès, d’avertissement et d’échec.</p>
+</div>
+<div class="section" id="mise-a-jour-de-metadonnees-en-masse">
+<h1>9. Mise à jour de métadonnées en masse<a class="headerlink" href="#mise-a-jour-de-metadonnees-en-masse" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les modifications en masse portent sur les métadonnées descriptives et les métadonnées de gestion. Cette fonctionnalité est accessible dans le panier.
+Pour effectuer des modifications en masse, sélectionnez des unités archivistiques en les mettant dans le panier, puis à partir de celui-ci, cliquez dans la fenêtre «&nbsp;Sélectionner une action&nbsp;», puis «&nbsp;Mise à jour de masse&nbsp;». Au clic sur cette option, deux blocs apparaissent et permettent de mettre à jour les métadonnées descriptives ou les métadonnées des règles de gestion.</p>
+<img alt="_images/panier_mise_jour_masse.png" src="_images/panier_mise_jour_masse.png" />
+<div class="section" id="modification-de-metadonnees-descriptives">
+<h2>9.1. Modification de métadonnées descriptives<a class="headerlink" href="#modification-de-metadonnees-descriptives" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de modifier, ajouter et effacer les métadonnées descriptives d’unités archivistiques présentes dans le panier. Pour cela il faut déplier le bloc «&nbsp;Mise à jour des métadonnées descriptives&nbsp;» en cliquant sur la flèche. Trois sous-menus sont proposés :</p>
+<blockquote>
+<div><ul class="simple">
+<li>ajouter / modifier une métadonnée descriptive</li>
+<li>modifier une chaîne de caractère</li>
+<li>vider une métadonnée descriptive</li>
+</ul>
+</div></blockquote>
+<div class="section" id="ajouter-ou-modifier-une-metadonnee">
+<h3>9.1.1. Ajouter ou modifier une métadonnée<a class="headerlink" href="#ajouter-ou-modifier-une-metadonnee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Grâce à cette fonctionnalité, il est possible d’apporter des modifications à un champ. En cliquant sur cette option, un formulaire apparaît dans lequel le «&nbsp;Nom du champ&nbsp;» et la «&nbsp;Nouvelle valeur&nbsp;» doivent être complétés. Pour pouvoir modifier la valeur du champ, il est nécessaire de remplir le nom du champ tel qu’il est formulé par le SEDA, en anglais et en respectant la casse ou tel qu’il est défini dans l’ontologie (pour les vocabulaires externes). Il faut ensuite cliquer sur un des deux boutons «&nbsp;Lancer la mise à jour de masse sur tout le panier&nbsp;», ou bien «&nbsp;Lancer la mise à jour de masse sur la sélection&nbsp;».</p>
+<ul class="simple">
+<li>Si le champ existe pour ces unités archivistiques, les valeurs contenues dans les champs seront remplacées par la nouvelle valeur entrée dans le formulaire. Il s’agit en définitive d’un annule et remplace.</li>
+</ul>
+<p>Ex : Pour modifier un titre : «&nbsp;Ecole nationale des Greffes&nbsp;» par le titre «&nbsp;Discours prononcé lors de la visite de l’Ecole nationale des Greffes&nbsp;».</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="35%" />
+<col width="40%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Nom de champ</td>
+<td colspan="2">Nouvelle Valeur</td>
+</tr>
+<tr class="row-even"><td>Title (nom du SEDA,
+en anglais,
+en respectant la casse,
+ou vocabulaire externe)</td>
+<td colspan="2">Discours prononcé lors de la visite de l’Ecole nationale des Greffes</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Si le champ n’existe pas pour ces unités archivistiques un nouveau champ complété sera créé pour ces unités archivistiques.</li>
+</ul>
+<p>Ex : Pour ajouter un champ Langue des descriptions,</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="35%" />
+<col width="40%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Nom de champ</td>
+<td colspan="2">Nouvelle Valeur</td>
+</tr>
+<tr class="row-even"><td>DescriptionLanguage
+(nom du SEDA, en anglais,
+en respectant la casse,
+ou vocabulaire externe)</td>
+<td colspan="2">Français ou Fr</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="modifier-une-chaine-de-caracteres">
+<h3>9.1.2. Modifier une chaîne de caractères<a class="headerlink" href="#modifier-une-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Grâce à cette fonctionnalité, il est possible d’apporter des modifications sur une partie d’un champ, pour le corriger ou le compléter. Pour pouvoir modifier la valeur du champ, il est nécessaire de remplir le nom du champ tel qu’il est formulé par le SEDA, en anglais et en respectant la casse. Il faut ensuite cliquer sur un des deux boutons «&nbsp;Lancer la mise à jour de masse sur tout le panier&nbsp;», ou bien «&nbsp;Lancer la mise à jour de masse sur la sélection&nbsp;».</p>
+<ul class="simple">
+<li>Ex : Corriger dans un titre le mot fracture par facture :</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="41%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Nom de champ</td>
+<td>Chaîne de caractère actuelle</td>
+<td>Nouvelle Valeur</td>
+</tr>
+<tr class="row-even"><td>Title (nom du SEDA,
+en anglais,
+en respectant la casse,
+ou vocabulaire externe)</td>
+<td>fracture</td>
+<td>facture</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vider-une-metadonnee-descriptive">
+<h3>9.1.3. Vider une métadonnée descriptive<a class="headerlink" href="#vider-une-metadonnee-descriptive" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il faut cliquer sur le bouton correspondant à «&nbsp;Vider une métadonnée descriptive&nbsp;», remplir le nom du champ dont la valeur sera effacée, dans le champ «&nbsp;Nom du champ&nbsp;», en indiquant le nom du champ tel qu’il est formulé par le SEDA, en anglais et en respectant la casse. Il faut ensuite cliquer sur un des deux boutons «&nbsp;Lancer la mise à jour de masse sur tout le panier&nbsp;», ou bien «&nbsp;Lancer la mise à jour de masse sur la sélection&nbsp;».</p>
+<img alt="_images/meta_descriptives.png" src="_images/meta_descriptives.png" />
+</div>
+</div>
+<div class="section" id="modification-de-metadonnees-de-gestion">
+<h2>9.2. Modification de métadonnées de gestion<a class="headerlink" href="#modification-de-metadonnees-de-gestion" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de modifier les règles de gestion des unités archivistiques en les sélectionnant et en les déposant dans le panier. Les modifications de métadonnées de gestion permettent : d’ajouter de nouvelles règles, de les modifier et de les supprimer. Dans la rubrique «&nbsp;Mise à jour de masse&nbsp;» cliquez sur le bloc «&nbsp;Mise à jour des règles de gestion&nbsp;».  Au clic, des sous-menus sont proposés par catégorie de règles.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est nécessaire de disposer de droits spécifiques dans le contrat d’accès pour intervenir sur les règles de gestion</p>
+</div>
+<div class="section" id="elements-communs-relatifs-a-l-ajout-la-modification-et-la-suppression-de-regles-de-gestion">
+<h3>9.2.1. Eléments communs relatifs à l’ajout, la modification et la suppression de règles de gestion<a class="headerlink" href="#elements-communs-relatifs-a-l-ajout-la-modification-et-la-suppression-de-regles-de-gestion" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour accéder à ces fonctionnalités l’utilisateur doit sélectionner une catégorie en cliquant sur le pictogramme «&nbsp;+&nbsp;», puis cliquer sur le bloc correspondant : Ajouter une règle, modifier une règle, supprimer une règle en masse sur un lot d’archives. Pour que les modifications soient effectives, l’utilisateur doit indiquer si l’action concerne une sélection du panier ou sa totalité, en cliquant sur les boutons correspondants. Lorsque l’action est prise en compte, une fenêtre de dialogue vous informe que les modifications des règles de gestion sont en cours. En vous rendant dans l’onglet «&nbsp;Administration&nbsp;» rubrique «&nbsp;Opération&nbsp;» puis «&nbsp;Journal des opérations&nbsp;» vous pouvez suivre le détail de l’opération. Vous pouvez également consulter le rapport en cliquant sur «&nbsp;Informations supplémentaires&nbsp;», puis «&nbsp;rapport&nbsp;». Le rapport ne rend compte que des opérations en KO ou Warning.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">le traitement de masse a pour objectif de traiter des ensembles d’une certaine volumétrie, il n’est pas recommandé d’un point de vue fonctionnel de procéder à différents traitements en même temps, afin d’éviter les conflits potentiels. D’autre part d’un point de vue technique un seul statut (OK, WARNING, KO) est disponible par unités archivistiques lors des traitements de masse.</p>
+</div>
+<p>L’ajout, la modification et la suppression de métadonnées de règles de gestion sont disponibles dans les différentes catégories :</p>
+<ul class="simple">
+<li>Délai de communicabilité / Règle d’accès /  ACC</li>
+<li>Durée d’utilité administrative (DUA) / Durée de rétention - conservation / APP</li>
+<li>Règle de diffusion /  DIS</li>
+<li>Règle de réutilisation / REU</li>
+<li>Durée d’utilité courante / STO</li>
+<li>Pour les règles de classification / CLASS, cette catégorie apparaît dans l’IHM mais n’est pas pleinement opérationnelle, un certain nombre de contrôle ne sont pas effectués dans cette release et le seront dans la version suivante. Vous pouvez ajouter, modifier ou supprimer un niveau de classification et le propriétaire de la classification si celui-ci est déjà défini dans le fichier de configuration.</li>
+</ul>
+<img alt="_images/meta_gestion.png" src="_images/meta_gestion.png" />
+<p><strong>Les règles relatives à la durée d’utilité administrative et la durée d’utilité courante disposent de propriétés spécifiques. Pour ces deux catégories de règles, il est nécessaire d’indiquer un sort final, les valeurs acceptées sont spécifiques et apparaissent dans une liste déroulante pour chacune des catégories.</strong></p>
+<p><strong>Pour les règles relatives à la durée d’utilité administrative, le sort final des unités archivistiques est conserver ou détruire, pour les règles relatives à la durée d’utilité courante, le sort final des unités archivistiques est copier, accès restreint ou transférer.</strong></p>
+<p>Il est possible de modifier les propriétés d’une catégorie de règles en sélectionnant directement le sort final et l’appliquer à cette catégorie.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">les identifiants des règles de gestion indiqués doivent appartenir à la bonne catégorie de règles et doivent être contenus dans le référentiel des règles de gestion.</p>
+</div>
+</div>
+<div class="section" id="modification-des-proprietes-d-heritage">
+<h3>9.2.2. Modification des propriétés d’héritage<a class="headerlink" href="#modification-des-proprietes-d-heritage" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour chaque catégorie de règles, il est possible d’en modifier l’héritage.
+- Pour bloquer l’héritage des règles de gestion, il est nécessaire de cliquer sur le bouton «&nbsp;Hériter des parents&nbsp;». Lorsque le blocage est enclenché le nom et la couleur du champ change et devient «&nbsp;Bloquer l’héritage&nbsp;» sur fond violet. Il est nécessaire de spécifier par la suite la, ou les règles concernées. Pour que ces informations soient prises en compte il est nécessaire d’appuyer sur la touche entrée après l’ajout de chaque identifiant. Comme precisé ci-dessus les modifications seront effectives après avoir lancé l’action sur tout, ou partie du panier.</p>
+<img alt="_images/bloquer_heritage.png" src="_images/bloquer_heritage.png" />
+<ul class="simple">
+<li>Pour annuler le blocage des règles, il suffit de désélectionner le bouton «&nbsp;Bloquer l’héritage&nbsp;», entrer l’identifiant des règles et valider sa demande en sélectionnant le périmètre d’action : tout ou partie du panier.</li>
+</ul>
+<img alt="_images/annuler_blocage_heritage.png" src="_images/annuler_blocage_heritage.png" />
+</div>
+<div class="section" id="ajouter-une-regle-de-gestion">
+<h3>9.2.3. Ajouter une règle de gestion<a class="headerlink" href="#ajouter-une-regle-de-gestion" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour ajouter une règle de gestion, il est nécessaire de sélectionner une catégorie en cliquant sur le pictogramme «&nbsp;+&nbsp;», puis de cliquer sur le bloc «&nbsp;Ajouter une règle&nbsp;».
+Lors de l’ajout d’une nouvelle règle, il est nécessaire de compléter deux champs «&nbsp;Nouvel identifiant&nbsp;» et «&nbsp;Date de début&nbsp;».
+Pour les règles relatives à la durée d’utilité administrative et durée d’utilité courante il est nécessaire de renseigner un champ supplémentaire concernant le sort final des unités archivistiques, celui-ci est à choisir parmi une liste déroulante spécifique à chacune des catégories.</p>
+<p>Ex: pour la catégorie délai de communicabilité, ajout de la règle ACC-00002, date de début le 02/06/2018.</p>
+</div>
+<div class="section" id="modifier-une-regle-de-gestion">
+<h3>9.2.4. Modifier une règle de gestion<a class="headerlink" href="#modifier-une-regle-de-gestion" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour modifier une règle de gestion, il est nécessaire de sélectionner une catégorie en cliquant sur le pictogramme «&nbsp;+&nbsp;», puis de cliquer sur le bloc «&nbsp;Modifier une règle&nbsp;».
+Lors de la modification d’une règle existante, il est nécessaire de compléter l“«&nbsp;Identifiant d’origine&nbsp;», le «&nbsp;Nouvel identifiant&nbsp;» et la «&nbsp;Date de début&nbsp;».</p>
+<ul class="simple">
+<li>Modifier l’identifiant d’une règle sans changer la date de début contenu dans chacune des unités archivistiques</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="41%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Identifiant d’origine</td>
+<td>Nouvel identifiant</td>
+<td>Date de début</td>
+</tr>
+<tr class="row-even"><td>ACC-00002</td>
+<td>ACC-00033</td>
+<td>champ vide</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Modifier l’identifiant d’une règle et la date de début</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="41%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Identifiant d’origine</td>
+<td>Nouvel identifiant</td>
+<td>Date de début</td>
+</tr>
+<tr class="row-even"><td>ACC-00002</td>
+<td>ACC-00033</td>
+<td>04/04/2017</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="supprimer-une-regle-de-gestion">
+<h3>9.2.5. Supprimer une règle de gestion<a class="headerlink" href="#supprimer-une-regle-de-gestion" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour supprimer une règle de gestion, il est nécessaire de sélectionner une catégorie en cliquant sur le pictogramme «&nbsp;+&nbsp;», puis de cliquer sur le bloc «&nbsp;Supprimer une règle&nbsp;».
+Entrez ensuite l’identifiant de la règle à supprimer dans le champ «&nbsp;nouvel identifiant&nbsp;» et validez la demande en lançant l’action sur tout ou partie du panier.</p>
+<img alt="_images/modification_rg_masse.png" src="_images/modification_rg_masse.png" />
+</div>
+</div>
+<div class="section" id="nombre-d-unites-archivistiques-maximum-concernes-par-les-modifications-en-masse">
+<h2>9.3. Nombre d’unités archivistiques maximum concernés par les modifications en masse<a class="headerlink" href="#nombre-d-unites-archivistiques-maximum-concernes-par-les-modifications-en-masse" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de définir un seuil maximum de modifications dans le contexte de modifications en masse, ce seuil détermine le nombre maximum d’unités archivistiques du panier auxquel le traitements de masse sera appliqué.</p>
+<p>Si le seuil est dépassé : la modification n’est pas réalisé et le traitement est en KO.</p>
+<img alt="_images/seuil_depasse_modif_masse.png" src="_images/seuil_depasse_modif_masse.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Seuil par défaut : 10 000 unités archivistiques pour les modifications en masse</strong>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="elimination-en-masse">
+<h1>10. Elimination en masse<a class="headerlink" href="#elimination-en-masse" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette fonctionnalité permet de lancer des actions d’évaluation des unités archivistiques éliminables dans la solution Vitam et de procéder à leur élimination du système.
+Les actions d’élimination sont réalisables sur les unités archivistiques présentes dans le panier.
+L’opération d’élimination en masse est une opération complexe, nécessitant différentes analyses, produisant différents temps de traitement :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Analyse 1 : Unités archivistiques éliminables car la DUA est échue et le sort final déclaré est «&nbsp;Détruire&nbsp;»</li>
+<li>Analyse 2 : Unités archivistiques éliminables car il n’y a pas de conflits entre services producteurs pour détruire ces archives, la suppression d’une de ces unités archivistiques n’entraîne pas de conflits.</li>
+<li>Analyse 3 et action d’élimination : Unités archivistiques réellement éliminées car elles ne laissent pas d’unités archivistiques orphelines</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Seuil par défaut : 100 000 unités archivistiques pour l’évaluation des unités archivistiques éliminables - 10 000 unités archivistiques pour l’élimination des unités archivistiques éliminables</strong></p>
+</div>
+<p>Comme indiqué précedemment, il est possible de définir un seuil maximum de modifications dans le contexte d’élimination, ce seuil détermine le nombre maximum d’unités archivistiques du panier auxquel le traitements de masse sera appliqué.</p>
+<p>Si le seuil est dépassé : la modification n’est pas réalisé et le traitement est en KO.</p>
+<img alt="_images/seuil_depasse_traitement_de_masse.png" src="_images/seuil_depasse_traitement_de_masse.png" />
+<div class="section" id="analyse-1-rechercher-des-unites-archivistiques-potentiellement-eliminables">
+<h2>10.1. Analyse 1 / Rechercher des unités archivistiques potentiellement éliminables<a class="headerlink" href="#analyse-1-rechercher-des-unites-archivistiques-potentiellement-eliminables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La solution logicielle permet de rechercher des archives éliminables. Dans l’onglet de recherche avancée il est possible de rechercher les unités archivistiques dont la durée d’utilité administrative est échue ou le sera prochainement.
+Pour cela il faut sélectionner dans la catégorie de règle la durée d’utilité administrative, la date d’échéance et le sort final «&nbsp;Détruire&nbsp;», puis cliquer sur «&nbsp;Rechercher&nbsp;».
+On peut appliquer à ces résultats des filtres de recherche et affiner la recherche par service producteur par exemple.
+L’utilisateur peut ensuite placer au panier l’unité archivistique seule, l’unité archivistique et sa descendance ou encore l’unité archivistique et son entrée. (cf.chapitre panier)</p>
+<img alt="_images/recherche_eliminables.png" src="_images/recherche_eliminables.png" />
+</div>
+<div class="section" id="analyse-2-evaluation-des-unites-archivistiques-eliminables">
+<h2>10.2. Analyse 2 / Evaluation des unités archivistiques éliminables<a class="headerlink" href="#analyse-2-evaluation-des-unites-archivistiques-eliminables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette phase d’analyse est destinée à évaluer les unités archivistiques pour connaître leur statut au regard de l’élimination et décider de la mise en oeuvre de leur sort final et préparer les demandes d’autorisation ( processus externe à la solution logicielle Vitam). L’évaluation se lance à partir du panier sur la totalité du panier ou une sélection.
+Dans la rubrique «&nbsp;Sélectionner une action&nbsp;», l’utilisateur choisit «&nbsp;Elimination&nbsp;» puis sélectionne le mode «&nbsp;Analyse&nbsp;» et indique une date d’échéance qui peut être passée ou à venir. La solution logicielle va indexer en base de données les archives éliminables. (cf modèle de données Collection Unit)</p>
+<img alt="_images/panier_elimination.png" src="_images/panier_elimination.png" />
+<div class="section" id="acceder-aux-resultats-de-l-analyse">
+<h3>10.2.1. Accéder aux résultats de l’analyse<a class="headerlink" href="#acceder-aux-resultats-de-l-analyse" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le résultat de l’analyse d’élimination est consultable dans la rubrique «&nbsp;Gestion des archives&nbsp;», «&nbsp;Résultats d’élimination&nbsp;».</p>
+<img alt="_images/resultats_analyse_elimination.png" src="_images/resultats_analyse_elimination.png" />
+<p>Pour accéder à cet écran, l’utilisateur doit :</p>
+<ul class="simple">
+<li>aller dans le journal des opérations dans le menu administration</li>
+<li>consulter le journal des opérations</li>
+<li>récupérer le GUID de l’opération ELIMINATION</li>
+<li>puis aller dans le menu «&nbsp;Gestion des archives&nbsp;» et sélectionner le sous-menu «&nbsp;Résultats d’élimination&nbsp;».</li>
+</ul>
+<p>En complétant le champ «&nbsp;Opération d’élimination&nbsp;» avec le GUID de l’opération et en cliquant sur Rechercher l’utilisateur accède à une liste d’unités archivistiques éliminables.</p>
+<p>Seules les archives dont les règles de gestion prévoient l’élimination à échéance de la date donnée comme critère par l’analyse sont affichées. Les unités archivistiques dont la règle prévoit la conservation ou dont la règle n’est pas encore échue ne figurent pas sur cette page.
+Les unités archivistiques affichées peuvent avoir comme statut :</p>
+<ul>
+<li><p class="first">Destroy (unités archivistiques arrivées à échéance de leur durée administrative et dont tous les services ayant des droits sur elles demandent l’élimination)</p>
+</li>
+<li><p class="first">Conflicts (unités archivistiques dont le sort final applicable ne peut être déterminé par la solution logicielle). Pour ce statut il est possible d’avoir des informations étendues qui explicitent la raison du conflit :</p>
+<blockquote>
+<div><ul class="simple">
+<li>KEEP_ACCESS_SP (l’unité archivistique n’est pas éliminable car l’accès est conservé pour un service producteur autre que le service producteur principal)</li>
+<li>ACCESS_LINK_INCONSISTENCY (l’unité archivistique n’est pas éliminable car sa suppression occasionnerait une incohérence dans le fonds d’archives)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>L’utilisateur peut filtrer les résultats en fonction des services producteurs éliminables et ceux qui ne le sont pas, en fonction du statut global des unités archivistiques, en fonction du niveau de description, par dates et en fonction des informations étendues d’élimination.</p>
+<img alt="_images/statut_global_elimination.png" src="_images/statut_global_elimination.png" />
+<p>Les résultats filtrés ou non par l’analyse peuvent être traités directement dans un panier</p>
+<img alt="_images/traiter_resultat_dans_panier.png" src="_images/traiter_resultat_dans_panier.png" />
+</div>
+</div>
+<div class="section" id="analyse-3-et-action-elimination-des-unites-archivistiques-eliminables">
+<h2>10.3. Analyse 3 et action  / Elimination des unités archivistiques éliminables<a class="headerlink" href="#analyse-3-et-action-elimination-des-unites-archivistiques-eliminables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette action peut être effectuée après la phase de recherche ou d’analyse, mais elle peut également être lancée indépendamment. En effet, l’utilisateur peut décider de supprimer un lot d’unités archivistiques présent dans le panier sans passer par une analyse préalable.
+Lors de cette opération, le système Vitam va effectuer une analyse analogue à celle décrite ci dessus dans la phase 2, mais ne va pas indexer les résultats concernant l’élimination sur les unités archivistiques en base de données.
+Lors de cette phase, le système va s’assurer que l’élimination n’entraine pas de cas d’orphelinage. A l’issue de ces phases d’analyses si l’unité archivistique est réellement éliminable, elle va être supprimée du système.  Pour procéder à cette phase d’analyse et d’action d’élimination, l’utilisateur doit :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Sélectionner des unités archivistiques dans le panier</li>
+<li>Cliquer dans le menu déroulant sur l’action «&nbsp;Elimination&nbsp;»</li>
+<li>Entrer la date du jour ou une date échue</li>
+<li>Sélectionner le mode «&nbsp;Action&nbsp;»</li>
+<li>Spécifier si l’action a lieu sur la sélection ou le panier dans sa totalité. Au clic, une fenêtre modale confirme que l’action d’élimination est en cours.</li>
+</ul>
+</div></blockquote>
+<img alt="_images/analyse_action_elimination.png" src="_images/analyse_action_elimination.png" />
+<img alt="_images/pop_action_elimination.png" src="_images/pop_action_elimination.png" />
+<div class="section" id="resultats-de-l-operation-d-elimination">
+<h3>10.3.1. Résultats de l’opération d’élimination<a class="headerlink" href="#resultats-de-l-operation-d-elimination" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le résultat de l’opération d’élimination est consultable dans le rapport de l’opération. Pour cela l’utilisateur doit :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Aller dans le journal des opérations dans le menu administration</li>
+<li>Consulter le journal des opérations</li>
+<li>Cliquer sur l’opération élimination</li>
+<li>Sélectionner le rapport dans informations complémentaires</li>
+<li>Télécharger le rapport</li>
+</ul>
+</div></blockquote>
+<p>Le rapport d’élimination spécifie :</p>
+<dl class="docutils">
+<dt>Pour les unités archivistiques :</dt>
+<dd><ul class="first last simple">
+<li>GLOBAL_STATUS_KEEP (la durée d’utilité administrative n’est pas échue et le sort final spécifié est à conserver)</li>
+<li>GLOBAL_STATUS_CONFLICT (les unités archivistiques pour lesquelles les services producteurs ne sont pas unanimes quant à leur élimination. A la différence de la phase d’évaluation, lors de cette action il n’y a pas d’indexation dans la base de données mais des informations additionnelles sur les raisons de la non élimination)</li>
+<li>DELETED les unités archivistiques ont été éliminées</li>
+<li>NON_DESTROYABLE_HAS_CHILD_UNITS les unités archivistiques n’ont pas été éliminée car leur suppression provoquerait des cas d’orphelinage.</li>
+</ul>
+</dd>
+<dt>Pour les GOT :</dt>
+<dd><ul class="first last simple">
+<li>DELETED les groupes d’objets ont été supprimés.</li>
+<li>PARTIAL_DETACHMENT les groupes d’objets ont été détachés des unités archivistiques concernées par l’élimination. Dans le cas d’un GOT partagé par deux unités archivistiques dont une seule est éliminée</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Administration.html" class="btn btn-neutral" title="7. Administration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

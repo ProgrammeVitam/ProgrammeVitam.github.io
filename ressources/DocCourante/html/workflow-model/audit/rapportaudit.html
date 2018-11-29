@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rapport d’audit &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Rapport d’audit &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Workflow de l’audit de cohérence des fichiers" href="workflow_audit_file_consistency.html" />
+    <link rel="next" title="Workflow d’audit de cohérence des fichiers" href="workflow_audit_file_consistency.html" />
     <link rel="prev" title="Workflow de l’audit de l’existence et de l’intégrité des fichiers" href="workflow_audit_file_existing_integrity.html" /> 
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -98,8 +98,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#liste-des-elements-singuliers-generant-un-avertissement-auditwarning">Liste des éléments singuliers générant un avertissement («&nbsp;auditWarning&nbsp;»)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow de l’audit de cohérence des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_audit_file_consistency.html">Workflow d’audit de cohérence des fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rapportauditconsistency.html">Rapport d’audit de cohérence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_correction_audit.html">Workflow de l’audit correctif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html">Workflow de relevé de valeur probante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_probative_value.html#rapport-du-releve-de-valeur-probante">Rapport du relevé de valeur probante</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
@@ -107,6 +110,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -259,21 +264,29 @@
 </div>
 <div class="section" id="partie-master">
 <h2>Partie «&nbsp;Master&nbsp;»<a class="headerlink" href="#partie-master" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La partie «&nbsp;master&nbsp;», c’est à dire le bloc à la racine du rapport (sans indentation) est composé des champs suivants :</p>
+<p>La partie «&nbsp;master&nbsp;», c’est à dire le bloc à la racine du rapport (sans indentation) est composée des champs suivants :</p>
 <ul class="simple">
-<li>«&nbsp;tenant&nbsp;»: le tenant sur lequel l’opération d’audit a été lancée</li>
-<li>«&nbsp;auditOperationId&nbsp;»: l’identifiant de l’opération d’audit</li>
-<li>«&nbsp;auditType&nbsp;»: l’élément sur lequel l’audit a été lancé. Celui ci peut être par «&nbsp;tenant&nbsp;», ou par «&nbsp;originatingagency&nbsp;»</li>
-<li>«&nbsp;objectId&nbsp;»: l’identifiant de l’élément (tenant ou service producteur)</li>
-<li>«&nbsp;DateTime&nbsp;»: la date du rapport</li>
-<li>«&nbsp;Status&nbsp;»: la statut final du rapport, OK (l’audit n’a pas détecté d’anomalie), Warning (l’audit a détecté quelque chose de singulier qui n’a pas été considéré comme une anomalie), KO (l’audit a détecté une anomalie)</li>
-<li>«&nbsp;outMessage&nbsp;»: le message final de l’audit, repris du journal des opérations</li>
-<li>«&nbsp;LastEvent&nbsp;»: la clé correspondant au type d’audit. Par exemple pour l’audit de l’existence des fichiers il s’agit de «&nbsp;AUDIT_FILE_EXISTING&nbsp;»</li>
+<li>«&nbsp;tenant&nbsp;»: tenant sur lequel l’opération d’audit a été lancée</li>
+<li>«&nbsp;auditOperationId&nbsp;»: identifiant de l’opération d’audit généré par la solution logicielle Vitam.</li>
+<li>«&nbsp;auditType&nbsp;»: élément sur lequel l’audit a été lancé. Celui ci peut être par «&nbsp;tenant&nbsp;», ou par «&nbsp;originatingagency&nbsp;»</li>
+<li>«&nbsp;objectId&nbsp;»: identifiant de l’élément (tenant ou service producteur)</li>
+<li>«&nbsp;DateTime&nbsp;»: date du rapport</li>
+<li><dl class="first docutils">
+<dt>«&nbsp;Status&nbsp;»: statut final du rapport :</dt>
+<dd><ul class="first last">
+<li>OK (l’audit n’a pas détecté d’anomalie)</li>
+<li>Warning (l’audit a détecté quelque chose de singulier qui n’a pas été considéré comme une anomalie)</li>
+<li>KO (l’audit a détecté une anomalie)</li>
 </ul>
-<p>Mais aussi :
-- «&nbsp;source&nbsp;»: la liste des opérations auditées
-- «&nbsp;auditKO&nbsp;»: la liste des anomalies détectées qui ont provoqué le KO de l’audit
-- «&nbsp;auditWarning&nbsp;»: la liste des éléments singuliers détectés qui ont provoqué un warning de l’audit</p>
+</dd>
+</dl>
+</li>
+<li>«&nbsp;outMessage&nbsp;»: message final de l’audit, repris du journal des opérations</li>
+<li>«&nbsp;LastEvent&nbsp;»: clé correspondant au type d’audit. Par exemple pour l’audit de l’existence et de l’intégrité des fichiers il s’agit de «&nbsp;AUDIT_FILE_INTEGRITY&nbsp;»</li>
+<li>«&nbsp;source&nbsp;»: liste des opérations auditées</li>
+<li>«&nbsp;auditKO&nbsp;»: liste des anomalies détectées qui ont provoqué le KO de l’audit</li>
+<li>«&nbsp;auditWarning&nbsp;»: liste des éléments singuliers détectés qui ont provoqué un warning de l’audit</li>
+</ul>
 </div>
 <div class="section" id="liste-des-operations-auditees-source">
 <h2>Liste des opérations auditées («&nbsp;source&nbsp;»)<a class="headerlink" href="#liste-des-operations-auditees-source" title="Lien permanent vers ce titre">¶</a></h2>
@@ -312,7 +325,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="workflow_audit_file_consistency.html" class="btn btn-neutral float-right" title="Workflow de l’audit de cohérence des fichiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="workflow_audit_file_consistency.html" class="btn btn-neutral float-right" title="Workflow d’audit de cohérence des fichiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="workflow_audit_file_existing_integrity.html" class="btn btn-neutral" title="Workflow de l’audit de l’existence et de l’intégrité des fichiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -324,7 +337,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -343,21 +356,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

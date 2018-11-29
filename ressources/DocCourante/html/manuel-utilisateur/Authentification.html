@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Authentification &mdash; Documentation VITAM - Manuel utilisateur 1.4.0</title>
+  <title>3. Authentification &mdash; Documentation VITAM - Manuel utilisateur 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -103,9 +103,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Entree.html">4. Entrée d’un SIP et plan de classement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche et Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Consultation.html">5. Recherche, Consultation et Modification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestion.html">6. Gestion des archives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Administration.html">7. Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html">8. Traitements de masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html#mise-a-jour-de-metadonnees-en-masse">9. Mise à jour de métadonnées en masse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitements_de_masse.html#elimination-en-masse">10. Elimination en masse</a></li>
 </ul>
 
             
@@ -172,7 +175,7 @@
             
   <div class="section" id="authentification">
 <h1>3. Authentification<a class="headerlink" href="#authentification" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Cette partie est destinée à expliquer les fonctionnalités du système d’authentification, qui s’affiche dès qu’un utilisateur souhaite se connecter à l’IHM minimale et, également du processus de déconnexion.</p>
+<p>Cette partie est destinée à expliquer les fonctionnalités du système d’authentification, qui s’affiche dès qu’un utilisateur souhaite se connecter à l’IHM minimale et également du processus de déconnexion.</p>
 <p>Le système comporte actuellement deux niveaux d’authentification :</p>
 <ul class="simple">
 <li>Administrateur (admin)</li>
@@ -180,8 +183,8 @@
 </ul>
 <div class="section" id="connexion">
 <h2>3.1. Connexion<a class="headerlink" href="#connexion" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L’utilisateur de la solution logicielle Vitam peut s’authentifier de deux façons différentes, selon le paramétrage qui a été effectué. Il est possible de se connecter en utilisant un login et un mot de passe, ou de se connecter en utilisant un certificat.</p>
-<p>Dans les deux cas, l’utilisateur doit choisir le tenant sur lequel il souhaite se connecter.Pour cela, il utilise le sélecteur «&nbsp;Tenant de la session&nbsp;».</p>
+<p>L’utilisateur de la solution logicielle Vitam peut s’authentifier de deux façons différentes, selon le paramétrage qui a été effectué. Il est possible de se connecter en utilisant un login et un mot de passe ou de se connecter en utilisant un certificat.</p>
+<p>Dans les deux cas, l’utilisateur doit choisir le tenant sur lequel il souhaite se connecter. Pour cela, il utilise le sélecteur «&nbsp;Tenant de la session&nbsp;».</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -226,16 +229,17 @@ Pour des mesures de sécurité, le mot de passe saisi ne s’affichera pas en to
 <img alt="_images/menu_admin.png" src="_images/menu_admin.png" />
 <p><strong>User</strong> : permet d’accéder aux fonctionnalités suivantes :</p>
 <ul class="simple">
-<li>Transfert d’archives (en production seulement)</li>
-<li>Transfert de plan de classement</li>
+<li>Transfert d’archives (en production et à blanc)</li>
+<li>Transfert de plan de classement (en production seulement)</li>
 <li>Suivi des opérations d’entrée</li>
 <li>Recherche et consultation d’archives</li>
-<li>Détail des unités archivistiques</li>
+<li>Consultation du détail des unités archivistiques</li>
 <li>Recherche et consultation des services producteurs</li>
 <li>Consultation des référentiels</li>
 <li>Consultation des journaux d’opération</li>
+<li>Accèder au panier</li>
 </ul>
-<p>Mais n’a pas l’accès aux fonctionnalités du rôle Administrateur et du mode «&nbsp;Pas à Pas&nbsp;», qui n’apparaissent pas dans le menu.</p>
+<p>L’utilisateur n’a pas l’accès aux fonctionnalités du rôle Administrateur et du mode «&nbsp;Pas à Pas&nbsp;», celles-ci n’apparaissent pas dans le menu «&nbsp;Transfert SIP et plan de classement&nbsp;»</p>
 <img alt="_images/menu_users.png" src="_images/menu_users.png" />
 </div>
 <div class="section" id="deconnexion">
@@ -243,12 +247,12 @@ Pour des mesures de sécurité, le mot de passe saisi ne s’affichera pas en to
 <div class="section" id="deconnexion-manuelle">
 <h3>3.3.1. Déconnexion manuelle<a class="headerlink" href="#deconnexion-manuelle" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Depuis n’importe quelle page de la solution logicielle Vitam, l’utilisateur a la possibilité de se déconnecter de l’application.
-Pour cela, il clique sur le bouton «&nbsp;Déconnexion en haut à droite de la page en cours. Le système clos la session de l’utilisateur, et la page d’authentification s’affiche de nouveau.</p>
+Pour cela, il clique sur le bouton «&nbsp;Déconnexion&nbsp;» en haut à droite de la page en cours. Le système clot la session de l’utilisateur et la page d’authentification s’affiche de nouveau.</p>
 <a class="reference internal image-reference" href="_images/tenant.png"><img alt="_images/tenant.png" src="_images/tenant.png" style="width: 295.0px; height: 40.0px;" /></a>
 </div>
 <div class="section" id="deconnexion-automatique">
 <h3>3.3.2. Déconnexion automatique<a class="headerlink" href="#deconnexion-automatique" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’utilisateur est automatiquement déconnecté et redirigé vers la page d’authentification après un demi-heure d’inactivité.</p>
+<p>L’utilisateur est automatiquement déconnecté et redirigé vers la page d’authentification après une demi-heure d’inactivité.</p>
 </div>
 </div>
 </div>
@@ -273,7 +277,7 @@ Pour cela, il clique sur le bouton «&nbsp;Déconnexion en haut à droite de la 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -292,21 +296,24 @@ Pour cela, il clique sur le bouton «&nbsp;Déconnexion en haut à droite de la 
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
 
   
 

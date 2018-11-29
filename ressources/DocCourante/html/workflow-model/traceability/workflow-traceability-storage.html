@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Création de journal sécurisé des journaux des écritures sécurisés &mdash; Documentation VITAM - Modèle de workflow 1.4.0</title>
+  <title>Création de journal sécurisé des journaux des écritures &mdash; Documentation VITAM - Modèle de workflow 1.10.0-1</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="UPDATE" href="../update/_toc_update.html" />
+    <link rel="next" title="Processus de sauvegarde des journaux des accès" href="workflow-traceability-access-log.html" />
     <link rel="prev" title="Workflow de création de journal des cycles de vie sécurisé des groupes d’objets" href="workflow-traceability-lifecycle.html" /> 
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -92,17 +92,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc_traceability.html">TRACEABILITY</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="workflow-traceability.html">Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-op-traceability.html">Workflow du processus de sécurisation du journal des opérations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow-traceability-lifecycle.html">Workflow de création de journal des cycles de vie sécurisé des groupes d’objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow-traceability-lifecycle.html#workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques">Workflow de création de journal des cycles de vie sécurisé des unités archivistiques</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Création de journal sécurisé des journaux des écritures sécurisés</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Création de journal sécurisé des journaux des écritures</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#securisation-des-journaux-des-ecritures-vision-metier">Sécurisation des journaux des écritures (vision métier)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-access-log.html">Processus de sauvegarde des journaux des accès</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
 </ul>
 
             
@@ -150,7 +153,7 @@
         
           <li><a href="_toc_traceability.html">TRACEABILITY</a> &raquo;</li>
         
-      <li>Création de journal sécurisé des journaux des écritures sécurisés</li>
+      <li>Création de journal sécurisé des journaux des écritures</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -169,11 +172,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="creation-de-journal-securise-des-journaux-des-ecritures-securises">
-<h1>Création de journal sécurisé des journaux des écritures sécurisés<a class="headerlink" href="#creation-de-journal-securise-des-journaux-des-ecritures-securises" title="Lien permanent vers ce titre">¶</a></h1>
+  <div class="section" id="creation-de-journal-securise-des-journaux-des-ecritures">
+<h1>Création de journal sécurisé des journaux des écritures<a class="headerlink" href="#creation-de-journal-securise-des-journaux-des-ecritures" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette section décrit la sécurisation des journaux des écriture mis en place dans la solution logicielle Vitam. Contrairement aux autres sécurisations de journaux de cycles de vie ou du journal des opérations, celle-ci n’est pas utilisée au sein d’un workflow.</p>
+<p>Cette section décrit la sécurisation des journaux des écritures mis en place dans la solution logicielle Vitam. Contrairement aux autres sécurisations de journaux de cycles de vie ou du journal des opérations, celle-ci n’est pas utilisée au sein d’un workflow.</p>
 </div>
 <div class="section" id="securisation-des-journaux-des-ecritures-vision-metier">
 <h2>Sécurisation des journaux des écritures (vision métier)<a class="headerlink" href="#securisation-des-journaux-des-ecritures-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
@@ -187,15 +190,19 @@
 <li>Un fichier d’information décrivant le périmètre du fichier des logs des journaux sécurisés associé : date de début et date de fin définissant l’intervalle de sélection des logs à sécuriser, ainsi que l’empreinte du fichier logFile et la date de création du .zip</li>
 </ul>
 </div></blockquote>
-<p>Au niveau du journal des opérations, cette action est entièrement réalisée dans une seule étape (STP_STORAGE_SECURISATION)</p>
+<p>Au niveau du journal des écritures, cette action est entièrement réalisée dans une seule étape (STP_STORAGE_SECURISATION)</p>
 <ul>
+<li><p class="first"><strong>Règle</strong> : création de journal sécurisé des journaux des écritures</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
 <li><p class="first"><strong>Status</strong> :</p>
 <blockquote>
 <div><ul class="simple">
 <li>OK : le tampon d’horodatage est calculé (STP_STORAGE_SECURISATION.OK = Succès du processus de sécurisation du journal des écritures)</li>
-<li>WARNING : il n’y a pas de nouveaux journaux à sécuriser (STP_STORAGE_SECURISATION.WARNING = avertissement lors du processus de sécurisation du journal des écritures )</li>
+<li>WARNING : il n’y a pas de nouveaux journaux à sécuriser (STP_STORAGE_SECURISATION.WARNING = Avertissement lors du processus de sécurisation du journal des écritures )</li>
 <li>KO : pas de cas KO</li>
-<li>FATAL : une erreur fatale est survenue lors de l’horodatage (STP_STORAGE_SECURISATION.FATAL = Erreur fatale lors du processus de sécurisation du journal des écritures)</li>
+<li>FATAL : une erreur technique est survenue lors de l’horodatage (STP_STORAGE_SECURISATION.FATAL = Erreur technique lors du processus de sécurisation du journal des écritures)</li>
 </ul>
 </div></blockquote>
 </li>
@@ -217,7 +224,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../update/_toc_update.html" class="btn btn-neutral float-right" title="UPDATE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="workflow-traceability-access-log.html" class="btn btn-neutral float-right" title="Processus de sauvegarde des journaux des accès" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="workflow-traceability-lifecycle.html" class="btn btn-neutral" title="Workflow de création de journal des cycles de vie sécurisé des groupes d’objets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -229,7 +236,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -248,21 +255,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

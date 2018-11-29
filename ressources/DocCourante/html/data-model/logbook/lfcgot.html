@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.4. Collection LogbookLifeCycleObjectGroup &mdash; Documentation VITAM - Modèle de données 1.4.0</title>
+  <title>3.4. Collection LogbookLifeCycleObjectGroup &mdash; Documentation VITAM - Modèle de données 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -94,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="lfcunit.html">3.3. Collection LogbookLifeCycleUnit</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3.4. Collection LogbookLifeCycleObjectGroup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#utilisation-de-la-collection-logbooklifecycleobjectgroup">3.4.1. Utilisation de la collection LogbookLifeCycleObjectGroup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs">3.4.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extrait-d-un-json-stocke-en-base-comprenant-l-exhaustivite-des-champs">3.4.2. Extrait d’un JSON stocké en base comprenant l’exhaustivité des champs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#detail-des-champs-du-json-stocke-en-base">3.4.3. Détail des champs du JSON stocké en base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#champs-presents-dans-les-events">3.4.4. Champs présents dans les events</a></li>
 </ul>
@@ -104,7 +104,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/_toc_metadata.html">4. Base MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">5. Base MasterData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../annexes.html">6. Annexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../report/_toc_report.html">6. Base Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes.html">7. Annexes</a></li>
 </ul>
 
             
@@ -177,74 +178,86 @@
 <h2>3.4.1. Utilisation de la collection LogbookLifeCycleObjectGroup<a class="headerlink" href="#utilisation-de-la-collection-logbooklifecycleobjectgroup" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le journal du cycle de vie du groupe d’objets (ObjectGroup) trace tous les événements qui impactent le groupe d’objets (et les objets associés) dès sa prise en charge dans le système. Il doit être conservé aussi longtemps que les objets sont gérés dans le système.</p>
 <ul class="simple">
-<li>dès la réception des objets, on trace les opérations effectuées sur les groupes d’objets et objets qui sont dans le SIP.</li>
-<li>les journaux du cycle de vie sont «&nbsp;committés&nbsp;» une fois le stockage des objets effectué et l’indexation des métadonnées effectuée, avant l’envoi d’une notification au service versant.</li>
+<li>Dès la réception des objets, on trace les opérations effectuées sur les groupes d’objets et objets qui sont dans le SIP.</li>
+<li>Les journaux du cycle de vie sont «&nbsp;committés&nbsp;» une fois le stockage des objets effectué et l’indexation des métadonnées effectuée, avant l’envoi d’une notification au service versant.</li>
 </ul>
 <p>Chaque groupe d’objets possède une et une seule entrée dans la collection LogbookLifeCycleObjectGroup.</p>
 </div>
-<div class="section" id="exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs">
-<h2>3.4.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="extrait-d-un-json-stocke-en-base-comprenant-l-exhaustivite-des-champs">
+<h2>3.4.2. Extrait d’un JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#extrait-d-un-json-stocke-en-base-comprenant-l-exhaustivite-des-champs" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaaaam7mxaap44akyf7hurgaaaaba&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaacaam7mxaap44akyf7hurgaaaabq&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaamhjsaaiabdgealgdn3eawiaaaca&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaaohjsaaiabdgealgdn3ea7yaaaca&quot;</span><span class="p">,</span>
   <span class="s2">&quot;evParentId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-  <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_CONSISTENCY&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-11-04T14:47:43.512&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaacaam7mxaau56akyf7hr45qaaaaq&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.LFC_CREATION&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:06.559&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohcalzeabmrkalgdn3dpaaaaaaq&quot;</span><span class="p">,</span>
   <span class="s2">&quot;evTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;outcome&quot;</span><span class="p">:</span> <span class="s2">&quot;STARTED&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;STARTED&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Début de la vérification de la cohérence entre objets/groupes d’objets et ArchiveUnit.&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-iaas-worker-01</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">PlatformId</span><span class="se">\&quot;</span><span class="s2">:425367}&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaaaam7mxaap44akyf7hurgaaaaba&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;outcome&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.LFC_CREATION.OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Succès de l&#39;alimentation du journal du cycle de vie&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-env-int-worker-02.vitam-env</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">ServerId</span><span class="se">\&quot;</span><span class="s2">:1050214408,</span><span class="se">\&quot;</span><span class="s2">SiteId</span><span class="se">\&quot;</span><span class="s2">:1,</span><span class="se">\&quot;</span><span class="s2">GlobalPlatformId</span><span class="se">\&quot;</span><span class="s2">:244908040}&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaamhjsaaiabdgealgdn3eawiaaaca&quot;</span><span class="p">,</span>
   <span class="s2">&quot;evDetData&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
   <span class="s2">&quot;events&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-          <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaacaam7mxaap44akyf7hurgaaaabq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaaohjsaaiabdgealgdn3ea7yaaacq&quot;</span><span class="p">,</span>
           <span class="s2">&quot;evParentId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-          <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_CONSISTENCY&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-11-04T14:47:43.515&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaacaam7mxaau56akyf7hr45qaaaaq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.CHECK_MANIFEST&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:06.559&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohcalzeabmrkalgdn3dpaaaaaaq&quot;</span><span class="p">,</span>
           <span class="s2">&quot;evTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
           <span class="s2">&quot;outcome&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Objet/groupe dobjet référencé par un ArchiveUnit.&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-iaas-app-02</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">ServerId</span><span class="se">\&quot;</span><span class="s2">:773928267,</span><span class="se">\&quot;</span><span class="s2">SiteId</span><span class="se">\&quot;</span><span class="s2">:1,</span><span class="se">\&quot;</span><span class="s2">GlobalPlatformId</span><span class="se">\&quot;</span><span class="s2">:237057355}&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaaaam7mxaap44akyf7hurgaaaaba&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.CHECK_MANIFEST.OK&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Succès de la vérification de la cohérence du bordereau de transfert&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-env-int-worker-02.vitam-env</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">ServerId</span><span class="se">\&quot;</span><span class="s2">:1050214408,</span><span class="se">\&quot;</span><span class="s2">SiteId</span><span class="se">\&quot;</span><span class="s2">:1,</span><span class="se">\&quot;</span><span class="s2">GlobalPlatformId</span><span class="se">\&quot;</span><span class="s2">:244908040}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaamhjsaaiabdgealgdn3eawiaaaca&quot;</span><span class="p">,</span>
           <span class="s2">&quot;evDetData&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;_lastPersistedDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:22.152&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
-          <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">aeaaaaaaaaaam7mxaap44akyf7hurgaaaaba</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;evParentId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-          <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-11-04T14:47:45.132&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaacaam7mxaau56akyf7hr45qaaaaq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaaohjsaaiabdgealgdn3ea7yaaada&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evParentId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaaohjsaaiabdgealgdn3ea7yaaacq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.CHECK_MANIFEST.LFC_CREATION&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:06.559&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohcalzeabmrkalgdn3dpaaaaaaq&quot;</span><span class="p">,</span>
           <span class="s2">&quot;evTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;outcome&quot;</span><span class="p">:</span> <span class="s2">&quot;STARTED&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;STARTED&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Début de la vérification de lempreinte.&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-iaas-worker-01</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">PlatformId</span><span class="se">\&quot;</span><span class="s2">:425367}&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaaaam7mxaap44akyf7hurgaaaaba&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;evDetData&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">MessageDigest</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0f1de441a7d44a277e265eb741e748ea18c96a59c8c0385f938b9768a42e375716dfa3b20cc125905636</span>
-          <span class="mi">5</span><span class="n">aa0d3541f6128389ad60c8effbdc63b94df9a2e02bb</span>\<span class="s2">&quot;,</span><span class="se">\&quot;</span><span class="s2">Algorithm</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">SHA512</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">SystemMessageDigest</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">SHA-512</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">SystemAlgorithm</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">0f1de441a7d44a277e265eb741e748ea18c96a59c8c0385f938b9768a42e375716dfa3b20cc125905636</span>
-          <span class="mi">5</span><span class="n">aa0d3541f6128389ad60c8effbdc63b94df9a2e02bb</span>\<span class="s2">&quot;} &quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outcome&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.CHECK_MANIFEST.LFC_CREATION.OK&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Succès de la création du journal du cycle de vie&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-env-int-worker-02.vitam-env</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">ServerId</span><span class="se">\&quot;</span><span class="s2">:1050214408,</span><span class="se">\&quot;</span><span class="s2">SiteId</span><span class="se">\&quot;</span><span class="s2">:1,</span><span class="se">\&quot;</span><span class="s2">GlobalPlatformId</span><span class="se">\&quot;</span><span class="s2">:244908040}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaamhjsaaiabdgealgdn3eawiaaaca&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evDetData&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;_lastPersistedDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:22.152&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
+          <span class="s2">&quot;evId&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaachjsaaiabdgealgdn3eddaaaaaq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evParentId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;evType&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.CHECK_CONSISTENCY&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:06.828&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaaaohcalzeabmrkalgdn3dpaaaaaaq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evTypeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outcome&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outDetail&quot;</span><span class="p">:</span> <span class="s2">&quot;LFC.CHECK_CONSISTENCY.OK&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;outMessg&quot;</span><span class="p">:</span> <span class="s2">&quot;Succès de la vérification de la cohérence entre objets, groupes d&#39;objets et unités archivistiques&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;agId&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">Name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">vitam-env-int-worker-02.vitam-env</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">Role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">worker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">ServerId</span><span class="se">\&quot;</span><span class="s2">:1050214408,</span><span class="se">\&quot;</span><span class="s2">SiteId</span><span class="se">\&quot;</span><span class="s2">:1,</span><span class="se">\&quot;</span><span class="s2">GlobalPlatformId</span><span class="se">\&quot;</span><span class="s2">:244908040}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;obId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaamhjsaaiabdgealgdn3eawiaaaca&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evDetData&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;_lastPersistedDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:22.152&quot;</span>
+      <span class="p">},</span>
 
-          <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 
-      <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;_tenant&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">&quot;_v&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">&quot;_lastPersistedDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-11-04T14:47:45.132&quot;</span>
-  <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;_tenant&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;_v&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;_lastPersistedDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-09-27T14:37:22.152&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="detail-des-champs-du-json-stocke-en-base">
 <h2>3.4.3. Détail des champs du JSON stocké en base<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base" title="Lien permanent vers ce titre">¶</a></h2>
-<p><strong>«&nbsp;_id&nbsp;»:</strong> Identifiant donné par le système lors de l’initialisation du journal du cycle de vie.</p>
+<p><strong>«&nbsp;_id&nbsp;»:</strong> identifiant donné par le système lors de l’initialisation du journal du cycle de vie.</p>
 <blockquote>
 <div><ul class="simple">
 <li>Il est constitué d’une chaîne de 36 caractères correspondant à un GUID. Il reprend la valeur du champ _id du groupe d’objets enregistré dans la collection ObjectGroup.</li>
@@ -262,17 +275,16 @@
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
 </div></blockquote>
-<dl class="docutils">
-<dt><strong>«&nbsp;evParentId&nbsp;» (event Parent Identifier):</strong> identifiant de l’événement parent.</dt>
-<dd><ul class="first last simple">
+<p><strong>«&nbsp;evParentId&nbsp;» (event Parent Identifier):</strong> identifiant de l’événement parent.</p>
+<blockquote>
+<div><ul class="simple">
 <li>Il est constitué d’une chaîne de 36 caractères correspondant à un GUID.</li>
-<li>Il identifie l’événement parent. Par exemple pour LFC.CHECK_MANIFEST.LFC_CREATION, ce champs fera référence au GUID de l’évènement LFC.CHECK_MANIFEST.</li>
+<li>Il identifie l’événement parent. Par exemple pour l’événement LFC.CHECK_MANIFEST.LFC_CREATION, ce champs fera référence au GUID de l’évènement LFC.CHECK_MANIFEST.</li>
 <li>La valeur du champ est toujours «&nbsp;null&nbsp;» pour la structure incluante et les tâches principales</li>
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <p><strong>«&nbsp;evType&nbsp;»</strong> (event Type): nom de l’événement.</p>
 <blockquote>
 <div><ul class="simple">
@@ -286,19 +298,17 @@
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+&nbsp;»T&nbsp;»+hh:mm:ss:[3digits de millisecondes]</li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">&quot;2016-08-17T08:26:04.227&quot;</span></code>.</p>
-<ul class="simple">
 <li>Ce champ est positionné par le client LogBook.</li>
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">&quot;2016-08-17T08:26:04.227&quot;</span></code>.</p>
 <p><strong>«&nbsp;evIdProc&nbsp;» (event Identifier Process):</strong> identifiant du processus.</p>
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’une chaîne de 36 caractères.</li>
-<li>Toutes les mêmes entrées du journal du cycle de vie partagent la même valeur, qui est celle du champ «&nbsp;_id&nbsp;» de l’opération enregistrée dans la collection LogbookOperation.</li>
+<li>Toutes les occurrences de ce champ pour un même document du journal du cycle de vie partagent la même valeur, qui est celle du champ «&nbsp;_id&nbsp;» de l’opération enregistrée dans la collection LogbookOperation.</li>
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
@@ -307,7 +317,7 @@
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’une chaîne de caractères.</li>
-<li>Nom du processus qui effectue l’action, parmi une liste de processus possibles fixée. Cette liste est disponible en annexe.</li>
+<li>Nom du processus parmi une liste de processus possibles fixée. Cette liste est disponible en annexe.</li>
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses</li>
 </ul>
@@ -315,7 +325,7 @@
 <p><strong>«&nbsp;outcome&nbsp;»:</strong> statut de l’événement.</p>
 <blockquote>
 <div><ul>
-<li><p class="first">Il s’agit d’une chaîne de caractères devant correspondre une valeur de la liste suivante :</p>
+<li><p class="first">Il s’agit d’une chaîne de caractères devant correspondre à une valeur de la liste suivante :</p>
 <blockquote>
 <div><ul class="simple">
 <li>STARTED (Début de l’événement)</li>
@@ -346,7 +356,7 @@
 <div><ul class="simple">
 <li>Il s’agit d’une chaîne de caractères.</li>
 <li>C’est un message intelligible destiné à être lu par un être humain en tant que détail du résultat de l’événement.</li>
-<li>Traduction du code présent dans outDetail, issue du fichier vitam-logbook-message-fr.properties du code présent dans outDetail.</li>
+<li>Traduction du code présent dans outDetail, issue du fichier vitam-logbook-message-fr.properties.</li>
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
@@ -355,17 +365,15 @@
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit de plusieurs chaînes de caractères indiquant le nom, le rôle et le PID de l’agent. Ce champ est calculé par le journal à partir de ServerIdentifier.</li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">{\&quot;Name\&quot;:\&quot;vitam-iaas-app-01\&quot;,\&quot;Role\&quot;:\&quot;ingest-external\&quot;,\&quot;ServerId\&quot;:1514166061,\&quot;SiteId\&quot;:1,\&quot;GlobalPlatformId\&quot;:171988781}</span></code></p>
-<ul class="simple">
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">{\&quot;Name\&quot;:\&quot;vitam-iaas-app-01\&quot;,\&quot;Role\&quot;:\&quot;ingest-external\&quot;,\&quot;ServerId\&quot;:1514166061,\&quot;SiteId\&quot;:1,\&quot;GlobalPlatformId\&quot;:171988781}</span></code></p>
 <p><strong>«&nbsp;obId&nbsp;» (object Identifier):</strong> identifiant de la solution logicielle Vitam du lot d’objets auquel s’applique l’opération (lot correspondant à une liste).</p>
 <blockquote>
 <div><ul class="simple">
-<li>Si l’évènement touche tout le groupe d’objets, alors le champ contiendra l’identifiant de ce groupe d’objets. S’il ne touche qu’un seul objet du groupe d’objets, alors il ne contiendra que celui de l’objet en question</li>
+<li>Si l’évènement touche tout le groupe d’objets, alors le champ contiendra l’identifiant de ce groupe d’objets. S’il ne touche qu’un seul objet du groupe d’objets, alors il ne contiendra que celui de l’objet en question.</li>
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe pour les structures incluantes et incluses.</li>
 </ul>
@@ -378,36 +386,16 @@
 <li><p class="first">Par exemple, pour l’événement LFC.CHECK_DIGEST, lorsque l’empreinte d’un objet inscrite dans le bordereau n’est pas calculée en SHA512, ce champ précise l’empreinte d’origine et celle réalisée ensuite par la solution logicielle Vitam. Dans la structure incluse correspondant à cet événement, il contient un JSON composé des champs suivants :</p>
 <blockquote>
 <div><ul class="simple">
-<li>MessageDigest : empreinte de l’objet dans le bordereau. Chaîne de caractères, reprenant le champ «&nbsp;MessageDigest&nbsp;» du message ArchiveTransfer.</li>
+<li>MessageDigest : empreinte de l’objet dans le bordereau de transfert. Chaîne de caractères, reprenant le champ «&nbsp;MessageDigest&nbsp;» du message ArchiveTransfer.</li>
 <li>Algorithm : algorithme de hachage utilisé dans le bordereau. Chaîne de caractères, reprenant l’attribut de champ «&nbsp;MessageDigest&nbsp;» du message ArchiveTransfer.</li>
 <li>SystemMessageDigest : empreinte de l’objet réalisée par la solution logicielle Vitam. Chaîne de caractères.</li>
 <li>SystemAlgorithm : algorithme de hachage utilisé par la solution logicielle Vitam. Chaîne de caractères.</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">En outre, pour l’événement LFC.OBJ_STORAGE, on utilise ce champ pour tracer les informations sur l’objet (fichier binaire) sauvegardé. Il contient un JSON composé comme suit :</p>
-<blockquote>
-<div><ul class="simple">
-<li>FileName : Identifiant du fichier. Il s’agit du nom du fichier sauvegardé sur les offres de stockage.</li>
-<li>Algorithm : Algorithme de hachage. Il s’agit du nom de l’algorithme de hachage.</li>
-<li>MessageDigest : Empreinte de l’objet. Il s’agit d’une chaîne de caractères contenant l’empreinte de l’objet.</li>
-<li>Offers : Offres de stockage. Il s’agit des offres de stockage utilisées pour la sauvegarde de l’objet.</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Pour l’événement LFC.OG_METADATA_STORAGE, on utilise ce champ pour tracer les informations sur le fichier (métadonnées) sauvegardé. Il contient un JSON composé comme suit :</p>
-<blockquote>
-<div><ul class="simple">
-<li>FileName : Identifiant du fichier. Il s’agit du nom du fichier sauvegardé sur les offres de stockage.</li>
-<li>Algorithm : Algorithme de hachage. Il s’agit du nom de l’algorithme de hachage.</li>
-<li>MessageDigest : Empreinte du fichier. Il s’agit d’une chaîne de caractères contenant l’empreinte du fichier.</li>
-<li>Offers : Offres de stockage. Il s’agit des offres de stockage utilisées pour la sauvegarde du fichier.</li>
-</ul>
-</div></blockquote>
-</li>
 <li><p class="first">Cardinalité : 1-1</p>
 </li>
-<li><p class="first">Ce champ existe pour les structures incluantes et incluses</p>
+<li><p class="first">Ce champ existe pour les structures incluantes et incluses.</p>
 </li>
 </ul>
 </div></blockquote>
@@ -432,15 +420,19 @@
 <div><ul class="simple">
 <li>Il s’agit d’un entier.</li>
 <li>Cardinalité : 1-1</li>
-<li>Ce champ existe uniquement pour la structure incluante.</li>
+<li>Ce champ existe pour les structures incluantes et incluses. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</li>
 </ul>
 </div></blockquote>
 <p><strong>«&nbsp;_lastPersistedDate&nbsp;»:</strong> date technique de sauvegarde en base.</p>
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+&nbsp;»T&nbsp;»+hh:mm:ss:[3digits de millisecondes]</li>
-<li>Elle est renseignée par le serveur Logbook.
-<code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">&quot;2016-08-17T08:26:04.227&quot;</span></code></li>
+<li>Elle est renseignée par le serveur Logbook.</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">&quot;2016-08-17T08:26:04.227&quot;</span></code></p>
+<blockquote>
+<div><ul class="simple">
 <li>Cardinalité : 1-1</li>
 <li>Ce champ existe uniquement pour la structure incluante.</li>
 </ul>
@@ -462,6 +454,7 @@
 <li>agId</li>
 <li>obId</li>
 <li>evDetData</li>
+<li>LastPersistedDate</li>
 </ul>
 </div></blockquote>
 </div>
@@ -487,7 +480,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -506,21 +499,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.3. Collection PersonalCertificate &mdash; Documentation VITAM - Modèle de données 1.4.0</title>
+  <title>2.3. Collection PersonalCertificate &mdash; Documentation VITAM - Modèle de données 1.10.0-1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.10.0-1
               </div>
             
           
@@ -101,7 +101,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../logbook/_toc_logbook.html">3. Base Logbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/_toc_metadata.html">4. Base MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">5. Base MasterData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../annexes.html">6. Annexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../report/_toc_report.html">6. Base Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes.html">7. Annexes</a></li>
 </ul>
 
             
@@ -182,7 +183,8 @@
    <span class="s2">&quot;SerialNumber&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
    <span class="s2">&quot;IssuerDN&quot;</span><span class="p">:</span> <span class="s2">&quot;O=VITAM, L=Paris, C=FR&quot;</span><span class="p">,</span>
    <span class="s2">&quot;Certificate&quot;</span><span class="p">:</span> <span class="s2">&quot;MIIFRjCCAy6gAwIBAgIBAjANBgkqhkiG9w0BAQsFADAtMQswCQYDV...iaA==&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;Hash&quot;</span><span class="p">:</span> <span class="s2">&quot;6088f19bc7d328f301168c064d6fda93a6c4ced9d5c56810c4f70e21e77d841d&quot;</span>
+   <span class="s2">&quot;Hash&quot;</span><span class="p">:</span> <span class="s2">&quot;6088f19bc7d328f301168c064d6fda93a6c4ced9d5c56810c4f70e21e77d841d&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;VALID&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -201,34 +203,43 @@
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’une chaîne de caractères</li>
-<li>Cadinalité : 1-1</li>
+<li>Cardinalité : 1-1</li>
 </ul>
 </div></blockquote>
 <p><strong>«&nbsp;SerialNumber&nbsp;»:</strong> Numéro de série du certificat</p>
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’un entier</li>
-<li>Cadinalité : 1-1</li>
+<li>Cardinalité : 1-1</li>
 </ul>
 </div></blockquote>
 <p><strong>«&nbsp;IssuerDN&nbsp;»:</strong> Identifiant unique (Distinguished Name) de l’autorité de certification</p>
 <blockquote>
 <div><ul class="simple">
 <li>Il s’agit d’une chaîne de caractères</li>
-<li>Cadinalité : 1-1</li>
+<li>Cardinalité : 1-1</li>
 </ul>
 </div></blockquote>
-<p><strong>«&nbsp;Certificate&nbsp;»:</strong> Certificat au format DER encodé en Base64.</p>
+<p><strong>«&nbsp;Certificate&nbsp;»:</strong> Certificat</p>
 <blockquote>
 <div><ul class="simple">
+<li>Le certificat est au format DER encodé en Base64.</li>
 <li>Il s’agit d’une chaîne de caractères</li>
-<li>Cadinalité : 1-1</li>
+<li>Cardinalité : 1-1</li>
 </ul>
 </div></blockquote>
-<p><strong>«&nbsp;Hash&nbsp;»:</strong> Hash (SHA256) du certificat</p>
+<p><strong>«&nbsp;Hash&nbsp;»:</strong> empreinte du certificat</p>
 <blockquote>
 <div><ul class="simple">
+<li>le hash utilise l’algorithme SHA256</li>
 <li>Il s’agit d’une chaîne de caractères</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Status&nbsp;»:</strong> Statut du certificat</p>
+<blockquote>
+<div><ul class="simple">
+<li>Peut être «&nbsp;VALID&nbsp;» si le certificat est valide, ou «&nbsp;REVOKED&nbsp;» si il est révoqué</li>
 <li>Cadinalité : 1-1</li>
 </ul>
 </div></blockquote>
@@ -255,7 +266,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
 
     </p>
   </div>
@@ -274,21 +285,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.4.0',
-            LANGUAGE:'fr',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.0-1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 
