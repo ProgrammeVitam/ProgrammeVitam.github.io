@@ -5,8 +5,8 @@ fatherref: documentation
 level: page
 ---
 
-> Est ici présentée la documentation des versions publiées et des précédentes. 
-Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
+> Est ici présentée la documentation des versions publiées et des précédentes.
+Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation
 de développement.
 
 
@@ -20,24 +20,24 @@ de développement.
 
 ## Documentation métier
 
-* **Manuel utilisateur** ([pdf](/ressources/DocCourante/pdf/vitam-manuel-utilisateur.1.10.0-1.pdf) 
+* **Manuel utilisateur** ([pdf](/ressources/DocCourante/pdf/vitam-manuel-utilisateur.1.10.0-1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-utilisateur))
-* **Organisation de l'information** - présentation des exigences fonctionnelles 
+* **Organisation de l'information** - présentation des exigences fonctionnelles
 et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Organisation_de_l_information.pdf))
-* **Spécification des SIP** - recommandations sur la construction des paquets 
+* **Spécification des SIP** - recommandations sur la construction des paquets
 à archiver ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
 * **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
 * **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
-* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_unite_archivistique.pdf))
+* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_unite_archivistique.pdf))
 * **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
 l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
 * **Services producteurs** - présentation des fonctionnalités associées à la
 notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Services_producteurs.pdf))
-* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques 
+* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Arbre_de_positionnement_et_plan_de_classement.pdf))
-* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage 
+* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
  opérations ([pdf](/ressources/DocCourante/pdf/vitam-modele-workflow.1.10.0-1.pdf) \| [html](/ressources/DocCourante/html/workflow-model))
@@ -46,9 +46,9 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 
 ## Documentation des tests
 
-* **Manuel IHM recette** ([pdf](/ressources/DocCourante/pdf/vitam-ihm-recette.1.10.0-1.pdf) 
+* **Manuel IHM recette** ([pdf](/ressources/DocCourante/pdf/vitam-ihm-recette.1.10.0-1.pdf)
 \| [html](/ressources/DocCourante/html/ihm-recette))
-* **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/DocCourante/pdf/vitam-scenario-tests.1.10.0-1.pdf) 
+* **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/DocCourante/pdf/vitam-scenario-tests.1.10.0-1.pdf)
 \| [html](/ressources/DocCourante/html/scenario-test))
 * **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeux_de_tests_fonctionnels_RELEASE8_SEDA2.1.zip))
 
@@ -67,7 +67,7 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/DocCourante/pdf/vitam-datamodel.1.10.0-1.pdf) \| [html](/ressources/DocCourante/html/data-model))
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe/index.htm))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.1.10.0-1.pdf) 
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.1.10.0-1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/index.htm))
 
