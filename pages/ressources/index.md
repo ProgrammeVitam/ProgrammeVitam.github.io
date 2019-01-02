@@ -7,7 +7,7 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Trois versions de productions sont livrées à ce jour. Vous pouvez installer la Release 8 et installer ou mettre à jour la Release 7 gràce à la version corrigée 1.4.5 (Release 7 corrigée dite aussi R7.5), et également mettre à jour la R6 (première V1 de production) grâce à la version corrigée 1.0.9 (Release 6 corrigée dite aussi R6.9).
+Trois versions de productions sont livrées à ce jour. Vous pouvez installer la Release 8 et installer ou mettre à jour la Release 7 gràce à la version corrigée 1.4.5 (Release 7 corrigée dite aussi R7.5), et également mettre à jour la R6 (première V1 de production) grâce à la version corrigée 1.0.13 (Release 6 corrigée dite aussi R6.13).
 
 
 ## Solution logicielle Vitam - toutes versions publiées
@@ -20,7 +20,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce lien : http://download.programmevitam.fr/vitam_repository/1.0.9/mvn_repo/
+Ils sont accessibles en suivant utilisant ce lien : http://download.programmevitam.fr/vitam_repository/1.0.13/mvn_repo/
 
 * **les paquets de déploiement**
 
@@ -38,9 +38,9 @@ Liens de téléchargement :
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.5/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.5/deb/vitam-product/)).
 
 
-**Version 1.0.9 (Release 6.9)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.9/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.9/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.9/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.9/rpm/vitam-external/)).
+**Version 1.0.13 (Release 6.13)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.13/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.13/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.13/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.13/rpm/vitam-external/)).
 
 
 A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/apt).
@@ -56,8 +56,8 @@ L'empreinte sha256 de la VM est [adec3ca8e1307f2f71a751f06f0ee04fd18313916a25db0
 La VM de la version 1.4.5. (Release 7) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.5/VM/demo_vitam_1.4.5-1.ova).
 L'empreinte sha256 de la VM est [c1546972b896c6a9b43f21f7cf915711cde8aa88c7c07a3d67960b01ba885bc5](http://download.programmevitam.fr/vitam_repository/1.4.5/VM/demo_vitam_1.4.5-1.sha256).
 
-La VM de la version 1.0.9. (Release 6 corrigée) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.0.9/VM/demo_vitam_1.0.9-1.ova).
-L'empreinte sha256 de la VM est [482fe2bf5f90f635b5161819d99bb822756ea7f28bd999458fea5b597ed64f2c](http://download.programmevitam.fr/vitam_repository/1.0.9/VM/demo_vitam_1.0.9-1.sha256).
+La VM de la version 1.0.13. (Release 6 corrigée) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova).
+L'empreinte sha256 de la VM est [6439d95d0d1284b4348def4d3a4d931c78b1dc3b5a47de1c08dc08cb4bf37532](http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova.sha256).
 
 
 * **la documentation fonctionnelle et technique**
