@@ -29,7 +29,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 Liens de téléchargement :
 
-**Version 1.10.0 (Release 8.0)**
+**Version 1.10.3 (Release 8.3)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.10.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.10.3/deb/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/1.10.3/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.10.3/deb/vitam-external/)).
 
@@ -50,7 +50,7 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM de la version 1.10.0. (Release 8) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.ova).
+La VM de la version 1.10.3. (Release 8) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.ova).
 L'empreinte sha256 de la VM est [adec3ca8e1307f2f71a751f06f0ee04fd18313916a25db0da03dd8602227cf10](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.sha256).
 
 La VM de la version 1.4.5. (Release 7) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.9/VM/demo_vitam_1.4.9.ova).
