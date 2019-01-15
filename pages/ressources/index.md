@@ -51,13 +51,13 @@ Elle contient une installation complète de Vitam qui permet une découverte fon
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
 La VM de la version 1.10.3. (Release 8) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.ova).
-L'empreinte sha256 de la VM est [adec3ca8e1307f2f71a751f06f0ee04fd18313916a25db0da03dd8602227cf10](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.sha256).
+L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.sha256).
 
 La VM de la version 1.4.5. (Release 7) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.9/VM/demo_vitam_1.4.9.ova).
-L'empreinte sha256 de la VM est [c1546972b896c6a9b43f21f7cf915711cde8aa88c7c07a3d67960b01ba885bc5](http://download.programmevitam.fr/vitam_repository/1.4.9/VM/demo_vitam_1.4.9.sha256).
+L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.4.9/VM/demo_vitam_1.4.9.sha256).
 
 La VM de la version 1.0.13. (Release 6 corrigée) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova).
-L'empreinte sha256 de la VM est [6439d95d0d1284b4348def4d3a4d931c78b1dc3b5a47de1c08dc08cb4bf37532](http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova.sha256).
+L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova.sha256).
 
 
 * **la documentation fonctionnelle et technique**
