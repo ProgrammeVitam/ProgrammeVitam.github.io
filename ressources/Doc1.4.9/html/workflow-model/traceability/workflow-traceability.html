@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques &mdash; Documentation VITAM - Modèle de workflow 1.4.9</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Workflow de création de journal des cycles de vie sécurisé des groupes d’objets" href="workflow-traceability-lifecycle.html" />
+    <link rel="prev" title="TRACEABILITY" href="_toc_traceability.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_traceability.html">TRACEABILITY</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-securisation-des-journaux-vision-metier">Processus de sécurisation des journaux (vision métier)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securisation-du-journal-des-operations-stp-op-securisation">Sécurisation du journal des opérations (STP_OP_SECURISATION)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#op-securisation-timestamp-logbookadministration-java">OP_SECURISATION_TIMESTAMP (LogbookAdministration.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#op-securisation-storage-logbookadministration-java">OP_SECURISATION_STORAGE (LogbookAdministration.java)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-lifecycle.html">Workflow de création de journal des cycles de vie sécurisé des groupes d’objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-lifecycle.html#workflow-de-creation-de-journal-des-cycles-de-vie-securise-des-unites-archivistiques">Workflow de création de journal des cycles de vie sécurisé des unités archivistiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-traceability-storage.html">Création de journal sécurisé des journaux des écritures sécurisés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc_traceability.html">TRACEABILITY</a> &raquo;</li>
+        
+      <li>Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/traceability/workflow-traceability.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-de-creation-d-un-journal-securise-des-groupes-d-objets-et-des-unites-archivistiques">
+<h1>Workflow de création d’un journal sécurisé des groupes d’objets et des unités archivistiques<a class="headerlink" href="#workflow-de-creation-d-un-journal-securise-des-groupes-d-objets-et-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus (workflow) de sécurisation des journaux mis en place dans la solution logicielle Vitam pour les groupes d’objets et les unités archivistiques.</p>
+<p>Celui-ci est défini dans le fichier «&nbsp;LogbookAdministration.java&nbsp;» ( situé ici: sources/logbook/logbook-administration/src/main/java/fr/gouv/vitam/logbook/administration/core/)</p>
+</div>
+<div class="section" id="processus-de-securisation-des-journaux-vision-metier">
+<h2>Processus de sécurisation des journaux (vision métier)<a class="headerlink" href="#processus-de-securisation-des-journaux-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus de sécurisation des journaux consiste en la création d’un fichier .zip contenant l’ensemble des journaux à sécuriser, ainsi que le tampon d’horodatage calculé à partir de l’arbre de Merkle de la liste de ces mêmes journaux. Les journaux concernés par cette sécurisation sont le journal des opérations et le journal des écritures.</p>
+<p>Ce fichier zip est ensuite enregistré sur les offres de stockage, en fonction de la stratégie de stockage.</p>
+</div>
+<div class="section" id="securisation-du-journal-des-operations-stp-op-securisation">
+<h2>Sécurisation du journal des opérations (STP_OP_SECURISATION)<a class="headerlink" href="#securisation-du-journal-des-operations-stp-op-securisation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La fin du processus peut prendre plusieurs statuts :</p>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>OK : le journal des opérations a été sécurisé (STP_OP_SECURISATION.OK = Succès du processus de sécurisation du journal des opérations)</li>
+<li>KO : pas de cas KO</li>
+<li>FATAL : une erreur fatale est survenue lors de la sécurisation du journal des opérations (STP_OP_SECURISATION.FATAL = Erreur fatale lors du processus de sécurisation du journal des opérations)</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="op-securisation-timestamp-logbookadministration-java">
+<h3>OP_SECURISATION_TIMESTAMP (LogbookAdministration.java)<a class="headerlink" href="#op-securisation-timestamp-logbookadministration-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : calcul du tampon d’horodatage à partir de la racine de l’arbre de Merkle consitué de la liste des journaux qui sont en train d’être sécurisés.</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><dl class="first docutils">
+<dt><strong>Status</strong> :</dt>
+<dd><ul class="first last">
+<li>OK : le tampon d’horodatage est calculé (OP_SECURISATION_TIMESTAMP.OK=Succès de la création du tampon d’horodatage de l’ensemble des journaux)</li>
+<li>FATAL : une erreur fatale est survenue lors de l’horodatage (OP_SECURISATION_TIMESTAMP.FATAL=Erreur fatale lors de la création du tampon d’horodatage de l’ensemble des journaux)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="op-securisation-storage-logbookadministration-java">
+<h3>OP_SECURISATION_STORAGE (LogbookAdministration.java)<a class="headerlink" href="#op-securisation-storage-logbookadministration-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : écriture des journaux sécurisés sur les offres de stockage, en fonction de la stratégie de stockage.</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><dl class="first docutils">
+<dt><strong>Status</strong> :</dt>
+<dd><ul class="first last">
+<li>OK : le journal sécurisé est écrit sur les offres de stockage (OP_SECURISATION_STORAGE.OK=Succès de l’enregistrement des journaux sur les offres de stockage)</li>
+<li>FATAL : une erreur fatale est survenue lors de l’écriture du journal sécurisé (OP_SECURISATION_STORAGE.FATAL=Erreur fatale lors de l’enregistrement des journaux sur les offres de stockage)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>D’une façon synthétique, le workflow est décrit de cette façon.</p>
+<div class="figure align-center">
+<img alt="../_images/workflow_op_traceability.png" src="../_images/workflow_op_traceability.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow-traceability-lifecycle.html" class="btn btn-neutral float-right" title="Workflow de création de journal des cycles de vie sécurisé des groupes d’objets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc_traceability.html" class="btn btn-neutral" title="TRACEABILITY" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.4.9',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow d’import d’un référentiel des vocabulaires de l’ontologie &mdash; Documentation VITAM - Modèle de workflow 1.4.9</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="TRACEABILITY" href="../traceability/_toc_traceability.html" />
+    <link rel="prev" title="Workflow d’import d’un référentiel des documents types" href="documents-type.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">MASTERDATA</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-tree.html">Workflow d’import d’un arbre de positionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">Workflow d’administration d’un référentiel de règles de gestion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formats.html">Workflow d’import d’un référentiel des formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d’administration d’un référentiel des services agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d’administration d’un référentiel des contrats d’entrée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d’administration d’un référentiel des contrats d’accès</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">Workflow d’import d’un référentiel des profils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_profiles.html">Workflow d’administration d’un référentiel des profils de sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contextes.html">Workflow d’administration d’un référentiel des contextes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’import d’un référentiel des documents types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d’import d’un référentiel des vocabulaires de l’ontologie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-et-mise-a-jour-des-vocabulaires-de-l-ontologie-vision-metier">Processus d’import et mise à jour des vocabulaires de l’ontologie (vision métier)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-des-metadonnees-d-une-ontologie-import-ontology-ontologyserviceimpl-java">Import des métadonnées d’une ontologie IMPORT_ONTOLOGY (OntologyServiceImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mise-a-jour-d-une-ontologie">Mise à jour d’une ontologie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sauvegarde-du-json-backup-ontology">Sauvegarde du JSON (BACKUP_ONTOLOGY)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">MASTERDATA</a> &raquo;</li>
+        
+      <li>Workflow d’import d’un référentiel des vocabulaires de l’ontologie</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masterdata/ontologie.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-d-import-d-un-referentiel-des-vocabulaires-de-l-ontologie">
+<h1>Workflow d’import d’un référentiel des vocabulaires de l’ontologie<a class="headerlink" href="#workflow-d-import-d-un-referentiel-des-vocabulaires-de-l-ontologie" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus permettant d’importer des vocabulaires de l’ontologie. Cette opération n’est réalisable que sur le tenant d’administration.</p>
+</div>
+<div class="section" id="processus-d-import-et-mise-a-jour-des-vocabulaires-de-l-ontologie-vision-metier">
+<h2>Processus d’import et mise à jour des vocabulaires de l’ontologie (vision métier)<a class="headerlink" href="#processus-d-import-et-mise-a-jour-des-vocabulaires-de-l-ontologie-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus d’import d’une ontologie permet d’ajouter des vocabulaires qui seront utilisés dans les documents types (Profil d’unité archivistique).</p>
+<p>Tous les éléments réalisés au cours de ce processus sont exécutés dans une seule étape.</p>
+<div class="section" id="import-des-metadonnees-d-une-ontologie-import-ontology-ontologyserviceimpl-java">
+<h3>Import des métadonnées d’une ontologie IMPORT_ONTOLOGY (OntologyServiceImpl.java)<a class="headerlink" href="#import-des-metadonnees-d-une-ontologie-import-ontology-ontologyserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first">Vérification de la présence des informations minimales, de la cohérence des informations et affectation des données aux champs peuplés par la solution logicielle Vitam.</p>
+<ul>
+<li><p class="first"><strong>Règle</strong> : l’ontologie répond aux exigences suivantes :</p>
+<ul>
+<li><p class="first">Le fichier est au format Json.</p>
+</li>
+<li><p class="first">Les données suivantes sont obligatoires :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Le champ «&nbsp;Identifier&nbsp;» est peuplé d’une chaîne de caractères</li>
+<li><dl class="first docutils">
+<dt>Le champ «&nbsp;Type&nbsp;» est peuplé par une valeur comprise dans la liste :</dt>
+<dd><ul class="first last">
+<li>Text</li>
+<li>Keyword</li>
+<li>Date</li>
+<li>Long</li>
+<li>Double</li>
+<li>Boolean</li>
+<li>Geo-point</li>
+<li>Enumération de valeur</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Le champ «&nbsp;Origin&nbsp;» est peuplé par la valeur «&nbsp;EXTERNAL&nbsp;» ou «&nbsp;INTERNAL&nbsp;». (L’INTERNAL correspond à l’ontologie interne de VITAM embarquée dans la solution)</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Les données suivantes sont facultatives:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Le champ «&nbsp;SedaField&nbsp;» est peuplé d’une chaîne de caractères</li>
+<li>Le champ «&nbsp;ApiField&nbsp;» est peuplé d’une chaîne de caractères</li>
+<li>Le champ «&nbsp;Description&nbsp;» est peuplé d’une chaîne de caractères</li>
+<li>Le champ «&nbsp;ShortName&nbsp;» correspond au champ traduction, il est peuplé par une chaîne de valeur</li>
+<li>Le champ «&nbsp;Collections&nbsp;» indique la collection dans laquelle le vocabulaire est rataché. ex : «&nbsp;Unit&nbsp;»</li>
+</ul>
+</div></blockquote>
+<p>Exemple ontologie :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">{</span>
+<span class="nt">&quot;Identifier&quot;</span> <span class="p">:</span> <span class="s2">&quot;AcquiredDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;SedaField&quot;</span> <span class="p">:</span> <span class="s2">&quot;AcquiredDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;ApiField&quot;</span> <span class="p">:</span> <span class="s2">&quot;AcquiredDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Description&quot;</span> <span class="p">:</span> <span class="s2">&quot;unit-es-mapping.json&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Type&quot;</span> <span class="p">:</span> <span class="s2">&quot;DATE&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Origin&quot;</span> <span class="p">:</span> <span class="s2">&quot;INTERNAL&quot;</span><span class="p">,</span>
+<span class="nt">&quot;ShortName&quot;</span> <span class="p">:</span> <span class="s2">&quot;AcquiredDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Collections&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Unit&quot;</span> <span class="p">]</span>
+<span class="p">},</span> <span class="p">{</span>
+<span class="nt">&quot;Identifier&quot;</span> <span class="p">:</span> <span class="s2">&quot;BirthDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;SedaField&quot;</span> <span class="p">:</span> <span class="s2">&quot;BirthDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;ApiField&quot;</span> <span class="p">:</span> <span class="s2">&quot;BirthDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Description&quot;</span> <span class="p">:</span> <span class="s2">&quot;unit-es-mapping.json&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Type&quot;</span> <span class="p">:</span> <span class="s2">&quot;DATE&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Origin&quot;</span> <span class="p">:</span> <span class="s2">&quot;INTERNAL&quot;</span><span class="p">,</span>
+<span class="nt">&quot;ShortName&quot;</span> <span class="p">:</span> <span class="s2">&quot;BirthDate&quot;</span><span class="p">,</span>
+<span class="nt">&quot;Collections&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Unit&quot;</span> <span class="p">]</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul class="simple">
+<li>OK : les règles ci-dessus sont respectées (IMPORT_ONTOLOGY.OK=Succés du processus d’import de l’ontologie)</li>
+<li>KO : une des règles ci-dessus n’a pas été respectée (IMPORT_ONTOLOGY.KO=Echec du processus d’import de l’ontologie)</li>
+<li>FATAL : une erreur fatale est survenue lors de la vérification de l’import de l’ontologie (IMPORT_ONTOLOGY.FATAL=Erreur fatale lors du processus d’import de l’ontologie)</li>
+<li>WARNING : Avertissement lors du processus d’import de l’ontologie ( IMPORT_ONTOLOGY.WARNING=Avertissement lors du processus d’import de l’ontologie )</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="mise-a-jour-d-une-ontologie">
+<h3>Mise à jour d’une ontologie<a class="headerlink" href="#mise-a-jour-d-une-ontologie" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La modification d’une ontologie s’effectue par ré-import du fichier Json. Le nouvel import annule et remplace l’ontologie précédente. Ce ré-import observe les règles décrites dans le processus d’import, décrit plus haut.</p>
+<p>Note : la mise à jour des vocabulaires de l’ontologie doit respecter certaines règles de compatibilité concernant la valeur du «&nbsp;Type&nbsp;»:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>Le champ Type Text peut être modifié en Keyword, Text</li>
+<li>Le champ Type Keyword peut être modifié en Keyword, Text</li>
+<li>Le champ Type Date peut être modifié en Keyword, Text</li>
+<li>Le champ Type Long peut être modifié en Keyword, Text, Double</li>
+<li>Le champ Type Double peut être modifié en Keyword, Text</li>
+<li>Le champ Type Boolean peut être modifié en Keyword, Text</li>
+<li>Le champ Type Geo-point peut être modifié en Keyword, Text</li>
+<li>Le champ Type Enumération de valeur peut être modifié en Keyword, Text</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : les règles ci-dessus sont respectées (IMPORT_ONTOLOGY.OK=Succés du processus d’import de l’ontologie)</li>
+<li>KO : une des règles ci-dessus n’a pas été respectée (IMPORT_ONTOLOGY.KO=Echec du processus d’import de l’ontologie)</li>
+<li>FATAL : une erreur fatale est survenue lors de la vérification de l’import de l’ontologie (IMPORT_ONTOLOGY.FATAL=Erreur fatale lors du processus d’import de l’ontologie)</li>
+<li>WARNING : Avertissement lors du processus d’import de l’ontologie ( IMPORT_ONTOLOGY.WARNING=Avertissement lors du processus d’import de l’ontologie )</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="sauvegarde-du-json-backup-ontology">
+<h3>Sauvegarde du JSON (BACKUP_ONTOLOGY)<a class="headerlink" href="#sauvegarde-du-json-backup-ontology" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette tâche est appellée en import de l’ontologie.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Règle</strong> : enregistrement d’une copie de la base de données des métadonnées sur le stockage</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : une copie de la base de donnée nouvellement importée est enregistrée (BACKUP_ONTOLOGY.OK=Succés du processus de sauvegarde des ontologies)</li>
+<li>KO : Echec du processus de sauvegarde de l’ontologie (BACKUP_ONTOLOGY.KO=Echec du processus de sauvegarde des ontologies)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../traceability/_toc_traceability.html" class="btn btn-neutral float-right" title="TRACEABILITY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="documents-type.html" class="btn btn-neutral" title="Workflow d’import d’un référentiel des documents types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.4.9',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

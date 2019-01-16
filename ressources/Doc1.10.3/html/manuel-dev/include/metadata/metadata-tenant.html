@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Métadata-tenant &mdash; Documentation VITAM - Manuel de développement 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Métadata" href="metadata-inherited-rule.html" />
+    <link rel="prev" title="Métadata : API REST Raml" href="metadata-api-rest-raml.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Metadata</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="metadata-introduction.html">Métadata - Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-dat.html">DAT : module metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html#utilisation">Utilisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-api-rest-raml.html">Métadata : API REST Raml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html#utilisation">Utilisation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Métadata-tenant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-inherited-rule.html">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-sync.html">Désynchronisation des bases de données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">Metadata</a> &raquo;</li>
+        
+      <li>Métadata-tenant</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/include/metadata/metadata-tenant.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metadata-tenant">
+<h1>Métadata-tenant<a class="headerlink" href="#metadata-tenant" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les indices elasticsearch des unités archives et les groupes d’objets technique doivent être séparées par
+les tenants. Ces indices doivent être créées lors de démarrage du serveur grâce au fichier de configuration.
+Par exemple, pour metadata.conf on ajourte d’une ligne suivante :</p>
+<ul>
+<li><p class="first">tenants : [0, 1, 2]</p>
+<blockquote>
+<div><p>indiqué que le serveur va travailler sur différents tenants 0, 1 et 2.</p>
+</div></blockquote>
+</li>
+</ul>
+<ol class="arabic simple">
+<li>Valeur du tenant</li>
+</ol>
+<p>La valeur de tenant est sauvegardé dans VitamSession et cette valeur sera récupérée par la fonction suivante.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">VitamThreadUtils</span><span class="o">.</span><span class="na">getVitamSession</span><span class="o">().</span><span class="na">getTenantId</span><span class="o">()</span>
+</pre></div>
+</div>
+<p>Les indices sont créées basé sur les tenant pour chaque collection correspondante.</p>
+<ul class="simple">
+<li>Pour collection des unités archives, les indices sont : unit_0, unit_1, … pour la liste de tenant 0, 1 …</li>
+<li>Pour la collection des groupes d’objets technique, les indices sont objectgroups_0, objectgroups_1…</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Refactor</li>
+</ol>
+<p>Pour permettre de réaliser les opérations sur les collections de métadata via l’elastichsearch par le tenant,
+nous faisons un refactor sur les classe DbRequest et ElasticsearchAccessMetadata.</p>
+<p>2.1. ElasticsearchAccessMetadata</p>
+<p>Les fonctions d’ajout des indices pour la collection, mise à jour des indices ou delete des indices sont fait par le paramètre tenantId.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">deleteIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
+<span class="n">addIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
+<span class="n">refreshIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
+<span class="n">addEntryIndexesBlocking</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataCollections</span> <span class="n">collection</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">mapIdJson</span><span class="o">)</span>
+<span class="n">addEntryIndex</span><span class="o">(</span><span class="kd">final</span> <span class="n">MetadataDocument</span><span class="o">&lt;?&gt;</span> <span class="n">document</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">tenantId</span><span class="o">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>2.2. DbRequest</p>
+<ul class="simple">
+<li>Le tenantId est récupéré dans la session par VitamThreadUtils.getVitamSession().getTenantId() pour appliquer au executeQuery() pour exécuter une requête.</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="n">Result</span> <span class="nf">executeQuery</span><span class="o">(</span><span class="kd">final</span> <span class="n">RequestToAbstract</span> <span class="n">requestToMongodb</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">rank</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Result</span> <span class="n">previous</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="n">ParameterHelper</span><span class="o">.</span><span class="na">getTenantParameter</span><span class="o">();</span>
+
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metadata-inherited-rule.html" class="btn btn-neutral float-right" title="Métadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="metadata-api-rest-raml.html" class="btn btn-neutral" title="Métadata : API REST Raml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

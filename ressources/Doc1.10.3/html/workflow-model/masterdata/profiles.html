@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow d’admininstration d’un référentiel des profils &mdash; Documentation VITAM - Modèle de workflow 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Workflow d’administration d’un référentiel des profils de sécurité" href="security_profiles.html" />
+    <link rel="prev" title="Workflow d’administration d’un référentiel des contrats d’accès" href="access-contracts.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">MASTERDATA</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-tree.html">Workflow d’import d’un arbre de positionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">Workflow d’administration d’un référentiel de règles de gestion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formats.html">Workflow d’import d’un référentiel des formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agencies.html">Workflow d’administration d’un référentiel des services agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingest-contracts.html">Workflow d’administration d’un référentiel des contrats d’entrée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access-contracts.html">Workflow d’administration d’un référentiel des contrats d’accès</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow d’admininstration d’un référentiel des profils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-d-import-et-mise-a-jour-d-un-profil-vision-metier">Processus d’import et mise à jour d’un profil (vision métier)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-des-metadonnees-d-une-notice-de-profil-d-archivage-stp-import-profile-json-profileserviceimpl-java">Import des métadonnées d’une notice de profil d’archivage STP_IMPORT_PROFILE_JSON (ProfileServiceImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-du-profil-d-archivage-stp-import-profile-file-profileserviceimpl-java">Import du profil d’archivage STP_IMPORT_PROFILE_FILE (ProfileServiceImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json-profileserviceimpl-java">Processus de mise à jour d’un profil d’archivage STP_UPDATE_PROFILE_JSON (ProfileServiceImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sauvegarde-du-json-backup-profile-profileserviceimpl-java">Sauvegarde du JSON BACKUP_PROFILE (ProfileServiceImpl.java)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security_profiles.html">Workflow d’administration d’un référentiel des profils de sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contextes.html">Workflow d’administration d’un référentiel des contextes applicatifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents-type.html">Workflow d’administration du référentiel des profils d’unités archivistiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontologie.html">Workflow d’administration d’un référentiel des vocabulaires de l’ontologie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc_update.html">UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">MASTERDATA</a> &raquo;</li>
+        
+      <li>Workflow d’admininstration d’un référentiel des profils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masterdata/profiles.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-d-admininstration-d-un-referentiel-des-profils">
+<h1>Workflow d’admininstration d’un référentiel des profils<a class="headerlink" href="#workflow-d-admininstration-d-un-referentiel-des-profils" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus (workflow) permettant d’importer et de mettre à jour un profil d’archivage.</p>
+</div>
+<div class="section" id="processus-d-import-et-mise-a-jour-d-un-profil-vision-metier">
+<h2>Processus d’import et mise à jour d’un profil (vision métier)<a class="headerlink" href="#processus-d-import-et-mise-a-jour-d-un-profil-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus d’import d’un profil d’archivage permet à la fois de vérifier qu’il contient les informations minimales obligatoires, de vérifier la cohérence de l’ensemble des informations, et de lui affecter des élements peuplés automatiquement.</p>
+<p>Tous les éléments réalisés au cours de ce processus sont exécutés dans une seule étape.</p>
+<div class="section" id="import-des-metadonnees-d-une-notice-de-profil-d-archivage-stp-import-profile-json-profileserviceimpl-java">
+<h3>Import des métadonnées d’une notice de profil d’archivage STP_IMPORT_PROFILE_JSON (ProfileServiceImpl.java)<a class="headerlink" href="#import-des-metadonnees-d-une-notice-de-profil-d-archivage-stp-import-profile-json-profileserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : le profil d’archivage répond aux exigences suivantes :</li>
+</ul>
+<ul>
+<li><p class="first">Vérification de la présence des informations minimales, de la cohérence des informations et affectation des données aux champs peuplés par la solution logicielle Vitam.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Les données suivantes sont obligatoirement remplies :<ul>
+<li>Le champ «&nbsp;Name&nbsp;» est peuplé d’une chaîne de caractères</li>
+<li>Le champs «&nbsp;Identifier&nbsp;» est peuplé d’une chaîne de caractère si le référentiel des profils d’archivage est configuré en mode esclave sur le tenant séléctionné</li>
+<li>Le champ «&nbsp;Format&nbsp;» doit être renseigné avec la valeur RNG ou XSD</li>
+</ul>
+</li>
+<li>Les données suivantes optionnelles si elles sont remplies le sont en respectant les règles énoncées pour chacune :<ul>
+<li>Le champ «&nbsp;Description&nbsp;» est peuplé avec une chaîne de caractères</li>
+<li>Le champ «&nbsp;Status&nbsp;» est peuplé avec la valeur ACTIVE ou la valeur INACTIVE</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">OK : les règles ci-dessus sont respectées (STP_IMPORT_PROFILE_JSON.OK=Succès du processus d’import du profil d’archivage)</p>
+</li>
+<li><p class="first">KO :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : une des règles ci-dessus n’a pas été respectée (STP_IMPORT_PROFILE_JSON.KO = Échec du processus d’import du profil d’archivage)</li>
+<li>Cas 2 : l’identifiant est déjà utilisé (STP_IMPORT_PROFILE_JSON.IDENTIFIER_DUPLICATION.KO = Échec de l’import du profil d’archivage : l’identifiant est déjà utilisé)</li>
+<li>Cas 3 : au moins un des champs obligatoires n’est pas renseigné ( STP_IMPORT_PROFILE_JSON.EMPTY_REQUIRED_FIELD.KO = Échec de l’importdu profil d’archivage : au moins un des champs obligatoires n’est pas renseigné)</li>
+<li>Cas 4 : le profil d’archivage est inconnu (STP_IMPORT_PROFILE_JSON.PROFILE_NOT_FOUND.KO = Échec de l’import du profil d’archivage : profil d’archivage non trouvé)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">WARNING : Avertissement lors du processus d’import du profil d’archivage ( STP_IMPORT_PROFILE_JSON.WARNING = Avertissement lors du processus d’import du profil)</p>
+<blockquote>
+<div><ul class="simple">
+<li>FATAL : une erreur technique est survenue lors de la vérification de l’import du profil d’archivage (STP_IMPORT_PROFILE_JSON.FATAL = Erreur technique lors du processus d’import du profil d’archivage)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="import-du-profil-d-archivage-stp-import-profile-file-profileserviceimpl-java">
+<h3>Import du profil d’archivage STP_IMPORT_PROFILE_FILE (ProfileServiceImpl.java)<a class="headerlink" href="#import-du-profil-d-archivage-stp-import-profile-file-profileserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>Vérification de la concordance entre le fichier importé dans un profil et le format décrit dans la métadonnée «&nbsp;Format&nbsp;»<ul>
+<li><strong>Règle</strong> : le format du fichier doit être celui décrit dans le profil</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : le fichier importé est au même format que celui décrit dans le champ «&nbsp;Format&nbsp;» (STP_IMPORT_PROFILE_FILE.OK=Succès du processus d’import du profil d’archivage (fichier xsd ou rng)</li>
+<li>KO : le fichier importé n’est pas au même format que celui décrit dans le champ «&nbsp;Format&nbsp;» (STP_IMPORT_PROFILE_FILE.KO=Échec du processus d’import du profil d’archivage (fichier xsd ou rng))</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de l’import du profil d’archivage (STP_IMPORT_PROFILE_FILE.FATAL=Erreur technique lors du processus d’import du profil d’archivage (fichier xsd ou rng))</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="processus-de-mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json-profileserviceimpl-java">
+<h3>Processus de mise à jour d’un profil d’archivage STP_UPDATE_PROFILE_JSON (ProfileServiceImpl.java)<a class="headerlink" href="#processus-de-mise-a-jour-d-un-profil-d-archivage-stp-update-profile-json-profileserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Règle</strong> : La modification d’un profil d’archivage doit suivre les mêmes règles que celles décrites pour la création. L’association d’un fichier de profil avec les métadonnées d’un profil provoque également une opération de mise à jour du profil d’archivage.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<ul>
+<li><p class="first">OK : le fichier importé est au même format que celui décrit dans le champ «&nbsp;Format&nbsp;» (STP_UPDATE_PROFILE_JSON.OK = Succès du processus du processus de mise à jour du profil d’archivage (fichier xsd ou rng)</p>
+</li>
+<li><p class="first">KO :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cas 1 : le fichier importé n’est pas au même format que celui décrit dans le champ «&nbsp;Format&nbsp;» (STP_UPDATE_PROFILE_JSON.KO = Échec du processus de mise à jour du profil d’archivage (fichier xsd ou rng)</li>
+<li>Cas 2 : la mise à jour du profil d’archivage n’a pas été effectuée (STP_UPDATE_PROFILE_JSON.PROFILE_NOT_FOUND.KO = Échec du processus de mise à jour du profil d’archivage : profil non trouvé)</li>
+<li>Cas 3 : la mise à jour du profil d’archivage n’a pas été effectuée (STP_UPDATE_PROFILE_JSON.NOT_IN_ENUM.KO = Échec du processus de mise à jour du profil d’archivage : une valeur ne correspond pas aux valeurs attendues)</li>
+<li>cas 4 : la mise à jour du profil d’archivage n’a pas été effectuée (STP_UPDATE_PROFILE_JSON.IDENTIFIER_DUPLICATION.KO = Échec du processus de mise à jour du profil d’archivage : l’identifiant est déjà utilisé</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">FATAL : une erreur technique est survenue lors de la vérification de l’import du profil d’archivage (STP_UPDATE_PROFILE_JSON.FATAL = Erreur technique lors du processus de mise à jour  du profil d’archivage (fichier xsd ou rng))</p>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="sauvegarde-du-json-backup-profile-profileserviceimpl-java">
+<h3>Sauvegarde du JSON BACKUP_PROFILE (ProfileServiceImpl.java)<a class="headerlink" href="#sauvegarde-du-json-backup-profile-profileserviceimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette tâche est appellée que ce soit en import initial ou lors de la modification des métadonnées de profils</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Règle</strong> : enregistrement d’une copie de la base de données des métadonnées de profils sur le stockage</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : une copie de la base de données nouvellement importée est enregistrée (BACKUP_PROFILE.OK = Succès du processus de sauvegarde des profils)</li>
+<li>KO : pas de cas KO</li>
+<li>FATAL : une erreur technique est survenue lors de la copie de la base de données nouvellement importée (BACKUP_PROFILE.FATAL = Erreur technique lors du processus de sauvegarde des profils)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security_profiles.html" class="btn btn-neutral float-right" title="Workflow d’administration d’un référentiel des profils de sécurité" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="access-contracts.html" class="btn btn-neutral" title="Workflow d’administration d’un référentiel des contrats d’accès" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

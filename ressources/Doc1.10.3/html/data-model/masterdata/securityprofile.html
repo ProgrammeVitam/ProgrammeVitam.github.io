@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.14. Collection SecurityProfile &mdash; Documentation VITAM - Modèle de données 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="5.15. Collection VitamSequence" href="vitamsequence.html" />
+    <link rel="prev" title="5.13. Collection Profile" href="profile.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de données
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity/_toc_identity.html">2. Base Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logbook/_toc_logbook.html">3. Base Logbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/_toc_metadata.html">4. Base MetaData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_masterdata.html">5. Base MasterData</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">5.1. Collections contenues dans la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesscontract.html">5.2. Collection AccessContract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessionregisterdetail.html">5.3. Collection AccessionRegisterDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessionregistersummary.html">5.4. Collection AccessionRegisterSummary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessionregistersymbolic.html">5.5. Collection AccessionRegisterSymbolic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiveunitprofile.html">5.6. Collection ArchiveUnitProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agencies.html">5.7. Collection Agencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">5.8. Collection Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fileformat.html">5.9. Collection FileFormat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filerules.html">5.10. Collection FileRules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestcontract.html">5.11. Collection IngestContract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontology.html">5.12. Collection Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">5.13. Collection Profile</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.14. Collection SecurityProfile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-de-la-collection">5.14.1. Utilisation de la collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs">5.14.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detail-des-champs">5.14.3. Détail des champs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vitamsequence.html">5.15. Collection VitamSequence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../report/_toc_report.html">6. Base Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes.html">7. Annexes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de données</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc_masterdata.html">5. Base MasterData</a> &raquo;</li>
+        
+      <li>5.14. Collection SecurityProfile</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masterdata/securityprofile.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collection-securityprofile">
+<h1>5.14. Collection SecurityProfile<a class="headerlink" href="#collection-securityprofile" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilisation-de-la-collection">
+<h2>5.14.1. Utilisation de la collection<a class="headerlink" href="#utilisation-de-la-collection" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette collection référence et décrit les profils de sécurité mobilisés par les contextes applicatifs.</p>
+</div>
+<div class="section" id="exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs">
+<h2>5.14.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aegqaaaaaaeucszwabglyak64gjmgbyaaaba&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;SEC_PROFILE-000002&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;demo-security-profile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FullAccess&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;Permissions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;securityprofiles:create&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityprofiles:read&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityprofiles:id:read&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityprofiles:id:update&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;accesscontracts:read&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;accesscontracts:id:read&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contexts:id:update&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;_v&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="detail-des-champs">
+<h2>5.14.3. Détail des champs<a class="headerlink" href="#detail-des-champs" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>«&nbsp;_id&nbsp;»:</strong> identifiant unique du profil de sécurité.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Identifier&nbsp;»:</strong> identifiant signifiant donné au profil de sécurité.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il est constitué du préfixe «&nbsp;SEC_PROFILE-&nbsp;» suivi d’une suite de 6 chiffres tant qu’il est défini par la solution logicielle Vitam. Par exemple : SEC_PROFILE-001573. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du profil de sécurité.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Name&nbsp;»:</strong> nom du profil de sécurité.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;FullAccess&nbsp;»:</strong> mode super-administrateur donnant toutes les permissions.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un booléen.</li>
+<li>S’il est à «&nbsp;false&nbsp;», le mode super-administrateur n’est pas activé et les valeurs du champ permission sont utilisées. S’il est à «&nbsp;true&nbsp;», le champ permission doit être vide.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Permissions&nbsp;»:</strong> décrit l’ensemble des permissions auxquelles le profil de sécurité donne accès. Chaque API externe contient un verbe OPTION qui retourne la liste des services avec leur description et permissions associées.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un tableau de chaînes de caractères.</li>
+<li>Peut être vide</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_v&nbsp;»:</strong> version de l’enregistrement décrit.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un entier.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+<li>0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vitamsequence.html" class="btn btn-neutral float-right" title="5.15. Collection VitamSequence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="profile.html" class="btn btn-neutral" title="5.13. Collection Profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

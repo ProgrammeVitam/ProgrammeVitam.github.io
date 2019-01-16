@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3. Collection ObjectGroup &mdash; Documentation VITAM - Modèle de données 1.4.9</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="4.4. Collection Offset" href="offset.html" />
+    <link rel="prev" title="4.2. Collection Unit" href="unit.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de données
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity/_toc_identity.html">2. Base Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logbook/_toc_logbook.html">3. Base Logbook</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_metadata.html">4. Base MetaData</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">4.1. Collections contenues dans la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit.html">4.2. Collection Unit</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Collection ObjectGroup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-de-la-collection-objectgroup">4.3.1. Utilisation de la collection ObjectGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-xml">4.3.2. Exemple de XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-stocke-en-base">4.3.3. Exemple de JSON stocké en base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detail-des-champs-du-json">4.3.4. Détail des champs du JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offset.html">4.4. Collection Offset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc_masterdata.html">5. Base MasterData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes.html">6. Annexes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de données</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc_metadata.html">4. Base MetaData</a> &raquo;</li>
+        
+      <li>4.3. Collection ObjectGroup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/metadata/objectgroup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collection-objectgroup">
+<h1>4.3. Collection ObjectGroup<a class="headerlink" href="#collection-objectgroup" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilisation-de-la-collection-objectgroup">
+<h2>4.3.1. Utilisation de la collection ObjectGroup<a class="headerlink" href="#utilisation-de-la-collection-objectgroup" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La collection ObjectGroup contient les informations relatives aux groupes d’objets.</p>
+</div>
+<div class="section" id="exemple-de-xml">
+<h2>4.3.2. Exemple de XML<a class="headerlink" href="#exemple-de-xml" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ci-après, la porpartietion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON correspondant à un groupe d’objets.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">PhysicalDataObject</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;ID109&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">DataObjectGroupReferenceId</span><span class="o">&gt;</span><span class="n">ID0009</span><span class="o">&lt;/</span><span class="n">DataObjectGroupReferenceId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">DataObjectVersion</span><span class="o">&gt;</span><span class="n">PhysicalMaster</span><span class="o">&lt;/</span><span class="n">DataObjectVersion</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">PhysicalId</span><span class="o">&gt;</span><span class="mi">1</span> <span class="n">Num</span> <span class="mi">1</span><span class="o">/</span><span class="mi">191</span><span class="o">-</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">PhysicalId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">PhysicalDimensions</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Height</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;centimetre&quot;</span><span class="o">&gt;</span><span class="mf">10.5</span><span class="o">&lt;/</span><span class="n">Height</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Length</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;centimetre&quot;</span><span class="o">&gt;</span><span class="mf">14.8</span><span class="o">&lt;/</span><span class="n">Length</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Thickness</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;micrometre&quot;</span><span class="o">&gt;</span><span class="mi">350</span><span class="o">&lt;/</span><span class="n">Thickness</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Weight</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;gram&quot;</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">Weight</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">PhysicalDimensions</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Extent</span><span class="o">&gt;</span><span class="mi">1</span> <span class="n">carte</span> <span class="n">imprimée</span><span class="o">&lt;/</span><span class="n">Extent</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Dimensions</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="n">cm</span> <span class="n">x</span> <span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="n">cm</span><span class="o">&lt;/</span><span class="n">Dimensions</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Color</span><span class="o">&gt;</span><span class="n">Noir</span> <span class="n">et</span> <span class="n">blanc</span><span class="o">&lt;/</span><span class="n">Color</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Framing</span><span class="o">&gt;</span><span class="n">Paysage</span><span class="o">&lt;/</span><span class="n">Framing</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Technique</span><span class="o">&gt;</span><span class="n">Phototypie</span><span class="o">&lt;/</span><span class="n">Technique</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">PhysicalDataObject</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">BinaryDataObject</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;ID9&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">DataObjectGroupId</span><span class="o">&gt;</span><span class="n">ID0009</span><span class="o">&lt;/</span><span class="n">DataObjectGroupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">DataObjectVersion</span><span class="o">&gt;</span><span class="n">BinaryMaster</span><span class="o">&lt;/</span><span class="n">DataObjectVersion</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Uri</span><span class="o">&gt;</span><span class="n">Content</span><span class="o">/</span><span class="mi">1</span><span class="n">NUM_9</span><span class="o">.</span><span class="n">JPG</span><span class="o">&lt;/</span><span class="n">Uri</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">MessageDigest</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;SHA-512&quot;</span><span class="o">&gt;</span><span class="mf">0e0</span><span class="n">cec05a1d72ee5610eaa5afbc904c012d190037cbc827d08272102cdecf0226efcad122b86e7699f767c661c9f3702379b8c2cb01c4f492f69deb200661bb9</span><span class="o">&lt;/</span><span class="n">MessageDigest</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Size</span><span class="o">&gt;</span><span class="mi">7702</span><span class="o">&lt;/</span><span class="n">Size</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">FormatIdentification</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">FormatLitteral</span><span class="o">&gt;</span><span class="n">JPEG</span> <span class="n">File</span> <span class="n">Interchange</span> <span class="n">Format</span><span class="o">&lt;/</span><span class="n">FormatLitteral</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">MimeType</span><span class="o">&gt;</span><span class="n">image</span><span class="o">/</span><span class="n">jpeg</span><span class="o">&lt;/</span><span class="n">MimeType</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">FormatId</span><span class="o">&gt;</span><span class="n">fmt</span><span class="o">/</span><span class="mi">43</span><span class="o">&lt;/</span><span class="n">FormatId</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">FormatIdentification</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">FileInfo</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Filename</span><span class="o">&gt;</span><span class="mi">1</span><span class="n">NUM_9</span><span class="o">.</span><span class="n">JPG</span><span class="o">&lt;/</span><span class="n">Filename</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">FileInfo</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Metadata</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Image</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">Dimensions</span><span class="o">&gt;</span><span class="mi">117</span><span class="n">x76</span><span class="o">&lt;/</span><span class="n">Dimensions</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">Width</span><span class="o">&gt;</span><span class="mi">117</span><span class="n">px</span><span class="o">&lt;/</span><span class="n">Width</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">Height</span><span class="o">&gt;</span><span class="mi">76</span><span class="n">px</span><span class="o">&lt;/</span><span class="n">Height</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">VerticalResolution</span><span class="o">&gt;</span><span class="mi">96</span><span class="n">ppp</span><span class="o">&lt;/</span><span class="n">VerticalResolution</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">HorizontalResolution</span><span class="o">&gt;</span><span class="mi">96</span><span class="n">ppp</span><span class="o">&lt;/</span><span class="n">HorizontalResolution</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">ColorDepth</span><span class="o">&gt;</span><span class="mi">24</span><span class="o">&lt;/</span><span class="n">ColorDepth</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">Image</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">Metadata</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">BinaryDataObject</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-de-json-stocke-en-base">
+<h2>4.3.3. Exemple de JSON stocké en base<a class="headerlink" href="#exemple-de-json-stocke-en-base" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant : <a class="reference external" href="https://redirect.francearchives.fr/seda/api_v2/doc.html">https://redirect.francearchives.fr/seda/api_v2/doc.html</a></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaaafgsz3wabcugak7ube6dxyaaabq&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;_tenant&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;_profil&quot;</span><span class="p">:</span> <span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;FileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Filename&quot;</span><span class="p">:</span> <span class="s2">&quot;1NUM_9.JPG&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;_qualifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;qualifier&quot;</span><span class="p">:</span> <span class="s2">&quot;PhysicalMaster&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;_nbc&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;versions&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaafgsz3wabcugak7ube6dzqaaaca&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;DataObjectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaaafgsz3wabcugak7ube6dxyaaabq&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;DataObjectVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;PhysicalMaster_1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;PhysicalId&quot;</span><span class="p">:</span> <span class="s2">&quot;1 Num 1/191-3&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;PhysicalDimensions&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Height&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;centimetre&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;dValue&quot;</span><span class="p">:</span> <span class="mf">10.5</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;Length&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;centimetre&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;dValue&quot;</span><span class="p">:</span> <span class="mf">14.8</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;Thickness&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;micrometre&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;dValue&quot;</span><span class="p">:</span> <span class="mi">350</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;Weight&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;gram&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;dValue&quot;</span><span class="p">:</span> <span class="mi">3</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;Extent&quot;</span><span class="p">:</span> <span class="s2">&quot;1 carte imprimée&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span> <span class="s2">&quot;10,5cm x 14,8cm&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;Color&quot;</span><span class="p">:</span> <span class="s2">&quot;Noir et blanc&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;Framing&quot;</span><span class="p">:</span> <span class="s2">&quot;Paysage&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;Technique&quot;</span><span class="p">:</span> <span class="s2">&quot;Phototypie&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;_storage&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;_nbc&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="nt">&quot;offerIds&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                        <span class="nt">&quot;strategyId&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;qualifier&quot;</span><span class="p">:</span> <span class="s2">&quot;BinaryMaster&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;_nbc&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;versions&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaafgsz3wabcugak7ube6dxyaaaba&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;DataObjectGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;aebaaaaaaafgsz3wabcugak7ube6dxyaaabq&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;DataObjectVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;BinaryMaster_1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;FormatIdentification&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;FormatLitteral&quot;</span><span class="p">:</span> <span class="s2">&quot;JPEG File Interchange Format&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;MimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;FormatId&quot;</span><span class="p">:</span> <span class="s2">&quot;fmt/43&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;FileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Filename&quot;</span><span class="p">:</span> <span class="s2">&quot;1NUM_9.JPG&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;Metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Image&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span> <span class="s2">&quot;117x76&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;Width&quot;</span><span class="p">:</span> <span class="s2">&quot;117px&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;Height&quot;</span><span class="p">:</span> <span class="s2">&quot;76px&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;VerticalResolution&quot;</span><span class="p">:</span> <span class="s2">&quot;96ppp&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;HorizontalResolution&quot;</span><span class="p">:</span> <span class="s2">&quot;96ppp&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;ColorDepth&quot;</span><span class="p">:</span> <span class="mi">24</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;Size&quot;</span><span class="p">:</span> <span class="mi">7702</span><span class="p">,</span>
+                    <span class="nt">&quot;Uri&quot;</span><span class="p">:</span> <span class="s2">&quot;Content/1NUM_9.JPG&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;MessageDigest&quot;</span><span class="p">:</span> <span class="s2">&quot;0e0cec05a1d72ee5610eaa5afbc904c012d190037cbc827d08272102cdecf0226efcad122b86e7699f767c661c9f3702379b8c2cb01c4f492f69deb200661bb9&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;Algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;SHA-512&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;_storage&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;_nbc&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="nt">&quot;offerIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">&quot;vitam-iaas-app-02.int&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;vitam-iaas-app-03.int&quot;</span>
+                        <span class="p">],</span>
+                        <span class="nt">&quot;strategyId&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;_up&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;aeaqaaaaaafgsz3wabcugak7ube6d4qaaaaq&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;_nbc&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;_ops&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;aedqaaaaachxqyktaai4aak7ube557iaaaaq&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;_opi&quot;</span><span class="p">:</span> <span class="s2">&quot;aedqaaaaachxqyktaai4aak7ube557iaaaaq&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;_sp&quot;</span><span class="p">:</span> <span class="s2">&quot;Vitam&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;_sps&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Vitam&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;_storage&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;_nbc&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;offerIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;vitam-iaas-app-02.int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;vitam-iaas-app-03.int&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;strategyId&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;_v&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="detail-des-champs-du-json">
+<h2>4.3.4. Détail des champs du JSON<a class="headerlink" href="#detail-des-champs-du-json" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>«&nbsp;_id&nbsp;»:</strong> identifiant du groupe d’objets.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_tenant&nbsp;»:</strong> identifiant du tenant.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un entier.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_profil&nbsp;»:</strong> catégorie de l’objet.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Repris du nom de la balise présente dans le bloc Metadata du DataObjectPackage présent dans le bordereau de transfert au niveau du BinaryMaster.</li>
+</ul>
+<p>Attention, il s’agit d’une reprise de la balise et non pas des valeurs à l’intérieur.
+Les valeurs possibles pour ce champ sont : Audio, Document, Text, Image et Video. Des extensions seront possibles (Database, Plan3D, …).</p>
+<ul class="simple">
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;FileInfo&nbsp;»:</strong> : informations sur le fichier constituant l’objet-données numérique de référence.</p>
+<blockquote>
+<div><ul class="simple">
+<li>reprend le bloc FileInfo du BinaryMaster présent dans le bordereau de transfert.</li>
+<li>L’objet de ce bloc est de pouvoir conserver les informations initiales du premier BinaryMaster (version de création), au cas où cette version serait éliminée (en application de règle de gestion).</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_qualifiers&nbsp;»:</strong> tableau de structures décrivant les objets inclus dans ce groupe d’objets. Il est composé comme suit :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">«&nbsp;qualifier&nbsp;»: usage de l’objet.</p>
+<p>Ceci correspond à la valeur contenue dans le champ &lt;DataObjectVersion&gt; du bordereau. Par exemple pour &lt;DataObjectVersion&gt;BinaryMaster_1&lt;/DataObjectVersion&gt;, c’est la valeur «&nbsp;BinaryMaster&nbsp;» qui est reportée.</p>
+<ul>
+<li><p class="first">«&nbsp;_nbc&nbsp;»: nombre d’objets correspondant à cet usage.</p>
+</li>
+<li><p class="first">«&nbsp;versions&nbsp;»: tableau des objets par version (une version = une entrée dans le tableau).</p>
+<ul class="simple">
+<li>«&nbsp;_id&nbsp;»: identifiant de l’objet. Il s’agit d’une chaîne de 36 caractères corresppondant à un GUID, généré par la solution logicielle Vitam.</li>
+<li>«&nbsp;DataObjectGroupId&nbsp;»: identifiant du groupe d’objets, composé d’une chaîne de 36 caractères.</li>
+<li>«&nbsp;DataObjectVersion&nbsp;»: version de l’objet par rapport à son usage.</li>
+</ul>
+<p>Par exemple, si on a <em>BinaryMaster</em> sur l’usage, on aura au moins un objet <em>BinaryMaster_1</em>. Ces champs sont renseignés avec les valeurs récupérées dans les balises &lt;DataObjectVersion&gt; du bordereau de transfert.</p>
+<ul>
+<li><p class="first">«&nbsp;FormatIdentification&nbsp;»: contient trois champs qui permettent d’identifier le format du fichier. Une vérification de la cohérence entre ce qui est déclaré dans le XML, ce qui existe dans le référentiel PRONOM et les valeurs que porte le document est faite.</p>
+<ul class="simple">
+<li>«&nbsp;FormatLitteral&nbsp;» : nom du format. C’est une reprise de la valeur située entre les balises &lt;FormatLitteral&gt; du message ArchiveTransfer.</li>
+<li>«&nbsp;MimeType&nbsp;» : type Mime. C’est une reprise de la valeur située entre les balises &lt;MimeType&gt; du message ArchiveTransfer ou des valeurs correspondant au format tel qu’identifié par la solution logicielle Vitam.</li>
+<li>«&nbsp;FormatId&nbsp;» : PUID du format de l’objet. Il est défini par la solution logicielle Vitam à l’aide du référentiel PRONOM maintenu par The National Archives (UK) et correspondant à la valeur du champ PUID de la collection FileFormat.</li>
+</ul>
+</li>
+<li><p class="first">«&nbsp;FileInfo&nbsp;»: Contient les informations sur les fichiers.</p>
+<blockquote>
+<div><ul class="simple">
+<li>«&nbsp;Filename&nbsp;»: nom de l’objet.</li>
+<li>«&nbsp;CreatingApplicationName&nbsp;»: nom de l’application avec laquelle l’objet a été créé. Ce champ est renseigné avec la métadonnée correspondante portée par le message ArchiveTransfer. <em>Ce champ est facultatif et n’est pas présent systématiquement</em>.</li>
+<li>«&nbsp;CreatingApplicationVersion&nbsp;»: numéro de version de l’application avec laquelle le document a été créé. Ce champ est renseigné avec la métadonnée correspondante portée par le message ArchiveTransfer. <em>Ce champ est facultatif et n’est pas présent systématiquement</em>.</li>
+<li>«&nbsp;CreatingOs&nbsp;»: système d’exploitation avec lequel l’objet a été créé. Ce champ est renseigné avec la métadonnée correspondante portée par le message ArchiveTransfer. <em>Ce champ est facultatif et n’est pas présent systématiquement</em>.</li>
+<li>«&nbsp;CreatingOsVersion&nbsp;»: Version du système d’exploitation avec lequel l’objet a été créé. Ce champ est renseigné avec la métadonnée correspondante portée par le message ArchiveTransfer. <em>Ce champ est facultatif et n’est pas présent systématiquement</em>.</li>
+<li>«&nbsp;LastModified&nbsp;» : date de dernière modification de l’objet au format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes «&nbsp;+&nbsp;» timezone hh:mm. <code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">2016-08-19T16:36:07.942+02:00</span></code> Ce champ est optionnel, et est renseigné avec la métadonnée correspondante portée par le fichier.</li>
+<li>«&nbsp;Size&nbsp;»: taille de l’objet (en octet). Ce champ contient un nombre entier.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">«&nbsp;PhysicalDimensions&nbsp;» : Ce champ contient les différentes informations concernant un objet physique (DataObjectVersion = PhysicalMaster). Il pourra donner des informations sur la taille, le poids, etc… de l’objet.</p>
+<blockquote>
+<div><ul class="simple">
+<li>«&nbsp;Width&nbsp;» : largeur de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Height&nbsp;» : hauteur de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Depth&nbsp;» : profondeur de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Diameter&nbsp;» : diamètre de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Length&nbsp;» : longueur de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Thickness&nbsp;» : épaisseur de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Weight&nbsp;» : poids de l’objet. Ce champ contient 2 sous champs : «&nbsp;unit&nbsp;» (string) et «&nbsp;dValue&nbsp;» (double)</li>
+<li>«&nbsp;Shape&nbsp;» : forme de l’objet. Ce champ contient est de type String</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">«&nbsp;OtherMetadata&nbsp;»: Ce champ est renseigné avec les valeurs contenues entre les balises &lt;OtherMetadata&gt;, de l’une extension du schéma SEDA du message  ArchiveTransfer.</p>
+</li>
+<li><p class="first">«&nbsp;Uri&nbsp;»: localisation du fichier correspondant à l’objet dans le SIP.</p>
+<p>Chaîne de caractères</p>
+</li>
+<li><p class="first">«&nbsp;MessageDigest&nbsp;»: empreinte du fichier correspondant à l’objet. La valeur est calculée par la solution logicielle Vitam.</p>
+<p>Chaîne de caractères</p>
+</li>
+<li><p class="first">«&nbsp;Algorithm&nbsp;»: algorithme utilisé pour réaliser l’empreinte du fichier correspondant à l’objet.</p>
+<p>Chaîne de caractères</p>
+</li>
+<li><p class="first">«&nbsp;_storage&nbsp;»: contient trois champs qui permettent d’identifier les offres  de stockage.</p>
+<blockquote>
+<div><ul class="simple">
+<li>«&nbsp;strategyId&nbsp;»: identifiant de la stratégie de stockage.</li>
+<li>«&nbsp;offerIds&nbsp;»: liste des offres de stockage pour une stratégie donnée</li>
+<li>«&nbsp;_nbc&nbsp;»: nombre d’offres.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_up&nbsp;» (unit up):</strong> tableau identifiant les unités archivistiques représentée par ce groupe d’objets.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un tableau de chaînes de 36 caractères correspondant au GUID contenu dans le champ _id des unités archivistiques enregistrées dans la collection Unit.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Ne peut être vide</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_nbc&nbsp;» (nbobjects):</strong> nombre d’objets dans le groupe d’objets.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un entier.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_ops&nbsp;» (operations):</strong> tableau des identifiants d’opérations auxquelles ce groupe d’objets a participé.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un tableau de chaînes de 36 caractères correspondant au GUID contenu dans le champ _id d’opération enregistré dans la collection LogBookOperation.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Ne peut être vide</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_opi&nbsp;» :</strong> identifiant de l’opération à l’origine de la création de ce GOT.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaînes de 36 caractères correspondant au GUID contenue dans le champ _id de la collection LogBookOperation.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Ne peut être vide</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_sp&nbsp;»:</strong> service producteur déclaré dans le message ArchiveTransfer (OriginatingAgencyIdentifier)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_sps&nbsp;»:</strong> service producteur d’origine déclaré lors de la prise en charge du groupe d’objets par la solution logicielle Vitam.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un tableau contenant tous les services producteurs référençant le groupe d’objets.</li>
+<li>Il s’agit d’un tableau de chaînes de caractères.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Ne peut être vide</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;_v&nbsp;»:</strong> version de l’enregistrement décrit.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un entier.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+<li>0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="offset.html" class="btn btn-neutral float-right" title="4.4. Collection Offset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="unit.html" class="btn btn-neutral" title="4.2. Collection Unit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.4.9',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

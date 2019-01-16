@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Administration des collections &mdash; Documentation VITAM - IHM Recette 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="3. Tests" href="tests.html" />
+    <link rel="prev" title="1. Recette" href="recette.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - IHM Recette
+          
+
+          
+            
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="recette.html">1. Recette</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Administration des collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#actions-de-suppression">2.1. Actions de suppression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purge-de-toutes-les-collections-de-la-solution-logicielle-vitam">2.1.1. Purge de toutes les collections de la solution logicielle Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-referentiels">2.1.2. Purge des référentiels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-journaux">2.1.3. Purge des journaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-unites-archivistiques-et-groupes-d-objets">2.1.4. Purge des Unités Archivistiques et Groupes d’Objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge-des-contrats">2.1.5. Purge des contrats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recherche-et-modification-d-un-fichier">2.2. Recherche et Modification d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ajout-et-suppression-d-un-parent">2.3. Ajout et suppression d’un parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-audit-correctif">2.4. Test Audit correctif</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">3. Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="securisation.html">4. Sécurisation des journaux</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - IHM Recette</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. Administration des collections</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/collections.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="administration-des-collections">
+<h1>2. Administration des collections<a class="headerlink" href="#administration-des-collections" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L’administration des collections permet de supprimer certains ou tous les référentiels / journaux / objets / contrats dans le but de recetter la solution logicielle Vitam ou de faire des tests variés pour éprouver la stabilité du système.</p>
+<p>L’utilisateur y accède par le menu, en cliquant sur «&nbsp;Administration des collections&nbsp;», ou par défaut lors de sa connexion.</p>
+<img alt="_images/RECETTE_admin_collections.png" src="_images/RECETTE_admin_collections.png" />
+<div class="section" id="actions-de-suppression">
+<h2>2.1. Actions de suppression<a class="headerlink" href="#actions-de-suppression" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque collection comporte un bouton «&nbsp;Purger&nbsp;».
+Lors du clic sur ce bouton «&nbsp;Purger&nbsp;», une fenêtre modale apparaît et demande de confirmer l’action de suppression.
+Il existe deux types de purges.</p>
+<div class="section" id="purge-de-toutes-les-collections-de-la-solution-logicielle-vitam">
+<h3>2.1.1. Purge de toutes les collections de la solution logicielle Vitam<a class="headerlink" href="#purge-de-toutes-les-collections-de-la-solution-logicielle-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La purge de toutes les collections correspond à la suppression de tous les référentiels, contrats et journaux ainsi que de tous les objets et unités archivistiques à l’exception du référentiel des formats, des contextes et des ontologies externes.
+Suite à cette opération, chaque IHM correspondante est vide de contenu et plus aucune archive n’est présente dans la solution logicielle Vitam.</p>
+</div>
+<div class="section" id="purge-des-referentiels">
+<h3>2.1.2. Purge des référentiels<a class="headerlink" href="#purge-des-referentiels" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible de supprimer isolément un référentiel. Pour cela, il faut choisir un référentiel et cliquer sur «&nbsp;Purger&nbsp;» :</p>
+<ul class="simple">
+<li>Un clic sur la croix de la fenêtre modale ou sur «&nbsp;Non&nbsp;», annule la demande de suppression</li>
+<li>Un clic sur «&nbsp;Oui&nbsp;», valide la demande de suppression, la fenêtre modale se ferme et la suppression est effectuée</li>
+</ul>
+<img alt="_images/administration_purge_pop_up.png" src="_images/administration_purge_pop_up.png" />
+<p>Une fois la suppression effectuée, un message de confirmation s’affiche dans une fenêtre modale.</p>
+<img alt="_images/administration_purge_pop_up_ok.png" src="_images/administration_purge_pop_up_ok.png" />
+<p><strong>Purge des référentiels impactant tous les tenants</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Référentiel des formats</li>
+</ul>
+</div></blockquote>
+<p>Le référentiel des formats de la solution logicielle Vitam est supprimé <strong>pour tous les tenants</strong>. L’IHM du référentiel de formats est vide de contenu. Sans référentiel des formats, aucun SIP ne pourra être importé dans la solution logicielle Vitam.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des contextes applicatifs</li>
+</ul>
+</div></blockquote>
+<p>Lors de son exécution, la fonctionnalité de purge des contextes contrôle qu’il y a plus d’un contexte dans le référentiel. Si tel n’est pas le cas, la purge n’est pas réalisée. Si le référentiel contient plus d’un contexte, ils sont supprimés de la solution logicielle Vitam à l’exception de celui nommé « admin-context ».</p>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des ontologies externes</li>
+</ul>
+</div></blockquote>
+<p>La purge des ontologies externes supprime en réalité toutes les ontologies présentes dans le système Vitam et ce sur les différents tenants. Les vocabulaires internes (embarqués avec la solution) et externes sont supprimés. Les vocabulaires internes sont automatiquement réimportés. Cette fonctionnalité permet de revenir à l’état initial concernant le référentiel des ontologies.</p>
+<p><strong>Purge des référentiels sur un seul tenant</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Référentiel des règles de gestion</li>
+</ul>
+</div></blockquote>
+<p>Le référentiel des règles de gestion de la solution logicielle Vitam est supprimé pour le tenant sélectionné par l’utilisateur. L’IHM Démo du référentiel des règles de gestion est vide de contenu. Sans référentiel des règles de gestion, aucun SIP comportant des règles de gestion ne pourra être importé sur le tenant dans la solution logicielle Vitam.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Registre des fonds</li>
+</ul>
+</div></blockquote>
+<p>Le contenu du registre des fonds de la solution logicielle Vitam est supprimé pour le tenant séléctionné par l’utilisateur. L’IHM Démo du «&nbsp;registre des fonds&nbsp;» est vide de contenu.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des profils d’archivage</li>
+</ul>
+</div></blockquote>
+<p>Tous les profils sont supprimés de la solution logicielle Vitam pour le tenant séléctionné par l’utilisateur. L’IHM Démo du «&nbsp;référentiel des profils&nbsp;» est vide de contenu.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des services agents</li>
+</ul>
+</div></blockquote>
+<p>Le référentiel des services agents de la solution logicielle Vitam est supprimé pour le tenant sélectionné par l’utilisateur. L’IHM Démo du référentiel des services agents est vide de contenu. Sans référentiel de service agents, aucun SIP ne pourra être importé sur le tenant dans la solution logicielle Vitam.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des documents type</li>
+</ul>
+</div></blockquote>
+<p>Le référentiel des profils d’unités archivistiques (documents type) de la solution logicielle Vitam est supprimé pour le tenant sélectionné par l’utilisateur. L’IHM Démo du référentiel des profils d’unités archivistiques (documents type) est vide de contenu.</p>
+</div>
+<div class="section" id="purge-des-journaux">
+<h3>2.1.3. Purge des journaux<a class="headerlink" href="#purge-des-journaux" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Journal du cycle de vie (unités archivistiques)</li>
+</ul>
+</div></blockquote>
+<p>Tous les journaux du cycle de vie des unités archivistiques sont supprimés de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. L’IHM Démo de chaque «&nbsp;Journal du cycle de vie&nbsp;» d’une unité archivistique est vide de contenu.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Journal du cycle de vie (groupes d’objets)</li>
+</ul>
+</div></blockquote>
+<p>Tous les journaux du cycle de vie des objets sont supprimés de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. L’IHM Démo de chaque «&nbsp;Journal du cycle de vie&nbsp;» d’un objet est vide de contenu.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Journaux des opérations</li>
+</ul>
+</div></blockquote>
+<p>Tous les journaux des opérations sont supprimés de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. Les IHM Démo&nbsp;»Journal des opérations&nbsp;» et «&nbsp;Journal des opérations d’entrées&nbsp;» sont vides de contenu.</p>
+</div>
+<div class="section" id="purge-des-unites-archivistiques-et-groupes-d-objets">
+<h3>2.1.4. Purge des Unités Archivistiques et Groupes d’Objets<a class="headerlink" href="#purge-des-unites-archivistiques-et-groupes-d-objets" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des Unités Archivistiques</li>
+</ul>
+</div></blockquote>
+<p>Toutes les unités archivistiques sont supprimées de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. L’IHM Démo «&nbsp;Recherche d’archives&nbsp;» ne retourne plus d’unité archivistique.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Purge des groupes d’objets</li>
+</ul>
+</div></blockquote>
+<p>Tous les objets sont supprimés de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. Les IHM «&nbsp;Recherche d’archives&nbsp;» et «&nbsp;Détail d’une unité archivistique&nbsp;» ne retournent plus de résultats.</p>
+</div>
+<div class="section" id="purge-des-contrats">
+<h3>2.1.5. Purge des contrats<a class="headerlink" href="#purge-des-contrats" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Contrats d’accès</li>
+</ul>
+</div></blockquote>
+<p>Tous les contrats d’accès sont supprimés de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. L’IHM Démo «&nbsp;Contrats d’accès&nbsp;» est vide de contenu.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Contrats d’entrée</li>
+</ul>
+</div></blockquote>
+<p>Tous les contrats d’entrée sont supprimés de la solution logicielle Vitam pour le tenant sélectionné par l’utilisateur. L’IHM Démo «&nbsp;Contrats d’entrée&nbsp;» est vide de contenu.</p>
+</div>
+</div>
+<div class="section" id="recherche-et-modification-d-un-fichier">
+<h2>2.2. Recherche et Modification d’un fichier<a class="headerlink" href="#recherche-et-modification-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Recherche d’un fichier</li>
+</ul>
+</div></blockquote>
+<p>Il est possible de rechercher un fichier grâce à son identifiant dans le champ «&nbsp;Titre&nbsp;», en sélectionnant spécifiquement la catégorie de recherche : au niveau de l’unité archivistique, de l’objet binaires ou des groupes d’objets techniques.</p>
+<p>Il faut également sélectionner l’offre de stockage sur laquelle effectuer la recherche.</p>
+<p>Il faut également sélectionner un tenant au préalable.</p>
+<p>En cliquant sur le bouton «&nbsp;Récupérer le fichier&nbsp;», le fichier est exporté, et disponible dans le but d’être modifié.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Modification d’un fichier</li>
+</ul>
+</div></blockquote>
+<p>Un fois le fichier téléchargé, il est possible de le modifier, et l’importer à nouveau, en sachant que la version importée, sera enregistrée à la place de la dernière version exportée.</p>
+<img alt="_images/administration_modification_fichier.png" src="_images/administration_modification_fichier.png" />
+</div>
+<div class="section" id="ajout-et-suppression-d-un-parent">
+<h2>2.3. Ajout et suppression d’un parent<a class="headerlink" href="#ajout-et-suppression-d-un-parent" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible d’ajouter ou de supprimer un lien entre deux unités archivistiques présentes dans la solution.</p>
+<p>Pour cela, il faut rentrer les identifiants des unités archivistiques dans les champs correspondants, sélectionner un type d’opération «&nbsp;ajouter ou supprimer un lien&nbsp;», et aussi sélectionner le contrat d’accès permettant d’avoir les droits pour les différentes modifications.</p>
+<img alt="_images/administration_reclassement.png" src="_images/administration_reclassement.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">il est possible d’avoir une visualisation de ces modifications de liens dans la section «&nbsp;visualisation du graphe&nbsp;».</p>
+</div>
+</div>
+<div class="section" id="test-audit-correctif">
+<h2>2.4. Test Audit correctif<a class="headerlink" href="#test-audit-correctif" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de lancer une opération de correction suite à un audit de cohérence qui aurait décelé une ou plusieurs erreurs de cohérence de données.</p>
+<p>L’opération a pour but de remplacer les valeurs incorrectes détectées dans les offres de stockages ou dans la base de données. Pour cela, il faut sélectionner à la fois le tenant et l’identifiant de l’opération liée à l’audit de cohérence.</p>
+<img alt="_images/administration_auditcorrectif.png" src="_images/administration_auditcorrectif.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tests.html" class="btn btn-neutral float-right" title="3. Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recette.html" class="btn btn-neutral" title="1. Recette" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

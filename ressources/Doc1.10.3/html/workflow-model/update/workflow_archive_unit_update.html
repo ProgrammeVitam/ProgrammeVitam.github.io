@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow de mise à jour unitaire des unités archivistiques &mdash; Documentation VITAM - Modèle de workflow 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Workflow de mise à jour des règles de gestion des unités archivistiques lors de l’import d’un nouveau référentiel" href="workflow_rules_update.html" />
+    <link rel="prev" title="UPDATE" href="_toc_update.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de workflow
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audit/_toc.html">AUDIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dip/_toc_dip.html">DIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ingests/_toc_ingest.html">INGEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterdata/_toc.html">MASTERDATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../traceability/_toc_traceability.html">TRACEABILITY</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_update.html">UPDATE</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow de mise à jour unitaire des unités archivistiques</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processus-de-mise-a-jour-des-unites-archivistiques-vision-metier">Processus de mise à jour des unités archivistiques (vision métier)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mise-a-jour-unitaire-des-metadonnees-descriptives-des-unites-archivistiques">Mise à jour unitaire des métadonnées descriptives des unités archivistiques</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#verification-des-droits-de-mise-a-jour-des-metadonnees-descriptives-des-unites-archivistiques-unit-metadata-update-check-permission">Vérification des droits de mise à jour des métadonnées descriptives des unités archivistiques  UNIT_METADATA_UPDATE_CHECK_PERMISSION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-de-l-association-a-un-profil-d-unite-archivistique-unit-metadata-update-check-dt">Vérification de l’association à un profil d’unité archivistique UNIT_METADATA_UPDATE_CHECK_DT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexation-des-metadonnees-unit-metadata-update-archiveunitupdateutils-java">Indexation des métadonnées UNIT_METADATA_UPDATE (ArchiveUnitUpdateUtils.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enregistrement-du-journal-du-cycle-de-vie-des-unites-archivistiques-commit-life-cycle-unit">Enregistrement du journal du cycle de vie des unités archivistiques COMMIT_LIFE_CYCLE_UNIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ecriture-des-metadonnees-de-l-unite-archivistique-sur-l-offre-de-stockage-unit-metadata-storage-accessinternalmoduleimpl-java">Écriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT_METADATA_STORAGE (AccessInternalModuleImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-mise-a-jour-des-metadonnees-descriptives-de-l-unite-archivistique-stp-update-unit-desc-accessinternalmoduleimpl-java">Processus de mise à jour des métadonnées descriptives de l’unité archivistique STP_UPDATE_UNIT_DESC (AccessInternalModuleImpl.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#structue-de-workflow-mise-a-jour-des-metadonnees-descriptives">Structue de workflow mise à jour des métadonnées descriptives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mise-a-jour-unitaire-des-regles-de-gestion-des-unites-archivistiques">Mise à jour unitaire des règles de gestion des unités archivistiques</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Vérification des droits de mise à jour des métadonnées descriptives des unités archivistiques  UNIT_METADATA_UPDATE_CHECK_PERMISSION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-des-regles-de-gestion-unit-metadata-update-check-rules-accessinternalmoduleimpl-java">Vérification des règles de gestion UNIT_METADATA_UPDATE_CHECK_RULES (AccessInternalModuleImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Vérification de l’association à un profil d’unité archivistique UNIT_METADATA_UPDATE_CHECK_DT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Indexation des métadonnées UNIT_METADATA_UPDATE (ArchiveUnitUpdateUtils.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Enregistrement du journal du cycle de vie des unités archivistiques COMMIT_LIFE_CYCLE_UNIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Écriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT_METADATA_STORAGE (AccessInternalModuleImpl.java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processus-de-mise-a-jour-de-regle-de-gestion-des-metadonnees-de-l-unite-archivistique-stp-update-unit-accessinternalmoduleimpl-java">Processus de mise à jour de règle de gestion des métadonnées de l’unité archivistique STP_UPDATE_UNIT (AccessInternalModuleImpl.java)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-de-workflow-mise-a-jour-des-regles-de-gestions-de-l-unite-archivistique">Structure de workflow mise à jour des règles de gestions de l’unité archivistique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_rules_update.html">Workflow de mise à jour des règles de gestion des unités archivistiques lors de l’import d’un nouveau référentiel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Traitement_de_masse/_toc_traitement_de_masse.html">UNIT MASS UPDATE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree_view_update/_toc_modification_arborescence.html">MODIFICATION D’ARBORESCENCE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de workflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc_update.html">UPDATE</a> &raquo;</li>
+        
+      <li>Workflow de mise à jour unitaire des unités archivistiques</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/update/workflow_archive_unit_update.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-de-mise-a-jour-unitaire-des-unites-archivistiques">
+<h1>Workflow de mise à jour unitaire des unités archivistiques<a class="headerlink" href="#workflow-de-mise-a-jour-unitaire-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section décrit le processus permettant la mise à jour unitaire des unités archivistiques.</p>
+</div>
+<div class="section" id="processus-de-mise-a-jour-des-unites-archivistiques-vision-metier">
+<h2>Processus de mise à jour des unités archivistiques (vision métier)<a class="headerlink" href="#processus-de-mise-a-jour-des-unites-archivistiques-vision-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le processus de mise à jour unitaire des unités archivistiques est lancé lors d’une mise à jour de n’importe quelle métadonnée d’une unité archivistique. On distingue cependant deux cas de modifications, liés à des droits, gérés via les contrats d’accès :
+Soit les utilisateurs disposent d’un droit de modification sur métadonnées descriptives seulement, soit ils disposent des droits pour modifier les métadonnées descriptives et les règles de gestion.</p>
+<p>Un certain nombre d’étapes et actions sont journalisées dans le journal des opérations.
+Les étapes et actions associées ci-dessous décrivent ce processus de mise à jour (clé et description de la clé associée dans le journal des opérations).</p>
+</div>
+<div class="section" id="mise-a-jour-unitaire-des-metadonnees-descriptives-des-unites-archivistiques">
+<h2>Mise à jour unitaire des métadonnées descriptives des unités archivistiques<a class="headerlink" href="#mise-a-jour-unitaire-des-metadonnees-descriptives-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="verification-des-droits-de-mise-a-jour-des-metadonnees-descriptives-des-unites-archivistiques-unit-metadata-update-check-permission">
+<h3>Vérification des droits de mise à jour des métadonnées descriptives des unités archivistiques  UNIT_METADATA_UPDATE_CHECK_PERMISSION<a class="headerlink" href="#verification-des-droits-de-mise-a-jour-des-metadonnees-descriptives-des-unites-archivistiques-unit-metadata-update-check-permission" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : cette étape permet d’effectuer les contrôles sur le champ présent dans le contrat d’accès, qui autorise ou non la modification de métadonnées descriptives seulement ou bien des métadonnées descriptives et de gestion.</li>
+<li><strong>Type</strong> : bloquant</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Succès de la vérification des droits de mise à jour des métadonnées de l’unité archivistique ((UNIT_METADATA_UPDATE_CHECK_PERMISSION OK = Succès de la vérification des droits de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>KO : la mise à jour de l’unité archivistique n’a pas été effectuée en raison d’une erreur (STP_UPDATE_UNIT.KO = Échec de la vérification des droits de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de la mise à jour de l’unité archivistique (STP_UPDATE_UNIT.FATAL = Erreur technique lors de la vérification des droits de mise à jour des métadonnées de l’unité archivistique)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="verification-de-l-association-a-un-profil-d-unite-archivistique-unit-metadata-update-check-dt">
+<h3>Vérification de l’association à un profil d’unité archivistique UNIT_METADATA_UPDATE_CHECK_DT<a class="headerlink" href="#verification-de-l-association-a-un-profil-d-unite-archivistique-unit-metadata-update-check-dt" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : cette tâche permet de vérifier la conformité des unités archivistiques mise à jour vis à vis de leurs profils d’unités archivistiques. Les identifiants de profils archivistiques renseignés dans les unités archivistique doivent exister dans le référentiel des profils. Les profils associés doivent être actif et leur schéma de contrôle ne doit pas être vide.</li>
+<li><strong>Type</strong> : bloquant</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>OK : succès de la vérification de la conformité au profil unités archivistiques (document type) ((UNIT_METADATA_UPDATE_CHECK_DT.OK = Succès de la vérification de l’association à un profil unité archivistique)</li>
+<li>KO : la mise à jour de l’unité archivistique n’a pas été effectuée en raison de la non conformité vis à vis du profil d’unité archivistique (document type) (UNIT_METADATA_UPDATE_CHECK_DT.KO = Échec de la vérification de l’association à un profil unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de la conformité aux profils d’unités archivistiques (UNIT_METADATA_UPDATE_CHECK_DT.FATAL = Erreur technique lors de la vérification de l’association à un profil unité archivistique)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indexation-des-metadonnees-unit-metadata-update-archiveunitupdateutils-java">
+<h3>Indexation des métadonnées UNIT_METADATA_UPDATE (ArchiveUnitUpdateUtils.java)<a class="headerlink" href="#indexation-des-metadonnees-unit-metadata-update-archiveunitupdateutils-java" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : Indexation des métadonnées des unités archivistiques dans les bases internes de la solution logicielle Vitam, c’est à dire le titre des unités, leurs descriptions, leurs dates extrêmes, etc. C’est également dans cette tâche que le journal du cycle de vie est enregistré dans la base de données. Si la modification touche une métadonnée à historiser, alors un historique est créé.</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Succès de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.OK = Succès de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>KO : Échec de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.KO = Échec de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>STARTED : Début de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.STARTED = Début de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>FATAL : Erreur technique lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.FATAL = Erreur technique lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>WARNING : Avertissement lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.WARNING = Avertissement lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>A propos de l’historique des données</strong> : Il existe un fichier permettant de configurer les métadonnées à historiser dans :</p>
+<p>vitam/sources/metadata/metadata-core/src/main/resources/history-triggers.json</p>
+<dl class="docutils">
+<dt>Ce fichier contient deux variables par objet :</dt>
+<dd><ul class="first last simple">
+<li>FieldPathTriggeredForHistory : champ dont la modification déclenche une historisation</li>
+<li>ObjectPathForHistory : champ à historiser</li>
+</ul>
+</dd>
+</dl>
+<p>Quand ce champ correspondant à FieldPathTriggeredForHistory est modifié, alors le champ contenu dans «&nbsp;ObjectPathForHistory&nbsp;» est enregistré dans un bloc nommé «&nbsp;history&nbsp;» dans le modèle de données.</p>
+<p>Par défaut dans Vitam, la configuration de history-triggers.json est :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+ <span class="p">{</span>
+   <span class="nt">&quot;FieldPathTriggeredForHistory&quot;</span><span class="p">:</span> <span class="s2">&quot;_mgt.ClassificationRule.ClassificationLevel&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;ObjectPathForHistory&quot;</span><span class="p">:</span> <span class="s2">&quot;_mgt.ClassificationRule&quot;</span>
+ <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Ainsi lorsqu’un niveau de classification est modifié, alors l’intégralité de la catégorie de règle de classification est enregistré dans le bloc _history de l’unité archivistique.</p>
+</div>
+<div class="section" id="enregistrement-du-journal-du-cycle-de-vie-des-unites-archivistiques-commit-life-cycle-unit">
+<h3>Enregistrement du journal du cycle de vie des unités archivistiques COMMIT_LIFE_CYCLE_UNIT<a class="headerlink" href="#enregistrement-du-journal-du-cycle-de-vie-des-unites-archivistiques-commit-life-cycle-unit" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : Sécurisation en base des journaux du cycle de vie des unités archivistiques (avant cette étape, les journaux du cycle de vie des unités archivistiques sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec).</li>
+</ul>
+</div></blockquote>
+<p>Cette action n’est pas journalisée.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques (COMMIT_LIFE_CYCLE_UNIT.OK = Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : Échec de l’enregistrement des journaux du cycle de vie des unités archivistiques (COMMIT_LIFE_CYCLE_UNIT.FATAL = Erreur technique lors de de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ecriture-des-metadonnees-de-l-unite-archivistique-sur-l-offre-de-stockage-unit-metadata-storage-accessinternalmoduleimpl-java">
+<h3>Écriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT_METADATA_STORAGE (AccessInternalModuleImpl.java)<a class="headerlink" href="#ecriture-des-metadonnees-de-l-unite-archivistique-sur-l-offre-de-stockage-unit-metadata-storage-accessinternalmoduleimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : Sauvegarde des métadonnées des unités archivistiques sur les offres de stockage en fonction de la stratégie de stockage.(Pas d’évènements stockés dans le journal de cycle de vie)</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la sécurisation des journaux du cycle de vie s’est correctement déroulée (UNIT_METADATA_UPDATE.OK = Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (UNIT_METADATA_UPDATE.FATAL = Erreur technique lors de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Selon le type de modifications, une des deux étapes peut être déclenchée:</p>
+</div>
+<div class="section" id="processus-de-mise-a-jour-des-metadonnees-descriptives-de-l-unite-archivistique-stp-update-unit-desc-accessinternalmoduleimpl-java">
+<h3>Processus de mise à jour des métadonnées descriptives de l’unité archivistique STP_UPDATE_UNIT_DESC (AccessInternalModuleImpl.java)<a class="headerlink" href="#processus-de-mise-a-jour-des-metadonnees-descriptives-de-l-unite-archivistique-stp-update-unit-desc-accessinternalmoduleimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La fin du processus peut prendre plusieurs statuts :</p>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la mise à jour de l’unité archivistique a bien été effectuée (STP_UPDATE_UNIT_DESC.OK = Succès du processus de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>KO : la mise à jour de l’unité archivistique n’a pas été effectuée en raison d’une erreur (STP_UPDATE_UNIT_DESC.KO = Échec du processus de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de la mise à jour de l’unité archivistique (STP_UPDATE_UNIT_DESC.FATAL = Erreur technique lors du processus de mise à jour des métadonnées de l’unité archivistique)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="structue-de-workflow-mise-a-jour-des-metadonnees-descriptives">
+<h2>Structue de workflow mise à jour des métadonnées descriptives<a class="headerlink" href="#structue-de-workflow-mise-a-jour-des-metadonnees-descriptives" title="Lien permanent vers ce titre">¶</a></h2>
+<img alt="Diagramme d'état / transitions du workflow d'ingest" class="align-center" src="../_images/workflow-unit-desc-update.png" />
+</div>
+<div class="section" id="mise-a-jour-unitaire-des-regles-de-gestion-des-unites-archivistiques">
+<h2>Mise à jour unitaire des règles de gestion des unités archivistiques<a class="headerlink" href="#mise-a-jour-unitaire-des-regles-de-gestion-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="id1">
+<h3>Vérification des droits de mise à jour des métadonnées descriptives des unités archivistiques  UNIT_METADATA_UPDATE_CHECK_PERMISSION<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : cette étape permet d’effectuer les contrôles sur le champ présent dans le contrat d’accès, qui autorise ou non la modification de métadonnées descriptives seulement ou bien des métadonnées descriptives et de gestion.</li>
+<li><strong>Type</strong> : bloquant</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Succès de la vérification des droits de mise à jour des métadonnées de l’unité archivistique ((UNIT_METADATA_UPDATE_CHECK_PERMISSION OK = Succès de la vérification des droits de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>KO : la mise à jour de l’unité archivistique n’a pas été effectuée en raison d’une erreur (STP_UPDATE_UNIT.KO = Échec de la vérification des droits de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de la mise à jour de l’unité archivistique (STP_UPDATE_UNIT.FATAL = Erreur technique lors de la vérification des droits de mise à jour des métadonnées de l’unité archivistique)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="verification-des-regles-de-gestion-unit-metadata-update-check-rules-accessinternalmoduleimpl-java">
+<h3>Vérification des règles de gestion UNIT_METADATA_UPDATE_CHECK_RULES (AccessInternalModuleImpl.java)<a class="headerlink" href="#verification-des-regles-de-gestion-unit-metadata-update-check-rules-accessinternalmoduleimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Règle</strong> : vérification des règles de gestion</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : le rapport est généré (UNIT_METADATA_UPDATE_CHECK_RULES.OK = Succès de la génération du rapport d’analyse du rérentiel des règles de gestion)</li>
+<li>KO : pas de cas KO</li>
+<li>FATAL : une erreur technique est survenue lors de la création du rapport (UNIT_METADATA_UPDATE_CHECK_RULES.FATAL = Erreur technique lors de la génération du rapport d’analyse du référentiel des règles de gestion)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Vérification de l’association à un profil d’unité archivistique UNIT_METADATA_UPDATE_CHECK_DT<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><strong>Règle</strong> : cette tâche permet de vérifier la conformité des unités archivistiques mise à jour vis à vis de leurs profils d’unités archivistiques. Les identifiants de profils archivistiques renseignés dans les unités archivistique doivent exister dans le référentiel des profils. Les profils associés doivent être actif et leur schéma de contrôle ne doit pas être vide.</li>
+<li><strong>Type</strong> : bloquant</li>
+</ul>
+<ul class="simple">
+<li><strong>Statuts</strong> :<ul>
+<li>OK : succès de la vérification de la conformité au profil unités archivistiques (document type) ((UNIT_METADATA_UPDATE_CHECK_DT.OK = Succès de la vérification de l’association à un profil unité archivistique)</li>
+<li>KO : la mise à jour de l’unité archivistique n’a pas été effectuée en raison de la non conformité vis à vis du profil d’unité archivistique (document type) (UNIT_METADATA_UPDATE_CHECK_DT.KO = Échec de la vérification de l’association à un profil unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de la vérification de la conformité aux profils d’unités archivistiques (UNIT_METADATA_UPDATE_CHECK_DT.FATAL = Erreur technique lors de la vérification de l’association à un profil unité archivistique)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Indexation des métadonnées UNIT_METADATA_UPDATE (ArchiveUnitUpdateUtils.java)<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : Indexation des métadonnées des unités archivistiques dans les bases internes de la solution logicielle Vitam, c’est à dire le titre des unités, leurs descriptions, leurs dates extrêmes, etc. C’est également dans cette tâche que le journal du cycle de vie est enregistré dans la base de données. Si la modification touche une métadonnée à historiser, alors un historique est créé.</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Succès de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.OK = Succès de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>KO : Échec de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.KO = Échec de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>STARTED : Début de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.STARTED = Début de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>FATAL : Erreur technique lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.FATAL = Erreur technique lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+<li>WARNING : Avertissement lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques (UNIT_METADATA_UPDATE_CHECK_PERMISSION.WARNING = Avertissement lors de la vérification des droits de mise à jour des métadonnées des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>A propos de l’historique des données</strong> : Il existe un fichier permettant de configurer les métadonnées à historiser dans :</p>
+<p>vitam/sources/metadata/metadata-core/src/main/resources/history-triggers.json</p>
+<dl class="docutils">
+<dt>Ce fichier contient deux variables par objet :</dt>
+<dd><ul class="first last simple">
+<li>FieldPathTriggeredForHistory : champ dont la modification déclenche une historisation</li>
+<li>ObjectPathForHistory : champ à historiser</li>
+</ul>
+</dd>
+</dl>
+<p>Quand ce champ correspondant à FieldPathTriggeredForHistory est modifié, alors le champ contenu dans «&nbsp;ObjectPathForHistory&nbsp;» est enregistré dans un bloc nommé «&nbsp;history&nbsp;» dans le modèle de données.</p>
+<p>Par défaut dans Vitam, la configuration de history-triggers.json est :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+ <span class="p">{</span>
+   <span class="nt">&quot;FieldPathTriggeredForHistory&quot;</span><span class="p">:</span> <span class="s2">&quot;_mgt.ClassificationRule.ClassificationLevel&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;ObjectPathForHistory&quot;</span><span class="p">:</span> <span class="s2">&quot;_mgt.ClassificationRule&quot;</span>
+ <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Ainsi lorsqu’un niveau de classification est modifié, alors l’intégralité de la catégorie de règle de classification est enregistré dans le bloc _history de l’unité archivistique.</p>
+</div>
+<div class="section" id="id4">
+<h3>Enregistrement du journal du cycle de vie des unités archivistiques COMMIT_LIFE_CYCLE_UNIT<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : Sécurisation en base des journaux du cycle de vie des unités archivistiques (avant cette étape, les journaux du cycle de vie des unités archivistiques sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec). Cette action n’est pas journalisée.</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques (COMMIT_LIFE_CYCLE_UNIT.OK = Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : Échec de l’enregistrement des journaux du cycle de vie des unités archivistiques (COMMIT_LIFE_CYCLE_UNIT.FATAL = Erreur technique lors de de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h3>Écriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT_METADATA_STORAGE (AccessInternalModuleImpl.java)<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Règle</strong> : Sauvegarde des métadonnées des unités archivistiques sur les offres de stockage en fonction de la stratégie de stockage.(Pas d’évènements stockés dans le journal de cycle de vie)</li>
+<li><strong>Type</strong> : bloquant</li>
+<li><strong>Statuts</strong> :<ul>
+<li>OK : la sécurisation des journaux du cycle de vie s’est correctement déroulée (UNIT_METADATA_UPDATE.OK = Succès de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+<li>FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (UNIT_METADATA_UPDATE.FATAL = Erreur technique lors de l’enregistrement des journaux du cycle de vie des unités archivistiques)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="processus-de-mise-a-jour-de-regle-de-gestion-des-metadonnees-de-l-unite-archivistique-stp-update-unit-accessinternalmoduleimpl-java">
+<h3>Processus de mise à jour de règle de gestion des métadonnées de l’unité archivistique STP_UPDATE_UNIT (AccessInternalModuleImpl.java)<a class="headerlink" href="#processus-de-mise-a-jour-de-regle-de-gestion-des-metadonnees-de-l-unite-archivistique-stp-update-unit-accessinternalmoduleimpl-java" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Règle</strong> : Mise à jour de règle de gestion des métadonnées de l’unité archivistique.</p>
+</li>
+<li><p class="first"><strong>Type</strong> : bloquant</p>
+</li>
+<li><p class="first"><strong>Statuts</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>OK : la mise à jour de l’unité archivistique a bien été effectuée. (STP_UPDATE_UNIT.OK = Succès du processus de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>KO : la mise à jour de l’unité archivistique n’a pas été effectuée en raison d’une erreur (STP_UPDATE_UNIT.KO = Échec du processus de mise à jour des métadonnées de l’unité archivistique)</li>
+<li>FATAL : une erreur technique est survenue lors de la mise à jour de l’unité archivistique (STP_UPDATE_UNIT.FATAL = Erreur technique lors du processus de mise à jour des métadonnées de l’unité archivistique)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="structure-de-workflow-mise-a-jour-des-regles-de-gestions-de-l-unite-archivistique">
+<h2>Structure de workflow mise à jour des règles de gestions de l’unité archivistique<a class="headerlink" href="#structure-de-workflow-mise-a-jour-des-regles-de-gestions-de-l-unite-archivistique" title="Lien permanent vers ce titre">¶</a></h2>
+<img alt="Diagramme d'état / transitions du workflow d'ingest" class="align-center" src="../_images/workflow-unit-rules-update.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow_rules_update.html" class="btn btn-neutral float-right" title="Workflow de mise à jour des règles de gestion des unités archivistiques lors de l’import d’un nouveau référentiel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc_update.html" class="btn btn-neutral" title="UPDATE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

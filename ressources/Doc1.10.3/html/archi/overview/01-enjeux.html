@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1. Drivers du projet &mdash; Documentation VITAM - Architecture 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="3.2. Interfaces externes du système" href="10-interfaces.html" />
+    <link rel="prev" title="3. Vue d’ensemble" href="_toc.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">3. Vue d’ensemble</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. Drivers du projet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enjeux">3.1.1. Enjeux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contraintes-et-objectifs">3.1.2. Contraintes et objectifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#positionnement">3.1.3. Positionnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10-interfaces.html">3.2. Interfaces externes du système</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-orientation-generale.html">3.3. Orientations générales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30-architecture-fonctionnelle.html">3.4. Architecture fonctionnelle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">3. Vue d’ensemble</a> &raquo;</li>
+        
+      <li>3.1. Drivers du projet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/overview/01-enjeux.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="drivers-du-projet">
+<h1>3.1. Drivers du projet<a class="headerlink" href="#drivers-du-projet" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="enjeux">
+<h2>3.1.1. Enjeux<a class="headerlink" href="#enjeux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les enjeux de VITAM se répartissent en 3 grandes catégories :</p>
+<ul>
+<li><p class="first">Les enjeux liés au respect des processus métier d’archivage ; il s’agit de permettre l’identification, le maintien de la disponibilité et de la sécurité, ainsi que le maintien du contrôle sur les documents confiés à VITAM. Dans le cas particulier&nbsp;de l’archivage définitif, VITAM doit permettre l’utilisation des documents à des fins historiques liées à leur réutilisation, et permettre la conservation de documents dont la <a class="reference internal" href="../introduction.html#term-dua"><span class="xref std std-term">DUA</span></a> est échue mais ayant vocation à être conservés indéfiniment.</p>
+</li>
+<li><p class="first">Les enjeux liés au volume, à la variété et aux besoin de performances des traitements des données gérées par VITAM :</p>
+<blockquote>
+<div><ul class="simple">
+<li>VITAM doit pouvoir gérer la conservation et l’accès de volumes élevés d’archives numériques (&gt; 10 <sup>10</sup> objets, 10 To =&gt; 10 Po), tout en garantissant une perte de données nulle (<a class="reference internal" href="../introduction.html#term-pdma"><span class="xref std std-term">PDMA</span></a> ~ 0) pour les données qui ont été « acceptées » par VITAM après acquittement d’un versement, ainsi que pour l’ensemble des données nécessaires pour assurer la preuve systémique de la plateforme (journaux des opérations, du cycle de vie, du <a class="reference internal" href="../introduction.html#term-sae"><span class="xref std std-term">SAE</span></a>) ;</li>
+<li>VITAM doit pouvoir gérer un large éventail de types de données archivées, et ce notamment dans le temps, incluant une forte variété de métadonnées descriptives des archives et une forte variété de type de format des objets numériques ;</li>
+<li>VITAM doit être performant dans ses capacités de gestion des données archivées, et notamment permettre de répondre à des requêtes de recherche simples en quelques secondes, à des recherches complexes archivistiques en quelques minutes et à une demande d’accès à un contenu quelconque en une dizaine de secondes.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Les enjeux liés à la sécurité, en fournissant un accès sécurisé et contrôlé ainsi qu’en garantissant la traçabilité des actions (gestion notamment de documents devant conserver leur valeur probante). En outre, VITAM doit permettre de garantir une très longue durée d’accès et de conservation (&gt; 50 ans) des archives, et doit notamment pouvoir résister à l’obsolescence informatique.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="contraintes-et-objectifs">
+<h2>3.1.2. Contraintes et objectifs<a class="headerlink" href="#contraintes-et-objectifs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’accès aux archives numériques doit être facile :</p>
+<ul>
+<li><p class="first">Adapté : Services Web, Nouveaux média</p>
+</li>
+<li><p class="first">Interopérable : RGI et respect des standards ou normes d’échange et de communication</p>
+</li>
+<li><p class="first">Requêtable : le SAE doit fournir un service de recherche, tout comme un SGBD (système de gestion de bases de données) fournit une interface de requêtes des bases qu’il héberge</p>
+</li>
+<li><p class="first">Mutualisable :</p>
+<blockquote>
+<div><ul class="simple">
+<li>le SAE doit pouvoir fournir un plan de classement multiple et une capacité d’accès depuis plusieurs applications</li>
+<li>le SAE doit pouvoir gérer des dizaines de milliards d’entrées et leurs métadonnées associées avec une variabilité des formats des unités d’archives (objets numériques) et des descriptions associées (métadonnées)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>L’accès aux archives numériques doit être rapide :</p>
+<ul>
+<li><p class="first">Le temps d’accès pour une archive unitaire (un document) ou des métadonnées doit être compatible avec les technologies actuelles (Cf. le paragraphe précédent) ;</p>
+</li>
+<li><p class="first">Pour les accès à des lots d’archives, les moyens utilisés doivent être appropriés :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Via un support physique</li>
+<li>Via un téléchargement de masse</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Du fait de la sensibilité des données :</p>
+<blockquote>
+<div><ul class="simple">
+<li>L’accès doit être sécurisé (Réseau, Protocolaire, Filtrage)</li>
+<li>L’accès doit être contrôlé (sur la base de contrats et de filtres métiers associés)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="positionnement">
+<h2>3.1.3. Positionnement<a class="headerlink" href="#positionnement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>VITAM est un back-office pouvant s’interfacer à tout front-office (utilisateur) devant accéder à des données archivées (pas nécessairement pour de l’archivage définitif). Il disposera cependant des IHM d’administration pour l’administration technique et fonctionnelle de la plateforme ainsi que d’une IHM minimale pouvant pallier à l’absence temporaire d’un front-office.</p>
+<p>VITAM a pour but d’être largement réutilisable, et ce notamment en se basant sur l’usage de standards métiers (ex : SEDA pour les versements).</p>
+<p>Enfin, le socle logiciel doit pouvoir être utilisable pendant 20 ans (en incluant les évolutions technologiques).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="10-interfaces.html" class="btn btn-neutral float-right" title="3.2. Interfaces externes du système" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_toc.html" class="btn btn-neutral" title="3. Vue d’ensemble" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

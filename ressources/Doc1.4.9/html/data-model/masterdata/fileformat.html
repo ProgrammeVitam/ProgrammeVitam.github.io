@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.8. Collection FileFormat &mdash; Documentation VITAM - Modèle de données 1.4.9</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="5.9. Collection FileRules" href="filerules.html" />
+    <link rel="prev" title="5.7. Collection Context" href="context.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Modèle de données
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity/_toc_identity.html">2. Base Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logbook/_toc_logbook.html">3. Base Logbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/_toc_metadata.html">4. Base MetaData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc_masterdata.html">5. Base MasterData</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">5.1. Collections contenues dans la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesscontract.html">5.2. Collection AccessContract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessionregisterdetail.html">5.3. Collection AccessionRegisterDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessionregistersummary.html">5.4. Collection AccessionRegisterSummary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiveunitprofile.html">5.5. Collection ArchiveUnitProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agencies.html">5.6. Collection Agencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">5.7. Collection Context</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.8. Collection FileFormat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-de-la-collection-fileformat">5.8.1. Utilisation de la collection FileFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-la-description-d-un-format-dans-le-xml-d-entree">5.8.2. Exemple de la description d’un format dans le XML d’entrée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs-de-la-collection-fileformat">5.8.3. Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection FileFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detail-des-champs-du-json-stocke-en-base">5.8.4. Détail des champs du JSON stocké en base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="filerules.html">5.9. Collection FileRules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestcontract.html">5.10. Collection IngestContract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontology.html">5.11. Collection Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">5.12. Collection Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="securityprofile.html">5.13. Collection SecurityProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vitamsequence.html">5.14. Collection VitamSequence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes.html">6. Annexes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Modèle de données</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc_masterdata.html">5. Base MasterData</a> &raquo;</li>
+        
+      <li>5.8. Collection FileFormat</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masterdata/fileformat.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collection-fileformat">
+<h1>5.8. Collection FileFormat<a class="headerlink" href="#collection-fileformat" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilisation-de-la-collection-fileformat">
+<h2>5.8.1. Utilisation de la collection FileFormat<a class="headerlink" href="#utilisation-de-la-collection-fileformat" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La collection FileFormat permet de référencer et décrire les différents formats de fichiers ainsi que leur description. La collection est initialisée à partir de l’import du fichier de signature PRONOM, mis à disposition par The National Archive (UK).</p>
+<p>Cette collection est commune à tous les tenants. Elle est enregistré sur le tenant d’administration.</p>
+</div>
+<div class="section" id="exemple-de-la-description-d-un-format-dans-le-xml-d-entree">
+<h2>5.8.2. Exemple de la description d’un format dans le XML d’entrée<a class="headerlink" href="#exemple-de-la-description-d-un-format-dans-le-xml-d-entree" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ci-après, la portion d’un fichier de signature (DROID_SignatureFile_VXX.xml) utilisée pour renseigner les champs du JSON.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">FileFormat</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;105&quot;</span> <span class="n">MimeType</span><span class="o">=</span><span class="s2">&quot;application/msword&quot;</span> <span class="n">Name</span><span class="o">=</span><span class="s2">&quot;Microsoft Word for Macintosh Document&quot;</span> <span class="n">PUID</span><span class="o">=</span><span class="s2">&quot;x-fmt/64&quot;</span> <span class="n">Version</span><span class="o">=</span><span class="s2">&quot;4.0&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">InternalSignatureID</span><span class="o">&gt;</span><span class="mi">486</span><span class="o">&lt;/</span><span class="n">InternalSignatureID</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Extension</span><span class="o">&gt;</span><span class="n">mcw</span><span class="o">&lt;/</span><span class="n">Extension</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">FileFormat</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs-de-la-collection-fileformat">
+<h2>5.8.3. Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection FileFormat<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-l-exhaustivite-des-champs-de-la-collection-fileformat" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aeaaaaaaaahbl62nabduoak3jc2zqciaadiq&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;CreatedDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-09-27T15:37:53&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;VersionPronom&quot;</span><span class="p">:</span> <span class="s2">&quot;88&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;PUID&quot;</span><span class="p">:</span> <span class="s2">&quot;fmt/961&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mobile eXtensible Music Format&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Extension&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;mxmf&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;HasPriorityOverFileFormatID&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;fmt/714&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;MimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;audio/mobile-xmf&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Group&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Alert&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s2">&quot;Comment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_v&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="detail-des-champs-du-json-stocke-en-base">
+<h2>5.8.4. Détail des champs du JSON stocké en base<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>«&nbsp;_id&nbsp;»:</strong> identifiant unique du format.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;CreatedDate&nbsp;»:</strong> date de création de la version du fichier de signatures PRONOM utilisé pour initialiser la collection.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes «&nbsp;+&nbsp;» timezone hh:mm.</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Exemple</span> <span class="pre">:</span> <span class="pre">&quot;2016-08-19T16:36:07.942+02:00&quot;</span></code></p>
+<ul class="simple">
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;VersionPronom&nbsp;»:</strong> numéro de version du fichier de signatures PRONOM utilisé pour créer l’enregistrement.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un entier.</li>
+<li>Le numéro de version de PRONOM est à l’origine déclaré dans le fichier de signature au niveau de la balise &lt;FFSignatureFile&gt; au niveau de l’attribut «&nbsp;version «&nbsp;.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p>Dans cet exemple, le numéro de version est 88 :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">FFSignatureFile</span> <span class="n">DateCreated</span><span class="o">=</span><span class="s2">&quot;2016-09-27T15:37:53&quot;</span> <span class="n">Version</span><span class="o">=</span><span class="s2">&quot;88&quot;</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.nationalarchives.gov.uk/pronom/SignatureFile&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>«&nbsp;PUID&nbsp;»:</strong> identifiant unique du format au sein du référentiel PRONOM.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>Il est issu du champ «&nbsp;PUID&nbsp;» de la balise &lt;FileFormat&gt;. La valeur est composée du préfixe «&nbsp;fmt&nbsp;» ou «&nbsp;x-fmt&nbsp;», puis d’un nombre correspondant au numéro d’entrée du format dans le référentiel PRONOM. Les deux éléments sont séparés par un «&nbsp;/&nbsp;».</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p>Par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">-</span><span class="n">fmt</span><span class="o">/</span><span class="mi">64</span>
+</pre></div>
+</div>
+<p>Les PUID comportant un préfixe «&nbsp;x-fmt&nbsp;» indiquent que ces formats sont en cours de validation par The National Archives (UK). Ceux possédant un préfixe «&nbsp;fmt&nbsp;» sont validés.</p>
+<p><strong>«&nbsp;Version&nbsp;»:</strong> version du format.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p>Exemples de formats :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span><span class="o">=</span><span class="s2">&quot;3D Binary Little Endian 2.0&quot;</span>
+<span class="n">Version</span><span class="o">=</span><span class="s2">&quot;2013&quot;</span>
+<span class="n">Version</span><span class="o">=</span><span class="s2">&quot;1.5&quot;</span>
+</pre></div>
+</div>
+<p>L’attribut «&nbsp;version&nbsp;» n’est pas obligatoire dans la balise &lt;fileformat&gt; du fichier de signature.</p>
+<p><strong>«&nbsp;Name&nbsp;»:</strong> nom du format.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>Le nom du format est issu de la valeur de l’attribut «&nbsp;Name&nbsp;» de la balise &lt;FileFormat&gt; du fichier de signature.</li>
+<li>Cardinalité : 1-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;MimeType&nbsp;»:</strong> Type MIME correspondant au format de fichier.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>Il est renseigné avec le contenu de l’attribut «&nbsp;MimeType&nbsp;» de la balise &lt;FileFormat&gt;. Cet attribut est facultatif dans le fichier de signature.</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;HasPriorityOverFileFormatID&nbsp;»:</strong> liste des PUID des formats sur lesquels le format a la priorité.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un tableau de chaînes de caractères</li>
+<li>Peut être vide.</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">HasPriorityOverFileFormatID</span><span class="o">&gt;</span><span class="mi">1121</span><span class="o">&lt;/</span><span class="n">HasPriorityOverFileFormatID</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Cet identifiant est ensuite utilisé dans Vitam pour retrouver le PUID correspondant.</p>
+<p>S’il existe plusieurs balises &lt;HasPriorityOverFileFormatID&gt; dans le fichier XML initial pour un format donné, alors les PUID seront stockés dans le JSON sous la forme suivante :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;HasPriorityOverFileFormatID&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;fmt/714&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fmt/715&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fmt/716&quot;</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+<p><strong>«&nbsp;Group&nbsp;»:</strong> Champ permettant d’indiquer le nom d’une famille de format.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>C’est un champ propre à la solution logicielle Vitam.</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Alert&nbsp;»:</strong> alerte sur l’obsolescence du format.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un booléen dont la valeur est par défaut placée à false.</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Comment&nbsp;»:</strong> commentaire.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’une chaîne de caractères.</li>
+<li>C’est un champ propre à la solution logicielle Vitam.</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<p><strong>«&nbsp;Extension&nbsp;»:</strong> Extension(s) du format.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un tableau de chaînes de caractères.</li>
+<li>Il contient les valeurs situées entre les balises &lt;Extension&gt; elles-mêmes encapsulées entre les balises &lt;FileFormat&gt;. Le champ &lt;Extension&gt; peut-être multivalué. Dans ce cas, les différentes valeurs situées entre les différentes balises &lt;Extension&gt; sont placées dans le tableau et séparées par une virgule.</li>
+<li>Cardinalité : 0-1</li>
+</ul>
+</div></blockquote>
+<p>Par exemple, pour le format dont le PUID est fmt/918 la représentation XML est la suivante :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">FileFormat</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;1723&quot;</span> <span class="n">Name</span><span class="o">=</span><span class="s2">&quot;AmiraMesh&quot;</span> <span class="n">PUID</span><span class="o">=</span><span class="s2">&quot;fmt/918&quot;</span> <span class="n">Version</span><span class="o">=</span><span class="s2">&quot;3D ASCII 2.0&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">InternalSignatureID</span><span class="o">&gt;</span><span class="mi">1268</span><span class="o">&lt;/</span><span class="n">InternalSignatureID</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Extension</span><span class="o">&gt;</span><span class="n">am</span><span class="o">&lt;/</span><span class="n">Extension</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Extension</span><span class="o">&gt;</span><span class="n">amiramesh</span><span class="o">&lt;/</span><span class="n">Extension</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Extension</span><span class="o">&gt;</span><span class="n">hx</span><span class="o">&lt;/</span><span class="n">Extension</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">FileFormat</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Les valeurs des balises &lt;Extension&gt; seront stockées de la façon suivante dans le JSON :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Extension&quot;</span><span class="p">:</span> <span class="p">[</span>
+     <span class="s2">&quot;am&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;amiramesh&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;hx&quot;</span>
+ <span class="p">],</span>
+</pre></div>
+</div>
+<p><strong>«&nbsp;_v&nbsp;»:</strong> version de l’enregistrement décrit.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il s’agit d’un entier.</li>
+<li>Champ peuplé par la solution logicielle Vitam.</li>
+<li>Cardinalité : 1-1</li>
+<li>0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="filerules.html" class="btn btn-neutral float-right" title="5.9. Collection FileRules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="context.html" class="btn btn-neutral" title="5.7. Collection Context" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.4.9',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

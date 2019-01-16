@@ -1,0 +1,263 @@
+<!DOCTYPE HTML><html><head><title>API-Vitam - Ingest API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 4.0.5"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h1 {
+        font-size: 1.3em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      pre code {
+        overflow: auto;
+        word-wrap: normal;
+        white-space: pre;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container-fluid"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>API-Vitam - Ingest API documentation <small>version v1</small></h1><p>https://api.vitam.gouv.fr/ingest-external/{version}</p><ul><li><strong>version</strong>: <em>required (v1)</em></li></ul><h3 id="avertissements"><a href="#avertissements">Avertissements</a></h3><p>Cette version d&#39;API présente des fonctionnalités sous différents statuts :</p><ul><li>Supportées : rien n&#39;est spécifié, la fonctionnalité ou la donnée est supportée</li><li>Non supportées : le mot clef <strong>UNSUPPORTED</strong> est indiqué et précise que cette fonctionnalité ou donnée n&#39;est pas supportée par l&#39;implémentaton courante.</li></ul><p>Pour le détail du modèle de chaque collection, se référer à la documentation du <strong>modèle de données</strong>.</p><h3 id="licence"><a href="#licence">Licence</a></h3><p>Ce document est distribué sous les termes de la <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">Licence Ouverte V2.0</a></p><h3 id="api_ingest"><a href="#api_ingest">API Ingest</a></h3><p><em>L&#39;API d&#39;Entrées</em> propose les points d&#39;entrées et les méthodes pour récupérer les informations des <strong>Entrées</strong>.</p><p>L&#39;entrée se fait via une API compatible strictement SEDA <strong>ArchiveTransfer</strong> :</p><ul><li>le body transmis contient un ZIP contenant lui-même :<ul><li>un fichier manifest.xml qui est le fichier SEDA répondant à la description d&#39;un <strong>ArchiveTransfer</strong></li><li>un répertoire "content" contenant les objets numériques d&#39;archives</li></ul></li><li>la réponse, une fois le traitement terminé, est un fichier XML répondant à la description d&#39;un <strong>ArchiveTransferReply</strong></li></ul><h1 id="ingests">Ingests</h1><p><strong>Ingests</strong> est le point de lancement des opérations d&#39;entrées.</p><p>Le mode opératoire est le suivant :</p><ul><li>Le client lance une opération d&#39;entrée en faisant un POST sur la collection <em>Ingests</em>. Une réponse 202 (Accepted) est retournée avec un identifiant de la collection <strong>Operations</strong>.</li><li>Le client lance une requête sur <em>l&#39;API d&#39;administration fonctionnelle</em> afin de récupérer le statut de l&#39;opération d&#39;Ingest. Le client peut réinterroger le statut de l&#39;opération d&#39;ingest, et ce de manière raisonnée (pas trop souvent).</li><li>Le client peut récupérer un ou plusieurs rapports une fois l&#39;opération terminée en faisant un GET sur la collection <em>Ingests</em> (archivetransferreply ou manifests)</li></ul><h2 id="statut-apr-s-soumission-d-une-entr-e">Statut après soumission d&#39;une entrée</h2><p>La structuration d&#39;un Statut est la suivante :</p><pre><code class="lang-json">{
+  "#id": "idIngests",
+  "httpCode" : 202,
+  "code" : 123456,
+  "context": "ingest",
+  "state": "Running",
+  "message": "The ingest is in progress",
+  "description": "The application &#39;Xxxx&#39; requested an ingest operation and this operation is in progress.",
+  "start_date": "2014-01-10T03:06:17.396Z"
+}
+</code></pre><h2 id="rapport-final-d-une-entr-e">Rapport final d&#39;une entrée</h2><p>Deux rapports sont disponibles une fois l&#39;opération terminée :</p><ul><li><strong>Reports (ArchiveTransferReply)</strong> au format XML via GET /ingests/id/archivetransferreply</li><li><strong>Manifests (fichier SEDA d&#39;origine)</strong> via GET /ingests/id/manifests</li></ul></div><div class="panel panel-default"><div class="panel-heading"><h3 id="ingests" class="panel-title">Ingests</h3></div><div class="panel-body"><div class="top-resource-description"><p>API de versement (Ingest). Ce point d&#39;entrée permet de créer une transaction de versement. Une transaction d&#39;entrée est volatile, c&#39;est à dire qu&#39;elle disparaîtra dès qu&#39;elle sera terminée. Sa terminaison est liée à la production du rapport et sa récupération par le service de transfert ayant effectué l&#39;entrée.</p><p>Créé une transaction d&#39;entrée :</p><ul><li>une requête unique, avec un &#39;body&#39; contenant toutes les informations dans un ZIP ou un TAR ou un TAR.GZ ou TAR.BZ2:<ul><li>Métadonnées dans un format SEDA XML ou Json de nom manifest.xml ou manifest.json (json <strong>UNSUPPORTED</strong>)</li><li>Tous les binaires dans le répertoire "/content"</li></ul></li><li>d&#39;autres formes pourront être implémentées dans des versions ultérieures (multipart/form-data) avec de multiples requêtes utilisant les sous-collections futures <em>Units</em> et <em>Objects</em></li></ul></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_ingests"><span class="parent"></span>/ingests</a> <span class="methods"><a href="#ingests_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_ingests" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#ingests_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>response : JSON asynchronous state / HTTP CODE 202 or 500 for KO</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="ingests_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/ingests</h4></div><div class="modal-body"><div class="alert alert-info"><p>response : JSON asynchronous state / HTTP CODE 202 or 500 for KO</p></div><ul class="nav nav-tabs"><li class="active"><a href="#ingests_post_request" data-toggle="tab">Request</a></li><li><a href="#ingests_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="ingests_post_request"><h3>Headers</h3><ul><li><strong>X-Action</strong>: <em>required (one of RESUME, NEXT)</em><p>Il indique le type de workflow à exécuter : RESUME correspond au mode nominal, NEXT correspond au mode pas à pas</p></li><li><strong>X-Context-Id</strong>: <em>(one of DEFAULT_WORKFLOW, BLANK_TEST, FILING_SCHEME, HOLDING_SCHEME)</em><p>Il indique le workflow à exécuter DEFAULT_WORKFLOW pour lancer le workflow INGEST (avec toutes les étapes) ou BLANK_TEST pour lancer le workflow INGEST-TEST (test à blanc sans les étapes de stockage d&#39;objets et d&#39;indéxation des UA et des GOT) ou encore FILING_SCHEME pour les plans de classements et enfin HOLDING_SCHEME pour les arbres de positionnement</p></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Examples</strong>:</p><pre>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</pre></li><li><strong>X-Callback</strong>: <em>(string)</em><p><strong>UNSUPPORTED</strong> Callback uri when the operation will be done</p><p><strong>Examples</strong>:</p><pre>https://callback-host:port/uri/idcallback?status={status}&amp;id={id}</pre></li></ul><h3>Body</h3><p><strong>Description</strong>: Body containing the SIP in ZIP format</p><p><strong>Media type</strong>: application/zip</p><p><strong>Type</strong>: object</p><p><strong>Description</strong>: Body containing the SIP in TAR format</p><p><strong>Media type</strong>: application/x-tar</p><p><strong>Type</strong>: object</p><p><strong>Description</strong>: Body containing the SIP in TAR.GZ format</p><p><strong>Media type</strong>: application/x-gzip</p><p><strong>Type</strong>: object</p><p><strong>Description</strong>: Body containing the SIP in TAR.BZ2 format</p><p><strong>Media type</strong>: application/x-bzip2</p><p><strong>Type</strong>: object</p></div><div class="tab-pane" id="ingests_post_response"><h2>HTTP status code <a href="http://httpstatus.es/202" target="_blank">202</a></h2><p><strong>UNSUPPORTED</strong> Returns the status of ingest operation accepted</p><h3>Headers</h3><ul><li><strong>X-Callback</strong>: <em>(string)</em><p><strong>UNSUPPORTED</strong> Callback uri when the operation will be done</p><p><strong>Examples</strong>:</p><pre>https://callback-host:port/uri/idcallback?status={status}&amp;id={id}</pre></li><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Description</strong>: Ingest operation accepted</p><p><strong>Media type</strong>: application/json</p><p><strong>Examples</strong>:</p><pre><code>{
+  "#id": "idIngests",
+  "httpCode" : 202,
+  "code" : "vitamcode",
+  "context": "ingest",
+  "state": "Running",
+  "message": "The ingest is in progress",
+  "description": "The application &#39;Xxxx&#39; requested an ingest operation and this operation is in progress.",
+  "start_date": "2014-01-10T03:06:17.396Z"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Returns the final result of the Ingest operation in KO status</p><h3>Body</h3><p><strong>Description</strong>: Final Ingest report</p><p><strong>Media type</strong>: application/xml</p><p><strong>Type</strong>: object</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_ingests__operationid___type_"><span class="parent">/ingests</span>/{operationId}/{type}</a> <span class="methods"><a href="#ingests__operationid___type__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_ingests__operationid___type_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Télécharger un objet associé au processus INGEST (archivetransferreply ou manifests)</p></div><div class="list-group"><div onclick="window.location.href = '#ingests__operationid___type__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger un objet en précisant l&#39;identifiant de l&#39;opération à l&#39;origine de l&#39;objet et son type (archivetransferreply ou manifests)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="ingests__operationid___type__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/ingests</span>/{operationId}/{type}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger un objet en précisant l&#39;identifiant de l&#39;opération à l&#39;origine de l&#39;objet et son type (archivetransferreply ou manifests)</p></div><ul class="nav nav-tabs"><li class="active"><a href="#ingests__operationid___type__get_request" data-toggle="tab">Request</a></li><li><a href="#ingests__operationid___type__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="ingests__operationid___type__get_request"><h3>URI Parameters</h3><ul><li><strong>operationId</strong>: <em>required (string)</em><p>Identifiant de l&#39;opération sous forme d&#39;un GUID</p></li><li><strong>type</strong>: <em>required (one of manifests, archivetransferreply)</em><p>Type de l&#39;objet à télécharger</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Examples</strong>:</p><pre>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</pre></li></ul></div><div class="tab-pane" id="ingests__operationid___type__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Returns the final result of the Ingest operation</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h3>Body</h3><p><strong>Description</strong>: Final Ingest report</p><p><strong>Media type</strong>: application/xml</p><p><strong>Examples</strong>:</p><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ArchiveTransferReply xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:pr="info:lc/xmlns/premis-v2"
+    xmlns="fr:gouv:culture:archivesdefrance:seda:v2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="fr:gouv:culture:archivesdefrance:seda:v2.0 ../xsd/seda-2.0-main.xsd" xml:id="ID002"&gt;
+    &lt;Date&gt;2016-06-23T09:45:51.0&lt;/Date&gt;
+    &lt;MessageIdentifier&gt;Entrée_avec_groupe_d_objet&lt;/MessageIdentifier&gt;
+    &lt;ArchivalAgreement&gt;ArchivalAgreement0&lt;/ArchivalAgreement&gt;
+    &lt;CodeListVersions xml:id="ID005"&gt;
+        &lt;ReplyCodeListVersion&gt;ReplyCodeListVersion0&lt;/ReplyCodeListVersion&gt;
+        &lt;MessageDigestAlgorithmCodeListVersion&gt;MessageDigestAlgorithmCodeListVersion0&lt;/MessageDigestAlgorithmCodeListVersion&gt;
+        &lt;MimeTypeCodeListVersion&gt;MimeTypeCodeListVersion0&lt;/MimeTypeCodeListVersion&gt;
+        &lt;EncodingCodeListVersion&gt;EncodingCodeListVersion0&lt;/EncodingCodeListVersion&gt;
+        &lt;FileFormatCodeListVersion&gt;FileFormatCodeListVersion0&lt;/FileFormatCodeListVersion&gt;
+        &lt;CompressionAlgorithmCodeListVersion&gt;CompressionAlgorithmCodeListVersion0&lt;/CompressionAlgorithmCodeListVersion&gt;
+        &lt;DataObjectVersionCodeListVersion&gt;DataObjectVersionCodeListVersion0&lt;/DataObjectVersionCodeListVersion&gt;
+        &lt;StorageRuleCodeListVersion&gt;StorageRuleCodeListVersion0&lt;/StorageRuleCodeListVersion&gt;
+        &lt;AppraisalRuleCodeListVersion&gt;AppraisalRuleCodeListVersion0&lt;/AppraisalRuleCodeListVersion&gt;
+        &lt;AccessRuleCodeListVersion&gt;AccessRuleCodeListVersion0&lt;/AccessRuleCodeListVersion&gt;
+        &lt;DisseminationRuleCodeListVersion&gt;DisseminationRuleCodeListVersion0&lt;/DisseminationRuleCodeListVersion&gt;
+        &lt;ReuseRuleCodeListVersion&gt;ReuseRuleCodeListVersion0&lt;/ReuseRuleCodeListVersion&gt;
+        &lt;ClassificationRuleCodeListVersion&gt;ClassificationRuleCodeListVersion0&lt;/ClassificationRuleCodeListVersion&gt;
+        &lt;AuthorizationReasonCodeListVersion&gt;AuthorizationReasonCodeListVersion0&lt;/AuthorizationReasonCodeListVersion&gt;
+        &lt;RelationshipCodeListVersion&gt;RelationshipCodeListVersion0&lt;/RelationshipCodeListVersion&gt;
+    &lt;/CodeListVersions&gt;
+
+    &lt;DataObjectPackage xml:id="ID007"&gt;
+        &lt;ManagementMetadata xml:id="ID030"&gt;
+            &lt;ArchivalProfile&gt;ArchivalProfile0&lt;/ArchivalProfile&gt;
+            &lt;ServiceLevel&gt;ServiceLevel0&lt;/ServiceLevel&gt;
+            &lt;OriginatingAgency&gt;OriginatingAgency1&lt;/OriginatingAgency&gt;
+        &lt;/ManagementMetadata&gt;
+    &lt;/DataObjectPackage&gt;
+
+    &lt;ReplyCode&gt;OK&lt;/ReplyCode&gt;
+    &lt;MessageRequestIdentifier&gt;GUID_SIP&lt;/MessageRequestIdentifier&gt;
+    &lt;GrantDate&gt;2016-06-26T20:45:20&lt;/GrantDate&gt;
+    &lt;ArchivalAgency xml:id="ID031"&gt;
+        &lt;Identifier&gt;ArchivalAgency1&lt;/Identifier&gt;
+    &lt;/ArchivalAgency&gt;
+    &lt;TransferringAgency xml:id="ID032"&gt;
+        &lt;Identifier&gt;TransferringAgency1&lt;/Identifier&gt;
+    &lt;/TransferringAgency&gt;
+&lt;/ArchiveTransferReply&gt;
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Returns the final error status of the Ingest operation</p><h3>Body</h3><p><strong>Description</strong>: Final Error Ingest report</p><p><strong>Media type</strong>: application/xml</p><p><strong>Examples</strong>:</p><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ArchiveTransferReply xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:pr="info:lc/xmlns/premis-v2"
+    xmlns="fr:gouv:culture:archivesdefrance:seda:v2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="fr:gouv:culture:archivesdefrance:seda:v2.0 ../xsd/seda-2.0-main.xsd" xml:id="ID002"&gt;
+    &lt;Date&gt;2016-06-23T09:45:51.0&lt;/Date&gt;
+    &lt;MessageIdentifier&gt;Entrée_avec_groupe_d_objet&lt;/MessageIdentifier&gt;
+    &lt;ArchivalAgreement&gt;ArchivalAgreement0&lt;/ArchivalAgreement&gt;
+    &lt;CodeListVersions xml:id="ID005"&gt;
+        &lt;ReplyCodeListVersion&gt;ReplyCodeListVersion0&lt;/ReplyCodeListVersion&gt;
+        &lt;MessageDigestAlgorithmCodeListVersion&gt;MessageDigestAlgorithmCodeListVersion0&lt;/MessageDigestAlgorithmCodeListVersion&gt;
+        &lt;MimeTypeCodeListVersion&gt;MimeTypeCodeListVersion0&lt;/MimeTypeCodeListVersion&gt;
+        &lt;EncodingCodeListVersion&gt;EncodingCodeListVersion0&lt;/EncodingCodeListVersion&gt;
+        &lt;FileFormatCodeListVersion&gt;FileFormatCodeListVersion0&lt;/FileFormatCodeListVersion&gt;
+        &lt;CompressionAlgorithmCodeListVersion&gt;CompressionAlgorithmCodeListVersion0&lt;/CompressionAlgorithmCodeListVersion&gt;
+        &lt;DataObjectVersionCodeListVersion&gt;DataObjectVersionCodeListVersion0&lt;/DataObjectVersionCodeListVersion&gt;
+        &lt;StorageRuleCodeListVersion&gt;StorageRuleCodeListVersion0&lt;/StorageRuleCodeListVersion&gt;
+        &lt;AppraisalRuleCodeListVersion&gt;AppraisalRuleCodeListVersion0&lt;/AppraisalRuleCodeListVersion&gt;
+        &lt;AccessRuleCodeListVersion&gt;AccessRuleCodeListVersion0&lt;/AccessRuleCodeListVersion&gt;
+        &lt;DisseminationRuleCodeListVersion&gt;DisseminationRuleCodeListVersion0&lt;/DisseminationRuleCodeListVersion&gt;
+        &lt;ReuseRuleCodeListVersion&gt;ReuseRuleCodeListVersion0&lt;/ReuseRuleCodeListVersion&gt;
+        &lt;ClassificationRuleCodeListVersion&gt;ClassificationRuleCodeListVersion0&lt;/ClassificationRuleCodeListVersion&gt;
+        &lt;AuthorizationReasonCodeListVersion&gt;AuthorizationReasonCodeListVersion0&lt;/AuthorizationReasonCodeListVersion&gt;
+        &lt;RelationshipCodeListVersion&gt;RelationshipCodeListVersion0&lt;/RelationshipCodeListVersion&gt;
+    &lt;/CodeListVersions&gt;
+
+    &lt;DataObjectPackage xml:id="ID007"&gt;
+        &lt;ManagementMetadata xml:id="ID030"&gt;
+            &lt;ArchivalProfile&gt;ArchivalProfile0&lt;/ArchivalProfile&gt;
+            &lt;ServiceLevel&gt;ServiceLevel0&lt;/ServiceLevel&gt;
+        &lt;/ManagementMetadata&gt;
+    &lt;/DataObjectPackage&gt;
+
+    &lt;ReplyCode&gt;KO&lt;/ReplyCode&gt;
+    &lt;MessageRequestIdentifier&gt;GUID_SIP&lt;/MessageRequestIdentifier&gt;
+    &lt;GrantDate&gt;2016-06-26T20:45:20&lt;/GrantDate&gt;
+    &lt;ArchivalAgency xml:id="ID031"&gt;
+        &lt;Identifier&gt;ArchivalAgency1&lt;/Identifier&gt;
+    &lt;/ArchivalAgency&gt;
+    &lt;TransferringAgency xml:id="ID032"&gt;
+        &lt;Identifier&gt;TransferringAgency1&lt;/Identifier&gt;
+    &lt;/TransferringAgency&gt;
+&lt;/ArchiveTransferReply&gt;
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Endpoints</h3></div><div class="panel-body"><div class="top-resource-description"><p>API qui liste les endpoints de la ressource /ingest-external/{version}.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_options"><span class="badge badge_options">options</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>Request that will return list of endpoints</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>Request that will return list of endpoints</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK, operation in success</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/503" target="_blank">503</a></h2><p>Service Unavailable, the requested service is unavailable</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="status" class="panel-title">/status</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_status"><span class="parent"></span>/status</a> <span class="methods"><a href="#status_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_status" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#status_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="status_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/status</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#status_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="status_get_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><p>No Content, Used to test existence or for Status</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em>required (string)</em><p>Unique Request Identifier</p><p><strong>Examples</strong>:</p><pre>AbDUh67jj</pre></li><li><strong>FullApiVersion</strong>: <em>(string)</em><p>Complete Version of the API.</p><p><strong>Examples</strong>:</p><pre>V1.25</pre></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Examples</strong>:</p><pre>SESSION-ID-00001</pre></li><li><strong>X-Tenant-Id</strong>: <em>required (number)</em><p>Unique Tenant Identifier</p><p><strong>Examples</strong>:</p><pre><code>0</code></pre></li></ul><h2>HTTP status code <a href="http://httpstatus.es/503" target="_blank">503</a></h2><p>Service Unavailable, the requested service is unavailable</p></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#ingests">Ingests</a></li><li><a href="#">Endpoints</a></li><li><a href="#status">/status</a></li></ul></div></div></div></div></body></html>

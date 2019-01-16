@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Common format identification &mdash; Documentation VITAM - Manuel de développement 1.4.9</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Common-storage" href="stockage.html" />
+    <link rel="prev" title="Code d’erreur Vitam" href="VitamCode.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GUID.html">Global Unique Identifier (GUID) pour Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Digest.html">Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logger.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JunitHelper.html">JunitHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html">DirectedCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html#graph">Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VitamCode.html">Code d’erreur Vitam</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Common format identification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#but-de-cette-documentation">But de cette documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#outil-format-identifier">Outil Format Identifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stockage.html">Common-storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-metrics.html">Métriques dans VITAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private/_toc.html">Common-private</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">Common</a> &raquo;</li>
+        
+      <li>Common format identification</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/include/common/format-identifier.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-format-identification">
+<h1>Common format identification<a class="headerlink" href="#common-format-identification" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="but-de-cette-documentation">
+<h2>But de cette documentation<a class="headerlink" href="#but-de-cette-documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette documentation indique comment utiliser le code commun du format identifier pour éventuellement ajouter un client pour un nouvel outil.</p>
+</div>
+<div class="section" id="outil-format-identifier">
+<h2>Outil Format Identifier<a class="headerlink" href="#outil-format-identifier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’interface du format identifier est <em>fr.gouv.vitam.common.format.identification.FormatIdentifier</em>.
+Elle met à disposition 2 méthodes :</p>
+<blockquote>
+<div><ul class="simple">
+<li>status() qui renvoie le statut du format identifer</li>
+<li>analysePath(Path) qui renvoie une liste de formats potentiellement identifiés par l’outil.</li>
+</ul>
+<p>Une implémentation Mock est présente : <em>fr.gouv.vitam.common.format.identification.FormatIdentifierMock</em></p>
+<p>Chaque nouvel outil doit implémenter l’interface :</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FormatIdentifierSiegfried</span> <span class="kd">implements</span> <span class="n">FormatIdentifier</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">FormatIdentifierInfo</span> <span class="nf">status</span><span class="o">()</span> <span class="o">{</span> <span class="c1">//CALL THE TOOL AND GET THE STATUS }</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">FormatIdentifierResponse</span><span class="o">&gt;</span> <span class="nf">analysePath</span><span class="o">(</span><span class="n">Path</span> <span class="n">path</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//CALL THE TOOL AND ANALYSE}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>De plus, pour pouvoir être utilisé, l’outil doit être ajouté dans l’enum FormatIdentifierType :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">FormatIdentifierType</span> <span class="o">{</span>
+   <span class="n">MOCK</span><span class="o">,</span>
+   <span class="n">SIEGFRIED</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Une factory a été mise en place pour récupérer l’instance du client adaptée. En cas de nouvel outil, il faut la mettre à jour :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FormatIdentifierFactory</span> <span class="o">{</span>
+  <span class="o">......</span>
+  <span class="kd">private</span> <span class="n">FormatIdentifier</span> <span class="nf">instanciate</span><span class="o">(</span><span class="n">String</span> <span class="n">formatIdentifierId</span><span class="o">){</span>
+    <span class="o">...</span>
+    <span class="k">switch</span> <span class="o">(</span><span class="n">infos</span><span class="o">.</span><span class="na">getType</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="n">MOCK</span><span class="o">:</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">FormatIdentifierMock</span><span class="o">();</span>
+      <span class="k">case</span> <span class="n">SIEGFRIED</span><span class="o">:</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">FormatIdentifierSiegfried</span><span class="o">(</span><span class="n">infos</span><span class="o">.</span><span class="na">getConfigurationProperties</span><span class="o">());</span>
+      <span class="o">.....</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans <strong>/vitam/conf</strong> du serveur applicatif où sont déployés les services d’identification de formats, il faut un fichier <strong>format-identifiers.conf</strong>. C’est un fichier YAML de configuration des services d’identification de format.  Il possède les configurations des services que l’on souhaite déployer sur le serveur.</p>
+<p>Le code suivant contient un exemple de toutes les configurations possibles :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">siegfried-local</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SIEGFRIED</span>
+  <span class="l l-Scalar l-Scalar-Plain">client</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+  <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+  <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">55800</span>
+  <span class="l l-Scalar l-Scalar-Plain">rootPath</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/root/path</span>
+  <span class="l l-Scalar l-Scalar-Plain">versionPath</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/root/path/version/folder</span>
+  <span class="l l-Scalar l-Scalar-Plain">createVersionPath</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="l l-Scalar l-Scalar-Plain">mock</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MOCK</span>
+</pre></div>
+</div>
+<p>Pour plus d’informations sur le sujet, voir la documentation sur l’exploitation.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stockage.html" class="btn btn-neutral float-right" title="Common-storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="VitamCode.html" class="btn btn-neutral" title="Code d’erreur Vitam" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'1.4.9',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

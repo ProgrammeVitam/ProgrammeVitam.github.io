@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Métadata &mdash; Documentation VITAM - Manuel de développement 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Métadata : API REST Raml" href="metadata-api-rest-raml.html" />
+    <link rel="prev" title="DAT : module metadata" href="metadata-dat.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">Logbook</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">Metadata</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="metadata-introduction.html">Métadata - Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-dat.html">DAT : module metadata</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation">Utilisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parametres">Paramètres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-client">Le client</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-api-rest-raml.html">Métadata : API REST Raml</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation">Utilisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parametres">Paramètres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-client">Le client</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-tenant.html">Métadata-tenant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-inherited-rule.html">Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-sync.html">Désynchronisation des bases de données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">Metadata</a> &raquo;</li>
+        
+      <li>Métadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/include/metadata/metadata-user-client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metadata">
+<h1>Métadata<a class="headerlink" href="#metadata" title="Lien permanent vers ce titre">¶</a></h1>
+</div>
+<div class="section" id="utilisation">
+<h1>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="parametres">
+<h2>Paramètres<a class="headerlink" href="#parametres" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="le-client">
+<h2>Le client<a class="headerlink" href="#le-client" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le client propose actuellement différentes méthodes : insert et selection des units, select des objectGroups.</p>
+<p>Il faut ajouter la dependance au niveau de pom.xml</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>metadata-client<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+
+
+    1. Créer le client métadata
+    En deux étapes
+    - chargement de la configuration en utilisant
+            MetaDataClientFactory.changeMode(new ClientConfigurationImpl(server, port));
+            ou
+            MetaDataClientFactory.changeMode(ConfigurationFilePath);)
+    - création du client
+    final MetaDataClient metadataClient = MetaDataClientFactory.getInstance().getClient();
+
+    2. Accéder aux fonctionnalités différents
+    le client métadata fournit les foncitonnalités suivantes : insérer un ArchiveUnit,
+    insérer un ObjectGroup et sélectionner un métadata (archiveUnit). Le détail de l&#39;utilisation
+    de chaque fonctionnalité est ci-dessous.
+
+    2.1 Insérer des ArchiveUnits
+            try {
+                    JsonNode result= metadataClient.insertUnit(JsonNode insertQuery)
+            } catch (InvalidParseOperationException e) {
+                LOG.error(&quot;parsing error&quot;, e);
+                throw e;
+            } catch (MetaDataExecutionException e) {
+                LOG.error(&quot;execution error&quot;, e);
+                throw e;
+            } catch (MetaDataDocumentSizeException e) {
+                LOG.error(&quot;document size input error&quot;, e);
+                throw e;
+            } catch (MetaDataAlreadyExistException e) {
+                LOG.error(&quot;data already exists error&quot;, e);
+                throw e;
+            } catch (MetaDataNotFoundException e) {
+                LOG.error(&quot;not found parent/path error&quot;, e);
+                throw e;
+            }
+
+    Paramètre d&#39;entrée est une requête DSL de type JsonNode, indiquant la requête sur la collection Unit.
+    Un exemple de la requête paramètrée est le suivant :
+
+            {
+              &quot;$root&quot; : [],
+              &quot;$queries&quot;: [{ &quot;$path&quot;: &quot;aaaaa&quot; }],
+              &quot;$filter&quot;: { },
+              &quot;$data&quot;: { &quot;_id&quot;: &quot;value&quot; }
+            }
+
+    Cette fonction retourne une réponse de type JsonNode contenant les informations : code de retour en cas d&#39;erreur,
+    la requête effectuée sur la collection ...
+
+    2.1 Insérer des ObjectGroups
+    try {
+                    JsonNode result= metadataClient.insertObjectGroup(JsonNode insertQuery)
+            } catch (InvalidParseOperationException e) {
+                LOG.error(&quot;parsing error&quot;, e);
+                throw e;
+            } catch (MetaDataExecutionException e) {
+                LOG.error(&quot;execution error&quot;, e);
+                throw e;
+            } catch (MetaDataDocumentSizeException e) {
+                LOG.error(&quot;document size input error&quot;, e);
+                throw e;
+            } catch (MetaDataAlreadyExistException e) {
+                LOG.error(&quot;data already exists error&quot;, e);
+                throw e;
+            } catch (MetaDataNotFoundException e) {
+                LOG.error(&quot;not found parent/path error&quot;, e);
+                throw e;
+            }
+
+    Paramètre d&#39;entrée est une requête DSL de type JsonNode, indiquant la requête sur la collection ObjectGroup.
+    Un exemple de la requête paramètrée est le suivant :
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;$root&quot; : [],
+    &quot;$queries&quot;: [{ &quot;$exists&quot;: &quot;value&quot; }],
+    &quot;$filter&quot;: { },
+    &quot;$data&quot;: { &quot;_id&quot;: &quot;objectgroupValue&quot; }
+}
+
+    Cette fonction retourne une réponse de type JsonNode contenant les informations : code de retour en cas d&#39;erreur,
+    la requête effectuée sur la collection ...
+
+    2.3 Sélection des ArchiveUnits
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span> try {
+     // return JsonNode
+     jsonNode = metaDataClient.selectUnits(
+         accessModuleBean != null ? accessModuleBean.getRequestDsl() : &quot;&quot;);
+     } catch (InvalidParseOperationException e) {
+     LOG.error(&quot;parsing error&quot;, e);
+     throw e;
+     } catch (MetadataInvalidSelectException e) {
+     LOG.error(&quot;invalid select&quot;, e);
+     throw e;
+     } catch (MetaDataDocumentSizeException e) {
+     LOG.error(&quot;document size problem&quot;, e);
+     throw e;
+     } catch (MetaDataExecutionException e) {
+     LOG.error(&quot;metadata execution problem&quot;, e);
+     throw e;
+     } catch (IllegalArgumentException e) {
+     LOG.error(&quot;illegal argument&quot;, e);
+     throw new AccessExecutionException();
+     } catch (Exception e) {
+     LOG.error(&quot;exeption thrown&quot;, e);
+     throw e;
+ }
+
+2.4 Sélection d&#39;un ObjectGroup
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+<span class="n">JsonNode</span> <span class="n">selectQuery</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">objectGroupId</span><span class="o">;</span>
+<span class="c1">// return JsonNode</span>
+<span class="n">jsonNode</span> <span class="o">=</span> <span class="n">metaDataClient</span><span class="o">.</span><span class="na">selectObjectGrouptbyId</span><span class="o">(</span><span class="n">selectQuery</span><span class="o">,</span> <span class="n">objectGroupId</span><span class="o">);</span>
+
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvalidParseOperationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;parsing error&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MetadataInvalidSelectException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;invalid select&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MetaDataDocumentSizeException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;document size problem&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MetaDataExecutionException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;metadata execution problem&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;illegal argument&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MetadataInvalidSelectException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;invalid selection&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;exeption thrown&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metadata-api-rest-raml.html" class="btn btn-neutral float-right" title="Métadata : API REST Raml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="metadata-dat.html" class="btn btn-neutral" title="DAT : module metadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

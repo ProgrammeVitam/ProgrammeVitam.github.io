@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.13.1.5. Contrôle de la cohérence de SIPs &mdash; Documentation VITAM - Architecture 1.10.3</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.13.2. Architecture Technique" href="../technique/index.html" />
+    <link rel="prev" title="7.13.1.4. notification-atr-ko" href="notification-atr-ko.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.5. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.8. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.9. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.12. Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.13. Worker</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.13.1. architecture-fontionnelle-processing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.13.1.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="worker.html">7.13.1.2. Worker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification-atr-ok.html">7.13.1.3. notification-atr-ok</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification-atr-ko.html">7.13.1.4. notification-atr-ko</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.13.1.5. Contrôle de la cohérence de SIPs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../technique/index.html">7.13.2. Architecture Technique</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.13.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.14. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">7.13. Worker</a> &raquo;</li>
+        
+          <li><a href="index.html">7.13.1. architecture-fontionnelle-processing</a> &raquo;</li>
+        
+      <li>7.13.1.5. Contrôle de la cohérence de SIPs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/include/worker/fonctionnelle/controle_coherencee_SIP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controle-de-la-coherence-de-sips">
+<h1>7.13.1.5. Contrôle de la cohérence de SIPs<a class="headerlink" href="#controle-de-la-coherence-de-sips" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Pour un SIP versant, il y a certaine contrôle pour valider avant de le mettre dans le VITAM.
+Une parmis des contrôles est celle de la cohérence de SIP concernant les ArchiveUnit et Object Group.
+Pour ce contrôle : tous les SIP versés dans Vitam devront avoir tous leurs groupes d’objets référencés dans au moins
+une archiveUnit. La même contrainte s’applique pour les objets sans groupe d’objets. Le fait d’avoir des objets ou
+groupes d’objets sans archiveUnits est l’équivalent d’un vrac archivistique, ce que l’équipe souhaite éviter pour vitam.</p>
+<ul class="simple">
+<li>Critères d’acceptance : des critères suivantes sont appliqués pour valider cette contrôle.</li>
+</ul>
+<p>CA1 : mise ne place de la nouvelle action de contrôle
+Etant donné le versement d’un SIP, lorsque le SIP passe par le contrôle d’entrée globale, alors le contrôle d’entrée
+procède à une nouvelle tâche qui est la «&nbsp;vérification concernant la cohérence entre objet/groupe d’objet et archiveUnit&nbsp;».
+Cette tâche vérifie que dans le manifeste, CHAQUE objets sans groupe d’objets et CHAQUE groupe d’objets sont référencés
+par AU MOINS une archiveUnit</p>
+<p>CA2 : SIP avec références valide
+Etant donné le versement d’un SIP dont chaque objets sans groupe d’objets ET chaque groupes d’objets sont référencés
+par au moins une archiveUnit. Lorsque le SIP a terminé la tâche de vérification concernant la cohérence entre objet/groupe
+d’objet et archiveUnit alors le workflow d’entrée continue; et une ligne de status OK est ajouté dans le journal des
+opérations EVT_CHECK_MANIFEST_01_OK</p>
+<p>CA3 : SIP avec références invalides - action non bloquante
+Etant donné le versement un SIP possédant au moins un objet sans groupe d’objet et/ou au moins un groupe d’objet qui
+n’est pas référencé par au moins une archiveUnit. Lorsqu’on le contrôle passe par la tâche de vérification concernant
+la cohérence entre objet/groupe d’objet et archiveUnit alors le workflow d’entrée continue</p>
+<p>CA4 : SIP avec références invalides - bloquage du processus à la fin du contrôle d’entrée
+Lorsque le SAE a rencontré au moins un warning lors de la tâche de vérification concernant la cohérence entre objet/groupe
+d’objet et archiveUnit alors je peux constater sur l’IHM de suivi des opérations d’entrée que le statut de l’opération d’entrée
+passe à « erreur ». Le workflow d’entrée s’arrête et une ligne de status KO est ajoutée dans le journal des opérations:
+EVT_CHECK_MANIFEST_01_KO</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../technique/index.html" class="btn btn-neutral float-right" title="7.13.2. Architecture Technique" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="notification-atr-ko.html" class="btn btn-neutral" title="7.13.1.4. notification-atr-ko" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'1.10.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
