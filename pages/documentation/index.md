@@ -14,14 +14,14 @@ de développement.
 
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeu_de_tests_Guide_de_prise_en_main_R8.zip))
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R9.zip))
 * **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
 
 ## Documentation métier
 
-* **Manuel utilisateur** ([pdf](/ressources/DocCourante/pdf/vitam-manuel-utilisateur.1.10.3.pdf)
-\| [html](/ressources/DocCourante/html/manuel-utilisateur))
+* **Manuel utilisateur** ([pdf](/ressources/DocCourante/pdf/VITAM_Manuel_utilisateur.pdf)
+\| [html](/ressources/DocCourante/html/manuel-utilisateur)) - Version HTML à venir
 * **Organisation de l'information** - présentation des exigences fonctionnelles
 et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Organisation_de_l_information.pdf))
@@ -40,34 +40,33 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 * **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/DocCourante/pdf/vitam-modele-workflow.1.10.3.pdf) \| [html](/ressources/DocCourante/html/workflow-model))
+ opérations ([pdf](/ressources/DocCourante/pdf/VITAM_Modele_de_workflow.pdf) \| [html](/ressources/DocCourante/html/workflow-model)) - Version HTML à venir
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Valeur_probante.pdf))
 
 
 ## Documentation des tests
 
-* **Manuel IHM recette** ([pdf](/ressources/DocCourante/pdf/vitam-ihm-recette.1.10.3.pdf)
-\| [html](/ressources/DocCourante/html/ihm-recette))
-* **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/DocCourante/pdf/vitam-scenario-tests.1.10.3.pdf)
-\| [html](/ressources/DocCourante/html/scenario-test))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeux_de_tests_fonctionnels_RELEASE8_SEDA2.1.zip))
+* **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/pdf/VITAM_IHM_Recette.pdf)
+\| [html](/ressources/DocCourante/html/ihm-recette)) - Version HTML à venir
+* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeux_de_tests_fonctionnels_RELEASE9_SEDA2.1.zip))
+
 
 
 ## Documentation technique
 
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.1.10.3.pdf) \| [html](/ressources/DocCourante/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.1.10.3.pdf) \| [html](/ressources/DocCourante/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.1.10.3.pdf) \| [html](/ressources/DocCourante/html/installation))
-* **Documentation de montées de version (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.1.10.3.pdf) \| [html](/ressources/DocCourante/html/migration))
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.1.1.pdf) \| [html](/ressources/DocCourante/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.1.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.1.1.pdf) \| [html](/ressources/DocCourante/html/installation))
+* **Documentation de montées de version (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.1.1.pdf) \| [html](/ressources/DocCourante/html/migration))
 
 ## Documentation développeur
 
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.1.10.3.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.1.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/DocCourante/pdf/vitam-datamodel.1.10.3.pdf) \| [html](/ressources/DocCourante/html/data-model))
+([pdf](/ressources/DocCourante/pdf/VITAM_Modele_de_donnees.pdf) \| [html](/ressources/DocCourante/html/data-model)) - Version HTML à venir
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe/))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.1.10.3.pdf)
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.1.1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/))
 
