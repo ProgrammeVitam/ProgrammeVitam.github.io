@@ -20,7 +20,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce lien : http://download.programmevitam.fr/vitam_repository/1.0.13/mvn_repo/
+Ils sont accessibles en suivant utilisant ce lien : http://download.programmevitam.fr/vitam_repository/2.1.1/mvn_repo/
 
 * **les paquets de déploiement**
 
@@ -28,6 +28,11 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 
 Liens de téléchargement :
+
+**Version 2.1.1 (Release R9.1)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.1/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.1/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.1/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.1/deb/vitam-external/)).
+ 
 
 **Version 1.10.3 (Release 8.3)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.10.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.10.3/deb/vitam-product/)),
@@ -80,30 +85,45 @@ Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiel
 ([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeux_de_tests_fonctionnels_RELEASE8_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
 
+## Outils de préservation Vitam 
+
+Les "Griffons" de préservation numérique sont des outils mobilisables pour mettre en œuvre des actions de préservation, pour l'instant analyse/validation de formats, conversion de formats.
+
+Sont mis à dispostion :
+
+* **les exécutables**
+
+* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/griffins/1.0.0/rpm/))
+* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/griffins/1.0.0/deb/))
+
+* **le code développé**
+
+Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.0.0)
+
+
 ## Outils complémentaires Vitam - toutes versions publiées
 
 Il s'agit des outils utilisés pour faciliter le test ou le développement.
 
-Pour le moment, il s'agit du **Générateur Seda**, un outil de développement permettant
-de générer automatiquement à partir d’une simple arborescence de fichiers un SIP
-(paquet d’information à archiver) conforme aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation)).
+Pour le moment, il s'agit des **Sedatools**, 
+Bibliothèque Java et outils IHM (interface hommes/machines) de manipulation des paquets SEDA, proposés pour tests
+Ils permettent de générer automatiquement à partir d’une simple arborescence de fichiers un SIP (paquet d’information à archiver) conforme aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation)).
 
 Sont mis à dispostion :
 
-* **le paquet d'installation sous Linux et Windows**
+* **les exécutables**
 
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution
 nécessite seulement la présence de java 8 sur le poste.
-Il est accessible sur BinTray [{{ site.bintray.repogenseda }}]({{ site.bintray.repogenseda }}).
+Ils peuvent être téléchargés en suivant ce [lien](http://download.programmevitam.fr/resip/sedatools-package-1.0.0.tar.gz)
 
-* **une présentation du Générateur Seda**
+* **La documentation associée**
 
-Elle décrit les fonctions du Générateur ainsi que son utilisation simple et avancée
-(cf "Présentation du générateur SEDA" selon la version dans la page [Documentation](/pages/documentation)).
+Elle décrit les fonctions de l'outil RESIP (http://download.programmevitam.fr/resip/20190130_Vitam_manuel_ReSIP_V1.0.pdf)).
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [{{ site.github.repoext }}]({{ site.github.repoext }}). A noter que les packages java (.jar) sont sur le même point Maven que la solution logicielle.
+Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0.)
 
 ## Présentation de la Première version de production de la solution logicielle Vitam
 
