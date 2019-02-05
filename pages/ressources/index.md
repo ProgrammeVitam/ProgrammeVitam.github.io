@@ -7,7 +7,7 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Trois versions de productions sont livrées à ce jour. Vous pouvez installer la Release 8 et installer ou mettre à jour la Release 7 gràce à la version corrigée 1.4.5 (Release 7 corrigée dite aussi R7.5), et également mettre à jour la R6 (première V1 de production) grâce à la version corrigée 1.0.13 (Release 6 corrigée dite aussi R6.13).
+Trois versions de productions sont livrées à ce jour. Vous pouvez installer la Release 9 (V2 de la solution logicielle Vitam) et installer ou mettre à jour la Release 7 grâce à la version corrigée, désignée comme la version Long Time Support de la V1 de la solution logicielle. Il est déconseillé d'utiliser les Releases 6 et 8 qui ne seront pas des versions LTS.
 
 
 ## Solution logicielle Vitam - toutes versions publiées
@@ -20,7 +20,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce lien : http://download.programmevitam.fr/vitam_repository/2.1.1/mvn_repo/
+Ils sont accessibles en suivant utilisant ce [lien] : (http://download.programmevitam.fr/vitam_repository/2.1.1/mvn_repo/)
 
 * **les paquets de déploiement**
 
@@ -79,10 +79,10 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiels et paquets SIP:
 
 * **Fichiers d'exemples du kit de prise en main**
-([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeu_de_tests_Guide_de_prise_en_main_R8.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
+([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R9.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](http://download.programmevitam.fr/vitam_repository/1.10.0/tests/Jeux_de_tests_fonctionnels_RELEASE8_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
+([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeux_de_tests_fonctionnels_RELEASE9_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
 
 ## Outils de préservation Vitam 
@@ -119,7 +119,7 @@ Ils peuvent être téléchargés en suivant ce [lien](http://download.programmev
 
 * **La documentation associée**
 
-Elle décrit les fonctions de l'outil RESIP (http://download.programmevitam.fr/resip/20190130_Vitam_manuel_ReSIP_V1.0.pdf)).
+Elle décrit les fonctions de l'outil RESIP et peut être consultée en suivant ce [lien] (http://download.programmevitam.fr/resip/20190130_Vitam_manuel_ReSIP_V1.0.pdf)
 
 * **le code développé**
 
