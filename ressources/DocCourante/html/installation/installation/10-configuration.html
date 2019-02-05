@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.2. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.3</title>
+  <title>4.2.2. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 2.1.1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.10.3
+                2.1.1
               </div>
             
           
@@ -537,7 +537,11 @@
 338
 339
 340
-341</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
+341
+342
+343
+344
+345</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
 <span class="k">[hosts]</span>
 
 <span class="c1"># Group definition ; DO NOT MODIFY</span>
@@ -840,6 +844,8 @@
 <span class="na">ansible_ssh_user</span><span class="o">=</span>
 <span class="c1"># Can target user become as root ? ; true is required by VITAM (usage of a sudoer is mandatory)</span>
 <span class="na">ansible_become</span><span class="o">=</span><span class="s">true</span>
+<span class="c1"># How can ansible switch to root ?</span>
+<span class="c1"># See https://docs.ansible.com/ansible/latest/user_guide/become.html</span>
 
 <span class="c1"># Related to Consul ; apply in a table your DNS server(s)</span>
 <span class="c1"># Example : dns_servers=[&quot;8.8.8.8&quot;,&quot;8.8.4.4&quot;]</span>
@@ -855,6 +861,8 @@
 
 <span class="c1"># Define local Consul datacenter name</span>
 <span class="na">vitam_site_name</span><span class="o">=</span><span class="s">prod-dc1</span>
+<span class="c1"># On offer, value is the prefix for all containers&#39; names. If upgrading from R8, you MUST UNCOMMENT this parameter AS IS !!!</span>
+<span class="c1">#vitam_prefix_offer=&quot;&quot;</span>
 <span class="c1"># EXAMPLE : vitam_site_name = prod-dc1</span>
 <span class="c1"># check whether on primary site (true) or secondary (false)</span>
 <span class="na">primary_site</span><span class="o">=</span><span class="s">true</span>
@@ -892,6 +900,10 @@
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
 <p class="last">Il n’est pas possible de colocaliser «&nbsp;kibana-data&nbsp;» et «&nbsp;kibana-log&nbsp;».</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour les composants considérés par l’exploitant comme étant «&nbsp;hors <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>&nbsp;» (typiquement, le composant <code class="docutils literal notranslate"><span class="pre">ihm-demo</span></code>), il est possible de désactiver la création du servcie consul associé. Pour cela, après chaque hostname impliqué, il faut rajouter la directive suivante : <code class="docutils literal notranslate"><span class="pre">consul_disabled=true</span></code>.</p>
 </div>
 </div>
 <div class="section" id="fichier-vitam-security-yml">
@@ -984,16 +996,44 @@
 45
 46
 47
-48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This list is ordered. It can and has to be completed if more offers are necessary</span>
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This list is ordered. It can and has to be completed if more offers are necessary</span>
 <span class="c1"># Strategy order (1st has to be the prefered one)</span>
 <span class="nt">vitam_strategy</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-1</span>
     <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="c1"># status : enable (value=ACTIVE, default value) or disable (value=INACTIVE) this offer</span>
+<span class="c1">#    status: ACTIVE</span>
 <span class="c1">#    vitam_site_name: prod-dc2</span>
 <span class="c1">#  - name: offer-swift-1</span>
 <span class="c1"># Example :</span>
 <span class="c1">#  - name: distant</span>
 <span class="c1">#    referent: true</span>
+<span class="c1">#    status: INACTIVE</span>
 <span class="c1">#    vitam_site_name: distant-dc2</span>
 
 <span class="c1"># DON&#39;T forget to add associated passwords in vault-vitam.yml with same tree when using provider openstack-swift*</span>
@@ -1017,7 +1057,21 @@
     <span class="nt">swiftProjectName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monTenant</span>
     <span class="c1"># swiftUrl: optional variable to force the swift URL</span>
     <span class="c1"># swiftUrl: https://swift-hostname:port/swift/v1</span>
+    <span class="c1">#SSL TrustStore</span>
+    <span class="nt">swiftTrustStore</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/chemin_vers_mon_fichier/monSwiftTrustStore.jks</span>
+    <span class="c1">#Max connection (concurrent connections), per route, to keep in pool (if a pooling ConnectionManager is used) (by default 2 for Apache HttpClient)</span>
+    <span class="nt">swiftMaxConnectionsPerRoute</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+    <span class="c1">#Max total connection (concurrent connections) to keep in pool (if a pooling ConnectionManager is used) (by default 20 for Apache HttpClient)</span>
+    <span class="nt">swiftMaxConnections</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+    <span class="c1">#Max time (in milliseconds) for waiting to establish connection</span>
+    <span class="nt">swiftConnectionTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200000</span>
+    <span class="c1">#Max time (in milliseconds) waiting for a data from the server (socket)</span>
+    <span class="nt">swiftReadTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+    <span class="c1">#Time (in seconds) to renew a token before expiration occurs (blocking)</span>
+    <span class="nt">swiftHardRenewTokenDelayBeforeExpireTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
 
+    <span class="c1">#Time (in seconds) to renew a token before expiration occurs</span>
+    <span class="nt">swiftSoftRenewTokenDelayBeforeExpireTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
   <span class="c1"># example_swift_v1:</span>
   <span class="c1">#    provider: openstack-swift</span>
   <span class="c1">#    swiftKeystoneAuthUrl: https://keystone/auth/1.0</span>
@@ -1032,6 +1086,14 @@
   <span class="c1">#    swiftPassword: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
   <span class="c1">#    swiftProjectName: monTenant</span>
   <span class="c1">#    projectName: monTenant</span>
+  <span class="c1"># swiftTrustStore: /chemin_vers_mon_fichier/monSwiftTrustStore.jks</span>
+  <span class="c1"># swiftMaxConnectionsPerRoute: 200</span>
+  <span class="c1"># swiftMaxConnections: 1000</span>
+  <span class="c1"># swiftConnectionTimeout: 200000</span>
+  <span class="c1"># swiftReadTimeout: 2000</span>
+  <span class="c1"># Time (in seconds) to renew a token before expiration occurs</span>
+  <span class="c1"># swiftHardRenewTokenDelayBeforeExpireTime: 60</span>
+  <span class="c1"># swiftSoftRenewTokenDelayBeforeExpireTime: 300</span>
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -1189,7 +1251,9 @@
 134
 135
 136
-137</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+137
+138
+139</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">dns_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">53</span>
@@ -1263,6 +1327,8 @@
 
 <span class="nt">kibana</span><span class="p">:</span>
     <span class="nt">header_value</span><span class="p">:</span> <span class="s">&quot;reporting&quot;</span>
+    <span class="nt">import_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">import_retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">log</span><span class="p">:</span>
         <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_log&quot;</span>
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
@@ -1329,14 +1395,14 @@
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
-<p>Il faut alors modifier la valeur de la directive <code class="docutils literal notranslate"><span class="pre">syslog.name</span></code> ; la valur par défaut est <code class="docutils literal notranslate"><span class="pre">rsyslog</span></code>.</p>
+<p>Il faut alors modifier la valeur de la directive <code class="docutils literal notranslate"><span class="pre">syslog.name</span></code> ; la valeur par défaut est <code class="docutils literal notranslate"><span class="pre">rsyslog</span></code>.</p>
 </div>
 </div>
 <div class="section" id="declaration-des-secrets">
 <span id="pkiconfsection"></span><h2>4.2.2.3. Déclaration des secrets<a class="headerlink" href="#declaration-des-secrets" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">Cette section décrit des fichiers contenant des données sensibles ; il convient de sécuriser ces fichiers avec un mot de passe «&nbsp;fort&nbsp;». En cas d’usage d’un fichier de mot de passe («&nbsp;vault-password-file&nbsp;»), il faut renseigner ce mot de passe comme contenu du fichier et ne pas oublier de sécuriser ou supprimer ce fichier à l’issue de l’installation.</p>
+<p class="last">Cette section décrit des fichiers contenant des données sensibles. Il est important d’implémenter une politique de mot de passe robuste conforme à ce que l’ANSSI préconise. Par exemple: ne pas utiliser le même mot de passe pour chaque service, renouveler régulièrement son mot de passe, utiliser des majuscules, minuscules, chiffres et caractères spéciaux (Se référer à la documentation ANSSI <a class="reference external" href="https://www.ssi.gouv.fr/guide/mot-de-passe">https://www.ssi.gouv.fr/guide/mot-de-passe</a>). En cas d’usage d’un fichier de mot de passe («&nbsp;vault-password-file&nbsp;»), il faut renseigner ce mot de passe comme contenu du fichier et ne pas oublier de sécuriser ou supprimer ce fichier à l’issue de l’installation.</p>
 </div>
 <p>Les secrets utilisés par la solution logicielle (en-dehors des certificats qui sont abordés dans une section ultérieure) sont définis dans des fichiers chiffrés par ansible-vault.</p>
 <div class="admonition important">
@@ -1543,6 +1609,10 @@
 </td></tr></table></div>
 </li>
 </ul>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Le paramétrage du mode d’authentifications des utilisateurs à l’IHM démo est géré au niveau du fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>. Plusieurs modes d’authentifications sont proposés au niveau de la section <code class="docutils literal notranslate"><span class="pre">authentication_realms</span></code>. Dans le cas d’une authentification se basant sur le mécanisme <code class="docutils literal notranslate"><span class="pre">iniRealm</span></code> (configuration <code class="docutils literal notranslate"><span class="pre">shiro</span></code> par défaut), les mots de passe déclarés dans la section <code class="docutils literal notranslate"><span class="pre">vitam_users</span></code> devront s’appuyer sur une politique de mot de passe robuste, comme indiqué en début de chapitre. Il est par ailleurs possible de  choisir un mode d’authentification s’appuyant sur un annuaire LDAP externe (<code class="docutils literal notranslate"><span class="pre">ldapRealm</span></code> dans la section <code class="docutils literal notranslate"><span class="pre">authentication_realms</span></code>).</p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Dans le cadre d’une installation avec au moins une offre «&nbsp;swift&nbsp;», il faut déclarer, dans la section <code class="docutils literal notranslate"><span class="pre">vitam_offers</span></code>, le nom de chaque offre et le mot de passe de connexion «&nbsp;swift&nbsp;» associé, défini dans le fichier <code class="docutils literal notranslate"><span class="pre">offers_opts.yml</span></code>. L’exemple ci-dessus présente la déclaration du mot de passe pour l’offre swift «&nbsp;offer-swift-1&nbsp;».</p>
@@ -1667,7 +1737,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'1.10.3',
+              VERSION:'2.1.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',

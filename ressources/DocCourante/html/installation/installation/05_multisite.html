@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.1. Multi-sites &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.3</title>
+  <title>4.2.1. Multi-sites &mdash; Documentation VITAM - Documentation d&#39;installation 2.1.1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.10.3
+                2.1.1
               </div>
             
           
@@ -202,27 +202,27 @@ Certains timers systemd seront en revanche démarrés pour mettre en place la re
 <p>Cette variable sert à référencer la liste des consul server des sites distants à celui qu’on est en train de configurer.</p>
 <p>Exemple de configuration pour une installation avec 3 sites.</p>
 <p>Site 1:</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>consul_remote_sites:
-    - dc2:
-      wan: [&quot;dc2-host-1&quot;,&quot;dc2-host-2&quot;,&quot;dc2-host-3&quot;]
-    - dc3:
-      wan: [&quot;dc3-host-1&quot;,&quot;dc3-host-2&quot;,&quot;dc3-host-3&quot;]
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">consul_remote_sites</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dc2</span><span class="p">:</span>
+      <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc2-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc2-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc2-host-3&quot;</span><span class="p p-Indicator">]</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dc3</span><span class="p">:</span>
+      <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc3-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc3-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc3-host-3&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>Site 2:</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>consul_remote_sites:
-    - dc1:
-      wan: [&quot;dc1-host-1&quot;,&quot;dc1-host-2&quot;,&quot;dc1-host-3&quot;]
-    - dc3:
-      wan: [&quot;dc3-host-1&quot;,&quot;dc3-host-2&quot;,&quot;dc3-host-3&quot;]
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">consul_remote_sites</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dc1</span><span class="p">:</span>
+      <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc1-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc1-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc1-host-3&quot;</span><span class="p p-Indicator">]</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dc3</span><span class="p">:</span>
+      <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc3-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc3-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc3-host-3&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>Site 3:</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>consul_remote_sites:
-    - dc1:
-      wan: [&quot;dc1-host-1&quot;,&quot;dc1-host-2&quot;,&quot;dc1-host-3&quot;]
-    - dc2:
-      wan: [&quot;dc2-host-1&quot;,&quot;dc2-host-2&quot;,&quot;dc2-host-3&quot;]
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">consul_remote_sites</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dc1</span><span class="p">:</span>
+      <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc1-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc1-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc1-host-3&quot;</span><span class="p p-Indicator">]</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dc2</span><span class="p">:</span>
+      <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc2-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc2-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc2-host-3&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </div>
@@ -231,13 +231,13 @@ Certains timers systemd seront en revanche démarrés pour mettre en place la re
 <p>Fichier: <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/offer_opts.yml</span></code></p>
 <p>Cette variable référence toutes les offres disponibles sur la totalité des sites vitam.</p>
 <p>Exemple:</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>vitam_offers:
-    offer-fs-1:
-        provider: filesystem-hash
-    offer-fs-2:
-        provider: filesystem-hash
-    offer-fs-3:
-        provider: filesystem-hash
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_offers</span><span class="p">:</span>
+    <span class="nt">offer-fs-1</span><span class="p">:</span>
+        <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filesystem-hash</span>
+    <span class="nt">offer-fs-2</span><span class="p">:</span>
+        <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filesystem-hash</span>
+    <span class="nt">offer-fs-3</span><span class="p">:</span>
+        <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filesystem-hash</span>
 </pre></div>
 </div>
 </div>
@@ -249,27 +249,27 @@ Si l’offre se situe sur un site distant, il est nécessaire de préciser le no
 Il est fortement conseiller de prendre comme offre référente une des offres locale au site.
 Les sites secondaires doivent uniquement écrire sur leur(s) offre(s) locale(s).</p>
 <p>Exemple pour le site 1 (site primaire):</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>vitam_strategy:
-    - name: offer-fs-1
-      referent: true
-    - name: offer-fs-2
-      referent: false
-      vitam_site_name: site2
-    - name: offer-fs-3
-      referent: false
-      vitam_site_name: site3
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_strategy</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-1</span>
+      <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-2</span>
+      <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+      <span class="nt">vitam_site_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">site2</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-3</span>
+      <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+      <span class="nt">vitam_site_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">site3</span>
 </pre></div>
 </div>
 <p>Exemple pour le site 2 (site secondaire):</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>vitam_strategy:
-    - name: offer-fs-2
-      referent: true
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_strategy</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-2</span>
+      <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p>Exemple pour le site 3 (site secondaire):</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>vitam_strategy:
-    - name: offer-fs-3
-      referent: true
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_strategy</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-3</span>
+      <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </div>
@@ -389,7 +389,7 @@ La valeur doit donc être la même entre chaque site.</p>
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'1.10.3',
+              VERSION:'2.1.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',

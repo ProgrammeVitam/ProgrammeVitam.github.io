@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker &mdash; Documentation VITAM - Manuel de développement 1.10.3</title>
+  <title>Worker &mdash; Documentation VITAM - Manuel de développement 2.1.1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.10.3
+                2.1.1
               </div>
             
           
@@ -3465,7 +3465,29 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
 2323
 2324
 2325
-2326</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+2326
+2327
+2328
+2329
+2330
+2331
+2332
+2333
+2334
+2335
+2336
+2337
+2338
+2339
+2340
+2341
+2342
+2343
+2344
+2345
+2346
+2347
+2348</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/vitam-json-schema.org\/draft-04\/schema#&quot;</span><span class="p">,</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/example.com\/root.json&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
@@ -3497,10 +3519,11 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
     <span class="p">},</span>
     <span class="nt">&quot;Management&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/example.com\/root.json\/ArchiveUnit\/Management&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;AccessRule&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AccessRule&quot;</span><span class="p">,</span>
           <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;Rules&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -3510,6 +3533,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
               <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AccessRule/Rules/Item/0&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;Rule&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NonEmptyTokenType + FIXME: attribute (xsd:ID)&quot;</span><span class="p">,</span>
@@ -3542,6 +3566,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;Inheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AccessRule/Inheritance&quot;</span><span class="p">,</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
               <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;PreventInheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AccessRule/Inheritance/PreventInheritance&quot;</span><span class="p">,</span>
@@ -3579,6 +3604,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
         <span class="p">},</span>
         <span class="nt">&quot;AppraisalRule&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AppraisalRule&quot;</span><span class="p">,</span>
           <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;Rules&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -3588,6 +3614,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
               <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AppraisalRule/Rules/Item/0&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;Rule&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NonEmptyTokenType + FIXME: attribute (xsd:ID)&quot;</span><span class="p">,</span>
@@ -3626,6 +3653,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;Inheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AppraisalRule/Inheritance&quot;</span><span class="p">,</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
               <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;PreventInheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/AppraisalRule/Inheritance/PreventInheritance&quot;</span><span class="p">,</span>
@@ -3659,7 +3687,8 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
                 <span class="p">}</span>
               <span class="p">]</span>
             <span class="p">}</span>
-          <span class="p">}</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;FinalAction&quot;</span><span class="p">]}]</span>
         <span class="p">},</span>
         <span class="nt">&quot;ArchiveUnit&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/example.com\/root.json\/ArchiveUnit\/Management\/ArchiveUnit&quot;</span><span class="p">,</span>
@@ -3675,6 +3704,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
         <span class="nt">&quot;ClassificationRule&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ClassificationRule&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;Rules&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -3683,6 +3713,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
               <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ClassificationRule/Rules/Item/0&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;Rule&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NonEmptyTokenType + FIXME: attribute (xsd:ID)&quot;</span><span class="p">,</span>
@@ -3708,21 +3739,6 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
                         <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}&quot;</span>
                       <span class="p">}</span>
                     <span class="p">]</span>
-                  <span class="p">},</span>
-                  <span class="nt">&quot;ClassificationReassessingDate&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
-                      <span class="p">{</span>
-                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
-                      <span class="p">},</span>
-                      <span class="p">{</span>
-                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;date-time&quot;</span>
-                      <span class="p">}</span>
-                    <span class="p">]</span>
-                  <span class="p">},</span>
-                  <span class="nt">&quot;NeedReassessingAuthorization&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
                   <span class="p">}</span>
                 <span class="p">}</span>
               <span class="p">}</span>
@@ -3732,6 +3748,24 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
             <span class="p">},</span>
             <span class="nt">&quot;ClassificationOwner&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;ClassificationAudience&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;ClassificationReassessingDate&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;date-time&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;NeedReassessingAuthorization&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
             <span class="p">},</span>
             <span class="nt">&quot;Inheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ClassificationRule/Inheritance&quot;</span><span class="p">,</span>
@@ -3775,6 +3809,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
         <span class="nt">&quot;DisseminationRule&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/DisseminationRule&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;Rules&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -3783,6 +3818,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
               <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/DisseminationRule/Rules/Item/0&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;Rule&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NonEmptyTokenType + FIXME: attribute (xsd:ID)&quot;</span><span class="p">,</span>
@@ -3815,6 +3851,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;Inheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/DisseminationRule/Inheritance&quot;</span><span class="p">,</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
               <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;PreventInheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/DisseminationRule/Inheritance/PreventInheritance&quot;</span><span class="p">,</span>
@@ -3858,6 +3895,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
         <span class="nt">&quot;ReuseRule&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ReuseRule&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;Rules&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -3866,6 +3904,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
               <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ReuseRule/Rules/Item/0&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;Rule&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NonEmptyTokenType + FIXME: attribute (xsd:ID)&quot;</span><span class="p">,</span>
@@ -3898,6 +3937,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;Inheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ReuseRule/Inheritance&quot;</span><span class="p">,</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
               <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;PreventInheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/ReuseRule/Inheritance/PreventInheritance&quot;</span><span class="p">,</span>
@@ -3936,6 +3976,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
         <span class="nt">&quot;StorageRule&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/StorageRule&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;Rules&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -3944,6 +3985,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
               <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/StorageRule/Rules/Item/0&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;Rule&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NonEmptyTokenType + FIXME: attribute (xsd:ID)&quot;</span><span class="p">,</span>
@@ -3983,6 +4025,7 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
             <span class="nt">&quot;Inheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/StorageRule/Inheritance&quot;</span><span class="p">,</span>
               <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
               <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;PreventInheritance&quot;</span><span class="p">:</span> <span class="p">{</span>
                   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/root.json/ArchiveUnit/Management/StorageRule/Inheritance/PreventInheritance&quot;</span><span class="p">,</span>
@@ -4016,7 +4059,8 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
                 <span class="p">}</span>
               <span class="p">]</span>
             <span class="p">}</span>
-          <span class="p">}</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;FinalAction&quot;</span><span class="p">]}]</span>
         <span class="p">},</span>
         <span class="nt">&quot;UpdateOperation&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/example.com\/root.json\/ArchiveUnit\/Management\/UpdateOperation&quot;</span><span class="p">,</span>
@@ -6277,7 +6321,7 @@ Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../',
-              VERSION:'1.10.3',
+              VERSION:'2.1.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',

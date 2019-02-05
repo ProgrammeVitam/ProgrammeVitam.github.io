@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.11.2.7. Vitam Offer &mdash; Documentation VITAM - Architecture 1.10.3</title>
+  <title>7.11.2.7. Vitam Offer &mdash; Documentation VITAM - Architecture 2.1.1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.10.3
+                2.1.1
               </div>
             
           
@@ -225,7 +225,7 @@ non. La méthode connect, permet de récupérer un objet Connection afin de pouv
 <p>Les fonctionnalités sont :</p>
 <ul class="simple">
 <li>récupérer la capacité et disponibilité de l’offre</li>
-<li>envoyer un objet en mode chunk</li>
+<li>envoyer un objet</li>
 <li>récupérer un objet</li>
 <li>tester l’existence d’un objet</li>
 <li>récupérer l’empreinte d’un objet</li>
@@ -241,12 +241,6 @@ non. La méthode connect, permet de récupérer un objet Connection afin de pouv
 <p>L’API REST, trois header spécifiques sont définis :</p>
 <ul class="simple">
 <li>X-Tenant-Id : l’identifiant du Tenant</li>
-<li>X-Command : utilisée pour l’envoi d’un objet par fragments (chunk)<ul>
-<li>INIT : création de l’objet donc l’offre de stockage, sans données envoyés</li>
-<li>WRITE : envoi d’un fragment de data</li>
-<li>END : indique que l’objet est fini d’être créé</li>
-</ul>
-</li>
 <li>X-Type : permets de préciser le résultat attendu pour la recupération de l’objet<ul>
 <li>DATA : l’objet en lui-même (valeur par défaut)</li>
 <li>DIGEST : empreinte de l’objet</li>
@@ -320,35 +314,18 @@ non. La méthode connect, permet de récupérer un objet Connection afin de pouv
 </ul>
 </li>
 </ul>
-<p><strong>POST /objects</strong></p>
+<p><strong>PUT /objects/{type}/{id}</strong></p>
 <ul class="simple">
-<li>description : création d’un nouvel objet vide sur l’offre</li>
+<li>description : écriture d’un objet sur l’offre</li>
 <li>headers :<ul>
-<li>X-Command: INIT</li>
 <li>X-Tenant-Id: id du tenant</li>
-</ul>
-</li>
-<li>body :<ul>
-<li>GUID</li>
-<li>ObjectInit contenant la taille (taille finale), le type (unit/objectgroup/logbook/etc, se basant sur une enum), le digest-type (type de digest) ainsi qu’un identifiant vide à l’envoi qui sera rempli pour l’offre. Il s’agit de l’identifiant de l’objet sur l’offre. Dans l’implémentation par défaut, c’est le GUID.</li>
-</ul>
-</li>
-<li>response :<ul>
-<li>code : 201</li>
-<li>contenu : l’objectInit envoyé avec l’identifiant de l’objet créé</li>
-</ul>
-</li>
-</ul>
-<p><strong>PUT /objects/{id}</strong></p>
-<ul class="simple">
-<li>description : écriture  et finalisation d’objet de l’offre</li>
-<li>headers :<ul>
-<li>X-Command: WRITE / END</li>
-<li>X-Tenant-Id: id du tenant</li>
+<li>Vitam-Content-Length: Taille de l’objet</li>
+<li>X-digest-algorithm: Algorithme de hash utilisé pour vérifier l’empreinte de l’objet</li>
 </ul>
 </li>
 <li>path :<ul>
 <li>{id} : id de l’objet</li>
+<li>{type} : le type (unit/objectgroup/logbook/etc, se basant sur une enum)</li>
 </ul>
 </li>
 <li>body :<ul>
@@ -357,7 +334,7 @@ non. La méthode connect, permet de récupérer un objet Connection afin de pouv
 </li>
 <li>response :<ul>
 <li>code : 201</li>
-<li>contenu : un json avec une clef unique, digest, le digest du fichier complet sur l’offre pour le END, le digest du morceau envoyé pour le WRITE</li>
+<li>contenu : un json avec le digest de l’objet et sa taille.</li>
 </ul>
 </li>
 </ul>
@@ -454,7 +431,7 @@ non. La méthode connect, permet de récupérer un objet Connection afin de pouv
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../../',
-              VERSION:'1.10.3',
+              VERSION:'2.1.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',

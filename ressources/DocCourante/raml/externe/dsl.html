@@ -331,7 +331,31 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
     ]
   }
 ]
-</code></pre><h2 id="query">Query</h2><p>Les commandes de la Query peuvent être :</p><table class="table"><thead><tr><th>Catégorie</th><th>Opérateurs</th><th>Arguments</th><th>Utilisable sur champs analysés ?</th><th>Utilisable sur champs non analysés ?</th><th>Commentaire</th></tr></thead><tbody><tr><td>Booléens</td><td>$and, $or, $not</td><td>Opérateurs</td><td>NA</td><td>NA</td><td>Combinaison logique d&#39;opérateurs</td></tr><tr><td>Comparaison</td><td>$eq, $ne, $lt, $lte, $gt, $gte</td><td>Champ et valeur</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ et la valeur passée en argument</td></tr><tr><td></td><td>$range</td><td>Champ, $lt, $lte, $gt, $gte et valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ avec l&#39;intervalle passé en argument</td></tr><tr><td>Existence</td><td>$exists</td><td>Champ</td><td><strong>Oui</strong></td><td><strong>Oui</strong></td><td></td></tr><tr><td>Tableau</td><td>$in, $nin</td><td>Champ, valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Présence de valeurs dans un tableau</td></tr><tr><td>Textuel</td><td>$wildcard</td><td>Champ, expression</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de champs mots-clefs à valeur exacte</td></tr><tr><td></td><td>$regex</td><td>Champ, expression régulière</td><td>Non</td><td><strong>Oui</strong></td><td>Recherche via une expression régulière</td></tr><tr><td></td><td>$match, $match_all, $match_phrase, $match_phrase_prefix</td><td>Champ, phrase</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche plein texte soit sur des mots, expressions, ou débuts d&#39;expressions</td></tr><tr><td></td><td>$search</td><td>Champ, string avec opérateur du $search</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche du type moteur de recherche</td></tr><tr><td>Parcours de graphe</td><td>$depth</td><td>entier positif ou nul</td><td>NA</td><td>NA</td><td>Recherche jusqu&#39;à un niveau de profondeur</td></tr></tbody></table><h3 id="op-rateurs-and-or-not-combinaison-logique-d-op-rateurs">Opérateurs $and, $or, $not : combinaison logique d&#39;opérateurs</h3><p><strong>Format :</strong></p><ul><li><code>{ $and : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>toutes</em> les commandes doivent être vérifiées</li><li><code>{ $or  : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>au moins une</em> commande doit être vérifiée</li><li><code>{ $not : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>aucune</em> ne doit être vérifiée ($not[condition A, condition B] peut donc s&#39;écrire sous une forme plus explicite de : $and[$not(condition A), $not(condition B)]).</li></ul><p><strong>Exemple :</strong></p><pre><code class="lang-json">{
+</code></pre><h2 id="query">Query</h2><p>Les commandes de la Query peuvent être :</p><table class="table"><thead><tr><th>Catégorie</th><th>Opérateurs</th><th>Arguments</th><th>Utilisable sur champs analysés ?</th><th>Utilisable sur champs non analysés ?</th><th>Commentaire</th></tr></thead><tbody><tr><td>Objet</td><td>$subobject</td><td>Opérateurs</td><td>NA</td><td>NA</td><td>Sous-requête de recherche "nested" sur les objets techniques</td></tr><tr><td>Booléens</td><td>$and, $or, $not</td><td>Opérateurs</td><td>NA</td><td>NA</td><td>Combinaison logique d&#39;opérateurs</td></tr><tr><td>Comparaison</td><td>$eq, $ne, $lt, $lte, $gt, $gte</td><td>Champ et valeur</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ et la valeur passée en argument</td></tr><tr><td></td><td>$range</td><td>Champ, $lt, $lte, $gt, $gte et valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de la valeur d&#39;un champ avec l&#39;intervalle passé en argument</td></tr><tr><td>Existence</td><td>$exists</td><td>Champ</td><td><strong>Oui</strong></td><td><strong>Oui</strong></td><td></td></tr><tr><td>Tableau</td><td>$in, $nin</td><td>Champ, valeurs</td><td>Non</td><td><strong>Oui</strong></td><td>Présence de valeurs dans un tableau</td></tr><tr><td>Textuel</td><td>$wildcard</td><td>Champ, expression</td><td>Non</td><td><strong>Oui</strong></td><td>Comparaison de champs mots-clefs à valeur exacte</td></tr><tr><td></td><td>$regex</td><td>Champ, expression régulière</td><td>Non</td><td><strong>Oui</strong></td><td>Recherche via une expression régulière</td></tr><tr><td></td><td>$match, $match_all, $match_phrase, $match_phrase_prefix</td><td>Champ, phrase</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche plein texte soit sur des mots, expressions, ou débuts d&#39;expressions</td></tr><tr><td></td><td>$search</td><td>Champ, string avec opérateur du $search</td><td><strong>Oui</strong></td><td>Non</td><td>Recherche du type moteur de recherche</td></tr><tr><td>Parcours de graphe</td><td>$depth</td><td>entier positif ou nul</td><td>NA</td><td>NA</td><td>Recherche jusqu&#39;à un niveau de profondeur</td></tr></tbody></table><h3 id="op-rateur-subobject-sous-requ-te-de-recherche-nested-sur-les-objets-techniques">Opérateur $subobject : Sous-requête de recherche "nested" sur les objets techniques</h3><p><strong>Format :</strong></p><ul><li><code>{ $subobject : { expression1, expression2, ... } }</code> où chaque expression est une commande utilisant l&#39;un des autres opérateurs supportés par VITAM</li></ul><p><strong>Exemple :</strong></p><pre><code class="lang-json">{
+  "$query": [
+    {
+      "$subobject": {
+        "#qualifiers.versions": {
+          "$and": [
+            {
+              "$eq": {
+                "#qualifiers.versions.FormatIdentification.MimeType": "text/plain"
+              }
+            },
+            {
+              "$lte": {
+                "#qualifiers.versions.Size": 20000
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "$filter": {},
+  "$projection": {}
+}
+</code></pre><p>Sur la collection ObjectGroup, cette requête demande tous les objets de type "text/plain" et dont la taille est inférieure à 20000 octets</p><p><strong>Notes :</strong></p><ul><li>Cet opérateur n&#39;est utilisable que sur des documents ElasticSearch indexés en tant que "Nested"</li><li>Actuellement seuls les documents #qualifiers.versions de la collection ObjectGroup sont indexés en "Nested"</li><li>L&#39;indexation "Nested" nous permet de rechercher avec précision dans des listes/tableaux d&#39;objets. Sans le "Nested", l&#39;exemple ci-dessus retournerait tous les groupes d&#39;objets qui ont à la fois au moins un objet de type "text/plain" et au moins un objet de taille inférieure à 20000 octets même si cela n&#39;est pas le même objet</li></ul><h3 id="op-rateurs-and-or-not-combinaison-logique-d-op-rateurs">Opérateurs $and, $or, $not : combinaison logique d&#39;opérateurs</h3><p><strong>Format :</strong></p><ul><li><code>{ $and : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>toutes</em> les commandes doivent être vérifiées</li><li><code>{ $or  : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>au moins une</em> commande doit être vérifiée</li><li><code>{ $not : [ expression1, expression2, ... ] }</code> où chaque expression est une commande et <em>aucune</em> ne doit être vérifiée ($not[condition A, condition B] peut donc s&#39;écrire sous une forme plus explicite de : $and[$not(condition A), $not(condition B)]).</li></ul><p><strong>Exemple :</strong></p><pre><code class="lang-json">{
   "$query": [
     {
       "$or": [
@@ -457,7 +481,49 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */
       ]
     }
   }
-</code></pre><h3 id="notes-sur-les-op-rateurs">Notes sur les opérateurs</h3><ul><li>Les champs analysés ne peuvent pas être utilisés en argument <em>$field</em>.</li></ul><h2 id="actions">Actions</h2><p>Dans le cas d&#39;un update, les opérateurs suivants sont utilisables</p><table class="table"><thead><tr><th>Opérateur</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>Crée ou modifie la valeur d&#39;un ou plusieurs champs (requêtes de modification uniquement)</td></tr><tr><td>$unset</td><td>Supprime un ou plusieurs champs (requêtes de modification uniquement)</td></tr><tr><td>$add</td><td>Ajout d&#39;une valeur à un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr><tr><td>$pull</td><td>Supprime une valeur d&#39;un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr></tbody></table><h1 id="response">Response</h1><p>Une réponse est composée de plusieurs parties :</p><ul><li><strong>$hits</strong>:<ul><li><strong>limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut)</li><li><strong>offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li><strong>total</strong>: le nombre total potentiel (estimation) des résultats possibles</li><li><strong>size</strong>: le nombre réel d&#39;items retournés</li></ul></li><li><strong>$context</strong>: rapelle la requête exprimée</li><li><strong>$results</strong>: contient le résultat de la requête sous forme d&#39;une liste d&#39;items</li><li><strong>$facetResults</strong>: contient le résultat des requêtes d&#39;aggrégation sous forme d&#39;une liste d&#39;items</li></ul><h2 id="exemples">Exemples</h2><h3 id="r-ponse-pour-units">Réponse pour Units</h3><pre><code class="lang-json">{
+</code></pre><h3 id="notes-sur-les-op-rateurs">Notes sur les opérateurs</h3><ul><li>Les champs analysés ne peuvent pas être utilisés en argument <em>$field</em>.</li></ul><h2 id="actions">Actions</h2><p>Dans le cas d&#39;un update, les opérateurs suivants sont utilisables</p><table class="table"><thead><tr><th>Opérateur</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>Crée ou modifie la valeur d&#39;un champ (requêtes de modification uniquement)</td></tr><tr><td>$unset</td><td>Supprime un ou plusieurs champs (requêtes de modification uniquement)</td></tr><tr><td>$add</td><td>Ajout d&#39;une valeur à un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr><tr><td>$pull</td><td>Supprime une valeur d&#39;un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr><tr><td>$setregex</td><td>Permet de modifier une valeur par pattern dans l&#39;update de masse des unités d&#39;archive</td></tr></tbody></table><h3 id="op-rateur-set-ajouter-plusieurs-r-gles-de-gestion">Opérateur $set : Ajouter plusieurs règles de gestion</h3><pre><code class="lang-json">{
+  "$roots": ["managementRulesUpdate"],
+  "$query": [],
+  "$filter": {},
+  "$action": [
+    {
+      "$set": {
+        "#management.AccessRule.Rules": [
+          {
+            "Rule": "ACC-00001",
+            "StartDate": "2018-12-04"
+          }
+        ]
+      }
+    },
+    {
+      "$set": {
+        "#management.DisseminationRule.Rules": [
+          {
+            "Rule": "DIS-00001",
+            "StartDate": "2018-12-04"
+          }
+        ]
+      }
+    }
+  ]
+}
+</code></pre><h3 id="op-rateur-setregex-action-de-remplacement-d-une-chaine-de-caract-res-par-pattern">Opérateur $setregex : Action de remplacement d&#39;une chaine de caractères par pattern</h3><p><strong>Format :</strong> <code>{ $setregex : "$target": "TargetedFieldName", "$controlPattern": "PatternThatShouldMatch", "$updatePattern": "NewValue" }</code></p><p><strong>Exemple :</strong></p><pre><code class="lang-json">{
+  "$roots": [],
+  "$query": [ { "$eq": { "#id": "guid" } }
+  ],
+  "$action": [
+    {
+      "$setregex": {
+        "$target": "Title",
+        "$controlPattern": "Dessert placé",
+        "$updatePattern": "Dessert glacé"
+      }
+    }
+  ]
+}
+
+</code></pre><p>Dans la mise à jour de masse d&#39;unité archivistique, cette requête permet de remplacer le mot "Dessert placé" par "Dessert glacé" dans le titre des unités d&#39;archive qui ont comme identifiant "guid".</p><h1 id="response">Response</h1><p>Une réponse est composée de plusieurs parties :</p><ul><li><strong>$hits</strong>:<ul><li><strong>limit</strong>: le nombre maximum d&#39;items retournés (limité à 1000 par défaut)</li><li><strong>offset</strong>: la position de démarrage dans la liste retournée (positionné à 0 par défaut)</li><li><strong>total</strong>: le nombre total potentiel (estimation) des résultats possibles</li><li><strong>size</strong>: le nombre réel d&#39;items retournés</li></ul></li><li><strong>$context</strong>: rapelle la requête exprimée</li><li><strong>$results</strong>: contient le résultat de la requête sous forme d&#39;une liste d&#39;items</li><li><strong>$facetResults</strong>: contient le résultat des requêtes d&#39;aggrégation sous forme d&#39;une liste d&#39;items</li></ul><h2 id="exemples">Exemples</h2><h3 id="r-ponse-pour-units">Réponse pour Units</h3><pre><code class="lang-json">{
   "$hits": {
     "total": 3,
     "size": 3,

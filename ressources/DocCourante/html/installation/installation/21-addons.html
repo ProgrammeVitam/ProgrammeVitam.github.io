@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.4. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 1.10.3</title>
+  <title>4.2.4. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 2.1.1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.10.3
+                2.1.1
               </div>
             
           
@@ -97,11 +97,12 @@
 <li class="toctree-l3"><a class="reference internal" href="20-certificats.html">4.2.3. Gestion des certificats</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.4. Paramétrages supplémentaires</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tuning-jvm">4.2.4.1. Tuning JVM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-l-antivirus-ingest-externe">4.2.4.2. Paramétrage de l’antivirus (ingest-externe)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parametrage-des-certificats-externes-externe">4.2.4.3. Paramétrage des certificats externes (*-externe)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#placer-hors-vitam-le-composant-ihm-demo">4.2.4.4. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-la-centralisation-des-logs-vitam">4.2.4.5. Paramétrage de la centralisation des logs Vitam</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fichiers-complementaires">4.2.4.6. Fichiers complémentaires</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-des-greffons">4.2.4.2. Installation des greffons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-l-antivirus-ingest-externe">4.2.4.3. Paramétrage de l’antivirus (ingest-externe)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-des-certificats-externes-externe">4.2.4.4. Paramétrage des certificats externes (*-externe)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#placer-hors-vitam-le-composant-ihm-demo">4.2.4.5. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-la-centralisation-des-logs-vitam">4.2.4.6. Paramétrage de la centralisation des logs Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fichiers-complementaires">4.2.4.7. Fichiers complémentaires</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="30-installation.html">4.2.5. Procédure de première installation</a></li>
@@ -189,10 +190,10 @@
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">en cas de colocalisation, bien prendre en compte la taille JVM de chaque composant (VITAM : -Xmx512m par défaut) pour éviter de swapper.</p>
+<p class="last">en cas de colocalisation, bien prendre en compte la taille <a class="reference internal" href="../introduction.html#term-jvm"><span class="xref std std-term">JVM</span></a> de chaque composant (VITAM : -Xmx512m par défaut) pour éviter de <cite>swapper</cite>.</p>
 </div>
-<p>Un tuning fin des paramètres JVM de chaque composant VITAM est possible.
-Pour cela, il faut modifier le fichier <code class="docutils literal notranslate"><span class="pre">group_vars/all/jvm_opts.yml</span></code></p>
+<p>Un <cite>tuning</cite> fin des paramètres JVM de chaque composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est possible.
+Pour cela, il faut modifier le contenu du fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/jvm_opts.yml</span></code></p>
 <p>Pour chaque composant, il est possible de modifier ces 3 variables:</p>
 <ul class="simple">
 <li>memory: paramètres Xms et Xmx</li>
@@ -200,8 +201,25 @@ Pour cela, il faut modifier le fichier <code class="docutils literal notranslate
 <li>java: autres paramètres java</li>
 </ul>
 </div>
+<div class="section" id="installation-des-greffons">
+<h2>4.2.4.2. Installation des greffons<a class="headerlink" href="#installation-des-greffons" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Fonctionnalité apparue en R9.</p>
+</div>
+<p>Il est possible de choisir les greffons installables sur la plate-forme. Pour cela, il faut éditer le contenu du fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vitam-vars.yml</span></code> au niveau de la directive <code class="docutils literal notranslate"><span class="pre">vitam_griffins</span></code>. Cette action est à rapprocher de l’incorporation des binaires d’installation : les binaires d’installation des greffons doivent être accessibles par les machines hébergeant le composant <strong>worker</strong>.</p>
+<p>Exemple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vitam_griffins</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;vitam-imagemagick-griffin&quot;</span><span class="p">,</span> <span class="s2">&quot;vitam-jhove-griffin&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Voici la liste des greffons disponibles au moment de la présente publication :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>vitam-imagemagick-griffin
+vitam-jhove-griffin
+</pre></div>
+</div>
+</div>
 <div class="section" id="parametrage-de-l-antivirus-ingest-externe">
-<h2>4.2.4.2. Paramétrage de l’antivirus (ingest-externe)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-externe" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.3. Paramétrage de l’antivirus (ingest-externe)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-externe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’antivirus utilisé par ingest-externe est modifiable (par défaut, ClamAV) ; pour cela :</p>
 <ul>
 <li><p class="first">Modifier le fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vitam_vars.yml</span></code> pour indiquer le nom de l’antivirus qui sera utilisé (norme : scan-&lt;nom indiqué dans vitam-vars.yml&gt;.sh)</p>
@@ -244,11 +262,11 @@ Pour cela, il faut modifier le fichier <code class="docutils literal notranslate
 </div>
 </div>
 <div class="section" id="parametrage-des-certificats-externes-externe">
-<h2>4.2.4.3. Paramétrage des certificats externes (*-externe)<a class="headerlink" href="#parametrage-des-certificats-externes-externe" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.4. Paramétrage des certificats externes (*-externe)<a class="headerlink" href="#parametrage-des-certificats-externes-externe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Se reporter au chapitre dédié à la gestion des certificats: <a class="reference internal" href="20-certificats.html"><span class="doc">Gestion des certificats</span></a></p>
 </div>
 <div class="section" id="placer-hors-vitam-le-composant-ihm-demo">
-<h2>4.2.4.4. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo<a class="headerlink" href="#placer-hors-vitam-le-composant-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.5. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo<a class="headerlink" href="#placer-hors-vitam-le-composant-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/host_vars</span></code>, créer ou éditer un fichier nommé par le nom de machine hébergeant le composant ihm-demo et ajouter le contenu ci-dessous</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">consul_disabled</span><span class="p">:</span> <span class="n">true</span>
 </pre></div>
@@ -257,14 +275,14 @@ Pour cela, il faut modifier le fichier <code class="docutils literal notranslate
 <p>Il est également fortement recommandé de positionner la valeur de la directive <code class="docutils literal notranslate"><span class="pre">vitam.ihm_demo.metrics_enabled</span></code> à  <code class="docutils literal notranslate"><span class="pre">false</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>, afin que ce composant ne tente pas d’envoyer de données sur «&nbsp;elasticsearch-log&nbsp;».</p>
 </div>
 <div class="section" id="parametrage-de-la-centralisation-des-logs-vitam">
-<h2>4.2.4.5. Paramétrage de la centralisation des logs Vitam<a class="headerlink" href="#parametrage-de-la-centralisation-des-logs-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.6. Paramétrage de la centralisation des logs Vitam<a class="headerlink" href="#parametrage-de-la-centralisation-des-logs-vitam" title="Lien permanent vers ce titre">¶</a></h2>
 <p>2 cas sont possibles :</p>
 <ul class="simple">
 <li>Utiliser le sous-système de gestion des logs fournis par la solution logicielle VITAM ;</li>
 <li>Utiliser un SIEM tiers.</li>
 </ul>
 <div class="section" id="gestion-par-vitam">
-<h3>4.2.4.5.1. Gestion par Vitam<a class="headerlink" href="#gestion-par-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.4.6.1. Gestion par Vitam<a class="headerlink" href="#gestion-par-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <dl class="docutils">
 <dt>Pour une gestion des logs par Vitam, il est nécessaire de déclarer les serveurs ad-hoc dans le fichier d’inventaire pour les 3 groupes suivants:</dt>
 <dd><ul class="first last simple">
@@ -276,7 +294,7 @@ Pour cela, il faut modifier le fichier <code class="docutils literal notranslate
 </dl>
 </div>
 <div class="section" id="redirection-des-logs-sur-un-siem-tiers">
-<h3>4.2.4.5.2. Redirection des logs sur un SIEM tiers<a class="headerlink" href="#redirection-des-logs-sur-un-siem-tiers" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.4.6.2. Redirection des logs sur un SIEM tiers<a class="headerlink" href="#redirection-des-logs-sur-un-siem-tiers" title="Lien permanent vers ce titre">¶</a></h3>
 <p>En configuration par défaut, les logs Vitam sont tout d’abord routés vers un serveur rsyslog installé sur chaque machine.
 Il est possible d’en modifier le routage, qui par défaut redirige vers le serveur logstash via le protocole syslog en TCP.</p>
 <p>Pour cela, il est nécessaire de placer un fichier de configuration dédié dans le dossier <code class="docutils literal notranslate"><span class="pre">/etc/rsyslog.d/</span></code> ; ce fichier sera automatiquement pris en compte par rsyslog. Pour la syntaxe de ce fichier de configuration rsyslog, se référer à la <a class="reference external" href="http://www.rsyslog.com/doc/v7-stable/">documentation rsyslog</a>.</p>
@@ -287,7 +305,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 </div>
 </div>
 <div class="section" id="fichiers-complementaires">
-<h2>4.2.4.6. Fichiers complémentaires<a class="headerlink" href="#fichiers-complementaires" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.4.7. Fichiers complémentaires<a class="headerlink" href="#fichiers-complementaires" title="Lien permanent vers ce titre">¶</a></h2>
 <p>A titre informatif, le positionnement des variables ainsi que des dérivations des déclarations de variables sont effectuées dans les fichiers suivants :</p>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">environments</span></code> <code class="docutils literal notranslate"><span class="pre">/group_vars/all/vitam_vars.yml</span></code>, comme suit :</p>
@@ -624,11 +642,23 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 331
 332
 333
-334</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
-
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="c1">### global ###</span>
 
 <span class="c1"># TODO MAYBE : permettre la surcharge avec une syntax du genre vitamopts.folder_root | default(vitam_default.folder_root) dans les templates ?</span>
+<span class="nt">droid_filename</span><span class="p">:</span> <span class="s">&quot;DROID_SignatureFile_V94.xml&quot;</span>
+<span class="nt">droid_container_filename</span><span class="p">:</span> <span class="s">&quot;container-signature-20180917.xml&quot;</span>
 
 <span class="nt">vitam_defaults</span><span class="p">:</span>
     <span class="nt">folder</span><span class="p">:</span>
@@ -659,7 +689,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">syslog_facility</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local0</span>
 
 <span class="c1"># Used in ingest, unitary update, mass-update</span>
-<span class="nt">classificationList</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;Secret</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Confidentiel</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">classificationList</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;Non</span><span class="nv"> </span><span class="s">protégé&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;Secret</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Confidentiel</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">]</span>
 <span class="c1"># Used in ingest, unitary update, mass-update</span>
 <span class="nt">classificationLevelOptional</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
@@ -678,6 +708,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="c1"># elastic-kibana-interceptor is present as kibana is present, if kibana-data &amp; interceptor are not needed in the secondary site, just do not add them in the hosts file</span>
 <span class="nt">vitam_secondary_site_components</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;logbook&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;metadata&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;functional-administration&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storage&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storageofferdefault&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;offer&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-log&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-data&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;logstash&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;kibana&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongoc&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongod&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongos&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;elastic-kibana-interceptor&quot;</span> <span class="p p-Indicator">]</span>
 
+<span class="c1"># Vitams griffins required to launch preservation scenario</span>
+<span class="nt">vitam_griffins</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
 
 <span class="c1">### Composants Vitam ###</span>
 
@@ -912,6 +944,14 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
         <span class="nt">storageTraceabilityOverlapDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
         <span class="nt">restoreBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="c1"># batch thread pool size</span>
+        <span class="nt">minBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+        <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+        <span class="c1"># Digest computation timeout in seconds</span>
+        <span class="nt">batchDigestComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># Offer synchronization batch size &amp; thread pool size</span>
+        <span class="nt">offerSynchronizationBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">offerSyncThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
         <span class="c1"># log_level: &quot;DEBUG&quot;</span>
         <span class="nt">metrics_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">logback_rolling_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -1108,7 +1148,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 134
 135
 136
-137</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+137
+138
+139</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">dns_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">53</span>
@@ -1182,6 +1224,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
 <span class="nt">kibana</span><span class="p">:</span>
     <span class="nt">header_value</span><span class="p">:</span> <span class="s">&quot;reporting&quot;</span>
+    <span class="nt">import_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">import_retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">log</span><span class="p">:</span>
         <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_log&quot;</span>
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
@@ -1499,7 +1543,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'1.10.3',
+              VERSION:'2.1.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',

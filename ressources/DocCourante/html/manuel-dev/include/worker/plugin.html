@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker Plugin &mdash; Documentation VITAM - Manuel de développement 1.10.3</title>
+  <title>Worker Plugin &mdash; Documentation VITAM - Manuel de développement 2.1.1</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.10.3
+                2.1.1
               </div>
             
           
@@ -417,7 +417,23 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 190
 191
 192
-193</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
@@ -484,14 +500,6 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 	<span class="s2">&quot;AUDIT_FILE_EXISTING&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckExistenceObjectPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_existence_object_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OG_CREATE_SECURED_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CreateObjectSecureFileActionPlugin&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_object_secure_file_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNITS_CREATE_SECURED_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CreateUnitSecureFileActionPlugin&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
 	<span class="p">},</span>
 	<span class="s2">&quot;CREATE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.CreateManifest&quot;</span><span class="p">,</span>
@@ -608,6 +616,30 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 	<span class="p">},</span>
 	<span class="s2">&quot;PROBATIVE_VALUE_REPORTS&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueReport&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;PREPARE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareUnitLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_preparation_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;BUILD_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.BuildUnitTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_build_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;FINALIZE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.FinalizeUnitLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_finalization_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;PREPARE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareObjectGroupLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_preparation_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;BUILD_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.BuildObjectGroupTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_build_plugin.properties&quot;</span>
+	<span class="p">},</span>
+	<span class="s2">&quot;FINALIZE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.FinalizeObjectGroupLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_finalization_plugin.properties&quot;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1132,20 +1164,8 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 461
 462
 463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultIngestWorkflow&quot;</span><span class="p">,</span>
+464</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;DEFAULT_WORKFLOW&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
   <span class="nt">&quot;typeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
@@ -1536,18 +1556,6 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;ACCESSION_REGISTRATION&quot;</span><span class="p">,</span>
             <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
             <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsUnits.file&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/ARCHIVE_ID_TO_GUID_MAP.json&quot;</span>
-              <span class="p">},</span>
-              <span class="p">{</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
-              <span class="p">},</span>
-              <span class="p">{</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json&quot;</span>
-              <span class="p">},</span>
               <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;globalSEDAParameters.file&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:ATR/globalSEDAParameters.json&quot;</span>
@@ -2336,20 +2344,8 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 461
 462
 463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;DefaultIngestWorkflow&quot;</span><span class="p">,</span>
+464</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;DEFAULT_WORKFLOW&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
   <span class="s2">&quot;typeProc&quot;</span><span class="o">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
@@ -2741,18 +2737,6 @@ En fonction du statut de chaque traitement on aura donc des messages différents
             <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
             <span class="s2">&quot;in&quot;</span><span class="o">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;mapsUnits.file&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:Maps/ARCHIVE_ID_TO_GUID_MAP.json&quot;</span>
-              <span class="p">},</span>
-              <span class="p">{</span>
-                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
-              <span class="p">},</span>
-              <span class="p">{</span>
-                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json&quot;</span>
-              <span class="p">},</span>
-              <span class="p">{</span>
                 <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;globalSEDAParameters.file&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:ATR/globalSEDAParameters.json&quot;</span>
               <span class="p">}</span>
@@ -2976,7 +2960,7 @@ ou la méthode <code class="docutils literal notranslate"><span class="pre">exec
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../',
-              VERSION:'1.10.3',
+              VERSION:'2.1.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
