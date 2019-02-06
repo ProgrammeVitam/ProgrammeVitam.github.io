@@ -3,7 +3,7 @@ layout: page
 title: Resip
 ---
 
-> Cette page présente le générateur ReSIP (version courante 0.9-SNAPSHOT compilée 28/11/2018).
+> Cette page présente le générateur ReSIP (version courante 1.1-SNAPSHOT compilée 30/01/2019).
 
 ## ReSIP
 
@@ -38,9 +38,8 @@ A noter est aussi disponible le fichier .jar utilisable sous Linux ([32bits](htt
 
 * **un manuel utilisateur**
 
-Il décrit les fonctions de Resip ainsi que son utilisation simple et avancée
+La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien] (http://ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
 
-Il est accessible ([ici](http://download.programmevitam.fr/resip/0.9-SNAPSHOT/Manuel%20Application%20ReSIP%20V0.9-SNAPSHOT-181112.pdf)).
 
 * **un jeux de tests**
 
@@ -50,4 +49,4 @@ Il est accessible ([ici](http://download.programmevitam.fr/resip/0.9-SNAPSHOT/Re
 
 * **le code développé**
 
-Il sera bientôt accessible dans le dépot GitHub avec la bibliothèque sedalib sur laquelle il s'appuie.
+Il est accessible dans le dépot GitHub avec la bibliothèque sedalib sur laquelle il s'appuie : [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0.)

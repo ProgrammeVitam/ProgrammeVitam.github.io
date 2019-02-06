@@ -111,21 +111,31 @@ Pour le moment, il s'agit des **Sedatools**,
 Bibliothèque Java et outils IHM (interface hommes/machines) de manipulation des paquets SEDA, proposés pour tests
 Ils permettent de générer automatiquement à partir d’une simple arborescence de fichiers un SIP (paquet d’information à archiver) conforme aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation)).
 
+Cette publication vise à recueillir les déclarations d’intérêt des utilisateurs suite à leurs tests afin d'évaluer l'intérêt d'intégrer cet outil à la solution logicielle Vitam. Les retours sont possibles à l'adresse contact@programmevitam.fr
+
+Pour plus d'information, consultez la page [Resip](/pages/Resip).
+
 Sont mis à dispostion :
 
 * **les exécutables**
 
-Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution
-nécessite seulement la présence de java 8 sur le poste.
-Ils peuvent être téléchargés en suivant ce [lien](http://download.programmevitam.fr/resip/sedatools-package-1.0.0.tar.gz)
+Ils sont accessibles dans la page [Resip](/pages/Resip).
+
+Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable. 
 
 * **La documentation associée**
 
-Elle décrit les fonctions de l'outil RESIP et peut être consultée en suivant ce [lien] (http://download.programmevitam.fr/resip/20190130_Vitam_manuel_ReSIP_V1.0.pdf)
+Elle est accessible dans la page [Documentation](/pages/documentation).
+
+La documentation **ReSIP** décrit les fonctions de l'outil ReSIP et peut être consultée en suivant ce [lien] (http://ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
+
+La documentation **Spécification des SIP** - recommandations sur la construction des paquets
+à archiver peut être consultée en suivant ce [lien] ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
 
 * **le code développé**
 
 Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0.)
+
 
 ## Présentation de la Première version de production de la solution logicielle Vitam
 
