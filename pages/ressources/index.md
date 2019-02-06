@@ -55,6 +55,8 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
+La VM de la version 2.1.1. (Release 9) sera publiée prochainement. 
+
 La VM de la version 1.10.3. (Release 8) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.ova).
 L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.sha256).
 
@@ -98,7 +100,7 @@ Sont mis à dispostion :
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.0.0)
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.0.0)
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
