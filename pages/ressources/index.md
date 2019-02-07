@@ -32,7 +32,7 @@ Liens de téléchargement :
 **Version 2.1.1 (Release R9.1)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.1/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.1/deb/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.1/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.1/deb/vitam-external/)).
- 
+
 
 **Version 1.10.3 (Release 8.3)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.10.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.10.3/deb/vitam-product/)),
@@ -55,7 +55,8 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM de la version 2.1.1. (Release 9) sera publiée prochainement. 
+La VM de la version 2.1.1 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.1/VM/demo_vitam_2.1.1.ova).
+L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/2.1.1/VM/demo_vitam_2.1.1.sha256).
 
 La VM de la version 1.10.3. (Release 8) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.ova).
 L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.sha256).
@@ -87,7 +88,7 @@ Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiel
 ([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeux_de_tests_fonctionnels_RELEASE9_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
 
-## Outils de préservation Vitam 
+## Outils de préservation Vitam
 
 Les "Griffons" de préservation numérique sont des outils mobilisables pour mettre en œuvre des actions de préservation, pour l'instant analyse/validation de formats, conversion de formats.
 
@@ -107,7 +108,7 @@ Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeV
 
 Il s'agit des outils utilisés pour faciliter le test ou le développement.
 
-Pour le moment, il s'agit des **Sedatools**, 
+Pour le moment, il s'agit des **Sedatools**,
 Bibliothèque Java et outils IHM (interface hommes/machines) de manipulation des paquets SEDA, proposés pour tests
 Ils permettent de générer automatiquement à partir d’une simple arborescence de fichiers un SIP (paquet d’information à archiver) conforme aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation)).
 
@@ -121,7 +122,7 @@ Sont mis à dispostion :
 
 Ils sont accessibles dans la page [Resip](/pages/Resip).
 
-Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable. 
+Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable.
 
 * **La documentation associée**
 
