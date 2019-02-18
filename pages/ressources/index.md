@@ -114,13 +114,13 @@ Ils permettent de générer automatiquement à partir d’une simple arborescenc
 
 Cette publication vise à recueillir les déclarations d’intérêt des utilisateurs suite à leurs tests afin d'évaluer l'intérêt d'intégrer cet outil à la solution logicielle Vitam. Les retours sont possibles à l'adresse contact@programmevitam.fr
 
-Pour plus d'information, consultez la page [Resip](/pages/Resip).
+Pour plus d'information, consultez la page [ReSIP](/pages/ressources/resip).
 
 Sont mis à dispostion :
 
 * **les exécutables**
 
-Ils sont accessibles dans la page [Resip](/pages/Resip).
+Ils sont accessibles dans la page [ReSIP](/pages/ressources/resip).
 
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable.
 
@@ -135,7 +135,7 @@ La documentation **Spécification des SIP** - recommandations sur la constructio
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0.)
+Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0)
 
 
 ## Présentation de la Première version de production de la solution logicielle Vitam
