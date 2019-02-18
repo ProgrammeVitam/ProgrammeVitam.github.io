@@ -38,7 +38,7 @@ de défense.
 Cette solution, essentiellement développée en Java, est diffusée en logiciel libre (code sous licence 
 [CeCILL V2.1](http://www.cecill.info/licences/Licence_CeCILL_V2-fr.html), 
 compatible GNU GPL, et documentation sous 
-[CC-BY-SA 3.0 FR](https://creativecommons.org/licenses/by-sa/3.0/fr/)) 
+[Licence Ouverte V2.0.](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf)) 
 pour faciliter sa réutilisation, 
 son évolution, son adaptation à des contextes particuliers si nécessaire, sa 
 maintenance et donc globalement sa pérennité.

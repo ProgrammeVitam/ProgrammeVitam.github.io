@@ -42,6 +42,7 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
  opérations ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_workflow.pdf) \| [html](/ressources/DocCourante/html/workflow-model)) - Version HTML à venir
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Valeur_probante.pdf))
+* **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf))
 
 
 ## Documentation des tests

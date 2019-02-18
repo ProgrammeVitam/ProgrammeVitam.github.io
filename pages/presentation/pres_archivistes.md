@@ -45,7 +45,7 @@ Les ateliers ont deux objectifs :
 * favoriser le partage des réflexions des projets ministériels et des partenaires sur le besoin d’adaptation du logiciel métier (front office) de leur service d’archives.
 
  
-## Les thèmes des chantiers 2015-2017
+## Les thèmes des chantiers 2015-2019
 
 En 2015, les deux chantiers métiers menés par l’équipe Vitam portaient sur :
 
@@ -53,8 +53,10 @@ En 2015, les deux chantiers métiers menés par l’équipe Vitam portaient sur 
 * la recherche et l’accès aux archives conservées dans le système d’archivage électronique, depuis les logiciels métiers des services d’archives et ceux des services producteurs (front offices).
 
 Les résultats de ces travaux ont été publiés pour appel à commentaire au premier trimestre de l’année 2016.
-En 2017, parallèlement à l’avancement des travaux de conception de la solution logicielle, seront menés des chantiers sur les sujets suivants : 
+
+Depuis 2017, parallèlement à l’avancement des travaux de conception de la solution logicielle, ont été menés des chantiers sur les sujets suivants : 
 
 * extraction et traitement des documents (migration de format, génération automatique de métadonnées, anonymisation...), 
-* gestion de la preuve, 
-* immobilisation des données dans le cadre de procédures judiciaires (gel judiciaire).
+* gestion de la preuve : visant à recueillir l'expression de besoin des utilisateurs  et à définir un « relevé de valeur probante » à fournir en réponse à la demande d’un magistrat
+* gestion des archives classifiées : travaux menés en lien avec le ministère des Armées visant à définir et prioriser des fonctionnalités pour la prise en charge des archives protégées au titre du Secret de la Défense nationale
+* préservation des archives numériques (conservation et accès à long terme) : visant à définir et prioriser des fonctionnalités à développer dans la solution logicielle Vitam, pour cela une 1ère phase était consacrée à des retours d’expériences (BnF, INA, CINES, SANOFI, Docapost, Bibliothèques et Archives du Canada), puis une 2de phase a permis l'expérimentation des outils de préservation sur des lots d’archives existants (identification et validation de formats, lisibilité, extraction de métadonnées)
