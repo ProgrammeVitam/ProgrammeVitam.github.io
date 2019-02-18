@@ -19,9 +19,21 @@ fatherref: presentation
 
 ## Partenaires
 
-* Ministère de la Transition écologique et solidaire,
-* Centre Informatique National de l'Enseignement Supérieur (CINES),
+* Agence centrale des organismes de sécurité sociale (ACOSS),
+* Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES),
 * Agence de Services et de Paiement (ASP),
-* Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES).
+* Caisse nationale de l'Assurance Maladie (CNAM),
+* Commissariat à l'énergie atomique et aux énergies alternatives (CEA),
+* Conseil Départemental de l'Hérault,
+* Centre Hospitalier d'Avranches-Granville, 
+* Centre Informatique National de l'Enseignement Supérieur (CINES),
+* Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI),
+* Ministère de l’Éducation nationale et de la Jeunesse,
+* Ministère de la Transition écologique et solidaire,
+* Ministère des Solidarités et de la Santé,
+* Musée du quai Branly - Jacques-Chirac,
+* TGIR Huma-Num,
+
+
 
 ![Logos](/public/images/Partenaires.jpg)
