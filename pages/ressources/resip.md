@@ -38,7 +38,7 @@ A noter est aussi disponible le fichier .jar utilisable sous Linux ([32bits](htt
 
 * **un manuel utilisateur**
 
-La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien] (http://ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
+La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
 
 
 * **un jeux de tests**
