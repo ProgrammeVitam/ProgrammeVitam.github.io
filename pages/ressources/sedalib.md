@@ -22,7 +22,7 @@ Elle permet de :
 * Manipuler les métadonnées à bas niveau pour les ajouter, les enlever et les modifier
 * Exporter sous forme SIP ou hiérarchie disque
 
-Elle contient aussi un constructeur de haut-niveau (classe SIPBuilder) qui permet de construire des SIP avec des métadonnées riches en quelques appels.
+Elle contient aussi un **constructeur de haut-niveau** (classe **SIPBuilder**) qui permet de construire des SIP avec des métadonnées riches en quelques appels.
 
 Sont mis à dispostion :
 
