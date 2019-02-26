@@ -29,17 +29,17 @@ Sont mis à dispostion :
 
 * **le fichier jar**
 
-Il est accessible en [ici](http://download.programmevitam.fr/resip/1.1/sedalib-1.1.0.jar).
+Le .jar est [ici](http://download.programmevitam.fr/resip/1.1/sedalib-1.1.0.jar).
 
 
 * **la documentation**
 
-La JavaDoc de **sedalib** est [ici](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1). 
+La JavaDoc est [ici](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1). 
 
 Par ailleurs, dans le code vous trouverez des exemples d'utilisation, notamment de la classe SIPBuilder, dans 
-[sedalib-samples](https://github.com/ProgrammeVitam/sedalib-samples/src/main/java/fr/gouv/vitam/tools).
+[sedalib-samples](https://github.com/ProgrammeVitam/sedatools/tree/master/sedalib-samples/src/main/java/fr/gouv/vitam/tools).
 
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub, avec l'application ReSip qui utilise massivement sedalib : [SedaTools](https://github.com/ProgrammeVitam/sedatools)
+Il est accessible dans le dépot GitHub, au sein du depot sedatools qui contient aussi l'application [ReSip](/pages/ressources/resip) qui utilise massivement sedalib : [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/master/sedalib)
