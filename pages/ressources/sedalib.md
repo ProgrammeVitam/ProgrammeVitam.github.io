@@ -37,7 +37,7 @@ Le .jar est [ici](http://download.programmevitam.fr/resip/1.1/sedalib-1.1.0.jar)
 La JavaDoc est [ici](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1). 
 
 Par ailleurs, dans le code vous trouverez des exemples d'utilisation, notamment de la classe SIPBuilder, dans 
-[sedalib-samples](https://github.com/ProgrammeVitam/sedatools/tree/master/sedalib-samples/src/main/java/fr/gouv/vitam/tools).
+[sedalib-samples](https://github.com/ProgrammeVitam/sedatools/tree/master/sedalib-samples/src/main/java/fr/gouv/vitam/tools/sedalibsamples).
 
 
 * **le code développé**
