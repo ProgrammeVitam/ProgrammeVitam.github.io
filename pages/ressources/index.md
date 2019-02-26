@@ -114,28 +114,30 @@ Ils permettent de générer automatiquement à partir d’une simple arborescenc
 
 Cette publication vise à recueillir les déclarations d’intérêt des utilisateurs suite à leurs tests afin d'évaluer l'intérêt d'intégrer cet outil à la solution logicielle Vitam. Les retours sont possibles à l'adresse contact@programmevitam.fr
 
-Pour plus d'information, consultez la page [ReSIP](/pages/ressources/resip).
+Pour plus d'information, consultez les pages [ReSIP, IHM de manipulation de SIP](/pages/ressources/resip) et [sedalib, bibiliothèque java de manipulation de SIP](/pages/ressources/sedalib).
 
 Sont mis à dispostion :
 
-* **les exécutables**
+* **les exécutables windows et les jar**
 
-Ils sont accessibles dans la page [ReSIP](/pages/ressources/resip).
+Ils sont accessibles dans les pages [ReSIP](/pages/ressources/resip) et [sedalib](/pages/ressources/sedalib).
 
-Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable.
+Les exécutables nécessitent la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable.
 
 * **La documentation associée**
 
 Elle est accessible dans la page [Documentation](/pages/documentation).
 
-La documentation **ReSIP** décrit les fonctions de l'outil ReSIP et peut être consultée en suivant ce [lien] (http://ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
+La documentation **ReSIP** décrit les fonctions de l'outil ReSIP et peut être consultée en suivant ce [lien](http://ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
+
+La JavaDoc **sedalib** décrit les fonctions de la bibliothèque et peut être consultée en suivant ce [lien](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 La documentation **Spécification des SIP** - recommandations sur la construction des paquets
-à archiver peut être consultée en suivant ce [lien] ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
+à archiver peut être consultée en suivant ce [lien](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf)
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0)
+Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools)
 
 
 ## Présentation de la Première version de production de la solution logicielle Vitam
