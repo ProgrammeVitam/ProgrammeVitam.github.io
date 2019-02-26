@@ -3,7 +3,7 @@ layout: page
 title: Resip
 ---
 
-> Cette page présente le générateur ReSIP (version courante 1.1-SNAPSHOT compilée 24/02/2019).
+> Cette page présente le générateur ReSIP (version courante 1.1 compilée 25/02/2019).
 
 ## ReSIP
 
@@ -31,10 +31,10 @@ Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution
 nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable. 
 
 Il est accessible:
-  * en [64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/Resip%2064bits.zip) et si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) à ajouter
-  * en [32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/Resip%2032bits.zip) et si nécessaire la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter
+  * en [64bits](http://download.programmevitam.fr/resip/1.1/Resip%2064bits.zip) et si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) à ajouter
+  * en [32bits](http://download.programmevitam.fr/resip/1.1/Resip%2032bits.zip) et si nécessaire la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter
 
-A noter est aussi disponible le fichier .jar utilisable sous Linux ([32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jar%2032bits.zip) ou [64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jar%2064bits.zip)).
+A noter est aussi disponible le fichier .jar utilisable sous Linux ([32bits](http://download.programmevitam.fr/resip/1.1/jar%2032bits.zip) ou [64bits](http://download.programmevitam.fr/resip/1.1/jar%2064bits.zip)).
 
 * **un manuel utilisateur**
 
@@ -45,7 +45,7 @@ La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son 
 
 Il contient des hiérachie disque, SIP, DIP, csv... et toute une série de fichiers d'exemples importables et manipulable avec ReSIP.
 
-Il est accessible ([ici](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/ResipSamples.zip)).
+Il est accessible ([ici](http://download.programmevitam.fr/resip/1.1/ResipSamples.zip)).
 
 * **le code développé**
 
