@@ -31,6 +31,7 @@ et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
 * **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
 * **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_unite_archivistique.pdf))
+* **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Ontologie.pdf))
 * **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
 l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
 * **Services producteurs** - présentation des fonctionnalités associées à la
