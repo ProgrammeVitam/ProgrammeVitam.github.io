@@ -3,7 +3,7 @@ layout: page
 title: Resip
 ---
 
-> Cette page présente le générateur ReSIP (version courante 1.1 compilée 25/02/2019).
+> Cette page présente le générateur ReSIP (version courante 1.3.0-SNAPSHOT compilée le 24/03/2019).
 
 ## ReSIP
 
