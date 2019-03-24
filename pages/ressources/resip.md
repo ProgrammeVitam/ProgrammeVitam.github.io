@@ -31,8 +31,8 @@ Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution
 nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable. 
 
 Il est accessible:
-  * en [64bits](http://download.programmevitam.fr/resip/1.1/Resip%2064bits.zip) et si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) à ajouter
-  * en [32bits](http://download.programmevitam.fr/resip/1.1/Resip%2032bits.zip) et si nécessaire la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter
+  * en [64bits](http://download.programmevitam.fr/resip/1.3-SNAPSHOT/Resip%2064bits.zip) et si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) à ajouter
+  * en [32bits](http://download.programmevitam.fr/resip/1.3-SNAPSHOT/Resip%2032bits.zip) et si nécessaire la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter
 
 A noter est aussi disponible le fichier .jar utilisable sous Linux ([32bits](http://download.programmevitam.fr/resip/1.1/jar%2032bits.zip) ou [64bits](http://download.programmevitam.fr/resip/1.1/jar%2064bits.zip)).
 
