@@ -140,6 +140,18 @@ La documentation **Spécification des SIP** - recommandations sur la constructio
 Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools)
 
 
+## Présentation de la Deuxième version de production de la solution logicielle Vitam
+
+Une présentation de la deuxième version de production de la solution logicielle Vitam et des projets d'utlisation a eu lieu aux Archives nationales le 18 mars 2019, réunissant environ 280 personnes. Les supports de présentation sont consultables ci-dessous.
+
+Une première partie a permis de faire un point sur les fonctionnalités de la V2, et de présenter des démonstrations, en consacrant une large place à la préservation numérique : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf))
+
+Une seconde partie a fait un point d'actualités et un état d'avancement des projets d'utilisation de la solution logicielle Vitam par certains membres du Programme : Adamant (Ministère de la Culture/Archives nationales), Archipel (Ministère des Armées), Saphir (Ministère de l'Europe et des Affaires étrangères), Siamae (Ministère de la Transition Ecologique et Solidaire) : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_2_présentation_V2_2e_partie_VDiffusion.pdf)) et Vitamin (CEA) : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_3_présentation_V2_2e_partie_VITAMIN_VDiffusion.pdf))
+
+Une troisème partie était consacrée aux outils de préparation des versements d'archives numériques : Octave (Ministère de la Culture/SIAF), Archifiltre (Ministères sociaux), SedaTools (Vitam) : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_4_présentation_V2_3e_partie_préparation_versement_VDiffusion.pdf))
+
+
+
 ## Présentation de la Première version de production de la solution logicielle Vitam
 
 Une présentation de la Première version de production de la solution logicielle Vitam a eu lieu aux Archives nationales le 11 avril 2018, réunissant environ 250 personnes. Le support de présentation est consultable ici : ([pdf](/ressources/Doc1.0.0/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
