@@ -19,22 +19,60 @@ level: page
 
 Ces vidéos ont été diffusées lors de la journée de présentation de la V2 de la solution logicielle Vitam. Des compléments d'information sont disponibles dans le support de présentation de la première partie présentant les fonctionnalités de la V2, faisant une large place à la préservation numérique : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf))
 
-Démonstration 1 : Scénario Recherche par facette
+
+
+### Démonstration 1 : Scénario Recherche par facette
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b209S-qwN3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Démonstration 2 : Contrôle de l’indexation et des méta-données
+Etape | Description | Timing
+----- | ----------- | ------
+1. | 	Consulter dans le tenants  | 0:10.		
+2. | 	Chercher age ou beneficiary : ils n’existent pas. 	 | 00:28’
+3. | 	Montrer le json de l'ontologie mise à jour : age ou beneficiary existent bien.	 | 00:50
+4. | 	Se déconnecter du tenant 10 puis se connecter dans le tenant d’administration.	 | 01:15	
+5. | 	Bien avoir un Contrat permettant la « modification ».	 | 01:35	
+6. | 	Importer l’ontologie.	 | 01:45	
+7. | 	Reconnexion au tenant 10.	 | 02:05	
+8. | 	Rechercher age ou beneficiary : ils existent bien dans ontologie et sont indexés comme « EXTERNAL ».	 | 02:15	
+9. | 	Montrer le JSON des notices d'Archive Unit Profile (AUP).	 | 02:45
+10. | 	Consultation aucune notice d'AUP n'a été importée.	 | 03:06	
+11. | 	Import de la notice d'AUP.	 | 03:12	
+12. | 	Import OK / Consultation de la notice d'AUP.	 | 03:28	
+13. | 	Copier/coller le schéma de contrôle JSON (AUP) du dossier (il est possibilité de valider la qualité du json).	 | 03:48	
+14. | 	Copier/coller le schéma de contrôle JSON (AUP) du document.	 | 04 :17	
+15. | 	Consultation aucun profil d’archivage (profil Seda) n'a été importée. 	 | 05:20	
+16. | 	Montrer le fichier JSON de notice du profil d’archivage. 	 | 05:38	
+17. | 	Import de la notice notice du profil d’archivage.	 | 05:46	
+18. | 	Consulter la notice du profil d'archivage importée.	 | 05:55	
+19. | 	Montrer le profil d’archivage (fichier XML). 	 | 06:11	
+20. | 	Rattacher (importer) le profil d’archivage à la notice. 	 | 06:54	
+21. | 	Montrer le contrat d’entrée spécifique au dossier militaire. Il fait référence au profil d’archivage. 	 | 07:17	
+22. | 	Montrer le bordereau de versement (manifeste XML). Il référence : le contrat d’entrée, les 2 AUP, le profil d’archivage. 	 | 07:35	
+23. | 	Importer le paquet à archiver (SIP). Rappel : pour constituer le SIP, il est nécessaire de zipper ses éléments dans le dossier et non le dossier lui même).  | 08:25	
+24. | 	Rechercher le terme Némo. Ses métadonnées référencent l’AUP de pièce.	 | 09:01
+
+
+* Démonstration 2 : Contrôle de l’indexation et des méta-données
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SyOJMd3LEvc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Démonstration 3 : Mise à jour en masse – Modifier une métadonnée descriptive (titre)
+
+
+* Démonstration 3 : Mise à jour en masse – Modifier une métadonnée descriptive (titre)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mXH5dflQ3DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Démonstration 4 : Rattachement
+
+
+* Démonstration 4 : Rattachement
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mXH5dflQ3DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Démonstration 5 : Eliminations
+
+
+* Démonstration 5 : Eliminations
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YDaePDNOZ4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Démonstration 6 : Préservation - conversion de format
+
+
+* Démonstration 6 : Préservation - conversion de format
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N3SdPElTSDs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
