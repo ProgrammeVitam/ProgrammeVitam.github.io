@@ -8,11 +8,35 @@ level: page
 > Sont ici présentées des démonstrations vidéo de l'usage de Vitam ou du développement de certaines fonctionnalités
 
 ## Liste des vidéos
+* [Présentation des fonctionnalités de la V2 de la solution logicielle Vitam (Release 9)](#pres_R9)
 * [Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5(0.26.x)](#pres_R5)
 * [Présentation générale de Vitam et de l'usage des API sur la version Release 4(0.20.x)](#pres_R4)
 * [Présentation de l'usage des API sur la version Bêta](#pres_api_beta)
 
 <hr/>
+
+## Présentation des fonctionnalités de la V2 de la solution logicielle Vitam (Release 9)
+
+Ces vidéos ont été diffusées lors de la journée de présentation de la V2 de la solution logicielle Vitam. Des compléments d'information sont disponibles dans le support de présentation de la première partie présentant les fonctionnalités de la V2, faisant une large place à la préservation numérique : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf))
+
+Démonstration 1 : Scénario Recherche par facette
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b209S-qwN3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Démonstration 2 : Contrôle de l’indexation et des méta-données
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SyOJMd3LEvc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Démonstration 3 : Mise à jour en masse – Modifier une métadonnée descriptive (titre)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mXH5dflQ3DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Démonstration 4 : Rattachement
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mXH5dflQ3DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Démonstration 5 : Eliminations
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YDaePDNOZ4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Démonstration 6 : Préservation - conversion de format
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N3SdPElTSDs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5 (0.26.x)
 <a name="pres_R5"></a>
