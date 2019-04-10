@@ -161,6 +161,7 @@ Les vidéos des différentes fonctionnalités de la V2, diffusées lors de cette
 
 
 **Les actualités des projets d'implémentation**
+
 Une deuxième partie a fait un point d'actualités et un état d'avancement des projets d'utilisation de la solution logicielle Vitam : 
 * Adamant (Ministère de la Culture/Archives nationales), 
 * Archipel (Ministère des Armées), 
@@ -172,6 +173,7 @@ Une deuxième partie a fait un point d'actualités et un état d'avancement des 
 
 
 **Les outils de préparation des versements**
+
 Une troisème partie était consacrée aux outils de préparation des versements d'archives numériques : 
 * Octave (Ministère de la Culture/SIAF), 
 * Archifiltre (Ministères sociaux), 
