@@ -144,9 +144,9 @@ Il est accessible dans le dépot GitHub [SedaTools](https://github.com/Programme
 
 Une présentation de la deuxième version de production de la solution logicielle Vitam et des projets d'utlisation a eu lieu aux Archives nationales le 18 mars 2019, réunissant environ 280 personnes. Les supports de présentation sont consultables ci-dessous.
 
-Une première partie a permis de faire un point sur les fonctionnalités de la V2, et de présenter des démonstrations, en consacrant une large place à la préservation numérique : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf))
+Une première partie a permis de faire un point sur les fonctionnalités de la V2, et de présenter des démonstrations, en consacrant une large place à la préservation numérique : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf)).
 
-Les vidéos des différentes fonctionnalités de la V2, diffusées lors de cette session, sont aceesibles sur la page Démonstration.
+Les vidéos des différentes fonctionnalités de la V2, diffusées lors de cette session, sont accessibles sur la page [Démonstration](/pages/demonstration).
 
 Une seconde partie a fait un point d'actualités et un état d'avancement des projets d'utilisation de la solution logicielle Vitam par certains membres du Programme : Adamant (Ministère de la Culture/Archives nationales), Archipel (Ministère des Armées), Saphir (Ministère de l'Europe et des Affaires étrangères), Siamae (Ministère de la Transition Ecologique et Solidaire) : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_2_présentation_V2_2e_partie_VDiffusion.pdf)) et Vitamin (CEA) : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_3_présentation_V2_2e_partie_VITAMIN_VDiffusion.pdf))
 
