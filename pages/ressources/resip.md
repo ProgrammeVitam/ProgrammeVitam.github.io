@@ -49,4 +49,4 @@ Il est accessible ([ici](http://download.programmevitam.fr/resip/1.1/ResipSample
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub avec la bibliothèque sedalib sur laquelle il s'appuie en version stable 1.0: [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/1.0.0)
+Il est accessible dans le dépot GitHub avec la bibliothèque sedalib [SedaTools](https://github.com/ProgrammeVitam/sedatools)
