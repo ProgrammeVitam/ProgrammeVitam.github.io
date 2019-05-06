@@ -128,7 +128,7 @@ Les exécutables nécessitent la présence de java 8 sur le poste ou à défaut 
 
 Elle est accessible dans la page [Documentation](/pages/documentation).
 
-La documentation **ReSIP** décrit les fonctions de l'outil ReSIP et peut être consultée en suivant ce [lien](http://ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
+La documentation **ReSIP** décrit les fonctions de l'outil ReSIP et peut être consultée en suivant ce [lien](/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
 
 La JavaDoc **sedalib** décrit les fonctions de la bibliothèque et peut être consultée en suivant ce [lien](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
