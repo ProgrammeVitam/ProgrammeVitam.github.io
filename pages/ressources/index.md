@@ -29,6 +29,11 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 Liens de téléchargement :
 
+**Version 2.6.1 (Release R10)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.6.1/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.6.1/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.6.1/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.6.1/deb/vitam-external/)).
+  
+
 **Version 2.1.6 (Release R9.6)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.6/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.6/deb/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.6/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.6/deb/vitam-external/)).
@@ -43,17 +48,13 @@ Liens de téléchargement :
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.17/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.17/deb/vitam-product/)).
 
 
-**Version 1.0.13 (Release 6.13)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.13/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.13/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.0.13/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.0.13/rpm/vitam-external/)).
-
-
 A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/apt).
 
 * **une machine virtuelle**
 
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
+
 
 La VM de la version 2.6.1 (Release 10) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.ova).
 L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.sha256).
@@ -67,8 +68,6 @@ L'empreinte sha256 de la VM est disponible à cette url: (http://download.progra
 La VM de la version 1.4.17. (Release 7) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.17/VM/demo_vitam_1.4.17.ova).
 L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.4.17/VM/demo_vitam_1.4.17.sha256).
 
-La VM de la version 1.0.13. (Release 6 corrigée) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova).
-L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.0.13/VM/demo_vitam_1.0.13.ova.sha256).
 
 
 * **la documentation fonctionnelle et technique**
@@ -85,10 +84,10 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiels et paquets SIP:
 
 * **Fichiers d'exemples du kit de prise en main**
-([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R9.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
+([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeux_de_tests_fonctionnels_RELEASE9_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
+([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeux_de_tests_fonctionnels_RELEASE10_SEDA2.1.zip)) Ces éléments vous permettent de jouer les tests du cahier de test ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
 
 
 ## Outils de préservation Vitam
@@ -99,12 +98,12 @@ Sont mis à dispostion :
 
 * **les exécutables**
 
-* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/griffins/1.0.0/rpm/))
-* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/griffins/1.0.0/deb/))
+* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.5.0/rpm/))
+* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.5.0/deb/))
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.0.0)
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.5.0)
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
