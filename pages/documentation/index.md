@@ -61,7 +61,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.6.1.pdf) \| [html](/ressources/DocCourante/html/archi))
 * **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.6.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
 * **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.6.1.pdf) \| [html](/ressources/DocCourante/html/installation))
-* **Documentation de montées de version (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.6.1.pdf) \| [html](/ressources/DocCourante/html/migration))
+* **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.6.1.pdf) \| [html](/ressources/DocCourante/html/migration))
 
 ## Documentation développeur
 
@@ -74,7 +74,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/))
 * **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.2.6.1.pdf)
-* **sedalib** ([html]http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
+* **Sedalib** ([html] (/http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 
 <hr/>
