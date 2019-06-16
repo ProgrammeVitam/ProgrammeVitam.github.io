@@ -20,7 +20,6 @@ de développement.
 ## Documentation métier
 
 * **Manuel utilisateur** ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf)
-\| [html](/ressources/Doc2.1.1/html/manuel-utilisateur)) - Version HTML à venir
 * **Organisation de l'information** - présentation des exigences fonctionnelles
 et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Organisation_de_l_information.pdf))
@@ -40,7 +39,7 @@ notion de service producteur ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITA
 * **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
 ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Modele_de_workflow.pdf) \| [html](/ressources/Doc2.1.1/html/workflow-model)) - Version HTML à venir
+ opérations ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Modele_de_workflow.pdf)
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Valeur_probante.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_manuel_ReSIP.pdf))
 
@@ -48,7 +47,6 @@ notion de service producteur ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITA
 ## Documentation des tests
 
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_IHM_Recette.pdf)
-\| [html](/ressources/Doc2.1.1/html/ihm-recette)) - Version HTML à venir
 * **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeux_de_tests_fonctionnels_RELEASE9_SEDA2.1.zip))
 
 
@@ -65,7 +63,7 @@ notion de service producteur ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITA
 * **Javadoc** ([html](/ressources/Doc2.1.1/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc2.1.1/pdf/vitam-manuel-integration.2.1.1.pdf) \| [html](/ressources/Doc2.1.1/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Modele_de_donnees.pdf) \| [html](/ressources/Doc2.1.1/html/data-model)) - Version HTML à venir
+([pdf](/ressources/Doc2.1.1/autres/fonctionnel/VITAM_Modele_de_donnees.pdf)
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc2.1.1/raml/externe/))
 * **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc2.1.1/pdf/vitam-manuel-developpement.2.1.1.pdf)
 \| [html](/ressources/Doc2.1.1/html/manuel-dev))
