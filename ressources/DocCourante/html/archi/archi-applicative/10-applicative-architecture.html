@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.1. Architecture applicative &mdash; Documentation VITAM - Architecture 2.1.1</title>
+  <title>4.1. Architecture applicative &mdash; Documentation VITAM - Architecture 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="4.2. Architecture des données &amp; multisite" href="11-data-architecture-multisite.html" />
     <link rel="prev" title="4. Architecture applicative" href="_toc.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -174,15 +186,15 @@
 <h1>4.1. Architecture applicative<a class="headerlink" href="#architecture-applicative" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="drivers-de-l-architecture">
 <h2>4.1.1. Drivers de l’architecture<a class="headerlink" href="#drivers-de-l-architecture" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les principes d’implémentation applicative ont pour but de faciliter, voire d’assurer les enjeux auxquels le système VITAM est confronté :</p>
+<p>Les principes d’implémentation applicative ont pour but de faciliter, voire d’assurer les enjeux auxquels la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est confrontée :</p>
 <ul>
-<li><p class="first">Modèle Open-Source pour la réutilisation dans la sphère publique ainsi que pour conserver la maîtrise dans le temps du socle logiciel ;</p>
+<li><p class="first">Modèle <em>Open-Source</em> pour la réutilisation dans la sphère publique ainsi que pour conserver la maîtrise dans le temps du socle logiciel ;</p>
 </li>
 <li><p class="first">Couplage lâche entre les composants ;</p>
 </li>
 <li><p class="first">Nécessité de pouvoir disposer de composants de générations différentes rendant un même service ;</p>
 </li>
-<li><p class="first">Usage d’API REST pour la communication entre composants internes à VITAM, ainsi qu’en extrême majorité pour les services exposés à l’extérieur ;</p>
+<li><p class="first">Usage d’API <a class="reference internal" href="../introduction.html#term-rest"><span class="xref std std-term">REST</span></a> pour la communication entre composants internes à <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, ainsi qu’en extrême majorité pour les services exposés à l’extérieur ;</p>
 </li>
 <li><p class="first">Exploitabilité de la solution&nbsp;: limiter le coût d’entrée et de maintenance en&nbsp;:</p>
 <blockquote>
@@ -198,7 +210,7 @@
 <div class="section" id="services">
 <h2>4.1.2. Services<a class="headerlink" href="#services" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est découpée en services autonomes interagissant pour permettre de rendre le service global ; ce découpage applicatif suit en grande partie le découpage présenté plus haut dans l’architecture fonctionnelle.</p>
-<p>Les schémas suivants présentent l’architecture applicative et les flux d’informations entre composants. Tous les composants jaunes sont fournis dans le cadre de la solution VITAM ; tous sont requis pour le bon fonctionnement de la solution, à l’exception de deux d’entre eux : ihm-demo et storage-offer-default (selon les choix de déploiement). Enfin, chaque service possède un nom propre qui l’identifie de manière unique au sein de la solution logicielle VITAM.</p>
+<p>Les schémas suivants présentent l’architecture applicative et les flux d’informations entre composants. Tous les composants jaunes sont fournis dans le cadre de la solution logicielle VITAM ; tous sont requis pour le bon fonctionnement de la solution, à l’exception de deux d’entre eux : <code class="docutils literal notranslate"><span class="pre">ihm-demo</span></code> et <code class="docutils literal notranslate"><span class="pre">storage-offer-default</span></code> (selon les choix de déploiement). Enfin, chaque service possède un nom propre qui l’identifie de manière unique au sein de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/vitam-applicative-architecture-legend.svg" src="../_images/vitam-applicative-architecture-legend.svg" /><p class="caption"><span class="caption-text">Architecture applicative : légende</span></p>
 </div>
@@ -216,7 +228,7 @@
 </div>
 <p>Les services sont organisés en zones logiques :</p>
 <ul>
-<li><p class="first">Les API externes contiennent les services exposés aux clients (ex: à un SIA) ; tout accès externe au système VITAM doit passer par eux. Ils sont responsables notamment de la validation de l’authentification des systèmes externes, de la validation du droit d’accès aux API internes et de l’appel des API internes (principe d’API-Gateway);</p>
+<li><p class="first">Les <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> externes contiennent les services exposés aux clients (ex: à un <a class="reference internal" href="../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a>) ; tout accès externe à la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doit passer par eux. Ils sont responsables notamment de la validation de l’authentification des systèmes externes, de la validation du droit d’accès aux API internes et de l’appel des API internes (principe d’API-Gateway);</p>
 </li>
 <li><p class="first">Les services métiers internes hébergent la logique métier de gestion des archives ; ils se subdivisent en :</p>
 <blockquote>
@@ -261,7 +273,7 @@
         <a href="11-data-architecture-multisite.html" class="btn btn-neutral float-right" title="4.2. Architecture des données &amp; multisite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="_toc.html" class="btn btn-neutral" title="4. Architecture applicative" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="_toc.html" class="btn btn-neutral float-left" title="4. Architecture applicative" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -287,36 +299,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -32,7 +32,6 @@ Une deuxième partie a fait un point d'actualités et un état d'avancement des 
 * et Vitam/in (CEA)
 	* La présentation de ce projet est consultable en suivant ce lien : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_3_présentation_V2_2e_partie_VITAMIN_VDiffusion.pdf))
 
-
 ## Les outils de préparation des versements
 Une troisème partie était consacrée aux outils de préparation des versements d'archives numériques : 
 * Octave (Ministère de la Culture/SIAF), 

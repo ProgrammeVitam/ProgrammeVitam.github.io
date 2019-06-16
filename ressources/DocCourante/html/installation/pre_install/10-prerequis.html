@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 2.1.1</title>
+  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="3.3. Récupération de la version" href="31-get_version.html" />
     <link rel="prev" title="3.1. Expertises requises" href="01-prerequis-competences-link.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -99,15 +111,17 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#materiel">3.2.4. Matériel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#librairie-de-cartouches-pour-offre-froide">3.2.5. Librairie de cartouches pour Offre Froide</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="31-get_version.html">3.3. Récupération de la version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/_toc.html">4. Procédures d’installation / mise à jour</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour de la configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../post_install/_toc.html">6. Post installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../annexes/_toc.html">7. Annexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade/_toc.html">7. Montée de version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/_toc.html">8. Annexes</a></li>
 </ul>
 
             
@@ -180,15 +194,15 @@
 <div class="section" id="base-commune">
 <h2>3.2.1. Base commune<a class="headerlink" href="#base-commune" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>Tous les serveurs hébergeant la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doivent êre synchronisés sur un serveur de temps (pas de stratum 10)</li>
+<li>Tous les serveurs hébergeant la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doivent êre synchronisés sur un serveur de temps (pas de <em>stratum</em> 10)</li>
 <li>Disposer de la solution de déploiement basée sur ansible</li>
 </ul>
 <p>Le déploiement est orchestré depuis un poste ou serveur d’administration ; les pré-requis suivants doivent y être présents&nbsp;:</p>
 <ul class="simple">
 <li>packages nécessaires :<ul>
-<li>ansible (version <strong>2.7</strong> minimale et conseillée ; se référer à la <a class="reference external" href="http://docs.ansible.com/ansible/latest/intro_installation.html">documentation ansible</a> pour la procédure d’installation)</li>
-<li>openssh-clients (client SSH utilisé par ansible)</li>
-<li>java-1.8.0-openjdk &amp; openssl (du fait de la génération de certificats / stores, l’utilitaire <code class="docutils literal notranslate"><span class="pre">keytool</span></code> est nécessaire)</li>
+<li><strong>ansible</strong> (version <strong>2.7</strong> minimale et conseillée ; se référer à la <a class="reference external" href="http://docs.ansible.com/ansible/latest/intro_installation.html">documentation ansible</a> pour la procédure d’installation)</li>
+<li><strong>openssh-client</strong> (client SSH utilisé par ansible)</li>
+<li><strong>java-1.8.0-openjdk</strong> et <strong>openssl</strong> (du fait de la génération de certificats / <em>stores</em>, l’utilitaire <code class="docutils literal notranslate"><span class="pre">keytool</span></code> est nécessaire)</li>
 </ul>
 </li>
 <li>un accès ssh vers un utilisateur d’administration avec élévation de privilèges vers les droits root, vitam, vitamdb sur les serveurs cibles.</li>
@@ -200,20 +214,24 @@
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">Les IP des machines sur lesquelles la solution Vitam sera installée ne doivent pas changer d’IP au cours du temps, en cas de changement d’IP, la plateforme ne pourra plus fonctionner.</p>
+<p class="last">Les adresses <a class="reference internal" href="../introduction.html#term-ip"><span class="xref std std-term">IP</span></a> des machines sur lesquelles la solution Vitam sera installée ne doivent pas changer d’IP au cours du temps, en cas de changement d’IP, la plateforme ne pourra plus fonctionner.</p>
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">dans le cadre de l’installation des packages «&nbsp;extra&nbsp;», il est nécessaire, pour les partitions hébergeant des containeurs docker (mongo-express, head), qu’elles aient un accès internet.</p>
+<p class="last">Dans le cadre de l’installation des packages «&nbsp;extra&nbsp;», il est nécessaire, pour les partitions hébergeant des containeurs docker (mongo-express, head), qu’elles aient un accès internet (installation du paquet officiel <code class="docutils literal notranslate"><span class="pre">docker</span></code>, récupération des images).</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Dans le cadre de l’installation des packages «&nbsp;extra&nbsp;», il est nécessaire, pour les partitions hébergeant le composant <code class="docutils literal notranslate"><span class="pre">ihm-recette</span></code>, qu’elles aient un accès internet (installation du package git-lfs ; récupération des <a class="reference internal" href="../introduction.html#term-tnr"><span class="xref std std-term">TNR</span></a> depuis un dépôt git).</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">dans le cas d’une installation du composant <code class="docutils literal notranslate"><span class="pre">vitam-offer</span></code> en <code class="docutils literal notranslate"><span class="pre">filesystem-hash</span></code>, il est fortement recommandé d’employer un système de fichiers <code class="docutils literal notranslate"><span class="pre">xfs</span></code> pour le stockage des données. Se référer au <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a> pour connaître la structuration des filesystems dans <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. En cas d’utilisation d’un autre type, s’assurer que le filesystem possède/gère bien l’option <code class="docutils literal notranslate"><span class="pre">user_xattr</span></code>.</p>
+<p class="last">Dans le cas d’une installation du composant <code class="docutils literal notranslate"><span class="pre">vitam-offer</span></code> en <code class="docutils literal notranslate"><span class="pre">filesystem-hash</span></code>, il est fortement recommandé d’employer un système de fichiers <code class="docutils literal notranslate"><span class="pre">xfs</span></code> pour le stockage des données. Se référer au <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a> pour connaître la structuration des <em>filesystems</em> dans la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. En cas d’utilisation d’un autre type, s’assurer que le filesystem possède/gère bien l’option <code class="docutils literal notranslate"><span class="pre">user_xattr</span></code>.</p>
 </div>
 </div>
 <div class="section" id="pki">
 <h2>3.2.2. PKI<a class="headerlink" href="#pki" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La solution VITAM nécessite des certificats pour son bon fonctionnement (cf. <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a> pour la liste des secrets et <a class="reference internal" href="../annexes/10-overview_certificats.html"><span class="doc">Vue d’ensemble de la gestion des certificats</span></a> pour une vue d’ensemble de leur usage.) La gestion de ces certificats, par le biais d’une ou plusieurs PKI, est à charge de l’équipe d’exploitation. La mise à disposition des certificats et des chaînes de validation CA, placés dans les répertoires de déploiement adéquats, est un pré-requis à tout déploiement en production de la solution VITAM.</p>
+<p>La solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> nécessite des certificats pour son bon fonctionnement (cf. <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a> pour la liste des secrets et <a class="reference internal" href="../annexes/10-overview_certificats.html"><span class="doc">Vue d’ensemble de la gestion des certificats</span></a> pour une vue d’ensemble de leur usage.) La gestion de ces certificats, par le biais d’une ou plusieurs <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a>, est à charge de l’équipe d’exploitation. La mise à disposition des certificats et des chaînes de validation <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a>, placés dans les répertoires de déploiement adéquats, est un pré-requis à tout déploiement en production de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">Voir aussi</p>
 <p class="last">Veuillez vous référer à la section <a class="reference internal" href="../annexes/10-overview_certificats.html"><span class="doc">Vue d’ensemble de la gestion des certificats</span></a> pour la liste des certificats nécessaires au déploiement de la solution VITAM, ainsi que pour leurs répertoires de déploiement.</p>
@@ -229,11 +247,11 @@
 <p>SELinux doit être configuré en mode <code class="docutils literal notranslate"><span class="pre">permissive</span></code> ou <code class="docutils literal notranslate"><span class="pre">disabled</span></code>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">En cas de changement de mode SELinux, redémarrer les machines pour la bonne prise en compte de la modification.</p>
+<p class="last">En cas de changement de mode SELinux, redémarrer les machines pour la bonne prise en compte de la modification avant de lancer le déploiement.</p>
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">En cas d’installation initiale, les utilisateurs et groupes systèmes (noms et UID) utilisés par VITAM (et listés dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>) ne doivent pas être présents sur les serveurs cible. Ces comptes sont créés lors de l’installation de VITAM et gérés par VITAM.</p>
+<p class="last">En cas d’installation initiale, les utilisateurs et groupes systèmes (noms et <a class="reference internal" href="../introduction.html#term-uid"><span class="xref std std-term">UID</span></a>) utilisés par VITAM (et listés dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>) ne doivent pas être présents sur les serveurs cible. Ces comptes sont créés lors de l’installation de VITAM et gérés par VITAM.</p>
 </div>
 <div class="section" id="deploiement-sur-environnement-centos">
 <h3>3.2.3.1. Déploiement sur environnement CentOS<a class="headerlink" href="#deploiement-sur-environnement-centos" title="Lien permanent vers ce titre">¶</a></h3>
@@ -245,7 +263,8 @@
 <li>un accès à un dépôt (ou son miroir) CentOS 7 (base et extras) et EPEL 7</li>
 </ul>
 </li>
-<li>Disposer des binaires VITAM : paquets RPM de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec Vitam (vitam-external)</li>
+<li>Disposer des binaires VITAM : paquets RPM de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec VITAM (vitam-external)</li>
+<li>Disposer, si besoin, des binaires pour l’installation des <em>griffins</em></li>
 </ul>
 </div>
 <div class="section" id="deploiement-sur-environnement-debian">
@@ -259,7 +278,8 @@
 <li>un accès internet, car le dépôt docker sera ajouté</li>
 </ul>
 </li>
-<li>Disposer des binaires VITAM : paquets deb de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec Vitam (vitam-external)</li>
+<li>Disposer des binaires VITAM : paquets deb de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec VITAM (vitam-external)</li>
+<li>Disposer, si besoin, des binaires pour l’installation des <em>griffins</em></li>
 </ul>
 </div>
 </div>
@@ -268,13 +288,21 @@
 <p>Les prérequis matériel sont définis dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a> ; à l’heure actuelle, le minimum recommandé pour la solution Vitam est 2 CPUs. Il également est recommandé de prévoir (paramétrage par défaut à l’installation) 512Mo de RAM disponible par composant applicatif <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> installé sur chaque machine (hors elasticsearch et mongo).</p>
 <p>Concernant l’espace disque, à l’heure actuelle, aucun pré-requis n’a été défini ; cependant, sont à prévoir par la suite des espaces de stockage conséquents pour les composants suivants :</p>
 <ul class="simple">
-<li>storage-offer-default</li>
+<li>offer</li>
 <li>solution de centralisation des logs (elasticsearch)</li>
 <li>workspace</li>
 <li>worker (temporairement, lors du traitement de chaque fichier à traiter)</li>
-<li>elasticsearch des données Vitam</li>
+<li>cluster elasticsearch des données <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a></li>
 </ul>
 <p>L’arborescence associée sur les partitions associées est : <code class="docutils literal notranslate"><span class="pre">/vitam/data/&lt;composant&gt;</span></code></p>
+</div>
+<div class="section" id="librairie-de-cartouches-pour-offre-froide">
+<h2>3.2.5. Librairie de cartouches pour Offre Froide<a class="headerlink" href="#librairie-de-cartouches-pour-offre-froide" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Des prérequis sont à réunir pour utiliser l’offre froide de stockage «&nbsp;tape-library&nbsp;» définie dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>.</p>
+<ul class="simple">
+<li>La librairie doit être opérationnelle et chargée en cartouche.</li>
+<li>La librairie et les lecteurs doivent déjà être disponibles sur la machine devant supporter une instance de ce composant. La commande <code class="docutils literal notranslate"><span class="pre">lsscsi</span> <span class="pre">-g</span></code> peut permettre de vérifier si des périphériques sont détectés.</li>
+</ul>
 </div>
 </div>
 
@@ -289,7 +317,7 @@
         <a href="31-get_version.html" class="btn btn-neutral float-right" title="3.3. Récupération de la version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="01-prerequis-competences-link.html" class="btn btn-neutral" title="3.1. Expertises requises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="01-prerequis-competences-link.html" class="btn btn-neutral float-left" title="3.1. Expertises requises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -315,36 +343,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

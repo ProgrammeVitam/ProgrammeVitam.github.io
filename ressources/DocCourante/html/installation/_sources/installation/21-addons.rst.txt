@@ -12,9 +12,7 @@ Paramétrages supplémentaires
 Tuning JVM
 ==========
 
-.. note:: Cette section est en cours de développement.
-
-.. caution:: en cas de colocalisation, bien prendre en compte la taille :term:`JVM` de chaque composant (VITAM : -Xmx512m par défaut) pour éviter de `swapper`.
+.. caution:: En cas de colocalisation, bien prendre en compte la taille :term:`JVM` de chaque composant (VITAM : ``-Xmx512m`` par défaut) pour éviter de `swapper`.
 
 
 Un `tuning` fin des paramètres JVM de chaque composant :term:`VITAM` est possible.
@@ -26,12 +24,14 @@ Pour chaque composant, il est possible de modifier ces 3 variables:
 * gc: parmètres gc
 * java: autres paramètres java
 
-Installation des greffons
-==========================
+Installation des *griffins* (greffons de préservation)
+======================================================
 
-.. note:: Fonctionnalité apparue en R9.
+.. note:: Fonctionnalité disponible partir de la R9 (2.1.1) .
 
-Il est possible de choisir les greffons installables sur la plate-forme. Pour cela, il faut éditer le contenu du fichier ``environments/group_vars/all/vitam-vars.yml`` au niveau de la directive ``vitam_griffins``. Cette action est à rapprocher de l'incorporation des binaires d'installation : les binaires d'installation des greffons doivent être accessibles par les machines hébergeant le composant **worker**.
+.. caution:: Cette version de :term:`VITAM` ne mettant pas encore en oeuvre de mesure d'isolation particulière des *griffins*, il est recommandé de veiller à ce que l'usage de chaque *griffin* soit en conformité avec la politique de sécurité de l'entité. Il est en particulier déconseillé d'utiliser un griffon qui utiliserait un outil externe qui n'est plus maintenu.
+
+Il est possible de choisir les *griffins* installables sur la plate-forme. Pour cela, il faut éditer le contenu du fichier ``environments/group_vars/all/vitam-vars.yml`` au niveau de la directive ``vitam_griffins``. Cette action est à rapprocher de l'incorporation des binaires d'installation : les binaires d'installation des greffons doivent être accessibles par les machines hébergeant le composant **worker**.
 
 Exemple::
 
@@ -42,6 +42,8 @@ Voici la liste des greffons disponibles au moment de la présente publication :
 
 .. literalinclude:: liste_griffins.txt
    :language: text
+
+.. warning:: Ne pas oublier d'avoir déclaré au préalable sur les machines cibles le dépôt de binaires associé aux *griffins*.
 
 Paramétrage de l'antivirus (ingest-externe)
 ===========================================
@@ -63,23 +65,32 @@ L'antivirus utilisé par ingest-externe est modifiable (par défaut, ClamAV) ; p
 
 .. caution:: En cas de remplacement de clamAV par un autre antivirus, l'installation de celui-ci devient dès lors un prérequis de l'installation et le script doit être testé.
 
-.. warning:: Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l'antivirus soit fonctionnel, il est nécessaire, durant l'installation, de la télécharger ; il est donc nécessaire de renseigner dans l'inventaire la directive ``http_proxy_environnement``.
+.. warning:: Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l'antivirus soit fonctionnel, il est nécessaire, durant l'installation, de le télécharger ; il est donc nécessaire de renseigner dans l'inventaire la directive ``http_proxy_environnement``.
 
 Paramétrage des certificats externes (\*-externe)
 =================================================
 
 Se reporter au chapitre dédié à la gestion des certificats: :doc:`20-certificats`
 
-Placer "hors Vitam" le composant ihm-demo 
+Placer "hors Vitam" le composant ihm-demo
 =========================================
 
-Sous ``deployment/environments/host_vars``, créer ou éditer un fichier nommé par le nom de machine hébergeant le composant ihm-demo et ajouter le contenu ci-dessous ::
+Sous ``deployment/environments/host_vars``, créer ou éditer un fichier nommé par le nom de machine qui héberge le composant ihm-demo et ajouter le contenu ci-dessous ::
 
    consul_disabled: true
 
 A l'issue, le déploiement n'installera pas l'agent Consul. Le composant ihm-demo appellera, alors, par l'adresse IP de services les composants "access-external" et "ingest-external".
 
-Il est également fortement recommandé de positionner la valeur de la directive ``vitam.ihm_demo.metrics_enabled`` à  ``false`` dans le fichier ``deployment/environments/group_vars/all/vitam_vars.yml``, afin que ce composant ne tente pas d'envoyer de données sur "elasticsearch-log".
+Il est également fortement recommandé de positionner la valeur de la directive ``vitam.ihm_demo.metrics_enabled`` à  ``false`` dans le fichier ``deployment/environments/group_vars/all/vitam_vars.yml``, afin que ce composant ne tente pas d'envoyer des données sur "elasticsearch-log".
+
+Paramétrer le ``secure_cookie`` pour ihm-demo
+=============================================
+
+Le composant ihm-demo (ainsi qu'ihm-recette) dispose d'une option suplémentaire par rapport aux autres composants vitam dans le fichier ``deployment/environments/group_vars/all/vitam_vars.yml``: le ``secure_cookie`` qui permet de renforcer ces deux ihm contre certaines attaques assez répandues comme les CSRF.
+
+Il faut savoir que si cette variable est à true (valeur par défaut), le client doit obligatoirement sec connecter en https sur l'ihm, et ce même si un reverse proxy se trouve entre le serveur web et le client.
+
+Cela peut donc obliger le reverse proxy frontal de la chaine d'accès à écouter en https.
 
 
 Paramétrage de la centralisation des logs Vitam
@@ -87,8 +98,8 @@ Paramétrage de la centralisation des logs Vitam
 
 2 cas sont possibles :
 
-* Utiliser le sous-système de gestion des logs fournis par la solution logicielle VITAM ;
-* Utiliser un SIEM tiers.
+* Utiliser le sous-système de gestion des logs fourni par la solution logicielle VITAM ;
+* Utiliser un :term:`SIEM` tiers.
 
 Gestion par Vitam
 -------------------
@@ -99,8 +110,8 @@ Pour une gestion des logs par Vitam, il est nécessaire de déclarer les serveur
     - hosts-elasticsearch-log
 
 
-Redirection des logs sur un SIEM tiers
---------------------------------------
+Redirection des logs sur un :term:`SIEM` tiers
+----------------------------------------------
 
 En configuration par défaut, les logs Vitam sont tout d'abord routés vers un serveur rsyslog installé sur chaque machine.
 Il est possible d'en modifier le routage, qui par défaut redirige vers le serveur logstash via le protocole syslog en TCP.
@@ -108,6 +119,98 @@ Il est possible d'en modifier le routage, qui par défaut redirige vers le serve
 Pour cela, il est nécessaire de placer un fichier de configuration dédié dans le dossier ``/etc/rsyslog.d/`` ; ce fichier sera automatiquement pris en compte par rsyslog. Pour la syntaxe de ce fichier de configuration rsyslog, se référer à la `documentation rsyslog <http://www.rsyslog.com/doc/v7-stable/>`_.
 
 .. tip:: Pour cela, il peut être utile de s'inspirer du fichier de référence VITAM ``deployment/ansible-vitam/roles/rsyslog/templates/vitam_transport.conf.j2`` (attention, il s'agit d'un fichier template ansible, non directement convertible en fichier de configuration sans en ôter les directives jinja2).
+
+Passage des identifiants des référentiels en mode `esclave`
+===========================================================
+
+La génération des identifiants des référentiels est géré par Vitam quand il fonctionne en mode maître.
+
+Par exemple :
+
+- Préfixé par PR- pour les profils
+- Préfixé par IC- pour les contrats d'entrée
+- Préfixé par AC- pour les contrats d'accès
+
+Si vous souhaitez gérer vous-même les identifiants sur un service référentiel, il faut qu'il soit en mode esclave.
+Par défaut tous les services référentiels de Vitam fonctionnent en mode maître. Pour désactiver le mode maître de :term:`VITAM`, il faut modifier le fichier ansible ``deployment/ansible-vitam/roles/vitam/templates/functional-administration/functional-administration.conf.j2``.
+
+Exemple du fichier par défaut :
+
+.. literalinclude:: ../../../../deployment/ansible-vitam/roles/vitam/templates/functional-administration/functional-administration.conf.j2
+     :language: yaml
+     :linenos:
+
+
+Un exemple de ce fichier se trouve dans la Documentation d’exploitation au chapitre "Exploitation des composants de la solution logicielle VITAM".
+
+.. code-block:: text
+
+ # ExternalId configuration
+
+ listEnableExternalIdentifiers:
+  0:
+    - INGEST_CONTRACT
+    - ACCESS_CONTRACT
+  1:
+    - INGEST_CONTRACT
+    - ACCESS_CONTRACT
+    - PROFILE
+    - SECURITY_PROFILE
+    - CONTEXT
+
+Depuis la version 1.0.4, la configuration par défaut de Vitam autorise des identifiants externes (ceux qui sont dans le fichier json importé).
+
+ - pour le tenant 0 pour les référentiels : contrat d'entrée et contrat d'accès.
+ - pour le tenant 1 pour les référentiels : contrat d'entrée, contrat d'accès, profil, profil de sécurité et contexte.
+
+La liste des choix possibles, pour chaque tenant, est :
+
+  - INGEST_CONTRACT : contrats d'entrée
+  - ACCESS_CONTRACT : contrats d'accès
+  - PROFILE : profils :term:`SEDA`
+  - SECURITY_PROFILE : profils de sécurité (utile seulement sur le tenant d'administration)
+  - CONTEXT : contextes applicatifs (utile seulement sur le tenant d'administration)
+  - ARCHIVEUNITPROFILE : profils d'unités archivistiques
+
+Durées minimales permettant de contrôler les valeurs saisies
+==============================================================
+
+Afin de se prémunir contre une alimentation du référentiel des règles de gestion avec des durées trop courtes susceptibles de déclencher des actions indésirables sur la plate-forme (ex. éliminations) – que cette tentative soit intentionnelle ou non –, la solution logicielle :term:`VITAM` vérifie que l’association de la durée et de l’unité de mesure saisies pour chaque champ est supérieure ou égale à une durée minimale définie lors du paramétrage de la plate-forme, dans un fichier de configuration.
+
+Pour mettre en place le comportement attendu par le métier, il faut modifier le contenu de la directive ``listMinimumRuleDuration`` dans le fichier ansible ``deployment/ansible-vitam/roles/vitam/templates/functional-administration/functional-administration.conf.j2``.
+
+Exemple::
+
+  listMinimumRuleDuration:
+    2:
+      AppraisalRule : 1 year
+      DisseminationRule : 10 year
+
+    3:
+      AppraisaleRule : 5 year
+      StorageRule : 5 year
+      ReuseRule : 2 year
+
+
+Par tenant, les directives possibles sont :
+
+- AppraisalRule
+- DisseminationRule
+- StorageRule
+- ReuseRule
+- AccessRule (valeur par défaut : 0 year)
+- ClassificationRule
+
+Les valeurs associées sont une durée au format <nombre> <unité en angais, au singulier>
+
+Exemples::
+
+   6 month
+   1 year
+   5 year
+
+Pour plus de détails, se rapporter à la documentation métier "Règles de gestion".
+
 
 
 Fichiers complémentaires
@@ -123,7 +226,7 @@ A titre informatif, le positionnement des variables ainsi que des dérivations d
 
 .. note:: Cas du composant ingest-external. Les directives ``upload_dir``, ``success_dir``, ``fail_dir`` et ``upload_final_action`` permettent de prendre en charge (ingest) des fichiers déposés dans ``upload_dir`` et appliquer une règle ``upload_final_action`` à l'issue du traitement (NONE, DELETE ou MOVE dans ``success_dir`` ou ``fail_dir`` selon le cas). Se référer au :term:`DEX` pour de plus amples détails. Se référer au manuel de développement pour plus de détails sur l'appel à ce cas.
 
-.. warning:: Selon les informations apportées par le métier, redéfinir les valeurs associées dans les directives ``classificationList`` et ``classificationLevelOptional``. Cela permet de définir quels niveaux de protection du secret de la défense nationale supporte l'instance. Attention : une instance de niveau supérieur doit toujours supporter les niveaux inférieurs
+.. warning:: Selon les informations apportées par le métier, redéfinir les valeurs associées dans les directives ``classificationList`` et ``classificationLevelOptional``. Cela permet de définir quels niveaux de protection du secret de la défense nationale supporte l'instance. Attention : une instance de niveau supérieur doit toujours supporter les niveaux inférieurs.
 
 * |repertoire_inventory| ``/group_vars/all/cots_vars.yml``, comme suit :
 
@@ -131,7 +234,7 @@ A titre informatif, le positionnement des variables ainsi que des dérivations d
      :language: yaml
      :linenos:
 
-.. note:: installation multi-sites. Déclarer dans ``consul_remote_sites`` les datacenters Consul des autres site ; se référer à l'exemple fourni pour renseigner les informations.
+.. note:: Installation multi-sites. Déclarer dans ``consul_remote_sites`` les datacenters Consul des autres site ; se référer à l'exemple fourni pour renseigner les informations.
 
 .. note:: Concernant Curator, en environnement de production, il est recommandé de procéder à la fermeture des index au bout d'une semaine pour les index de type "logstash" ( 3 jours pour les index "metrics"), qui sont le reflet des traces applicatives des composants de la solution logicielle :term:`VITAM`. Il est alors recommandé de lancer le *delete* de ces index au bout de la durée minimale de rétention : 1 an (il n'y a pas de durée de rétention minimale légale sur les index "metrics", qui ont plus une vocation technique et, éventuellement, d'investigations).
 
@@ -142,3 +245,171 @@ A titre informatif, le positionnement des variables ainsi que des dérivations d
      :linenos:
 
 .. note:: Cette configuration est appliquée à la solution logicielle :term:`VITAM`  ; il est possible de créer un tuning par "groupe" défini dans ansible.
+
+
+Paramétrage de l'Offre Froide ( librairies de cartouches )
+==========================================================
+
+Suite à l'introduction des offres bandes, plusieurs notions supplémentaires sont prises en compte dans ce fichier.
+De nouvelles entrées ont été ajoutées pour décrire d'une par le matériel robotique assigné à l'offre froide, et les répertoires d'échanges temporaires d'autre part. Les élements de configuration doivent être renseignés par l'exploitant.
+
+* Lecture asynchrone
+
+Un paramètre a été ajouté aux définitions de statégie.
+AsyncRead permet de déterminer si l'offre associée fonctionne en lecture asynchrone, et désactive toute possibilité de lecture directe sur l'offre.
+Une offre froide "offer-tape" doit être configurée en lecture asynchrone.
+La valeur par défaut pour asyncRead est False.
+
+Exemple::
+
+        vitam_strategy:
+          - name: offer-tape-1
+            referent: false
+            asyncRead: **true**
+          - name: offer-fs-2
+            referent: true
+            asyncRead: false
+
+* Périphériques liés à l'usage des bandes magnétiques
+
+**Terminologie**:
+
+        * **tapeLibrary**  une librairie de bande dans son ensemble. Une "tapeLibrary" est constituée de 1 à n "robot" et de 1 à n "drives". Une offre froide nécessite la déclaration d'au moins une librairie pour fonctionner. L'exploitant doit déclarer un identifiant pour chaque librairie. Ex: TAPE_LIB_1
+
+        * **drive**  un drive est lecteur de cartouches. Il doit être identifié par un path scsi unique. Une offre froide nécessite la déclaration d'au moins un lecteur pour fonctionner.
+        
+        N.B.: il existe plusieurs fichiers périphériques sur Linux pour un même lecteur.
+        Les plus classiques sont par exemple ``/dev/st0`` et ``/dev/nst0`` pour le premier drive détecté par le système.
+        L'usage de ``/dev/st0`` indique au système que la bande utilisée dans le lecteur associé devra être rembobinée après l'exécution de la commande appelante.
+        A contrario, ``/dev/nst0`` indique au système que la bande utilisée dans le lecteur associé devra rester positionnée après le dernier marqueur de fichier utilisé par l'exécution de la commande appelante.
+        
+        .. important:: Pour que l'offre froide fonctionne correctement, il convient de configurer une version /dev/nstxx
+ 
+        .. note:: Il peut arriver sur certains systèmes que l'ordre des lecteurs de bandes varient après un reboot de la machine. Pour s'assurer la persistence de l'ordre des lecteurs dans la configuration VITAM, il est conseillé d'utiliser les fichiers périphériques présents dans ``/dev/tape/by-id/`` qui s’appuient sur des références au hardware pour définir les drives.
+ 
+        * **robot**  un robot est le composant chargé de procéder au déplacement des cartouches dans une tapeLibrary, et de procéder à l'inventaire de ses ressources. Une offre froide nécessite la déclaration d'au moins un robot pour fonctionner. L'exploitant doit déclarer un fichier de périphérique scsi générique ( ex: /dev/sg4 ) associé à la robotique sur son système. A l'instar de la configuration des drives, il est recommandé d'utiliser le device présent dans /dev/tape/by-id pour déclarer les robots. 
+
+**Définition d'une offre froide:**
+
+        Une offre froide (OF) doit être définie dans la rubrique "vitam_offers" avec un provider de type "tape-library"
+
+Exemple::
+
+        vitam_offers:
+          offer-tape-1:
+            provider: tape-library
+            tapeLibraryConfiguration:
+
+.
+
+        La description "tapeLibraryConfiguration" débute par la définition des répertoires de sockage ainsi que le paramétrage des tar.
+
+        **inputFileStorageFolder**	Répertoire où seront stockés les objets à intégrer à l'OF
+        **inputTarStorageFolder** 	Répertoire où seront générés et stockés les tars avant transfère sur bandes
+        **outputTarStorageFolder** Répertoire où seront rapatriés les tars depuis les bandes.
+        **MaxTarEntrySize**	Taille maximale au-delà de la laquelle les fichiers entrant seront découpés en segment, en octets
+        **maxTarFileSize**		Taille maximale des tars à constituer, en octets.
+        **forceOverrideNonEmptyCartridge**  Permet de passer outre le contrôle vérifiant que les bandes nouvellement introduites sont vides. Par défaut à False
+        **useSudo**		Réservé à un usage futur – laisser à false.
+
+        .. note:: **N.B.**: MaxTarEntrySize doit être strictement inférieur à maxTarFileSize
+      
+
+Exemple::
+
+        inputFileStorageFolder: "/vitam/data/offer/offer/inputFiles"
+        inputTarStorageFolder: "/vitam/data/offer/offer/inputTars"
+        outputTarStorageFolder: "/vitam/data/offer/offer/outputTars"
+        maxTarEntrySize: 10000000
+        maxTarFileSize: 10000000000
+	ForceOverrideNonEmptyCartridge: False
+        useSudo: false
+
+.        
+
+        Par la suite, un paragraphe "topology" décrivant la topologie de l'offre doit être renseigné. L'objectif de cet élément est de pouvoir définir une segmentation de l'usage des bandes pour répondre à un besoin fonctionnel. Il convient ainsi de définir des buckets, qu'on peut voir comme un ensemble logique de bandes, et de les associers à un ou plusieurs tenants.
+
+        **tenants**				tableau de 1 à n identifiants de tenants au format [1,...,n]
+        **tarBufferingTimeoutInMinutes** 	Valeur en minutes durant laquelle un tar peut rester ouvert 
+
+Exemple::
+
+        topology:
+          buckets:
+            test:
+              tenants: [0]
+              tarBufferingTimeoutInMinutes: 60
+            admin:
+              tenants: [1]
+              tarBufferingTimeoutInMinutes: 60
+            prod:
+              tenants: [2,3,4,5,6,7,8,9]
+              tarBufferingTimeoutInMinutes: 60
+
+.
+
+        Enfin, la définition des équipements robotiques proprement dite doit être réalisée dans le paragraphe "tapeLibraries".
+
+**robots:**      Définition du bras robotique de la librairie.
+
+        **device:** 		Chemin du fichier de périphérique scsi générique associé au bras.
+
+        **mtxPath:**	Chemin vers la commande Linux de manipulation du bras.
+        
+        **timeoutInMilliseconds:** timeout en millisecondes à appliquer aux ordres du bras.
+
+**drives:**      Définition du ou des lecteurs de cartouches de la librairie.
+
+        **index:** 		Numéro de lecteur, valeur débutant à 0
+
+        **device:** 		Chemin du fichier de périphérique scsi SANS REMBOBINAGE associé au lecteur.
+
+        **mtPath:**		Chemin vers la commande Linux de manipulation des lecteurs.
+
+        **ddPath:**		Chemin vers la commande Linux de copie de bloc de données.
+
+        **tarPath:**		Chemin vers la commande Linux de création d'archives tar.
+
+        **timeoutInMilliseconds:** timeout en millisecondes à appliquer aux ordres du lecteur.
+
+Exemple::
+
+        tapeLibraries:
+          TAPE_LIB_1:
+            robots:
+              -
+                device: /dev/tape/by-id/scsiQUANTUM_10F73224E6664C84A1D00000
+                mtxPath: "/usr/sbin/mtx"
+                timeoutInMilliseconds: 3600000
+            drives:
+              -
+                index: 0
+                device: /dev/tape/by-id/scsi-1IBM_ULT3580-TD6_1235308739-nst
+                mtPath: "/bin/mt"
+                ddPath: "/bin/dd"
+                tarPath: "/bin/tar"
+                timeoutInMilliseconds: 3600000
+              -
+                index: 1
+                device: /dev/tape/by-id/scsi-1IBM_ULT3580-TD6_0951859786-nst
+                mtPath: "/bin/mt"
+                ddPath: "/bin/dd"
+                tarPath: "/bin/tar"
+                timeoutInMilliseconds: 3600000
+              -
+                index: 2
+                device: /dev/tape/by-id/scsi-1IBM_ULT3580-TD6_0269493808-nst
+                mtPath: "/bin/mt"
+                ddPath: "/bin/dd"
+                tarPath: "/bin/tar"
+                timeoutInMilliseconds: 3600000
+              -
+                index: 3
+                device: /dev/tape/by-id/scsi-1IBM_ULT3580-TD6_0566471858-nst
+                mtPath: "/bin/mt"
+                ddPath: "/bin/dd"
+                tarPath: "/bin/tar"
+                timeoutInMilliseconds: 3600000
+
+.
+

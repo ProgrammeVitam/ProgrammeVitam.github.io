@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Worker Plugin &mdash; Documentation VITAM - Manuel de développement 2.1.1</title>
+  <title>Worker Plugin &mdash; Documentation VITAM - Manuel de développement 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
     <link rel="next" title="Idempotence" href="idempotent.html" />
     <link rel="prev" title="Worker Client" href="worker-client.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -121,7 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
 </ul>
 
             
@@ -421,19 +433,7 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 194
 195
 196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+197</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
@@ -490,16 +490,16 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;running_ingests_update_plugin.properties&quot;</span>
 	<span class="p">},</span>
 	<span class="s2">&quot;AUDIT_CHECK_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.AuditCheckObjectPlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditCheckObjectPlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_check_object_plugin.properties&quot;</span>
 	<span class="p">},</span>
-	<span class="s2">&quot;AUDIT_FILE_INTEGRITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckIntegrityObjectPlugin&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_integrity_object_plugin.properties&quot;</span>
+	<span class="s2">&quot;LIST_OBJECTGROUP_ID&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditPreparePlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_prepare_plugin.properties&quot;</span>
 	<span class="p">},</span>
-	<span class="s2">&quot;AUDIT_FILE_EXISTING&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckExistenceObjectPlugin&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_existence_object_plugin.properties&quot;</span>
+	<span class="s2">&quot;REPORT_AUDIT&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditFinalizePlugin&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_finalize_plugin.properties&quot;</span>
 	<span class="p">},</span>
 	<span class="s2">&quot;CREATE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.CreateManifest&quot;</span><span class="p">,</span>
@@ -596,26 +596,14 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionAccessionRegisterUpdatePlugin&quot;</span><span class="p">,</span>
 		<span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_update_accession_register.properties&quot;</span>
 	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_LIST_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValuePrepare&quot;</span>
+	<span class="s2">&quot;PROBATIVE_VALUE_CREATE_REPORT&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateReport&quot;</span>
 	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_CHECK_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueObjectGroupCheck&quot;</span>
+	<span class="s2">&quot;PROBATIVE_VALUE_CREATE_DISTRIBUTION_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateDistributionFile&quot;</span>
 	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_LIST_SECURED_FILES_TO_DOWNLOAD&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueListSecuredFiles&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_EXTRACT_ZIP_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueExtractFromZip&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_CHECK_MERKLE_TREE&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueVerifyMerkleTree&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_PREPARE_GENERATE_REPORTS&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueGenerateReports&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_REPORTS&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeValueReport&quot;</span>
+	<span class="s2">&quot;PROBATIVE_VALUE_CREATE_PROBATIVE_REPORT_ENTRY&quot;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateReportEntry&quot;</span>
 	<span class="p">},</span>
 	<span class="s2">&quot;PREPARE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
 		<span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareUnitLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
@@ -2927,7 +2915,7 @@ ou la méthode <code class="docutils literal notranslate"><span class="pre">exec
         <a href="idempotent.html" class="btn btn-neutral float-right" title="Idempotence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="worker-client.html" class="btn btn-neutral" title="Worker Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="worker-client.html" class="btn btn-neutral float-left" title="Worker Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -2953,36 +2941,16 @@ ou la méthode <code class="docutils literal notranslate"><span class="pre">exec
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

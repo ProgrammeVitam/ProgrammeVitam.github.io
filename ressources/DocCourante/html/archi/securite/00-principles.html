@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1. Principes &mdash; Documentation VITAM - Architecture 2.1.1</title>
+  <title>6.1. Principes &mdash; Documentation VITAM - Architecture 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="6.2. Liste des secrets" href="10-secrets.html" />
     <link rel="prev" title="6. Sécurité" href="_toc.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -178,7 +190,7 @@
             
   <div class="section" id="principes">
 <h1>6.1. Principes<a class="headerlink" href="#principes" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les principes de sécurité de VITAM suivent les directives suivantes :</p>
+<p>Les principes de sécurité de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> suivent les directives suivantes :</p>
 <ul>
 <li><p class="first">Authentification et autorisation systématique des systèmes clients de VITAM basées sur une authentification TLS mutuelle utilisant des certificats (pour les composants de la couche accès) ;</p>
 </li>
@@ -186,11 +198,11 @@
 <blockquote>
 <div><ul class="simple">
 <li>Détection et suppression de codes malveillants dans les archives déposées dans VITAM ;</li>
-<li>Robustesse contre les failles du Top Ten OWASP pour toutes les interfaces REST ;</li>
+<li>Robustesse contre les failles du <em>Top Ten</em> <a class="reference internal" href="../introduction.html#term-owasp"><span class="xref std std-term">OWASP</span></a> pour toutes les interfaces <a class="reference internal" href="../introduction.html#term-rest"><span class="xref std std-term">REST</span></a> ;</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Validation périodique des listes de CRL pour toutes les AC trustées par VITAM (non implémentée dans cette version de VITAM, cf. ci-dessous).</p>
+<li><p class="first">Validation périodique des listes de <a class="reference internal" href="../introduction.html#term-crl"><span class="xref std std-term">CRL</span></a> pour toutes les <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> <em>trustées</em> par VITAM (non implémentée dans cette version de VITAM, cf. ci-dessous).</p>
 </li>
 </ul>
 <div class="section" id="principes-de-cloisonnement">
@@ -198,18 +210,18 @@
 <p>Les principes de cloisonnement en zones, et notamment les implications en termes de communication entre ces zones ont été décrits dans <a class="reference internal" href="../archi-exploit-infra/principes/30-principles-deployment.html"><span class="doc">la section dédiée aux principes de déploiement</span></a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">Le principe de cloisonnement des flux ne peut être mené que par une équipe d’infrastructure. L’implémentation du filtrage des flux inter-zones doit etre effectuée lors du déploiement de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, conformément à la matrice de flux, en annexe du document.</p>
+<p class="last">Le principe de cloisonnement des flux ne peut être mené que par une équipe d’infrastructure. L’implémentation du filtrage des flux inter-zones doit etre effectuée lors du déploiement de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, conformément à la matrice de flux, en annexe du document. Il est aussi indispensable de ne pas donner un accès internet aux machines dans les zones applicative, stockage, et donnée.</p>
 </div>
 </div>
 <div class="section" id="principes-de-securisation-des-acces-externes">
 <h2>6.1.2. Principes de sécurisation des accès externes<a class="headerlink" href="#principes-de-securisation-des-acces-externes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les services logiciels en contact direct avec les clients du SAE (i.e. les services <code class="docutils literal notranslate"><span class="pre">*-external</span></code>) implémentent les mesures de sécurité suivantes :</p>
+<p>Les services logiciels en contact direct avec les clients du <a class="reference internal" href="../introduction.html#term-sae"><span class="xref std std-term">SAE</span></a> (i.e. les services <code class="docutils literal notranslate"><span class="pre">*-external</span></code>) implémentent les mesures de sécurité suivantes :</p>
 <ul>
 <li><p class="first">Chiffrement du transport des données entre les applications externes et VITAM via HTTPS ; par défaut, la configuration suivante est appliquée :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Protocoles exclus : <code class="docutils literal notranslate"><span class="pre">SSLv2</span></code>, <code class="docutils literal notranslate"><span class="pre">SSLv3</span></code></li>
-<li>Ciphers exclus : <code class="docutils literal notranslate"><span class="pre">.*NULL.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*RC4.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*MD5.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*DES.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*DSS.*</span></code></li>
+<li>Protocoles exclus par défaut : <code class="docutils literal notranslate"><span class="pre">SSLv2</span></code>, <code class="docutils literal notranslate"><span class="pre">SSLv3</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.1</span></code></li>
+<li>Ciphers exclus par défaut: <code class="docutils literal notranslate"><span class="pre">.*NULL.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*RC4.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*MD5.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*DES.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.*DSS.*</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_DHE_RSA_WITH_AES_256_CBC_SHA</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_DHE_RSA_WITH_AES_128_CBC_SHA</span></code></li>
 </ul>
 </div></blockquote>
 </li>
@@ -218,11 +230,20 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Les ciphers recommandés sont : <code class="docutils literal notranslate"><span class="pre">TLS_ECDHE.*</span></code>, <code class="docutils literal notranslate"><span class="pre">TLS_DHE_RSA.*</span></code></p>
 </div>
+<p>Fichier déployé :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use Bouncy Castle Provider when it is available</span>
+<span class="n">security</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="mi">9</span><span class="o">=</span><span class="n">org</span><span class="o">.</span><span class="n">bouncycastle</span><span class="o">.</span><span class="n">jce</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">BouncyCastleProvider</span>
+
+<span class="c1"># Override the default list of Centos 7 that disable Elliptic Curved Based Algorithms</span>
+<span class="n">jdk</span><span class="o">.</span><span class="n">tls</span><span class="o">.</span><span class="n">disabledAlgorithms</span><span class="o">=</span><span class="s2">&quot;SSLv3, RC4, MD5withRSA, DH keySize &lt; 768,RSA keySize &lt; 2048&quot;</span>
+
+</pre></div>
+</div>
 <ul>
-<li><p class="first">Authentification par certificat x509 requise des applications externes (authentification M2M) basée sur une liste blanche de certificats valides :</p>
+<li><p class="first">Authentification par certificat x509 requise des applications externes (authentification <a class="reference internal" href="../introduction.html#term-m2m"><span class="xref std std-term">M2M</span></a>) basée sur une liste blanche de certificats valides :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Lors d’une connexion, la vérification synchrone confirme que le certificat proposé n’est pas expiré (not before, not after) et qu’il est validé par une Autorité de Certification connue (liste des AC potée par un fichier truststore) ;</li>
+<li>Lors d’une connexion, la vérification synchrone confirme que le certificat proposé n’est pas expiré (<em>not before</em>, <em>not after</em>) et qu’il est validé par une Autorité de Certification connue (liste des <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> portée par un fichier <em>truststore</em>) ;</li>
 <li>Avant de valider tout appel d’API, l’applicatif vérifie que le certificat proposé est bien présent dans le référentiel d’authentification des certificats valides (un des référentiels métier portés par la base des métadonnées).</li>
 </ul>
 </div></blockquote>
@@ -230,13 +251,13 @@
 </ul>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">La révocation des certificats se fait par leur suppression dans les différents magasins et référentiels. Les CRL ne sont pas supportées dans cette version de la solution logicielle VITAM.</p>
+<p class="last">La révocation des certificats se fait par leur suppression dans les différents magasins et référentiels. Se reporter au <a class="reference internal" href="../introduction.html#term-dex"><span class="xref std std-term">DEX</span></a> pour plus d’informations.</p>
 </div>
 <ul>
 <li><p class="first">Filtrage exhaustif des données et requêtes entrant dans le système basé sur :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Un WAF applicatif permettant le filtrage d’entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> dans les composants <code class="docutils literal notranslate"><span class="pre">*-external</span></code> protégeant notamment contre les attaques de type XSS) ;</li>
+<li>Un <a class="reference internal" href="../introduction.html#term-waf"><span class="xref std std-term">WAF</span></a> applicatif permettant le filtrage d’entrées pouvant être une menace pour le système (intégration de la bibliothèque <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API">ESAPI</a> dans les composants <code class="docutils literal notranslate"><span class="pre">*-external</span></code> protégeant notamment contre les attaques de type XSS) ;</li>
 <li>Support de l’utilisation d’un ou plusieurs antivirus (configurables et extensibles) dans le composant d’entrée (<code class="docutils literal notranslate"><span class="pre">ingest-external</span></code>) permettant de valider l’innocuité des données entrantes.</li>
 </ul>
 </div></blockquote>
@@ -249,7 +270,7 @@
 </div>
 <div class="section" id="principes-de-securisation-des-communications-internes-au-systeme">
 <h2>6.1.3. Principes de sécurisation des communications internes au système<a class="headerlink" href="#principes-de-securisation-des-communications-internes-au-systeme" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le secret de plateforme permet de se protéger contre des erreurs de manipulation et de configuration en séparant les environnements de manière logique (secret partagé par l’ensemble de la plateforme mais différent entre plateformes). Ce secret (chaîne de caractères) est positionné dans la configuration des composants lors de l’installation du système.</p>
+<p>Le secret de plateforme permet de se protéger contre des erreurs de manipulation et de configuration en séparant les environnements de manière logique (secret partagé par l’ensemble de la plateforme mais différent entre plateformes). Ce secret (chaîne de caractères) est positionné dans la configuration des composants lors de l’installation de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
 <p>Dans chaque requête, les deux headers suivants sont positionnés :</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">X-Request-Timestamp</span></code> : il contient le timestamp de la requête sous forme epoch (secondes depuis 1970)</li>
@@ -258,13 +279,13 @@
 <p>Du côté du composant cible de la requête, le contrôle est alors le suivant :</p>
 <ul class="simple">
 <li>Existence des deux headers précédents ;</li>
-<li>Vérification que timestamp envoyé est distant de l’heure actuelle sur le serveur requêté de moins de 10 secondes ( <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">temps</span> <span class="pre">local</span> <span class="pre">|</span> <span class="pre">&lt;</span> <span class="pre">10</span> <span class="pre">s</span></code> )</li>
-<li>Validation du hash transmis via la réalisation du même calul sur le serveur cible et de la comparaison des résultats.</li>
+<li>Vérification que <em>timestamp</em> envoyé est distant de l’heure actuelle sur le serveur requêté de moins de 10 secondes ( <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">temps</span> <span class="pre">local</span> <span class="pre">|</span> <span class="pre">&lt;</span> <span class="pre">10</span> <span class="pre">s</span></code> )</li>
+<li>Validation du <em>hash</em> transmis via la réalisation du même calul sur le serveur cible et de la comparaison des résultats.</li>
 </ul>
 <p>En cas d’échec d’une de ces validations, la requête est refusée.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Les headers et le body de la requête ne sont pas inclus dans le calcul du X-Platform-ID pour des raisons de performance.</p>
+<p class="last">Les <em>headers</em> et le <em>body</em> de la requête ne sont pas inclus dans le calcul du <code class="docutils literal notranslate"><span class="pre">X-Platform-ID</span></code> pour des raisons de performance.</p>
 </div>
 </div>
 <div class="section" id="principes-de-securisation-des-bases-de-donnees">
@@ -279,10 +300,10 @@
 </div>
 <div class="section" id="elasticsearch">
 <h3>6.1.4.2. Elasticsearch<a class="headerlink" href="#elasticsearch" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Dans le cas d’Elasticsearch, le cloisonnement est principalement physique, dans le sens où le cluster hébergeant les données métier est disjoint du cluster hébergeant les données techniques.</p>
+<p>Dans le cas d’Elasticsearch, le cloisonnement est principalement physique, dans le sens où le <em>cluster</em> hébergeant les données métier est disjoint du <em>cluster</em> hébergeant les données techniques.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">L’accès au cluster Elasticsearch est anonyme sans authentification requise ; ceci est dû à une limitation de la version OpenSource d’Elasticsearch, et pourra être réévalué dans les futures versions du système VITAM.</p>
+<p class="last">L’accès au cluster Elasticsearch est anonyme sans authentification requise ; ceci est dû à une limitation de la version <em>OpenSource</em> d’Elasticsearch, et pourra être réévalué dans les futures versions de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
 </div>
 </div>
 </div>
@@ -307,7 +328,7 @@
         <a href="10-secrets.html" class="btn btn-neutral float-right" title="6.2. Liste des secrets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="_toc.html" class="btn btn-neutral" title="6. Sécurité" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="_toc.html" class="btn btn-neutral float-left" title="6. Sécurité" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -333,36 +354,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

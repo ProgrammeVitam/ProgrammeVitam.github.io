@@ -14,7 +14,7 @@ de développement.
 
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R9.zip))
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip))
 * **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
 
@@ -29,20 +29,22 @@ et des objets métiers utilisés par la solution logicielle Vitam
 à archiver ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
 * **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
-* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
-* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_unite_archivistique.pdf))
-* **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Ontologie.pdf))
-* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
-l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
-* **Services producteurs** - présentation des fonctionnalités associées à la
-notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Services_producteurs.pdf))
 * **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Arbre_de_positionnement_et_plan_de_classement.pdf))
 * **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
+* **Services producteurs** - présentation des fonctionnalités associées à la
+notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Services_producteurs.pdf))
+* **Eliminations** - présentation des fonctionnalités de mise en oeuvre des éliminations d'archives avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Eliminations.pdf))
+* **Préservation** - présentation des fonctionnalités de mise en oeuvre de la préservation à long-terme des archives avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Preservation.pdf))
+* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
+* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_unite_archivistique.pdf))
+* **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Ontologie.pdf))
+* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Valeur_probante.pdf))
+* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
+l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
  opérations ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_workflow.pdf) \| [html](/ressources/DocCourante/html/workflow-model)) - Version HTML à venir
-* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Valeur_probante.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf))
 
 
@@ -50,27 +52,28 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/V
 
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_IHM_Recette.pdf)
 \| [html](/ressources/DocCourante/html/ihm-recette)) - Version HTML à venir
-* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.1.1/tests/Jeux_de_tests_fonctionnels_RELEASE9_SEDA2.1.zip))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeux_de_tests_fonctionnels_RELEASE10_SEDA2.1.zip))
 
 
 
 ## Documentation technique
 
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.1.1.pdf) \| [html](/ressources/DocCourante/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.1.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.1.1.pdf) \| [html](/ressources/DocCourante/html/installation))
-* **Documentation de montées de version (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.1.1.pdf) \| [html](/ressources/DocCourante/html/migration))
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.6.1.pdf) \| [html](/ressources/DocCourante/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.6.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.6.1.pdf) \| [html](/ressources/DocCourante/html/installation))
+* **Documentation de montées de version (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.6.1.pdf) \| [html](/ressources/DocCourante/html/migration))
 
 ## Documentation développeur
 
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.2.1.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.2.6.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_donnees.pdf) \| [html](/ressources/DocCourante/html/data-model)) - Version HTML à venir
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe/))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.1.1.pdf)
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.6.1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/))
+* **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.2.6.1.pdf)
 * **sedalib** ([html]http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 

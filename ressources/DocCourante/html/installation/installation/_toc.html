@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Procédures d’installation / mise à jour &mdash; Documentation VITAM - Documentation d&#39;installation 2.1.1</title>
+  <title>4. Procédures d’installation / mise à jour &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="4.2.1. Multi-sites" href="05_multisite.html" />
+    <link rel="next" title="4.2.1. Cas particulier d’une installation multi-sites" href="05_multisite.html" />
     <link rel="prev" title="3.3. Récupération de la version" href="../pre_install/31-get_version.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -92,19 +104,20 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Procédures d’installation / mise à jour</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#verifications-prealables">4.1. Vérifications préalables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#procedures">4.2. Procédures</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="05_multisite.html">4.2.1. Multi-sites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_multisite.html">4.2.1. Cas particulier d’une installation multi-sites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="10-configuration.html">4.2.2. Configuration du déploiement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="20-certificats.html">4.2.3. Gestion des certificats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="21-addons.html">4.2.4. Paramétrages supplémentaires</a></li>
 <li class="toctree-l3"><a class="reference internal" href="30-installation.html">4.2.5. Procédure de première installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="80-extras.html">4.2.6. Elements extras de l’installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="80-extras.html">4.2.6. Elements <em>extras</em> de l’installation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour de la configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../post_install/_toc.html">6. Post installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../annexes/_toc.html">7. Annexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade/_toc.html">7. Montée de version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/_toc.html">8. Annexes</a></li>
 </ul>
 
             
@@ -173,48 +186,52 @@
 <h1>4. Procédures d’installation / mise à jour<a class="headerlink" href="#procedures-d-installation-mise-a-jour" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="verifications-prealables">
 <h2>4.1. Vérifications préalables<a class="headerlink" href="#verifications-prealables" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Tous les serveurs cibles doivent avoir accès aux dépôts de binaires contenant les paquets des logiciels VITAM et des composants externes requis pour l’installation. Les autres éléments d’installation (playbook ansible, …) doivent être disponibles sur la machine ansible orchestrant le déploiement de la solution.</p>
+<p>Tous les serveurs cibles doivent avoir accès aux dépôts de binaires contenant les paquets de la solution  logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> et des composants externes requis pour l’installation. Les autres éléments d’installation (<em>playbook</em> ansible, …) doivent être disponibles sur la machine ansible orchestrant le déploiement de la solution.</p>
 </div>
 <div class="section" id="procedures">
 <h2>4.2. Procédures<a class="headerlink" href="#procedures" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="05_multisite.html">4.2.1. Multi-sites</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="05_multisite.html">4.2.1. Cas particulier d’une installation multi-sites</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="05_multisite.html#procedure-d-installation">4.2.1.1. Procédure d’installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_multisite.html#procedure-de-reinstallation">4.2.1.2. Procédure de réinstallation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_multisite.html#flux-entre-storage-et-offer">4.2.1.3. Flux entre Storage et offer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_multisite.html#flux-entre-storage-et-offer">4.2.1.3. Flux entre Storage et Offer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="10-configuration.html">4.2.2. Configuration du déploiement</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="10-configuration.html#fichiers-de-deploiement">4.2.2.1. Fichiers de déploiement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10-configuration.html#informations-plate-forme">4.2.2.2. Informations «&nbsp;plate-forme&nbsp;»</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-configuration.html#informations-plate-forme">4.2.2.2. Informations <cite>plate-forme</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="10-configuration.html#declaration-des-secrets">4.2.2.3. Déclaration des secrets</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="20-certificats.html">4.2.3. Gestion des certificats</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="certificats/pki_vitam.html">4.2.3.1. Cas 1: Configuration développement / tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="certificats/pki_externe.html">4.2.3.2. Cas 2: Configuration production</a></li>
-<li class="toctree-l2"><a class="reference internal" href="certificats/swift.html">4.2.3.3. Intégration de CA pour une offre swift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="certificats/object_storage.html">4.2.3.3. Intégration de <code class="docutils literal notranslate"><span class="pre">CA</span></code> pour une offre <cite>Swift</cite> ou <cite>s3</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="certificats/keystores.html">4.2.3.4. Génération des magasins de certificats</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="21-addons.html">4.2.4. Paramétrages supplémentaires</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="21-addons.html#tuning-jvm">4.2.4.1. Tuning JVM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-addons.html#installation-des-greffons">4.2.4.2. Installation des greffons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#installation-des-griffins-greffons-de-preservation">4.2.4.2. Installation des <em>griffins</em> (greffons de préservation)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="21-addons.html#parametrage-de-l-antivirus-ingest-externe">4.2.4.3. Paramétrage de l’antivirus (ingest-externe)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="21-addons.html#parametrage-des-certificats-externes-externe">4.2.4.4. Paramétrage des certificats externes (*-externe)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="21-addons.html#placer-hors-vitam-le-composant-ihm-demo">4.2.4.5. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-addons.html#parametrage-de-la-centralisation-des-logs-vitam">4.2.4.6. Paramétrage de la centralisation des logs Vitam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-addons.html#fichiers-complementaires">4.2.4.7. Fichiers complémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#parametrer-le-secure-cookie-pour-ihm-demo">4.2.4.6. Paramétrer le <code class="docutils literal notranslate"><span class="pre">secure_cookie</span></code> pour ihm-demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#parametrage-de-la-centralisation-des-logs-vitam">4.2.4.7. Paramétrage de la centralisation des logs Vitam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#passage-des-identifiants-des-referentiels-en-mode-esclave">4.2.4.8. Passage des identifiants des référentiels en mode <cite>esclave</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#durees-minimales-permettant-de-controler-les-valeurs-saisies">4.2.4.9. Durées minimales permettant de contrôler les valeurs saisies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#fichiers-complementaires">4.2.4.10. Fichiers complémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-addons.html#parametrage-de-l-offre-froide-librairies-de-cartouches">4.2.4.11. Paramétrage de l’Offre Froide ( librairies de cartouches )</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="30-installation.html">4.2.5. Procédure de première installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="30-installation.html#deploiement">4.2.5.1. Déploiement</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="80-extras.html">4.2.6. Elements extras de l’installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="80-extras.html#configuration-des-extra">4.2.6.1. Configuration des extra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="80-extras.html#deploiement-des-extra">4.2.6.2. Déploiement des extra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="80-extras.html">4.2.6. Elements <em>extras</em> de l’installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="80-extras.html#configuration-des-extra">4.2.6.1. Configuration des <em>extra</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="80-extras.html#deploiement-des-extra">4.2.6.2. Déploiement des <em>extra</em></a></li>
 </ul>
 </li>
 </ul>
@@ -230,10 +247,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="05_multisite.html" class="btn btn-neutral float-right" title="4.2.1. Multi-sites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="05_multisite.html" class="btn btn-neutral float-right" title="4.2.1. Cas particulier d’une installation multi-sites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../pre_install/31-get_version.html" class="btn btn-neutral" title="3.3. Récupération de la version" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../pre_install/31-get_version.html" class="btn btn-neutral float-left" title="3.3. Récupération de la version" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -259,36 +276,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

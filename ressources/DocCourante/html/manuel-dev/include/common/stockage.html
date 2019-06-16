@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common-storage &mdash; Documentation VITAM - Manuel de développement 2.1.1</title>
+  <title>Common-storage &mdash; Documentation VITAM - Manuel de développement 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
     <link rel="next" title="Métriques dans VITAM" href="vitam-metrics.html" />
     <link rel="prev" title="Common format identification" href="format-identifier.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -129,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
 </ul>
 
             
@@ -200,18 +212,19 @@
             
   <div class="section" id="common-storage">
 <h1>Common-storage<a class="headerlink" href="#common-storage" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le common storage est un module commun pour plusieurs modules qui consiste à gérer des objets stockés dans un container et/ou dans dans un repertoire, ce module propose plusieurs offres de stockage (Jclouds), par exemple file Systeme et swift (open stack et ceph) configurabe par code (java) ou par fichier de configuration. Dans les chapitres suivants, on présentra les 2 modes du configuration</p>
+<p>Le common storage est un module commun pour plusieurs modules qui consiste à gérer des objets stockés dans un container et/ou dans un répertoire, ce module propose plusieurs offres de stockage (Jclouds), par exemple filesystem, Swift (open stack et ceph) et s3 configurables par code (java) ou par fichier de configuration. Dans les chapitres suivants, on présentera les 3 modes de configuration.</p>
 <div class="section" id="presentation-des-apis-java">
 <h2>1- Présentation des APIs Java:<a class="headerlink" href="#presentation-des-apis-java" title="Lien permanent vers ce titre">¶</a></h2>
 <p>1.1 - Introduction :</p>
-<p>Le Module common storage expose un ensemble des methodes qui gèrent la creation, la mise à jour , la supprission des contenaire, des repertoires et des objets, Vous trouverez ci-dessous la liste des methodes avec leur fonctions attendus.</p>
+<p>Le Module common storage expose un ensemble des méthodes qui gèrent la création, la mise à jour , la suppression des conteneurs, des répertoires et des objets. Vous trouverez ci-dessous la liste des méthodes avec leurs fonctions attendues.</p>
 <p>L’API principale est l’interface ContentAddressableStorage. Celle-ci a la hiérarchie de classe suivante :</p>
 <ul class="simple">
 <li>ContentAddressableStorageAbstract : classe abstraite implémentant quelques méthodes communes<ul>
-<li>HashFileSystem : implémentation d’un CAS sur FileSystem (via java.nio.*) avec une répertoire par sous-répertoire permettant un stockage d’un grand nombre d’objets (jusqu’à 500e6 objets )</li>
+<li>HashFileSystem : implémentation d’un CAS sur FileSystem (via java.nio.*) avec un répertoire par sous-répertoire permettant un stockage d’un grand nombre d’objets (jusqu’à 500e6 objets )</li>
 <li>ContentAddressableStorageJcloudsAbstract : classe abstraite implémentant la plupart des méthodes pour une implémentation jclouds sous-jacente<ul>
-<li>FileSystem : implémentation d’un CAS sur FileSystem (via jclouds) avec une répertoire à plat sous les container</li>
+<li>FileSystem : implémentation d’un CAS sur FileSystem (via jclouds) avec un répertoire à plat sous les containers</li>
 <li>OpenstackSwift : classe d’implémentation permettant le stockage sur Swift (via jclouds)</li>
+<li>AmazonS3V1 : classe d’implémentation permettant le stockage sur S3 (via le sdk amazon s3 v1)</li>
 </ul>
 </li>
 </ul>
@@ -219,16 +232,16 @@
 </ul>
 <p>1.2 - Liste des méthodes :</p>
 <ul>
-<li><p class="first">getContainerInformation : consulter les information d’un contenaire (pour la version 0.14.0-SNAPSHOT)</p>
+<li><p class="first">getContainerInformation : consulter les informations d’un conteneur (pour la version 0.14.0-SNAPSHOT)</p>
 <blockquote>
 <div><ul class="simple">
 <li>Paramètres :</li>
 <li>containerName::String</li>
-<li>Retourner : (pour la version 0.14.0-SNAPSHOT) l’espace utilisés et l’espace disponible par région</li>
+<li>Retourner : (pour la version 0.14.0-SNAPSHOT) l’espace utilisé et l’espace disponible par région</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">CreateContainer : creer un contenaire</p>
+<li><p class="first">CreateContainer : créer un conteneur</p>
 <blockquote>
 <div><ul class="simple">
 <li>Paramètres :</li>
@@ -243,15 +256,15 @@
 <li><p class="first">Paramètres :</p>
 <blockquote>
 <div><ul class="simple">
-<li>containerName::String (le nom de contenaire à consulter)</li>
-<li>folderName::String (le nom de repertoire à consulter pour lister les URIs des objets )</li>
+<li>containerName::String (le nom de conteneur à consulter)</li>
+<li>folderName::String (le nom de répertoire à consulter pour lister les URIs des objets )</li>
 </ul>
 </div></blockquote>
 </li>
 <li><p class="first">Retourner :</p>
 <blockquote>
 <div><ul class="simple">
-<li>List&lt;URI&gt;: La liste des URIs des objets dans le repertoire cité ci-dessus.</li>
+<li>List&lt;URI&gt;: La liste des URIs des objets dans le répertoire cité ci-dessus.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -263,8 +276,8 @@
 <div><blockquote>
 <div><ul class="simple">
 <li>Paramètres :</li>
-<li>containerName::String (le nom de contenaire dans lequel qu’on stock l’object)</li>
-<li>objectId::String (Id de l’object. S’il est null, c’est-à-dire, il est un repertoire)</li>
+<li>containerName::String (le nom de conteneur dans lequel qu’on stock l’object)</li>
+<li>objectId::String (Id de l’object. S’il est null, c’est-à-dire, il est un répertoire)</li>
 </ul>
 </div></blockquote>
 <ul>
@@ -291,18 +304,18 @@
 </div></blockquote>
 </li>
 </ul>
-<p>Dans le cas echéant la method retourne une immuatable empty list.</p>
+<p>Dans le cas échéant, la méthode retourne une immutable empty list.</p>
 <blockquote>
 <div><blockquote>
 <div><ul>
-<li><p class="first">uncompressObject : cette méthode extracte des fichiers compressés toute en indiquant le type de l’archive, pour cette version (v0.14.0) supporte 4 types : zip, tar, tar.gz et tar.bz2.</p>
+<li><p class="first">uncompressObject : cette méthode extrait des fichiers compressés toute en indiquant le type de l’archive, pour cette version (v0.14.0) supporte 4 types : zip, tar, tar.gz et tar.bz2.</p>
 <blockquote>
 <div><blockquote>
 <div><p>-Paramètres :</p>
 <blockquote>
 <div><ul class="simple">
 <li>containerName::String : c’est le nom de container dans lequel on stocke les objets</li>
-<li>folderName::String : c’est le repertoire racine .</li>
+<li>folderName::String : c’est le répertoire racine .</li>
 </ul>
 </div></blockquote>
 </div></blockquote>
@@ -323,11 +336,11 @@
 <li>retourner :</li>
 </ul>
 </div></blockquote>
-<p>Dans le cas echéant (uncompress KO) la methode génère une exception avec un message internal server.</p>
+<p>Dans le cas échéant (uncompress KO) la méthode génère une exception avec un message internal server.</p>
 </div>
 <div class="section" id="configuration">
 <h2>2 - Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La première chose que nous devons faire est d’ajouter la dépendance maven dans le pom.xml du projet. Après il faut configurer le contexte de stockage souhaités (filesystem/swift ceph/ swift openStack), (on traitera cette problématique au chapitre 2.1 et 2.2)</p>
+<p>La première chose que nous devons faire est d’ajouter la dépendance maven dans le pom.xml du projet. Après il faut configurer le contexte de stockage souhaité (filesystem/swift ceph/ swift openStack), (on traitera cette problématique au chapitre 2.1 et 2.2)</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
      <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
      <span class="nt">&lt;artifactId&gt;</span>common-storage<span class="nt">&lt;artifactId&gt;</span>
@@ -335,17 +348,72 @@
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
-<p>La configuration de l’offre de stockage est basé sur plusieurs paramètres:</p>
-<blockquote>
-<div><ul class="simple">
-<li>provider :: String : le type de l’offre de stockage (valeur par defaut: filesystem, valeur possibles : openstack-swift , filesystem ou chaîne vide)</li>
-<li>swiftKeystoneAuthUrl* :: String : URL d’authentification keystone</li>
-<li>swiftUser* :: String : le nom de l’utilisateur (sur rados, il prend la forme &lt;tenant&gt;$&lt;user&gt;)</li>
+<p>La configuration de l’offre de stockage est basée sur plusieurs paramètres.</p>
+<dl class="docutils">
+<dt>Les paramètres communs aux types d’offres sont:</dt>
+<dd><ul class="first last simple">
+<li>provider :: String : le type de l’offre de stockage (valeur par défaut si chaîne vide: filesystem) Les valeurs possibles sont:
+- filesystem
+- openstack-swift
+- amazon-s3-v1</li>
+</ul>
+</dd>
+<dt>Pour une offre Filesystem, les paramètres de configuration sont :</dt>
+<dd><ul class="first last simple">
 <li>storagePath :: String : path de stockage pour l’offre FileSystem</li>
 </ul>
-</div></blockquote>
+</dd>
+<dt>Pour une offre Swift les paramètres de configuration sont :</dt>
+<dd><ul class="first last simple">
+<li>swiftKeystoneAuthUrl* :: String : URL d’authentification keystone</li>
+<li>swiftUser* :: String : le nom de l’utilisateur (sur rados, il prend la forme &lt;tenant&gt;$&lt;user&gt;)</li>
+</ul>
+</dd>
+<dt>Pour une offre S3 les paramètres de configuration sont :</dt>
+<dd><ul class="first last">
+<li><p class="first">s3AccessKey :: String : Access Key ID</p>
+</li>
+<li><p class="first">s3SecretKey :: String : Secret Access key</p>
+</li>
+<li><p class="first">s3RegionName :: String : region (pour les requêtes signées en algorithme V4)</p>
+</li>
+<li><p class="first">s3Endpoint :: String : URL du stockage</p>
+</li>
+<li><dl class="first docutils">
+<dt>s3SignerType :: String <span class="classifier-delimiter">:</span> <span class="classifier">type de signature utilisé (cf documentation officielle Amazon sur la <a class="reference external" href="https://docs.aws.amazon.com/fr_fr/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">signature des requêtes</a>). Valeurs possibles :</span></dt>
+<dd><ul class="first last simple">
+<li>“AWSS3V4SignerType” : signature V4 (valeur par défaut si chaîne vide)</li>
+<li>“S3SignerType” : signature V2</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">s3TrustStore :: String : chemin vers le fichier TrustStore contenant le certificat racine de l’autorité du certificat du stockage (obligatoire en cas de SSL)</p>
+</li>
+<li><dl class="first docutils">
+<dt>s3PathStyleEnabled :: Boolean <span class="classifier-delimiter">:</span> <span class="classifier">type d’accès aux buckets S3 (cf documentation officielle Amazon sur l”<a class="reference external" href="https://docs.aws.amazon.com/fr_fr/AmazonS3/latest/dev/VirtualHosting.html">hébergement virtuel de compartiments</a>). Valeurs possibles :</span></dt>
+<dd><ul class="first last simple">
+<li>“true” : l’accès en mode «&nbsp;path-style&nbsp;» (exemple d’URI : <code class="docutils literal notranslate"><span class="pre">http://mys3domain/mybucket/</span></code>)</li>
+<li>“false” : l’accès en «&nbsp;virtual-hosted-style&nbsp;» (exemple d’URI : <code class="docutils literal notranslate"><span class="pre">http://mybucket.mys3domain/</span></code>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">s3MaxConnections :: Integer : nombre maximum de connexions HTTP ouvertes</p>
+</li>
+<li><p class="first">s3ConnectionTimeout :: Integer : temps maximum pour l’établissement d’une connexion avant d’abandonner (en millisecondes)</p>
+</li>
+<li><p class="first">s3SocketTimeout :: Integer : temps maximum pour le transfert de la donnée avant d’abandonner (en millisecondes)</p>
+</li>
+<li><p class="first">s3RequestTimeout :: Integer : temps maximum pour l’exécution de la requête avant d’abandonner (en millisecondes)</p>
+</li>
+<li><p class="first">s3ClientExecutionTimeout :: Integer : temps maximum pour l’exécution de la requête par le client java avant d’abandonner (en millisecondes)</p>
+</li>
+</ul>
+</dd>
+</dl>
 <p>2.1 - Configuration par code:</p>
-<p>2.1.a Exemple file systeme:</p>
+<p>2.1.a Exemple file système:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">StorageConfiguration</span> <span class="n">storeConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StorageConfiguration</span><span class="o">().</span><span class="na">setProvider</span><span class="o">(</span><span class="n">StorageProvider</span><span class="o">.</span><span class="na">FILESYSTEM</span><span class="o">.</span><span class="na">getValue</span><span class="o">())</span>
   <span class="o">.</span><span class="na">setStoragePath</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">);</span>
 </pre></div>
@@ -364,6 +432,16 @@
      .setSwiftUid(swift)
      .setSwiftSubUser(user)
      .setCredential(passwd);
+</pre></div>
+</div>
+<p>2.1.d Exemple S3</p>
+<p>Cet exemple correspond aux valeurs d’une image docker Openio.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">StorageConfiguration</span> <span class="n">storeConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StorageConfiguration</span><span class="o">().</span><span class="na">setProvider</span><span class="o">(</span><span class="n">StorageProvider</span><span class="o">.</span><span class="na">AMAZON_S3_V1</span><span class="o">.</span><span class="na">getValue</span><span class="o">())</span>
+              <span class="o">.</span><span class="na">setS3RegionName</span><span class="o">(</span><span class="n">Regions</span><span class="o">.</span><span class="na">US_WEST_1</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+              <span class="o">.</span><span class="na">setS3Endpoint</span><span class="o">(</span><span class="s">&quot;http://127.0.0.1:6007&quot;</span><span class="o">);</span>
+              <span class="o">.</span><span class="na">setS3AccessKey</span><span class="o">(</span><span class="s">&quot;demo:demo&quot;</span><span class="o">);</span>
+              <span class="o">.</span><span class="na">setS3SecretKey</span><span class="o">(</span><span class="s">&quot;DEMO_PASS&quot;</span><span class="o">);</span>
+              <span class="o">.</span><span class="na">setS3PathStyleAccessEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
 </pre></div>
 </div>
 <p>2.2 - Configuration par fichier</p>
@@ -385,11 +463,11 @@
 <div class="section" id="presentation-des-methodes-dans-swift-filesystem">
 <h2>3- Présentation des méthodes dans SWIFT &amp; FileSystem:<a class="headerlink" href="#presentation-des-methodes-dans-swift-filesystem" title="Lien permanent vers ce titre">¶</a></h2>
 <p>3.1 - Introduction :</p>
-<p>Il y a deux classes qui héritent les APIs. l’une utilise SWIFT et l’autre utilise FileSystem.</p>
+<p>Il y a deux classes qui héritent les APIs. L’une utilise SWIFT et l’autre utilise FileSystem.</p>
 <p>3.2 - Liste des méthodes :</p>
 <p>3.2.1 getObjectInformation :</p>
 <ul class="simple">
-<li>SWIFT: Obtenir l’objet par les APIs swift</li>
+<li>SWIFT: Obtenir l’objet par les APIs Swift</li>
 </ul>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>        <span class="n">result</span><span class="o">.</span><span class="na">setFileOwner</span><span class="o">(</span><span class="s">&quot;Vitam_&quot;</span> <span class="o">+</span> <span class="n">containerName</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&quot;_&quot;</span><span class="o">)[</span><span class="mi">0</span><span class="o">]);</span>
 <span class="n">result</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">containerName</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&quot;_&quot;</span><span class="o">)[</span><span class="mi">1</span><span class="o">]);</span>
@@ -461,7 +539,7 @@
         <a href="vitam-metrics.html" class="btn btn-neutral float-right" title="Métriques dans VITAM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="format-identifier.html" class="btn btn-neutral" title="Common format identification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="format-identifier.html" class="btn btn-neutral float-left" title="Common format identification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -487,36 +565,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.3. Services métiers &mdash; Documentation VITAM - Architecture 2.1.1</title>
+  <title>4.3. Services métiers &mdash; Documentation VITAM - Architecture 2.6.1</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2.6.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="5. Architecture technique / exploitation" href="../archi-exploit-infra/_toc.html" />
     <link rel="prev" title="4.2. Architecture des données &amp; multisite" href="11-data-architecture-multisite.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +73,7 @@
             
             
               <div class="version">
-                2.1.1
+                2.6.1
               </div>
             
           
@@ -186,17 +198,17 @@
 <h2>4.3.1. API externes (ingest-external et access-external)<a class="headerlink" href="#api-externes-ingest-external-et-access-external" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Rôle :</p>
 <ul class="simple">
-<li>Exposer les API publiques du système</li>
-<li>Sécuriser l’accès aux API de VITAM</li>
+<li>Exposer les <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> publiques du système</li>
+<li>Sécuriser l’accès aux <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> de VITAM</li>
 </ul>
 <p>Contraintes techniques :</p>
 <ul class="simple">
 <li>Authentification forte requise de la part des clients</li>
-<li>WAF</li>
+<li><a class="reference internal" href="../introduction.html#term-waf"><span class="xref std std-term">WAF</span></a></li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
-<li>Pour ingest-external : SIP dans le sas d’entrée (conservés uniquement pendant leur analyse antivirus)</li>
+<li>Pour <code class="docutils literal notranslate"><span class="pre">ingest-external</span></code> : <a class="reference internal" href="../introduction.html#term-sip"><span class="xref std std-term">SIP</span></a> dans le sas d’entrée (conservés uniquement pendant leur analyse antivirus)</li>
 </ul>
 </div>
 <div class="section" id="moteur-d-entree-ingest-internal">
@@ -207,9 +219,9 @@
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
-<li>Upload HTTP de fichiers au format SEDA</li>
-<li>Persistance du SEDA dans workspace</li>
-<li>Lancement des workflows de traitements liés à l’entrée dans processing</li>
+<li>Upload HTTP de fichiers au format <a class="reference internal" href="../introduction.html#term-seda"><span class="xref std std-term">SEDA</span></a></li>
+<li>Persistance du SEDA dans <code class="docutils literal notranslate"><span class="pre">workspace</span></code></li>
+<li>Lancement des <em>workflows</em> de traitements liés à l’entrée dans <code class="docutils literal notranslate"><span class="pre">processing</span></code></li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
@@ -224,9 +236,9 @@
 </ul>
 <p>Fonction :</p>
 <ul class="simple">
-<li>Exposition des fonctions de recherche d’archives offertes par metadata</li>
-<li>Exposition des fonctions de parcours de journaux offertes par logbook</li>
-<li>Exposition des fonctions d’admnistration métier du système offertes par functional-administration</li>
+<li>Exposition des fonctions de recherche d’archives offertes par <code class="docutils literal notranslate"><span class="pre">metadata</span></code></li>
+<li>Exposition des fonctions de parcours de journaux offertes par <code class="docutils literal notranslate"><span class="pre">logbook</span></code></li>
+<li>Exposition des fonctions d’admnistration métier du système offertes par <code class="docutils literal notranslate"><span class="pre">functional-administration</span></code></li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
@@ -241,13 +253,13 @@
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
-<li>Gestion des certificats d’accès des applications (SIA)</li>
+<li>Gestion des certificats d’accès des applications (<a class="reference internal" href="../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a>)</li>
 <li>Gestion des certificats personnels</li>
 <li>Gestion des endpoints nécessitant le contrôle des certificats personnels</li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
-<li>Certificats des applications appelant VITAM (SIA)</li>
+<li>Certificats des applications appelant VITAM (<a class="reference internal" href="../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a>)</li>
 <li>Certificats personnels (pour les endpoints nécessitant une authentification personae)</li>
 </ul>
 </div>
@@ -273,7 +285,7 @@
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
-<li>Etat des workflow en cours d’exécution</li>
+<li>Etat des <em>workflows</em> en cours d’exécution</li>
 </ul>
 </div>
 <div class="section" id="espace-de-travail-workspace">
@@ -319,7 +331,7 @@
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
-<li>Fournit une API agrégeant et abstrayant une technologie de base de données et un moteur d’indexation</li>
+<li>Fournit une <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> agrégeant et abstrayant une technologie de base de données et un moteur d’indexation</li>
 </ul>
 <p>Données gérées :</p>
 <ul class="simple">
@@ -401,7 +413,7 @@
 <p>Fonctions :</p>
 <ul class="simple">
 <li>Offre de stockage fournie par défaut</li>
-<li>Stockage simple des objets numériques sur un système de fichiers local ou sur un stockage objet Swift</li>
+<li>Stockage simple des objets numériques sur un système de fichiers local ou sur un stockage objet Swift ou sur stockage objet S3</li>
 <li>Log des écritures dans l’offre en permettant le rejeu</li>
 </ul>
 <p>Données gérées :</p>
@@ -413,7 +425,7 @@
 <h2>4.3.13. Interface de démonstration (ihm-demo)<a class="headerlink" href="#interface-de-demonstration-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Rôle :</p>
 <ul class="simple">
-<li>Permettre une utilisation basique de VITAM, notamment sans SIA</li>
+<li>Permettre une utilisation basique de VITAM, notamment sans <a class="reference internal" href="../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a></li>
 </ul>
 <p>Fonctions :</p>
 <ul class="simple">
@@ -424,7 +436,7 @@
 </ul>
 <p>Contraintes techniques :</p>
 <ul class="simple">
-<li>IHM intuitive (sans workflows métiers), accessible (au sens RGAA), «&nbsp;responsive&nbsp;design»</li>
+<li><a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> intuitive (sans workflows métiers), accessible (au sens RGAA), <em>responsive&nbsp;design</em></li>
 <li>Compatibilité avec les navigateurs actuels</li>
 <li>Pas d’applets/clients lourds</li>
 </ul>
@@ -446,7 +458,7 @@
         <a href="../archi-exploit-infra/_toc.html" class="btn btn-neutral float-right" title="5. Architecture technique / exploitation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="11-data-architecture-multisite.html" class="btn btn-neutral" title="4.2. Architecture des données &amp; multisite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="11-data-architecture-multisite.html" class="btn btn-neutral float-left" title="4.2. Architecture des données &amp; multisite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -472,36 +484,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2.1.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
