@@ -86,7 +86,7 @@ Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiel
 ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeux_de_tests_fonctionnels_RELEASE10.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
+([zip](http://download.programmevitam.fr/vitam_repository/2.6.0/tests/Jeux_de_tests_fonctionnels_RELEASE10.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
 
 ## Outils de préservation Vitam
