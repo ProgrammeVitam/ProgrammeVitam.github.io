@@ -39,6 +39,7 @@ A noter est aussi disponible le fichier .jar utilisable sous Linux ([ici](http:/
 >* une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière struturée et graphqiue (sans XML)
 >* une capacité de visualisation et de recherche dans le manifest
 >* une capacité de recherche des unités d'archives sans descendance
+>* compatible jdk11
 
 
 * **un manuel utilisateur**
