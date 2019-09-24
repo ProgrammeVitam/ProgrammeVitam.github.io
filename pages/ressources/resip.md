@@ -34,6 +34,13 @@ Il est accessible [ici](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/Re
 
 A noter est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/jar.zip)).
 
+
+>**BETA**: une version beta de la V2.0 est à disposition [ici](http://download.programmevitam.fr/resip/2.0-SNAPSHOT/ResipV2.0.zip) avec notamment : 
+>* une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière struturée et graphqiue (sans XML)
+>* une capacité de visualisation et de recherche dans le manifest
+>* une capacité de recherche des unités d'archives sans descendance
+
+
 * **un manuel utilisateur**
 
 La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/20190910_Vitam_Manuel_ReSIP_V3.1.pdf)
