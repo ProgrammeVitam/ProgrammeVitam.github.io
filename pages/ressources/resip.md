@@ -35,7 +35,7 @@ Il est accessible [ici](http://download.programmevitam.fr/resip/1.10.0/Resip1.10
 A noter est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/1.10.0/jar.zip)).
 
 
->**BETA**: une version beta de la V2.1 est à disposition [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/ResipV2.1.zip) en exécutable et [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/jar.zip) en jar avec notamment : 
+>**BETA**: une version beta de la V2.1 est à disposition [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/Resip2.1.zip) en exécutable et [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/jar.zip) en jar avec notamment : 
 >* une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière structurée et graphique (sans XML)
 >* une capacité de visualisation et de recherche dans le manifest
 >* une capacité de recherche des unités d'archives sans descendance
