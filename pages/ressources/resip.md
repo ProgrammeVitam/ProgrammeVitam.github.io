@@ -3,7 +3,7 @@ layout: page
 title: Resip
 ---
 
-> Cette page présente le générateur ReSIP (version courante 1.10.0-SNAPSHOT compilée le 01/09/2019).
+> Cette page présente le générateur ReSIP (version courante 1.10.0 compilée le 06/09/2019 et version beta 2.1-SNAPSHOT compilée le 13/10/2019).
 
 ## ReSIP
 
@@ -30,9 +30,9 @@ Sont mis à dispostion :
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution 
 nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable. 
 
-Il est accessible [ici](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/Resip.zip) avec si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) ou la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter dans le répertoire Resip
+Il est accessible [ici](http://download.programmevitam.fr/resip/1.10.0/Resip1.10.zip) avec si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) ou la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter dans le répertoire Resip
 
-A noter est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/jar.zip)).
+A noter est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/1.10.0/jar.zip)).
 
 
 >**BETA**: une version beta de la V2.1 est à disposition [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/ResipV2.1.zip) en exécutable et [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/jar.zip) en jar avec notamment : 
