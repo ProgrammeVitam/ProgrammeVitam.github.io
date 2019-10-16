@@ -12,7 +12,7 @@ title: 29 novembre 2019 : journée au CNAM "Enjeux et contraintes de l’archiva
     - VITAM : présentation générale par le programme VITAM
     - L'état de l'art « outil » de l'archivage électronique par XDEMAT
     - Intégrer le cœur VITAM : orientation générale et stratégie d'intégration par BlueXML
-    - L'augmentation des volumes et les nouvelles réglementations autour de la démat' par VITAM
+    - L'augmentation des volumes et les nouvelles réglementations autour de la démat' par le programme VITAM
     - Packager une offre globale avec VITAM : l'exemple de D-Lab par Lacarchives
     - Le Records Management et la chaîne de confiance par XDEMAT
     - Le tiers-hébergement et VITAM par le SOPRA
