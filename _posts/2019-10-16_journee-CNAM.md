@@ -4,7 +4,7 @@ title: 29 novembre 2019 : journée au CNAM "Enjeux et contraintes de l’archiva
 ---
 
 > Le Programme Vitam vous informe de la renue d'une journée d'études organisée par XDemat et l'INTD-CNAM.
-![Logos](/public/images/CNAM.jpg)
+![Logos](/public/images/CNAM.png)
 
 ## Seront abordés lors de cette journée :
 
