@@ -24,4 +24,4 @@ title: Le 29 novembre 2019 : journée à l'INTD-CNAM sur Enjeux et contraintes d
     - Parole libre et questions animées par XDEMAT
     - Clôture et remerciements par XDEMAT
 
-[Renseignements et inscription] (http://intd.cnam.fr/enjeux-et-contraintes-de-l-archivage-electronique-le-positionnement-de-vitam-1111342.kjsp?RH=intd)
+[Renseignements et inscription](http://intd.cnam.fr/enjeux-et-contraintes-de-l-archivage-electronique-le-positionnement-de-vitam-1111342.kjsp?RH=intd)
