@@ -3,7 +3,7 @@ layout: post
 title: Actualités d'automne pour le programme Vitam
 ---
 
-> L'automne est actif pour le pogramme Vitam ! Départs et arrivées de nouvelles personnes, recrutements, publication du marché de la MAC (maintenance et amélioration continue), retrouvez les principaux sujets du moment.
+> L'automne est actif pour le programme Vitam ! Départs et arrivées de nouvelles personnes, recrutements, publication du marché de la MAC (maintenance et amélioration continue), retrouvez les principaux sujets du moment.
 
 ![Logos](/public/images/iPres2019_Vasseur.jpg)
 Photo credit: Sebastiaan ter Burg, CC BY 4.0
