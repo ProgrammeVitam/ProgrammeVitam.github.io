@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: Le 29 novembre 2019 : journée à l'INTD-CNAM sur Enjeux et contraintes de l’archivage électronique: le positionnement de VITAM
+title: Le 29 novembre 2019 : Enjeux et contraintes de l’archivage électronique: le positionnement de VITAM, journée à l'INTD-CNAM
 ---
 
 > Le Programme Vitam vous informe de la tenue d'une journée d'études organisée par XDemat et l'INTD-CNAM.
