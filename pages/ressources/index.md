@@ -28,24 +28,20 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 
 Liens de téléchargement :
-
+**Version 2.11.3 (Release R11)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.11.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.11.3/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.11.3/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.11.3/deb/vitam-external/)).
+  
 **Version 2.6.1 (Release R10)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.6.1/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.6.1/deb/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.6.1/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.6.1/deb/vitam-external/)).
   
 
-**Version 2.1.6 (Release R9.6)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.6/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.6/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.6/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.6/deb/vitam-external/)).
+**Version 2.1.13 (Release R9.13)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.13/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.13/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.13/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.13/deb/vitam-external/)).
 
 
-**Version 1.10.3 (Release 8.3)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.10.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.10.3/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/1.10.3/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.10.3/deb/vitam-external/)).
-
-**Version 1.4.17 (Release 7.17)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.17/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.17/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm](http://download.programmevitam.fr/vitam_repository/1.4.17/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/1.4.17/deb/vitam-product/)).
 
 
 A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/apt).
@@ -55,18 +51,15 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
+La VM de la version 2.11.3 (Release 11) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.ova).
+L'empreinte sha256 de la VM est disponible à cette url:(http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.sha256).
 
 La VM de la version 2.6.1 (Release 10) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.ova).
-L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.sha256).
+L'empreinte sha256 de la VM est disponible à cette url:(http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.sha256).
 
-La VM de la version 2.1.6 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.6/VM/demo_vitam_2.1.6.ova).
-L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/2.1.6/VM/demo_vitam_2.1.6.sha256).
+La VM de la version 2.1.13 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.ova).
+L'empreinte sha256 de la VM est disponible à cette url:(http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.sha256).
 
-La VM de la version 1.10.3. (Release 8) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.ova).
-L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.10.3/VM/demo_vitam_1.10.3.sha256).
-
-La VM de la version 1.4.17. (Release 7) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/1.4.17/VM/demo_vitam_1.4.17.ova).
-L'empreinte sha256 de la VM est disponible à cette url: (http://download.programmevitam.fr/vitam_repository/1.4.17/VM/demo_vitam_1.4.17.sha256).
 
 
 * **la documentation fonctionnelle et technique**
@@ -97,12 +90,12 @@ Sont mis à dispostion :
 
 * **les exécutables**
 
-* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.5.0/rpm/))
-* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.5.0/deb/))
+* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.11.0/rpm/))
+* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.11.0/deb/))
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.5.0)
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.11.0)
 
 
 ## Outils complémentaires Vitam - toutes versions publiées
