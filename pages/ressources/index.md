@@ -28,13 +28,10 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 
 Liens de téléchargement :
+
 **Version 2.11.3 (Release R11)**
   - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.11.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.11.3/deb/vitam-product/)),
   - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.11.3/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.11.3/deb/vitam-external/)).
-  
-**Version 2.6.1 (Release R10)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.6.1/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.6.1/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.6.1/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.6.1/deb/vitam-external/)).
   
 
 **Version 2.1.13 (Release R9.13)**
@@ -52,13 +49,10 @@ Elle contient une installation complète de Vitam qui permet une découverte fon
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
 La VM de la version 2.11.3 (Release 11) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.ova).
-L'empreinte sha256 de la VM est disponible à cette url:(http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.sha256).
-
-La VM de la version 2.6.1 (Release 10) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.ova).
-L'empreinte sha256 de la VM est disponible à cette url:(http://download.programmevitam.fr/vitam_repository/2.6.1/VM/demo_vitam_2.6.1.sha256).
+L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.sha256).
 
 La VM de la version 2.1.13 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.ova).
-L'empreinte sha256 de la VM est disponible à cette url:(http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.sha256).
+L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.sha256).
 
 
 
