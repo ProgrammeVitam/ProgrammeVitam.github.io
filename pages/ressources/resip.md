@@ -3,7 +3,7 @@ layout: page
 title: Resip
 ---
 
-> Cette page présente le générateur ReSIP (version courante 1.10.0 compilée le 06/09/2019 et version beta 2.1-SNAPSHOT compilée le 13/10/2019).
+> Cette page présente le générateur ReSIP (version 2.2-SNAPSHOT compilée le 24/11/2019).
 
 ## ReSIP
 
@@ -28,23 +28,23 @@ Sont mis à dispostion :
 * **le paquet d'installation sous Windows**
 
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution 
-nécessite la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable. 
+nécessite la présence de java 8 à 11 (non testé au delà) sur le poste ou à défaut une machine java 8 à 11 dans le répertoire "jre" au niveau de l'exécutable. 
 
-Il est accessible [ici](http://download.programmevitam.fr/resip/1.10.0/Resip1.10.zip) avec si nécessaire la [jre 64bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2064bits.zip) ou la [jre 32bits](http://download.programmevitam.fr/resip/1.1-SNAPSHOT/jre%2032bits.zip) à ajouter dans le répertoire Resip
+Il est accessible [ici](http://download.programmevitam.fr/resip/2.2-SNAPSHOT/Resip2.2.zip)
 
-A noter est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/1.10.0/jar.zip)).
+A noter:
 
-
->**BETA**: une version beta de la V2.1 est à disposition [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/Resip2.1.zip) en exécutable et [ici](http://download.programmevitam.fr/resip/2.1-SNAPSHOT/jar.zip) en jar avec notamment : 
->* une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière structurée et graphique (sans XML)
->* une capacité de visualisation et de recherche dans le manifest
->* une capacité de recherche des unités d'archives sans descendance
->* compatible jdk11
+* est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/2.2-SNAPSHOT/jar.zip)).
+* la version 2 apporte par rapport à la version 1:
+  * une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière structurée et graphique (sans XML)
+  * une capacité de visualisation et de recherche dans le manifest
+  * une capacité de recherche des unités d'archives sans descendance
+  * la compatibilité jdk11
 
 
 * **un manuel utilisateur**
 
-La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/20190910_Vitam_Manuel_ReSIP_V3.1.pdf)
+La documentation **ReSIP** décrit les fonctions de l'outil ReSIP en Version 1 ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](http://download.programmevitam.fr/resip/1.10-SNAPSHOT/20190910_Vitam_Manuel_ReSIP_V3.1.pdf). Les fonctions spécifiques de la V2 notamment l'interface d'édition des métadonnées sans XML n'est pas couvert.
 
 
 * **un jeux de tests**
