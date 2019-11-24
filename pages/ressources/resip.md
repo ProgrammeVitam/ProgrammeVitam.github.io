@@ -32,14 +32,14 @@ nécessite la présence de java 8 à 11 (non testé au delà) sur le poste ou à
 
 Il est accessible [ici](http://download.programmevitam.fr/resip/2.2-SNAPSHOT/Resip2.2.zip)
 
-A noter:
-
-* est aussi disponible le fichier .jar utilisable sous Linux ([ici](http://download.programmevitam.fr/resip/2.2-SNAPSHOT/jar.zip)).
-* la version 2 apporte par rapport à la version 1:
-  * une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière structurée et graphique (sans XML)
-  * une capacité de visualisation et de recherche dans le manifest
-  * une capacité de recherche des unités d'archives sans descendance
-  * la compatibilité jdk11
+>A noter:
+>
+>  * le fichier .jar utilisable sous Linux est disponible ([ici](http://download.programmevitam.fr/resip/2.2-SNAPSHOT/jar.zip)).
+>  * la version 2 apporte par rapport à la version 1:
+>    * une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière structurée et graphique (sans XML)
+>    * une capacité de visualisation et de recherche dans le manifest
+>    * une capacité de recherche des unités d'archives sans descendance
+>    * la compatibilité jdk11
 
 
 * **un manuel utilisateur**
