@@ -89,43 +89,33 @@ Sont mis à dispostion :
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.11.0)
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.11.0). Le 
 
 
-## Outils complémentaires Vitam - toutes versions publiées
+## Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...
 
-Il s'agit des outils utilisés pour faciliter le test ou le développement.
+Il s'agit des outils, applications bureautiques et bibliothèques Java de manipulation des paquets SEDA et d'extraction de messageries, réunis sous le titre de **Sedatools** :
 
-Pour le moment, il s'agit des **Sedatools**,
-Bibliothèque Java et outils IHM (interface hommes/machines) de manipulation des paquets SEDA, proposés pour tests
-Ils permettent de générer automatiquement à partir d’une simple arborescence de fichiers un SIP (paquet d’information à archiver) conforme aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation)).
+* pour les applications
+  * ``resip``: l'application de création et manipulation des SIP. Cette application permet toutes sortes de manipulations de structures d'archives que cela soit sous forme SIP, DIP ou hiérarchie sur disque.
+  * ``mailextract``: l'application permettant toutes les extractions de messagerie
+  * ``testsipgenerator``: l'application permettant de générer des paquets SIP simulés pour test
+* pour les bibliothèques
+  * ``sedalib``: la bibliothèque SEDA (manipulation de paquets SEDA conformes aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation))) mise en oeuvre dans ReSIP
+  * ``sedalib-samples``: des exemples de code d'usage pour construire des SIP complexes en peu de lignes en s'appuyant sur sedalib
+  * ``mailextractlib``: la bibliothèque extraction de messageries (pst, mbox, thunderbird...) fortement paramétrable et avec une sortie facilement projetable dans un paquet SEDA
 
-Cette publication vise à recueillir les déclarations d’intérêt des utilisateurs suite à leurs tests afin d'évaluer l'intérêt d'intégrer cet outil à la solution logicielle Vitam. Les retours sont possibles à l'adresse contact@programmevitam.fr
+Ces outils à l'origine créés pour construire et manipuler des paquets de test ont été enrichis pour un usage en production.
 
-Pour plus d'information, consultez les pages [ReSIP, IHM de manipulation de SIP](/pages/ressources/resip) et [sedalib, bibiliothèque java de manipulation de SIP](/pages/ressources/sedalib).
+Pour plus d'information :
+* sur ReSIP, l'application bureautique de haut niveau réunissant toutes les fonctions, consultez la page [dédiée](/pages/ressources/resip).
+* sur les autres outils, consultez le [README](/https://github.com/ProgrammeVitam/sedatools/blob/master/README.md) du dépot de code
 
-Sont mis à dispostion :
-
-* **les exécutables windows et les jar**
-
-Ils sont accessibles dans les pages [ReSIP](/pages/ressources/resip) et [sedalib](/pages/ressources/sedalib).
-
-Les exécutables nécessitent la présence de java 8 sur le poste ou à défaut une machine java 8 dans le répertoire "jre" au niveau de l'exécutable.
-
-* **La documentation associée**
-
-Elle est accessible dans la page [Documentation](/pages/documentation).
-
-La documentation **ReSIP** décrit les fonctions de l'outil ReSIP et peut être consultée en suivant ce [lien](/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf)
-
-La JavaDoc **sedalib** décrit les fonctions de la bibliothèque et peut être consultée en suivant ce [lien](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
-
-La documentation **Spécification des SIP** - recommandations sur la construction des paquets
-à archiver peut être consultée en suivant ce [lien](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf)
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools)
+Il contient un projet par outils et par bibliothèque, et est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools). 
+
 
 
 ## Présentation de la Deuxième version de production de la solution logicielle Vitam
