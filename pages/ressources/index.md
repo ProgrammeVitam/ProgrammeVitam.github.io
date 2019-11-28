@@ -109,7 +109,7 @@ Ces outils à l'origine créés pour construire et manipuler des paquets de test
 
 Pour plus d'information :
 * sur ReSIP, l'application bureautique de haut niveau réunissant toutes les fonctions, consultez la page [dédiée](/pages/ressources/resip).
-* sur les autres outils, consultez le [README](/https://github.com/ProgrammeVitam/sedatools/blob/master/README.md) du dépot de code
+* sur les autres outils, consultez le [README](https://github.com/ProgrammeVitam/sedatools/blob/master/README.md) du dépot de code
 
 
 * **le code développé**
