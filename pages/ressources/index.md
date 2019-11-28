@@ -97,13 +97,13 @@ Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeV
 Il s'agit des outils, applications bureautiques et bibliothèques Java de manipulation des paquets SEDA et d'extraction de messageries, réunis sous le titre de **Sedatools** :
 
 * pour les applications
-  * ``resip``: l'application de création et manipulation des SIP. Cette application permet toutes sortes de manipulations de structures d'archives que cela soit sous forme SIP, DIP ou hiérarchie sur disque.
-  * ``mailextract``: l'application permettant toutes les extractions de messagerie
-  * ``testsipgenerator``: l'application permettant de générer des paquets SIP simulés pour test
+  * ``resip``: cette application permet toutes sortes de manipulations de structures d'archives que cela soit sous forme SIP, DIP, hiérarchie sur disque ou issues de l'extraction d'un conteneur de messagerie.
+  * ``mailextract``: cette application permet toutes les extractions de conteneurs de messagerie
+  * ``testsipgenerator``: cette application permet de générer des paquets SIP simulés pour test
 * pour les bibliothèques
   * ``sedalib``: la bibliothèque SEDA (manipulation de paquets SEDA conformes aux recommandations Vitam (cf "Spécifications des SIP" selon la version dans la page [Documentation](/pages/documentation))) mise en oeuvre dans ReSIP
   * ``sedalib-samples``: des exemples de code d'usage pour construire des SIP complexes en peu de lignes en s'appuyant sur sedalib
-  * ``mailextractlib``: la bibliothèque extraction de messageries (pst, mbox, thunderbird...) fortement paramétrable et avec une sortie facilement projetable dans un paquet SEDA
+  * ``mailextractlib``: la bibliothèque extraction de messageries (pst, mbox, thunderbird...) fortement paramétrable et avec une sortie facilement projetable dans un paquet SEDA, mise en oeuvre dans ReSIP et mailextract
 
 Ces outils à l'origine créés pour construire et manipuler des paquets de test ont été enrichis pour un usage en production.
 
