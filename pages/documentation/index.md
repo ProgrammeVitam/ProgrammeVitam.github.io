@@ -6,8 +6,7 @@ level: page
 ---
 
 > Est ici présentée la documentation des versions publiées et des précédentes.
-Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation
-de développement.
+Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
 
 ## Première approche
@@ -17,6 +16,8 @@ de développement.
 ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Guide de prise en main_V9.0.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip))
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Presentation_solution_logicielle_V8.0.pdf))
+
+**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_documentation.zip)**
 
 ## Documentation métier
 
