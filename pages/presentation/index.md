@@ -5,7 +5,7 @@ fatherref: presentation
 level: page
 ---
 
->Trois ministères, Affaires étrangères et Développement international (MAEDI), Culture et Communication (MCC),
+>Trois ministères, Affaires étrangères et Développement international (MAEDI), Culture (MC),
 Défense (MinDef), responsables de la conservation des archives de l’État ont mutualisé leurs efforts pour 
 répondre ensemble à l’enjeu de l’archivage numérique tout au long de leur cycle de vie.
 
@@ -14,11 +14,11 @@ répondre ensemble à l’enjeu de l’archivage numérique tout au long de leur
 * Le programme Vitam (Valeurs immatérielles transmises aux archives pour mémoire) a été 
 validé par le Comité interministériel aux Archives de France le 1er juillet 2013 ;
 * Il a obtenu l’avis favorable de la Direction interministérielle du numérique et des systèmes d’information 
-et de communication de l’État (DINSIC), le 4 septembre 2013 ;
+et de communication de l’État (DINUM), le 4 septembre 2013 ;
 * Il a fait l’objet d’une convention entre les trois ministères et les services du Premier ministre signée le 5 mars 2015 ;
 * Il a été retenu dans le cadre de l’action : « Transition numérique de l’État et modernisation de l’action 
 publique » du Programme d’investissements d’avenir (PIA) ;
-* Il a été lancé officiellement le 9 mars 2015 sous le pilotage de la DINSIC et du Comité interministériel aux Archives de France (CIAF).
+* Il a été lancé officiellement le 9 mars 2015 sous le pilotage de la DINUM et du Comité interministériel aux Archives de France (CIAF).
 
 ## Les objectifs du programme Vitam
 
@@ -52,7 +52,7 @@ Des engagements sont pris à compter de la date de notification des marchés de 
 Au début de l’année 2016, les lots du marché de réalisation Vitam ont été attribués aux sociétés HIT-Part et Linagora pour les développements, à la société Smile pour un lot d’expertise adaptable aux besoins de développement et à la société Thalès pour l’intégration et la qualité de la solution logicielle. La réalisation du logiciel a pu débuter dès avril 2016.
 Conformément au calendrier fixé, les premières livraisons ont eu lieu en 2016, avec la publication des premières API en juillet et la livraison de la version Bêta-test du logiciel aux ministères porteurs et partenaires le 29 novembre.
 Les livraisons se poursuivront à raison d’une version de production de la solution logicielle chaque année en 2017, 2018 et 2019, ainsi que leurs versions intermédiaires.
-![Frise temporelle du programme](/public/images/FriseTemps.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
+![Frise temporelle du programme](/public/images/20191108_planning_programme_V3.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
 ## La collaboration au cœur du Programme Vitam
 
@@ -76,4 +76,4 @@ La collaboration repose sur 4 niveaux de partenariats variables selon les object
 
 - [Aperçu](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf) du projet solution logicielle (V1)
 
-- [Présentation de la Première version de production de la solution logicielle Vitam] ([pdf](/ressources/DocCourante/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
+- [Présentation de la Première version de production de la solution logicielle Vitam]([pdf](/ressources/DocCourante/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
