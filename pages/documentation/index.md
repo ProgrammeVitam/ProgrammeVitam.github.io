@@ -11,7 +11,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 ## Première approche
 
-* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Guide de lecture de la documentation_V7.0.pdf.pdf))
+* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Guide de lecture de la documentation_V7.0.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Guide de prise en main_V9.0.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip))
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
@@ -21,10 +21,8 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 ## Documentation métier
 
-* **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf)
-\| [html](/ressources/DocCourante/html/manuel-utilisateur)) - Version HTML à venir
-* **Organisation de l'information** - présentation des exigences fonctionnelles
-et des objets métiers utilisés par la solution logicielle Vitam
+* **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel utilisateur_V5.0.pdf)
+* **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Organisation_information_V9.0.pdf))
 * **Spécification des SIP** - recommandations sur la construction des paquets
 à archiver ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Structuration_des_SIP_V10.0.pdf))
