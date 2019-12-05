@@ -8,8 +8,6 @@ level: page
 > Est ici présentée la documentation des versions publiées et des précédentes.
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
-![Logos](/public/images/20191115_guide de lecture.jpg)
-
 ## Quelle documentation ?
 * [Première approche](#approche)
 * [Vademecums ou "Vitam pour mes grands-parents"](#vademecums)
@@ -17,6 +15,8 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Documentation des tests](#doc_test)
 * [Documentation technique](#doc_technique)
 * [Documentation développeur](#doc_developppeur)
+
+![Logos](/public/images/20191115_guide de lecture.jpg)
 
 ## Première approche
 <a name="approche"></a>
@@ -32,56 +32,56 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 ## Vademecums : sommaire thématique
 <a name="vademecums"></a>
 
-* **Sommaire** ([pdf](/ressources/DocCourante/autres/vademcums/1- Fiches Vademecum - Sommaire.pdf)
-* **Glossaire** ([pdf](/ressources/DocCourante/autres/vademcums/2 - Glossaire_vademecum.pdf)
+* **Sommaire** ([pdf](/ressources/DocCourante/autres/vademcums/1- Fiches Vademecum - Sommaire.pdf))
+* **Glossaire** ([pdf](/ressources/DocCourante/autres/vademcums/2 - Glossaire_vademecum.pdf))
 
 * **Configuration de la plate-forme**
-	- L’attribution des identifiants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Maitre_esclave_vademecum.pdf)
-	- Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Parametrage.pdf)
-	- Les tenants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Tenant_vademecum.pdf)
+	- L’attribution des identifiants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Maitre_esclave_vademecum.pdf))
+	- Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Parametrage.pdf))
+	- Les tenants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Tenant_vademecum.pdf))
 * **Structuration des référentiels**
-	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Arbre_positionnement_vademecum.pdf)
-	- Les profils d’unité archivistique dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_Unite_Archivistique.pdf)
-	- Le contrat d’accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat_Acces_vademecum.pdf)
-	- Le contrat d’entrée dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat-Entree_vademecum.pdf)
-	- Le contrat de gestion dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat_Gestion_vademecum.pdf)
-	- L’attribution des identifiants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Maitre_esclave_vademecum.pdf)
-	- L’ontologie dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Ontologie.pdf)
-	- Les profils d’archivage dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_archivage.pdf)
-	- Le référentiel des griffons dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RGriffon_vademecum.pdf)
-	- Le référentiel des règles de gestion dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RRègles_Gestionvademecum.pdf)
-	- Le référentiel des services agents dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RServices_Agents_vademecum.pdf)
-	- Le référentiel des scénarios de préservation dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RScenario_Preservation_vademecum.pdf)
-	- Le référentiel des formats dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RFormat_vademecum.pdf)
+	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Arbre_positionnement_vademecum.pdf))
+	- Les profils d’unité archivistique dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_Unite_Archivistique.pdf))
+	- Le contrat d’accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat_Acces_vademecum.pdf))
+	- Le contrat d’entrée dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat-Entree_vademecum.pdf))
+	- Le contrat de gestion dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat_Gestion_vademecum.pdf))
+	- L’attribution des identifiants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Maitre_esclave_vademecum.pdf))
+	- L’ontologie dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Ontologie.pdf))
+	- Les profils d’archivage dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_archivage.pdf))
+	- Le référentiel des griffons dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RGriffon_vademecum.pdf))
+	- Le référentiel des règles de gestion dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RRègles_Gestionvademecum.pdf))
+	- Le référentiel des services agents dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RServices_Agents_vademecum.pdf))
+	- Le référentiel des scénarios de préservation dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RScenario_Preservation_vademecum.pdf))
+	- Le référentiel des formats dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/RFormat_vademecum.pdf))
 * **Organisation de l’information**
-	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Arbre_positionnement_vademecum.pdf)
-	- Le plan de classement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Plan_de_classement_vademecum.pdf)
-	- La structuration des informations dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Structuration_Information_vademecum.pdf)
+	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Arbre_positionnement_vademecum.pdf))
+	- Le plan de classement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Plan_de_classement_vademecum.pdf))
+	- La structuration des informations dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Structuration_Information_vademecum.pdf))
 * **Contrôle des métadonnées**
-	- Les profils d’unité archivistique dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_Unite_Archivistique.pdf)
-	- L’ontologie dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Ontologie.pdf)
-	- Les profils d’archivage dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_archivage.pdf)
+	- Les profils d’unité archivistique dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_Unite_Archivistique.pdf))
+	- L’ontologie dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Ontologie.pdf))
+	- Les profils d’archivage dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Profil_archivage.pdf))
 * **Gestion des droits**
-	- Le contrat d’accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat_Acces_vademecum.pdf)
-	- Le contrat d’entrée dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat-Entree_vademecum.pdf)
-	- La gestion des droits et permissions des utilisateurs applicatifs dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Habilitations.pdf)
-	- Le suivi des accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Log_acces_description.pdf)
+	- Le contrat d’accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat_Acces_vademecum.pdf))
+	- Le contrat d’entrée dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Contrat-Entree_vademecum.pdf))
+	- La gestion des droits et permissions des utilisateurs applicatifs dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Habilitations.pdf))
+	- Le suivi des accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Log_acces_description.pdf))
 * **Utilisation d’une fonctionnalité Vitam**
-	- La journalisation et la conservation de la valeur probante dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Journalisation.pdf)
-	- Le suivi des accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Log_acces_description.pdf)
-	- Le registre des fonds dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Registre_fonds.pdf)
-	- Les audits dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Audit.pdf)
-	- La préservation dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Préservation_vademecum.pdf)
-	- La gestion des archives classifiées avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Classification_vademecum.pdf)
-	- Positionner des règles de gestion dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Reglesgestion_fonctionnement.pdf)
-	- Faire un rattachement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Rattachement_vademecum.pdf)
-	- Réaliser des éliminations avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Elimination_vademecum.pdf)
-	- Le calcul des héritages des règles de gestion et l’indexation des échéances dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Echeances.pdf)
+	- La journalisation et la conservation de la valeur probante dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Journalisation.pdf))
+	- Le suivi des accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Log_acces_description.pdf))
+	- Le registre des fonds dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Registre_fonds.pdf))
+	- Les audits dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Audit.pdf))
+	- La préservation dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Préservation_vademecum.pdf))
+	- La gestion des archives classifiées avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Classification_vademecum.pdf))
+	- Positionner des règles de gestion dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Reglesgestion_fonctionnement.pdf))
+	- Faire un rattachement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Rattachement_vademecum.pdf))
+	- Réaliser des éliminations avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Elimination_vademecum.pdf))
+	- Le calcul des héritages des règles de gestion et l’indexation des échéances dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Echeances.pdf))
 
 ## Documentation métier
 <a name="doc_metier"></a>
 
-* **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel utilisateur_V5.0.pdf)
+* **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel utilisateur_V5.0.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Organisation_information_V9.0.pdf))
 * **Spécification des SIP** - recommandations sur la construction des paquets
