@@ -18,8 +18,8 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 ![Logos](/public/images/20191115_guide de lecture.jpg)
 
-## Première approche
 <a name="approche"></a>
+## Première approche
 
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Guide de lecture de la documentation_V7.0.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
@@ -29,8 +29,9 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 **[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_documentation.zip)**
 
-## Vademecums : sommaire thématique
 <a name="vademecums"></a>
+## Vademecums : sommaire thématique
+
 
 * **Sommaire** ([pdf](/ressources/DocCourante/autres/vademcums/1- Fiches Vademecum - Sommaire.pdf))
 * **Glossaire** ([pdf](/ressources/DocCourante/autres/vademcums/2 - Glossaire_vademecum.pdf))
@@ -78,8 +79,8 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 	- Réaliser des éliminations avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Elimination_vademecum.pdf))
 	- Le calcul des héritages des règles de gestion et l’indexation des échéances dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademcums/Echeances.pdf))
 
-## Documentation métier
 <a name="doc_metier"></a>
+## Documentation métier
 
 * **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel utilisateur_V5.0.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
@@ -107,26 +108,24 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Multi_strategies_1.0.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf))
 
-
-## Documentation des tests
 <a name="doc_test"></a>
+## Documentation des tests
 
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel_ IHM Recette_et_scenarii_de_tests_metier_V5.0.pdf)
 \| [html](/ressources/DocCourante/html/ihm-recette)) - Version HTML à venir
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeux_de_tests_fonctionnels_RELEASE10.zip))
 
 
-
-## Documentation technique
 <a name="doc_technique"></a>
+## Documentation technique
 
 * **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.15.1.pdf) \| [html](/ressources/DocCourante/html/archi))
 * **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.15.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
 * **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.15.1.pdf) \| [html](/ressources/DocCourante/html/installation))
 * **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.15.1.pdf) \| [html](/ressources/DocCourante/html/migration))
 
-## Documentation développeur
 <a name="doc_developpeur"></a>
+## Documentation développeur
 
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.2.15.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
