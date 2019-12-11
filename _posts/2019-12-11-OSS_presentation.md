@@ -4,6 +4,6 @@ title: Paris Open Source Summit : l'intervention du Programme Vitam le 10 décem
 ---
 > Jean-Séverin Lair a présenté dans le cadre du Paris Open Source Summit l'intervention : "D'un programme gouvernemental... à un vrai développement communautaire, le chemin de Vitam".
 
-![Logos](/public/images/OSS_JSL.png)
+![Logos](/public/images/OSS-JSL.png)
 
 Retrouvez la [présentation en pdf](/ressources/RefCourant/20191209-VitamOSS.pdf).
