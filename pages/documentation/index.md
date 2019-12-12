@@ -38,7 +38,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 * **Configuration de la plate-forme**
 	- L’attribution des identifiants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademecums/Maitre_esclave_vademecum.pdf))
-	- Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademecums/Parametrage.pdf))
+	- Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademecums/Parametrage_fonc.pdf))
 	- Les tenants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademecums/Tenant_vademecum.pdf))
 * **Structuration des référentiels**
 	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/vademecums/Arbre_positionnement_vademecum.pdf))
