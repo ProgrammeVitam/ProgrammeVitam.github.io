@@ -136,7 +136,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/))
 * **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.2.15.1-1.pdf))
-* **Sedalib** ([html](/http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/))
+* **Sedalib** ([html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/))
 
 
 <hr/>
