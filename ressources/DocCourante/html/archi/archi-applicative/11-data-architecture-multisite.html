@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2. Architecture des données &amp; multisite &mdash; Documentation VITAM - Architecture 2.6.1</title>
+  <title>4.2. Architecture des données &amp; multisite &mdash; Documentation VITAM - Architecture 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -105,7 +105,14 @@
 <li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html">4.1. Architecture applicative</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. Architecture des données &amp; multisite</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#inventaire-des-donnees">4.2.1. Inventaire des données</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multisite">4.2.2. Multisite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stockage-et-strategies">4.2.2. Stockage et stratégies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multisite">4.2.3. Multisite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strategies-multisite">4.2.4. Stratégies &amp; multisite</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mode-standard-exemple-d-architecture-mono-strategie">4.2.4.1. Mode standard: exemple d’architecture mono-stratégie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mode-avance-exemple-d-architecture-multi-strategie-oriente-qualite-de-service">4.2.4.2. Mode avancé: exemple d’architecture multi-stratégie orienté Qualité de service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mode-avance-exemple-d-architecture-mono-strategie-oriente-offres-objets">4.2.4.3. Mode avancé: exemple d’architecture mono-stratégie orienté Offres objets</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="20-services-list.html">4.3. Services métiers</a></li>
@@ -188,23 +195,23 @@
 <p class="first admonition-title">Voir aussi</p>
 <p class="last">Le modèle de données complet est explicité dans la documentation externe dédiée («&nbsp;Modèle de données&nbsp;»).</p>
 </div>
-<p>Le tableau ci-dessous représente l’inventaire des données gérées par VITAM, avec leur localisation et le composant responsable du cycle de vie de la donnée (i.e. règles de création / modification / suppression) :</p>
-<table border="1" class="longtable docutils" id="id1">
+<p>Le tableau ci-dessous représente l’inventaire des données gérées par <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, avec leur localisation et le composant responsable du cycle de vie de la donnée (i.e. règles de création / modification / suppression) :</p>
+<table border="1" class="colwidths-given longtable docutils" id="id1">
 <caption><span class="caption-text">Inventaire des données VITAM</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
+<col width="7%" />
+<col width="27%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Type</th>
-<th class="head">Données pris en charge par le module</th>
+<th class="head">Données prises en charge par le module</th>
 <th class="head">Composant responsable de la donnée</th>
 <th class="head">Persistence locale</th>
 <th class="head">Persistence BDD métier</th>
@@ -429,28 +436,110 @@
 </table>
 <p>Quelques remarques :</p>
 <ul>
-<li><p class="first">si une donnée est persistée à plusieurs endroits, l’emplacement de référence (i.e. faisant foi en cas de désynchronisation entre les emplacements) est indiqué par le préfixe <code class="docutils literal notranslate"><span class="pre">REF:</span></code>. Les processus de reconstruction ou de remise en cohérence de la solution logicielle s’appuient sur cet emplacement référentiel pour alimenter les autres emplacements de stockage. En particulier, les offres de stockage VITAM portent la référence des données concernant les archives hébergées par le système VITAM : leur contenu binaire (BDO), mais également les métadonnées associées au sens large (AU, GOT, journaux) et les référentiels métier</p>
+<li><p class="first">Si une donnée est persistée à plusieurs endroits, l’emplacement de référence (i.e. faisant foi en cas de désynchronisation entre les emplacements) est indiqué par le préfixe <code class="docutils literal notranslate"><span class="pre">REF:</span></code>. Les processus de reconstruction ou de remise en cohérence de la solution logicielle s’appuient sur cet emplacement référentiel pour alimenter les autres emplacements de stockage. En particulier, les offres de stockage <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> portent la référence des données concernant les archives hébergées par le système :term: <cite>VITAM</cite> : leur contenu binaire (<a class="reference internal" href="../introduction.html#term-bdo"><span class="xref std std-term">BDO</span></a>), mais également les métadonnées associées au sens large (<a class="reference internal" href="../introduction.html#term-au"><span class="xref std std-term">AU</span></a>, <a class="reference internal" href="../introduction.html#term-got"><span class="xref std std-term">GOT</span></a>, journaux) et les référentiels métier</p>
 </li>
-<li><p class="first">les données de référence à l’origine du registre des fonds sont les journaux opération (JOP)</p>
+<li><p class="first">Les données de référence à l’origine du registre des fonds sont les journaux opération (JOP)</p>
 </li>
-<li><p class="first">il existe 2 types de journaux d’écriture :</p>
+<li><p class="first">Il existe 2 types de journaux d’écriture :</p>
 <blockquote>
 <div><ul class="simple">
-<li>le premier au niveau du moteur de stockage, qui permet de s’assurer de la bonne prise en compte des écritures par le système VITAM. Il s’agit d’un journal métier, participant à la preuve systémique (il est donc sécurisé comme les journaux d’opération et de cycle de vie des archives) ;</li>
-<li>le deuxième au niveau de l’offre de stockage, qui permet de conserver l’ordre d’écriture des éléments stockés pour permettre leur rejeu lors d’une reconstruction (totale ou partielle). Il s’agit donc d’un journal technique, s’inspirant fortement du concept des archivelog des bases de données.</li>
+<li>Le premier, au niveau du moteur de stockage, qui permet de s’assurer de la bonne prise en compte des écritures par le système <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Il s’agit d’un journal métier, participant à la preuve systémique (il est donc sécurisé comme les journaux d’opération et de cycle de vie des archives) ;</li>
+<li>Le deuxième, au niveau de l’offre de stockage, qui permet de conserver l’ordre d’écriture des éléments stockés pour permettre leur rejeu lors d’une reconstruction (totale ou partielle). Il s’agit donc d’un journal technique, s’inspirant fortement du concept des <code class="docutils literal notranslate"><span class="pre">archivelog</span></code> des bases de données.</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
 </div>
+<div class="section" id="stockage-et-strategies">
+<h2>4.2.2. Stockage et stratégies<a class="headerlink" href="#stockage-et-strategies" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition seealso">
+<p class="first admonition-title">Voir aussi</p>
+<p class="last">La déscription complète et les usages dans la documentation externe dédiée («&nbsp;Gestion de multiples stratégies de stockage&nbsp;»).</p>
+</div>
+<p>Le stockage des données est pris en charge par le moteur de stockage. Celui-ci est en charge de la gestion du stockage de type <em>Persistence Storage</em> par le biais des offres de stockages.
+Le moteur de stockage s’appuie sur des stratégies de stockage pour définir la distribution des écritures dans les offres de stockage avec :</p>
+<ul class="simple">
+<li>la stratégie de stockage de plateforme <em>default</em> (obligatoire)</li>
+<li>une ou plusieurs stratégies additionnelles (optionnel)</li>
+</ul>
+<p>La répartition posible des données selon les types de stratégies est alors la suivante :</p>
+<table border="1" class="colwidths-given longtable docutils" id="id2">
+<caption><span class="caption-text">Inventaire des données selon le type de stratégie VITAM</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col width="11%" />
+<col width="44%" />
+<col width="22%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Données prises en charge par le module</th>
+<th class="head">Default strategy</th>
+<th class="head">Additionnal strategy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>métier</td>
+<td>Fichier de définition d’un référentiel</td>
+<td>REF&nbsp;: X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>Référentiels métier</td>
+<td>REF&nbsp;: X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>JOP (Journal des opérations)</td>
+<td>REF&nbsp;: X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>JOP sécurisé (Journal des opérations sécurisé)</td>
+<td>REF&nbsp;: X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>JCV Unit / ObjectGroup</td>
+<td>REF&nbsp;: X</td>
+<td>REF: X</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>JCV sécurisé</td>
+<td>REF&nbsp;: X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>ArchiveUnit (AU), ObjectGroup (GOT)</td>
+<td>REF&nbsp;: X</td>
+<td>REF: X</td>
+</tr>
+<tr class="row-odd"><td>métier</td>
+<td>BinaryObject (BDO)</td>
+<td>REF&nbsp;: X</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>métier</td>
+<td>Sécurisation du journal des écritures</td>
+<td>REF&nbsp;: X</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Les stratégies additionelles utilisées doivent déclarer au moins les offres de la stratégie de plateform <em>default</em> pour le stockage des ArchiveUnit (AU), ObjectGroup (GOT) et de leur JCV. Pour le stockage des BinaryObject (BDO) il n’y a aucune règle particulière.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L’utilisation en mode standard de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est le déploiement mono-stratégie (ie. avec uniquement la stratégie de plateforme <em>default</em>). Le déploiement multi-stratégies (ie. avec les stratégies additionnelles) est considéré comme un mode avancé qui ne doit être utilisé que si le besoin a été identifié.</p>
+</div>
+</div>
 <div class="section" id="multisite">
-<h2>4.2.2. Multisite<a class="headerlink" href="#multisite" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="figure align-center" id="id2">
+<h2>4.2.3. Multisite<a class="headerlink" href="#multisite" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id3">
 <img alt="../_images/dualsite-architecture.svg" src="../_images/dualsite-architecture.svg" /><p class="caption"><span class="caption-text">Architecture des données d’archives ; fonctionnement multisite.</span></p>
 </div>
-<p>Le fonctionnement multisite s’appuie fortement sur les capacités de reconstruction de VITAM :</p>
+<p>Le fonctionnement multisite s’appuie fortement sur les capacités de reconstruction de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
 <ul>
-<li><p class="first">VITAM doit être déployé avec une stratégie de stockage comportant une offre de stockage sur chaque site ;</p>
+<li><p class="first">VITAM doit être déployé avec la stratégie de stockage de plateforme <em>default</em> comportant une offre de stockage sur chaque site ;</p>
 </li>
 <li><p class="first">Le fonctionnement de VITAM sur plusieurs sites fonctionne sur un principe actif / passif :</p>
 <blockquote>
@@ -466,7 +555,7 @@
 <blockquote>
 <div><ul class="simple">
 <li>Référentiels : reconstruction régulière et totale</li>
-<li>AU/GOT/BDO/Journaux/Graphe : reconstruction au fil de l’eau</li>
+<li><a class="reference internal" href="../introduction.html#term-au"><span class="xref std std-term">AU</span></a>/<a class="reference internal" href="../introduction.html#term-got"><span class="xref std std-term">GOT</span></a>/<a class="reference internal" href="../introduction.html#term-bdo"><span class="xref std std-term">BDO</span></a>/Journaux/Graphe : reconstruction au fil de l’eau</li>
 </ul>
 </div></blockquote>
 </li>
@@ -478,7 +567,46 @@
 </ul>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">En cas de bascule de site (PRA), les traitements en cours sur le site 1 sont perdus ; en particulier, les ingests non terminés doivent être renvoyés à VITAM et les autres batchs en cours doivent être relancés. L’incohérence des données sera réglée dans une version ultérieure du système VITAM.</p>
+<p class="last">En cas de bascule de site (<a class="reference internal" href="../introduction.html#term-pra"><span class="xref std std-term">PRA</span></a>), les traitements en cours sur le site 1 sont perdus ; en particulier, les ingests non terminés doivent être renvoyés à <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> et les autres <em>batchs</em> en cours doivent être relancés. L’incohérence des données sera réglée dans une version ultérieure du système <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+</div>
+</div>
+<div class="section" id="strategies-multisite">
+<h2>4.2.4. Stratégies &amp; multisite<a class="headerlink" href="#strategies-multisite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le fonctionnement multisite multi-stratégie suit le même principe que le mode mono-stratégie.</p>
+<p>Pour respecter les normes de l’architecture multisite ainsi que ces processus associés, des règles supplémentaires spécifiques au mode avancé multi-stratégies doivent être respectées:</p>
+<ul class="simple">
+<li>La procédure de reconstruction utilise la notion d’offre dite «&nbsp;référente&nbsp;». Il s’agit d’une offre qui doit contenir TOUTES les données nécessaires à la reconstruction d’un site Vitam à partir des données de l’offre de stockage. Il faut donc que toutes les stratégies utilisées pour le stockage des ArchiveUnit (AU), ObjectGroup (GOT) et de leur JCV déclarent au moins les offres de la stratégie de plateform <em>default</em>.</li>
+<li>La procédure de resynchronisation d’une offre permet de remettre en cohérence le contenu d’une offre à partir d’un autre offre. Pour que ce mécanisme marche il est nécessaire que les offres source et cible de la resynchronisation soient configurées pour être des copies. Les stratégies utilisées doivent être configurées pour contenir qu’une offre aie au moins toujours une autre offre mirroir contenant les même données.</li>
+</ul>
+<div class="section" id="mode-standard-exemple-d-architecture-mono-strategie">
+<h3>4.2.4.1. Mode standard: exemple d’architecture mono-stratégie<a class="headerlink" href="#mode-standard-exemple-d-architecture-mono-strategie" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il s’agit du mode par défaut de la solution logicielle Vitam. Dans ce cas nous avons uniquement la stratégie de plateforme&nbsp;<em>default</em> déclarant deux offres de stockage avec deux sites.</p>
+<p>Stratégies du site principal :</p>
+<img alt="../_images/mono_strategie_site1.png" class="align-center" src="../_images/mono_strategie_site1.png" />
+<p>Stratégies du site secondaire :</p>
+<img alt="../_images/mono_strategie_site2.png" class="align-center" src="../_images/mono_strategie_site2.png" />
+<p>Flux de stockage :</p>
+<img alt="../_images/dualsite-architecture-storage-default.png" class="align-center" src="../_images/dualsite-architecture-storage-default.png" />
+</div>
+<div class="section" id="mode-avance-exemple-d-architecture-multi-strategie-oriente-qualite-de-service">
+<h3>4.2.4.2. Mode avancé: exemple d’architecture multi-stratégie orienté Qualité de service<a class="headerlink" href="#mode-avance-exemple-d-architecture-multi-strategie-oriente-qualite-de-service" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le but d’un déploiement orienté <strong>Qualité de service</strong> de la solution logicielle Vitam est de fournir la possibilité de proposer un nombre de copies stockées différemment en fonction des applications utilisatrices de la plateforme :term:VITAM.</p>
+<p>Stratégies du site principal :</p>
+<img alt="../_images/multi_strategies_qs_site1.png" class="align-center" src="../_images/multi_strategies_qs_site1.png" />
+<p>Stratégies du site secondaire :</p>
+<img alt="../_images/multi_strategies_qs_site2.png" class="align-center" src="../_images/multi_strategies_qs_site2.png" />
+<p>Flux de stockage :</p>
+<img alt="../_images/dualsite-architecture-storage-qs.png" class="align-center" src="../_images/dualsite-architecture-storage-qs.png" />
+</div>
+<div class="section" id="mode-avance-exemple-d-architecture-mono-strategie-oriente-offres-objets">
+<h3>4.2.4.3. Mode avancé: exemple d’architecture mono-stratégie orienté Offres objets<a class="headerlink" href="#mode-avance-exemple-d-architecture-mono-strategie-oriente-offres-objets" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le but d’un déploiement orienté <strong>Offres objets</strong> de la solution logicielle Vitam est de fournir la possibilité de stocker les objets numériques uniquement sur des offres séparée dites <em>objets</em> pour certaines ou toutes les applications utilisatrices de la plateforme :term:VITAM. Ce type de déploiement offre donc la possibilité de stocker les objets techniques uniquement sur des offres dites <em>froides</em>.</p>
+<p>Stratégies du site principal :</p>
+<img alt="../_images/multi_strategies_offers_site1.png" class="align-center" src="../_images/multi_strategies_offers_site1.png" />
+<p>Stratégies du site secondaire :</p>
+<img alt="../_images/multi_strategies_offers_site2.png" class="align-center" src="../_images/multi_strategies_offers_site2.png" />
+<p>Flux de stockage :</p>
+<img alt="../_images/dualsite-architecture-storage-objects.png" class="align-center" src="../_images/dualsite-architecture-storage-objects.png" />
 </div>
 </div>
 </div>

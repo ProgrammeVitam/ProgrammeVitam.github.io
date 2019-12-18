@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.2. Spécificités des certificats &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>8.2. Spécificités des certificats &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -110,11 +110,12 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">8.2. Spécificités des certificats</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cas-des-certificats-serveur">8.2.1. Cas des certificats serveur</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#generalites">8.2.1.1. Généralités</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#noms-dns-des-serveurs-https-vitam">8.2.1.2. Noms <code class="docutils literal notranslate"><span class="pre">DNS</span></code> des serveurs https Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noms-dns-des-serveurs-https-vitam">8.2.1.2. Noms <code class="docutils literal notranslate"><span class="pre">DNS</span></code> des serveurs https <code class="docutils literal notranslate"><span class="pre">VITAM</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#cas-des-certificats-client">8.2.2. Cas des certificats client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cas-des-certificats-d-horodatage">8.2.3. Cas des certificats d’horodatage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cas-des-certificats-des-services-de-stockage-objets">8.2.4. Cas des certificats des services de stockage objets</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="20-lifecycle_certificats.html">8.3. Cycle de vie des certificats</a></li>
@@ -189,15 +190,15 @@
             
   <div class="section" id="specificites-des-certificats">
 <h1>8.2. Spécificités des certificats<a class="headerlink" href="#specificites-des-certificats" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Trois différents types de certificats sont nécessaires et utilisés dans Vitam:</p>
+<p>Trois différents types de certificats sont nécessaires et utilisés dans <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
 <ul class="simple">
 <li>Certificats serveur</li>
 <li>Certificats client</li>
 <li>Certificats d’horodatage</li>
 </ul>
 <p>Pour générer des certificats, il est possible de s’inspirer du fichier <code class="docutils literal notranslate"><span class="pre">pki/config/crt-config</span></code>.
-Il s’agit du fichier de configuration openssl utilisé par la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> de test de Vitam.
-Ce fichier dispose des 3 modes de configurations nécessaires pour générer les certificats de Vitam:</p>
+Il s’agit du fichier de configuration openssl utilisé par la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> de test de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.
+Ce fichier dispose des 3 modes de configurations nécessaires pour générer les certificats de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
 <ul class="simple">
 <li>extension_server: pour générer les certificats serveur</li>
 <li>extension_client: pour générer les certificats client</li>
@@ -207,19 +208,19 @@ Ce fichier dispose des 3 modes de configurations nécessaires pour générer les
 <h2>8.2.1. Cas des certificats serveur<a class="headerlink" href="#cas-des-certificats-serveur" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="generalites">
 <h3>8.2.1.1. Généralités<a class="headerlink" href="#generalites" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les services vitam qui peuvent utiliser des certificats serveur sont ingest-external, access-external, offer (les seuls pouvant écouter en https).
+<p>Les services <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> qui peuvent utiliser des certificats serveur sont : ingest-external, access-external, offer (les seuls pouvant écouter en https).
 Par défaut, offer n’écoute pas en https par soucis de performances.</p>
-<p>Pour les certificats serveur, il est nécessaire de bien réfléchir au <a class="reference internal" href="../introduction.html#term-cn"><span class="xref std std-term">CN</span></a> et subjectAltName qui vont être spécifiés.
-Si par exemple le composant offer est paramétré pour fonctionner en https uniquement, il faudra que le <a class="reference internal" href="../introduction.html#term-cn"><span class="xref std std-term">CN</span></a> ou un des subjectAltName de son certificat corresponde à son nom de service sur consul.</p>
+<p>Pour les certificats serveur, il est nécessaire de bien réfléchir au <a class="reference internal" href="../introduction.html#term-cn"><span class="xref std std-term">CN</span></a> et <cite>subjectAltName</cite> qui vont être spécifiés.
+Si par exemple le composant offer est paramétré pour fonctionner en https uniquement, il faudra que le <a class="reference internal" href="../introduction.html#term-cn"><span class="xref std std-term">CN</span></a> ou un des <cite>subjectAltName</cite> de son certificat corresponde à son nom de service sur consul.</p>
 </div>
 <div class="section" id="noms-dns-des-serveurs-https-vitam">
-<h3>8.2.1.2. Noms <a class="reference internal" href="../introduction.html#term-dns"><span class="xref std std-term">DNS</span></a> des serveurs https Vitam<a class="headerlink" href="#noms-dns-des-serveurs-https-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.2.1.2. Noms <a class="reference internal" href="../introduction.html#term-dns"><span class="xref std std-term">DNS</span></a> des serveurs https <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a><a class="headerlink" href="#noms-dns-des-serveurs-https-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les noms <a class="reference internal" href="../introduction.html#term-dns"><span class="xref std std-term">DNS</span></a> résolus par <em>Consul</em> seront ceux ci:</p>
 <ul class="simple">
 <li>&lt;nom_service&gt;.service.&lt;domaine_consul&gt; sur le datacenter local</li>
 <li>&lt;nom_service&gt;.service.&lt;dc_consul&gt;.&lt;domaine_consul&gt; sur n’importe quel datacenter</li>
 </ul>
-<p>Rajouter le nom «&nbsp;Consul&nbsp;» avec le nom du datacenter dedans peut par exemple servir si une installation multi-site de vitam est faite (appels storage -&gt; offer inter <a class="reference internal" href="../introduction.html#term-dc"><span class="xref std std-term">DC</span></a>)</p>
+<p>Rajouter le nom «&nbsp;Consul&nbsp;» avec le nom du datacenter dedans peut par exemple servir si une installation multi-site de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est faite (appels storage -&gt; offer inter <a class="reference internal" href="../introduction.html#term-dc"><span class="xref std std-term">DC</span></a>)</p>
 <p>Les variables pouvant impacter les noms d’hosts <a class="reference internal" href="../introduction.html#term-dns"><span class="xref std std-term">DNS</span></a> sur <em>Consul</em> sont:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">consul_domain</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vitam_vars.yml</span></code> –&gt; &lt;domain_consul&gt;</li>
@@ -239,7 +240,7 @@ Si par exemple le composant offer est paramétré pour fonctionner en https uniq
 </ul>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">Si les composants ingest-external et access-external sont appelés via leur IP ou des records <a class="reference internal" href="../introduction.html#term-dns"><span class="xref std std-term">DNS</span></a> autres que ceux de <em>Consul</em>, il faut également ne pas oublier de les rajouter dans les subjectAltName.</p>
+<p class="last">Si les composants ingest-external et access-external sont appelés via leur <a class="reference internal" href="../introduction.html#term-ip"><span class="xref std std-term">IP</span></a> ou des records <a class="reference internal" href="../introduction.html#term-dns"><span class="xref std std-term">DNS</span></a> autres que ceux de <em>Consul</em>, il faut également ne pas oublier de les rajouter dans les <cite>subjectAltName</cite>.</p>
 </div>
 </div>
 </div>
@@ -247,12 +248,12 @@ Si par exemple le composant offer est paramétré pour fonctionner en https uniq
 <h2>8.2.2. Cas des certificats client<a class="headerlink" href="#cas-des-certificats-client" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les services qui peuvent utiliser des certificats client sont:</p>
 <ul class="simple">
-<li>N’importe quelle application utilisant les API Vitam exposées sur ingest-external et access-external</li>
+<li>N’importe quelle application utilisant les !term:<cite>API</cite> <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> exposées sur ingest-external et access-external</li>
 <li>Le service storage si le service offer est configuré en https</li>
 <li><dl class="first docutils">
 <dt>Un certificat client nommé vitam-admin-int est obligatoire</dt>
 <dd><ul class="first last">
-<li>Pour déployer vitam (nécessaire pour initialisation du fichier pronom)</li>
+<li>Pour déployer <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (nécessaire pour initialisation du fichier pronom)</li>
 <li>Pour lancer certains actes d’exploitation</li>
 </ul>
 </dd>
@@ -262,7 +263,13 @@ Si par exemple le composant offer est paramétré pour fonctionner en https uniq
 </div>
 <div class="section" id="cas-des-certificats-d-horodatage">
 <h2>8.2.3. Cas des certificats d’horodatage<a class="headerlink" href="#cas-des-certificats-d-horodatage" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les services logbook et storage utilisent des certificats d’horodatage.</p>
+<p>Les services <code class="docutils literal notranslate"><span class="pre">logbook</span></code> et <code class="docutils literal notranslate"><span class="pre">storage</span></code> utilisent des certificats d’horodatage.</p>
+</div>
+<div class="section" id="cas-des-certificats-des-services-de-stockage-objets">
+<h2>8.2.4. Cas des certificats des services de stockage objets<a class="headerlink" href="#cas-des-certificats-des-services-de-stockage-objets" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En cas d’utilisation d’offres de stockage objet avec <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, si une connexion https est utilisée,
+il est nécessaire de déposer les <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> (root et/ou intermédiaire) des serveurs de ces offres de stockage dans le répertoire <code class="docutils literal notranslate"><span class="pre">deployment/environments/certs/server/ca</span></code>.
+Cela permettra d’ajouter ces <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> dans le <strong>truststore</strong> du serveur <code class="docutils literal notranslate"><span class="pre">offer</span></code> lorsque les <strong>keystores</strong> seront générés.</p>
 </div>
 </div>
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Utilisation des clients externes &mdash; Documentation VITAM - Manuel Intégraption Applicative 2.6.1</title>
+  <title>Utilisation des clients externes &mdash; Documentation VITAM - Manuel Intégration Applicative 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'./',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -59,7 +59,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégraption Applicative
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégration Applicative
           
 
           
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -125,7 +125,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">VITAM - Manuel Intégraption Applicative</a>
+          <a href="index.html">VITAM - Manuel Intégration Applicative</a>
         
       </nav>
 
@@ -208,11 +208,11 @@
 <span class="nt">secure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">sslConfiguration </span><span class="p">:</span>
  <span class="nt">keystore </span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
-    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">keystores.client_external.ihm_demo</span><span class="p p-Indicator">}}</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">keystores.client_external.ihm_demo</span> <span class="p p-Indicator">}}</span>
  <span class="nt">truststore </span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
-    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">truststores.client_external</span><span class="p p-Indicator">}}</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">truststores.client_external</span> <span class="p p-Indicator">}}</span>
 <span class="nt">hostnameVerification</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </td></tr></table></div>
@@ -220,7 +220,7 @@
 du chemin de configuration par l’argument passé à la JVM <code class="docutils literal notranslate"><span class="pre">-Dvitam.config.folder=/monchemin</span></code> où <code class="docutils literal notranslate"><span class="pre">monchemin</span></code> est le lieu où se trouve ce fichier de configuration.</p>
 <p>Une instance de client se récupère grâce au code suivant :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fr.gouv.vitam.ingest.external.client</span>
-<span class="n">IngestExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">IngestExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
+<span class="n">IngestExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">IngestExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal notranslate"><span class="pre">IngestExternalClient</span></code>.</p>
@@ -251,11 +251,11 @@ du chemin de configuration par l’argument passé à la JVM <code class="docuti
 <span class="nt">secure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">sslConfiguration </span><span class="p">:</span>
  <span class="nt">keystore </span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
-    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">keystores.client_external.ihm_demo</span><span class="p p-Indicator">}}</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">keystores.client_external.ihm_demo</span> <span class="p p-Indicator">}}</span>
  <span class="nt">truststore </span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">vitam_folder_conf</span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
-    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span><span class="nv">truststores.client_external</span><span class="p p-Indicator">}}</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">truststores.client_external</span> <span class="p p-Indicator">}}</span>
 <span class="nt">hostnameVerification</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </td></tr></table></div>
@@ -264,8 +264,8 @@ du chemin de configuration par l’argument passé à la JVM <code class="docuti
 <div class="section" id="access">
 <h3>Access<a class="headerlink" href="#access" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une instance de client se récupère grâce au code suivant :</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="o">.</span><span class="na">gouv</span><span class="o">.</span><span class="na">vitam</span><span class="o">.</span><span class="na">access</span><span class="o">.</span><span class="na">external</span><span class="o">.</span><span class="na">client</span>
-<span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="p">.</span><span class="na">gouv</span><span class="p">.</span><span class="na">vitam</span><span class="p">.</span><span class="na">access</span><span class="p">.</span><span class="na">external</span><span class="p">.</span><span class="na">client</span>
+<span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal notranslate"><span class="pre">AccessExternalClient</span></code>.</p>
@@ -273,8 +273,8 @@ du chemin de configuration par l’argument passé à la JVM <code class="docuti
 <div class="section" id="admin">
 <h3>Admin<a class="headerlink" href="#admin" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une instance de client se récupère grâce au code suivant :</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="o">.</span><span class="na">gouv</span><span class="o">.</span><span class="na">vitam</span><span class="o">.</span><span class="na">access</span><span class="o">.</span><span class="na">external</span><span class="o">.</span><span class="na">client</span>
-<span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">()</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="p">.</span><span class="na">gouv</span><span class="p">.</span><span class="na">vitam</span><span class="p">.</span><span class="na">access</span><span class="p">.</span><span class="na">external</span><span class="p">.</span><span class="na">client</span>
+<span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal notranslate"><span class="pre">AdminExternalClient</span></code>.</p>

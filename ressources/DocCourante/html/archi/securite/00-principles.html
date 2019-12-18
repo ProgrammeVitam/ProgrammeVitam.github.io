@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1. Principes &mdash; Documentation VITAM - Architecture 2.6.1</title>
+  <title>6.1. Principes &mdash; Documentation VITAM - Architecture 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -192,17 +192,17 @@
 <h1>6.1. Principes<a class="headerlink" href="#principes" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Les principes de sécurité de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> suivent les directives suivantes :</p>
 <ul>
-<li><p class="first">Authentification et autorisation systématique des systèmes clients de VITAM basées sur une authentification TLS mutuelle utilisant des certificats (pour les composants de la couche accès) ;</p>
+<li><p class="first">Authentification et autorisation systématique des systèmes clients de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> basées sur une authentification <a class="reference internal" href="../introduction.html#term-tls"><span class="xref std std-term">TLS</span></a> mutuelle utilisant des certificats (pour les composants de la couche accès) ;</p>
 </li>
 <li><p class="first">Validation systématique des entrées du système :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Détection et suppression de codes malveillants dans les archives déposées dans VITAM ;</li>
+<li>Détection et suppression de codes malveillants dans les archives déposées dans <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ;</li>
 <li>Robustesse contre les failles du <em>Top Ten</em> <a class="reference internal" href="../introduction.html#term-owasp"><span class="xref std std-term">OWASP</span></a> pour toutes les interfaces <a class="reference internal" href="../introduction.html#term-rest"><span class="xref std std-term">REST</span></a> ;</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Validation périodique des listes de <a class="reference internal" href="../introduction.html#term-crl"><span class="xref std std-term">CRL</span></a> pour toutes les <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> <em>trustées</em> par VITAM (non implémentée dans cette version de VITAM, cf. ci-dessous).</p>
+<li><p class="first">Validation périodique des listes de <a class="reference internal" href="../introduction.html#term-crl"><span class="xref std std-term">CRL</span></a> pour toutes les <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> <em>trustées</em> par <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (non implémentée dans cette version de VITAM, cf. ci-dessous).</p>
 </li>
 </ul>
 <div class="section" id="principes-de-cloisonnement">
@@ -217,7 +217,7 @@
 <h2>6.1.2. Principes de sécurisation des accès externes<a class="headerlink" href="#principes-de-securisation-des-acces-externes" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les services logiciels en contact direct avec les clients du <a class="reference internal" href="../introduction.html#term-sae"><span class="xref std std-term">SAE</span></a> (i.e. les services <code class="docutils literal notranslate"><span class="pre">*-external</span></code>) implémentent les mesures de sécurité suivantes :</p>
 <ul>
-<li><p class="first">Chiffrement du transport des données entre les applications externes et VITAM via HTTPS ; par défaut, la configuration suivante est appliquée :</p>
+<li><p class="first">Chiffrement du transport des données entre les applications externes et <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> via HTTPS ; par défaut, la configuration suivante est appliquée :</p>
 <blockquote>
 <div><ul class="simple">
 <li>Protocoles exclus par défaut : <code class="docutils literal notranslate"><span class="pre">SSLv2</span></code>, <code class="docutils literal notranslate"><span class="pre">SSLv3</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.1</span></code></li>
@@ -244,7 +244,7 @@
 <blockquote>
 <div><ul class="simple">
 <li>Lors d’une connexion, la vérification synchrone confirme que le certificat proposé n’est pas expiré (<em>not before</em>, <em>not after</em>) et qu’il est validé par une Autorité de Certification connue (liste des <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> portée par un fichier <em>truststore</em>) ;</li>
-<li>Avant de valider tout appel d’API, l’applicatif vérifie que le certificat proposé est bien présent dans le référentiel d’authentification des certificats valides (un des référentiels métier portés par la base des métadonnées).</li>
+<li>Avant de valider tout appel d”<a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a>, l’applicatif vérifie que le certificat proposé est bien présent dans le référentiel d’authentification des certificats valides (un des référentiels métier portés par la base des métadonnées).</li>
 </ul>
 </div></blockquote>
 </li>
@@ -278,14 +278,14 @@
 </ul>
 <p>Du côté du composant cible de la requête, le contrôle est alors le suivant :</p>
 <ul class="simple">
-<li>Existence des deux headers précédents ;</li>
-<li>Vérification que <em>timestamp</em> envoyé est distant de l’heure actuelle sur le serveur requêté de moins de 10 secondes ( <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">temps</span> <span class="pre">local</span> <span class="pre">|</span> <span class="pre">&lt;</span> <span class="pre">10</span> <span class="pre">s</span></code> )</li>
-<li>Validation du <em>hash</em> transmis via la réalisation du même calul sur le serveur cible et de la comparaison des résultats.</li>
+<li>Existence des deux <em>headers</em> précédents ;</li>
+<li>Vérification que <em>timestamp</em> envoyé est distant de l’heure actuelle sur le serveur requêté de moins de x secondes ( valeur modifiable selon le composant, par défaut à 10 secondes,  <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">temps</span> <span class="pre">local</span> <span class="pre">|</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">s</span></code> )</li>
+<li>Validation du hash transmis via la réalisation du même calul sur le serveur cible et de la comparaison des résultats.</li>
 </ul>
 <p>En cas d’échec d’une de ces validations, la requête est refusée.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Les <em>headers</em> et le <em>body</em> de la requête ne sont pas inclus dans le calcul du <code class="docutils literal notranslate"><span class="pre">X-Platform-ID</span></code> pour des raisons de performance.</p>
+<p class="last">Les <em>headers</em> et le <em>body</em> de la requête ne sont pas inclus dans le calcul du <code class="docutils literal notranslate"><span class="pre">X-Platform-ID</span></code> pour des raisons de performances.</p>
 </div>
 </div>
 <div class="section" id="principes-de-securisation-des-bases-de-donnees">
@@ -294,24 +294,26 @@
 <div class="section" id="mongodb">
 <h3>6.1.4.1. MongoDB<a class="headerlink" href="#mongodb" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Dans le cas de MongoDB, le cloisonnement est logique. Chaque service hébergeant des données dans MongoDB se voit attribuer une base et un utilisateur dédié. Cet utilisateur a uniquement les droits de lecture / écriture dans les collections de cette base de données, mais ne peut notamment pas modifier la structure des collections de sa base de données ni accéder aux collections d’une autre base de données.</p>
-<p>Un utilisateur technique «&nbsp;root&nbsp;» est également créé pour les besoins de l’installation et de la configuration de MongoDB.</p>
+<p>Un utilisateur technique <em>root</em> est également créé pour les besoins de l’installation et de la configuration de MongoDB.</p>
 <p>Chaque base de données ne doit être accédée que par les instances d’un seul service (ex: le service logbook est le seul à accéder à la base de données logbook).</p>
 <p>Enfin, l’accès anonyme à MongoDB est désactivé, et les utilisateurs sont authentifiés par le couple utilisateur / mot de passe.</p>
 </div>
 <div class="section" id="elasticsearch">
 <h3>6.1.4.2. Elasticsearch<a class="headerlink" href="#elasticsearch" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Dans le cas d’Elasticsearch, le cloisonnement est principalement physique, dans le sens où le <em>cluster</em> hébergeant les données métier est disjoint du <em>cluster</em> hébergeant les données techniques.</p>
-<div class="admonition caution">
+<blockquote>
+<div><div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">L’accès au cluster Elasticsearch est anonyme sans authentification requise ; ceci est dû à une limitation de la version <em>OpenSource</em> d’Elasticsearch, et pourra être réévalué dans les futures versions de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+<p class="last">L’accès au cluster Elasticsearch est anonyme sans authentification requise ;</p>
 </div>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="principes-de-securisation-des-secrets-de-deploiement">
 <h2>6.1.5. Principes de sécurisation des secrets de déploiement<a class="headerlink" href="#principes-de-securisation-des-secrets-de-deploiement" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les secrets de l’intégralité de la solution VITAM déployée sont tous présents sur le serveur de déploiement ; par conséquent, ils doivent y être stockés de manière sécurisée, avec les principes suivants :</p>
+<p>Les secrets de l’intégralité de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> déployée sont tous présents sur le serveur de déploiement ; par conséquent, ils doivent y être stockés de manière sécurisée, avec les principes suivants :</p>
 <ul class="simple">
-<li>Les mots de passe et tokens utilisés par ansible doivent être stockés dans des fichiers d’inventaire chiffrés par ansible-vault ;</li>
+<li>Les mots de passe et <em>tokens</em> utilisés par ansible doivent être stockés dans des fichiers d’inventaire chiffrés par ansible-vault ;</li>
 <li>Les clés privées des certificats doivent être protégées par des mots de passe complexes ; ces derniers doivent suivre la règle précédente.</li>
 </ul>
 </div>

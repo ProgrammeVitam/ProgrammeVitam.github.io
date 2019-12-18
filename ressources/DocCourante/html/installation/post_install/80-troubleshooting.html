@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.3. Troubleshooting &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>6.3. Troubleshooting &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -120,7 +120,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#les-shards-de-mongodb-semblent-mal-equilibres">6.4.6. Les shards de MongoDB semblent mal équilibrés</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#l-importation-initiale-profil-de-securite-certificats-retourne-une-erreur">6.4.7. L’importation initiale (profil de sécurité, certificats) retourne une erreur</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#probleme-d-ingest-et-ou-d-access">6.4.8. Problème d’ingest et/ou d’access</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#erreur-d-inconsistence-des-donnees-mongodb-es">6.4.9. Erreur d’inconsistence des données MongoDB / ES</a></li>
 </ul>
 </li>
 </ul>
@@ -195,7 +194,7 @@
             
   <div class="section" id="troubleshooting">
 <h1>6.3. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Cette section a pour but de recenser les problèmes déjà rencontrés et apporter une solution associée.</p>
+<p>Cette section a pour but de recenser les problèmes déjà rencontrés et y apporter une solution associée.</p>
 <div class="section" id="erreur-au-chargement-des-index-template-kibana">
 <h2>6.3.1. Erreur au chargement des <em>index template</em> kibana<a class="headerlink" href="#erreur-au-chargement-des-index-template-kibana" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette erreur ne se produit qu’en cas de <em>filesystem</em> plein sur les partitions hébergeant un cluster elasticsearch. Par sécurité, kibana passe alors ses <em>index</em> en <code class="docutils literal notranslate"><span class="pre">READ</span> <span class="pre">ONLY</span></code>.</p>
@@ -214,13 +213,13 @@
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Indication</p>
-<p class="last">Il est également possible de lancer cet appel via l’IHM du kibana associé, dans l’onglet <code class="docutils literal notranslate"><span class="pre">Dev</span> <span class="pre">Tools</span></code>.</p>
+<p class="last">Il est également possible de lancer cet appel via l”<a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> du kibana associé, dans l’onglet <code class="docutils literal notranslate"><span class="pre">Dev</span> <span class="pre">Tools</span></code>.</p>
 </div>
 <p>A l’issue, vous pouvez relancer l’installation de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
 </div>
 <div class="section" id="erreur-au-chargement-des-tableaux-de-bord-kibana">
 <h2>6.3.2. Erreur au chargement des tableaux de bord Kibana<a class="headerlink" href="#erreur-au-chargement-des-tableaux-de-bord-kibana" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans le cas de machines petitement taillées, il peut arriver que, durant le déploiement, la tâche <code class="docutils literal notranslate"><span class="pre">Wait</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">kibana</span> <span class="pre">port</span> <span class="pre">port</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">opened</span></code> prenne plus de temps que le <cite>timeout</cite> défini (<code class="docutils literal notranslate"><span class="pre">vitam_defaults.services.start_timeout</span></code>).
+<p>Dans le cas de machines petitement taillées, il peut arriver que, durant le déploiement, la tâche <code class="docutils literal notranslate"><span class="pre">Wait</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">kibana</span> <span class="pre">port</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">opened</span></code> prenne plus de temps que le <cite>timeout</cite> défini (<code class="docutils literal notranslate"><span class="pre">vitam_defaults.services.start_timeout</span></code>).
 Pour fixer cela, il suffit de relancer le déploiement.</p>
 </div>
 </div>
@@ -342,10 +341,6 @@ Un shard non initialisé correspond à un shard en cours de démarrage (Cf. <a c
 </pre></div>
 </div>
 <p>Il faut vérifier / corriger l’heure des machines hébergeant la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ;  un <cite>delta</cite> de temps supérieur à 10s a été détecté entre les machines.</p>
-</div>
-<div class="section" id="erreur-d-inconsistence-des-donnees-mongodb-es">
-<h2>6.4.9. Erreur d’inconsistence des données MongoDB / ES<a class="headerlink" href="#erreur-d-inconsistence-des-donnees-mongodb-es" title="Lien permanent vers ce titre">¶</a></h2>
-<p>En cas de détection d’un problème de synhronisation des données entre les bases de données Elasticsearch-data (cluster d’indexation dédié aux données métier) et les bases de données MongoDB-data (replicaset MongoDB stockant les données métier de Vitam) avec un message d’erreur du type : «&nbsp;An internal data consistency error has been detected&nbsp;», la procédure suivante pourra être appliquée : <span class="xref std std-ref">reindexation_es</span>.</p>
 </div>
 </div>
 

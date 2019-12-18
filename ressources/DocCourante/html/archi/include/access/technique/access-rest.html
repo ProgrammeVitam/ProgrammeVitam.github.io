@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.2.8. Access-rest &mdash; Documentation VITAM - Architecture 2.6.1</title>
+  <title>7.1.2.8. Access-rest &mdash; Documentation VITAM - Architecture 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -125,19 +125,20 @@
 <li class="toctree-l3"><a class="reference internal" href="../securite/_toc.html">7.1.3. Sécurité</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.2. Common</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.3. Functional administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.4. IHM demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.5. IHM recette</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.6. Ingest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.7. Security-Internal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.8. Logbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.9. Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.10. Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.11. Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.12. Technical administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.13. Worker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.14. Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch-report/_toc.html">7.2. Batch-report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.6. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.12. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.15. Workspace</a></li>
 </ul>
 </li>
 </ul>
@@ -214,7 +215,7 @@
 <h1>7.1.2.8. Access-rest<a class="headerlink" href="#access-rest" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="presentation">
 <h2>7.1.2.8.1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>API REST appelées par le client access interne. Il y a un controle des paramètres (SanityChecker.checkJsonAll) transmis
+<p><a class="reference internal" href="../../../introduction.html#term-api"><span class="xref std std-term">API</span></a> <a class="reference internal" href="../../../introduction.html#term-rest"><span class="xref std std-term">REST</span></a> appelées par le client access interne. Il y a un controle des paramètres (SanityChecker.checkJsonAll) transmis
 avec ESAPI.</p>
 </div>
 <div class="section" id="packages">
@@ -249,14 +250,14 @@ avec ESAPI.</p>
 <h1>7.1.2.9. -AccessApplication.java<a class="headerlink" href="#accessapplication-java" title="Lien permanent vers ce titre">¶</a></h1>
 <p>classe de démarrage du serveur d’application.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// démarrage</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="n">startApplication</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
-        <span class="n">server</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">startApplication</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+        <span class="n">server</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Dans le startApplication on effectue le start de VitamServer.
@@ -276,18 +277,18 @@ La classe contient actuellement 9 méthodes :</p>
 </li>
 </ol>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getUnits</span><span class="o">(</span><span class="n">String</span> <span class="n">requestDsl</span><span class="o">,</span>
-<span class="nd">@HeaderParam</span><span class="o">(</span><span class="s">&quot;X-Http-Method-Override&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">)</span> <span class="o">{</span>
-<span class="o">...</span>
-<span class="k">try</span> <span class="o">{</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">xhttpOverride</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="s">&quot;GET&quot;</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">xhttpOverride</span><span class="o">))</span> <span class="o">{</span>
-    <span class="n">queryJson</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="o">.</span><span class="na">getFromString</span><span class="o">(</span><span class="n">requestDsl</span><span class="o">);</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">accessModule</span><span class="o">.</span><span class="na">selectUnit</span><span class="o">(</span><span class="n">queryJson</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="o">(</span><span class="s">&quot;There is no &#39;X-Http-Method-Override:GET&#39; as a header&quot;</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="o">....</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getUnits</span><span class="p">(</span><span class="n">String</span> <span class="n">requestDsl</span><span class="p">,</span>
+<span class="nd">@HeaderParam</span><span class="p">(</span><span class="s">&quot;X-Http-Method-Override&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">...</span>
+<span class="k">try</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">xhttpOverride</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="s">&quot;GET&quot;</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">xhttpOverride</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">queryJson</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="p">.</span><span class="na">getFromString</span><span class="p">(</span><span class="n">requestDsl</span><span class="p">);</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">accessModule</span><span class="p">.</span><span class="na">selectUnit</span><span class="p">(</span><span class="n">queryJson</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="p">(</span><span class="s">&quot;There is no &#39;X-Http-Method-Override:GET&#39; as a header&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">....</span>
 </pre></div>
 </div>
 <ol class="arabic" start="2">
@@ -301,12 +302,12 @@ La classe contient actuellement 9 méthodes :</p>
 </ol>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">createOrSelectUnits</span><span class="o">(</span><span class="n">JsonNode</span> <span class="n">queryJson</span><span class="o">,</span>
-    <span class="nd">@HeaderParam</span><span class="o">(</span><span class="n">GlobalDataRest</span><span class="o">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">createOrSelectUnits</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">queryJson</span><span class="p">,</span>
+    <span class="nd">@HeaderParam</span><span class="p">(</span><span class="n">GlobalDataRest</span><span class="p">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -322,13 +323,13 @@ La classe contient actuellement 9 méthodes :</p>
 </li>
 </ol>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units/{id_unit}&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getUnitById</span><span class="o">(</span><span class="n">String</span> <span class="n">queryDsl</span><span class="o">,</span>
-    <span class="nd">@HeaderParam</span><span class="o">(</span><span class="n">GlobalDataRest</span><span class="o">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">,</span>
-    <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_unit&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">id_unit</span><span class="o">)</span> <span class="o">{</span>
-<span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units/{id_unit}&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getUnitById</span><span class="p">(</span><span class="n">String</span> <span class="n">queryDsl</span><span class="p">,</span>
+    <span class="nd">@HeaderParam</span><span class="p">(</span><span class="n">GlobalDataRest</span><span class="p">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">,</span>
+    <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_unit&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">id_unit</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -340,13 +341,13 @@ La classe contient actuellement 9 méthodes :</p>
 <p class="last">méthode createOrSelectUnitById() va appeler méthode getUnitById()</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>      <span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units/{idu}&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">createOrSelectUnitById</span><span class="o">(</span><span class="n">JsonNode</span> <span class="n">queryJson</span><span class="o">,</span>
-    <span class="nd">@HeaderParam</span><span class="o">(</span><span class="n">GlobalDataRest</span><span class="o">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">,</span>
-    <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;idu&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">idUnit</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units/{idu}&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">createOrSelectUnitById</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">queryJson</span><span class="p">,</span>
+    <span class="nd">@HeaderParam</span><span class="p">(</span><span class="n">GlobalDataRest</span><span class="p">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">,</span>
+    <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;idu&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">idUnit</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -355,12 +356,12 @@ La classe contient actuellement 9 méthodes :</p>
 <blockquote>
 <div>mise à jour d’un unit par son id avec une requête json</div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PUT</span>
-  <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units/{id_unit}&quot;</span><span class="o">)</span>
-  <span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-  <span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="n">Response</span> <span class="nf">updateUnitById</span><span class="o">(</span><span class="n">String</span> <span class="n">queryDsl</span><span class="o">,</span>
-                                 <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_unit&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">id_unit</span><span class="o">)</span> <span class="o">{</span>
-  <span class="o">...</span>
+  <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units/{id_unit}&quot;</span><span class="p">)</span>
+  <span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+  <span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+  <span class="kd">public</span> <span class="n">Response</span> <span class="nf">updateUnitById</span><span class="p">(</span><span class="n">String</span> <span class="n">queryDsl</span><span class="p">,</span>
+                                 <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_unit&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">id_unit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic" start="6">
@@ -375,11 +376,11 @@ La classe contient actuellement 9 méthodes :</p>
 <p class="last">the post X-Http-Method-Override header</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/objects/{ido}&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getObjectGroup</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;ido&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="o">,</span> <span class="n">JsonNode</span> <span class="n">queryJson</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/objects/{ido}&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getObjectGroup</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;ido&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="p">,</span> <span class="n">JsonNode</span> <span class="n">queryJson</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
@@ -391,12 +392,12 @@ La classe contient actuellement 9 méthodes :</p>
 <p class="last">méthode getObjectGroupPost() va appeler méthode getObjectGroup()</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/objects/{ido}&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getObjectGroupPost</span><span class="o">(</span><span class="nd">@Context</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="o">,</span>
-    <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;ido&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="o">,</span> <span class="n">JsonNode</span> <span class="n">queryJson</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/objects/{ido}&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getObjectGroupPost</span><span class="p">(</span><span class="nd">@Context</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="p">,</span>
+    <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;ido&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="p">,</span> <span class="n">JsonNode</span> <span class="n">queryJson</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic" start="8">
@@ -411,12 +412,12 @@ La classe contient actuellement 9 méthodes :</p>
 <p class="last">the post X-Http-Method-Override header</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units/{ido}/objects&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getObject</span><span class="o">(</span><span class="nd">@Context</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="o">,</span> <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;ido&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="o">,</span>
-    <span class="n">JsonNode</span> <span class="n">query</span><span class="o">,</span> <span class="nd">@Suspended</span> <span class="kd">final</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units/{ido}/objects&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getObject</span><span class="p">(</span><span class="nd">@Context</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="p">,</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;ido&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="p">,</span>
+    <span class="n">JsonNode</span> <span class="n">query</span><span class="p">,</span> <span class="nd">@Suspended</span> <span class="kd">final</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="9">
@@ -428,12 +429,12 @@ La classe contient actuellement 9 méthodes :</p>
 <p class="last">méthode getObjectPost() va appeler méthode getObject()</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/units/{ido}/objects&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getObjectPost</span><span class="o">(</span><span class="nd">@Context</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="o">,</span> <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;ido&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="o">,</span>
-    <span class="n">JsonNode</span> <span class="n">query</span><span class="o">,</span> <span class="nd">@Suspended</span> <span class="kd">final</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/units/{ido}/objects&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getObjectPost</span><span class="p">(</span><span class="nd">@Context</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="p">,</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;ido&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">idObjectGroup</span><span class="p">,</span>
+    <span class="n">JsonNode</span> <span class="n">query</span><span class="p">,</span> <span class="nd">@Suspended</span> <span class="kd">final</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 </div>
@@ -450,11 +451,11 @@ NB : the post X-Http-Method-Override header</p>
 </li>
 </ol>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/logbookoperations/{id_op}&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getOperationById</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_op&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">operationId</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/logbookoperations/{id_op}&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getOperationById</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_op&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">operationId</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -466,12 +467,12 @@ NB : the post X-Http-Method-Override header</p>
 <p class="last">méthode selectOperationByPost() va appeler méthode getOperationById()</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/operations/{id_op}&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">selectOperationByPost</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_op&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">operationId</span><span class="o">,</span>
-    <span class="nd">@HeaderParam</span><span class="o">(</span><span class="s">&quot;X-HTTP-Method-Override&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/operations/{id_op}&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">selectOperationByPost</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_op&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">operationId</span><span class="p">,</span>
+    <span class="nd">@HeaderParam</span><span class="p">(</span><span class="s">&quot;X-HTTP-Method-Override&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic" start="3">
@@ -483,11 +484,11 @@ NB : the post X-Http-Method-Override header</p>
 </li>
 </ol>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/operations&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">selectOperation</span><span class="o">(</span><span class="n">JsonNode</span> <span class="n">query</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/operations&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">selectOperation</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">query</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -499,12 +500,12 @@ NB : the post X-Http-Method-Override header</p>
 <p class="last">méthode selectOperationWithPostOverride() va appeler méthode selectOperation()</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@POST</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/operations&quot;</span><span class="o">)</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">selectOperationWithPostOverride</span><span class="o">(</span><span class="n">JsonNode</span> <span class="n">query</span><span class="o">,</span>
-    <span class="nd">@HeaderParam</span><span class="o">(</span><span class="s">&quot;X-HTTP-Method-Override&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/operations&quot;</span><span class="p">)</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">selectOperationWithPostOverride</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">query</span><span class="p">,</span>
+    <span class="nd">@HeaderParam</span><span class="p">(</span><span class="s">&quot;X-HTTP-Method-Override&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic" start="5">
@@ -515,10 +516,10 @@ NB : the post X-Http-Method-Override header</p>
 </li>
 </ol>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/logbookunitlifecycles/{id_lc}&quot;</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getUnitLifeCycle</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_lc&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">unitLifeCycleId</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/logbookunitlifecycles/{id_lc}&quot;</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getUnitLifeCycle</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_lc&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">unitLifeCycleId</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic" start="6">
@@ -529,10 +530,10 @@ NB : the post X-Http-Method-Override header</p>
 </li>
 </ol>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/logbookobjectslifecycles/{id_lc}&quot;</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getObjectGroupLifeCycle</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_lc&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">objectGroupLifeCycleId</span><span class="o">)</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/logbookobjectslifecycles/{id_lc}&quot;</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">getObjectGroupLifeCycle</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_lc&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">objectGroupLifeCycleId</span><span class="p">)</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 </div>
@@ -547,12 +548,12 @@ NB : the post X-Http-Method-Override header</p>
 </div></blockquote>
 </li>
 </ol>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}&quot;</span><span class="p">)</span>
 <span class="nd">@PUT</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">checkDocument</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">document</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">checkDocument</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="n">InputStream</span> <span class="n">document</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic" start="2">
@@ -562,12 +563,12 @@ NB : the post X-Http-Method-Override header</p>
 </div></blockquote>
 </li>
 </ol>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}&quot;</span><span class="p">)</span>
 <span class="nd">@POST</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">importDocument</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">document</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">importDocument</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="n">InputStream</span> <span class="n">document</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -575,13 +576,13 @@ NB : the post X-Http-Method-Override header</p>
 </ol>
 <blockquote>
 <div>Importer un fichier au format xsd ou rng et l’attacher à un profile métadata déjà existant.</div></blockquote>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}/{id}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}/{id}&quot;</span><span class="p">)</span>
 <span class="nd">@PUT</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">importProfileFile</span><span class="o">(</span><span class="nd">@Context</span> <span class="n">UriInfo</span> <span class="n">uriInfo</span><span class="o">,</span> <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">profileMetadataId</span><span class="o">,</span>
-    <span class="n">InputStream</span> <span class="n">profileFile</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">importProfileFile</span><span class="p">(</span><span class="nd">@Context</span> <span class="n">UriInfo</span> <span class="n">uriInfo</span><span class="p">,</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">profileMetadataId</span><span class="p">,</span>
+    <span class="n">InputStream</span> <span class="n">profileFile</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -591,11 +592,11 @@ NB : the post X-Http-Method-Override header</p>
 <div>Télécharger un fichier d’un profile métadata existant au format xsd ou rng  Ou
 télécharger un fichier d’opération de traçabilité</div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@GET</span>
-<span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}/{id}&quot;</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">downloadProfileFileOrTraceabilityFile</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">profileMetadataId</span><span class="o">,</span>
-    <span class="nd">@Suspended</span> <span class="kd">final</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}/{id}&quot;</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_OCTET_STREAM</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">downloadProfileFileOrTraceabilityFile</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">profileMetadataId</span><span class="p">,</span>
+    <span class="nd">@Suspended</span> <span class="kd">final</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -603,12 +604,12 @@ télécharger un fichier d’opération de traçabilité</div></blockquote>
 </ol>
 <blockquote>
 <div>Récupérer le format, la règle, le contrat (entrée ou accès), le profile.</div></blockquote>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}&quot;</span><span class="p">)</span>
 <span class="nd">@GET</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">findDocuments</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="n">JsonNode</span> <span class="n">select</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">findDocuments</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="n">JsonNode</span> <span class="n">select</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
@@ -617,12 +618,12 @@ télécharger un fichier d’opération de traçabilité</div></blockquote>
 <blockquote>
 <div>Si la valeur de xhttpOverride est rensigné et égale à GET alors, c’est un find, donc redirection vers la méthode findDocuments ci-dessus.
 Sinon, c’est créate. Cette méthode est utilisé pour créer des profiles au format json. On peut noter que dans ce cas de figure, ça ressemble à la méthode importDocument, sauf que le Consumes qui change.</div></blockquote>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}&quot;</span><span class="p">)</span>
 <span class="nd">@POST</span>
-<span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">createOrfindDocuments</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="n">JsonNode</span> <span class="n">select</span><span class="o">,</span> <span class="nd">@HeaderParam</span><span class="o">(</span><span class="n">GlobalDataRest</span><span class="o">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">createOrfindDocuments</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="n">JsonNode</span> <span class="n">select</span><span class="p">,</span> <span class="nd">@HeaderParam</span><span class="p">(</span><span class="n">GlobalDataRest</span><span class="p">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
@@ -630,11 +631,11 @@ Sinon, c’est créate. Cette méthode est utilisé pour créer des profiles au 
 </ol>
 <blockquote>
 <div>En utilisant la méthode POST avec un paramètre xhttpOverride, ce méthode permets de récupérer avec un id en entrée, le format, la règle, les contrats (accès, entrée), les profiles.</div></blockquote>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}/{id_document}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}/{id_document}&quot;</span><span class="p">)</span>
 <span class="nd">@POST</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">findDocumentByID</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span> <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_document&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">documentId</span><span class="o">,</span> <span class="nd">@HeaderParam</span><span class="o">(</span><span class="n">GlobalDataRest</span><span class="o">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="o">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">findDocumentByID</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_document&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">documentId</span><span class="p">,</span> <span class="nd">@HeaderParam</span><span class="p">(</span><span class="n">GlobalDataRest</span><span class="p">.</span><span class="na">X_HTTP_METHOD_OVERRIDE</span><span class="p">)</span> <span class="n">String</span> <span class="n">xhttpOverride</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="8">
@@ -642,12 +643,12 @@ Sinon, c’est créate. Cette méthode est utilisé pour créer des profiles au 
 </ol>
 <blockquote>
 <div>En utilisant la méthode GET, ce méthode permets derécupérer avec un id en entrée, le format, la règle, les contrats (accès, entrée), les profiles.</div></blockquote>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{collection}/{id_document}&quot;</span><span class="o">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/{collection}/{id_document}&quot;</span><span class="p">)</span>
 <span class="nd">@GET</span>
-<span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Response</span> <span class="nf">findDocumentByID</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;collection&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">collection</span><span class="o">,</span>
-    <span class="nd">@PathParam</span><span class="o">(</span><span class="s">&quot;id_document&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">documentId</span><span class="o">)</span> <span class="o">{</span>
- <span class="o">...</span>
+<span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Response</span> <span class="nf">findDocumentByID</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;collection&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">collection</span><span class="p">,</span>
+    <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;id_document&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">documentId</span><span class="p">)</span> <span class="p">{</span>
+ <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="9">
@@ -656,11 +657,11 @@ Sinon, c’est créate. Cette méthode est utilisé pour créer des profiles au 
 <blockquote>
 <div>Mise à jour du contrat d’accès</div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PUT</span>
-  <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/accesscontract&quot;</span><span class="o">)</span>
-  <span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-  <span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-   <span class="kd">public</span> <span class="n">Response</span> <span class="nf">updateAccessContract</span><span class="o">(</span><span class="n">JsonNode</span> <span class="n">queryDsl</span><span class="o">)</span> <span class="o">{</span>
-   <span class="o">...</span>
+  <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/accesscontract&quot;</span><span class="p">)</span>
+  <span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+  <span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+   <span class="kd">public</span> <span class="n">Response</span> <span class="nf">updateAccessContract</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">queryDsl</span><span class="p">)</span> <span class="p">{</span>
+   <span class="p">...</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="10">
@@ -669,11 +670,11 @@ Sinon, c’est créate. Cette méthode est utilisé pour créer des profiles au 
 <blockquote>
 <div>Mise à jour du contrat d’entrée</div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PUT</span>
-  <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/contract&quot;</span><span class="o">)</span>
-  <span class="nd">@Consumes</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-  <span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
-   <span class="kd">public</span> <span class="n">Response</span> <span class="nf">updateIngestContract</span><span class="o">(</span><span class="n">JsonNode</span> <span class="n">queryDsl</span><span class="o">)</span> <span class="o">{</span>
-   <span class="o">...</span>
+  <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/contract&quot;</span><span class="p">)</span>
+  <span class="nd">@Consumes</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+  <span class="nd">@Produces</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+   <span class="kd">public</span> <span class="n">Response</span> <span class="nf">updateIngestContract</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">queryDsl</span><span class="p">)</span> <span class="p">{</span>
+   <span class="p">...</span>
 </pre></div>
 </div>
 </div>

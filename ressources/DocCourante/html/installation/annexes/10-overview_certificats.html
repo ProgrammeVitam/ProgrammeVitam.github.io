@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.1. Vue d’ensemble de la gestion des certificats &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>8.1. Vue d’ensemble de la gestion des certificats &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -107,10 +107,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../upgrade/_toc.html">7. Montée de version</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="_toc.html">8. Annexes</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. Vue d’ensemble de la gestion des certificats</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#liste-des-suites-cryptographiques-protocoles-supportes-par-vitam">8.1.1. Liste des suites cryptographiques &amp; protocoles supportés par Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-suites-cryptographiques-protocoles-supportes-par-vitam">8.1.1. Liste des suites cryptographiques &amp; protocoles supportés par <code class="docutils literal notranslate"><span class="pre">VITAM</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">8.1.2. Vue d’ensemble de la gestion des certificats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-de-la-pki">8.1.3. Description de l’arborescence de la <code class="docutils literal notranslate"><span class="pre">PKI</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-du-repertoire-deployment-environments-certs">8.1.4. Description de l’arborescence du répertoire deployment/environments/certs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-du-repertoire-deployment-environments-certs">8.1.4. Description de l’arborescence du répertoire <code class="docutils literal notranslate"><span class="pre">deployment/environments/certs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#description-de-l-arborescence-du-repertoire-deployment-environments-keystores">8.1.5. Description de l’arborescence du répertoire deployment/environments/keystores</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fonctionnement-des-scripts-de-la-pki">8.1.6. Fonctionnement des scripts de la <code class="docutils literal notranslate"><span class="pre">PKI</span></code></a></li>
 </ul>
@@ -189,8 +189,8 @@
   <div class="section" id="vue-d-ensemble-de-la-gestion-des-certificats">
 <h1>8.1. Vue d’ensemble de la gestion des certificats<a class="headerlink" href="#vue-d-ensemble-de-la-gestion-des-certificats" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="liste-des-suites-cryptographiques-protocoles-supportes-par-vitam">
-<h2>8.1.1. Liste des suites cryptographiques &amp; protocoles supportés par Vitam<a class="headerlink" href="#liste-des-suites-cryptographiques-protocoles-supportes-par-vitam" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Il est possible de consulter les <em>ciphers</em> supportés par Vitam dans deux fichiers disponibles sur ce chemin: <cite>ansible-vitam/roles/vitam/templates/</cite></p>
+<h2>8.1.1. Liste des suites cryptographiques &amp; protocoles supportés par <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a><a class="headerlink" href="#liste-des-suites-cryptographiques-protocoles-supportes-par-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de consulter les <em>ciphers</em> supportés par la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> dans deux fichiers disponibles sur ce chemin: <cite>ansible-vitam/roles/vitam/templates/</cite></p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>Le fichier <code class="docutils literal notranslate"><span class="pre">jetty-config.xml.j2</span></code></dt>
@@ -212,7 +212,7 @@
 </ul>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">Les 2 balises concernant les <em>ciphers</em> sur le fichier jetty-config.xml.j2 sont complémentaires car elles comportent des wildcards (*) ; en cas de conflit, l’exclusion est prioritaire.</p>
+<p class="last">Les 2 balises concernant les <em>ciphers</em> sur le fichier jetty-config.xml.j2 sont complémentaires car elles comportent des <em>wildcards</em> (*) ; en cas de conflit, l’exclusion est prioritaire.</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">Voir aussi</p>
@@ -227,16 +227,16 @@
 </div>
 <div class="section" id="description-de-l-arborescence-de-la-pki">
 <h2>8.1.3. Description de l’arborescence de la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a><a class="headerlink" href="#description-de-l-arborescence-de-la-pki" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Tous les fichiers de gestion de la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> se trouvent dans le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> de l’arborescence Vitam:</p>
+<p>Tous les fichiers de gestion de la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> se trouvent dans le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> de l’arborescence <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
 <ul>
 <li><p class="first">Le sous répertoire <code class="docutils literal notranslate"><span class="pre">pki</span></code> contient les scripts de génération des <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> &amp; des certificats, les <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> générées par les scripts, et les fichiers de configuration d’openssl</p>
 </li>
-<li><p class="first">Le sous répertoire <code class="docutils literal notranslate"><span class="pre">environments</span></code> contient tous les certificats nécessaires au bon déploiement de Vitam:</p>
+<li><p class="first">Le sous répertoire <code class="docutils literal notranslate"><span class="pre">environments</span></code> contient tous les certificats nécessaires au bon déploiement de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
 <blockquote>
 <div><ul class="simple">
 <li>certificats publics des <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a></li>
-<li>Certificats clients, serveurs, de timestamping, et coffre fort contenant les mots de passe des clés privées des certificats (sous-répertoire <code class="docutils literal notranslate"><span class="pre">certs</span></code>)</li>
-<li>Magasins de certificats (keystores / truststores / grantedstores), et coffre fort contenant les mots de passe des magasins de certificats (sous-répertoire <code class="docutils literal notranslate"><span class="pre">keystores</span></code>)</li>
+<li>certificats clients, serveurs, de timestamping, et coffre fort contenant les mots de passe des clés privées des certificats (sous-répertoire <code class="docutils literal notranslate"><span class="pre">certs</span></code>)</li>
+<li>magasins de certificats (keystores / truststores / grantedstores), et coffre fort contenant les mots de passe des magasins de certificats (sous-répertoire <code class="docutils literal notranslate"><span class="pre">keystores</span></code>)</li>
 </ul>
 </div></blockquote>
 </li>
@@ -249,7 +249,7 @@
 <p>Le fichier ci-dessus est aussi disponible au format xmind <a class="reference download internal" href="../_downloads/arborescence_pki.xmind" download=""><code class="xref download docutils literal notranslate"><span class="pre">arborescence_pki.xmind</span></code></a></p>
 </div>
 <div class="section" id="description-de-l-arborescence-du-repertoire-deployment-environments-certs">
-<h2>8.1.4. Description de l’arborescence du répertoire deployment/environments/certs<a class="headerlink" href="#description-de-l-arborescence-du-repertoire-deployment-environments-certs" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>8.1.4. Description de l’arborescence du répertoire <code class="docutils literal notranslate"><span class="pre">deployment/environments/certs</span></code><a class="headerlink" href="#description-de-l-arborescence-du-repertoire-deployment-environments-certs" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="figure align-center" id="id6">
 <span id="arborescence-certs"></span><img alt="../_images/arborescence_certs.svg" src="../_images/arborescence_certs.svg" /><p class="caption"><span class="caption-text">Vue détaillée de l’arborescence des certificats</span></p>
 </div>
@@ -264,7 +264,7 @@
 </div>
 <div class="section" id="fonctionnement-des-scripts-de-la-pki">
 <span id="fonctionnementscriptspki"></span><h2>8.1.6. Fonctionnement des scripts de la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a><a class="headerlink" href="#fonctionnement-des-scripts-de-la-pki" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La gestion de la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> se fait avec 3 scripts dans le répertoire deployment de l’arborescence Vitam:</p>
+<p>La gestion de la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> se fait avec 3 scripts situés dans le répertoire deployment de l’arborescence <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">pki/scripts/generate_ca.sh</span></code> : génère des autorités de certifications (si besoin)</p>
 </li>
@@ -276,7 +276,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">generate_stores.sh</span></code> : génère les magasins de certificats nécessaires au bon fonctionnement de Vitam</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">generate_stores.sh</span></code> : génère les magasins de certificats nécessaires au bon fonctionnement de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a></p>
 <blockquote>
 <div><ul class="simple">
 <li>Récupère le mot de passe du magasin indiqué dans <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vault-keystore.yml</span></code></li>
@@ -285,7 +285,7 @@
 </div></blockquote>
 </li>
 </ul>
-<p>Si les certificats sont créés par la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> externe, il faut donc les positionner dans l’arborescence attendue avec le nom attendu pour certains (cf <a class="reference internal" href="#arborescence-certs"><span class="std std-ref">l’image ci-dessus</span></a>).</p>
+<p>Si les certificats sont créés par la <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> externe, il faut les positionner dans l’arborescence attendue avec le nom attendu pour certains (cf <a class="reference internal" href="#arborescence-certs"><span class="std std-ref">l’image ci-dessus</span></a>).</p>
 </div>
 </div>
 

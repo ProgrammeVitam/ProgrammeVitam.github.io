@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.4. Ansible &amp; SSH &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>8.4. Ansible &amp; SSH &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -116,7 +116,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#authentification-des-hotes">8.4.2. Authentification des hôtes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#elevation-de-privileges">8.4.3. Elevation de privilèges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#elevation-de-privileges">8.4.3. Elévation de privilèges</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#par-sudo-avec-mot-de-passe">8.4.3.1. Par sudo avec mot de passe</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#par-su">8.4.3.2. Par su</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#par-sudo-sans-mot-de-passe">8.4.3.3. Par sudo sans mot de passe</a></li>
@@ -225,11 +225,11 @@
 <div class="section" id="authentification-des-hotes">
 <h2>8.4.2. Authentification des hôtes<a class="headerlink" href="#authentification-des-hotes" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour éviter les attaques de type <a class="reference internal" href="../introduction.html#term-mitm"><span class="xref std std-term">MitM</span></a>, le client <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a> cherche à authentifier le serveur sur lequel il se connecte. Ceci se base généralement sur le stockage des clés publiques des serveurs auxquels il faut faire confiance (~/.ssh/known_hosts).</p>
-<p>Il existe différentes méthodes pour remplir ce fichier (vérification humaine à la première connexion, gestion centralisée, <a class="reference internal" href="../introduction.html#term-dnssec"><span class="xref std std-term">DNSSEC</span></a>). La gestion de fichier est hors périmètre Vitam mais c’est un pré-requis pour le lancement d’ansible.</p>
+<p>Il existe différentes méthodes pour remplir ce fichier (vérification humaine à la première connexion, gestion centralisée, <a class="reference internal" href="../introduction.html#term-dnssec"><span class="xref std std-term">DNSSEC</span></a>). La gestion de fichier est hors périmètre <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> mais c’est un pré-requis pour le lancement d’ansible.</p>
 </div>
 <div class="section" id="elevation-de-privileges">
-<h2>8.4.3. Elevation de privilèges<a class="headerlink" href="#elevation-de-privileges" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une fois que l’on est connecté  sur le serveur cible, il faut définir la méthode pour accéder aux droits root</p>
+<h2>8.4.3. Elévation de privilèges<a class="headerlink" href="#elevation-de-privileges" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fois que l’on est connecté  sur le serveur cible, il faut définir la méthode pour accéder aux droits <code class="docutils literal notranslate"><span class="pre">root</span></code></p>
 <div class="section" id="par-sudo-avec-mot-de-passe">
 <h3>8.4.3.1. Par sudo avec mot de passe<a class="headerlink" href="#par-sudo-avec-mot-de-passe" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Dans ce cas, il faut rajouter les options <code class="docutils literal notranslate"><span class="pre">--ask-sudo-pass</span></code></p>
@@ -238,11 +238,11 @@
 <div class="section" id="par-su">
 <h3>8.4.3.2. Par su<a class="headerlink" href="#par-su" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Dans ce cas, il faut rajouter les options <code class="docutils literal notranslate"><span class="pre">--become-method=su</span> <span class="pre">--ask-su-pass</span></code></p>
-<p>Au lancement de la commande ansible (ou ansible-playbook), il sera demandé le mot de passe root</p>
+<p>Au lancement de la commande ansible (ou ansible-playbook), il sera demandé le mot de passe <code class="docutils literal notranslate"><span class="pre">root</span></code></p>
 </div>
 <div class="section" id="par-sudo-sans-mot-de-passe">
 <h3>8.4.3.3. Par sudo sans mot de passe<a class="headerlink" href="#par-sudo-sans-mot-de-passe" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il n’y a pas d’option à rajouter (l’élévation par sudo est la configuration par défaut)</p>
+<p>Il n’y a pas d’option à rajouter (l’élévation par <code class="docutils literal notranslate"><span class="pre">sudo</span></code> est la configuration par défaut)</p>
 </div>
 <div class="section" id="deja-root">
 <h3>8.4.3.4. Déjà Root<a class="headerlink" href="#deja-root" title="Lien permanent vers ce titre">¶</a></h3>

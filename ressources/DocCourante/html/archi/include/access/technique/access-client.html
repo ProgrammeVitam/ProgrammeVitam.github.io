@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.2.3. Access-client &mdash; Documentation VITAM - Architecture 2.6.1</title>
+  <title>7.1.2.3. Access-client &mdash; Documentation VITAM - Architecture 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -125,19 +125,20 @@
 <li class="toctree-l3"><a class="reference internal" href="../securite/_toc.html">7.1.3. Sécurité</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.2. Common</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.3. Functional administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.4. IHM demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.5. IHM recette</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.6. Ingest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.7. Security-Internal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.8. Logbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.9. Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.10. Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.11. Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.12. Technical administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.13. Worker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.14. Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch-report/_toc.html">7.2. Batch-report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.6. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.12. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.15. Workspace</a></li>
 </ul>
 </li>
 </ul>
@@ -220,7 +221,7 @@
 <li>La factory : Afin de récupérer le client-access , une factory a été mise en place.</li>
 </ul>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
- <span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getAccessOperationClient</span><span class="o">();</span>
+ <span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -229,18 +230,18 @@ Si les paramètres de productions sont introuvables, le client passe en mode Moc
 Il est possible de récupérer directement le mock :</li>
 </ul>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory client</span>
-<span class="n">AccessClientFactory</span><span class="o">.</span><span class="na">setConfiguration</span><span class="o">(</span><span class="n">AccessClientType</span><span class="o">.</span><span class="na">MOCK</span><span class="o">);</span>
+<span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">setConfiguration</span><span class="p">(</span><span class="n">AccessClientType</span><span class="p">.</span><span class="na">MOCK</span><span class="p">);</span>
 <span class="c1">// Récupération explicite du client mock</span>
-<span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getAccessOperationClient</span><span class="o">();</span>
+<span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>Pour instancier son client en mode Production :</li>
 </ul>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
- <span class="n">AccessClientFactory</span><span class="o">.</span><span class="na">setConfiguration</span><span class="o">(</span><span class="n">AccessClientType</span><span class="o">.</span><span class="na">PRODUCTION</span><span class="o">);</span>
+ <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">setConfiguration</span><span class="p">(</span><span class="n">AccessClientType</span><span class="p">.</span><span class="na">PRODUCTION</span><span class="p">);</span>
 <span class="c1">// Récupération explicite du client</span>
-<span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getAccessOperationClient</span><span class="o">();</span>
+<span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>

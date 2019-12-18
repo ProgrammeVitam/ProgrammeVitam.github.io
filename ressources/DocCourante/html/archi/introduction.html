@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Introduction &mdash; Documentation VITAM - Architecture 2.6.1</title>
+  <title>1. Introduction &mdash; Documentation VITAM - Architecture 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'./',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -186,7 +186,7 @@
 <h1>1. Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="objectif-de-ce-document">
 <h2>1.1. Objectif de ce document<a class="headerlink" href="#objectif-de-ce-document" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ce document est le document d’architecture de la solution logicielle <a class="reference internal" href="#term-vitam"><span class="xref std std-term">VITAM</span></a> ; il vise à donner une vision d’ensemble des problématiques structurantes, donner une vision d’ensemble de la solution (d’un point de vue applicatif et technique), ainsi que de présenter les choix structurants de principes et de composants, ainsi que les raisons de ces choix.</p>
+<p>Ce document est le document d’architecture de la solution logicielle <a class="reference internal" href="#term-vitam"><span class="xref std std-term">VITAM</span></a> ; il vise à donner une vision d’ensemble des problématiques structurantes et de la solution (d’un point de vue applicatif et technique), ainsi que de présenter les choix structurants de principes et de composants et les raisons de ces choix.</p>
 <p>Il s’adresse aux personnes suivantes :</p>
 <ul class="simple">
 <li>Les architectes applicatifs des projets désirant intégrer <a class="reference internal" href="#term-vitam"><span class="xref std std-term">VITAM</span></a> ;</li>
@@ -202,12 +202,12 @@
 <li><p class="first">L’architecture technique, avec notamment :</p>
 <blockquote>
 <div><ul class="simple">
-<li>En première sous-section, les principes d’architecture technique, principalement à destination des architectes d’infrastructure ;</li>
-<li>Dans la suite, les choix d’architecture et de composants techniques, à destination des architectes d’infrastructure et des exploitants.</li>
+<li>En première sous-section, les principes d’architecture technique, principalement à destination des architectes d’infrastructure</li>
+<li>Dans la suite, les choix d’architecture et de composants techniques, à destination des architectes d’infrastructure et des exploitants ;</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Les principes et règles de sécurité appliquées et applicables à la solution.</p>
+<li><p class="first">Les principes et règles de sécurité appliqués et applicables à la solution.</p>
 </li>
 </ul>
 </div>
@@ -260,11 +260,13 @@
 <h2>2.3. Glossaire<a class="headerlink" href="#glossaire" title="Lien permanent vers ce titre">¶</a></h2>
 <dl class="glossary docutils">
 <dt id="term-api">API</dt>
-<dd>Application Programming Interface</dd>
+<dd><cite>Application Programming Interface</cite></dd>
 <dt id="term-au">AU</dt>
 <dd><cite>Archive Unit</cite>, unité archivistique</dd>
 <dt id="term-bdd">BDD</dt>
 <dd>Base De Données</dd>
+<dt id="term-bdo">BDO</dt>
+<dd><cite>Binary DataObject</cite></dd>
 <dt id="term-ca">CA</dt>
 <dd><cite>Certificate Authority</cite>, autorité de certification</dd>
 <dt id="term-cas">CAS</dt>
@@ -277,6 +279,8 @@
 <dd>Component Off The shelf ; il s’agit d’un composant «&nbsp;sur étagère&nbsp;», non développé par le projet <a class="reference internal" href="#term-vitam"><span class="xref std std-term">VITAM</span></a>, mais intégré à partir d’un binaire externe. Par exemple : MongoDB, ElasticSearch.</dd>
 <dt id="term-crl">CRL</dt>
 <dd><cite>Certificate Revocation List</cite> ; liste des identifiants des certificats qui ont été révoqués ou invalidés et qui ne sont donc plus dignes de confiance. Cette norme est spécifiée dans les RFC 5280 et RFC 6818.</dd>
+<dt id="term-crud">CRUD</dt>
+<dd><cite>create, read, update, and delete</cite>, s’applique aux opérations dans une base de données MongoDB</dd>
 <dt id="term-dat">DAT</dt>
 <dd>Dossier d’Architecture Technique</dd>
 <dt id="term-dc">DC</dt>
@@ -285,6 +289,8 @@
 <dd>Dossier d’EXploitation</dd>
 <dt id="term-din">DIN</dt>
 <dd>Dossier d’INstallation</dd>
+<dt id="term-dip">DIP</dt>
+<dd><cite>Dissemination Information Package</cite></dd>
 <dt id="term-dmv">DMV</dt>
 <dd>Documentation de Montées de Version</dd>
 <dt id="term-dns">DNS</dt>
@@ -297,30 +303,44 @@
 <dd>Durée d’Utilité Administrative</dd>
 <dt id="term-ebios">EBIOS</dt>
 <dd>Méthode d’évaluation des risques en informatique, permettant d’apprécier les risques Sécurité des systèmes d’information (entités et vulnérabilités, méthodes d’attaques et éléments menaçants, éléments essentiels et besoins de sécurité…), de contribuer à leur traitement en spécifiant les exigences de sécurité à mettre en place, de préparer l’ensemble du dossier de sécurité nécessaire à l’acceptation des risques et de fournir les éléments utiles à la communication relative aux risques. Elle est compatible avec les normes ISO 13335 (GMITS), ISO 15408 (critères communs) et ISO 17799</dd>
+<dt id="term-ead">EAD</dt>
+<dd>Description archivistique encodée</dd>
 <dt id="term-elk">ELK</dt>
 <dd><em>Elasticsearch Logstash Kibana</em></dd>
+<dt id="term-fip">FIP</dt>
+<dd><em>Floating IP</em></dd>
+<dt id="term-got">GOT</dt>
+<dd>Groupe d’Objet Technique</dd>
 <dt id="term-ihm">IHM</dt>
 <dd>Interface Homme Machine</dd>
 <dt id="term-ip">IP</dt>
-<dd><em>Internet Protocol</em></dd>
+<dd><cite>Internet Protocol</cite></dd>
+<dt id="term-isadg">IsaDG</dt>
+<dd>Norme générale et internationale de description archivistique</dd>
 <dt id="term-jre">JRE</dt>
-<dd>Java Runtime Environment ; il s’agit de la machine virtuelle Java permettant d’y exécuter les programmes compilés pour.</dd>
+<dd><cite>Java Runtime Environment</cite> ; il s’agit de la machine virtuelle Java permettant d’y exécuter les programmes compilés pour.</dd>
 <dt id="term-jvm">JVM</dt>
-<dd>Java Virtual Machine ; Cf. <a class="reference internal" href="#term-jre"><span class="xref std std-term">JRE</span></a></dd>
+<dd><cite>Java Virtual Machine</cite> ; Cf. <a class="reference internal" href="#term-jre"><span class="xref std std-term">JRE</span></a></dd>
 <dt id="term-lan">LAN</dt>
-<dd><em>Local Area Network</em>, réseau informatique local, qui relie des ordinateurs dans une zone limitée</dd>
+<dd><cite>Local Area Network</cite>, réseau informatique local, qui relie des ordinateurs dans une zone limitée</dd>
 <dt id="term-lfc">LFC</dt>
-<dd><em>LiFe Cycle</em>, cycle de vie</dd>
+<dd><cite>LiFe Cycle</cite>, cycle de vie</dd>
 <dt id="term-lts">LTS</dt>
 <dd><cite>Long-term support</cite>, support à long terme : version spécifique d’un logiciel dont le support est assuré pour une période de temps plus longue que la normale.</dd>
 <dt id="term-m2m">M2M</dt>
 <dd><cite>Machine To Machine</cite></dd>
 <dt id="term-mitm">MitM</dt>
 <dd>L’attaque de l’homme du milieu (HDM) ou <cite>man-in-the-middle attack</cite> (MITM) est une attaque qui a pour but d’intercepter les communications entre deux parties, sans que ni l’une ni l’autre ne puisse se douter que le canal de communication entre elles a été compromis. Le canal le plus courant est une connexion à Internet de l’internaute lambda. L’attaquant doit d’abord être capable d’observer et d’intercepter les messages d’une victime à l’autre. L’attaque « homme du milieu » est particulièrement applicable dans la méthode d’échange de clés Diffie-Hellman, quand cet échange est utilisé sans authentification. Avec authentification, Diffie-Hellman est en revanche invulnérable aux écoutes du canal, et est d’ailleurs conçu pour cela. <a class="reference external" href="https://fr.wikipedia.org/wiki/Attaque_de_l'homme_du_milieu">Explication</a></dd>
+<dt id="term-moreq">MoReq</dt>
+<dd><cite>Modular Requirements for Records System</cite>, recueil d’exigences pour l’organisation de l’archivage, élaboré dans le cadre de l’Union européenne.</dd>
 <dt id="term-nosql">NoSQL</dt>
 <dd>Base de données non-basée sur un paradigme classique des bases relationnelles. <a class="reference external" href="https://fr.wikipedia.org/wiki/NoSQL">Définition NoSQL</a></dd>
+<dt id="term-ntp">NTP</dt>
+<dd><cite>Network Time Protocol</cite></dd>
 <dt id="term-oais">OAIS</dt>
 <dd><cite>Open Archival Information System</cite>, acronyme anglais pour Systèmes de transfert des informations et données spatiales – Système ouvert d’archivage d’information (SOAI) - Modèle de référence.</dd>
+<dt id="term-oom">OOM</dt>
+<dd>Aussi apelé <cite>Out-Of-Memory Killer</cite> ; mécanisme de la dernière chance incorporé au noyau Linux, en cas de dépassement de la capacité mémoire</dd>
 <dt id="term-os">OS</dt>
 <dd><cite>Operating System</cite>, système d’exploitation</dd>
 <dt id="term-owasp">OWASP</dt>
@@ -334,27 +354,33 @@
 <dt id="term-pra">PRA</dt>
 <dd>Plan de Reprise d’Activité</dd>
 <dt id="term-rest">REST</dt>
-<dd>REpresentational State Transfer : type d’architecture d’échanges. Appliqué aux services web, en se basant sur les appels http standard, il permet de fournir des API dites «&nbsp;RESTful&nbsp;» qui présentent un certain nombre d’avantages en termes d’indépendance, d’universalité, de maintenabilité et de gestion de charge. <a class="reference external" href="https://fr.wikipedia.org/wiki/Representational_state_transfer">Définition REST</a></dd>
+<dd><cite>REpresentational State Transfer</cite> : type d’architecture d’échanges. Appliqué aux services web, en se basant sur les appels http standard, il permet de fournir des API dites «&nbsp;RESTful&nbsp;» qui présentent un certain nombre d’avantages en termes d’indépendance, d’universalité, de maintenabilité et de gestion de charge. <a class="reference external" href="https://fr.wikipedia.org/wiki/Representational_state_transfer">Définition REST</a></dd>
+<dt id="term-rgaa">RGAA</dt>
+<dd>Référentiel Général d’Accessibilité pour les Administrations</dd>
 <dt id="term-rgi">RGI</dt>
 <dd>Référentiel Général d’Interopérabilité</dd>
 <dt id="term-rpm">RPM</dt>
-<dd>Red Hat Package Manager ; il s’agit du format de packets logiciels nativement utilisé par les distributions CentOS (entre autres)</dd>
+<dd><cite>Red Hat Package Manager</cite> ; il s’agit du format de packets logiciels nativement utilisé par les distributions CentOS (entre autres)</dd>
 <dt id="term-sae">SAE</dt>
 <dd>Système d’Archivage Électronique</dd>
 <dt id="term-seda">SEDA</dt>
 <dd>Standard d’Échange de Données pour l’Archivage</dd>
 <dt id="term-sgbd">SGBD</dt>
 <dd>Système de Gestion de Base de Données</dd>
+<dt id="term-sgbdr">SGBDR</dt>
+<dd>Système de Gestion de Base de Données Relationnelle</dd>
 <dt id="term-sia">SIA</dt>
 <dd>Système d’Informations Archivistique</dd>
 <dt id="term-siem">SIEM</dt>
-<dd>Security Information and Event Management</dd>
+<dd><cite>Security Information and Event Management</cite></dd>
 <dt id="term-sip">SIP</dt>
-<dd>Submission Information Package</dd>
+<dd><cite>Submission Information Package</cite></dd>
 <dt id="term-ssh">SSH</dt>
 <dd><cite>Secure SHell</cite></dd>
 <dt id="term-swift">Swift</dt>
-<dd>OpenStack Object Store project</dd>
+<dd><cite>OpenStack Object Store project</cite></dd>
+<dt id="term-tls">TLS</dt>
+<dd><cite>Transport Layer Security</cite></dd>
 <dt id="term-tnr">TNR</dt>
 <dd>Tests de Non-Régression</dd>
 <dt id="term-ttl">TTL</dt>
@@ -362,9 +388,11 @@
 <dt id="term-udp">UDP</dt>
 <dd><cite>User Datagram Protocol</cite>, protocole de datagramme utilisateur, un des principaux protocoles de télécommunication utilisés par Internet. Il fait partie de la couche transport du modèle OSI</dd>
 <dt id="term-uid">UID</dt>
-<dd>User Identification</dd>
+<dd><cite>User IDentification</cite></dd>
 <dt id="term-vitam">VITAM</dt>
 <dd>Valeurs Immatérielles Transférées aux Archives pour Mémoire</dd>
+<dt id="term-vm">VM</dt>
+<dd><cite>Virtual Machine</cite></dd>
 <dt id="term-waf">WAF</dt>
 <dd><cite>Web Application Firewall</cite></dd>
 <dt id="term-wan">WAN</dt>

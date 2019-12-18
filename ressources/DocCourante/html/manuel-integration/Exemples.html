@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Exemples &mdash; Documentation VITAM - Manuel Intégraption Applicative 2.6.1</title>
+  <title>Exemples &mdash; Documentation VITAM - Manuel Intégration Applicative 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'./',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -60,7 +60,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégraption Applicative
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel Intégration Applicative
           
 
           
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -123,7 +123,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">VITAM - Manuel Intégraption Applicative</a>
+          <a href="index.html">VITAM - Manuel Intégration Applicative</a>
         
       </nav>
 
@@ -179,31 +179,31 @@
 <h2>Recherche d’unités archivistiques par ArchivalAgencyArchiveUnitIdentifier<a class="headerlink" href="#recherche-d-unites-archivistiques-par-archivalagencyarchiveunitidentifier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>EndPoint: /access-external/v1/units</p>
 <p><strong>Client Java</strong></p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">())</span> <span class="o">{</span>
-      <span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-      <span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-      <span class="kd">final</span> <span class="n">String</span> <span class="n">selectQuery</span> <span class="o">=</span> <span class="s">&quot;{\&quot;$query\&quot;: [{\&quot;$eq\&quot;: {\&quot;ArchivalAgencyArchiveUnitIdentifier\&quot; : \&quot;20130456/3\&quot;}}]}&quot;</span><span class="o">;</span>
-      <span class="kd">final</span> <span class="n">JsonNode</span> <span class="n">queryJson</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="o">.</span><span class="na">getFromString</span><span class="o">(</span><span class="n">selectQuery</span><span class="o">);</span>
-      <span class="n">client</span><span class="o">.</span><span class="na">selectUnits</span><span class="o">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">setAccessContract</span><span class="o">(</span><span class="n">contract</span><span class="o">),</span> <span class="n">queryJson</span><span class="o">);</span>
-  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvalidParseOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+      <span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+      <span class="kd">final</span> <span class="n">String</span> <span class="n">selectQuery</span> <span class="o">=</span> <span class="s">&quot;{\&quot;$query\&quot;: [{\&quot;$eq\&quot;: {\&quot;ArchivalAgencyArchiveUnitIdentifier\&quot; : \&quot;20130456/3\&quot;}}]}&quot;</span><span class="p">;</span>
+      <span class="kd">final</span> <span class="n">JsonNode</span> <span class="n">queryJson</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="p">.</span><span class="na">getFromString</span><span class="p">(</span><span class="n">selectQuery</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="na">selectUnits</span><span class="p">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="p">(</span><span class="n">tenantId</span><span class="p">).</span><span class="na">setAccessContract</span><span class="p">(</span><span class="n">contract</span><span class="p">),</span> <span class="n">queryJson</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidParseOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">///Log ...</span>
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Client Java avec construction DSL</strong></p>
 <p>EndPoint: access-external/v1/units</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JsonNode</span> <span class="n">queryDsql</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="k">try</span> <span class="o">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;ArchivalAgencyArchiveUnitIdentifier&quot;</span><span class="o">,</span> <span class="s">&quot;20130456/3&quot;</span><span class="o">);</span>
-    <span class="n">SelectMultiQuery</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SelectMultiQuery</span><span class="o">()</span>
-      <span class="o">.</span><span class="na">addQueries</span><span class="o">(</span><span class="n">query</span><span class="o">)</span>
-      <span class="o">.</span><span class="na">setLimitFilter</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
-    <span class="n">client</span><span class="o">.</span><span class="na">selectUnits</span><span class="o">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">setAccessContract</span><span class="o">(</span><span class="n">contract</span><span class="o">),</span> <span class="n">select</span><span class="o">.</span><span class="na">getFinalSelect</span><span class="o">());</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvalidCreateOperationException</span> <span class="o">|</span> <span class="n">InvalidParseOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JsonNode</span> <span class="n">queryDsql</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="k">try</span> <span class="p">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&quot;ArchivalAgencyArchiveUnitIdentifier&quot;</span><span class="p">,</span> <span class="s">&quot;20130456/3&quot;</span><span class="p">);</span>
+    <span class="n">SelectMultiQuery</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SelectMultiQuery</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">addQueries</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">setLimitFilter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">client</span><span class="p">.</span><span class="na">selectUnits</span><span class="p">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="p">(</span><span class="n">tenantId</span><span class="p">).</span><span class="na">setAccessContract</span><span class="p">(</span><span class="n">contract</span><span class="p">),</span> <span class="n">select</span><span class="p">.</span><span class="na">getFinalSelect</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidCreateOperationException</span> <span class="o">|</span> <span class="n">InvalidParseOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">///Log ...</span>
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Postman</strong></p>
@@ -245,29 +245,29 @@
 <h2>Recherche de registre de fonds par producteur (FRAN_NP_005568)<a class="headerlink" href="#recherche-de-registre-de-fonds-par-producteur-fran-np-005568" title="Lien permanent vers ce titre">¶</a></h2>
 <p><strong>Client Java</strong></p>
 <p>Endpoint : /admin-external/v1/accessionregisters</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="kd">final</span> <span class="n">String</span> <span class="n">queryDsl</span> <span class="o">=</span> <span class="s">&quot;{\&quot;$query\&quot;: [{\&quot;$eq\&quot;: {\&quot;OriginatingAgency\&quot; : \&quot;FRAN_NP_005568\&quot;}}]}&quot;</span><span class="o">;</span>
-<span class="k">try</span> <span class="o">(</span><span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">())</span> <span class="o">{</span>
-    <span class="kd">final</span> <span class="n">JsonNode</span> <span class="n">queryJson</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="o">.</span><span class="na">getFromString</span><span class="o">(</span><span class="n">queryDsl</span><span class="o">);</span>
-    <span class="n">client</span><span class="o">.</span><span class="na">findAccessionRegister</span><span class="o">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">setAccessContract</span><span class="o">(</span><span class="n">contract</span><span class="o">),</span> <span class="n">queryJson</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvalidParseOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="n">queryDsl</span> <span class="o">=</span> <span class="s">&quot;{\&quot;$query\&quot;: [{\&quot;$eq\&quot;: {\&quot;OriginatingAgency\&quot; : \&quot;FRAN_NP_005568\&quot;}}]}&quot;</span><span class="p">;</span>
+<span class="k">try</span> <span class="p">(</span><span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">())</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">JsonNode</span> <span class="n">queryJson</span> <span class="o">=</span> <span class="n">JsonHandler</span><span class="p">.</span><span class="na">getFromString</span><span class="p">(</span><span class="n">queryDsl</span><span class="p">);</span>
+    <span class="n">client</span><span class="p">.</span><span class="na">findAccessionRegister</span><span class="p">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="p">(</span><span class="n">tenantId</span><span class="p">).</span><span class="na">setAccessContract</span><span class="p">(</span><span class="n">contract</span><span class="p">),</span> <span class="n">queryJson</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidParseOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// LOG</span>
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Client Java avec construction DSL</strong></p>
 <p>Endpoint : /admin-external/v1/accessionregisters</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple=</span>
-<span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="o">();</span>
-<span class="k">try</span> <span class="o">(</span><span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">select</span><span class="o">.</span><span class="na">setQuery</span><span class="o">(</span><span class="n">QueryHelper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;OriginatingAgency&quot;</span><span class="o">,</span> <span class="s">&quot;FRAN_NP_005568&quot;</span><span class="o">));</span>
-    <span class="n">client</span><span class="o">.</span><span class="na">findAccessionRegister</span><span class="o">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">setAccessContract</span><span class="o">(</span><span class="n">contract</span><span class="o">),</span>
-        <span class="n">select</span><span class="o">.</span><span class="na">getFinalSelect</span><span class="o">());</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">VitamClientException</span> <span class="o">|</span> <span class="n">InvalidCreateOperationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple=</span>
+<span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="p">();</span>
+<span class="k">try</span> <span class="p">(</span><span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">select</span><span class="p">.</span><span class="na">setQuery</span><span class="p">(</span><span class="n">QueryHelper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&quot;OriginatingAgency&quot;</span><span class="p">,</span> <span class="s">&quot;FRAN_NP_005568&quot;</span><span class="p">));</span>
+    <span class="n">client</span><span class="p">.</span><span class="na">findAccessionRegister</span><span class="p">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="p">(</span><span class="n">tenantId</span><span class="p">).</span><span class="na">setAccessContract</span><span class="p">(</span><span class="n">contract</span><span class="p">),</span>
+        <span class="n">select</span><span class="p">.</span><span class="na">getFinalSelect</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">VitamClientException</span> <span class="o">|</span> <span class="n">InvalidCreateOperationException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// LOG</span>
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Postman</strong></p>
@@ -304,18 +304,18 @@
 <h2>Recherche d’unités archivistiques par titre AND description AND dates<a class="headerlink" href="#recherche-d-unites-archivistiques-par-titre-and-description-and-dates" title="Lien permanent vers ce titre">¶</a></h2>
 <p><strong>Client Java</strong></p>
 <p>Endpoint : /access-external/v1/units</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="o">();</span>
-<span class="k">try</span> <span class="o">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">MatchQuery</span> <span class="n">titleQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="s">&quot;Title&quot;</span><span class="o">,</span> <span class="s">&quot;myTitle&quot;</span><span class="o">);</span>
-    <span class="n">CompareQuery</span> <span class="n">dateQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;StartDate&quot;</span><span class="o">,</span> <span class="s">&quot;2015-07-24T02:15:28.28Z&quot;</span><span class="o">);</span>
-    <span class="n">MatchQuery</span> <span class="n">descQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="s">&quot;Description&quot;</span><span class="o">,</span> <span class="s">&quot;myDescription&quot;</span><span class="o">);</span>
-    <span class="n">select</span><span class="o">.</span><span class="na">setQuery</span><span class="o">(</span><span class="n">QueryHelper</span><span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">titleQ</span><span class="o">,</span> <span class="n">dateQ</span><span class="o">,</span> <span class="n">descQ</span><span class="o">));</span>
-    <span class="n">client</span><span class="o">.</span><span class="na">selectUnits</span><span class="o">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">setAccessContract</span><span class="o">(</span><span class="n">contract</span><span class="o">),</span> <span class="n">select</span><span class="o">.</span><span class="na">getFinalSelect</span><span class="o">());</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvalidCreateOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="p">();</span>
+<span class="k">try</span> <span class="p">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">MatchQuery</span> <span class="n">titleQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="s">&quot;Title&quot;</span><span class="p">,</span> <span class="s">&quot;myTitle&quot;</span><span class="p">);</span>
+    <span class="n">CompareQuery</span> <span class="n">dateQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&quot;StartDate&quot;</span><span class="p">,</span> <span class="s">&quot;2015-07-24T02:15:28.28Z&quot;</span><span class="p">);</span>
+    <span class="n">MatchQuery</span> <span class="n">descQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="s">&quot;Description&quot;</span><span class="p">,</span> <span class="s">&quot;myDescription&quot;</span><span class="p">);</span>
+    <span class="n">select</span><span class="p">.</span><span class="na">setQuery</span><span class="p">(</span><span class="n">QueryHelper</span><span class="p">.</span><span class="na">and</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">titleQ</span><span class="p">,</span> <span class="n">dateQ</span><span class="p">,</span> <span class="n">descQ</span><span class="p">));</span>
+    <span class="n">client</span><span class="p">.</span><span class="na">selectUnits</span><span class="p">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="p">(</span><span class="n">tenantId</span><span class="p">).</span><span class="na">setAccessContract</span><span class="p">(</span><span class="n">contract</span><span class="p">),</span> <span class="n">select</span><span class="p">.</span><span class="na">getFinalSelect</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidCreateOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">///Log ...</span>
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Postman</strong></p>
@@ -371,17 +371,17 @@ Indiquer pour la requête POST :</p>
 <h2>Recherche d’unités archivistiques par libre titre OR description<a class="headerlink" href="#recherche-d-unites-archivistiques-par-libre-titre-or-description" title="Lien permanent vers ce titre">¶</a></h2>
 <p><strong>Client Java</strong></p>
 <p>Endpoint : /access-external/v1/units</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="o">;</span> <span class="c1">// à titre d&#39;exemple</span>
-<span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="o">();</span>
-<span class="k">try</span> <span class="o">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getClient</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">MatchQuery</span> <span class="n">titleQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="s">&quot;Title&quot;</span><span class="o">,</span> <span class="s">&quot;myTitle&quot;</span><span class="o">);</span>
-    <span class="n">MatchQuery</span> <span class="n">descQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="s">&quot;Description&quot;</span><span class="o">,</span> <span class="s">&quot;myDescription&quot;</span><span class="o">);</span>
-    <span class="n">select</span><span class="o">.</span><span class="na">setQuery</span><span class="o">(</span><span class="n">QueryHelper</span><span class="o">.</span><span class="na">or</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">titleQ</span><span class="o">,</span> <span class="n">descQ</span><span class="o">));</span>
-    <span class="n">client</span><span class="o">.</span><span class="na">selectUnits</span><span class="o">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">setAccessContract</span><span class="o">(</span><span class="n">contract</span><span class="o">),</span> <span class="n">select</span><span class="o">.</span><span class="na">getFinalSelect</span><span class="o">());</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvalidCreateOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">tenantId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">String</span> <span class="n">contract</span> <span class="o">=</span> <span class="s">&quot;myContract&quot;</span><span class="p">;</span> <span class="c1">// à titre d&#39;exemple</span>
+<span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="p">();</span>
+<span class="k">try</span> <span class="p">(</span><span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">MatchQuery</span> <span class="n">titleQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="s">&quot;Title&quot;</span><span class="p">,</span> <span class="s">&quot;myTitle&quot;</span><span class="p">);</span>
+    <span class="n">MatchQuery</span> <span class="n">descQ</span> <span class="o">=</span> <span class="n">QueryHelper</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="s">&quot;Description&quot;</span><span class="p">,</span> <span class="s">&quot;myDescription&quot;</span><span class="p">);</span>
+    <span class="n">select</span><span class="p">.</span><span class="na">setQuery</span><span class="p">(</span><span class="n">QueryHelper</span><span class="p">.</span><span class="na">or</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">titleQ</span><span class="p">,</span> <span class="n">descQ</span><span class="p">));</span>
+    <span class="n">client</span><span class="p">.</span><span class="na">selectUnits</span><span class="p">(</span><span class="k">new</span> <span class="n">VitamContext</span><span class="p">(</span><span class="n">tenantId</span><span class="p">).</span><span class="na">setAccessContract</span><span class="p">(</span><span class="n">contract</span><span class="p">),</span> <span class="n">select</span><span class="p">.</span><span class="na">getFinalSelect</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidCreateOperationException</span> <span class="o">|</span> <span class="n">VitamClientException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">///Log ...</span>
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Postman</strong></p>

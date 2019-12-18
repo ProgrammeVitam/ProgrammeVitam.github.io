@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Procédures de mise à jour de la configuration &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>5. Procédures de mise à jour de la configuration &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="6. Post installation" href="../post_install/_toc.html" />
-    <link rel="prev" title="4.2.6. Elements extras de l’installation" href="../installation/80-extras.html" /> 
+    <link rel="prev" title="4.2.7. Elements extras de l’installation" href="../installation/80-extras.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -177,7 +177,7 @@
             
   <div class="section" id="procedures-de-mise-a-jour-de-la-configuration">
 <h1>5. Procédures de mise à jour de la configuration<a class="headerlink" href="#procedures-de-mise-a-jour-de-la-configuration" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Cette section décrit globalement les processus de reconfiguration d’une solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> déjà en place et ne peut se substituer aux recommandations effectuées dans la «&nbsp;release notes&nbsp;» associée à la fourniture des composants mis à niveau.</p>
+<p>Cette section décrit globalement les processus de reconfiguration d’une solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> déjà en place et ne peut se substituer aux recommandations effectuées dans la «&nbsp;release-notes&nbsp;» associée à la fourniture des composants mis à niveau.</p>
 <p>Se référer également aux <a class="reference internal" href="../introduction.html#term-dex"><span class="xref std std-term">DEX</span></a> pour plus de procédures.</p>
 <div class="section" id="cas-d-une-modification-du-nombre-de-tenants">
 <h2>5.1. Cas d’une modification du nombre de tenants<a class="headerlink" href="#cas-d-une-modification-du-nombre-de-tenants" title="Lien permanent vers ce titre">¶</a></h2>
@@ -186,7 +186,7 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>vitam_tenant_ids=[0,1,2]
 </pre></div>
 </div>
-<p>A l’issue, il faut lancer le playbook de déploiement de VITAM (et, si déployé, les extras) avec l’option supplémentaire <code class="docutils literal notranslate"><span class="pre">--tags</span> <span class="pre">update_vitam_configuration</span></code>.</p>
+<p>A l’issue, il faut lancer le playbook de déploiement de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (et, si déployé, les extras) avec l’option supplémentaire <code class="docutils literal notranslate"><span class="pre">--tags</span> <span class="pre">update_vitam_configuration</span></code>.</p>
 <p>Exemple:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ansible-playbook -i environments/hosts.deployment ansible-vitam/vitam.yml --ask-vault-pass --tags update_vitam_configuration</span>
 <span class="go">ansible-playbook -i environments/hosts.deployment ansible-vitam-extra/extra.yml --ask-vault-pass --tags update_vitam_configuration</span>
@@ -196,8 +196,8 @@
 <div class="section" id="cas-d-une-modification-des-parametres-jvm">
 <h2>5.2. Cas d’une modification des paramètres <a class="reference internal" href="../introduction.html#term-jvm"><span class="xref std std-term">JVM</span></a><a class="headerlink" href="#cas-d-une-modification-des-parametres-jvm" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Se référer à <a class="reference internal" href="../installation/21-addons.html#update-jvm"><span class="std std-ref">Tuning JVM</span></a></p>
-<p>Pour les partitions sur lesquelles une modification des paramètres JVM est nécessaire, il faut modifier les «&nbsp;hostvars&nbsp;» associées.</p>
-<p>A l’issue, il faut lancer le playbook de déploiement de VITAM (et, si déployé, les extra) avec l’option supplémentaire <code class="docutils literal notranslate"><span class="pre">--tags</span> <span class="pre">update_jvmoptions_vitam</span></code>.</p>
+<p>Pour les partitions sur lesquelles une modification des paramètres <a class="reference internal" href="../introduction.html#term-jvm"><span class="xref std std-term">JVM</span></a> est nécessaire, il faut modifier les «&nbsp;hostvars&nbsp;» associées.</p>
+<p>A l’issue, il faut lancer le playbook de déploiement de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (et, si déployé, les <em>extras</em>) avec l’option supplémentaire <code class="docutils literal notranslate"><span class="pre">--tags</span> <span class="pre">update_jvmoptions_vitam</span></code>.</p>
 <p>Exemple:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ansible-playbook -i environments/hosts.deployment ansible-vitam/vitam.yml --ask-vault-pass --tags update_jvmoptions_vitam</span>
 <span class="go">ansible-playbook -i environments/hosts.deployment ansible-vitam-extra/extra.yml --ask-vault-pass --tags update_jvmoptions_vitam</span>
@@ -205,7 +205,7 @@
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">Limitation technique à ce jour ; il n’est pas possible de définir des variables JVM différentes pour des composants colocalisés sur une même partition.</p>
+<p class="last">Limitation technique à ce jour ; il n’est pas possible de définir des variables <a class="reference internal" href="../introduction.html#term-jvm"><span class="xref std std-term">JVM</span></a> différentes pour des composants colocalisés sur une même partition.</p>
 </div>
 </div>
 <div class="section" id="cas-de-la-mise-a-jour-des-griffins">
@@ -230,7 +230,7 @@
         <a href="../post_install/_toc.html" class="btn btn-neutral float-right" title="6. Post installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../installation/80-extras.html" class="btn btn-neutral float-left" title="4.2.6. Elements extras de l’installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../installation/80-extras.html" class="btn btn-neutral float-left" title="4.2.7. Elements extras de l’installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.3. Cycle de vie des certificats &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>8.3. Cycle de vie des certificats &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -182,15 +182,15 @@
 <h1>8.3. Cycle de vie des certificats<a class="headerlink" href="#cycle-de-vie-des-certificats" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Le tableau ci-dessous indique le mode de fonctionnement actuel pour les différents certificats et <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a>. Précisions :</p>
 <ul class="simple">
-<li>Les «&nbsp;procédures par défaut&nbsp;» liées au cycle de vie des certificats dans la présente version de la solution VITAM peuvent être résumées ainsi :<ul>
+<li>Les «&nbsp;procédures par défaut&nbsp;» liées au cycle de vie des certificats dans la présente version de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> peuvent être résumées ainsi :<ul>
 <li>Création&nbsp;: génération par <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> partenaire + copie dans répertoires de déploiement + script <code class="docutils literal notranslate"><span class="pre">generate_stores.sh</span></code> + déploiement ansible</li>
 <li>Suppression&nbsp;: suppression dans répertoires de déploiement + script <code class="docutils literal notranslate"><span class="pre">generate_stores.sh</span></code> + déploiement ansible</li>
 <li>Renouvellement&nbsp;: regénération par <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> partenaire + suppression / remplacement dans répertoires de déploiement + script <code class="docutils literal notranslate"><span class="pre">generate_stores.sh</span></code> + redéploiement ansible</li>
 </ul>
 </li>
-<li>Il n’y a pas de contrainte au niveau des <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> utilisées (une <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> unique pour tous les usages VITAM ou plusieurs <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> séparées – cf. <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>). On appelle ici :<ul>
-<li>«&nbsp;<a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> partenaire&nbsp;»&nbsp;: <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> / <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> utilisées pour le déploiement et l’exploitation de la solution VITAM par le partenaire.</li>
-<li>«&nbsp;<a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> distante&nbsp;»&nbsp;: <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> / <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> utilisées pour l’usage des frontaux en communication avec le back office VITAM.</li>
+<li>Il n’y a pas de contrainte au niveau des <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> utilisées (une <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> unique pour tous les usages <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ou plusieurs <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> séparées – cf. <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>). On appelle ici :<ul>
+<li>«&nbsp;<a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> partenaire&nbsp;»&nbsp;: <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> / <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> utilisées pour le déploiement et l’exploitation de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> par le partenaire.</li>
+<li>«&nbsp;<a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> distante&nbsp;»&nbsp;: <a class="reference internal" href="../introduction.html#term-pki"><span class="xref std std-term">PKI</span></a> / <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> utilisées pour l’usage des frontaux en communication avec le back office <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</li>
 </ul>
 </li>
 </ul>
@@ -334,7 +334,7 @@
 <dd><ul class="first last simple">
 <li>Lors d’un renouvellement de <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> <a class="reference internal" href="../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a>, il faut s’assurer que les certificats qui y correspondaient soient retirés de MongoDB et que les nouveaux certificats soient ajoutés par le biais de l” <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> dédiée.</li>
 <li>Lors de toute suppression ou remplacement de certificats <a class="reference internal" href="../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a>, s’assurer que la suppression ou remplacement des contextes associés soit également réalisé.</li>
-<li>L’expiration des certificats n’est pas automatiquement prise en charge par la solution VITAM (pas de notification en fin de vie, pas de renouvellement automatique). Pour la plupart des usages, un certificat expiré est proprement rejeté et la connexion ne se fera pas&nbsp;; les seules exceptions sont les certificats <em>Personae</em>, pour lesquels la validation de l’arborescence <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> et des dates est à charge du front office en interface avec VITAM.</li>
+<li>L’expiration des certificats n’est pas automatiquement prise en charge par la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (pas de notification en fin de vie, pas de renouvellement automatique). Pour la plupart des usages, un certificat expiré est proprement rejeté et la connexion ne se fera pas&nbsp;; les seules exceptions sont les certificats <em>Personae</em>, pour lesquels la validation de l’arborescence <a class="reference internal" href="../introduction.html#term-ca"><span class="xref std std-term">CA</span></a> et des dates est à charge du front office en interface avec <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</li>
 </ul>
 </dd>
 </dl>

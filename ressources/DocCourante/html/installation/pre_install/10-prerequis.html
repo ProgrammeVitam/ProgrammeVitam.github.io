@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 2.6.1</title>
+  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 2.15.1-1</title>
   
 
   
@@ -23,7 +23,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'2.6.1',
+              VERSION:'2.15.1-1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="3.3. Récupération de la version" href="31-get_version.html" />
+    <link rel="next" title="3.3. Questions préparatoires" href="20-questions-preliminaires.html" />
     <link rel="prev" title="3.1. Expertises requises" href="01-prerequis-competences-link.html" /> 
 </head>
 
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2.6.1
+                2.15.1-1
               </div>
             
           
@@ -108,13 +108,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#systemes-d-exploitation">3.2.3. Systèmes d’exploitation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#deploiement-sur-environnement-centos">3.2.3.1. Déploiement sur environnement CentOS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#deploiement-sur-environnement-debian">3.2.3.2. Déploiement sur environnement Debian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#presence-d-un-agent-antiviral">3.2.3.3. Présence d’un agent antiviral</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#materiel">3.2.4. Matériel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#librairie-de-cartouches-pour-offre-froide">3.2.5. Librairie de cartouches pour Offre Froide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#librairie-de-cartouches-pour-offre-froide">3.2.5. Librairie de cartouches pour offre froide</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="31-get_version.html">3.3. Récupération de la version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-questions-preliminaires.html">3.3. Questions préparatoires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="31-get_version.html">3.4. Récupération de la version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/_toc.html">4. Procédures d’installation / mise à jour</a></li>
@@ -194,7 +196,7 @@
 <div class="section" id="base-commune">
 <h2>3.2.1. Base commune<a class="headerlink" href="#base-commune" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>Tous les serveurs hébergeant la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doivent êre synchronisés sur un serveur de temps (pas de <em>stratum</em> 10)</li>
+<li>Tous les serveurs hébergeant la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doivent êre synchronisés sur un serveur de temps (protocole <a class="reference internal" href="../introduction.html#term-ntp"><span class="xref std std-term">NTP</span></a>, pas de <em>stratum</em> 10)</li>
 <li>Disposer de la solution de déploiement basée sur ansible</li>
 </ul>
 <p>Le déploiement est orchestré depuis un poste ou serveur d’administration ; les pré-requis suivants doivent y être présents&nbsp;:</p>
@@ -205,7 +207,7 @@
 <li><strong>java-1.8.0-openjdk</strong> et <strong>openssl</strong> (du fait de la génération de certificats / <em>stores</em>, l’utilitaire <code class="docutils literal notranslate"><span class="pre">keytool</span></code> est nécessaire)</li>
 </ul>
 </li>
-<li>un accès ssh vers un utilisateur d’administration avec élévation de privilèges vers les droits root, vitam, vitamdb sur les serveurs cibles.</li>
+<li>un accès ssh vers un utilisateur d’administration avec élévation de privilèges vers les droits <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">vitam</span></code>, <code class="docutils literal notranslate"><span class="pre">vitamdb</span></code> (les comptes <code class="docutils literal notranslate"><span class="pre">vitam</span></code> et <code class="docutils literal notranslate"><span class="pre">vitamdb</span></code> sont créés durant le déploiement) sur les serveurs cibles.</li>
 <li>Le compte utilisé sur le serveur d’administration doit avoir confiance dans les serveurs sur lesquels la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doit être installée (fichier <code class="docutils literal notranslate"><span class="pre">~/.ssh/known_hosts</span></code> correctement renseigné)</li>
 </ul>
 <div class="admonition note">
@@ -214,7 +216,7 @@
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">Les adresses <a class="reference internal" href="../introduction.html#term-ip"><span class="xref std std-term">IP</span></a> des machines sur lesquelles la solution Vitam sera installée ne doivent pas changer d’IP au cours du temps, en cas de changement d’IP, la plateforme ne pourra plus fonctionner.</p>
+<p class="last">Les adresses <a class="reference internal" href="../introduction.html#term-ip"><span class="xref std std-term">IP</span></a> des machines sur lesquelles la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> sera installée ne doivent pas changer d’adresse IP au cours du temps. En cas de changement d’adresse IP, la plateforme ne pourra plus fonctionner.</p>
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
@@ -222,11 +224,15 @@
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">Dans le cadre de l’installation des packages «&nbsp;extra&nbsp;», il est nécessaire, pour les partitions hébergeant le composant <code class="docutils literal notranslate"><span class="pre">ihm-recette</span></code>, qu’elles aient un accès internet (installation du package git-lfs ; récupération des <a class="reference internal" href="../introduction.html#term-tnr"><span class="xref std std-term">TNR</span></a> depuis un dépôt git).</p>
+<p class="last">Dans le cadre de l’installation des packages «&nbsp;extra&nbsp;», il est nécessaire, pour les partitions hébergeant le composant <code class="docutils literal notranslate"><span class="pre">ihm-recette</span></code>, qu’elles aient un accès internet (installation du <cite>repository</cite> et installation du <cite>package</cite> <code class="docutils literal notranslate"><span class="pre">git-lfs</span></code> ; récupération des <a class="reference internal" href="../introduction.html#term-tnr"><span class="xref std std-term">TNR</span></a> depuis un dépôt git).</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
 <p class="last">Dans le cas d’une installation du composant <code class="docutils literal notranslate"><span class="pre">vitam-offer</span></code> en <code class="docutils literal notranslate"><span class="pre">filesystem-hash</span></code>, il est fortement recommandé d’employer un système de fichiers <code class="docutils literal notranslate"><span class="pre">xfs</span></code> pour le stockage des données. Se référer au <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a> pour connaître la structuration des <em>filesystems</em> dans la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. En cas d’utilisation d’un autre type, s’assurer que le filesystem possède/gère bien l’option <code class="docutils literal notranslate"><span class="pre">user_xattr</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Dans le cas d’une installation du composant <code class="docutils literal notranslate"><span class="pre">vitam-offer</span></code> en <code class="docutils literal notranslate"><span class="pre">tape-library</span></code>, il est fortement recommandé d’installer au préalable sur les machines cible associées les paquets pour les commandes <code class="docutils literal notranslate"><span class="pre">mt</span></code>, <code class="docutils literal notranslate"><span class="pre">mtx</span></code> et <code class="docutils literal notranslate"><span class="pre">dd</span></code>. Ces composants doivent également apporter le groupe système <code class="docutils literal notranslate"><span class="pre">tape</span></code>. Se reporter également à <a class="reference internal" href="#prerequisoffrefroide"><span class="std std-ref">Librairie de cartouches pour offre froide</span></a>.</p>
 </div>
 </div>
 <div class="section" id="pki">
@@ -256,14 +262,14 @@
 <div class="section" id="deploiement-sur-environnement-centos">
 <h3>3.2.3.1. Déploiement sur environnement CentOS<a class="headerlink" href="#deploiement-sur-environnement-centos" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li>Disposer d’une plate-forme Linux CentOS 7 installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :<ul>
+<li>Disposer d’une plate-forme Linux CentOS 7 installée selon la répartition des services souhaités. En particulier, ces serveurs doivent avoir :<ul>
 <li>une configuration de temps synchronisée (ex: en récupérant le temps à un serveur centralisé)</li>
 <li>Des autorisations de flux conformément aux besoins décrits dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a></li>
 <li>une configuration des serveurs de noms correcte (cette configuration sera surchargée lors de l’installation)</li>
 <li>un accès à un dépôt (ou son miroir) CentOS 7 (base et extras) et EPEL 7</li>
 </ul>
 </li>
-<li>Disposer des binaires VITAM : paquets RPM de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec VITAM (vitam-external)</li>
+<li>Disposer des binaires VITAM : paquets <a class="reference internal" href="../introduction.html#term-rpm"><span class="xref std std-term">RPM</span></a> de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec VITAM (vitam-external)</li>
 <li>Disposer, si besoin, des binaires pour l’installation des <em>griffins</em></li>
 </ul>
 </div>
@@ -282,6 +288,10 @@
 <li>Disposer, si besoin, des binaires pour l’installation des <em>griffins</em></li>
 </ul>
 </div>
+<div class="section" id="presence-d-un-agent-antiviral">
+<h3>3.2.3.3. Présence d’un agent antiviral<a class="headerlink" href="#presence-d-un-agent-antiviral" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas de partitions sur lesquelles un agent antiviral est déjà configuré (typiquement, <em>golden image</em>), il est recommandé de positionner une exception sur l’arborescence <code class="docutils literal notranslate"><span class="pre">/vitam</span></code> et les sous-arborescences, hormis la partition hébergeant le composant <code class="docutils literal notranslate"><span class="pre">ingest-exteral</span></code> (emploi d’un agent antiviral en prérequis des <em>ingest</em> ; se reporter à <a class="reference internal" href="../installation/21-addons.html#confantivirus"><span class="std std-ref">Rétention liée aux logback</span></a>).</p>
+</div>
 </div>
 <div class="section" id="materiel">
 <h2>3.2.4. Matériel<a class="headerlink" href="#materiel" title="Lien permanent vers ce titre">¶</a></h2>
@@ -289,18 +299,18 @@
 <p>Concernant l’espace disque, à l’heure actuelle, aucun pré-requis n’a été défini ; cependant, sont à prévoir par la suite des espaces de stockage conséquents pour les composants suivants :</p>
 <ul class="simple">
 <li>offer</li>
-<li>solution de centralisation des logs (elasticsearch)</li>
+<li>solution de centralisation des logs (<cite>cluster</cite> elasticsearch de log)</li>
 <li>workspace</li>
 <li>worker (temporairement, lors du traitement de chaque fichier à traiter)</li>
-<li>cluster elasticsearch des données <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a></li>
+<li><cite>cluster</cite> elasticsearch des données <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a></li>
 </ul>
 <p>L’arborescence associée sur les partitions associées est : <code class="docutils literal notranslate"><span class="pre">/vitam/data/&lt;composant&gt;</span></code></p>
 </div>
 <div class="section" id="librairie-de-cartouches-pour-offre-froide">
-<h2>3.2.5. Librairie de cartouches pour Offre Froide<a class="headerlink" href="#librairie-de-cartouches-pour-offre-froide" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="prerequisoffrefroide"></span><h2>3.2.5. Librairie de cartouches pour offre froide<a class="headerlink" href="#librairie-de-cartouches-pour-offre-froide" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Des prérequis sont à réunir pour utiliser l’offre froide de stockage «&nbsp;tape-library&nbsp;» définie dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>.</p>
 <ul class="simple">
-<li>La librairie doit être opérationnelle et chargée en cartouche.</li>
+<li>La librairie de cartouches doit être opérationnelle et chargée en cartouches.</li>
 <li>La librairie et les lecteurs doivent déjà être disponibles sur la machine devant supporter une instance de ce composant. La commande <code class="docutils literal notranslate"><span class="pre">lsscsi</span> <span class="pre">-g</span></code> peut permettre de vérifier si des périphériques sont détectés.</li>
 </ul>
 </div>
@@ -314,7 +324,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="31-get_version.html" class="btn btn-neutral float-right" title="3.3. Récupération de la version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="20-questions-preliminaires.html" class="btn btn-neutral float-right" title="3.3. Questions préparatoires" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="01-prerequis-competences-link.html" class="btn btn-neutral float-left" title="3.1. Expertises requises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
