@@ -119,23 +119,23 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 <a name="doc_technique"></a>
 ## Documentation technique
 
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.15.1.pdf) \| [html](/ressources/DocCourante/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.15.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.15.1.pdf) \| [html](/ressources/DocCourante/html/installation))
-* **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.15.1.pdf) \| [html](/ressources/DocCourante/html/migration))
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.2.15.1-1.pdf) \| [html](/ressources/DocCourante/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.2.15.1-1.pdf) \| [html](/ressources/DocCourante/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.2.15.1-1.pdf) \| [html](/ressources/DocCourante/html/installation))
+* **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.2.15.1-1.pdf) \| [html](/ressources/DocCourante/html/migration))
 
 <a name="doc_developpeur"></a>
 ## Documentation développeur
 
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.2.15.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.2.15.1-1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_ Modèle_données_v.5.0.pdf) \| [html](/ressources/DocCourante/html/data-model)) - Version HTML à venir
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.15.1.pdf)
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.15.1-1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/))
-* **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.2.15.1.pdf))
+* **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.2.15.1-1.pdf))
 * **Sedalib** ([html](/http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/))
 
 
