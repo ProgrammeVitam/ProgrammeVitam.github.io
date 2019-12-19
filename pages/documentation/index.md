@@ -9,6 +9,7 @@ level: page
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
 ## Quelle documentation ?
+
 * [Première approche](#approche)
 * [Vademecums ou "Vitam pour mes grands-parents"](#vademecums)
 * [Documentation métier](#doc_metier)
