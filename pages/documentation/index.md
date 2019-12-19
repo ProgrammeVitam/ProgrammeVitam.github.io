@@ -112,8 +112,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 <a name="doc_test"></a>
 ## Documentation des tests
 
-* **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel_ IHM Recette_et_scenarii_de_tests_metier_V5.0.pdf)
-\| [html](/ressources/DocCourante/html/ihm-recette)) - Version HTML à venir
+* **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel_ IHM Recette_et_scenarii_de_tests_metier_V5.0.pdf))
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeux_de_tests_fonctionnels_RELEASE10.zip))
 
 
@@ -131,7 +130,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.2.15.1-1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_ Modèle_données_v.5.0.pdf) \| [html](/ressources/DocCourante/html/data-model)) - Version HTML à venir
+([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_ Modèle_données_v.5.0.pdf))
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe))
 * **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.2.15.1-1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
