@@ -7,7 +7,7 @@ fatherref: presentation
 ## Pilotes 
 
 * Comité Interministériel aux Archives de France (CIAF),
-* Direction Interministérielle du Numérique et du Système d'Information et de Communication de l'État (DINSIC).
+* Direction Interministérielle du Numérique (DINUM).
 
 ## Porteurs
 
@@ -23,17 +23,18 @@ fatherref: presentation
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES),
 * Agence de Services et de Paiement (ASP),
 * Caisse nationale de l'Assurance Maladie (CNAM),
-* Commissariat à l'énergie atomique et aux énergies alternatives (CEA),
-* Conseil Départemental de l'Hérault,
 * Centre Hospitalier d'Avranches-Granville, 
 * Centre Informatique National de l'Enseignement Supérieur (CINES),
+* Commissariat à l'énergie atomique et aux énergies alternatives (CEA),
+* Conseil Départemental de l'Hérault,
+* Conseil Départemental de Vaucluse
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI),
 * Ministère de l’Éducation nationale et de la Jeunesse,
 * Ministère de la Transition écologique et solidaire,
 * Ministère des Solidarités et de la Santé,
 * Musée du quai Branly - Jacques-Chirac,
 * TGIR Huma-Num,
-* Conseil Départemental de Vaucluse
+
 
 
 
