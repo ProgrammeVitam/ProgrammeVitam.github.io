@@ -4,7 +4,7 @@ title: Suivre le Programme Vitam
 ---
 > Vous souhaitez suivre les actualités du Programme Vitam et vous tenir informés des évolutions du projet, plusieurs moyens pour cela.
 
-![Logos](/public/images/computer_infos.png)
+![Logos](/public/images/computer_info.png)
 CC BY-NC 2.0 BE Sclera-Be
 
 - Le présent site à enregistrer dans vos favoris;
