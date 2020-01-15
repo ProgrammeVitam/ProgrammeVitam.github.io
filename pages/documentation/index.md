@@ -113,7 +113,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 ## Documentation des tests
 
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Manuel_ IHM Recette_et_scenarii_de_tests_metier_V5.0.pdf))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeux_de_tests_fonctionnels_RELEASE10.zip))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/cahier-de-recette-fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.15.1/tests/Jeux_de_tests_fonctionnels_RELEASE12.zip))
 
 
 <a name="doc_technique"></a>
