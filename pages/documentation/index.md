@@ -15,7 +15,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Documentation métier](#doc_metier)
 * [Documentation des tests](#doc_test)
 * [Documentation technique](#doc_technique)
-* [Documentation développeur](#doc_developppeur)
+* [Documentation développeur](#doc_developpeur)
 
 ![Logos](/public/images/20191115_guide de lecture.jpg)
 
