@@ -70,7 +70,7 @@ Des profils d’unité archivistiques (AUP), modèles de description d’archive
 
 Etape | Description | Timing
 ----- | ----------- | ------
-1. | 	Consulter dans le tenants.  | 0:10.		
+1. | 	Consulter dans le tenant.  | 0:10.		
 2. | 	Chercher age ou beneficiary : ils n’existent pas. 	 | 00:28’
 3. | 	Montrer le json de l'ontologie mise à jour : age ou beneficiary existent bien.	 | 00:50
 4. | 	Se déconnecter du tenant 10 puis se connecter dans le tenant d’administration.	 | 01:15	
@@ -101,7 +101,7 @@ Etape | Description | Timing
 Cette fonctionnalité permet de corriger une coquille, remplacer une description, apporter une précision… dans un champ de métadonnées.
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mXH5dflQ3DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2dF17UY9pJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Etape | Description | Timing
 ----- | ----------- | ------
