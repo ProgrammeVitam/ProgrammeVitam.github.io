@@ -7,8 +7,9 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Trois versions de productions sont livrées à ce jour. Vous pouvez installer la Release 9 (V2 de la solution logicielle Vitam) et installer ou mettre à jour la Release 7 grâce à la version corrigée, désignée comme la version Long Time Support de la V1 de la solution logicielle. Il est déconseillé d'utiliser les Releases 6 et 8 qui ne seront pas des versions LTS.
-
+Actuellement, vous pouvez installer ou mettre à jour la Release 9 (V2 de la solution logicielle Vitam, désignée comme la version Long Time Support) et installer la Release 12. 
+Il est déconseillé d'utiliser les Releases autres qui ne seront pas des versions LTS. 
+La Release 13 sera la V3 de la solution logicielle Vitam, amenée à être Long Time Support. Il est conseillé d'attendre sa livraison courant mars pour une première installation et d'utiliser par exemple la R12 pour des tests.
 
 ## Solution logicielle Vitam - toutes versions publiées
 
@@ -29,14 +30,14 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 Liens de téléchargement :
 
-**Version 2.11.3 (Release R11)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.11.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.11.3/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.11.3/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.11.3/deb/vitam-external/)).
+**Version 2.15.3 (Release R12)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.15.3/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.15.3/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.15.3/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.15.3/deb/vitam-external/)).
   
 
-**Version 2.1.13 (Release R9.13)**
-  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.13/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.13/deb/vitam-product/)),
-  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.13/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.13/deb/vitam-external/)).
+**Version 2.1.17 (Release R9.17)**
+  - pour les packages logiciels développés et/ou packagés par Vitam ([rpm](http://download.programmevitam.fr/vitam_repository/2.1.17/rpm/vitam-product/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.17/deb/vitam-product/)),
+  - pour les copies de packages officiels tiers permettant de faciliter une installation hors ligne ([rpm]( http://download.programmevitam.fr/vitam_repository/2.1.17/rpm/vitam-external/)/[deb](http://download.programmevitam.fr/vitam_repository/2.1.17/deb/vitam-external/)).
 
 
 
@@ -48,11 +49,11 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM de la version 2.11.3 (Release 11) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.ova).
-L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.11.3/VM/demo_vitam_2.11.3.sha256).
+La VM de la version 2.15.3 (Release 12) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.15.3/VM/demo_vitam_2.15.3.ova).
+L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.15.3/VM/demo_vitam_2.15.3.sha256).
 
-La VM de la version 2.1.13 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.ova).
-L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.1.13/VM/demo_vitam_2.1.13.sha256).
+La VM de la version 2.1.17 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.17/VM/demo_vitam_2.1.17.ova).
+L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.1.17/VM/demo_vitam_2.1.17.sha256).
 
 
 
@@ -67,13 +68,10 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 
 ## Des exemples d'usage
 
-Vous pouvez utiliser pour tester le logiciel deux jeux de fichiers référentiels et paquets SIP:
-
-* **Fichiers d'exemples du kit de prise en main**
-([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip)) Ces éléments vous permettent d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam en lien avec le guide de prise en main ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
+Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels et paquets SIP:
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](http://download.programmevitam.fr/vitam_repository/2.6.0/tests/Jeux_de_tests_fonctionnels_RELEASE10.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
+([zip](http://download.programmevitam.fr/vitam_repository/2.15.1/tests/Jeux_de_tests_fonctionnels_RELEASE12.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
 
 ## Outils de préservation Vitam
