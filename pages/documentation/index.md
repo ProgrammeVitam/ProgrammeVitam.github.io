@@ -16,6 +16,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Documentation des tests](#doc_test)
 * [Documentation technique](#doc_technique)
 * [Documentation développeur](#doc_developpeur)
+* [Chantier préservation : documentation] (#preservation)
 
 ![Logos](/public/images/20191115_guide de lecture.jpg)
 
@@ -138,6 +139,11 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.2.15.1-1.pdf))
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
+<a name="preservation"></a>
+## Chantier préservation
+* **Identification des formats de fichiers ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-identification-format-v2.0.pdf)
+* **Validation du format des fichiers ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-validation-format-v2.0.pdf))
+* **Extraction des métadonnées techniques ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-extraction-MD-v2.0.pdf))
 
 <hr/>
 
