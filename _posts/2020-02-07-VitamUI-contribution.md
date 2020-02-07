@@ -14,4 +14,4 @@ Actuellement en version bêta, il a vocation à proposer une interface standard 
 Les équipes de Xelians - Locarchives participent aux travaux initiés par le CEA (commissariat à l'énergie atomique) et le CINES (centre informatique national de l'enseignement supérieur), partenaires du Programme, pour proposer ces IHM communes. 
 Ce projet, nommé Vitam UI (pour interfaces utilisateurs), correspond aux aspirations du Programme et ouvre une dynamique avec une communauté d'utilisateurs apportant leur contribution, sous licence ouverte, à la solution logicielle Vitam pour favoriser une large réutilisation.
 
-Cette contribution est déposée sur GitHub : https://github.com/ProgrammeVitam/vitam-ui/
+Cette contribution est déposée sur [GitHub](https://github.com/ProgrammeVitam/vitam-ui/)
