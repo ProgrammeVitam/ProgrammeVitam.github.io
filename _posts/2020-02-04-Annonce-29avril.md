@@ -1,6 +1,6 @@
 ---
 layout: post
-title: #Save the date
+title: Save the date
 ---
 > Après les journées Programme Vitam des 3 dernières années, notez le prochain rendez-vous dans vos agendas !
 
