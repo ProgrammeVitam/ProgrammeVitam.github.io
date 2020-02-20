@@ -106,7 +106,7 @@ notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/2
 * **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
 l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Gestion_habilitations_V8.0.pdf))
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Modèle_workflow_v5.0.pdf) \| [html](/ressources/DocCourante/html/workflow-model)) - Version HTML à venir
+ opérations ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Modèle_workflow_v5.0.pdf) \))
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/DocCourante/autres/fonctionnel/20191129_Vitam_Multi_strategies_1.0.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_manuel_ReSIP.pdf))
 
