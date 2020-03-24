@@ -132,10 +132,10 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.3.0.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_donnees.pdf))
-* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe/))
+* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe))
 * **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.3.0.1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne/))
+* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne))
 * **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.3.0.1.pdf))
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
