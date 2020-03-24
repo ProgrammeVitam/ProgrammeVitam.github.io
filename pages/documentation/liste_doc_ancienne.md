@@ -7,7 +7,73 @@ title: Anciennes documentations
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
 de développement.
 
-# Version Release 9 (2.1.1)
+# Version Release 12 (2.15.1)
+
+## Première approche
+
+* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc2.15/20191129_Vitam_Guide de lecture de la documentation_V7.0.pdf))
+* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
+([pdf](/ressources/Doc2.15/20191129_Vitam_Guide de prise en main_V9.0.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip))
+* **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
+([pdf](/ressources/Doc2.15/20191129_Vitam_Presentation_solution_logicielle_V8.0.pdf))
+
+<a name="doc_metier"></a>
+## Documentation métier
+
+* **Manuel utilisateur** ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Manuel utilisateur_V5.0.pdf))
+* **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Organisation_information_V9.0.pdf))
+* **Spécification des SIP** - recommandations sur la construction des paquets
+à archiver ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Structuration_des_SIP_V10.0.pdf))
+* **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Structuration_des_DIP_V9.0.pdf))
+* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_ArbresEtPlans_V8.0.pdf))
+* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Règles_de_gestion_V9.pdf))
+* **Services producteurs** - présentation des fonctionnalités associées à la
+notion de service producteur ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Services_producteurs_V8.pdf))
+* **Eliminations** - présentation des fonctionnalités de mise en oeuvre des éliminations d'archives avec la solution logicielle Vitam ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Elimination_V.4.0.pdf))
+* **Préservation** - présentation des fonctionnalités de mise en oeuvre de la préservation à long-terme des archives avec la solution logicielle Vitam ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Preservation_3.0.pdf))
+* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_ProfilsDarchivage_V.8.0.pdf))
+* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/Doc2.15.1.autres/fonctionnel/20191129_Vitam_ProfilsDuniteArchivistique_V7.0.pdf))
+* **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Ontologie_V.7.0.pdf))
+* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Conservation_de_la_valeur_probante_V9.0.pdf))
+* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
+l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/DDoc2.15.1/autres/fonctionnel/20191129_Vitam_Gestion_habilitations_V8.0.pdf))
+* **Modèle de workflow**  - description de la décompositon et du séquencement des
+ opérations ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Modèle_workflow_v5.0.pdf) \))
+* **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Multi_strategies_1.0.pdf))
+* **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/VITAM_manuel_ReSIP.pdf))
+
+<a name="doc_test"></a>
+## Documentation des tests
+
+* **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Manuel_ IHM Recette_et_scenarii_de_tests_metier_V5.0.pdf))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc2.15.1/autres/fonctionnel/cahier-de-recette-fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc2.15.1/autres/fonctionnel/cahier-de-recette-fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/2.15.1/tests/Jeux_de_tests_fonctionnels_RELEASE12.zip))
+
+
+<a name="doc_technique"></a>
+## Documentation technique
+
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc2.15.1/pdf/vitam-architecture.2.15.1-1.pdf) \| [html](/ressources/Doc2.15.1/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc2.15.1/pdf/vitam-documentation-exploitation.2.15.1-1.pdf) \| [html](/ressources/Doc2.15.1/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc2.15.1/pdf/vitam-documentation-installation.2.15.1-1.pdf) \| [html](/ressources/Doc2.15.1/html/installation))
+* **Documentation de montées de version** (DMV) ([pdf](/ressources/Doc2.15.1/pdf/vitam-documentation-migration.2.15.1-1.pdf) \| [html](/ressources/Doc2.15.1/html/migration))
+
+<a name="doc_developpeur"></a>
+## Documentation développeur
+
+* **Javadoc** ([html](/ressources/Doc2.15.1/javadoc))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/pdf/vitam-manuel-integration.2.15.1-1.pdf) \| [html](/ressources/Doc2.15.1/html/manuel-integration))
+* **Modèle de données** - description des collections et des champs standards  
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_ Modèle_données_v.5.0.pdf))
+* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc2.15.1/raml/externe))
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc2.15.1/pdf/vitam-manuel-developpement.2.15.1-1.pdf)
+\| [html](/ressources/Doc2.15.1/html/manuel-dev))
+* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc2.15.1/raml/interne/))
+* **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/Doc2.15.1/pdf/vitam-maj-au.2.15.1-1.pdf))
+* **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)# Version Release 9 (2.1.1)
 
 ## Première approche
 
