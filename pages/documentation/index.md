@@ -18,7 +18,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Documentation développeur](#doc_developpeur)
 * [Chantier préservation : documentation](#preservation)
 
-![Logos](/public/images/20191115_guide de lecture.jpg)
+![Logos](/public/images/202003_guide de lecture.png)
 
 <a name="approche"></a>
 ## Première approche
