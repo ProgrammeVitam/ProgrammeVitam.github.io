@@ -11,11 +11,11 @@ de développement.
 
 ## Première approche
 
-* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc2.15/20191129_Vitam_Guide de lecture de la documentation_V7.0.pdf))
+* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Guide de lecture de la documentation_V7.0.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/Doc2.15/20191129_Vitam_Guide de prise en main_V9.0.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip))
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Guide de prise en main_V9.0.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/2.6.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R10.zip))
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
-([pdf](/ressources/Doc2.15/20191129_Vitam_Presentation_solution_logicielle_V8.0.pdf))
+([pdf](/ressources/Doc2.15.1/autres/fonctionnel/20191129_Vitam_Presentation_solution_logicielle_V8.0.pdf))
 
 <a name="doc_metier"></a>
 ## Documentation métier

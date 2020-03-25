@@ -8,7 +8,7 @@ Adresse :
 47, rue de la Chapelle 75018 Paris
  
 ## Directeur de la publication 
-Jean-Séverin Lair
+Emmanuel Laborde
  
 ## Hébergement
 Ce site est hébergé sur GitHub (88 Colin P Kelly Jr St, San Francisco, CA 94107, United States) dans les dépôts [ProgrammeVitam](https://github.com/ProgrammeVitam)
