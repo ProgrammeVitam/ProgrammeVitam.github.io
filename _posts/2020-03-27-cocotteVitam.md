@@ -2,7 +2,7 @@
 layout: post
 title: Vitam participe à la BattleCocotte
 ---
-> Depuis plusieurs jours, la #BattleCocotte anime le réseau des archivistes (et au-dela) sur Twitter.
+> Depuis plusieurs jours, la #BattleCocotte anime le réseau des archivistes (et au-delà) sur Twitter.
 
 ![Logos](/public/images/Vitam_cocotte.jpg)
 
