@@ -11,6 +11,14 @@ Actuellement, vous pouvez installer ou mettre à jour la Release 9 (V2 de la sol
 Il est déconseillé d'utiliser les Releases autres qui ne seront pas des versions LTS. 
 La Release 13 sera la V3 de la solution logicielle Vitam, amenée à être Long Time Support. Il est conseillé d'attendre sa livraison courant mars pour une première installation et d'utiliser par exemple la R12 pour des tests.
 
+* [Solution logicielle Vitam - toutes versions publiées](#touteversion)
+* [Des exemples d'usage](#exemples)
+* [Outils de préservation Vitam](#preservation)
+* [Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...](#resip)
+* [Présentation de la deuxième version de production de la solution logicielle Vitam](#journee2)
+
+
+<a name="touteversion"></a>
 ## Solution logicielle Vitam - toutes versions publiées
 
 Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et les différentes IHM. Sont mis à dispostion :
@@ -65,7 +73,7 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 
 <https://github.com/ProgrammeVitam/vitam/releases>
 
-
+<a name="exemples"></a>
 ## Des exemples d'usage
 
 Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels et paquets SIP:
@@ -73,7 +81,7 @@ Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels e
 * **Fichiers de test du Cahier de tests métier**
 ([zip](http://download.programmevitam.fr/vitam_repository/2.15.1/tests/Jeux_de_tests_fonctionnels_RELEASE12.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
-
+<a name="preservation"></a>
 ## Outils de préservation Vitam
 
 Les "Griffons" de préservation numérique sont des outils mobilisables pour mettre en œuvre des actions de préservation, pour l'instant analyse/validation de formats, conversion de formats.
@@ -89,6 +97,7 @@ Sont mis à dispostion :
 
 Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.13.0). La release note est disponible ([pdf](https://github.com/ProgrammeVitam/vitam-griffins/releases/download/1.13.0/griffins-release-notes.1.13.0.pdf)) .
 
+<a name="resip"></a>
 ## Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...
 
 Il s'agit des outils, applications bureautiques et bibliothèques Java de manipulation des paquets SEDA et d'extraction de messageries, réunis sous le titre de **Sedatools** :
@@ -114,8 +123,8 @@ Pour plus d'information :
 Il contient un projet par outils et par bibliothèque, et est accessible dans le dépot GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools). 
 
 
-
-## Présentation de la Deuxième version de production de la solution logicielle Vitam
+<a name="journée2"></a>
+## Présentation de la deuxième version de production de la solution logicielle Vitam
 
 Le 18 mars 2019 une journée de présentation de la V2 de la solution logicielle Vitam a permis à un large public de découvrir les nouvelles fonctionnalités livrées et l'état d'avancement des projets utilisateurs. L'événement a réuni 280 participants aux Archives nationales sur le site de Pierrefitte-sur-Seine. La journée était séquencée en 3 temps.
 
