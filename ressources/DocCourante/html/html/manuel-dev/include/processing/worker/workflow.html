@@ -1,0 +1,1291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10.6.2. Workflow &mdash; Documentation VITAM - Manuel de développement 3.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'3.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="10.6.3. Nombre d’objets numériques conforme" href="CheckObjectsNumberActionHandler.html" />
+    <link rel="prev" title="10.6.1. Workspace" href="workspace.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">8. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">9. Metadata</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">10. Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">10.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../parametres/parametres.html">10.2. Paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-management.html">10.3. Processing Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-distributor.html">10.4. Processing Distributor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-engine.html">10.5. Processing Engine</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="_toc.html">10.6. Etudes en cours</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="workspace.html">10.6.1. Workspace</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">10.6.2. Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CheckObjectsNumberActionHandler.html">10.6.3. Nombre d’objets numériques conforme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">12. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">13. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">14. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">10. Processing</a> &raquo;</li>
+        
+          <li><a href="_toc.html">10.6. Etudes en cours</a> &raquo;</li>
+        
+      <li>10.6.2. Workflow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/include/processing/worker/workflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow">
+<h1>10.6.2. Workflow<a class="headerlink" href="#workflow" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="defaultingestworkflow">
+<h2>10.6.2.1. DefaultIngestWorkflow<a class="headerlink" href="#defaultingestworkflow" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un Workflow est défini en JSON avec la structure suivante :</p>
+<ul class="simple">
+<li>un identifiant (id)</li>
+<li>une clé (identifier)</li>
+<li>un nom (name)</li>
+<li>une catégorie (typeProc)</li>
+<li>une liste de Steps : La structure d’une step donnée est la suivante</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">un identifiant de famille de Workers (workerGroupId)</p>
+</li>
+<li><p class="first">un identifiant de Step (stepName)</p>
+</li>
+<li><p class="first">un modèle d’exécution (behavior) pouvant être :
+BLOCKING : le traitement est bloqué en cas d’erreur, il est nécessaire de recommencer le workflow
+NOBLOCKING : le traitement peut continuer malgrée les erreurs</p>
+</li>
+<li><p class="first">un modèle de distribution :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">kind: un type pouvant être :</p>
+<blockquote>
+<div><ul class="simple">
+<li>REF : pas de distribution pour ce step et définit une référence vers un fichier à traiter. (Exemple: manifest.xml)</li>
+<li>LIST :</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>si la valeur de “element” est “Units” : la liste des éléments à traiter est incluse dans un fichier ingestLevelStack.json. Ce fichier contient les guid des archive units ordonnés par niveau de graphe.</li>
+<li>si la valeur de “element” est autre : la liste des éléments à traiter est représentée par les fichiers présents dans le sous-répertoire représenté par “element” (ex : “ObjectGroup”)</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>LIST_IN_FILE: Fichier contenant une liste de GUID à traiter dans la distribution</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">l’élément de distribution (element) indiquant l’élément unique (REF) ou le chemin vers un dossier ou un fichier sur le Workspace (LIST, LIST_IN_FILE)</p>
+</li>
+<li><p class="first">type: est-ce une distribution sur des unités archivistiques ou sur des groupes d’objets.</p>
+</li>
+<li><p class="first">statusOnEmptyDistribution: Le statut qu’on attribue au step si jamais la distribution n’a pas eu lieu. Par defaut: WARNING</p>
+</li>
+<li><p class="first">bulkSize: La taille du bulk : c’est à dire le nombre d’élément qui sera envoyé au worker. Par défaut, la valeur est récupérée depuis la configuration avec la variable <cite>workerBulkSize</cite>.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">une liste d’Actions :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">un nom d’action (actionKey)</p>
+</li>
+<li><p class="first">un modèle d’exécution (behavior) pouvant être BLOCKING ou NOBLOCKING</p>
+</li>
+<li><p class="first">des paramètres d’entrées (in) :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d’une même étape</p>
+</li>
+<li><p class="first">une cible (uri) comportant un schema (WORKSPACE, MEMORY, VALUE) et un path :</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE:path indique le chemin relatif sur le workspace</li>
+<li>MEMORY:path indique le nom de la clef de valeur</li>
+<li>VALUE:path indique la valeur statique en entrée</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">chaque handler peut accéder à ces valeurs, définies dans l’ordre stricte, via le handlerIO</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE : implicitement un File</li>
+<li>MEMORY : implicitement un objet mémoire déjà alloué par un Handler précédent</li>
+<li>VALUE : implicitement une valeur String</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">des paramètres de sortie (out) :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">un nom (name) utilisé pour référencer cet élément entre différents handlers d’une même étape</p>
+</li>
+<li><p class="first">une cible (uri) comportant un schema (WORKSPACE, MEMORY) et un path :</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE:path indique le chemin relatif sur le workspace</li>
+<li>MEMORY:path indique le nom de la clef de valeur</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">chaque handler peut stocker les valeurs finales, définies dans l’ordre stricte, via le handlerIO</p>
+<blockquote>
+<div><ul class="simple">
+<li>WORKSPACE : implicitement un File local</li>
+<li>MEMORY : implicitement un objet mémoire</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;DEFAULT_WORKFLOW&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;typeProc&quot;</span><span class="p">:</span> <span class="s2">&quot;INGEST&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Ingest Workflow V6&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;steps&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_INGEST_CONTROL_SIP&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;REF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;SIP/manifest.xml&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_SEDA&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_HEADER&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkContract&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:true&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkOriginatingAgency&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:true&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkProfile&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:true&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_DATAOBJECTPACKAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;checkNoObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:false&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;UnitType&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:INGEST&quot;</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unitsLevel.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:UnitsLevel/ingestLevelStack.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDOtoOG.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_TO_OBJECT_GROUP_ID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsObjectGroup.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsObjectGroup.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:MapsMemory/OG_TO_ARCHIVE_ID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDOIdtoDODetail.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsUnits.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/ARCHIVE_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;globalSEDAParameters.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:ATR/globalSEDAParameters.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsObjectGroup.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:MapsMemory/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_OG_CHECK_AND_TRANSFORME&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;algo&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE:SHA-512&quot;</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_OBJECTS_FORMAT_CHECK&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UNIT_CHECK_AND_PROCESS&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;UNITS_RULES_COMPUTE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:unitId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_STORAGE_AVAILABILITY_CHECK&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;REF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;SIP/manifest.xml&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;STORAGE_AVAILABILITY_CHECK&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_OBJ_STORING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OBJ_STORAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_METADATA_INDEXATION&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;groupObject&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;MEMORY:groupObjectId&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UNIT_METADATA&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST_ORDERING_IN_FILE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;UNIT_METADATA_INDEXATION&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;globalSEDAParameters.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:ATR/globalSEDAParameters.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_OG_STORING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;ObjectGroup&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_OBJECT_GROUP&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_UNIT_STORING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;LIST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;Units&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMIT_LIFE_CYCLE_UNIT&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_ACCESSION_REGISTRATION&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;REF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;SIP/manifest.xml&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;ACCESSION_REGISTRATION&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsUnits.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/ARCHIVE_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;globalSEDAParameters.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:ATR/globalSEDAParameters.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;workerGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;stepName&quot;</span><span class="p">:</span> <span class="s2">&quot;STP_INGEST_FINALISATION&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;FINALLY&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;REF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;SIP/manifest.xml&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;ATR_NOTIFICATION&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;NOBLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsUnits.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/ARCHIVE_ID_TO_GUID_MAP.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDO.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_GUID_MAP.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDOtoOG.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_TO_OBJECT_GROUP_ID_MAP.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsDOtoVersionBDO.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;globalSEDAParameters.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:ATR/globalSEDAParameters.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsOG.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;atr.file&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:ATR/responseReply.xml&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;ROLL_BACK&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="etapes">
+<h3>10.6.2.1.1. Etapes<a class="headerlink" href="#etapes" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Step 1</strong> - STP_INGEST_CONTROL_SIP : Check SIP  / distribution sur REF GUID/SIP/manifest.xml</p>
+<ul>
+<li><p class="first">PREPARE_STORAGE_INFO :
+- Vérifier que le storage est disponible
+- Récupérer les informations de connection au storage et les offres de stockage.</p>
+</li>
+<li><p class="first">CHECK_SEDA :
+- Test existence manifest.xml
+- Validation XSD SEDA manifest.xml</p>
+</li>
+<li><p class="first">CHECK_HEADER :
+- CHECK_AGENT: Vérifier l’existence des services agents dans le manifest et dans le référentiel des services agents.
+- CHECK_CONTRACT_INGEST : Vérifier l’existence des contrats d’entrée dans le manifest et dans le référentiel des contrats d’entrée
+- CHECK_IC_AP_RELATION: Vérifier le profile d’archivage et sa relation avec le contrat d’entrée
+- CHECK_ARCHIVEPROFILE: valider le manifest avec le fichier XSD/RNG défini dans le profile d’archivage</p>
+</li>
+<li><p class="first">CHECK_DATAOBJECTPACKAGE:</p>
+<ul>
+<li><p class="first">Cas 1: arbres et plans d’accès</p>
+<blockquote>
+<div><ul class="simple">
+<li>CHECK_NO_OBJECT</li>
+<li>CHECK_MANIFEST_OBJECTNUMBER</li>
+<li>CHECK_MANIFEST</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Cas 2: SIP</dt>
+<dd><ul class="first last simple">
+<li>CHECK_MANIFEST_DATAOBJECT_VERSION</li>
+<li>CHECK_MANIFEST_OBJECTNUMBER</li>
+<li>CHECK_MANIFEST</li>
+<li>CHECK_CONSISTENCY</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p class="first">CHECK_NO_OBJECT: Vérifier l’existence ou pas des objets binaires et des objets physiques
+- Vérifier l’égalité du nomber de fichiers binaires dans le workspace par rapport au manifest.
+- Extract seda: créer des fichiers json représentant les méta-données des unités archivistiques et groupes d’objets
+- Si en plus, l’ingest n’est pas un arbre ou un plan de classement, vérifier la cohérence entre les unités archivistiques et les groupes d’objets.</p>
+</li>
+<li><p class="first">CHECK_MANIFEST_OBJECTNUMBER :
+- Comptage BinaryDataObject dans manifest.xml en s’assurant d’aucun doublon :
+- List Workspace GUID/SIP/content/
+- CheckObjectsNumber Comparaison des 2 nombres et des URI</p>
+</li>
+<li><p class="first">CHECK_MANIFEST :
+- Extraction BinaryDataObject de manifest.xml / MAP des Id BDO / Génération GUID
+- Extraction ArchiveUnit de manifest.xml / MAP des id AU / Génération GUID
+- Contrôle des références dans les AU des Id BDO
+- Stockage dans Workspace des BDO et AU</p>
+</li>
+<li><p class="first">CHECK_CONSISTENCY : vérification de la cohérence objet/unit</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 2</strong> - STP_OG_CHECK_AND_TRANSFORME : Check Objects Compliance du SIP / distribution sur LIST GUID/BinaryDataObject</p>
+<ul class="simple">
+<li>CHECK_DIGEST : Contrôle de l’objet binaire correspondant du BDO taille et empreinte via Workspace</li>
+<li>OG_OBJECTS_FORMAT_CHECK :
+- Contrôle du format des objets binaires
+- Consolidation de l’information du format dans l’object groupe correspondant si nécessaire</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 3</strong> - STP_UNIT_CHECK_AND_PROCESS : Check des archive unit et de leurs règles associées</p>
+<ul class="simple">
+<li>CHECK_UNIT_SCHEMA : Contrôles intelligents du Json représentant l’Archive Unit par rapport à un schéma Json</li>
+<li>UNITS_RULES_COMPUTE : Calcul des règles de gestion</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 4</strong> - STP_STORAGE_AVAILABILITY_CHECK : Check Storage Availability / distribution REF GUID/SIP/manifest.xml</p>
+<ul class="simple">
+<li>STORAGE_AVAILABILITY_CHECK : Contrôle de la taille totale à stocker par rapport à la capacité des offres de stockage pour une stratégie et un tenant donnés</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 5</strong> - STP_OBJ_STORING : Rangement et indexation des objets</p>
+<ul class="simple">
+<li>OBJ_STORAGE : Écriture des objets sur l’offre de stockage des BDO des GO</li>
+<li>OG_METADATA_INDEXATION : Indexation des métadonnées des ObjectGroup</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 6</strong> - STP_UNIT_METADATA : Indexation des métadonnées des Units</p>
+<ul class="simple">
+<li>UNIT_METADATA_INDEXATION : Transformation Json Unit et intégration GUID Unit + GUID GO</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 7</strong> - STP_OG_STORING : Rangement des métadonnées des objets</p>
+<ul class="simple">
+<li>OG_METADATA_STORAGE : Enregistrement en base des métadonnées des ObjectGroup ainsi que leurs journaux de cycle de vie</li>
+<li>COMMIT_LIFE_CYCLE_OBJECT_GROUP : Écriture des objets sur l’offre de stockage des BDO des GO</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 8</strong> - STP_UNIT_STORING : Index Units / distribution sur LIST GUID/Units</p>
+<ul class="simple">
+<li>UNIT_METADATA_STORAGE : Enregistrement en base des métadonnées des Units ainsi que leurs journaux de cycle de vie</li>
+<li>COMMIT_LIFE_CYCLE_UNIT : Écriture des métadonnées des Units sur l’offre de stockage des BDO des GO</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 9</strong> - STP_ACCESSION_REGISTRATION : Alimentation du registre de fond</p>
+<ul class="simple">
+<li>ACCESSION_REGISTRATION :  enregistrement des archives prises en charge dans le Registre des Fonds</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 10 et finale</strong> - STP_INGEST_FINALISATION : Notification de la fin de l’opération d’entrée. Cette étape est obligatoire et sera toujours exécutée, en dernière position.</p>
+<ul class="simple">
+<li>ATR_NOTIFICATION :
+- génération de l’ArchiveTransferReply xml (OK ou KO)
+- enregistrement de l’ArchiveTransferReply xml dans les offres de stockage</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="creation-d-un-nouveau-step">
+<h3>10.6.2.1.2. Création d’un nouveau step<a class="headerlink" href="#creation-d-un-nouveau-step" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un step est une étape de workflow. Il regroupe un ensemble d’actions (handler). Ces steps sont définis dans le workflowJSONvX.json (X=1,2).</p>
+</div>
+</div>
+<div class="section" id="defaultrulesupdateworkflow">
+<h2>10.6.2.2. DefaultRulesUpdateWorkflow<a class="headerlink" href="#defaultrulesupdateworkflow" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CheckObjectsNumberActionHandler.html" class="btn btn-neutral float-right" title="10.6.3. Nombre d’objets numériques conforme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workspace.html" class="btn btn-neutral float-left" title="10.6.1. Workspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
