@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Resip
+fatherref: ressources
 ---
 
 > Cette page présente le générateur ReSIP (version 2.2-SNAPSHOT compilée le 24/11/2019).
