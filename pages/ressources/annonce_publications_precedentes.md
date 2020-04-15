@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Annonces des versions précédentes
+title: Versions précédentes
 fatherref: ressources
 ---
 
