@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Versions
-fatherref: versions
+fatherref: version
 level: page
 ---
 
