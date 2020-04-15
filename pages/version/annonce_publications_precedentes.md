@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Versions précédentes
-fatherref: ressources
+fatherref: version
 ---
 
 > Cette page présente les annonces des différentes versions publiées depuis 2016.
