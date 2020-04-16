@@ -1,6 +1,6 @@
 ---
 layout: page
-title: sedalib
+title: Sedalib
 fatherref: ressources
 ---
 
