@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Save the date
+title: Report de la journée au vendredi 25 septembre
 ---
+> Mise à jour du 17 avril : la journée est reportée au vendredi 25 septembre 2020. Prenez-soin de vous !
+
 > Après les journées Programme Vitam des 3 dernières années, notez le prochain rendez-vous dans vos agendas !
 
 ![Logos](/public/images/LogoV2.jpg)
