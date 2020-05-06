@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Développeur.se et designer intéressé.e.s par Vitam ? Le défi SEDAccord est pour vous !
+title: Développeur ou développeuse, designer avec un intérêt pour Vitam ? Le défi SEDAccord est pour vous !
 ---
 > Le Programme Vitam a proposé un défi dans le cadre de la 4e promotion du programme Entrepreneurs d’Intérêt Général d'Etalab.
 
