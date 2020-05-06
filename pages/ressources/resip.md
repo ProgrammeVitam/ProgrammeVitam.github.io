@@ -31,11 +31,11 @@ Sont mis à dispostion :
 Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution 
 nécessite la présence de java 8 à 11 (non testé au delà) sur le poste ou à défaut une machine java 8 à 11 dans le répertoire "jre" au niveau de l'exécutable. 
 
-Il est accessible **[ici](https://download.programmevitam.fr/resip/2.3.0/sedatools-package-2.3.0.tar.gz)**
+Il est accessible **[ici](http://download.programmevitam.fr/resip/2.3.0/sedatools-package-2.3.0.tar.gz)**
 
 >A noter:
 >
->  * le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.3.0/sedatools-package-2.3.0.tar.gz).
+>  * le fichier .jar utilisable sous Linux est disponible [ici](http://download.programmevitam.fr/resip/2.3.0/sedatools-package-2.3.0.tar.gz).
 >  * la version 2 apporte par rapport à la version 1:
 >    * une refonte ergonomique permettant une visualisation et une édition des métadonnées de manière structurée et graphique (sans XML)
 >    * une capacité de visualisation et de recherche dans le manifest
