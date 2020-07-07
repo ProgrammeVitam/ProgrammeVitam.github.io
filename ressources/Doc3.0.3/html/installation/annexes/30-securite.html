@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8.4. Ansible &amp; SSH &mdash; Documentation VITAM - Documentation d&#39;installation 3.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'3.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="8.3. Cycle de vie des certificats" href="20-lifecycle_certificats.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pre_install/_toc.html">3. Prérequis à l’installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/_toc.html">4. Procédures d’installation / mise à jour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour de la configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_install/_toc.html">6. Post installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade/_toc.html">7. Montée de version</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">8. Annexes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="10-overview_certificats.html">8.1. Vue d’ensemble de la gestion des certificats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-certificates.html">8.2. Spécificités des certificats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-lifecycle_certificats.html">8.3. Cycle de vie des certificats</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.4. Ansible &amp; <code class="docutils literal notranslate"><span class="pre">SSH</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-du-compte-utilisateur-utilise-pour-la-connexion-ssh">8.4.1. Authentification du compte utilisateur utilisé pour la connexion <code class="docutils literal notranslate"><span class="pre">SSH</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#par-cle-ssh-avec-passphrase">8.4.1.1. Par clé <code class="docutils literal notranslate"><span class="pre">SSH</span></code> avec passphrase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#par-login-mot-de-passe">8.4.1.2. Par login/mot de passe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#par-cle-ssh-sans-passphrase">8.4.1.3. Par clé <code class="docutils literal notranslate"><span class="pre">SSH</span></code> sans passphrase</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-des-hotes">8.4.2. Authentification des hôtes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elevation-de-privileges">8.4.3. Elévation de privilèges</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#par-sudo-avec-mot-de-passe">8.4.3.1. Par sudo avec mot de passe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#par-su">8.4.3.2. Par su</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#par-sudo-sans-mot-de-passe">8.4.3.3. Par sudo sans mot de passe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deja-root">8.4.3.4. Déjà Root</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Documentation d'installation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="_toc.html">8. Annexes</a> &raquo;</li>
+        
+      <li>8.4. Ansible &amp; <code class="docutils literal notranslate"><span class="pre">SSH</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/annexes/30-securite.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ansible-ssh">
+<h1>8.4. Ansible &amp; <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a><a class="headerlink" href="#ansible-ssh" title="Lien permanent vers ce titre">¶</a></h1>
+<p>En fonction de la méthode d’authentification sur les serveurs et d’élevation de privilège, il faut rajouter des options aux lignes de commande ansible. Ces options seront à rajouter pour toutes les commandes ansible du document .</p>
+<p>Pour chacune des 3 sections suivantes, vous devez être dans l’un des cas décrits</p>
+<div class="section" id="authentification-du-compte-utilisateur-utilise-pour-la-connexion-ssh">
+<h2>8.4.1. Authentification du compte utilisateur utilisé pour la connexion <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a><a class="headerlink" href="#authentification-du-compte-utilisateur-utilise-pour-la-connexion-ssh" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour le login du compte utilisateur, voir  la section <a class="reference internal" href="../installation/10-configuration.html#inventaire"><span class="std std-ref">Informations plate-forme</span></a>.</p>
+<div class="section" id="par-cle-ssh-avec-passphrase">
+<h3>8.4.1.1. Par clé <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a> avec passphrase<a class="headerlink" href="#par-cle-ssh-avec-passphrase" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas d’une authentification par clé avec passphrase, il est nécessaire d’utiliser ssh-agent pour mémoriser la clé privée. Pour ce faire, il faut :</p>
+<blockquote>
+<div><ul class="simple">
+<li>exécuter la commande <code class="docutils literal notranslate"><span class="pre">ssh-agent</span> <span class="pre">&lt;shell</span> <span class="pre">utilisé&gt;</span></code> (exemple <code class="docutils literal notranslate"><span class="pre">ssh-agent</span> <span class="pre">/bin/bash</span></code>) pour lancer un shell avec un agent de mémorisation de la clé privée associé à ce shell</li>
+<li>exécuter la commande <code class="docutils literal notranslate"><span class="pre">ssh-add</span></code> et renseigner la passphrase de la clé privée</li>
+</ul>
+</div></blockquote>
+<p>Vous pouvez maintenant lancer les commandes ansible comme décrites dans ce document.</p>
+<p>A noter : ssh-agent est un démon qui va stocker les clés privées (déchiffrées) en mémoire et que le client <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a> va interroger pour récupérer les informations privées pour initier la connexion. La liaison se fait par un socket UNIX présent dans /tmp (avec les droits 600 pour l’utilisateur qui a lancé le ssh-agent). Cet agent disparaît avec le shell qui l’a lancé.</p>
+</div>
+<div class="section" id="par-login-mot-de-passe">
+<h3>8.4.1.2. Par login/mot de passe<a class="headerlink" href="#par-login-mot-de-passe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas d’une authentificatioon par login/mot de passe, il est nécessaire de spécifier l’option –ask-pass (ou -k en raccourci) aux commandes ansible ou ansible-playbook de ce document .</p>
+<p>Au lancement de la commande <code class="docutils literal notranslate"><span class="pre">ansible</span></code> (ou <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code>), il sera demandé le mot de passe</p>
+</div>
+<div class="section" id="par-cle-ssh-sans-passphrase">
+<h3>8.4.1.3. Par clé <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a> sans passphrase<a class="headerlink" href="#par-cle-ssh-sans-passphrase" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans ce cas, il n’y a pas de paramétrage particulier à effectuer.</p>
+</div>
+</div>
+<div class="section" id="authentification-des-hotes">
+<h2>8.4.2. Authentification des hôtes<a class="headerlink" href="#authentification-des-hotes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour éviter les attaques de type <a class="reference internal" href="../introduction.html#term-mitm"><span class="xref std std-term">MitM</span></a>, le client <a class="reference internal" href="../introduction.html#term-ssh"><span class="xref std std-term">SSH</span></a> cherche à authentifier le serveur sur lequel il se connecte. Ceci se base généralement sur le stockage des clés publiques des serveurs auxquels il faut faire confiance (~/.ssh/known_hosts).</p>
+<p>Il existe différentes méthodes pour remplir ce fichier (vérification humaine à la première connexion, gestion centralisée, <a class="reference internal" href="../introduction.html#term-dnssec"><span class="xref std std-term">DNSSEC</span></a>). La gestion de fichier est hors périmètre <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> mais c’est un pré-requis pour le lancement d’ansible.</p>
+</div>
+<div class="section" id="elevation-de-privileges">
+<h2>8.4.3. Elévation de privilèges<a class="headerlink" href="#elevation-de-privileges" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fois que l’on est connecté  sur le serveur cible, il faut définir la méthode pour accéder aux droits <code class="docutils literal notranslate"><span class="pre">root</span></code></p>
+<div class="section" id="par-sudo-avec-mot-de-passe">
+<h3>8.4.3.1. Par sudo avec mot de passe<a class="headerlink" href="#par-sudo-avec-mot-de-passe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans ce cas, il faut rajouter les options <code class="docutils literal notranslate"><span class="pre">--ask-sudo-pass</span></code></p>
+<p>Au lancement de la commande <code class="docutils literal notranslate"><span class="pre">ansible</span></code> (ou <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code>), il sera demandé le mot de passe demandé par <code class="docutils literal notranslate"><span class="pre">sudo</span></code></p>
+</div>
+<div class="section" id="par-su">
+<h3>8.4.3.2. Par su<a class="headerlink" href="#par-su" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans ce cas, il faut rajouter les options <code class="docutils literal notranslate"><span class="pre">--become-method=su</span> <span class="pre">--ask-su-pass</span></code></p>
+<p>Au lancement de la commande ansible (ou ansible-playbook), il sera demandé le mot de passe <code class="docutils literal notranslate"><span class="pre">root</span></code></p>
+</div>
+<div class="section" id="par-sudo-sans-mot-de-passe">
+<h3>8.4.3.3. Par sudo sans mot de passe<a class="headerlink" href="#par-sudo-sans-mot-de-passe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il n’y a pas d’option à rajouter (l’élévation par <code class="docutils literal notranslate"><span class="pre">sudo</span></code> est la configuration par défaut)</p>
+</div>
+<div class="section" id="deja-root">
+<h3>8.4.3.4. Déjà Root<a class="headerlink" href="#deja-root" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans ce cas, il n’y a pas de paramétrages supplémentaires à effectuer.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="20-lifecycle_certificats.html" class="btn btn-neutral float-left" title="8.3. Cycle de vie des certificats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

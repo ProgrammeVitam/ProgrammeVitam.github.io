@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9.6. Métadata &mdash; Documentation VITAM - Manuel de développement 3.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'3.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="9.7. Désynchronisation des bases de données" href="metadata-sync.html" />
+    <link rel="prev" title="9.5. Métadata-tenant" href="metadata-tenant.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">8. Logbook</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">9. Metadata</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="metadata-introduction.html">9.1. Métadata - Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-dat.html">9.2. DAT : module metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-user-client.html">9.3. Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-api-rest-raml.html">9.4. Métadata : API REST Raml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-tenant.html">9.5. Métadata-tenant</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">9.6. Métadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation">9.6.1. Utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-sync.html">9.7. Désynchronisation des bases de données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">12. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">13. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">14. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">9. Metadata</a> &raquo;</li>
+        
+      <li>9.6. Métadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/include/metadata/metadata-inherited-rule.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metadata">
+<h1>9.6. Métadata<a class="headerlink" href="#metadata" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilisation">
+<h2>9.6.1. Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="parametres">
+<h3>9.6.1.1. Paramètres<a class="headerlink" href="#parametres" title="Lien permanent vers ce titre">¶</a></h3>
+</div>
+<div class="section" id="calcul-des-regles-de-gestion-pour-une-unite-archivistique-via-api-dediee">
+<h3>9.6.1.2. Calcul des règles de gestion pour une unité archivistique via API dédiée<a class="headerlink" href="#calcul-des-regles-de-gestion-pour-une-unite-archivistique-via-api-dediee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un endpoint (GET /unitsWithInheritedRules) permet le calcul des règles de gestion ainsi que les propriétés associées
+(de type FinalAction…).</p>
+<p>Pour chaque catégorie de règles de gestion (AppraisalRule, ReuseRule…), les règles et les propriétés sont calculées
+d’une unité archivistique sont héritées des parents. Excepté les cas suivants :</p>
+<div class="section" id="la-prevention-d-heritage">
+<h4>9.6.1.2.1. La prévention d’héritage<a class="headerlink" href="#la-prevention-d-heritage" title="Lien permanent vers ce titre">¶</a></h4>
+<p>L’intégration d’une balise &lt;PreventInheritance&gt; dans le SEDA
+Si le champ est « true », toutes les règles héritées des parents sont ignorées sur le nœud courant</p>
+</div>
+<div class="section" id="l-exclusion-d-heritage">
+<h4>9.6.1.2.2. L’exclusion d’héritage<a class="headerlink" href="#l-exclusion-d-heritage" title="Lien permanent vers ce titre">¶</a></h4>
+<p>L’intégration d’une balise &lt;RefNonRuleId&gt; dans le SEDA indiquant les règles à désactiver à partir de ce niveau.</p>
+</div>
+<div class="section" id="la-redefinition-de-regles-ou-de-proprietes">
+<h4>9.6.1.2.3. La redéfinition de règles ou de propriétés<a class="headerlink" href="#la-redefinition-de-regles-ou-de-proprietes" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le nœud courant peut redéclarer une règle (même identifiant) et/ou une propriété déjà déclarées dans des parents.
+Dans ce cas, les règles et propriétés des unités parentes ne seront pas héritées.</p>
+</div>
+</div>
+<div class="section" id="calcul-des-regles-de-gestion-pour-une-unite-archivistique-deprecie">
+<h3>9.6.1.3. Calcul des règles de gestion pour une unité archivistique (déprécié)<a class="headerlink" href="#calcul-des-regles-de-gestion-pour-une-unite-archivistique-deprecie" title="Lien permanent vers ce titre">¶</a></h3>
+<ol class="arabic simple">
+<li>Requête DSL</li>
+</ol>
+<p>Pour calculer les règles héritées de l’archive Unit. Il faut ajouter «&nbsp;$rules : 1&nbsp;» dans le filtre de la requête
+DSL.</p>
+<ol class="arabic simple" start="2">
+<li>Calculer des règles de gestion pour une unité archivistique</li>
+</ol>
+<p>Le serveur vérifie la requête, si son filtre contient «&nbsp;$rules : 1&nbsp;». On démarre la procédure de calcul des règles héritées</p>
+<blockquote>
+<div><p>2.1 Rechercher les règles de gestion des parents et lui même</p>
+<blockquote>
+<div>createSearchParentSelect(List&lt;String&gt; unitList)</div></blockquote>
+<p>2.1 Construire le graphe DAG avec tous les unité archivistique</p>
+<p>ArrayNode unitParents = selectMetadataObject(newSelectQuery.getFinalSelect(), null, null);</p>
+<p>Map&lt;String, UnitSimplified&gt; unitMap = UnitSimplified.getUnitIdMap(unitParents);
+UnitRuleCompute unitNode = new UnitRuleCompute(unitMap.get(unitId));
+unitNode.buildAncestors(unitMap, allUnitNode, rootList);</p>
+<p>2.3 Calculer des règles de gestion et mettre dans le résultat final</p>
+<p>unitNode.computeRule();
+JsonNode rule = JsonHandler.toJsonNode(unitNode.getHeritedRules().getInheritedRule());
+((ObjectNode)arrayNodeResponse.get(0)).set(UnitInheritedRule.INHERITED_RULE, rule);</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metadata-sync.html" class="btn btn-neutral float-right" title="9.7. Désynchronisation des bases de données" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="metadata-tenant.html" class="btn btn-neutral float-left" title="9.5. Métadata-tenant" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
