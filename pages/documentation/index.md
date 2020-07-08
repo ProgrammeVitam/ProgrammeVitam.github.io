@@ -29,7 +29,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
 
-**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/20200320_Vitam_ DocR13.zip)**
+**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/Release14_doc.7z)**
 
 <a name="vademecums"></a>
 ## Vademecums : sommaire thématique
@@ -80,6 +80,8 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 	- Faire un rattachement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Rattachement.pdf))
 	- Réaliser des éliminations avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Elimination.pdf))
 	- Le calcul des héritages des règles de gestion et l’indexation des échéances dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Echeances.pdf))
+
+	**[Télécharger tous les vademecums](/ressources/DocCourante/autres/fonctionnel/Vitam_vademecum.7z)**
 
 <a name="doc_metier"></a>
 ## Documentation métier
