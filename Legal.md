@@ -30,3 +30,4 @@ Ce site est parfaitement visible à travers les navigateurs modernes les plus ut
 
 ## Logo
 Le logo Vitam a été créé par la société KPMG et l'agence Oliver.
+![alt text](/public/images/LogoV2.jpg)
