@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Versions précédentes
+title: Versions mineures
 fatherref: versions
 ---
 

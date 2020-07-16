@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Versions précédentes
+title: Versions majeures
 fatherref: versions
 ---
 
-> Cette page présente les annonces des différentes versions LTS publiées.
+> Cette page présente les annonces des différentes versions LTS (long time support) publiées.
 
 
 [Janvier 2017 : Publication de la version Beta](https://www.programmevitam.fr/2017/01/16/beta/)
