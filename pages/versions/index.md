@@ -5,7 +5,7 @@ fatherref: versions
 level: page
 ---
 
-> Cette page présente la dernière version publiée.
+> Cette page présente la dernière version LTS (long time support) publiée.
 ![Logos](/public/images/V3_fonctionnalites_focus.jpg)
 
 Vous pouvez consulter la [Release Note](/ressources/DocCourante/autres/fonctionnel/release-notes.3.0.1.pdf)

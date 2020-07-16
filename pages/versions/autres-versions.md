@@ -22,7 +22,7 @@ fatherref: versions
 
 [Juillet 2018 : Un pas de plus... la publication régulière de versions correctives](https://www.programmevitam.fr/2018/07/31/R7.1/)
 
-[Novembre 2018 : Publication de la Release 8... dernière ligne droite avant la V2](Publication de la Release 8... dernière ligne droite avant la V2)
+[Novembre 2018 : Publication de la Release 8... dernière ligne droite avant la V2](https://www.programmevitam.fr/2018/11/29/R8/)
 
 [Février 2019 : La V2 de la solution logicielle Vitam est publiée !](https://www.programmevitam.fr/2019/02/18/R9/)
 
