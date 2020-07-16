@@ -110,7 +110,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Modèle de workflow**  - description de la décompositon et du séquencement des
  opérations ([pdf - partie 1](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_workflow_part1.pdf)) ([pdf - partie 2](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_workflow_part2.pdf))
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Multi_strategies.pdf))
-* **Le transfert avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Transfert.pdf))
+* **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Transfert.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
 
 <a name="doc_test"></a>

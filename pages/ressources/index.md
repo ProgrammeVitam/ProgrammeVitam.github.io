@@ -7,8 +7,8 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Actuellement, vous pouvez installer la Release 13 (V3 de la solution logicielle Vitam, désignée comme version Long Time Support) ou mettre à jour la Release 9 (V2 de la solution logicielle Vitam, précédente version Long Time Support). 
-Il est déconseillé d'utiliser les Releases autres qui ne seront pas des versions LTS. 
+Actuellement, vous pouvez tester la Release 14. Il est conseillé d’installer la Release 13, V3 de la solution logicielle Vitam, désignée comme version Long Time Support et qui a reçu une homologation de sécurité pour 2 ans. Il est aussi possible de mettre à jour la Release 9 (V2 de la solution logicielle Vitam, précédente version Long Time Support). 
+Il est déconseillé d'utiliser les Releases autres qui ne seront pas des versions LTS.  
 
 
 * [Solution logicielle Vitam - toutes versions publiées](#touteversion)
@@ -29,18 +29,27 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/3.0.2/mvn_repo/)
+Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/3.6.0/mvn_repo/)
 
 * **les paquets de déploiement**
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
 
+* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.6.0)     
+* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/3.6.0)    
+* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.6.0/mvn_repo/)     
+* URL de configuration des dépôts de binaires CentOS/RHEL :      
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.6.0/rpm/vitam-product)       
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.6.0/rpm/vitam-external)    
+* URL de configuration des dépôts de binaires Debian :      
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.6.0/deb/vitam-product)       
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.6.0/deb/vitam-external)     
 
 Liens de téléchargement :
+[**Version 3.6.0 (Release R14)**](https://r14.env.programmevitam.fr/)
 
 [**Version 3.0.3-1 (Release R13)**](https://r13.env.programmevitam.fr/)
   
-
 [**Version 2.1.22 (Release R9)**](https://r9.env.programmevitam.fr/)
  
 
@@ -53,9 +62,8 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM de la version 3.0.2 (Release 13) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/3.0.2)
-La VM de la version 2.1.21 (Release 9) peut être téléchargée en suivant ce [lien](http://download.programmevitam.fr/vitam_repository/2.1.21/VM/demo_vitam_2.1.21.ova).
-L'empreinte sha256 de la VM est disponible à cette [url](http://download.programmevitam.fr/vitam_repository/2.1.11/VM/demo_vitam_2.1.21.sha256).
+La VM de la version 2.1.21 (Release 9) peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/2.1.21/VM/demo_vitam_2.1.21.ova).
+L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/2.1.21/VM/demo_vitam_2.1.21.sha256).
 
 
 
@@ -73,7 +81,7 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels et paquets SIP:
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeux_de_tests_fonctionnels_RELEASE13.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
+([zip](http://download.programmevitam.fr/vitam_repository/3.6.0/tests/Jeux_de_tests_fonctionnels_RELEASE14.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
 <a name="preservation"></a>
 ## Outils de préservation Vitam
@@ -84,12 +92,12 @@ Sont mis à dispostion :
 
 * **les exécutables**
 
-* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.14.0/rpm/))
-* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.14.0/deb/))
+* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.15.0/rpm/))
+* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.15.0/deb/))
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.14.0). La release note est disponible ([pdf](https://github.com/ProgrammeVitam/vitam-griffins/releases/download/1.14.0/griffins-release-notes.1.14.0.pdf)) .
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.15.0). La release note est disponible ([pdf](https://github.com/ProgrammeVitam/vitam-griffins/releases/download/1.15.0/griffins-release-notes.1.15.0.pdf)) .
 
 <a name="resip"></a>
 ## Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...
