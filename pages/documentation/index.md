@@ -139,7 +139,6 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.3.0.1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne))
-* **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/DocCourante/pdf/vitam-maj-au.3.0.1.pdf))
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 <a name="preservation"></a>
