@@ -42,7 +42,7 @@ Au programme :
    **Première installation de Vitam et de ses pré-requis : pas-à-pas et conseils d'architecture**  
    Par Thierry DEVILLECHABROLLE, architecte - Programme Vitam
 
-- jeudi 01/10 à 14h0  
+- jeudi 01/10 à 14h  
    **La solution logicielle Vitam vue par les développeurs : présentation fonctionnelle et technique, utilisation des API**  
    Par Germain LEDROIT, Smile
 
