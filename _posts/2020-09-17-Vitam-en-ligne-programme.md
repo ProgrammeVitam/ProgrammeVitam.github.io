@@ -10,50 +10,49 @@ title: Vitam en ligne, programme et inscription
 En cette rentrée 2020, nous vous proposons une semaine de séminaires en ligne s'étalant du **vendredi 25 septembre au vendredi 2 octobre**.
 
 Au programme :
-- vendredi 25/09 à 10h
-   **Vitam : actualités du Programme et présentation de la V3 de la solution logicielle**
+- vendredi 25/09 à 10h  
+   **Vitam : actualités du Programme et présentation de la V3 de la solution logicielle**  
    Par Emmanuel Laborde, directeur, Marion Ville, responsable métier et Alice Grippon, directrice de la communication et des partenariats - Programme Vitam
 
-- lundi 28/09 à 10h
-   **En savoir plus sur l'interface Vitam UI**
+- lundi 28/09 à 10h  
+   **En savoir plus sur l'interface Vitam UI**  
    Par le CINES, le CEA, la société Xelians et le projet Vitam accessible en Service (VaS)
 
-- lundi 28/09 à 14h
-   **Présentation de l'offre Vitam accessible en Service (VaS)**
+- lundi 28/09 à 14h  
+   **Présentation de l'offre Vitam accessible en Service (VaS)**  
    Par Joris BRICOUT, chef de projet, et Méline COURNIL, archiviste - Programme Vitam
 
-- mardi 29/09 à 10h
-   **Initiation à ReSIP et retours d'expérience**
+- mardi 29/09 à 10h  
+   **Initiation à ReSIP et retours d'expérience**  
    Par Marion VILLE, responsable métier - Programme Vitam, les Archives nationales et les Ministères sociaux
 
-- mardi 29/09 à 14h
-   **Pastis : un outil pour la génération de profils d'archivage en SEDA 2.1**
+- mardi 29/09 à 14h  
+   **Pastis : un outil pour la génération de profils d'archivage en SEDA 2.1**  
    Par Lorène BECHARD, CINES
 
-- mercredi 30/09 à 10h
-   **Les SAE et la normalisation, après la version 2020 de la norme NF42013**
+- mercredi 30/09 à 10h  
+   **Les SAE et la normalisation, après la version 2020 de la norme NF42013**  
    Par Aurélien CONRAUX, SIAF
 
-- mercredi 30/09 à 14h0
-   **Vitam et les collectivités : retours d'expérience et dispositif ANET**
-
+- mercredi 30/09 à 14h0  
+   **Vitam et les collectivités : retours d'expérience et dispositif ANET**  
    Par Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam, Lénaïg PAYEN de la GARANDERIE, SIAF, et des utilisateurs du Programme Vitam
 
-- jeudi 01/10 à 10h
-   **Première installation de Vitam et de ses pré-requis : pas-à-pas et conseils d'architecture**
+- jeudi 01/10 à 10h  
+   **Première installation de Vitam et de ses pré-requis : pas-à-pas et conseils d'architecture**  
    Par Thierry DEVILLECHABROLLE, architecte - Programme Vitam
 
-- jeudi 01/10 à 14h0
-   **La solution logicielle Vitam vue par les développeurs : présentation fonctionnelle et technique, utilisation des API**
+- jeudi 01/10 à 14h0  
+   **La solution logicielle Vitam vue par les développeurs : présentation fonctionnelle et technique, utilisation des API**  
    Par Germain LEDROIT, Smile
 
-- vendredi 02/10 à 9h
-   **Où en sont les projets d'implémentation Adamant, Archipel et Saphir ?**
+- vendredi 02/10 à 9h  
+   **Où en sont les projets d'implémentation Adamant, Archipel et Saphir ?**  
    Par les Archives nationales, le Ministère des Armées et le Ministère de l'Europe et des Affaires étrangères
 
 [Télécharger le programme détaillé](/ressources/RefCourant/evenement-v3-programme_detaille.pdf)
 
-Toutes les séances se dérouleront en ligne sur l'outil LifeSize du Ministère de la Culture.
+Toutes les séances se dérouleront en ligne sur l'outil LifeSize du Ministère de la Culture.  
 Des créneaux de test de connexion sont proposés :
 - vendredi 18 septembre de 10h à 11h
 - mardi 22 septembre de 17h30 à 18h
