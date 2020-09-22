@@ -48,11 +48,11 @@ Il est accessible **[ici](http://download.programmevitam.fr/resip/2.3.0/sedatool
 La documentation **ReSIP** décrit les fonctions de l'outil ReSIP en Version 1 ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf). Les fonctions spécifiques de la V2 notamment l'interface d'édition des métadonnées sans XML n'est pas couvert.
 
 
-* **un jeux de tests**
+* **un jeu de tests**
 
 Il contient des hiérachie disque, SIP, DIP, csv... et toute une série de fichiers d'exemples importables et manipulable avec ReSIP.
 
-Il est accessible [ici](http://download.programmevitam.fr/resip/1.1/ResipSamples.zip).
+Il est accessible [ici](/ressources/DocCourante/autres/fonctionnel/Tests ReSIP.zip).
 
 * **le code développé**
 
