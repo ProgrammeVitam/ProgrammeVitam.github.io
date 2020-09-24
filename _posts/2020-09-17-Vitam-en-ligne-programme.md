@@ -59,6 +59,7 @@ Des créneaux de test de connexion sont proposés :
 - jeudi 24 septembre de 11h à 12h
 
 Pour cela, il suffit de se connecter [en suivant ce lien](https://call.lifesizecloud.com/2284288).
+[Un tuto est à votre disposition pour prendre en main l'outil](/ressources/RefCourant/Lifesize_tuto.pdf)
 
 Il est nécessaire de s'inscrire aux webinaires, le nombre de participants est limité pour répondre au mieux aux attentes, aux questions des participants et pour éviter trop de contraintes techniques.
 Veuillez privilégier les inscriptions uniques par service, dans la mesure du possible.
