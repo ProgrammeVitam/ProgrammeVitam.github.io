@@ -12,11 +12,11 @@ En cette rentrée 2020, nous vous proposons une semaine de séminaires en ligne 
 Au programme :
 - vendredi 25/09 à 10h  
    **Vitam : actualités du Programme et présentation de la V3 de la solution logicielle**  
-   Par Emmanuel Laborde, directeur, Marion Ville, responsable métier et Alice Grippon, directrice de la communication et des partenariats - Programme Vitam
+   Par Emmanuel LABORDE, directeur, Marion VILLE, responsable métier et Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam
 
 - lundi 28/09 à 10h  
    **En savoir plus sur l'interface Vitam UI**  
-   Par le CINES, le CEA, la société Xelians et le projet Vitam accessible en Service (VaS)
+   Par Lorène BECHARD, CINES, Caroline DISTRIQUIN, CEA, Hervé STREIFF, société Xelians, Camille TATGER et Karim AMARA, projet Vitam accessible en Service (VaS)
 
 - lundi 28/09 à 14h  
    **Présentation de l'offre Vitam accessible en Service (VaS)**  
@@ -34,10 +34,10 @@ Au programme :
    **Les SAE et la normalisation, après la version 2020 de la norme NF42013**  
    Par Aurélien CONRAUX, SIAF
 
-- mercredi 30/09 à 14h0  
+- mercredi 30/09 à 14h  
    **Vitam et les collectivités : retours d'expérience et dispositif ANET**  
-   Par Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam, Lénaïg PAYEN de la GARANDERIE, SIAF, et des utilisateurs du Programme Vitam
-
+   Par Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam, Lénaïg PAYEN de la GARANDERIE, SIAF, Pierre JESTIN et Stéphanie ROUX, Conseil départemental de l'Hérault, et Guillemette BESSON et Anne DUCHIER, Communauté d’ Agglomération de Cergy-Pontoise
+   
 - jeudi 01/10 à 10h  
    **Première installation de Vitam et de ses pré-requis : pas-à-pas et conseils d'architecture**  
    Par Thierry DEVILLECHABROLLE, architecte - Programme Vitam
