@@ -13,6 +13,7 @@ Au programme :
 - vendredi 25/09 à 10h  
    **Vitam : actualités du Programme et présentation de la V3 de la solution logicielle**  
    Par Emmanuel LABORDE, directeur, Marion VILLE, responsable métier et Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam
+   [Présentation du vendredi 25 septembre](/ressources/RefCourant/20200925_Vitamenligne_presentation_v2.1.pdf)
 
 - lundi 28/09 à 10h  
    **En savoir plus sur l'interface Vitam UI**  
