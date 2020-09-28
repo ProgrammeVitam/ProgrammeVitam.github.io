@@ -20,13 +20,16 @@ Au programme :
    **En savoir plus sur l'interface Vitam UI**  
    Par Lorène BECHARD, CINES, Caroline DISTRIQUIN, CEA, Hervé STREIFF, société Xelians, Camille TATGER et Karim AMARA, projet Vitam accessible en Service (VaS)
 
-  [Présentation du lundi 28 septembre](/ressources/RefCourant/20200928_Vitamenligne_VITAM_UI.pdf)
+  [Présentation du lundi 28 septembre matin](/ressources/RefCourant/20200928_Vitamenligne_VITAM_UI.pdf)
 
   
 - lundi 28/09 à 14h  
    **Présentation de l'offre Vitam accessible en Service (VaS)**  
    Par Joris BRICOUT, chef de projet, et Méline COURNIL, archiviste - Programme Vitam
 
+    [Présentation du lundi 28 septembre après-midi](/ressources/RefCourant/20200928_Vitamenligne_VaS.pdf)
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/JVQ670VKzu0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   
 - mardi 29/09 à 10h  
    **Initiation à ReSIP et retours d'expérience**  
    Par Marion VILLE, responsable métier - Programme Vitam, les Archives nationales et les Ministères sociaux
