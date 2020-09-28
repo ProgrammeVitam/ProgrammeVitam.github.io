@@ -13,12 +13,16 @@ Au programme :
 - vendredi 25/09 à 10h  
    **Vitam : actualités du Programme et présentation de la V3 de la solution logicielle**  
    Par Emmanuel LABORDE, directeur, Marion VILLE, responsable métier et Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam
-   [Présentation du vendredi 25 septembre](/ressources/RefCourant/20200925_Vitamenligne_presentation_v2.1.pdf)
+  
+  [Présentation du vendredi 25 septembre](/ressources/RefCourant/20200925_Vitamenligne_presentation_v2.1.pdf)
 
 - lundi 28/09 à 10h  
    **En savoir plus sur l'interface Vitam UI**  
    Par Lorène BECHARD, CINES, Caroline DISTRIQUIN, CEA, Hervé STREIFF, société Xelians, Camille TATGER et Karim AMARA, projet Vitam accessible en Service (VaS)
 
+  [Présentation du lundi 28 septembre](/ressources/RefCourant/20200928_Vitamenligne_VITAM_UI.pdf)
+
+  
 - lundi 28/09 à 14h  
    **Présentation de l'offre Vitam accessible en Service (VaS)**  
    Par Joris BRICOUT, chef de projet, et Méline COURNIL, archiviste - Programme Vitam
