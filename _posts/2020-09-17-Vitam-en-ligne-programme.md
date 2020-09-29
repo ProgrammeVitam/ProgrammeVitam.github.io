@@ -34,9 +34,13 @@ Au programme :
    **Initiation à ReSIP et retours d'expérience**  
    Par Marion VILLE, responsable métier - Programme Vitam, les Archives nationales et les Ministères sociaux
 
+   [Présentation du mardi 29 septembre matin](/ressources/RefCourant/20200929_Vitamenligne_resip.pdf)
+   
 - mardi 29/09 à 14h  
    **Pastis : un outil pour la génération de profils d'archivage en SEDA 2.1**  
    Par Lorène BECHARD, CINES
+   
+    [Présentation du mardi 29 septembre après-midi](/ressources/RefCourant/20200929_Vitamenligne_pastis.pdf)
 
 - mercredi 30/09 à 10h  
    **Les SAE et la normalisation, après la version 2020 de la norme NF42013**  
