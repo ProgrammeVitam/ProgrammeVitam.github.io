@@ -40,7 +40,7 @@ Au programme :
    **Pastis : un outil pour la génération de profils d'archivage en SEDA 2.1**  
    Par Lorène BECHARD, CINES
    
-    [Présentation du mardi 29 septembre après-midi](/ressources/RefCourant/20200929_Vitamenligne_pastis.pdf)
+   [Présentation du mardi 29 septembre après-midi](/ressources/RefCourant/20200929_Vitamenligne_pastis.pdf)
 
 - mercredi 30/09 à 10h  
    **Les SAE et la normalisation, après la version 2020 de la norme NF42013**  
@@ -50,7 +50,11 @@ Au programme :
    **Vitam et les collectivités : retours d'expérience et dispositif ANET**  
    Par Alice GRIPPON, directrice de la communication et des partenariats - Programme Vitam, Lénaïg PAYEN de la GARANDERIE, SIAF, Pierre JESTIN et Stéphanie ROUX, Conseil départemental de l'Hérault, et Guillemette BESSON et Anne DUCHIER, Communauté d’ Agglomération de Cergy-Pontoise
    
-- jeudi 01/10 à 10h  
+   [Présentation du mercredi 30 septembre après-midi : ANET](/ressources/RefCourant/20200930_Vitamenligne_ANET.pdf)
+   [Présentation du mercredi 30 septembre après-midi : Département de l'Hérault](/ressources/RefCourant/20200930_Vitamenligne_CD34.pdf)
+   [Présentation du mercredi 30 septembre après-midi : Communauté d'agglomération de Cergy-Pontoise](20200930_Vitamenligne_CergyPontoise.pdf)
+
+   - jeudi 01/10 à 10h  
    **Première installation de Vitam et de ses pré-requis : pas-à-pas et conseils d'architecture**  
    Par Thierry DEVILLECHABROLLE, architecte - Programme Vitam
 
