@@ -52,7 +52,7 @@ Au programme :
    
    [Présentation du mercredi 30 septembre après-midi : ANET](/ressources/RefCourant/20200930_Vitamenligne_ANET.pdf)
    [Présentation du mercredi 30 septembre après-midi : Département de l'Hérault](/ressources/RefCourant/20200930_Vitamenligne_CD34.pdf)
-   [Présentation du mercredi 30 septembre après-midi : Communauté d'agglomération de Cergy-Pontoise](20200930_Vitamenligne_CergyPontoise.pdf)
+   [Présentation du mercredi 30 septembre après-midi : Communauté d'agglomération de Cergy-Pontoise](/ressources/RefCourant/20200930_Vitamenligne_CergyPontoise.pdf)
 
    - jeudi 01/10 à 10h  
    **Première installation de Vitam et de ses pré-requis : pas-à-pas et conseils d'architecture**  
