@@ -64,6 +64,8 @@ Au programme :
    **La solution logicielle Vitam vue par les développeurs : présentation fonctionnelle et technique, utilisation des API**  
    Par Germain LEDROIT, Smile
 
+   [Présentation du jeudi 1er octobre après-midi](/ressources/RefCourant/20201001_Vitamenligne_developpeurs.pdf)
+   
 - vendredi 02/10 à 9h  
    **Où en sont les projets d'implémentation Adamant, Archipel et Saphir ?**  
    Par les Archives nationales, le Ministère des Armées et le Ministère de l'Europe et des Affaires étrangères
