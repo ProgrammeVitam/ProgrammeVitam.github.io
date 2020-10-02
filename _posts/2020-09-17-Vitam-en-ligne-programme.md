@@ -71,6 +71,7 @@ Au programme :
    Par les Archives nationales, le Ministère des Armées et le Ministère de l'Europe et des Affaires étrangères
 
 	[Présentation du vendredi 2 octobre : Adamant](/ressources/RefCourant/20201002_Vitamenligne_Adamant.pdf)
+	[Présentation du vendredi 2 octobre : Saphir](/ressources/RefCourant/20201002_Vitamenligne_Saphir.pdf)
    
 [Télécharger le programme détaillé](/ressources/RefCourant/evenement-v3-programme_detaille.pdf)
 
