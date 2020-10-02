@@ -70,8 +70,6 @@ Au programme :
    **Où en sont les projets d'implémentation Adamant, Archipel et Saphir ?**  
    Par les Archives nationales, le Ministère des Armées et le Ministère de l'Europe et des Affaires étrangères
 
-    [Présentation du vendredi 2 octobre : Adamant](/ressources/RefCourant/20201002_Vitamenligne_Adamant.pdf)
-   
 [Télécharger le programme détaillé](/ressources/RefCourant/evenement-v3-programme_detaille.pdf)
 
 Toutes les séances se dérouleront en ligne sur l'outil LifeSize du Ministère de la Culture.  
