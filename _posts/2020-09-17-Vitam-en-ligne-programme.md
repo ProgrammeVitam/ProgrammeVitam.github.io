@@ -72,7 +72,7 @@ Au programme :
 
 	[Présentation du vendredi 2 octobre : Adamant](/ressources/RefCourant/20201002_Vitamenligne_Adamant.pdf)
 	[Présentation du vendredi 2 octobre : Archipel](/ressources/RefCourant/20201002_Vitamenligne_Archipel.pdf)
-	[Présentation du vendredi 2 octobre : Saphir](/ressources/RefCourant/20201002_Vitamenligne_Saphir.pdf)
+	[Présentation du vendredi 2 octobre : Saphir](/ressources/RefCourant/20201002_Vitamenligne_Saphir2.pdf)
 
    
 [Télécharger le programme détaillé](/ressources/RefCourant/evenement-v3-programme_detaille.pdf)
