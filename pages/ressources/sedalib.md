@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sedalib
-fatherref: ressources
+fatherref: 
 ---
 
 > Cette page présente la bibliothèque sedalib (version courante 1.1 compilée 25/02/2019).
