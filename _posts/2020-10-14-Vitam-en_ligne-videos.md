@@ -3,6 +3,7 @@ layout: post
 title: Retour sur Vitam en ligne
 ---
 
+Lien rapide vers les différents ateliers :
 * [Vitam : actualités du Programme et présentation de la V3 de la solution logicielle](#actu)
 * [En savoir plus sur l'interface Vitam UI](#vitamUI)
 * [Présentation de l'offre Vitam accessible en Service (VaS)](#VaS)
