@@ -30,7 +30,7 @@ Par Emmanuel LABORDE, directeur, Marion VILLE, responsable métier et Alice GRIP
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qEcOKmBAu7c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<a name="vitam UI"></a>
+<a name="vitamUI"></a>
 **En savoir plus sur l'interface Vitam UI**  
 Par Lorène BECHARD, CINES, Caroline DISTRIQUIN, CEA, Hervé STREIFF, société Xelians, Camille TATGER et Karim AMARA, projet Vitam accessible en Service (VaS)
 
