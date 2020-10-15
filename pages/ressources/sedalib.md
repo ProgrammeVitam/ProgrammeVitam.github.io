@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Sedalib
-fatherref: 
+fatherref: ressources
 ---
 
-> Cette page présente la bibliothèque sedalib (version courante 1.1 compilée 25/02/2019).
+> Cette page présente la bibliothèque sedalib (version courante 2.4.0 compilée en juillet 2020).
 
 ## sedalib
 
@@ -25,22 +25,5 @@ Elle permet de :
 
 Elle contient aussi un **constructeur de haut-niveau** (classe **SIPBuilder**) qui permet de construire des SIP avec des métadonnées riches en quelques appels.
 
-Sont mis à dispostion :
-
-
-* **le fichier jar**
-
-Le .jar est [ici](http://download.programmevitam.fr/resip/1.1/sedalib-1.1.0.jar).
-
-
-* **la documentation**
-
-La JavaDoc est [ici](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1). 
-
-Par ailleurs, dans le code vous trouverez des exemples d'utilisation, notamment de la classe SIPBuilder, dans 
-[sedalib-samples](https://github.com/ProgrammeVitam/sedatools/tree/master/sedalib-samples/src/main/java/fr/gouv/vitam/tools/sedalibsamples).
-
-
-* **le code développé**
-
+Est mis à dispostion le code développé.
 Il est accessible dans le dépot GitHub, au sein du depot sedatools qui contient aussi l'application [ReSip](/pages/ressources/resip) qui utilise massivement sedalib : [SedaTools](https://github.com/ProgrammeVitam/sedatools/tree/master/sedalib)
