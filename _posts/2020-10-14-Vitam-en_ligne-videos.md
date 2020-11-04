@@ -18,8 +18,7 @@ Lien rapide vers les différents ateliers :
 ![Logos](/public/images/evenement-v3.png)
 
 > Du 25 septembre au 2 octobre ont eu lieu 10 ateliers rassemblant plusieurs dizaines de personnes derrière leur écran. Vous trouverez ci-dessous les présentations - support de ces ateliers ainsi que les enregistrements.
-Vous pouvez également profité de la "playlist" Vitam en ligne sur Youtube : 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLQfLivYQ129yTFCYQhNPeFwmDkVihFIjX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Vous pouvez également profité de la ["playlist" Vitam en ligne sur Youtube](https://www.youtube.com/playlist?list=PLQfLivYQ129yTFCYQhNPeFwmDkVihFIjX).
 
 
 <a name="actu"></a>
