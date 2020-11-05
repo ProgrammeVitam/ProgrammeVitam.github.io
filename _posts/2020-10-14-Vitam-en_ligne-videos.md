@@ -66,6 +66,7 @@ Par Lorène BECHARD, CINES
 **Les SAE et la normalisation, après la version 2020 de la norme NF42013**  
 Par Aurélien CONRAUX, SIAF
 
+[Présentation du mercredi 30 septembre matin](/ressources/RefCourant/20200930_Vitamenligne_norme42013.pdf)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e_X4Nticau8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
