@@ -35,6 +35,17 @@ Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevit
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
 
+Pour la 3.0.9 de la R13 (mise à jour en novembre 2020)
+* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.9) 
+* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.0.9/mvn_repo/) 
+* URL de configuration des dépôts de binaires CentOS/RHEL :
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.9/rpm/vitam-product) 
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.9/rpm/vitam-external) 
+* URL de configuration des dépôts de binaires Debian :
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.9/deb/vitam-product) 
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.9/deb/vitam-external) 
+
+Pour la 3.6.0 de la R14 (mise à jour en juillet 2020)
 * Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.6.0)     
 * Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/3.6.0)    
 * URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.6.0/mvn_repo/)     
@@ -48,7 +59,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 Liens de téléchargement :
 [**Version 3.6.0 (Release R14)**](https://r14.env.programmevitam.fr/)
 
-[**Version 3.0.3-1 (Release R13)**](https://r13.env.programmevitam.fr/)
+[**Version 3.0.9 (Release R13)**](https://r13.env.programmevitam.fr/)
   
 [**Version 2.1.22 (Release R9)**](https://r9.env.programmevitam.fr/)
  

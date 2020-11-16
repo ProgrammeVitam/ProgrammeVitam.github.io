@@ -3,7 +3,7 @@ layout: post
 title: Le Programme Vitam participe au mois de l'innovation publique
 ---
 
-![Logos](/public/images/mip_logo.png)
+![Logos](/public/images/mip_logo.jpg)
 
 > Depuis 2014, la Direction interministérielle de la transformation publique (DITP) propose une semaine de l'innovation publique en fédérant un programme d’événements dans le but de valoriser les capacités d’innovation des services et des agents publics et de partager les bonnes pratiques. 
 Avec la crise sanitaire, le choix a été fait de transformer la Semaine en Mois de l’Innovation publique.
