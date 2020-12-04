@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Documentation
+title: Chantier préservation
 fatherref: documentation
-level: page
 ---
 
 > Est ici présentée la documentation des versions publiées et des précédentes.
