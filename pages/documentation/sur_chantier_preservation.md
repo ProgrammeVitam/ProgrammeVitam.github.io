@@ -4,16 +4,13 @@ title: Chantier préservation
 fatherref: documentation
 ---
 
-## Quelle documentation ?
-
 * [Première approche](pour_approche_deb)
 * [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
 * [Documentation métier](pour_archiviste)
 * [Documentation des tests](pour_test)
 * [Documentation technique](pour_tech)
 * [Documentation développeur](pour_dev)
-
-![Logos](/public/images/202003_guide de lecture.png)
+* [Documentation Vitam UI](pour_vitamUI)
 
 > L'équipe Programme Vitam a mené entre 2017 et 2019 un vaste chantier autour des questions de préservation.
 

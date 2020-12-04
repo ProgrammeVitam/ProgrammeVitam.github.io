@@ -12,10 +12,8 @@ fatherref: documentation
 * [Documentation des tests](pour_test)
 * [Documentation technique](pour_tech)
 * [Documentation développeur](pour_dev)
+* [Documentation Vitam UI](pour_vitamUI)
 * [Chantier préservation : documentation](sur_chantier_preservation)
-
-![Logos](/public/images/202003_guide de lecture.png)
-
 
 * **Sommaire** ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Sommaire.pdf))
 * **Glossaire** ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_glossaire.pdf))
@@ -64,3 +62,5 @@ fatherref: documentation
 	- Le calcul des héritages des règles de gestion et l’indexation des échéances dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Echeances.pdf))
 
 	**[Télécharger tous les vademecums](/ressources/DocCourante/autres/fonctionnel/Vitam_vademecum.7z)**
+
+![Logos](/public/images/202003_guide de lecture.png)
