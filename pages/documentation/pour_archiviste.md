@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation métier
+title: Doc. métier
 fatherref: documentation
 ---
 

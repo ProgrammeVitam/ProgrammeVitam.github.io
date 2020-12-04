@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation technique
+title: Doc. technique
 fatherref: documentation
 ---
 

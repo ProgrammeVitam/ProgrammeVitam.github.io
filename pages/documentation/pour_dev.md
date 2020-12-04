@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation développeur
+title: Doc. développeur
 fatherref: documentation
 ---
 

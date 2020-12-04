@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation des tests
+title: Doc. des tests
 fatherref: documentation
 ---
 

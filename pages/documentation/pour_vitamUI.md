@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation Vitam UI
+title: Doc. Vitam UI
 fatherref: documentation
 ---
 
