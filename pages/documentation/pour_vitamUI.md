@@ -31,5 +31,13 @@ fatherref: documentation
 		<td>... administrateur d'instance (si vous exposez VITAM UI en tant que service), administrateur technique VitamUI (si vous utilisez VITAM UI hébergé en propre)</td>
 		<td>Organisation</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_organisation.pdf">Organisation</a></td>
-	</tr>	
+	</tr>
+	<tr>
+		<td>Des organisations aux utilisateurs</td>
+		<td>1.2 (obligatoire)</td>
+		<td>... créer le compte nominatif de l'administrateur fonctionnel d'une organisation à des fins d'activation et prendre la main sur la session d'un utilisateur à des fins de support</td>
+		<td>... administrateur d'instance (si vous exposez VITAM UI en tant que service), administrateur technique VitamUI (si vous utilisez VITAM UI hébergé en propre)</td>
+		<td>Subrogation</td>
+		<td><a href="/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_subrogation.pdf</a></td>
+	</tr>
 </table>
