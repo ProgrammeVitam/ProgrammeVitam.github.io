@@ -30,6 +30,6 @@ fatherref: documentation
 		<td>... créer une nouvelle organisation utilisatrice de VITAM UI et lui associer 1 ou plusieurs coffre(s)</td>
 		<td>... administrateur d'instance (si vous exposez VITAM UI en tant que service), administrateur technique VitamUI (si vous utilisez VITAM UI hébergé en propre)</td>
 		<td>Organisation</td>
-		<td>[Organisation](/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_organisation.pdf)</td>
+		<td><a href="Organisation">/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_organisation.pdf</a></td>
 	</tr>	
 </table>
