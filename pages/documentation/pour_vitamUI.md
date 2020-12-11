@@ -120,4 +120,36 @@ fatherref: documentation
 		<td>Contexte applicatif</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contextes_applicatifs.pdf">Contexte applicatif</a></td>
 	</tr>
+	<tr>
+		<td>Utilisation de Vitam UI</td>
+		<td>NA</td>
+		<td>... visualiser les opérations de sécurisation et accéder aux journaux du cycle de vie des objets</td>
+		<td>... administrateur technique VITAM UI</td>
+		<td>Opérations de sécurisation</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_operations_securisation.pdf">Opérations de sécurisation</a></td>
+	</tr>
+	<tr>
+		<td>Utilisation de Vitam UI</td>
+		<td>NA</td>
+		<td>... effectuer des requêtes complexes sur les bases de données documentaires en vue de retrouver des objets</td>
+		<td>... administrateur technique VITAM UI</td>
+		<td>Requêtes DSL</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_requetes.pdf">Requêtes DSL</a></td>
+	</tr>
+	<tr>
+		<td>Utilisation de Vitam UI</td>
+		<td>NA</td>
+		<td>... vérifier la conformité de la conservation de mes archives</td>
+		<td>... administrateur fonctionnel VITAM UI, super-archiviste</td>
+		<td>Audits</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_audits.pdf">Audits</a></td>
+	</tr>
+	<tr>
+		<td>Utilisation de Vitam UI</td>
+		<td>NA</td>
+		<td>... produire un relevé de valeur probante sur une ou plusieurs de mes archives électroniques</td>
+		<td>... administrateur fonctionnel VITAM UI, super-archiviste</td>
+		<td>Relevé de valeur probante</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_releve_valeur_probante.pdf">Relevé de valeur probante</a></td>
+	</tr>
 </table>
