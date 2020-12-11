@@ -54,7 +54,7 @@ fatherref: documentation
 		<td>... définir des regroupements de droits sur les APPs VITAM UI pour mes utilisateurs en créant un nouveau groupe de profils</td>
 		<td>... administrateur fonctionnel VITAM UI</td>
 		<td>Groupes de profils</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_groupe_profil.pdf"Groupes de profils</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_groupe_profil.pdf">Groupes de profils</a></td>
 	</tr>
 	<tr>
 		<td>Organisation et droits utilisateurs</td>
