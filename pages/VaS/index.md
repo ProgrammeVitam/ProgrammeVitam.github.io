@@ -1,13 +1,17 @@
 ---
 layout: page
-title: En savoir plus sur VaS
+title: Vitam accessible en service
 fatherref: VaS
 level: page
 ---
 
 > Cette page vous présente le projet Vitam accessible en service.
 
-# L'offre VaS
+* [L'offre VaS](#offre)
+* [Les fonctionnalités de VaS](#fonctionnalites)
+* [Historique du projet](#historique)
+
+# L'offre VaS <a name="offre"></a>
 
 ## Notre mission
  
@@ -21,9 +25,9 @@ Organiser, de manière sécurisée, pérenne et souveraine la conservation et la
 - réduire vos difficultés organisationnelles et gagner du temps
 - mutualiser les coûts
 
-![alt text](/public/images/Vas_details.PNG)
+![alt text](/public/images/VaS_details.PNG)
 
-## Pourqoi recourir à VaS ?
+## Pourquoi recourir à VaS ?
 
 - Pour archiver en toute sécurité ses données sur une offre de l'Etat
 - Pour accéder à tout moment à ses documents
@@ -32,15 +36,25 @@ Organiser, de manière sécurisée, pérenne et souveraine la conservation et la
 - Pour profiter d'un accompagnement fonctionnel et technique riche de l'expérience Vitam
 - Pour faciliter l'archivage numérique définitif aux Archives nationales
 
-## Les + de l'offre VaSImplication et soutien de l'Etat
+## Les + de l'offre VaS
 
+- Implication et soutien de l'Etat
 - Cloud souverain de l'Etat
 - Compétitivité financière
 - Interface homme-machine simple d'utilisation et conçu en UX Design
 - Enrichissement des fonctionnalités en continu 
 - Ecosystème Vitam et son club utilisateurs
 
-# Historique du projet VaS
+# Les fonctionnalités de VaS <a name="fonctionnalites"></a>
+
+![alt text](/public/images/vas_schema.png)
+
+## Fonctionnalités métier
+
+## Caractéristiques techniques
+
+
+# Historique du projet VaS <a name="historique"></a>
 
 Courant 2019, le ministère de la Culture et les ministères de la Transition écologique et solidaire, et de la Cohésion des territoires et des Relations avec les collectivités territoriales ont signé une convention de service pour le projet "Vitam as a Service". 
 Devenu depuis Vitam accessible en service (VaS), ce projet soutenu également par la DINum et le Siaf vise dans sa première phase à produire un produit minimum viable (MVP) offrant des fonctionnalités de versement et de gestion des archives pour les archivistes. 
