@@ -11,7 +11,7 @@ level: page
 * [Les fonctionnalités de VaS](#fonctionnalites)
 * [Historique du projet](#historique)
 
-[Télécharger le document de présentation]((/ressources/RefCourant/vas-def_51203103.pdf)
+[Télécharger le document de présentation](/ressources/RefCourant/vas-def_51203103.pdf)
 ![Logos](/public/images/Logo_dev_provisoire.PNG)
 
 
