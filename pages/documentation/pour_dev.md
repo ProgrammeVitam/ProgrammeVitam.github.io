@@ -4,13 +4,6 @@ title: Doc. développeur
 fatherref: documentation
 ---
 
-* [Première approche](pour_approche_deb)
-* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
-* [Documentation métier](pour_archiviste)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation Vitam UI](pour_vitamUI)
-* [Chantier préservation : documentation](sur_chantier_preservation)
 
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.3.14.2.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
@@ -23,4 +16,13 @@ fatherref: documentation
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 
+# Documentation
+
+* [Première approche](pour_approche_deb)
+* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
+* [Documentation métier](pour_archiviste)
+* [Documentation des tests](pour_test)
+* [Documentation technique](pour_tech)
+* [Documentation Vitam UI](pour_vitamUI)
+* [Chantier préservation : documentation](sur_chantier_preservation)
 ![Logos](/public/images/202003_guide de lecture.png)

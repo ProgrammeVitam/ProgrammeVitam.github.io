@@ -6,14 +6,6 @@ fatherref: documentation
 
 > Est ici présentée la documentation de Vitam UI.
 
-* [Première approche](pour_approche_deb)
-* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
-* [Documentation métier](pour_archiviste)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation développeur](pour_dev)
-* [Chantier préservation : documentation](sur_chantier_preservation)
-
 <table>
 <caption><b>Guide de lecture de la documentation Vitam UI</b></caption>
 	<tr>
@@ -153,3 +145,12 @@ fatherref: documentation
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_releve_valeur_probante.pdf">Relevé de valeur probante</a></td>
 	</tr>
 </table>
+
+# Documentation
+* [Première approche](pour_approche_deb)
+* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
+* [Documentation métier](pour_archiviste)
+* [Documentation des tests](pour_test)
+* [Documentation technique](pour_tech)
+* [Documentation développeur](pour_dev)
+* [Chantier préservation : documentation](sur_chantier_preservation)
