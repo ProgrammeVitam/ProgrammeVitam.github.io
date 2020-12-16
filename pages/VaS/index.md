@@ -11,6 +11,10 @@ level: page
 * [Les fonctionnalités de VaS](#fonctionnalites)
 * [Historique du projet](#historique)
 
+[Télécharger le document de présentation]((/ressources/RefCourant/vas-def_51203103.pdf)
+![Logos](/public/images/Logo_dev_provisoire.PNG)
+
+
 # L'offre VaS <a name="offre"></a>
 
 ## Notre mission
@@ -45,13 +49,40 @@ Organiser, de manière sécurisée, pérenne et souveraine la conservation et la
 - Enrichissement des fonctionnalités en continu 
 - Ecosystème Vitam et son club utilisateurs
 
+
+
+
+
 # Les fonctionnalités de VaS <a name="fonctionnalites"></a>
 
 ![alt text](/public/images/vas_schema.png)
 
 ## Fonctionnalités métier
 
+- Déposer sur la plateforme un dossier d'archives numériques
+- Verser des données numériques directement issues d'une application tierce
+- Contrôler à l'entrée la conformité de son versement
+- Créer une arborescence et y intégrer ses versements
+- Modifier  les métadonnées
+- Stocker et indexer les archives et leurs métadonnées
+- Calculer les échéances des règles de gestion
+- Gérer les stocks et éliminer les archives dont la DUA est échue
+- Créer des profils d'utilisateurs et gérer leurs droits d'accès et de modification dans l'application
+- Rechercher dans les arborescences et les archives conservées, les consulter et les télécharger en fonction de ses droits
+- Tracer toutes les actions qui ont lieu dans le système, et générer des certificats (valeur probante, intégrité)
+- Auditer le système et les fonds existants
+
 ## Caractéristiques techniques
+
+- Données stockées sur des serveurs de l’Etat (Cercle 1 du Cloud de l’Etat)
+- Infrastructure mutualisée
+- Equipe d’exploitation dédiée (taux de disponibilité garanti à ce stade à 98% en heures ouvrées, en amélioration continue)
+- Redondance sur deux sites (garantie de non-perte de données)
+- Élasticité (offre qui s'adapte à la demande)
+- Centralisation de l'exploitation et de la maintenance de la plateforme
+- Centralisation des mises à jour logicielles et de sécurité
+
+
 
 
 # Historique du projet VaS <a name="historique"></a>
