@@ -12,9 +12,9 @@ fatherref: documentation
 * [Documentation Vitam UI](pour_vitamUI)
 * [Chantier préservation : documentation](sur_chantier_preservation)
 
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.3.6.0.pdf) \| [html](/ressources/DocCourante/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.3.6.0.pdf) \| [html](/ressources/DocCourante/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.3.6.0.pdf) \| [html](/ressources/DocCourante/html/installation))
-* **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.3.6.0.pdf) \| [html](/ressources/DocCourante/html/migration))
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.3.14.2.pdf) \| [html](/ressources/DocCourante/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.3.14.2.pdf) \| [html](/ressources/DocCourante/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.3.14.2.pdf) \| [html](/ressources/DocCourante/html/installation))
+* **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.3.14.2.pdf) \| [html](/ressources/DocCourante/html/migration))
 
 ![Logos](/public/images/202003_guide de lecture.png)

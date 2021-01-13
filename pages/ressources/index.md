@@ -7,8 +7,8 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Actuellement, vous pouvez tester la Release 14. Il est conseillé d’installer la Release 13, V3 de la solution logicielle Vitam, désignée comme version Long Time Support et qui a reçu une homologation de sécurité pour 2 ans. Il est aussi possible de mettre à jour la Release 9 (V2 de la solution logicielle Vitam, précédente version Long Time Support). 
-Il est déconseillé d'utiliser les Releases autres qui ne seront pas des versions LTS.  
+Actuellement, la Release 15 peut être développée et testée. Il est conseillé d’installer la Release 13, V3 de la solution logicielle Vitam, désignée comme version Long Time Support et qui a reçu une homologation de sécurité pour 2 ans.
+Il est déconseillé d'utiliser les Releases qui ne seront pas des versions LTS.  
 
 
 * [Solution logicielle Vitam - toutes versions publiées](#touteversion)
@@ -29,7 +29,7 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/3.6.0/mvn_repo/)
+Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/3.14.2/mvn_repo/)
 
 * **les paquets de déploiement**
 
@@ -45,19 +45,19 @@ Pour la 3.0.9 de la R13 (mise à jour en novembre 2020)
 ** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.9/deb/vitam-product) 
 ** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.9/deb/vitam-external) 
 
-Pour la 3.6.0 de la R14 (mise à jour en juillet 2020)
-* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.6.0)     
-* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/3.6.0)    
-* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.6.0/mvn_repo/)     
+Pour la 3.14.2 de la R15 (mise à jour en janvier 2021)
+* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.14.2)   
+* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/3.14.2)    
+* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.14.2/mvn_repo/)     
 * URL de configuration des dépôts de binaires CentOS/RHEL :      
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.6.0/rpm/vitam-product)       
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.6.0/rpm/vitam-external)    
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.14.2/rpm/vitam-product)       
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.14.2/rpm/vitam-external)    
 * URL de configuration des dépôts de binaires Debian :      
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.6.0/deb/vitam-product)       
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.6.0/deb/vitam-external)     
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.14.2/deb/vitam-product)       
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.14.2/deb/vitam-external)     
 
 Liens de téléchargement :
-[**Version 3.6.0 (Release R14)**](https://r14.env.programmevitam.fr/)
+[**Version 3.14.2 (Release R15)**](https://r15.env.programmevitam.fr/)
 
 [**Version 3.0.9 (Release R13)**](https://r13.env.programmevitam.fr/)
   
