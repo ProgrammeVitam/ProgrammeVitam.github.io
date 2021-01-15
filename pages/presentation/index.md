@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Présentation
+title: Le programme
 fatherref: presentation
 level: page
 ---

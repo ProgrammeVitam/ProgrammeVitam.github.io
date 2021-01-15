@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Vitam accessible en service
+title: L'offre VaS
 fatherref: VaS
 level: page
 ---
