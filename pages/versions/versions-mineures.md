@@ -5,7 +5,9 @@ fatherref: versions
 ---
 
 > Cette page présente les annonces des différentes versions publiées depuis 2016.
-[Juillet 2020: Publication de la Release 14](http://www.programmevitam.fr/2020/07/16/Release14/)
+[Janvier 2021 : En route vers la version 4 de Vitam avec sa Release 15](https://www.programmevitam.fr/2021/01/15/Release15/)
+
+[Juillet 2020 : Publication de la Release 14](http://www.programmevitam.fr/2020/07/16/Release14/)
 
 [Novembre 2019: Publication de la Release 12... la dernière avant la V3 de Vitam](https://www.programmevitam.fr/2019/11/29/Release12/)
 
