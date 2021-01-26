@@ -98,7 +98,7 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels et paquets SIP:
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](http://download.programmevitam.fr/vitam_repository/3.6.0/tests/Jeux_de_tests_fonctionnels_RELEASE14.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
+([zip](https://download.programmevitam.fr/jeux_de_tests/r15/Jeux_de_tests_fonctionnels_R15.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
 <a name="preservation"></a>
 ## Outils de préservation Vitam
