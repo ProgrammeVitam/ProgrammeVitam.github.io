@@ -4,14 +4,6 @@ title: Doc. métier
 fatherref: documentation
 ---
 
-* [Première approche](pour_approche_deb)
-* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation développeur](pour_dev)
-* [Documentation Vitam UI](pour_vitamUI)
-* [Chantier préservation : documentation](sur_chantier_preservation)
-
 * **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Organisation_de_information.pdf))
@@ -39,5 +31,11 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Transfert.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
 
-
+* [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
+* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
+* [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
+* [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
+* [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
+* [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
+* [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 ![Logos](/public/images/202003_guide de lecture.png)

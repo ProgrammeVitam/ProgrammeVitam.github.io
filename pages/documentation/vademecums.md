@@ -5,16 +5,6 @@ fatherref: documentation
 ---
 
 
-## Quelle documentation ?
-
-* [Première approche](pour_approche_deb)
-* [Documentation métier](pour_archiviste)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation développeur](pour_dev)
-* [Documentation Vitam UI](pour_vitamUI)
-* [Chantier préservation : documentation](sur_chantier_preservation)
-
 * **Sommaire** ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Sommaire.pdf))
 * **Glossaire** ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_glossaire.pdf))
 
@@ -63,4 +53,13 @@ fatherref: documentation
 
 	**[Télécharger tous les vademecums](/ressources/DocCourante/autres/fonctionnel/Vitam_vademecum.7z)**
 
+	
+# Documentation
+* [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
+* [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
+* [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
+* [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
+* [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
+* [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
+* [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 ![Logos](/public/images/202003_guide de lecture.png)

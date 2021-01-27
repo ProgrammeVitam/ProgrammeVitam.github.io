@@ -147,10 +147,10 @@ fatherref: documentation
 </table>
 
 # Documentation
-* [Première approche](pour_approche_deb)
-* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
-* [Documentation métier](pour_archiviste)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation développeur](pour_dev)
-* [Chantier préservation : documentation](sur_chantier_preservation)
+* [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
+* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
+* [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
+* [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
+* [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
+* [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
+* [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)

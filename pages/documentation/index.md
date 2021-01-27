@@ -10,14 +10,14 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 ## Quelle documentation ?
 
-* [Première approche](pour_approche_deb)
-* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
-* [Documentation métier](pour_archiviste)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation développeur](pour_dev)
-* [Documentation Vitam UI](pour_vitamUI)
-* [Chantier préservation : documentation](sur_chantier_preservation)
+* [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
+* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
+* [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
+* [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
+* [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
+* [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
+* [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
+* [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 
 ![Logos](/public/images/202003_guide de lecture.png)
 

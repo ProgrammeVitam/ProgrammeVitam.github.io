@@ -4,14 +4,6 @@ title: Chantier préservation
 fatherref: documentation
 ---
 
-* [Première approche](pour_approche_deb)
-* [Vademecums ou "Vitam pour mes grands-parents"](vademecums)
-* [Documentation métier](pour_archiviste)
-* [Documentation des tests](pour_test)
-* [Documentation technique](pour_tech)
-* [Documentation développeur](pour_dev)
-* [Documentation Vitam UI](pour_vitamUI)
-
 > L'équipe Programme Vitam a mené entre 2017 et 2019 un vaste chantier autour des questions de préservation.
 
 ![Logos](/public/images/doc_preservation.png)
@@ -35,3 +27,11 @@ Pour consulter la documentation :
 * **Validation du format des fichiers** ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-validation-format-v2.0.pdf))
 * **Extraction des métadonnées techniques** ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-extraction-MD-v2.0.pdf))
 
+# Documentation
+* [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
+* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
+* [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
+* [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
+* [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
+* [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
+* [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
