@@ -44,3 +44,4 @@ Ainsi grâce aux travaux du CEA et du CINES, partenaires historiques du Programm
 Ces contributions font l’objet d’un reversement de code au socle Vitam et un accord contributeur encadre ce dispositif.
 
 D'autres travaux ont été initiés, sur les gros volumes ou la reprise de données, ainsi que des groupes de discussion réunissant les différents membres selon leurs intérêts.
+En ce début d'année 2021, nous saluons l'arrivée ces derniers mois du département de la Gironde, de la communauté d'agglomération de Cergy-Pontoise, de Xelians, de Xdemat, de Mintika, d'Olkoa, d'Atos et de Sopra Steria. 
