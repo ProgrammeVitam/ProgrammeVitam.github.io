@@ -14,10 +14,10 @@ A quelques semaines de la publication de la V4 de Vitam, focus sur cet outil, mo
 
 Pour cela, 3 documents vous y aident et nous vous conseillons de consulter :
 
-    • [L’attribution des identifiants dans la solution logicielle Vitam](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/Vademecum_Maitre_esclave.pdf)
+- [L’attribution des identifiants dans la solution logicielle Vitam](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/Vademecum_Maitre_esclave.pdf)
 
-    • [Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/Vademecum_Parametrage_PF.pdf)
+- [Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/Vademecum_Parametrage_PF.pdf)
 
-    • [Les tenants dans la solution logicielle Vitam](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/Vademecum_Tenants.pdf)
+- [Les tenants dans la solution logicielle Vitam](http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/Vademecum_Tenants.pdf)
 
 Bonne lecture !
