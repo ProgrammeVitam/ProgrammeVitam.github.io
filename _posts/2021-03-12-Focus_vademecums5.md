@@ -10,7 +10,7 @@ Sclera asbl CC BY-NC 2.0 BE
 
 A quelques jours de la publication de la V4 de Vitam, focus sur cet outil, moyen complémentaire à la [documentation](http://www.programmevitam.fr/pages/documentation/) pour monter en compétence sur la solution logicielle.
 
-# Quatrième étape : contrôler les métadonnées !
+# Quatrième : contrôler les métadonnées !
 
 Pour cela, les documents suivants vous y aident et nous vous conseillons de consulter :
 
