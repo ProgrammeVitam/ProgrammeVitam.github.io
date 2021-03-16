@@ -1,7 +1,7 @@
 ---
 layout: page
 title: La solution logicielle
-fatherref: logiciel
+fatherref: solution
 level: page
 ---
 
