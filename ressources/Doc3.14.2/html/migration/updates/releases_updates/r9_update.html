@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3.3. Notes et procédures spécifiques R9 &mdash; Documentation VITAM - Documentation de montées de version 3.14.2</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="4.3.4. Notes et procédures spécifiques R10" href="r10_update.html" />
+    <link rel="prev" title="4.3.2. Notes et procédures spécifiques R8" href="r8_update.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Documentation de montées de version
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.14.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generalites.html">3. Généralités sur les versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">4. Montées de version</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../principles.html">4.1. Principes généraux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bugfixes_updates/_toc.html">4.2. Montées de version <em>bugfix</em></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">4.3. Montées de version mineure</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="r7_update.html">4.3.1. Notes et procédures spécifiques R7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r8_update.html">4.3.2. Notes et procédures spécifiques R8</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.3. Notes et procédures spécifiques R9</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#etapes-prealables-a-la-montee-de-version">4.3.3.1. Étapes préalables à la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#montee-de-version">4.3.3.2. Montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#etapes-de-migration">4.3.3.3. Etapes de migration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="r10_update.html">4.3.4. Notes et procédures spécifiques R10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r11_update.html">4.3.5. Notes et procédures spécifiques R11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r12_update.html">4.3.6. Notes et procédures spécifiques R12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r13_update.html">4.3.7. Notes et procédures spécifiques R13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r15_updates.html">4.3.8. Notes et procédures spécifiques R15</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Documentation de montées de version</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">4. Montées de version</a> &raquo;</li>
+        
+          <li><a href="_toc.html">4.3. Montées de version mineure</a> &raquo;</li>
+        
+      <li>4.3.3. Notes et procédures spécifiques R9</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/updates/releases_updates/r9_update.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="notes-et-procedures-specifiques-r9">
+<h1>4.3.3. Notes et procédures spécifiques R9<a class="headerlink" href="#notes-et-procedures-specifiques-r9" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Rappel : la montée de version vers la <em>release</em> R9 s’effectue depuis la <em>release</em> R7 (V1, <em>deprecated</em>) ou la <em>release</em> R8 (V1, <em>deprecated</em>) et doit être réalisée en s’appuyant sur les dernières versions <em>bugfixes</em> publiées.</p>
+</div>
+<div class="section" id="etapes-prealables-a-la-montee-de-version">
+<h2>4.3.3.1. Étapes préalables à la montée de version<a class="headerlink" href="#etapes-prealables-a-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="gestion-du-referentiel-des-formats">
+<h3>4.3.3.1.1. Gestion du référentiel des formats<a class="headerlink" href="#gestion-du-referentiel-des-formats" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Si un référentiel des formats personnalisé est utilisé avec la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, il faut impérativement, lors d’une montée de version, modifier manuellement le fichier des formats livré par défaut avant toute réinstallation afin d’y réintégrer les modifications. A défaut, le référentiel des formats sera réinitialisé.</p>
+</div>
+<p>Il faut pour cela éditer le fichier situé à l’emplacement <code class="docutils literal notranslate"><span class="pre">environments/DROID_SignatureFile_&lt;version&gt;.xml</span></code> afin d’y réintégrer les éléments du référentiel des formats personnalisés.</p>
+</div>
+<div class="section" id="gestion-de-la-retro-compatibilite-des-donnees-des-offres">
+<h3>4.3.3.1.2. Gestion de la rétro-compatibilité des données des offres<a class="headerlink" href="#gestion-de-la-retro-compatibilite-des-donnees-des-offres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En préalable à l’installation, et uniquement dans le cas d’une montée de version (ne concerne pas le cas d’une installation R9 <em>from scratch</em>), il est nécessaire d’éditer le fichier d’inventaire ansible sur le modèle du fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/hosts.example</span></code> afin de décommenter la ligne ci-dessous :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># On offer, value is the prefix for all containers&#39; names. If upgrading from R8, you MUST UNCOMMENT this parameter AS IS !!!</span>
+<span class="l l-Scalar l-Scalar-Plain">vitam_prefix_offer=&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Cela est dû à la mise en place, à partir de la version R9, d’un prefixe au niveau des noms de conteneurs de <em>tenants</em> logiques <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> sur les offres de stockage. Dans le cas d’une montée de version, cette étape préalable à l’installation permettra de garantir la rétro-compatibilité des données entre les versions précédentes et la version R9 (et supérieures).</p>
+</div>
+<div class="section" id="arret-des-timers-systemd">
+<h3>4.3.3.1.3. Arrêt des <em>timers</em> systemd<a class="headerlink" href="#arret-des-timers-systemd" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes sont à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> sur les différents sites hébergeant la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/stop_vitam_timers.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/stop_vitam_timers.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les <em>timers</em> systemd ont été arrêtés, afin de ne pas perturber la migration.</p>
+<p>Il est également recommandé de ne lancer la procédure de migration qu’après s’être assuré que plus aucun <cite>workflow</cite> n’est ni en cours, ni en statut <strong>FATAL</strong>.</p>
+</div>
+<div class="section" id="arret-des-composants-externals">
+<h3>4.3.3.1.4. Arrêt des composants <em>externals</em><a class="headerlink" href="#arret-des-composants-externals" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes sont à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> sur les différents sites hébergeant la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/stop_external.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/stop_external.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les composants <em>externals</em> ont été arrêtés, afin de ne pas perturber la migration.</p>
+</div>
+<div class="section" id="reprise-des-donnees-de-certificats">
+<h3>4.3.3.1.5. Reprise des données de certificats<a class="headerlink" href="#reprise-des-donnees-de-certificats" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La version R9 apporte une nouvelle fonctionnalité permettant la révocation des certificats <a class="reference internal" href="../../introduction.html#term-sia"><span class="xref std std-term">SIA</span></a> et <em>Personae</em>, afin d’empecher des accès non autorisés aux <a class="reference internal" href="../../introduction.html#term-api"><span class="xref std std-term">API</span></a> <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (vérification dans la couche https des <a class="reference internal" href="../../introduction.html#term-crl"><span class="xref std std-term">CRL</span></a>). Cette fonctionnalité impose d’effectuer une reprise des données des certificats (base MongoDB identity, collections <code class="docutils literal notranslate"><span class="pre">Certificate</span></code> et <code class="docutils literal notranslate"><span class="pre">PersonalCertificate</span></code>).</p>
+<p>Les commandes sont à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> sur les différents sites hébergeant la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">ansible-vitam-exploitation/migration_r7_certificates.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">ansible-vitam-exploitation/migration_r7_certificates.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+</div>
+<div class="section" id="montee-de-version-mongodb-3-4-vers-4-0">
+<h3>4.3.3.1.6. Montée de version MongoDB 3.4 vers 4.0<a class="headerlink" href="#montee-de-version-mongodb-3-4-vers-4-0" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La montée de version R7 vers R9 comprend une montée de version de la bases de données MongoDB de la version 3.4 à la version 4.0.</p>
+<p>Les commandes suivantes sont à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> sur les différents sites hébergeant la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
+<ul class="simple">
+<li>Arrêt de <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (<cite>playbook</cite> <code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/stop_vitam.yml</span></code>)</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">A partir de là, la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est arrêtée ; elle ne sera redémarrée qu’au déploiement de la nouvelle version.</p>
+</div>
+<ul class="simple">
+<li>Démarrage des différents cluster mongodb (playbook <code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/start_mongodb.yml</span></code>)</li>
+<li>Upgrade de mongodb en version 3.6 (<cite>playbook</cite> <code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/migration_mongodb_36.yml</span></code>)</li>
+<li>Upgrade de mongodb en version 4.0 (<cite>playbook</cite> <code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/migration_mongodb_40.yml</span></code>)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="montee-de-version">
+<h2>4.3.3.2. Montée de version<a class="headerlink" href="#montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La montée de version vers la <em>release</em> R9 est réalisée par réinstallation de la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> grâce aux <em>playbooks</em> ansible fournis, et selon la procédure d’installation classique décrite dans le <a class="reference internal" href="../../introduction.html#term-din"><span class="xref std std-term">DIN</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Rappel : avant de procéder à la montée de version, on veillera tout particulièrement à la bonne mise en place des <em>repositories</em> <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> associés à la nouvelle version. Se reporter à la section du <a class="reference internal" href="../../introduction.html#term-din"><span class="xref std std-term">DIN</span></a> sur la mise en place des <em>repositories</em> <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">À l’issue de l’exécution du déploiement de Vitam, les composants <em>externals</em> ainsi que les <em>timers</em> systemd seront redémarrés. Il est donc recommandé de jouer les étapes de migration suivantes dans la foulée.</p>
+</div>
+</div>
+<div class="section" id="etapes-de-migration">
+<h2>4.3.3.3. Etapes de migration<a class="headerlink" href="#etapes-de-migration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans le cadre d’une montée de version R7 vers R9, il est nécessaire d’appliquer un <cite>playbook</cite> de migration de données à l’issue de réinstallation de la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Dans le cas particulier d’une installation multi-sites, il sera nécessaire de d’abord lancer la migration des données sur le site secondaire afin de purger les registres des fonds, puis de lancer la migration sur le site primaire, et enfin de lancer la reconstruction des registres des fonds sur le site secondaire.</p>
+</div>
+<div class="section" id="procedure-de-migration-des-donnees">
+<h3>4.3.3.3.1. Procédure de migration des données<a class="headerlink" href="#procedure-de-migration-des-donnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lancer les commandes ci-après dans l’ordre suivant :</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>D’abord sur le site secondaire pour purger les registres des fonds</li>
+<li>Ensuite sur le site primaire pour la migration des registres des fonds.</li>
+</ol>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r7_r8.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r7_r8.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Selon la volumétrie des données précédement chargées, le <cite>playbook</cite> peut durer jusqu’à plusieurs heures.</p>
+</div>
+<p>En complément, en lien avec la correction du bug #5911, une migration du modèle de données des contrats d’entrées est également requise. Cette migration s’effectue à l’aide de la commande suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r7_r9_ingestcontracts.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r7_r9_ingestcontracts.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Durant la migration, il est fortement recommandé de ne pas procéder à des versements de données. En effet, le <cite>playbook</cite> se charge d’arrêter les composants «&nbsp;ingest-external&nbsp;» et «&nbsp;access-external&nbsp;» avant de réaliser les opérations de migration de données, puis de redémarrer les composants «&nbsp;ingest-external&nbsp;» et «&nbsp;access-external&nbsp;».</p>
+</div>
+<p>Les opérations de migration réalisées portent, entre autres, sur les éléments suivants :</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Les registres des fonds (Accession Registers)</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Diff AccessionRegisterDetail:</dt>
+<dd><ul class="first last">
+<li>Suppression du champs <code class="docutils literal notranslate"><span class="pre">Identifier</span></code>, remplacé par <code class="docutils literal notranslate"><span class="pre">Opc</span></code> (Opération courante)</li>
+<li>Suppression du champs <code class="docutils literal notranslate"><span class="pre">OperationGroup</span></code>, remplacé par <code class="docutils literal notranslate"><span class="pre">Opi</span></code> (Opération d’ingest)</li>
+<li>Suppression du champs <code class="docutils literal notranslate"><span class="pre">Symbolic</span></code></li>
+<li>Suppression des champs <code class="docutils literal notranslate"><span class="pre">attached</span></code>, <code class="docutils literal notranslate"><span class="pre">detached</span></code>, <code class="docutils literal notranslate"><span class="pre">symbolicRemained</span></code> des sous objets (<code class="docutils literal notranslate"><span class="pre">TotalUnits</span></code>, <code class="docutils literal notranslate"><span class="pre">TotalObjectGroups</span></code>, <code class="docutils literal notranslate"><span class="pre">TotalObjects</span></code>, <code class="docutils literal notranslate"><span class="pre">ObjectSize</span></code>)</li>
+<li>Ajout d’un sous objet <code class="docutils literal notranslate"><span class="pre">Events</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Diff AccessionRegisterSummary:</dt>
+<dd><ul class="first last">
+<li>Suppression des champs <code class="docutils literal notranslate"><span class="pre">attached</span></code>, <code class="docutils literal notranslate"><span class="pre">detached</span></code>, <code class="docutils literal notranslate"><span class="pre">symbolicRemained</span></code> des sous objets (<code class="docutils literal notranslate"><span class="pre">TotalUnits</span></code>, <code class="docutils literal notranslate"><span class="pre">TotalObjectGroups</span></code>, <code class="docutils literal notranslate"><span class="pre">TotalObjects</span></code>, <code class="docutils literal notranslate"><span class="pre">ObjectSize</span></code>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Le journal des opérations</dt>
+<dd><ul class="first last">
+<li>Seules seront disponibles les données du registre des fonds selon le nouveau modèle dans le <code class="docutils literal notranslate"><span class="pre">evDetData</span></code> du journal de l’opération d”<cite>ingest</cite>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Les contrats d’entrées</dt>
+<dd><ul class="first last">
+<li>Ajout d’un mécanisme de contrôle pour la vérification du format de fichier DataObject (ajout des champs FormatUnidentifiedAuthorized, EveryFormatType et FormatType)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Se reporter à la documentation du nouveau modèle de données de la release R9.</p>
+</div>
+</div>
+<div class="section" id="procedure-de-reindexation-des-registres-de-fonds">
+<h3>4.3.3.3.2. Procédure de réindexation des registres de fonds<a class="headerlink" href="#procedure-de-reindexation-des-registres-de-fonds" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Sous <code class="docutils literal notranslate"><span class="pre">deployment</span></code>, exécuter la commande suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/reindex_es_data.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span> <span class="pre">--tags</span> <span class="pre">accessionregisterdetail</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/reindex_es_data.yml</span> <span class="pre">--ask-vault-pass</span> <span class="pre">--tags</span> <span class="pre">accessionregisterdetail</span></code></p>
+<p>Les changement apportés touchent le mapping Elasticsearch de la collection <code class="docutils literal notranslate"><span class="pre">AccessionRegisterDetail</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ce <cite>playbook</cite> ne supprime pas les anciens indexes pour laisser à l’exploitant le soin de verifier que la procedure de migration s’est correctement déroulée. A l’issue, la suppression des index devenus inutiles devra être realisée manuellement.</p>
+</div>
+</div>
+<div class="section" id="procedure-de-reindexation-des-objectgroup">
+<h3>4.3.3.3.3. Procédure de réindexation des ObjectGroup<a class="headerlink" href="#procedure-de-reindexation-des-objectgroup" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Sous <code class="docutils literal notranslate"><span class="pre">deployment</span></code>, exécuter la commande suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r7_r9.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r7_r9.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+<p>Les changement apportés touchent le mapping Elasticsearch sur l’attribut <code class="docutils literal notranslate"><span class="pre">qualifier.version</span></code> de la collection <code class="docutils literal notranslate"><span class="pre">ObjectGroup</span></code> (passé en nested)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ce <cite>playbook</cite> ne supprime pas les anciens indexes pour laisser à l’exploitant le soin de verifier que la procedure de migration s’est correctement déroulée. A l’issue, la suppression des index devenus inutiles devra être realisée manuellement.</p>
+</div>
+</div>
+<div class="section" id="apres-la-migration">
+<h3>4.3.3.3.4. Après la migration<a class="headerlink" href="#apres-la-migration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Exécuter la commande suivante afin de réactiver les timers systemd sur les différents sites hébergeant la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/start_vitam_timers.yml</span> <span class="pre">--vault-password-file</span> <span class="pre">vault_pass.txt</span></code></p>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
+<p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/start_vitam_timers.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les timers systemd ont été redémarrés.</p>
+</div>
+<div class="section" id="une-fois-le-site-secondaire-up">
+<h3>4.3.3.3.5. Une fois le site secondaire <cite>up</cite><a class="headerlink" href="#une-fois-le-site-secondaire-up" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Sur le site secondaire, vérifier sur les machines hébergeant le composant <code class="docutils literal notranslate"><span class="pre">functional-administration</span></code> que le processus de reconstruction des registres des fonds a bien démarré.</p>
+<p>La commande à exécuter (en tant que root) est la suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">vitam-functional-administration-accession-register-reconstruction.service</span></code></p>
+</div>
+<div class="section" id="verification-de-la-bonne-migration-des-donnees">
+<h3>4.3.3.3.6. Vérification de la bonne migration des données<a class="headerlink" href="#verification-de-la-bonne-migration-des-donnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>A l’issue de la migration, il est fortement conseillé de lancer un «&nbsp;Audit de cohérence&nbsp;» sur les différents tenants. Pour rappel du <a class="reference internal" href="../../introduction.html#term-dex"><span class="xref std std-term">DEX</span></a>, pour lancer un audit de cohérence, il faut lancer le <em>playbook</em> comme suit :</p>
+<blockquote>
+<div>ansible-playbook -i &lt;inventaire&gt; ansible-playbok-exploitation/audit_coherence.yml –ask-vault-pass -e «&nbsp;access_contract=&lt;contrat multitenant&gt;&nbsp;»</div></blockquote>
+<p>Ou, si un fichier vault-password-file existe</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">playbok</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">audit_coherence</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;access_contract=&lt;contrat multitenant&gt;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>L’audit est lancé sur tous les <em>tenants</em> ; cependant, il est nécessaire de donner le contrat d’accès adapté. Se rapprocher du métier pour cet <em>id</em> de contrat. Pour limiter la liste des <em>tenants</em>, il faut rajouter un <em>extra var</em> à la ligne de commande ansible. Exemple</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">e</span> <span class="n">vitam_tenant_ids</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="last">pour limiter aux <cite>tenants</cite> 0 et 1.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="r10_update.html" class="btn btn-neutral float-right" title="4.3.4. Notes et procédures spécifiques R10" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="r8_update.html" class="btn btn-neutral float-left" title="4.3.2. Notes et procédures spécifiques R8" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

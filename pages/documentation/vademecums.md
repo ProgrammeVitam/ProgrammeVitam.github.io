@@ -40,7 +40,7 @@ fatherref: documentation
 	- La gestion des droits et permissions des utilisateurs applicatifs dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Habilitations.pdf))
 	- Le suivi des accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Log_acces_description.pdf))
 * **Utilisation d’une fonctionnalité Vitam**
-	- La journalisation et la conservation de la valeur probante dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Vitam_Journalisation.pdf))
+	- La journalisation et la conservation de la valeur probante dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Journalisation.pdf))
 	- Le suivi des accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Log_acces_description.pdf))
 	- Le registre des fonds dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Registre_fonds.pdf))
 	- Les audits dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Audit.pdf))
