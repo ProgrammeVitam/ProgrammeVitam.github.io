@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Le front-office Vitam UI
+title: Vitam UI
 fatherref: logiciel
 ---
 Avec Vitam UI, Vitam se dote d’une interface utilisateurs.

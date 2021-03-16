@@ -1,5 +1,5 @@
 ---
 layout: page
-title: Le back-office
+title: Vitam back-office
 fatherref: logiciel
 ---
