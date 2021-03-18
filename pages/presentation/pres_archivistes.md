@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Focus archivistes
-fatherref: presentation
+fatherref: programme
 ---
 
 >La solution logicielle Vitam doit permettre aux services producteurs d’archives numériques de gérer les étapes du cycle de vie (archivage courant, intermédiaire, définitif) et l’accès à leurs données. Elle doit également permettre aux services d’archives de remplir leurs missions de collecte, de conservation, de gestion et de communication des archives numériques et de répondre aux besoins de pérennisation.

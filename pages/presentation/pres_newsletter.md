@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Lettres d'information
-fatherref: presentation
+fatherref: programme
 ---
 
 >Vous pouvez connaître l'actualité du Programme Vitam, en nous suivant sur les réseaux sociaux ou en consultant nos lettres d'information publiées régulièrement.

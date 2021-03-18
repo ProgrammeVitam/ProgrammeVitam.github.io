@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Focus informaticiens
-fatherref: presentation
+fatherref: programme
 ---
 >Le rôle des informaticiens des ministères et des collectivités susceptibles 
 d’utiliser Vitam est fondamental. Si l'on veut éviter "l'alzheimer" numérique, 
