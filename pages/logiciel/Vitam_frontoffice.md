@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Vitam UI
-fatherref: solution
+fatherref: logiciel
 ---
 Avec Vitam UI, Vitam se dote d’une interface utilisateurs.
 
