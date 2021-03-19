@@ -51,7 +51,7 @@ fatherref: documentation
 	- Réaliser des éliminations avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Elimination.pdf))
 	- Le calcul des héritages des règles de gestion et l’indexation des échéances dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Echeances.pdf))
 
-	**[Télécharger tous les vademecums](/ressources/DocCourante/autres/fonctionnel/Vitam_vademecum.7z)**
+	**[Télécharger tous les vademecums](/ressources/DocCourante/autres/fonctionnel/Vitam_vademecums.zip)**
 
 	
 # Documentation

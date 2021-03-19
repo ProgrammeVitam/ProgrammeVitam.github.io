@@ -10,9 +10,9 @@ fatherref: documentation
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
 
-**[Télécharger toute la documentation métier et Vitam UI](/ressources/DocCourante/autres/fonctionnel/Vitam_doc_totalite.7z)**
+**[Télécharger toute la documentation métier et Vitam UI](/ressources/DocCourante/autres/fonctionnel/Vitam_doc_totalite.zip)**
 
-**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/Vitam_doc_metier.7z)**
+**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/Vitam_doc_metier.zip)**
 
 # Documentation
 * [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
