@@ -11,8 +11,8 @@ fatherref: documentation
 à archiver ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
 * **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
-* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_ArbresEtPlans.pdf))
+* **Gestion des archives et des arborescences** (ancienne documentation "Arbre de positionement et plan de classement"
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gestion_archives_arborescences.pdf))
 * **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
 * **Services producteurs** - présentation des fonctionnalités associées à la
