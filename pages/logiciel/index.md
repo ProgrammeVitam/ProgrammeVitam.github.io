@@ -5,4 +5,5 @@ fatherref: logiciel
 level: page
 ---
 
-![Logos](/public/images/vitam-ui_47872043.png)
+[![VitamUI, un front-office]](/public/images/Vitam_front.png){: style="float:right; margin:2rem; height:15rem"}
+[![Vitam, le back-office]](/public/images/Vitam_back.png){: style="float:right; margin:2rem; height:15rem"}
