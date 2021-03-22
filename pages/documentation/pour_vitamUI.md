@@ -118,7 +118,7 @@ Naviguer dans la documentation par domaine :
 		<td>3.3 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... définir les droits d'une nouvelle application sur les services exposés par Vitam</td>
 		<td>... administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_profils_securite.pdf">Organisation</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_profils_securite.pdf">Profil de sécurité</a></td>
 	</tr>
 	<tr>
 		<td>3.4 (obligatoire sauf si le contrat existe déjà)</td>
