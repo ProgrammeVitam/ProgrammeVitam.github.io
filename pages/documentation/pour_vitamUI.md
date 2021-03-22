@@ -8,7 +8,7 @@ fatherref: documentation
 
 Naviguer dans la documentation par domaine :
 * [Organisation et droits utilisateurs](#orga)
-* [Référentiels](#referentiel)
+* [Référentiels](#referentiels)
 * [Sécurité et droits applicatifs](#secu)
 * [Supervision et audit](#supervision)
 
