@@ -6,16 +6,14 @@ fatherref: documentation
 
 > Est ici présentée la documentation de Vitam UI.
 
+Guide de lecture de la documentation Vitam UI
 <table>
-<caption><b>Guide de lecture de la documentation Vitam UI</b></caption>
 <caption><b>Domaine : organisation et droits utilisateurs</b></caption>
 	<tr>
-		<th>Domaine</th>
 		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
 		<th>Je suis... </th>
 		<th>APP Vitam UI</th>
-		<th>Documentation</th>
 	</tr>
 	<tr>
 		<td>1.1 (obligatoire)</td>
@@ -47,92 +45,73 @@ fatherref: documentation
 		<td>... administrateur fonctionnel VITAM UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_utilisateur.pdf">Utilisateur</a></td>
 	</tr>
+<caption><b>Domaine : référentiels</b></caption>
 	<tr>
-		<td>Référentiels</td>
 		<td>2.1 (obligatoire)</td>
 		<td>... déclarer un nouveau service producteur ou un nouveau service versant dans VITAM UI</td>
 		<td>... administrateur fonctionnel VITAM UI</td>
-		<td>Services agents</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_services_agents.pdf">Services agents</a></td>
 	</tr>
 	<tr>
-		<td>Référentiels</td>
 		<td>2.1 bis (facultatif)</td>
 		<td>... déclarer un nouveau format non présent dans le référentiel PRONOM</td>
 		<td>... administrateur technique VITAM UI</td>
-		<td>Formats de fichiers</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_formats_fichiers.pdf">Formats de fichier</a></td>
 	</tr>
 	<tr>
-		<td>Référentiels</td>
 		<td>2.1 ter (facultatif)</td>
 		<td>... déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA</td>
 		<td>... administrateur technique VITAM UI</td>
-		<td>Ontologie</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_ontologie.pdf">Ontologie</a></td>
 	</tr>
+<caption><b>Domaine : sécurité et droits applicatifs</b></caption>
 	<tr>
-		<td>Sécurité et droits applicatifs</td>
 		<td>3.1 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour le versement d'archives dans un coffre par une nouvelle application</td>
 		<td>... administrateur fonctionnel VITAM UI</td>
-		<td>Contrats d'entrée</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrats_entree.pdf">Contrats d'entrée</a></td>
 	</tr>
 	<tr>
-		<td>Sécurité et droits applicatifs</td>
 		<td>3.2 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour la consultation ou mise à jour d'archives dans un coffre par une nouvelle application</td>
 		<td>... administrateur fonctionnel VITAM UI</td>
-		<td>Contrats d'accès</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrats_acces.pdf">Contrats d'accès</a></td>
 	</tr>
 	<tr>
-		<td>Sécurité et droits applicatifs</td>
 		<td>3.3 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... définir les droits d'une nouvelle application sur les services exposés par VITAM</td>
 		<td>... administrateur technique VITAM UI</td>
-		<td>Profils de sécurité</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_profils_securite.pdf">Organisation</a></td>
 	</tr>
 	<tr>
-		<td>Sécurité et droits applicatifs</td>
 		<td>3.4 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... authentifier une nouvelle application interconnectée avec VITAM et lui attribuer des droits</td>
 		<td>... administrateur technique VITAM UI</td>
-		<td>Contexte applicatif</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contextes_applicatifs.pdf">Contexte applicatif</a></td>
 	</tr>
+<caption><b>Domaine : supervision et audit</b></caption>
 	<tr>
-		<td>Supervision et audit</td>
 		<td>NA</td>
 		<td>... visualiser les opérations de sécurisation et accéder aux journaux du cycle de vie des objets</td>
 		<td>... administrateur technique VITAM UI</td>
-		<td>Opérations de sécurisation</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_operations_securisation.pdf">Opérations de sécurisation</a></td>
 	</tr>
 	<tr>
-		<td>Supervision et audit</td>
 		<td>NA</td>
 		<td>... effectuer des requêtes complexes sur les bases de données documentaires en vue de retrouver des objets</td>
 		<td>... administrateur technique VITAM UI</td>
-		<td>Requêtes DSL</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_requetes.pdf">Requêtes DSL</a></td>
 	</tr>
 	<tr>
-		<td>Supervision et audit</td>
 		<td>NA</td>
 		<td>... vérifier la conformité de la conservation de mes archives</td>
 		<td>... administrateur fonctionnel VITAM UI, super-archiviste</td>
-		<td>Audits</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_audits.pdf">Audits</a></td>
 	</tr>
 	<tr>
-		<td>Supervision et audit</td>
 		<td>NA</td>
 		<td>... produire un relevé de valeur probante sur une ou plusieurs de mes archives électroniques</td>
 		<td>... administrateur fonctionnel VITAM UI, super-archiviste</td>
-		<td>Relevé de valeur probante</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_releve_valeur_probante.pdf">Relevé de valeur probante</a></td>
 	</tr>
 </table>
