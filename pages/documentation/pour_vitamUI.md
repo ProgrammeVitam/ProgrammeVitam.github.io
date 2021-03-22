@@ -6,9 +6,15 @@ fatherref: documentation
 
 > Est ici présentée la documentation de Vitam UI.
 
-Guide de lecture de la documentation Vitam UI
+Naviguer dans la documentation par domaine :
+* [Organisation et droits utilisateurs](#orga)
+* [Référentiels](#referentiel)
+* [Sécurité et droits applicatifs](#secu)
+* [Supervision et audit](#supervision)
+
+## Guide de lecture de la documentation Vitam UI
 <table>
-<caption><b>Domaine : organisation et droits utilisateurs</b></caption>
+<caption><b>Domaine : organisation et droits utilisateurs<a name="orga"></a></b></caption>
 	<tr>
 		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
@@ -45,7 +51,9 @@ Guide de lecture de la documentation Vitam UI
 		<td>... administrateur fonctionnel VITAM UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_utilisateur.pdf">Utilisateur</a></td>
 	</tr>
-<caption><b>Domaine : référentiels</b></caption>
+</table>
+<table>
+<caption><b>Domaine : référentiels<a name="referentiels"></a></b></caption>
 	<tr>
 		<td>2.1 (obligatoire)</td>
 		<td>... déclarer un nouveau service producteur ou un nouveau service versant dans VITAM UI</td>
@@ -64,7 +72,9 @@ Guide de lecture de la documentation Vitam UI
 		<td>... administrateur technique VITAM UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_ontologie.pdf">Ontologie</a></td>
 	</tr>
-<caption><b>Domaine : sécurité et droits applicatifs</b></caption>
+</table>
+<table>
+<caption><b>Domaine : sécurité et droits applicatifs<a name="secu"></a></b></caption>
 	<tr>
 		<td>3.1 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour le versement d'archives dans un coffre par une nouvelle application</td>
@@ -89,7 +99,10 @@ Guide de lecture de la documentation Vitam UI
 		<td>... administrateur technique VITAM UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contextes_applicatifs.pdf">Contexte applicatif</a></td>
 	</tr>
-<caption><b>Domaine : supervision et audit</b></caption>
+
+</table>
+<table>
+<caption><b>Domaine : supervision et audit<a name="supervision"></a></b></caption>
 	<tr>
 		<td>NA</td>
 		<td>... visualiser les opérations de sécurisation et accéder aux journaux du cycle de vie des objets</td>
