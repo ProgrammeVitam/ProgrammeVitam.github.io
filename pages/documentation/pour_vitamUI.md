@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Doc. Vitam UI
+title: Documentation Vitam UI
 fatherref: documentation
 ---
 
@@ -37,7 +37,7 @@ Naviguer dans la documentation par domaine :
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_subrogation.pdf">Subrogation</a></td>
 	</tr>
 	<tr>
-		<td>1.2bis (facultatif)</td>
+		<td>1.2 (facultatif)</td>
 		<td>... définir des droits fins sur les utilisateurs de mon organisation en créant un nouveau profil de droits</td>
 		<td>... administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_profil_app_utilisateur.pdf">Profil APP Utilisateur</a></td>
