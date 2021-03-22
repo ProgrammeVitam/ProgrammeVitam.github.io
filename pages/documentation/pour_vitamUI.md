@@ -140,7 +140,7 @@ Naviguer dans la documentation par domaine :
 		<td>NA</td>
 		<td>... consulter le journal des opérations VITAM (entrées, éliminations et données de base)</td>
 		<td>... administrateur technique Vitam UI ou administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_operations_securisation.pdf">Opérations de sécurisation</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Journal_operations.pdf">Journal des opérations</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
