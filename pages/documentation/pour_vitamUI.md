@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation Vitam UI
+title: Doc. Vitam UI
 fatherref: documentation
 ---
 
@@ -152,7 +152,7 @@ Naviguer dans la documentation par domaine :
 		<td>NA</td>
 		<td>... effectuer des requêtes complexes sur les bases de données documentaires en vue de retrouver des objets</td>
 		<td>... administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_requetes.pdf">Requêtes DSL</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_RequetesDSL.pdf">Requêtes DSL</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
