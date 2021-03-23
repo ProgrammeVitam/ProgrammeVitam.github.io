@@ -106,25 +106,25 @@ Naviguer dans la documentation par domaine :
 		<td>3.1 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour le versement d'archives dans un coffre par une nouvelle application</td>
 		<td>... administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrats_entree.pdf">Contrats d'entrée</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrat_entree.pdf">Contrat d'entrée</a></td>
 	</tr>
 	<tr>
 		<td>3.2 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour la consultation ou mise à jour d'archives dans un coffre par une nouvelle application</td>
 		<td>... administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrats_acces.pdf">Contrats d'accès</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrat_acces.pdf">Contrat d'accès</a></td>
 	</tr>
 	<tr>
 		<td>3.3 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... définir les droits d'une nouvelle application sur les services exposés par Vitam</td>
 		<td>... administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_profils_securite.pdf">Profil de sécurité</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_securite.pdf">Profil de sécurité</a></td>
 	</tr>
 	<tr>
 		<td>3.4 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... authentifier une nouvelle application interconnectée avec Vitam et lui attribuer des droits</td>
 		<td>... administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contextes_applicatifs.pdf">Contexte applicatif</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contexte_applicatif.pdf">Contexte applicatif</a></td>
 	</tr>
 
 </table>
@@ -158,7 +158,7 @@ Naviguer dans la documentation par domaine :
 		<td>NA</td>
 		<td>... vérifier la conformité de la conservation de mes archives</td>
 		<td>... administrateur fonctionnel Vitam UI, super-archiviste</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_audits.pdf">Audits</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Audit.pdf">Audit</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
