@@ -4,7 +4,7 @@ title: Doc. métier
 fatherref: documentation
 ---
 
-* **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
+* **Manuel utilisateur** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur_IHM.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Organisation_de_information.pdf))
 * **Spécification des SIP** - recommandations sur la construction des paquets
@@ -19,8 +19,8 @@ fatherref: documentation
 notion de service producteur ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Services_producteurs.pdf))
 * **Eliminations** - présentation des fonctionnalités de mise en oeuvre des éliminations d'archives avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Eliminations.pdf))
 * **Préservation** - présentation des fonctionnalités de mise en oeuvre de la préservation à long-terme des archives avec la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Preservation.pdf))
-* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
-* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_ProfilsDuniteArchivistique.pdf))
+* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_archivage.pdf))
+* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_unite_archivistique.pdf))
 * **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Ontologie.pdf))
 * **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Conservation_valeur_probante.pdf))
 * **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
