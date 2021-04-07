@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>7.12.2.2. Architecture générale &mdash; Documentation VITAM - Architecture 4.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'4.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.12.2.3. Storage Driver" href="storage-driver.html" />
+    <link rel="prev" title="7.12.2.1. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch-report/_toc.html">7.2. Batch-report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.6. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.11. Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.12. Storage</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../fonctionnelle/index.html">7.12.1. Architecture Fonctionnelle</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.12.2. Architecture Technique</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.12.2.1. Introduction</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.12.2.2. Architecture générale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-driver.html">7.12.2.3. Storage Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-engine.html">7.12.2.4. Storage Engine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-engine-client.html">7.12.2.5. Storage Engine Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-offers.html">7.12.2.6. Storage Offers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="default-offer.html">7.12.2.7. Vitam Offer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html">7.12.2.8. Métriques spécifiques du composant storage-engine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.12.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.15. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">7.12. Storage</a> &raquo;</li>
+        
+          <li><a href="index.html">7.12.2. Architecture Technique</a> &raquo;</li>
+        
+      <li>7.12.2.2. Architecture générale</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/storage/archi-technique/storage-general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture-generale">
+<h1>7.12.2.2. Architecture générale<a class="headerlink" href="#architecture-generale" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="schema-general">
+<h2>7.12.2.2.1. Schéma général<a class="headerlink" href="#schema-general" title="Lien permanent vers ce titre">¶</a></h2>
+<img alt="../../../_images/schema_general.svg" src="../../../_images/schema_general.svg" /></div>
+<div class="section" id="workflow-du-stockage-des-objets">
+<h2>7.12.2.2.2. Workflow du stockage des objets<a class="headerlink" href="#workflow-du-stockage-des-objets" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le stockage des <em>objets binaires</em> contenus dans un <em>groupe d’objet technique</em> se fait selon les étapes suivantes :</p>
+<ul class="simple">
+<li>Au moment de l’étape de workflow «&nbsp;CheckStorage&nbsp;» (lors de l’étape «&nbsp;Contrôle global entrée (SIP)&nbsp;») :<ul>
+<li>étape 1 : le <strong>worker</strong> ajoute dans le <strong>journal des opérations</strong> le début de l’opération de vérification de la disponibilité et capacité des offres associées à la <em>stratégie de stockage</em> (STARTED)</li>
+<li>étape 2 : le <strong>worker</strong> appelle le <strong>moteur de stockage</strong> pour faire la vérification de la disponibilité et capacité des offres associées à la <em>stratégie de stokage</em></li>
+<li>étape 3 : le <strong>moteur de stockage</strong> appelle le <strong>référentiel des stratégies de stockage</strong> pour récupérer le détail de la <em>statégie de stockage</em></li>
+<li>étape 4 : le <strong>moteur de stockage</strong>  appelle les différentes <strong>offres de stockage</strong> définies par la stratégie de stockage pour vérifier leur disponibilité et capacité à travers leur driver correspondant</li>
+<li>étape 5 : le <strong>worker</strong> ajoute dans le <strong>journal des opérations</strong> le résultat de l’opération de vérification de la disponibilité et capacité pour la stratégie (OK/…)</li>
+</ul>
+</li>
+<li>Au moment de l’étape de workflow «&nbsp;StoreObjects&nbsp;» (lors de l’étape «&nbsp;Rangement des objets&nbsp;»):<ul>
+<li>étape 6 :  le <strong>worker</strong> ajoute dans le <strong>journal des opérations</strong> le début de l’opération de stockage du <em>groupe d’objet technique</em> (STARTED)</li>
+<li>pour chaque objet binaire du <em>groupe d’objet technique</em> :<ul>
+<li>étape 7 : le <strong>worker</strong> met à jour le <strong>journal du cycle de vie</strong> de l’objet (STARTED)</li>
+<li>étape 8 : le <strong>worker</strong> appelle le <strong>moteur de stockage</strong> pour envoyer l’objet dont l’identifiant est donné en suivant la <em>stratégie de stockage</em> donnée</li>
+<li>étape 9 : le <strong>moteur de stockage</strong> appelle le <strong>référentiel des stratégies de stockage</strong> pour récupérer les détail de la <em>statégie de stockage</em></li>
+<li>étape 10 : le <strong>moteur de stockage</strong> récupére l’objet binaire dans le <strong>workspace</strong></li>
+<li>étape 11 : le <strong>moteur de stockage</strong> envoi l’objet binaire dans les <strong>offres de stockage</strong> définies par la <em>stratégie de stockage</em> à travers leur driver correspondant</li>
+<li>étape 12 : le <strong>worker</strong> met à jour le <strong>journal du cycle de vie</strong> de l’objet (OK/…)</li>
+</ul>
+</li>
+<li>étape 13 : le <strong>worker</strong> ajoute dans le <strong>journal des opérations</strong>  la fin de l’opération de stockage du <em>groupe d’objet technique</em> (OK/…)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="iteration-6">
+<h2>7.12.2.2.3. Itération 6<a class="headerlink" href="#iteration-6" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Limites :</p>
+<ul class="simple">
+<li>le <strong>référentiel des stratégies de stockage</strong> n’est pas encore implémenté, de ce fait la <em>stratégie de stockage</em> est définie de manière statique</li>
+<li>seule l”<strong>offre de stockage</strong> utilisant une partie du module workspace est disponible</li>
+<li>la vérification de la disponibilité n’est pas encore implémenté.</li>
+</ul>
+</div>
+<div class="section" id="iteration-7">
+<h2>7.12.2.2.4. Itération 7<a class="headerlink" href="#iteration-7" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Implémentation de la disponibilité / capacité.</p>
+<p>Limites :</p>
+<ul class="simple">
+<li>Une seule offre, ainsi la logique est simplifiée au niveau du distributeur qui ne gère alors pas le multi-offres</li>
+<li>La gestion des erreurs est très basique, il serait certainement intéressant de gérer ces erreurs plus finement</li>
+</ul>
+</div>
+<div class="section" id="iteration-13">
+<h2>7.12.2.2.5. Itération 13<a class="headerlink" href="#iteration-13" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Mise en place du multi-offres.</p>
+<p>La stratégie prend maintenant en compte le nombre de copie et les offres qui sont déclarées.
+Une limite est qu’il faut autant d’offre que de copie.</p>
+<p>Dans cette version, le moteur de stockage est séquentiel, il récupère l’objet sur le workspace et l’envoi à la
+première offre, puis il récupère à nouveau l’objet sur le workspace et l’envoi à l’offre suivante et ainsi de suite.</p>
+</div>
+<div class="section" id="iteration-14">
+<h2>7.12.2.2.6. Itération 14<a class="headerlink" href="#iteration-14" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Implémentation multi-thread</p>
+<p>Dans cette version la distribution du moteur de stockage se charge d’envoyer l’objet issu du workspace en parallèle
+aux différentes offres. L’objet est récupéré sur le workspace et est «&nbsp;copié&nbsp;» n fois, n étant le nombre de copie à
+faire. Chacune de ces copies est envoyée à une offre au travers de threads.</p>
+<p>L’objet n’est pas tout à fait copié. Il passe au travers d’un <strong>tee</strong> qui crée autant de buffers que de copies. Chacun
+des buffers est rempli, puis lu en parallèle. Dès que tous les buffers sont vidés, ils sont tous réalimenté jusqu’à ce
+qu’il n’y ait plus rien à transmettre. Cela signifie que le tee est bloquant. Si un buffer n’est pas vidé les autres
+attendent potentiellement indéfinement s’il n’y a pas de timeout.</p>
+<p>Il n’y a pas de vrai pool de threads dans cette version.</p>
+</div>
+<div class="section" id="iteration-16">
+<h2>7.12.2.2.7. Itération 16<a class="headerlink" href="#iteration-16" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Revue de l’architecture golbale du stockage. Mise en place du CAS MANAGER et du CAS CONTAINER.</li>
+<li>Refactoring des éléments communs entre les offres et le workspace. Mise en place d’une implémentation workspace spécifique de stockage en mode filesystem</li>
+</ul>
+</div>
+<div class="section" id="r12">
+<h2>7.12.2.2.8. R12<a class="headerlink" href="#r12" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Travaux pour la gestion du multi-stratégie dans VITAM : modifications du module storage-engine</p>
+<ul class="simple">
+<li>Refactoring pour ajouter le header <em>X-Strategy-Id</em> sur les point d’API ne les déclarant pas (débuté en R11)</li>
+<li>Ajout de la configuration multi-stratégie et de sa gestion dans le module</li>
+</ul>
+<p>Hors du module storage-engine, possibilité d’utiliser d’autre stratégies que celle de plateforme VITAM d’identifiant <em>default</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="storage-driver.html" class="btn btn-neutral float-right" title="7.12.2.3. Storage Driver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="7.12.2.1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

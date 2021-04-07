@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>9.3. Métadata &mdash; Documentation VITAM - Manuel de développement 4.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'4.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="9.4. Métadata : API REST Raml" href="metadata-api-rest-raml.html" />
+    <link rel="prev" title="9.2. DAT : module metadata" href="metadata-dat.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">8. Logbook</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">9. Metadata</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="metadata-introduction.html">9.1. Métadata - Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-dat.html">9.2. DAT : module metadata</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">9.3. Métadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation">9.3.1. Utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-api-rest-raml.html">9.4. Métadata : API REST Raml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-tenant.html">9.5. Métadata-tenant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-inherited-rule.html">9.6. Métadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata-sync.html">9.7. Désynchronisation des bases de données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">12. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">13. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">14. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">9. Metadata</a> &raquo;</li>
+        
+      <li>9.3. Métadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/metadata/metadata-user-client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metadata">
+<h1>9.3. Métadata<a class="headerlink" href="#metadata" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilisation">
+<h2>9.3.1. Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="parametres">
+<h3>9.3.1.1. Paramètres<a class="headerlink" href="#parametres" title="Lien permanent vers ce titre">¶</a></h3>
+</div>
+<div class="section" id="le-client">
+<h3>9.3.1.2. Le client<a class="headerlink" href="#le-client" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le client propose actuellement différentes méthodes : insert et selection des units, select des objectGroups.</p>
+<p>Il faut ajouter la dependance au niveau de pom.xml</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>metadata-client<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="creer-le-client-metadata">
+<h4>9.3.1.2.1. Créer le client metadata<a class="headerlink" href="#creer-le-client-metadata" title="Lien permanent vers ce titre">¶</a></h4>
+<p>En deux étapes :</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>chargement de la configuration en utilisant  une des méthodes suivantes :</dt>
+<dd><ul class="first last">
+<li>MetaDataClientFactory.changeMode(new ClientConfigurationImpl(server, port));</li>
+<li>MetaDataClientFactory.changeMode(ConfigurationFilePath);)``</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>création du client</dt>
+<dd>final MetaDataClient metadataClient = MetaDataClientFactory.getInstance().getClient();</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="acceder-aux-fonctionnalites">
+<h4>9.3.1.2.2. Accéder aux fonctionnalités<a class="headerlink" href="#acceder-aux-fonctionnalites" title="Lien permanent vers ce titre">¶</a></h4>
+<blockquote>
+<div>le client métadata fournit les foncitonnalités suivantes : insérer un ArchiveUnit,
+insérer un ObjectGroup et sélectionner un métadata (archiveUnit). Le détail de l’utilisation
+de chaque fonctionnalité est ci-dessous.</div></blockquote>
+<div class="section" id="inserer-des-archiveunits">
+<h5>9.3.1.2.2.1. Insérer des ArchiveUnits<a class="headerlink" href="#inserer-des-archiveunits" title="Lien permanent vers ce titre">¶</a></h5>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+        <span class="n">JsonNode</span> <span class="n">result</span><span class="o">=</span> <span class="n">metadataClient</span><span class="p">.</span><span class="na">insertUnit</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">insertQuery</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidParseOperationException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;parsing error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataExecutionException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;execution error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataDocumentSizeException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;document size input error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataAlreadyExistException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;data already exists error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataNotFoundException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;not found parent/path error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Paramètre d’entrée est une requête DSL de type JsonNode, indiquant la requête sur la collection Unit.</p>
+<p>Un exemple de la requête paramètrée est le suivant :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;$root&quot;</span> <span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;$queries&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="nt">&quot;$path&quot;</span><span class="p">:</span> <span class="s2">&quot;aaaaa&quot;</span> <span class="p">}],</span>
+        <span class="nt">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="p">},</span>
+        <span class="nt">&quot;$data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette fonction retourne une réponse de type JsonNode contenant les informations : code de retour en cas d’erreur,
+la requête effectuée sur la collection …</p>
+</div>
+<div class="section" id="inserer-des-objectgroups">
+<h5>9.3.1.2.2.2. Insérer des ObjectGroups<a class="headerlink" href="#inserer-des-objectgroups" title="Lien permanent vers ce titre">¶</a></h5>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+                <span class="n">JsonNode</span> <span class="n">result</span><span class="o">=</span> <span class="n">metadataClient</span><span class="p">.</span><span class="na">insertObjectGroup</span><span class="p">(</span><span class="n">JsonNode</span> <span class="n">insertQuery</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidParseOperationException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;parsing error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                        <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataExecutionException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;execution error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                        <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataDocumentSizeException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;document size input error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                        <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataAlreadyExistException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;data already exists error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                        <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataNotFoundException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;not found parent/path error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+                        <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Paramètre d’entrée est une requête <a class="reference internal" href="../../introduction.html#term-dsl"><span class="xref std std-term">DSL</span></a> de type JsonNode, indiquant la requête sur la collection ObjectGroup.</p>
+<p>Un exemple de la requête paramètrée est le suivant :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;$root&quot;</span> <span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;$queries&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="nt">&quot;$exists&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span> <span class="p">}],</span>
+    <span class="nt">&quot;$filter&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="p">},</span>
+    <span class="nt">&quot;$data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;objectgroupValue&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette fonction retourne une réponse de type JsonNode contenant les informations : code de retour en cas d’erreur,  la requête effectuée sur la collection …</p>
+</div>
+</div>
+</div>
+<div class="section" id="selection-des-archiveunits">
+<h3>9.3.1.3. Sélection des ArchiveUnits<a class="headerlink" href="#selection-des-archiveunits" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// return JsonNode</span>
+    <span class="n">jsonNode</span> <span class="o">=</span> <span class="n">metaDataClient</span><span class="p">.</span><span class="na">selectUnits</span><span class="p">(</span>
+        <span class="n">accessModuleBean</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">accessModuleBean</span><span class="p">.</span><span class="na">getRequestDsl</span><span class="p">()</span> <span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidParseOperationException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;parsing error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetadataInvalidSelectException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;invalid select&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataDocumentSizeException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;document size problem&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataExecutionException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;metadata execution problem&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;illegal argument&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;exeption thrown&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selection-d-un-objectgroup">
+<h3>9.3.1.4. Sélection d’un ObjectGroup<a class="headerlink" href="#selection-d-un-objectgroup" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="n">JsonNode</span> <span class="n">selectQuery</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">objectGroupId</span><span class="p">;</span>
+    <span class="c1">// return JsonNode</span>
+    <span class="n">jsonNode</span> <span class="o">=</span> <span class="n">metaDataClient</span><span class="p">.</span><span class="na">selectObjectGrouptbyId</span><span class="p">(</span><span class="n">selectQuery</span><span class="p">,</span> <span class="n">objectGroupId</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InvalidParseOperationException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;parsing error&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetadataInvalidSelectException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;invalid select&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataDocumentSizeException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;document size problem&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetaDataExecutionException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;metadata execution problem&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;illegal argument&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">MetadataInvalidSelectException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;invalid selection&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">AccessExecutionException</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;exeption thrown&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="metadata-api-rest-raml.html" class="btn btn-neutral float-right" title="9.4. Métadata : API REST Raml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="metadata-dat.html" class="btn btn-neutral float-left" title="9.2. DAT : module metadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

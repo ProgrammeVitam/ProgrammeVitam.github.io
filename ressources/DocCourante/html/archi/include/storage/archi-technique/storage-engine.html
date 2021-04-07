@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>7.12.2.4. Storage Engine &mdash; Documentation VITAM - Architecture 4.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'4.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.12.2.5. Storage Engine Client" href="storage-engine-client.html" />
+    <link rel="prev" title="7.12.2.3. Storage Driver" href="storage-driver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch-report/_toc.html">7.2. Batch-report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.6. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.11. Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.12. Storage</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../fonctionnelle/index.html">7.12.1. Architecture Fonctionnelle</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.12.2. Architecture Technique</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.12.2.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-general.html">7.12.2.2. Architecture générale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-driver.html">7.12.2.3. Storage Driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.12.2.4. Storage Engine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-engine-client.html">7.12.2.5. Storage Engine Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage-offers.html">7.12.2.6. Storage Offers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="default-offer.html">7.12.2.7. Vitam Offer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html">7.12.2.8. Métriques spécifiques du composant storage-engine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.12.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.15. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">7.12. Storage</a> &raquo;</li>
+        
+          <li><a href="index.html">7.12.2. Architecture Technique</a> &raquo;</li>
+        
+      <li>7.12.2.4. Storage Engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/storage/archi-technique/storage-engine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="storage-engine">
+<h1>7.12.2.4. Storage Engine<a class="headerlink" href="#storage-engine" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="presentation">
+<h2>7.12.2.4.1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="line-block">
+<div class="line"><em>Parent package :</em> <strong>fr.gouv.vitam.storage</strong></div>
+<div class="line"><em>Package proposition :</em> <strong>fr.gouv.vitam.storage.engine</strong></div>
+</div>
+<p>Module embarquant la partie core du storage (client et server).</p>
+<div class="section" id="services">
+<h3>7.12.2.4.1.1. Services<a class="headerlink" href="#services" title="Lien permanent vers ce titre">¶</a></h3>
+<p>De manière générale, pour le Storage, les méthodes utilisées sont les suivantes :</p>
+<ul class="simple">
+<li>GET : pour l’équivalent du «&nbsp;Select&nbsp;».</li>
+<li>POST : <strong>sans</strong> X-Http-Method-Override: GET dans le Header, pour faire un insert.</li>
+<li>POST : <strong>avec</strong> X-Http-Method-Override: GET dans le Header, pour faire un select (avec Body).</li>
+<li>PUT : pour les mises à jour de Units et ObjectGroups.</li>
+<li>DELETE : pour effacer des métadonnées, des objects, des units, des journaux ou bien des containers.</li>
+<li>HEAD : pour les tests d’existence.</li>
+</ul>
+<div class="section" id="rest-api">
+<h4>7.12.2.4.1.1.1. Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="section" id="uri-d-appel">
+<h5>7.12.2.4.1.1.1.1. URI d’appel<a class="headerlink" href="#uri-d-appel" title="Lien permanent vers ce titre">¶</a></h5>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://server/storage/v1">http://server/storage/v1</a></div>
+</div>
+</div>
+<div class="section" id="headers">
+<h5>7.12.2.4.1.1.1.2. Headers<a class="headerlink" href="#headers" title="Lien permanent vers ce titre">¶</a></h5>
+<p>Plusieurs informations sont nécessaires dans la partie header :</p>
+<ul class="simple">
+<li>X-Strategy-Id : Stratégie pour Offres de stockage et Copies (conservation).</li>
+<li>X-Tenant-Id (obligatoire pour toute requête) : id du tenant. Cette information sera utilisée dans toutes les requêtes pour déterminer sur quel tenant se baser.</li>
+<li>X-Request-Id : l’identifiant unique de la requête.</li>
+<li>Accept : Permet de spécifier si un résultat doit contenir uniquement des métadonnées (“application/json”), un DIP complet (un ZIP contenant les métadonnées et les objets) ou seulement des Objects avec un contenu binaire (“application/octet-stream”).</li>
+<li>X-ObjectGroup-Id : Id de l’ObjectGroup</li>
+<li>X-Units : Ids des Units parents</li>
+<li>X-Caller-Id : Id du service demandeur</li>
+</ul>
+</div>
+<div class="section" id="methodes">
+<h5>7.12.2.4.1.1.1.3. Méthodes<a class="headerlink" href="#methodes" title="Lien permanent vers ce titre">¶</a></h5>
+<div class="line-block">
+<div class="line">HEAD /  -&gt; <strong>Permet d’accéder aux informations d’un container.</strong></div>
+<div class="line">POST / -&gt; avec header X-Http-Method-Override: GET <strong>Permet d’accéder aux informations d’un container.</strong></div>
+<div class="line">POST / -&gt; <strong>Permet de créer un nouveau container (nouveau tenant).</strong></div>
+<div class="line">DELETE / -&gt; <strong>Permet d’effacer un Container (si vide).</strong></div>
+<div class="line">HEAD / -&gt; <strong>Permet de tester l’existence du Container + retourne état et capacité occupée + restante</strong></div>
+</div>
+<div class="line-block">
+<div class="line">GET /objects -&gt; <strong>Liste du contenu binaire pour ce tenant.</strong></div>
+<div class="line">POST /objects -&gt; avec header X-Http-Method-Override: GET <strong>Liste du contenu binaire pour ce tenant.</strong></div>
+<div class="line">GET /objects/{id_object} -&gt; <strong>Permet de lire un Object.</strong></div>
+<div class="line">POST /objects/{id_object} -&gt; avec header X-Http-Method-Override: GET <strong>Permet de lire un Object.</strong></div>
+<div class="line">POST /objects/{id_object} -&gt; <strong>Permet de créer un nouveau Object.</strong></div>
+<div class="line">DELETE /objects/{id_object} -&gt; <strong>Permet de détruire un Object.</strong></div>
+<div class="line">HEAD /objects/{id_object} -&gt; <strong>Permet d’obtenir des informations sur un Object.</strong></div>
+</div>
+<div class="line-block">
+<div class="line">GET /logbooks -&gt; <strong>Liste du contenu d’une collection.</strong></div>
+<div class="line">POST /logbooks -&gt; avec header X-Http-Method-Override: GET <strong>Liste du contenu d’une collection.</strong></div>
+<div class="line">GET /logbooks/{id_logbook} -&gt; <strong>Permet de lire un Journal.</strong></div>
+<div class="line">POST /logbooks/{id_logbook} -&gt; avec header X-Http-Method-Override: GET <strong>Permet de lire un Journal.</strong></div>
+<div class="line">POST /logbooks/{id_logbook} -&gt; <strong>Permet de créer un nouveau Journal.</strong></div>
+<div class="line">DELETE /logbooks/{id_logbook} -&gt; <strong>Permet de détruire un Journal.</strong></div>
+<div class="line">HEAD /logbooks/{id_logbook} -&gt; <strong>Permet d’obtenir des informations sur un Journal.</strong></div>
+</div>
+<div class="line-block">
+<div class="line">GET /units -&gt; <strong>Liste du contenu d’une collection.</strong></div>
+<div class="line">POST /units -&gt; avec header X-Http-Method-Override: GET <strong>Liste du contenu d’une collection.</strong></div>
+<div class="line">GET /units/{id_md} -&gt; <strong>Permet de lire un Unit Metadata.</strong></div>
+<div class="line">POST /units/{id_md} -&gt; avec header X-Http-Method-Override: GET <strong>Permet de lire un Unit Metadata.</strong></div>
+<div class="line">POST /units/{id_md} -&gt; <strong>Permet de créer un nouveau Unit Metadata.</strong></div>
+<div class="line">PUT /units/{id_md} -&gt; <strong>Permet de mettre à jour un Unit Metadata (404 si non pré-existant).</strong></div>
+<div class="line">DELETE /units/{id_md} -&gt; <strong>Permet de détruire un Unit Metadata.</strong></div>
+<div class="line">HEAD /units/{id_md} -&gt; <strong>Permet d’obtenir des informations sur un Unit Metadata.</strong></div>
+</div>
+<div class="line-block">
+<div class="line">GET /objectgroups -&gt; <strong>Liste du contenu d’une collection.</strong></div>
+<div class="line">POST /objectgroups -&gt; avec header X-Http-Method-Override: GET <strong>Liste du contenu d’une collection.</strong></div>
+<div class="line">GET /objectgroups/{id_md} -&gt; <strong>Permet de lire un ObjectGroup Metadata.</strong></div>
+<div class="line">POST /objectgroups/{id_md} -&gt; avec header X-Http-Method-Override: GET <strong>Permet de lire un ObjectGroup Metadata.</strong></div>
+<div class="line">POST /objectgroups/{id_md} -&gt; <strong>Permet de créer un nouveau ObjectGroup Metadata.</strong></div>
+<div class="line">PUT /objectgroups/{id_md} -&gt; <strong>Permet de mettre à jour un ObjectGroup Metadata (404 si non pré-existant).</strong></div>
+<div class="line">DELETE /objectgroups/{id_md} -&gt; <strong>Permet de détruire un ObjectGroup Metadata.</strong></div>
+<div class="line">HEAD /objectgroups/{id_md} -&gt; <strong>Permet d’obtenir des informations sur un ObjectGroup Metadata.</strong></div>
+</div>
+<div class="line-block">
+<div class="line">GET /status -&gt; <strong>statut du storage</strong></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="distribution">
+<h3>7.12.2.4.1.2. Distribution<a class="headerlink" href="#distribution" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le distributeur (module distribution) est en charge de décider selon la stratégie de stockage dans quelles offres doit être stocké un objet binaire.</p>
+<p>Avant tout, le moteur de stockage récupère le binaire sur le workspace et le démultplie via un tee autant de fois que de copies à réaliser.
+Pour chaque offre de stockage contenue dans la stratégie le distributeur demande au SPI DriverManager le driver associé.
+Le distributeur instancie alors pour chaque offre un nouveau thread qui va se charger du transfert vers chacune des
+offres. Dans chaque thread le driver associé à l’offre est utilisé pour le transfert.</p>
+<p>Les thread font un retour OK ou KO. Pour chaque offre en KO, une nouvelle tentative de transfert est faite, jusqu’à trois tentatives. Si encore une offre est en KO après trois tentatives (retry), les binaires déposés sur les offres OK sont supprimés (rollback).</p>
+<p>Le distributeur gère la mise à jour du journal des écritures du storage liée à l’opération de stockage d’un objet binaire dans une offre.
+Toutes les tentatives y sont répertoriées pour chaque offre.</p>
+<p>D’un point de vue séquentiel :</p>
+<ul class="simple">
+<li>Lors d’un appel de type POST /objects/{id_object} pour stocker un nouvel objet, le service est appelé :</li>
+</ul>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Il vérifie les paramètres d’entrée (nullité et cohérence simple)</p>
+</li>
+<li><p class="first">Il récupère la stratégie associée à l’ID fourni</p>
+</li>
+<li><p class="first">Regarde uniquement la partie «&nbsp;offres chaudes&nbsp;»</p>
+</li>
+<li><p class="first">Récupère le fichier sur le workspace</p>
+</li>
+<li><p class="first">Pour chaque offre chaude :</p>
+<ol class="arabic simple">
+<li>Récupération du Driver associé s’il existe (sinon remontée d’une exception technique)</li>
+<li>Instancie un thread et dans ce trhead :
+1. Récupération des paramètres de l’offre : url du service, paramètres additionels
+2. Tentative de connection à l’offre et d’upload de l’objet
+3. Comparaison du digest hash renvoyé par l’offre avec le digest calculé à la volée lors de l’envoi du stream à l’offre
+4. Retour vers le distributeur du résultat (OK ou KO)</li>
+<li>Stockage du résultat de l’upload dans une map temporaire contenant le résultat de l’upload sur chaque offre</li>
+</ol>
+</li>
+<li><p class="first">Pour chaque offre KO, un nouvelle tentative est faite (jusqu’à trois)</p>
+</li>
+<li><p class="first">Si tout est OK, génération d’une réponse sérialisable, en mode “succès” si <strong>tous</strong> les drivers ont correctement stocker l’objet.</p>
+<p>Si une offre au moins est KO, suppression des binaires sur les offres en succès et renvoie une exception</p>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="drivermanager-spi">
+<h3>7.12.2.4.1.3. DriverManager : SPI<a class="headerlink" href="#drivermanager-spi" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="line-block">
+<div class="line">Service permettant d’ajouter ou de supprimer des drivers d’offre.</div>
+<div class="line">Le driver (son interface) est défini dans <a class="reference internal" href="storage-driver.html#storage-driver"><span class="std std-ref">Storage Driver</span></a>.</div>
+</div>
+<p>Les différents drivers sont chargés via le ServiceLoader de la JDK puis leurs instances sont stockées dans une liste.
+Cela permet ensuite de configurer les offres sur les différentes instances de driver en passant par une MAP dont la clef est l’identifant de l’offre, la valeur est le driver instancié dans la liste (une référence à ce driver donc, retrouvé par son nom (getName())).</p>
+<p>Le distributeur va alors demander au DriverManager le driver correspondant à l’offre définie dans la stratégie afin de réaliser les opérations de stockage.</p>
+<div class="section" id="principe">
+<h4>7.12.2.4.1.3.1. Principe<a class="headerlink" href="#principe" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le driver à ajouter doit implémenter l’interface définie. Dans son jar, il faut donc retrouver l’implémentation du driver ainsi que le fichier permettant au ServiceLoader de fonctionner. Ce fichier <strong>DOIT</strong> se trouver dans les resources, sous META-INF/services (principe du ServiceLoader de la JDK). Son nom est l’interface implémentée par le driver précédé de son package.</p>
+<p>Exemple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="o">/</span><span class="n">fr</span><span class="o">.</span><span class="n">gouv</span><span class="o">.</span><span class="n">vitam</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">Driver</span>
+</pre></div>
+</div>
+<p>Où VitamDriver est l’interface implémentée.</p>
+<p>Son contenu est le nom de la classe qui implémente l’interface (qui est le nom du fichier) précédé de son package.</p>
+<p>Exemple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mon</span><span class="o">.</span><span class="n">package</span><span class="o">.</span><span class="n">ou</span><span class="o">.</span><span class="n">se</span><span class="o">.</span><span class="n">trouve</span><span class="o">.</span><span class="n">mon</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">VitameDriverImpl</span>
+</pre></div>
+</div>
+<p>Où VitamDriverImpl est l’implémentation du driver.</p>
+<p>Voici le fichier : <a class="reference download internal" href="../../../_downloads/fr.gouv.vitam.storage.driver.VitamDriver" download=""><code class="xref download docutils literal notranslate"><span class="pre">fr.gouv.vitam.storage.driver.Driver</span></code></a></p>
+<div class="line-block">
+<div class="line">Le jar sera déposé via une interface graphique dans un répertoire défini dans le fichier de configuration driver-location.conf avec la clef <strong>driverLocation</strong>. Actuellement il faut le déposer manuellement.</div>
+<div class="line">Le paramétrage des offres se fera également via une interface graphique.</div>
+</div>
+<p>Cependant, il faut pouvoir redémarrer Vitam sans perdre l’association driver / offre ou démarrer Vitam avec des
+drivers et des offres par défaut. Pour se faire, il faut persister la configuration.</p>
+</div>
+<div class="section" id="persistance">
+<h4>7.12.2.4.1.3.2. Persistance<a class="headerlink" href="#persistance" title="Lien permanent vers ce titre">¶</a></h4>
+<p>On s’appuie sur une interface offrant différentes méthodes afin de récupérer les offres à partir d’un nom de driver,
+persister la configuration… Cela permet demain de changer la stratégie de persistance sans avoir à modifier le code
+du SPI.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">DriverMapper</span> <span class="p">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getOffersFor</span><span class="p">(</span><span class="n">String</span> <span class="n">driverName</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">StorageException</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">addOfferTo</span><span class="p">(</span><span class="n">String</span> <span class="n">offerId</span><span class="p">,</span> <span class="n">String</span> <span class="n">driverName</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">StorageException</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">addOffersTo</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">offersIdsToAdd</span><span class="p">,</span> <span class="n">String</span> <span class="n">driverName</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">StorageException</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">removeOfferTo</span><span class="p">(</span><span class="n">String</span> <span class="n">offerId</span><span class="p">,</span> <span class="n">String</span> <span class="n">driverName</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">StorageException</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">removeOffersTo</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">offersIdsToRemove</span><span class="p">,</span> <span class="n">String</span> <span class="n">driverName</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">StorageException</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans un premier temps, l’implémentation du mapper se fera en passant par un fichier. Dans son implémentation actuelle, le <em>DriverMapper</em> a besoin d’un fichier de configuration, <code class="docutils literal notranslate"><span class="pre">driver-mapping.conf</span></code>. Ici, il permet de définir l’emplacement où seront enregistrés les fichiers permettant la persistance via la clef <strong>driverMappingPath</strong>. Une autre clef est nécessaire afin de définir le délimiteur dans ce fichier via la clef <strong>delimiter</strong>, le principe étant de mettre en place un fichier par driver comme un fichier CSV, les offres étant séparées par ce délimiteur.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="storage-engine-client.html" class="btn btn-neutral float-right" title="7.12.2.5. Storage Engine Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="storage-driver.html" class="btn btn-neutral float-left" title="7.12.2.3. Storage Driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

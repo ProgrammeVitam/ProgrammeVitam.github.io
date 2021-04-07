@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>10.7. Métriques &mdash; Documentation VITAM - Manuel de développement 4.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'4.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="11. Storage" href="../../storage/_toc.html" />
+    <link rel="prev" title="10.6.3. Nombre d’objets numériques conforme" href="../worker/CheckObjectsNumberActionHandler.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">8. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">9. Metadata</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">10. Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">10.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../parametres/parametres.html">10.2. Paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-management.html">10.3. Processing Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-distributor.html">10.4. Processing Distributor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../processing-engine.html">10.5. Processing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../worker/_toc.html">10.6. Etudes en cours</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">10.7. Métriques</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">10.7.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#liste-des-metriques">10.7.2. Liste des métriques</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">12. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">13. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">14. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">10. Processing</a> &raquo;</li>
+        
+      <li>10.7. Métriques</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/processing/metrics/metrics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metriques">
+<h1>10.7. Métriques<a class="headerlink" href="#metriques" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>10.7.1. Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans ce qui suit la liste de métriques développées pour ce composant.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour avoir plus d’informations sur la partie développement des métriques prometheus, veuillez vous référer à la documentation du composant <strong>Common Cf. vitam-mertics.rst</strong></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">La classe fr.gouv.vitam.common.metrics.VitamMetricsNames liste toutes les métriques prometheus. Si vous rajoutez une nouvelle métrique, pensez à mettre à jour cette classe.</p>
+</div>
+</div>
+<div class="section" id="liste-des-metriques">
+<h2>10.7.2. Liste des métriques<a class="headerlink" href="#liste-des-metriques" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">vitam_processing_workflow_operation_total</span></code> :</p>
+<p>&gt; Récupère un snapshot de l’ensemble des opérations visible par le composant processing
+&gt; Cette métrique dispose de trois labels («&nbsp;workflow&nbsp;», «&nbsp;state&nbsp;», «&nbsp;status&nbsp;»)</p>
+<blockquote>
+<div><ul class="simple">
+<li>«&nbsp;workflow&nbsp;»: C’est le nom du LogbookTypeProcess d’une opération</li>
+<li>«&nbsp;state&nbsp;» : L’état de l’opération (PAUSE, RUNNING, COMPLETED)</li>
+<li>«&nbsp;status&nbsp;»: Le statut de l’opération (UNKNOWN, OK, WARNING, KO, FATAL)</li>
+</ul>
+<dl class="docutils">
+<dt>&gt; Total des opérations tout type confondu:</dt>
+<dd><p class="first last">sum (vitam_processing_workflow_operation_total)</p>
+</dd>
+<dt>&gt; Total des opérations en état <cite>PAUSE</cite> statut <cite>FATAL</cite>. Cette requête peut être utilisée pour lancer des alertes:</dt>
+<dd><p class="first last">sum (vitam_processing_workflow_operation_total{state=&nbsp;»PAUSE&nbsp;», status=&nbsp;»FATAL&nbsp;»})</p>
+</dd>
+<dt>&gt; Total des opérations tout d’ingest:</dt>
+<dd><p class="first last">sum (vitam_processing_workflow_operation_total{workflow = «&nbsp;ingest&nbsp;»})</p>
+</dd>
+<dt>&gt; Par type de workflow, donne la somme des moyennes du nombre d’opérations par seconde sur un interval de 5 minutes:</dt>
+<dd><p class="first last">sum by(workflow) (rate(vitam_processing_workflow_operation_total[5m]))</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">vitam_processing_worker_task_in_queue_total</span></code>:</dt>
+<dd><p class="first">&gt; Total des tâches dans la queue en attendre d’exécution</p>
+<p>&gt; Cette métrique dispose des labels («&nbsp;worker_family&nbsp;»)</p>
+<dl class="last docutils">
+<dt>&gt; Total des tâches dans la queue</dt>
+<dd><p class="first last">sum(vitam_processing_worker_task_in_queue_total)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">vitam_processing_worker_current_task_total</span></code>:</dt>
+<dd><p class="first">&gt; Total des tâches crées par le distributeur et qui sont pas encore terminées. C’est la somme des tâches en attente d’entrer dans la queue + Tâches dans la queue + Tâches en cours d’exécution pour les workers.</p>
+<p>&gt; Cette métrique dispose des labels («&nbsp;worker_family&nbsp;», «&nbsp;workflow&nbsp;», «&nbsp;step_name&nbsp;»)</p>
+<p class="last">&gt; C’est un type Gauge qui s’incrémente à la création de la tâche et qui se décrémente à la fin de l’execution de la tâche</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">vitam_processing_worker_registered_total</span></code>:</dt>
+<dd><p class="first">&gt; Total des worker enregistré dans le distributeur</p>
+<p>&gt; Cette métrique dispose des labels («&nbsp;worker_family&nbsp;»)</p>
+<dl class="last docutils">
+<dt>&gt; Pour avoir tous les workers :</dt>
+<dd><p class="first last">sum (vitam_processing_worker_registered_total)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">vitam_processing_worker_task_execution_duration_seconds</span></code>:</dt>
+<dd><p class="first">&gt; C’est une métrique de type Histogram, elle calcule la durée d’exécution d’une tâche du point de vu Distributeur/Worker</p>
+<p>&gt; Cette métrique dispose des labels («&nbsp;worker_family&nbsp;», «&nbsp;worker_name&nbsp;», «&nbsp;workflow&nbsp;», «&nbsp;step_name&nbsp;»)</p>
+<p>&gt; Dans une step distribuée, on peut avoir plusieurs tâches (selon la distribution)</p>
+<dl class="last docutils">
+<dt>&gt; La somme regroupé par worker des moyennes de durées par seconde pendant les dernières 5 minutes</dt>
+<dd><p class="first last">sum by(worker_name)(rate(vitam_processing_worker_task_execution_duration_seconds_sum[5m]))</p>
+</dd>
+<dt>&gt; La somme regroupé par worker des moyennes de nombre de tâches exécutées par seconde pendant les dernières 5 minutes</dt>
+<dd><p class="first last">sum by(worker_name)(rate(vitam_processing_worker_task_execution_duration_seconds_count[5m]))</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">vitam_processing_worker_task_idle_duration_in_queue_seconds</span></code>:</dt>
+<dd><p class="first">&gt; C’est une métrique de type Histogram, elle calcule la durée d’attente d’exécution d’une tâche depuis sa création jusqu’a sa prise en charge par un worker.</p>
+<p>&gt; Cette métrique dispose des labels («&nbsp;worker_family&nbsp;», «&nbsp;workflow&nbsp;», «&nbsp;step_name&nbsp;»)</p>
+<p class="last">&gt; On peut analyser la distribution statistique des durées d’exécution et du nombre de tâches des steps</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">vitam_processing_workflow_step_execution_duration_seconds</span></code>:</dt>
+<dd><p class="first">&gt; C’est une métrique de type Histogram, elle calcule la durée d’exécution d’une step du point de vu ProcessEngine</p>
+<p>&gt; Cette métrique dispose des labels («&nbsp;workflow&nbsp;», «&nbsp;step_name&nbsp;»)</p>
+<p>&gt; C’est, presque, la somme des durées vitam_processing_worker_task_execution_duration_seconds pour une step donnée. Si ce n’est pas la même valeur, ça veut dire qu’entre tâche et une autre d’une même step, on peut avoir des temps d’attente causés par la concurrence entre opérations.</p>
+<dl class="last docutils">
+<dt>&gt; Durée d’exécution moyenne par par seconde par step name durant les 5 dernières minutes regroupé par step name</dt>
+<dd><p class="first last">sum by (step_name) (rate(vitam_processing_workflow_step_execution_duration_seconds_sum[5m]) / rate(vitam_processing_workflow_step_execution_duration_seconds_count[5m]))</p>
+</dd>
+<dt>&gt; Exemple de 95 percentile sur la somme des moyennes par seconde sur les 5 dernières minutes regroupées par bucket</dt>
+<dd><p class="first last">histogram_quantile(0.95, sum(rate(vitam_processing_workflow_step_execution_duration_seconds_bucket[5m])) by (le))</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../storage/_toc.html" class="btn btn-neutral float-right" title="11. Storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../worker/CheckObjectsNumberActionHandler.html" class="btn btn-neutral float-left" title="10.6.3. Nombre d’objets numériques conforme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

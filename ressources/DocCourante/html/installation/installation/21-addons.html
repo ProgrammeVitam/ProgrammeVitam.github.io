@@ -1,0 +1,2625 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'4.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="4.2.6. Procédure de première installation" href="30-installation.html" />
+    <link rel="prev" title="4.2.4.4. Génération des magasins de certificats" href="certificats/keystores.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pre_install/_toc.html">3. Prérequis à l’installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">4. Procédures d’installation / mise à jour</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_toc.html#verifications-prealables">4.1. Vérifications préalables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html#procedures">4.2. Procédures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_cinematique.html">4.2.1. Cinématique de déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_multisite.html">4.2.2. Cas particulier d’une installation multi-sites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-configuration.html">4.2.3. Configuration du déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20-certificats.html">4.2.4. Gestion des certificats</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.5. Paramétrages supplémentaires</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-jvm">4.2.5.1. <cite>Tuning</cite> JVM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-des-griffins-greffons-de-preservation">4.2.5.2. Installation des <em>griffins</em> (greffons de préservation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#retention-liee-aux-logback">4.2.5.3. Rétention liée aux logback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-l-antivirus-ingest-external">4.2.5.4. Paramétrage de l’antivirus (ingest-external)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-des-certificats-externes-externe">4.2.5.5. Paramétrage des certificats externes (*-externe)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#placer-hors-vitam-le-composant-ihm-demo">4.2.5.6. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrer-le-secure-cookie-pour-ihm-demo">4.2.5.7. Paramétrer le <code class="docutils literal notranslate"><span class="pre">secure_cookie</span></code> pour ihm-demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-la-centralisation-des-logs-vitam">4.2.5.8. Paramétrage de la centralisation des logs VITAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#passage-des-identifiants-des-referentiels-en-mode-esclave">4.2.5.9. Passage des identifiants des référentiels en mode <cite>esclave</cite></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-du-batch-de-calcul-pour-l-indexation-des-regles-heritees">4.2.5.10. Paramétrage du batch de calcul pour l’indexation des règles héritées</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#durees-minimales-permettant-de-controler-les-valeurs-saisies">4.2.5.11. Durées minimales permettant de contrôler les valeurs saisies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fichiers-complementaires">4.2.5.12. Fichiers complémentaires</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametrage-de-l-offre-froide-librairies-de-cartouches">4.2.5.13. Paramétrage de l’Offre Froide ( librairies de cartouches )</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#securisation-selinux">4.2.5.14. Sécurisation SELinux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-de-la-stack-prometheus">4.2.5.15. Installation de la stack prometheus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-de-grafana">4.2.5.16. Installation de grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="30-installation.html">4.2.6. Procédure de première installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="80-extras.html">4.2.7. Éléments <em>extras</em> de l’installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour de la configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_install/_toc.html">6. Post installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade/_toc.html">7. Montée de version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/_toc.html">8. Annexes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Documentation d'installation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="_toc.html">4. Procédures d’installation / mise à jour</a> &raquo;</li>
+        
+      <li>4.2.5. Paramétrages supplémentaires</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/installation/21-addons.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parametrages-supplementaires">
+<h1>4.2.5. Paramétrages supplémentaires<a class="headerlink" href="#parametrages-supplementaires" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="tuning-jvm">
+<span id="update-jvm"></span><h2>4.2.5.1. <cite>Tuning</cite> JVM<a class="headerlink" href="#tuning-jvm" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">En cas de colocalisation, bien prendre en compte la taille <a class="reference internal" href="../introduction.html#term-jvm"><span class="xref std std-term">JVM</span></a> de chaque composant (VITAM : <code class="docutils literal notranslate"><span class="pre">-Xmx512m</span></code> par défaut) pour éviter de <cite>swapper</cite>.</p>
+</div>
+<p>Un <cite>tuning</cite> fin des paramètres <a class="reference internal" href="../introduction.html#term-jvm"><span class="xref std std-term">JVM</span></a> de chaque composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est possible.
+Pour cela, il faut modifier le contenu du fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/jvm_opts.yml</span></code></p>
+<p>Pour chaque composant, il est possible de modifier ces 3 variables:</p>
+<ul class="simple">
+<li>memory: paramètres Xms et Xmx</li>
+<li>gc: paramètres gc</li>
+<li>java: autres paramètres java</li>
+</ul>
+</div>
+<div class="section" id="installation-des-griffins-greffons-de-preservation">
+<h2>4.2.5.2. Installation des <em>griffins</em> (greffons de préservation)<a class="headerlink" href="#installation-des-griffins-greffons-de-preservation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Fonctionnalité disponible partir de la R9 (2.1.1) .</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette version de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ne mettant pas encore en oeuvre de mesure d’isolation particulière des <em>griffins</em>, il est recommandé de veiller à ce que l’usage de chaque <em>griffin</em> soit en conformité avec la politique de sécurité de l’entité. Il est en particulier déconseillé d’utiliser un griffon qui utiliserait un outil externe qui n’est plus maintenu.</p>
+</div>
+<p>Il est possible de choisir les <em>griffins</em> installables sur la plate-forme. Pour cela, il faut éditer le contenu du fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> au niveau de la directive <code class="docutils literal notranslate"><span class="pre">vitam_griffins</span></code>. Cette action est à rapprocher de l’incorporation des binaires d’installation : les binaires d’installation des greffons doivent être accessibles par les machines hébergeant le composant <strong>worker</strong>.</p>
+<p>Exemple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vitam_griffins</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;vitam-imagemagick-griffin&quot;</span><span class="p">,</span> <span class="s2">&quot;vitam-jhove-griffin&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Voici la liste des greffons disponibles au moment de la présente publication :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>vitam-imagemagick-griffin
+vitam-jhove-griffin
+vitam-libreoffice-griffin
+vitam-odfvalidator-griffin
+vitam-siegfried-griffin
+vitam-tesseract-griffin
+vitam-verapdf-griffin
+vitam-ffmpeg-griffin
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Ne pas oublier d’avoir déclaré au préalable sur les machines cibles le dépôt de binaires associé aux <em>griffins</em>.</p>
+</div>
+</div>
+<div class="section" id="retention-liee-aux-logback">
+<span id="confantivirus"></span><h2>4.2.5.3. Rétention liée aux logback<a class="headerlink" href="#retention-liee-aux-logback" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> utilise logback pour la rotation des log, ainsi que leur rétention.</p>
+<p>Il est possible d’appliquer un paramétrage spécifique pour chaque composant VITAM.</p>
+<p>Éditer le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> (et <code class="docutils literal notranslate"><span class="pre">extra_vars.yml</span></code>, dans le cas des extra) et appliquer le paramétrage dans le bloc <code class="docutils literal notranslate"><span class="pre">logback_total_size_cap</span></code> de chaque composant sur lequel appliquer la modification de paramétrage.
+Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée en taille et unité (exemple : 14GB ; représente 14 gigabytes).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">des <em>appenders</em> supplémentaires existent pour le composant storage-engine (appender offersync) et offer (offer_tape et offer_tape_backup).</p>
+</div>
+<div class="section" id="cas-des-accesslog">
+<h3>4.2.5.3.1. Cas des accesslog<a class="headerlink" href="#cas-des-accesslog" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible d’appliquer un paramétrage différent par composant VITAM sur le logback <em>access</em>.</p>
+<p>Éditer le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> (et <code class="docutils literal notranslate"><span class="pre">extra_vars.yml</span></code>, dans le cas des extra) et appliquer le paramétrage dans les directives <code class="docutils literal notranslate"><span class="pre">access_retention_days</span></code> et <code class="docutils literal notranslate"><span class="pre">access_total_size_GB</span></code> de chaque composant sur lequel appliquer la modification de paramétrage.</p>
+</div>
+</div>
+<div class="section" id="parametrage-de-l-antivirus-ingest-external">
+<h2>4.2.5.4. Paramétrage de l’antivirus (ingest-external)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-external" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’antivirus utilisé par ingest-external est modifiable (par défaut, ClamAV) ; pour cela :</p>
+<ul>
+<li><p class="first">Éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingestexternal.antivirus</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> pour indiquer le nom de l’antivirus à utiliser.</p>
+</li>
+<li><p class="first">Créer un script shell (dont l’extension doit être <code class="docutils literal notranslate"><span class="pre">.sh</span></code>) sous <code class="docutils literal notranslate"><span class="pre">environments/antivirus/</span></code> (norme : scan-&lt;vitam.ingestexternal.antivirus&gt;.sh) ; prendre comme modèle le fichier <code class="docutils literal notranslate"><span class="pre">scan-clamav.sh</span></code>. Ce script shell doit respecter le contrat suivant :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Argument : chemin absolu du fichier à analyser</li>
+<li><dl class="first docutils">
+<dt>Sémantique des codes de retour</dt>
+<dd><ul class="first last">
+<li>0 : Analyse OK - pas de virus</li>
+<li>1 : Analyse OK - virus trouvé et corrigé</li>
+<li>2 : Analyse OK - virus trouvé mais non corrigé</li>
+<li>3 : Analyse NOK</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Contenu à écrire dans stdout / stderr</dt>
+<dd><ul class="first last">
+<li>stdout : Nom des virus trouvés, un par ligne ; Si échec (code 3) : raison de l’échec</li>
+<li>stderr : Log «&nbsp;brut&nbsp;» de l’antivirus</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">En cas de remplacement de clamAV par un autre antivirus, l’installation de celui-ci devient dès lors un prérequis de l’installation et le script doit être testé.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l’antivirus soit fonctionnel, il est nécessaire, durant l’installation, de le télécharger ; il est donc nécessaire de renseigner dans l’inventaire la directive <code class="docutils literal notranslate"><span class="pre">http_proxy_environnement</span></code>.</p>
+</div>
+</div>
+<div class="section" id="parametrage-des-certificats-externes-externe">
+<h2>4.2.5.5. Paramétrage des certificats externes (*-externe)<a class="headerlink" href="#parametrage-des-certificats-externes-externe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Se reporter au chapitre dédié à la gestion des certificats: <a class="reference internal" href="20-certificats.html"><span class="doc">Gestion des certificats</span></a></p>
+</div>
+<div class="section" id="placer-hors-vitam-le-composant-ihm-demo">
+<h2>4.2.5.6. Placer «&nbsp;hors Vitam&nbsp;» le composant ihm-demo<a class="headerlink" href="#placer-hors-vitam-le-composant-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/host_vars</span></code>, créer ou éditer un fichier nommé par le nom de machine qui héberge le composant ihm-demo et ajouter le contenu ci-dessous :</p>
+<blockquote>
+<div>consul_disabled: true</div></blockquote>
+<p>Il faut également modifier le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> en remplaçant :</p>
+<ul class="simple">
+<li>dans le bloc <code class="docutils literal notranslate"><span class="pre">accessexternal</span></code>, la directive <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;access-external.service.{{</span> <span class="pre">consul_domain</span> <span class="pre">}}&quot;</span></code> par <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;&lt;adresse</span> <span class="pre">IP</span> <span class="pre">de</span> <span class="pre">access-external&gt;&quot;</span></code> (l’adresse IP peut être une <a class="reference internal" href="../introduction.html#term-fip"><span class="xref std std-term">FIP</span></a>)</li>
+<li>dans le bloc <code class="docutils literal notranslate"><span class="pre">ingestexternal</span></code>, la directive <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;ingest-external.service.{{</span> <span class="pre">consul_domain</span> <span class="pre">}}&quot;</span></code> par <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;&lt;adresse</span> <span class="pre">IP</span> <span class="pre">de</span> <span class="pre">ingest-external&gt;&quot;</span></code> (l’adresse IP peut être une <a class="reference internal" href="../introduction.html#term-fip"><span class="xref std std-term">FIP</span></a>)</li>
+</ul>
+<p>A l’issue, le déploiement n’installera pas l’agent Consul. Le composant ihm-demo appellera, alors, par l’adresse <a class="reference internal" href="../introduction.html#term-ip"><span class="xref std std-term">IP</span></a> de service les composants «&nbsp;access-external&nbsp;» et «&nbsp;ingest-external&nbsp;».</p>
+<p>Il est également fortement recommandé de positionner la valeur de la directive <code class="docutils literal notranslate"><span class="pre">vitam.ihm_demo.metrics_enabled</span></code> à <code class="docutils literal notranslate"><span class="pre">false</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>, afin que ce composant ne tente pas d’envoyer des données sur «&nbsp;elasticsearch-log&nbsp;».</p>
+</div>
+<div class="section" id="parametrer-le-secure-cookie-pour-ihm-demo">
+<h2>4.2.5.7. Paramétrer le <code class="docutils literal notranslate"><span class="pre">secure_cookie</span></code> pour ihm-demo<a class="headerlink" href="#parametrer-le-secure-cookie-pour-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le composant ihm-demo (ainsi qu’ihm-recette) dispose d’une option supplémentaire, par rapport aux autres composants VITAM, dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>: le <code class="docutils literal notranslate"><span class="pre">secure_cookie</span></code> qui permet de renforcer ces deux <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> contre certaines attaques assez répandues comme les CSRF (Cross-Site Request Forgery).</p>
+<p>Il faut savoir que si cette variable est à <em>true</em> (valeur par défaut), le client doit obligatoirement se connecter en https sur l”<a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a>, et ce même si un reverse proxy se trouve entre le serveur web et le client.</p>
+<p>Cela peut donc obliger le reverse proxy frontal de la chaîne d’accès à écouter en https.</p>
+</div>
+<div class="section" id="parametrage-de-la-centralisation-des-logs-vitam">
+<h2>4.2.5.8. Paramétrage de la centralisation des logs VITAM<a class="headerlink" href="#parametrage-de-la-centralisation-des-logs-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<p>2 cas sont possibles :</p>
+<ul class="simple">
+<li>Utiliser le sous-système de gestion des logs fourni par la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ;</li>
+<li>Utiliser un <a class="reference internal" href="../introduction.html#term-siem"><span class="xref std std-term">SIEM</span></a> tiers.</li>
+</ul>
+<div class="section" id="gestion-par-vitam">
+<h3>4.2.5.8.1. Gestion par VITAM<a class="headerlink" href="#gestion-par-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<dl class="docutils">
+<dt>Pour une gestion des logs par <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, il est nécessaire de déclarer les serveurs ad-hoc dans le fichier d’inventaire pour les 3 groupes suivants :</dt>
+<dd><ul class="first last simple">
+<li>hosts_logstash</li>
+<li>hosts_kibana_log</li>
+<li>hosts_elasticsearch_log</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="redirection-des-logs-sur-un-siem-tiers">
+<h3>4.2.5.8.2. Redirection des logs sur un <a class="reference internal" href="../introduction.html#term-siem"><span class="xref std std-term">SIEM</span></a> tiers<a class="headerlink" href="#redirection-des-logs-sur-un-siem-tiers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En configuration par défaut, les logs VITAM sont tout d’abord routés vers un serveur rsyslog installé sur chaque machine.
+Il est possible d’en modifier le routage, qui par défaut redirige vers le serveur logstash, via le protocole syslog en TCP.</p>
+<p>Pour cela, il est nécessaire de placer un fichier de configuration dédié dans le dossier <code class="docutils literal notranslate"><span class="pre">/etc/rsyslog.d/</span></code> ; ce fichier sera automatiquement pris en compte par rsyslog. Pour la syntaxe de ce fichier de configuration rsyslog, se référer à la <a class="reference external" href="http://www.rsyslog.com/doc/v7-stable/">documentation rsyslog</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Pour cela, il peut être utile de s’inspirer du fichier de référence <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> <code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/rsyslog/templates/vitam_transport.conf.j2</span></code> (attention, il s’agit d’un fichier template ansible, non directement convertible en fichier de configuration sans en ôter les directives jinja2).</p>
+</div>
+</div>
+</div>
+<div class="section" id="passage-des-identifiants-des-referentiels-en-mode-esclave">
+<h2>4.2.5.9. Passage des identifiants des référentiels en mode <cite>esclave</cite><a class="headerlink" href="#passage-des-identifiants-des-referentiels-en-mode-esclave" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La génération des identifiants des référentiels est géré par <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> lorsqu’il fonctionne en mode maître.</p>
+<p>Par exemple :</p>
+<ul class="simple">
+<li>Préfixé par <code class="docutils literal notranslate"><span class="pre">PR-</span></code> pour les profils</li>
+<li>Préfixé par <code class="docutils literal notranslate"><span class="pre">IC-</span></code> pour les contrats d’entrée</li>
+<li>Préfixé par <code class="docutils literal notranslate"><span class="pre">AC-</span></code> pour les contrats d’accès</li>
+</ul>
+<p>Depuis la version 1.0.4, la configuration par défaut de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> autorise des identifiants externes (ceux qui sont dans le fichier json importé).</p>
+<blockquote>
+<div><ul class="simple">
+<li>pour le tenant 0 pour les référentiels : contrat d’entrée et contrat d’accès.</li>
+<li>pour le tenant 1 pour les référentiels : contrat d’entrée, contrat d’accès, profil, profil de sécurité et contexte.</li>
+</ul>
+</div></blockquote>
+<p>La liste des choix possibles, pour chaque tenant, est :</p>
+<table border="1" class="colwidths-given longtable docutils" id="id1">
+<caption><span class="caption-text">Description des identifiants de référentiels</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Nom du référentiel</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>INGEST_CONTRACT</td>
+<td>contrats d’entrée</td>
+</tr>
+<tr class="row-odd"><td>ACCESS_CONTRACT</td>
+<td>contrats d’accès</td>
+</tr>
+<tr class="row-even"><td>PROFILE</td>
+<td>profils <a class="reference internal" href="../introduction.html#term-seda"><span class="xref std std-term">SEDA</span></a></td>
+</tr>
+<tr class="row-odd"><td>SECURITY_PROFILE</td>
+<td>profils de sécurité (utile seulement sur le tenant d’administration)</td>
+</tr>
+<tr class="row-even"><td>CONTEXT</td>
+<td>contextes applicatifs (utile seulement sur le tenant d’administration)</td>
+</tr>
+<tr class="row-odd"><td>ARCHIVEUNITPROFILE</td>
+<td>profils d’unités archivistiques</td>
+</tr>
+</tbody>
+</table>
+<p>Si vous souhaitez gérer vous-même les identifiants sur un service référentiel, il faut qu’il soit en mode esclave.</p>
+<p>Par défaut tous les services référentiels de Vitam fonctionnent en mode maître. Pour désactiver le mode maître de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, il faut modifier le fichier ansible <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> dans les sections <code class="docutils literal notranslate"><span class="pre">vitam_tenants_usage_external</span></code> (pour gérer, par tenant, les collections en mode esclave).</p>
+</div>
+<div class="section" id="parametrage-du-batch-de-calcul-pour-l-indexation-des-regles-heritees">
+<h2>4.2.5.10. Paramétrage du batch de calcul pour l’indexation des règles héritées<a class="headerlink" href="#parametrage-du-batch-de-calcul-pour-l-indexation-des-regles-heritees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La paramétrage du batch de calcul pour l’indexation des règles héritées peut être réalisé dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>.</p>
+<p>La section suivante du fichier <code class="docutils literal notranslate"><span class="pre">vitam_vars.yml</span></code> permet de paramétrer la fréquence de passage du batch :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_timers</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-computed-inherited-rules</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:30:00&quot;</span>
+</pre></div>
+</div>
+<p>La section suivante du fichier <code class="docutils literal notranslate"><span class="pre">vitam_vars.yml</span></code> permet de paramétrer la liste des tenants sur lequels s’exécute le batch :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam</span><span class="p">:</span>
+  <span class="nt">worker</span><span class="p">:</span>
+        <span class="c1"># api_output_index_tenants : permet d&#39;indexer les règles de gestion, les chemins des règles et les services producteurs</span>
+        <span class="nt">api_output_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+        <span class="c1"># rules_index_tenants : permet d&#39;indexer les règles de gestion</span>
+        <span class="nt">rules_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="durees-minimales-permettant-de-controler-les-valeurs-saisies">
+<h2>4.2.5.11. Durées minimales permettant de contrôler les valeurs saisies<a class="headerlink" href="#durees-minimales-permettant-de-controler-les-valeurs-saisies" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Afin de se prémunir contre une alimentation du référentiel des règles de gestion avec des durées trop courtes susceptibles de déclencher des actions indésirables sur la plate-forme (ex. éliminations) – que cette tentative soit intentionnelle ou non –, la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> vérifie que l’association de la durée et de l’unité de mesure saisies pour chaque champ est supérieure ou égale à une durée minimale définie lors du paramétrage de la plate-forme, dans un fichier de configuration.</p>
+<p>Pour mettre en place le comportement attendu par le métier, il faut modifier le contenu de la directive <code class="docutils literal notranslate"><span class="pre">vitam_tenant_rule_duration</span></code> dans le fichier ansible <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>.</p>
+<p>Exemple:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_tenant_rule_duration</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span> <span class="c1"># applied tenant</span>
+    <span class="nt">rules</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">AppraisalRule </span><span class="p">:</span> <span class="s">&quot;1</span><span class="nv"> </span><span class="s">year&quot;</span> <span class="c1"># rule name : rule value</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+    <span class="nt">rules</span><span class="p">:</span>
+      <span class="nt">AppraisaleRule </span><span class="p">:</span> <span class="s">&quot;5</span><span class="nv"> </span><span class="s">year&quot;</span>
+      <span class="nt">StorageRule </span><span class="p">:</span> <span class="s">&quot;5</span><span class="nv"> </span><span class="s">year&quot;</span>
+      <span class="nt">ReuseRule </span><span class="p">:</span> <span class="s">&quot;2</span><span class="nv"> </span><span class="s">year&quot;</span>
+</pre></div>
+</div>
+<p>Par <cite>tenant</cite>, les directives possibles sont :</p>
+<table border="1" class="colwidths-given longtable docutils" id="id2">
+<caption><span class="caption-text">Description des règles</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Règle</th>
+<th class="head">Valeur par défaut</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AppraisalRule</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>DisseminationRule</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>StorageRule</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>ReuseRule</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>AccessRule</td>
+<td>0 year</td>
+</tr>
+<tr class="row-odd"><td>ClassificationRule</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Les valeurs associées sont une durée au format &lt;nombre&gt; &lt;unité en anglais, au singulier&gt;</p>
+<p>Exemples:</p>
+<blockquote>
+<div>6 month
+1 year
+5 year</div></blockquote>
+<div class="admonition seealso">
+<p class="first admonition-title">Voir aussi</p>
+<p class="last">Pour plus de détails, se rapporter à la documentation métier «&nbsp;Règles de gestion&nbsp;».</p>
+</div>
+</div>
+<div class="section" id="fichiers-complementaires">
+<h2>4.2.5.12. Fichiers complémentaires<a class="headerlink" href="#fichiers-complementaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>A titre informatif, le positionnement des variables ainsi que des dérivations des déclarations de variables sont effectuées dans les fichiers suivants :</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>, comme suit :</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1">### global ###</span>
+
+<span class="c1"># Disable epel or Debian backports repositories install</span>
+<span class="nt">disable_internet_repositories_install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># TODO MAYBE : permettre la surcharge avec une syntax du genre vitamopts.folder_root | default(vitam_default.folder_root) dans les templates ?</span>
+<span class="nt">droid_filename</span><span class="p">:</span> <span class="s">&quot;DROID_SignatureFile_V97.xml&quot;</span>
+<span class="nt">droid_container_filename</span><span class="p">:</span> <span class="s">&quot;container-signature-20201001.xml&quot;</span>
+
+<span class="c1"># The global defaults parameters for vitam &amp; vitam components</span>
+<span class="nt">vitam_defaults</span><span class="p">:</span>
+    <span class="nt">folder</span><span class="p">:</span>
+        <span class="nt">root_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/vitam</span>
+        <span class="nt">folder_permission</span><span class="p">:</span> <span class="s">&quot;0750&quot;</span>
+        <span class="nt">conf_permission</span><span class="p">:</span> <span class="s">&quot;0640&quot;</span>
+        <span class="nt">folder_upload_permission</span><span class="p">:</span> <span class="s">&quot;0770&quot;</span>
+        <span class="nt">script_permission</span><span class="p">:</span> <span class="s">&quot;0750&quot;</span>
+    <span class="nt">users</span><span class="p">:</span>
+        <span class="nt">vitam</span><span class="p">:</span> <span class="s">&quot;vitam&quot;</span>
+        <span class="nt">vitamdb</span><span class="p">:</span> <span class="s">&quot;vitamdb&quot;</span>
+        <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;vitam&quot;</span>
+    <span class="nt">services</span><span class="p">:</span>
+        <span class="c1"># Default log level for vitam components: logback values (TRACE, DEBUG, INFO, WARN, ERROR, OFF)</span>
+        <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WARN</span>
+        <span class="nt">start_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="nt">stop_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
+        <span class="nt">port_service_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">86400</span>
+        <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
+        <span class="nt">api_long_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="nt">status_retries_number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+        <span class="nt">status_retries_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="c1">### Trust X-SSL-CLIENT-CERT header for external api auth ? (true | false)</span>
+    <span class="nt">vitam_ssl_user_header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="c1">### Force chunk mode : set true if chunk header should be checked</span>
+    <span class="nt">vitam_force_chunk_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="c1"># syslog_facility</span>
+    <span class="nt">syslog_facility</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local0</span>
+
+<span class="c1">################################################################################</span>
+<span class="c1">### Default Components parameters</span>
+<span class="c1">### Uncomment them if you want to update the default value applied on all components</span>
+
+<span class="c1">### Ontology cache settings (max entries in cache &amp; retention timeout in seconds)</span>
+    <span class="c1"># ontologyCacheMaxEntries: 100</span>
+    <span class="c1"># ontologyCacheTimeoutInSeconds: 300</span>
+<span class="c1">### Elasticsearch scroll timeout in milliseconds settings</span>
+    <span class="c1"># elasticSearchScrollTimeoutInMilliseconds: 300000</span>
+
+<span class="c1">### The following values can be overwritten for each components in vitam: parameters.</span>
+    <span class="nt">jvm_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">performance_logger</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+    <span class="c1"># consul_business_check: 10 # value in seconds</span>
+    <span class="c1"># consul_admin_check: 10 # value in seconds</span>
+
+    <span class="c1"># metricslevel: DEBUG</span>
+    <span class="c1"># metricsinterval: 3</span>
+    <span class="c1"># metricsunit: MINUTES</span>
+
+    <span class="c1"># access_retention_days: 30 # Number of days for file retention</span>
+    <span class="c1"># access_total_size_cap: &quot;10GB&quot; # total acceptable size</span>
+    <span class="c1"># logback_max_file_size: &quot;10MB&quot;</span>
+    <span class="c1"># logback_total_size_cap:</span>
+    <span class="c1">#   file:</span>
+    <span class="c1">#     history_days: 30</span>
+    <span class="c1">#     totalsize: &quot;5GB&quot;</span>
+    <span class="c1">#   security:</span>
+    <span class="c1">#     history_days: 30</span>
+    <span class="c1">#     totalsize: &quot;5GB&quot;</span>
+
+<span class="c1">### Logs configuration for reconstruction services (INFO or DEBUG for active logs).</span>
+<span class="c1">### Logs will be present only on secondary site.</span>
+<span class="c1">### Available for the following components: logbook, metadata &amp; functional-administration.</span>
+    <span class="nt">reconstruction</span><span class="p">:</span>
+        <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
+
+<span class="c1"># Used in ingest, unitary update, mass-update</span>
+<span class="nt">classificationList</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;Non</span><span class="nv"> </span><span class="s">protégé&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;Secret</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Confidentiel</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">]</span>
+<span class="c1"># Used in ingest, unitary update, mass-update</span>
+<span class="nt">classificationLevelOptional</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="c1"># Packages install retries</span>
+<span class="nt">packages_install_retries_number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">packages_install_retries_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="c1"># Request time check settings. Do NOT update except if required by Vitam support</span>
+<span class="c1"># Max acceptable time desynchronization between machines (in seconds).</span>
+<span class="nt">acceptableRequestTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="c1"># Critical time desynchronization between machines (in seconds).</span>
+<span class="nt">criticalRequestTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+<span class="c1"># Request time alert throttling Delay (in seconds)</span>
+<span class="nt">requestTimeAlertThrottlingDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+
+<span class="nt">vitam_timers</span><span class="p">:</span>
+<span class="c1"># /!\ IMPORTANT :</span>
+<span class="c1"># Please ensure timer execution is spread so that not all timers run concurrently (eg. *:05:00, *:35:00, *:50:00..),</span>
+<span class="c1"># Special care for heavy-load timers that run on same machines or use same resources (eg. vitam-traceability-*).</span>
+<span class="c1">#</span>
+<span class="c1"># systemd nomenclature</span>
+<span class="c1">#    minutely → *-*-* *:*:00</span>
+<span class="c1">#    hourly → *-*-* *:00:00</span>
+<span class="c1">#    daily → *-*-* 00:00:00</span>
+<span class="c1">#    monthly → *-*-01 00:00:00</span>
+<span class="c1">#    weekly → Mon *-*-* 00:00:00</span>
+<span class="c1">#    yearly → *-01-01 00:00:00</span>
+<span class="c1">#    quarterly → *-01,04,07,10-01 00:00:00</span>
+<span class="c1">#    semiannually → *-01,07-01 00:00:00</span>
+    <span class="nt">logbook</span><span class="p">:</span> <span class="c1"># all have to run on only one machine</span>
+        <span class="c1"># Sécurisation des journaux des opérations</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-traceability-operations</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:05:00&quot;</span> <span class="c1"># every hour</span>
+        <span class="c1"># Sécurisation des journaux du cycle de vie des groupes d&#39;objets</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-traceability-lfc-objectgroup</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:15:00&quot;</span> <span class="c1"># every hour</span>
+        <span class="c1"># Sécurisation des journaux du cycle de vie des unités archivistiques</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-traceability-lfc-unit</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:35:00&quot;</span> <span class="c1"># every hour</span>
+        <span class="c1"># Audit de traçabilité</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-traceability-audit</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">00:55:00&quot;</span>
+        <span class="c1"># Reconstruction (uniquement sur site secondaire)</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-logbook-reconstruction</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:0/5:00&quot;</span>
+    <span class="nt">storage</span><span class="p">:</span>
+        <span class="c1"># Sauvegarde des journaux d&#39;accès</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-storage-accesslog-backup</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">0/4:10:00&quot;</span> <span class="c1"># every 4 hours</span>
+        <span class="c1"># Sauvegarde des journaux des écritures</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-storage-log-backup</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">0/4:15:00&quot;</span> <span class="c1"># every 4 hours</span>
+        <span class="c1"># Sécurisation du journal des écritures</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-storage-log-traceability</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">0/4:40:00&quot;</span> <span class="c1"># every 4 hours</span>
+    <span class="nt">functional_administration</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-create-accession-register-symbolic</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">00:50:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-functional-administration-accession-register-reconstruction</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:0/5:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-rule-management-audit</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:40:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-functional-administration-reconstruction</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:0/5:00&quot;</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-store-graph</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:10/30:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-reconstruction</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:0/5:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-computed-inherited-rules</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:30:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-purge-dip</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:20:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-purge-transfers-SIP</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:25:00&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-audit-mongodb-es</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;2020-01-01</span><span class="nv"> </span><span class="s">00:00:00&quot;</span>
+    <span class="nt">offer</span><span class="p">:</span>
+      <span class="c1"># Compaction offer logs</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-offer-log-compaction</span>
+        <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:40:00&quot;</span> <span class="c1"># every hour</span>
+
+<span class="c1">### consul ###</span>
+<span class="c1"># WARNING: consul_domain should be a supported domain name for your organization</span>
+<span class="c1">#          You will have to generate server certificates with the same domain name and the service subdomain name</span>
+<span class="c1">#          Example: consul_domain=vitam means you will have to generate some certificates with .service.vitam domain</span>
+<span class="c1">#                   access-external.service.vitam, ingest-external.service.vitam, ...</span>
+<span class="nt">consul_domain</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">consul</span>
+<span class="nt">consul_folder_conf</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/consul&quot;</span>
+
+<span class="c1"># Workspace should be useless but storage have a dependency to it...</span>
+<span class="c1"># elastic-kibana-interceptor is present as kibana is present, if kibana-data &amp; interceptor are not needed in the secondary site, just do not add them in the hosts file</span>
+<span class="nt">vitam_secondary_site_components</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;logbook&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;metadata&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;functional-administration&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storage&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storageofferdefault&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;offer&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-log&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-data&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;logstash&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;kibana&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongoc&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongod&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongos&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;elastic-kibana-interceptor&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;consul&quot;</span> <span class="p p-Indicator">]</span>
+
+<span class="c1"># containers list</span>
+<span class="nt">containers_list</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;units&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;objects&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;objectgroups&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;logbooks&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;reports&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;manifests&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;profiles&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;storagelog&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;storageaccesslog&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;storagetraceability&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;rules&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;dip&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;agencies&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;backup&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;backupoperations&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;unitgraph&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;objectgroupgraph&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;distributionreports&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;accessionregistersdetail&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;accessionregisterssymbolic&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;tmp&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;archivaltransferreply&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="c1"># Vitams griffins required to launch preservation scenario</span>
+<span class="c1"># Example:</span>
+<span class="c1"># vitam_griffins: [&quot;vitam-imagemagick-griffin&quot;, &quot;vitam-libreoffice-griffin&quot;, &quot;vitam-jhove-griffin&quot;, &quot;vitam-odfvalidator-griffin&quot;, &quot;vitam-siegfried-griffin&quot;, &quot;vitam-tesseract-griffin&quot;, &quot;vitam-verapdf-griffin&quot;, &quot;vitam-ffmpeg-griffin&quot;]</span>
+<span class="nt">vitam_griffins</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+
+<span class="c1">### Composants Vitam ###</span>
+<span class="nt">vitam</span><span class="p">:</span>
+<span class="c1">### All available parameters for each components are described in the vitam_defaults variable</span>
+
+<span class="c1">### Example</span>
+  <span class="c1"># component:</span>
+  <span class="c1">#    logback_rolling_policy: true</span>
+  <span class="c1">## Force the log level for this component. Available logback values are (TRACE, DEBUG, INFO, WARN, ERROR, OFF)</span>
+  <span class="c1">## If this var is not set, the default one will be used (vitam_defaults.services.log_level)</span>
+  <span class="c1">#    log_level: &quot;DEBUG&quot;</span>
+
+    <span class="nt">accessexternal</span><span class="p">:</span>
+        <span class="c1"># Component name: do not modify</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access-external</span>
+        <span class="c1"># DNS record for the service:</span>
+        <span class="c1"># Modify if ihm-demo is not using consul (typical production deployment)</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;access-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28102</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8444</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;access-external&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="c1"># Use platform secret for this component ? : do not modify</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">accessinternal</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access-internal</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;access-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8101</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28101</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;access-internal&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">functional_administration</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">functional-administration</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;functional-administration.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8004</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18004</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;adminmanagement&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="c1"># Number of AccessionRegisterSymbolic creation threads that can be run in parallel.</span>
+        <span class="nt">accessionRegisterSymbolicThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+        <span class="c1"># Number of rule audit threads that can be run in parallel.</span>
+        <span class="nt">ruleAuditThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+    <span class="nt">elastickibanainterceptor</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elastic-kibana-interceptor</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elastic-kibana-interceptor.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8014</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18014</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">batchreport</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">batch-report</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;batch-report.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8015</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18015</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;batchreport&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">ingestexternal</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-external</span>
+        <span class="c1"># DNS record for the service:</span>
+        <span class="c1"># Modify if ihm-demo is not using consul (typical production deployment)</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ingest-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28001</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8443</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ingest-external&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="nt">antivirus</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span>
+        <span class="c1"># uncomment if huge files need to be analyzed in more than 60s (default behavior)</span>
+        <span class="c1">#scantimeout: 60000 # value in milliseconds</span>
+        <span class="c1"># Directory where files should be placed for local ingest</span>
+        <span class="nt">upload_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload&quot;</span>
+        <span class="c1"># Directory where successful ingested files will be moved to</span>
+        <span class="nt">success_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload/success&quot;</span>
+        <span class="c1"># Directory where failed ingested files will be moved to</span>
+        <span class="nt">fail_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload/failure&quot;</span>
+        <span class="c1"># Action done to file after local ingest (see below for further information)</span>
+        <span class="nt">upload_final_action</span><span class="p">:</span> <span class="s">&quot;MOVE&quot;</span>
+        <span class="c1"># upload_final_action can be set to three different values (lower or upper case does not matter)</span>
+        <span class="c1">#   MOVE : After upload, the local file will be moved to either success_dir or fail_dir depending on the status of the ingest towards ingest-internal</span>
+        <span class="c1">#   DELETE : After upload, the local file will be deleted if the upload succeeded</span>
+        <span class="c1">#   NONE : After upload, nothing will be done to the local file (default option set if the value entered for upload_final_action does not exist)</span>
+    <span class="nt">ingestinternal</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-internal</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ingest-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8100</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28100</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ingest&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">ihm_demo</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ihm-demo</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ihm-demo.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8446</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28002</span>
+        <span class="nt">baseurl</span><span class="p">:</span> <span class="s">&quot;/ihm-demo&quot;</span>
+        <span class="nt">static_content</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/app/ihm-demo/v2&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ihm-demo&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="c1"># metrics_enabled: false # Set to false if ihm_demo component is outside the Vitam area (default: true)</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="c1"># User session timeout in milliseconds (for shiro)</span>
+        <span class="nt">session_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1800000</span>
+        <span class="nt">secure_cookie</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="c1"># Specify here the realms you want to use for authentication in ihm-demo</span>
+        <span class="c1"># You can set multiple realms, one per line</span>
+        <span class="c1"># With multiple realms, the user will be able to choose between the allowed realms</span>
+        <span class="c1"># Example: authentication_realms:</span>
+        <span class="c1">#               - x509Realm</span>
+        <span class="c1">#               - ldapRealm</span>
+        <span class="c1"># Authorized values:</span>
+        <span class="c1"># x509Realm: certificate</span>
+        <span class="c1"># iniRealm: ini file</span>
+        <span class="c1"># ldapRealm: ldap</span>
+        <span class="nt">authentication_realms</span><span class="p">:</span>
+            <span class="c1"># - x509Realm</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">iniRealm</span>
+            <span class="c1"># - ldapRealm</span>
+        <span class="nt">allowedMediaTypes</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;application&quot;</span>
+              <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;pdf&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;text&quot;</span>
+              <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;plain&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;image&quot;</span>
+              <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;jpeg&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;image&quot;</span>
+              <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;tiff&quot;</span>
+    <span class="nt">logbook</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logbook</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;logbook.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9002</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29002</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;logbook&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="c1"># Temporization delay (in seconds) for recent logbook operation events.</span>
+        <span class="c1"># Set it to a reasonable delay to cover max clock difference across servers + VM/GC pauses</span>
+        <span class="nt">operationTraceabilityTemporizationDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># Max delay between 2 logbook operation traceability operations.</span>
+        <span class="c1"># A new logbook operation traceability is generated after this delay, even if tenant has no</span>
+        <span class="c1"># new logbook operations to secure</span>
+        <span class="c1"># Unit can be in DAYS, HOURS, MINUTES, SECONDS</span>
+        <span class="c1"># Hint: Set it to 690 MINUTES (11 hours and 30 minutes) to force new traceability after +/- 12 hours (supposing</span>
+        <span class="c1"># logbook operation traceability timer run every hour +/- some clock delays)</span>
+        <span class="nt">operationTraceabilityMaxRenewalDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">690</span>
+        <span class="nt">operationTraceabilityMaxRenewalDelayUnit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MINUTES</span>
+        <span class="c1"># Number of logbook operations that can be run in parallel.</span>
+        <span class="nt">operationTraceabilityThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+        <span class="c1"># Temporization delay (in seconds) for recent logbook lifecycle events.</span>
+        <span class="c1"># Set it to a reasonable delay to cover max clock difference across servers + VM/GC pauses</span>
+        <span class="nt">lifecycleTraceabilityTemporizationDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># Max delay between 2 lifecycle traceability operations.</span>
+        <span class="c1"># A new unit/objectgroup lifecycle traceability is generated after this delay, even if tenant has no</span>
+        <span class="c1"># new unit/objectgroups to secure</span>
+        <span class="c1"># Unit can be in DAYS, HOURS, MINUTES, SECONDS</span>
+        <span class="c1"># Hint: Set it to 690 MINUTES (11 hours and 30 minutes) to force new traceability after +/- 12 hours (supposing</span>
+        <span class="c1"># LFC traceability timers run every hour +/- some clock delays)</span>
+        <span class="nt">lifecycleTraceabilityMaxRenewalDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">690</span>
+        <span class="nt">lifecycleTraceabilityMaxRenewalDelayUnit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MINUTES</span>
+        <span class="c1"># Max entries selected per (Unit or Object Group) LFC traceability operation</span>
+        <span class="nt">lifecycleTraceabilityMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;metadata.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8200</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28200</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;metadata&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="c1"># Archive Unit Profile cache settings (max entries in cache &amp; retention timeout in seconds)</span>
+        <span class="nt">archiveUnitProfileCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="nt">archiveUnitProfileCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># Schema validator cache settings (max entries in cache &amp; retention timeout in seconds)</span>
+        <span class="nt">schemaValidatorCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="nt">schemaValidatorCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># DIP cleanup delay (in minutes)</span>
+        <span class="nt">dipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
+        <span class="nt">transfersSIPTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
+        <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata/mapping&quot;</span> <span class="c1"># Directory of elasticsearch metadata mapping</span>
+        <span class="c1">#### Audit data consistency MongoDB-ES ####</span>
+        <span class="nt">isDataConsistencyAuditRunnable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">dataConsistencyAuditOplogMaxSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+    <span class="nt">processing</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">processing</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;processing.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8203</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28203</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;processing&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">maxDistributionInMemoryBufferSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
+        <span class="nt">maxDistributionOnDiskBufferSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000000</span>
+    <span class="nt">security_internal</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security-internal</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;security-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8005</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28005</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;security-internal&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">storageengine</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">storage</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;storage.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9102</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29102</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;storage&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">storageTraceabilityOverlapDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="nt">restoreBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="c1"># Storage write/access log backup max thread pool size</span>
+        <span class="nt">storageLogBackupThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+        <span class="c1"># Storage write log traceability thread pool size</span>
+        <span class="nt">storageLogTraceabilityThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+        <span class="c1"># Offer synchronization batch size &amp; thread pool size</span>
+        <span class="nt">offerSynchronizationBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="c1"># Retries attempts</span>
+        <span class="nt">offerSyncNumberOfRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+        <span class="nt">offerSyncFirstAttemptWaitingTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+        <span class="nt">offerSyncWaitingTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+        <span class="nt">offerSyncThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
+        <span class="nt">logback_total_size_cap</span><span class="p">:</span>
+          <span class="nt">offersync</span><span class="p">:</span>
+            <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+            <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+          <span class="nt">offerdiff</span><span class="p">:</span>
+            <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+            <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+        <span class="c1"># unit time per kB (in ms) used while calculating the timeout of an http request between storage and offer (if the calculated result is less than 60s, this time is used)</span>
+        <span class="nt">timeoutMsPerKB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+    <span class="nt">storageofferdefault</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="s">&quot;offer&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9900</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29900</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;offer&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">logback_total_size_cap</span><span class="p">:</span>
+          <span class="nt">offer_tape</span><span class="p">:</span>
+            <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+            <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+          <span class="nt">offer_tape_backup</span><span class="p">:</span>
+            <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+            <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+    <span class="nt">worker</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;worker.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9104</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29104</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;worker&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+        <span class="nt">api_output_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+        <span class="nt">rules_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+        <span class="c1"># Archive Unit Profile cache settings (max entries in cache &amp; retention timeout in seconds)</span>
+        <span class="nt">archiveUnitProfileCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="nt">archiveUnitProfileCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># Schema validator cache settings (max entries in cache &amp; retention timeout in seconds)</span>
+        <span class="nt">schemaValidatorCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="nt">schemaValidatorCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+        <span class="c1"># Batch size for bulk atomic update</span>
+        <span class="nt">queriesThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
+        <span class="c1"># Bulk atomic update batch size</span>
+        <span class="nt">bulkAtomicUpdateBatchSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="c1"># Max threads that can be run in concurrently is thread pool for bulk atomic update</span>
+        <span class="nt">bulkAtomicUpdateThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+        <span class="c1"># Number of jobs that can be queued in memory before blocking for bulk atomic update</span>
+        <span class="nt">bulkAtomicUpdateThreadPoolQueueSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+    <span class="nt">workspace</span><span class="p">:</span>
+        <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;workspace.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8201</span>
+        <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28201</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;workspace&quot;</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+
+<span class="c1"># for functional-administration, manage master/slave tenant configuration</span>
+<span class="nt">vitam_tenants_usage_external</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+    <span class="nt">identifiers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">INGEST_CONTRACT</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ACCESS_CONTRACT</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MANAGEMENT_CONTRACT</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ARCHIVE_UNIT_PROFILE</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">identifiers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">INGEST_CONTRACT</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ACCESS_CONTRACT</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MANAGEMENT_CONTRACT</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PROFILE</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SECURITY_PROFILE</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CONTEXT</span>
+
+<span class="nt">vitam_tenant_rule_duration</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span> <span class="c1"># applied tenant</span>
+    <span class="nt">rules</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">AppraisalRule </span><span class="p">:</span> <span class="s">&quot;1</span><span class="nv"> </span><span class="s">year&quot;</span> <span class="c1"># rule name : rule value</span>
+
+<span class="c1"># If you want to deploy vitam in a single VM, add the vm name in this array</span>
+<span class="nt">single_vm_hostnames</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;localhost&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cas du composant ingest-external. Les directives <code class="docutils literal notranslate"><span class="pre">upload_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">success_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">fail_dir</span></code> et <code class="docutils literal notranslate"><span class="pre">upload_final_action</span></code> permettent de prendre en charge (ingest) des fichiers déposés dans <code class="docutils literal notranslate"><span class="pre">upload_dir</span></code> et appliquer une règle <code class="docutils literal notranslate"><span class="pre">upload_final_action</span></code> à l’issue du traitement (NONE, DELETE ou MOVE dans <code class="docutils literal notranslate"><span class="pre">success_dir</span></code> ou <code class="docutils literal notranslate"><span class="pre">fail_dir</span></code> selon le cas). Se référer au <a class="reference internal" href="../introduction.html#term-dex"><span class="xref std std-term">DEX</span></a> pour de plus amples détails. Se référer au manuel de développement pour plus de détails sur l’appel à ce cas.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Selon les informations apportées par le métier, redéfinir les valeurs associées dans les directives <code class="docutils literal notranslate"><span class="pre">classificationList</span></code> et <code class="docutils literal notranslate"><span class="pre">classificationLevelOptional</span></code>. Cela permet de définir quels niveaux de protection du secret de la défense nationale, supporte l’instance. Attention : une instance de niveau supérieur doit toujours supporter les niveaux inférieurs.</p>
+</div>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/cots_vars.yml</span></code>, comme suit :</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="nt">consul</span><span class="p">:</span>
+    <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">check_internal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">check_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span> <span class="c1"># in seconds</span>
+    <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WARN</span> <span class="c1"># Available log_level are: TRACE, DEBUG, INFO, WARN or ERR</span>
+    <span class="nt">network</span><span class="p">:</span> <span class="s">&quot;ip_admin&quot;</span> <span class="c1"># Which network to use for consul communications ? ip_admin or ip_service ?</span>
+
+<span class="nt">consul_remote_sites</span><span class="p">:</span>
+    <span class="c1"># wan contains the wan addresses of the consul server instances of the external vitam sites</span>
+    <span class="c1"># Exemple, if our local dc is dc1, we will need to set dc2 &amp; dc3 wan conf:</span>
+    <span class="c1"># - dc2:</span>
+    <span class="c1">#   wan: [&quot;10.10.10.10&quot;,&quot;1.1.1.1&quot;]</span>
+    <span class="c1"># - dc3:</span>
+    <span class="c1">#   wan: [&quot;10.10.10.11&quot;,&quot;1.1.1.1&quot;]</span>
+<span class="c1"># Please uncomment and fill values if you want to connect VITAM to external SIEM</span>
+<span class="c1"># external_siem:</span>
+<span class="c1">#     host:</span>
+<span class="c1">#     port:</span>
+
+<span class="nt">elasticsearch</span><span class="p">:</span>
+    <span class="nt">log</span><span class="p">:</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9201&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
+        <span class="nt">consul_check_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+        <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+        <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">error</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/7.6/modules-fielddata.html</span>
+        <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/7.6/circuit-breaker.html#fielddata-circuit-breaker</span>
+        <span class="nt">dynamic_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30s</span>
+        <span class="c1"># default index template</span>
+        <span class="nt">index_templates</span><span class="p">:</span>
+            <span class="nt">default</span><span class="p">:</span>
+                <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+                <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">packetbeat</span><span class="p">:</span>
+                <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+        <span class="nt">log_appenders</span><span class="p">:</span>
+            <span class="nt">root</span><span class="p">:</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
+            <span class="nt">rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+            <span class="nt">deprecation_rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;1GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+            <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;1GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+            <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;1GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+        <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
+        <span class="c1"># thread_pool:</span>
+        <span class="c1">#     index:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     get:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     search:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     write:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     warmer:</span>
+        <span class="c1">#         max: 2</span>
+    <span class="nt">data</span><span class="p">:</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="c1"># default is 0.1 (10%) and should be quite enough in most cases</span>
+        <span class="c1">#index_buffer_size_ratio: &quot;0.15&quot;</span>
+        <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9200&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
+        <span class="nt">consul_check_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+        <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+        <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">debug</span>
+        <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/6.5/modules-fielddata.html</span>
+        <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/6.5/circuit-breaker.html#fielddata-circuit-breaker</span>
+        <span class="nt">dynamic_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30s</span>
+        <span class="c1"># default index template</span>
+        <span class="nt">index_templates</span><span class="p">:</span>
+            <span class="nt">default</span><span class="p">:</span>
+                <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+                <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">log_appenders</span><span class="p">:</span>
+            <span class="nt">root</span><span class="p">:</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
+            <span class="nt">rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+            <span class="nt">deprecation_rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+            <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+            <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+        <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
+        <span class="c1"># thread_pool:</span>
+        <span class="c1">#     index:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     get:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     search:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     write:</span>
+        <span class="c1">#         size: 2</span>
+        <span class="c1">#     warmer:</span>
+        <span class="c1">#         max: 2</span>
+
+<span class="nt">mongodb</span><span class="p">:</span>
+    <span class="nt">mongos_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
+    <span class="nt">mongoc_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
+    <span class="nt">mongod_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
+    <span class="nt">mongo_authentication</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;mongos.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">drop_info_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># Drop mongo (I)nformational log, for Verbosity Level of 0</span>
+    <span class="c1"># logs configuration</span>
+    <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+    <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
+
+<span class="nt">logstash</span><span class="p">:</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;logstash.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logstash</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10514</span>
+    <span class="nt">rest_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20514</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="c1"># logstash xms &amp; xmx in Megabytes</span>
+    <span class="c1"># jvm_xms: 2048</span>
+    <span class="c1"># jvm_xmx: 2048</span>
+    <span class="c1"># workers_number: 4</span>
+    <span class="nt">log_appenders</span><span class="p">:</span>
+        <span class="nt">rolling</span><span class="p">:</span>
+            <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+            <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+        <span class="nt">json_rolling</span><span class="p">:</span>
+            <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+            <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+
+<span class="c1"># Prometheus params</span>
+<span class="nt">prometheus</span><span class="p">:</span>
+    <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/admin/v1/metrics</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
+    <span class="nt">server</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19090</span>
+    <span class="nt">node_exporter</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19100</span>
+        <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
+    <span class="nt">alertmanager</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19093</span>
+        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19094</span>
+<span class="nt">grafana</span><span class="p">:</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">13000</span>
+
+<span class="c1"># Curator units: days</span>
+<span class="nt">curator</span><span class="p">:</span>
+    <span class="nt">log</span><span class="p">:</span>
+        <span class="nt">metrics</span><span class="p">:</span>
+            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
+            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+        <span class="nt">logstash</span><span class="p">:</span>
+            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
+            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+        <span class="nt">metricbeat</span><span class="p">:</span>
+            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">packetbeat</span><span class="p">:</span>
+            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="nt">kibana</span><span class="p">:</span>
+    <span class="nt">header_value</span><span class="p">:</span> <span class="s">&quot;reporting&quot;</span>
+    <span class="nt">import_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">import_retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="c1"># logs configuration</span>
+    <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+    <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
+    <span class="nt">log</span><span class="p">:</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_log&quot;</span>
+        <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
+        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logstash-vitam*&quot;</span>
+        <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+        <span class="c1"># default shards &amp; replica</span>
+        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="c1"># pour index logstash-*</span>
+        <span class="nt">metrics</span><span class="p">:</span>
+            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="c1"># pour index metrics-vitam-*</span>
+        <span class="nt">logs</span><span class="p">:</span>
+            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="c1"># pour index metricbeat-*</span>
+        <span class="nt">metricbeat</span><span class="p">:</span>
+            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span> <span class="c1"># must be a factor of 30</span>
+            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">data</span><span class="p">:</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_data&quot;</span>
+        <span class="c1"># OMA : bugdette : api_call_timeout is used for retries ; should ceate a separate variable rather than this one</span>
+        <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
+        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logbookoperation_*&quot;</span>
+        <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+        <span class="c1"># index template for .kibana</span>
+        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">syslog</span><span class="p">:</span>
+    <span class="c1"># value can be syslog-ng or rsyslog</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;rsyslog&quot;</span>
+
+<span class="nt">cerebro</span><span class="p">:</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;cerebro&quot;</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+
+<span class="nt">siegfried</span><span class="p">:</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19000</span>
+    <span class="nt">consul_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+
+<span class="nt">clamav</span><span class="p">:</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3310</span>
+    <span class="c1"># frequency freshclam for database update per day (from 0 to 24 - 24 meaning hourly check)</span>
+    <span class="nt">db_update_periodicity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="c1"># logs configuration</span>
+    <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+    <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
+
+<span class="nt">mongo_express</span><span class="p">:</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;mongo-express&quot;</span>
+
+<span class="nt">ldap_authentification</span><span class="p">:</span>
+    <span class="nt">ldap_protocol</span><span class="p">:</span> <span class="s">&quot;ldap&quot;</span>
+    <span class="nt">ldap_server</span><span class="p">:</span> <span class="s">&quot;{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;ldap&#39;]|length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">groups[&#39;ldap&#39;]|first</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}&quot;</span>
+    <span class="nt">ldap_port</span><span class="p">:</span> <span class="s">&quot;389&quot;</span>
+    <span class="nt">ldap_base</span><span class="p">:</span> <span class="s">&quot;dc=programmevitam,dc=fr&quot;</span>
+    <span class="nt">ldap_login</span><span class="p">:</span> <span class="s">&quot;cn=Manager,dc=programmevitam,dc=fr&quot;</span>
+    <span class="nt">uid_field</span><span class="p">:</span> <span class="s">&quot;uid&quot;</span>
+    <span class="nt">ldap_userDn_Template</span><span class="p">:</span> <span class="s">&quot;uid={0},ou=people,dc=programmevitam,dc=fr&quot;</span>
+    <span class="nt">ldap_group_request</span><span class="p">:</span> <span class="s">&quot;(&amp;(objectClass=groupOfNames)(member={0}))&quot;</span>
+    <span class="nt">ldap_admin_group</span><span class="p">:</span> <span class="s">&quot;cn=admin,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
+    <span class="nt">ldap_user_group</span><span class="p">:</span> <span class="s">&quot;cn=user,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
+    <span class="nt">ldap_guest_group</span><span class="p">:</span> <span class="s">&quot;cn=guest,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
+
+<span class="nt">java_prerequisites</span><span class="p">:</span>
+    <span class="nt">debian</span><span class="p">:</span> <span class="s">&quot;openjdk-11-jre-headless&quot;</span>
+    <span class="nt">redhat</span><span class="p">:</span> <span class="s">&quot;java-11-openjdk-headless&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Installation multi-sites. Déclarer dans <code class="docutils literal notranslate"><span class="pre">consul_remote_sites</span></code> les datacenters Consul des autres site ; se référer à l’exemple fourni pour renseigner les informations.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Concernant Curator, en environnement de production, il est recommandé de procéder à la fermeture des index au bout d’une semaine pour les index de type «&nbsp;logstash&nbsp;» (3 jours pour les index «&nbsp;metrics&nbsp;»), qui sont le reflet des traces applicatives des composants de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Il est alors recommandé de lancer le <em>delete</em> de ces index au bout de la durée minimale de rétention : 1 an (il n’y a pas de durée de rétention minimale légale sur les index «&nbsp;metrics&nbsp;», qui ont plus une vocation technique et, éventuellement, d’investigations).</p>
+</div>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/jvm_vars.yml</span></code>, comme suit :</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="nt">vitam</span><span class="p">:</span>
+    <span class="nt">accessinternal</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">accessexternal</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">elastickibanainterceptor</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">batchreport</span><span class="p">:</span>
+          <span class="nt">jvm_opts</span><span class="p">:</span>
+              <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+              <span class="c1"># gc: &quot;&quot;</span>
+              <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">ingestinternal</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">ingestexternal</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">ihm_demo</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">ihm_recette</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">logbook</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+        <span class="nt">timer_jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms32m -Xmx128m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">workspace</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">processing</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">worker</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">storageengine</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+        <span class="nt">timer_jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms32m -Xmx128m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">storageofferdefault</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">functional_administration</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+        <span class="nt">timer_jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms32m -Xmx128m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">security_internal</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms512m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">library</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="s">&quot;-Xms32m</span><span class="nv"> </span><span class="s">-Xmx128m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cette configuration est appliquée à la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ; il est possible de créer un tuning par «&nbsp;groupe&nbsp;» défini dans ansible.</p>
+</div>
+</div>
+<div class="section" id="parametrage-de-l-offre-froide-librairies-de-cartouches">
+<h2>4.2.5.13. Paramétrage de l’Offre Froide ( librairies de cartouches )<a class="headerlink" href="#parametrage-de-l-offre-froide-librairies-de-cartouches" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Suite à l’introduction des offres bandes, plusieurs notions supplémentaires sont prises en compte dans ce fichier.
+De nouvelles entrées ont été ajoutées pour décrire d’une part le matériel robotique assigné à l’offre froide, et les répertoires d’échanges temporaires d’autre part. Les éléments de configuration doivent être renseignés par l’exploitant.</p>
+<ul class="simple">
+<li>Lecture asynchrone</li>
+</ul>
+<p>Un paramètre a été ajouté aux définitions de stratégie.
+<cite>AsyncRead</cite> permet de déterminer si l’offre associée fonctionne en lecture asynchrone, et désactive toute possibilité de lecture directe sur l’offre.
+Une offre froide «&nbsp;offer-tape&nbsp;» doit être configurée en lecture asynchrone.
+La valeur par défaut pour <cite>asyncRead</cite> est False.</p>
+<p>Exemple:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>vitam_strategy:
+  - name: offer-tape-1
+    referent: false
+    asyncRead: **true**
+  - name: offer-fs-2
+    referent: true
+    asyncRead: false
+</pre></div>
+</div>
+<ul class="simple">
+<li>Périphériques liés à l’usage des bandes magnétiques</li>
+</ul>
+<p><strong>Terminologie</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>tapeLibrary</strong>  une librairie de bande dans son ensemble. Une <em>tapeLibrary</em> est constituée de 1 à n «&nbsp;robot&nbsp;» et de 1 à n «&nbsp;drives&nbsp;». Une offre froide nécessite la déclaration d’au moins une librairie pour fonctionner. L’exploitant doit déclarer un identifiant pour chaque librairie. Ex: TAPE_LIB_1</li>
+<li><strong>drive</strong>  un drive est un lecteur de cartouches. Il doit être identifié par un <em>path</em> scsi unique. Une offre froide nécessite la déclaration d’au moins un lecteur pour fonctionner.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">il existe plusieurs fichiers périphériques sur Linux pour un même lecteur</p>
+</div>
+<p>Les plus classiques sont par exemple <code class="docutils literal notranslate"><span class="pre">/dev/st0</span></code> et <code class="docutils literal notranslate"><span class="pre">/dev/nst0</span></code> pour le premier drive détecté par le système.
+L’usage de <code class="docutils literal notranslate"><span class="pre">/dev/st0</span></code> indique au système que la bande utilisée dans le lecteur associé devra être rembobinée après l’exécution de la commande appelante.
+A contrario, <code class="docutils literal notranslate"><span class="pre">/dev/nst0</span></code> indique au système que la bande utilisée dans le lecteur associé devra rester positionnée après le dernier marqueur de fichier utilisé par l’exécution de la commande appelante.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Pour que l’offre froide fonctionne correctement, il convient de configurer une version /dev/nstxx</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il peut arriver sur certains systèmes que l’ordre des lecteurs de bandes varient après un reboot de la machine. Pour s’assurer la persistance de l’ordre des lecteurs dans la configuration VITAM, il est conseillé d’utiliser les fichiers périphériques présents dans <code class="docutils literal notranslate"><span class="pre">/dev/tape/by-id/</span></code> qui s’appuient sur des références au hardware pour définir les drives.</p>
+</div>
+<ul class="simple">
+<li><strong>robot</strong>  un robot est le composant chargé de procéder au déplacement des cartouches dans une <em>tapeLibrary</em>, et de procéder à l’inventaire de ses ressources. Une offre froide nécessite la déclaration d’au moins un robot pour fonctionner. L’exploitant doit déclarer un fichier de périphérique scsi générique ( ex: /dev/sg4 ) associé à la robotique sur son système. A l’instar de la configuration des drives, il est recommandé d’utiliser le device présent dans /dev/tape/by-id pour déclarer les robots.</li>
+</ul>
+</div></blockquote>
+<p><strong>Définition d’une offre froide:</strong></p>
+<blockquote>
+<div>Une offre froide (OF) doit être définie dans la rubrique «&nbsp;vitam_offers&nbsp;» avec un provider de type <em>tape-library</em></div></blockquote>
+<p>Exemple:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_offers</span><span class="p">:</span>
+  <span class="nt">offer-tape-1</span><span class="p">:</span>
+    <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tape-library</span>
+    <span class="nt">tapeLibraryConfiguration</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>La description «&nbsp;tapeLibraryConfiguration&nbsp;» débute par la définition des répertoires de stockage ainsi que le paramétrage des <cite>tars</cite>.
+* <strong>inputFileStorageFolder</strong> Répertoire où seront stockés les objets à intégrer à l’OF
+* <strong>inputTarStorageFolder</strong> Répertoire où seront générés et stockés les <cite>tars</cite> avant transfert sur bandes
+* <strong>outputTarStorageFolder</strong> Répertoire où seront rapatriés les <cite>tars</cite> depuis les bandes.
+* <strong>MaxTarEntrySize</strong> Taille maximale au-delà de la laquelle les fichiers entrant seront découpés en segment, en octets
+* <strong>maxTarFileSize</strong> Taile maximale des <cite>tars</cite> à constituer, en octets.
+* <strong>forceOverrideNonEmptyCartridge</strong> Permet de passer outre le contrôle vérifiant que les bandes nouvellement introduites sont vides. Par défaut à <em>false</em>
+* <strong>useSudo</strong> Réservé à un usage futur – laisser à <em>false</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">MaxTarEntrySize doit être strictement inférieur à maxTarFileSize</p>
+</div>
+<p>Exemple:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">inputFileStorageFolder</span><span class="p">:</span> <span class="s">&quot;/vitam/data/offer/offer/inputFiles&quot;</span>
+<span class="nt">inputTarStorageFolder</span><span class="p">:</span> <span class="s">&quot;/vitam/data/offer/offer/inputTars&quot;</span>
+<span class="nt">outputTarStorageFolder</span><span class="p">:</span> <span class="s">&quot;/vitam/data/offer/offer/outputTars&quot;</span>
+<span class="nt">maxTarEntrySize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000000</span>
+<span class="nt">maxTarFileSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000000000</span>
+<span class="nt">ForceOverrideNonEmptyCartridge</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">useSudo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>Par la suite, un paragraphe «&nbsp;topology&nbsp;» décrivant la topologie de l’offre doit être renseigné. L’objectif de cet élément est de pouvoir définir une segmentation de l’usage des bandes pour répondre à un besoin fonctionnel. Il convient ainsi de définir des <em>buckets</em>, qu’on peut voir comme un ensemble logique de bandes, et de les associer à un ou plusieurs tenants.</p>
+<ul class="simple">
+<li><strong>tenants</strong> tableau de 1 à n identifiants de tenants au format [1,…,n]</li>
+<li><strong>tarBufferingTimeoutInMinutes</strong> Valeur en minutes durant laquelle un tar peut rester ouvert</li>
+</ul>
+<p>Exemple:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">topology</span><span class="p">:</span>
+  <span class="nt">buckets</span><span class="p">:</span>
+    <span class="nt">test</span><span class="p">:</span>
+      <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">]</span>
+      <span class="nt">tarBufferingTimeoutInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+    <span class="nt">admin</span><span class="p">:</span>
+      <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]</span>
+      <span class="nt">tarBufferingTimeoutInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+    <span class="nt">prod</span><span class="p">:</span>
+      <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+      <span class="nt">tarBufferingTimeoutInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+</pre></div>
+</div>
+<p>Enfin, la définition des équipements robotiques proprement dite doit être réalisée dans le paragraphe «&nbsp;tapeLibraries&nbsp;».</p>
+<ul class="simple">
+<li><strong>robots:</strong> Définition du bras robotique de la librairie.</li>
+<li><strong>device:</strong> Chemin du fichier de périphérique scsi générique associé au bras.</li>
+<li><strong>mtxPath:</strong> Chemin vers la commande Linux de manipulation du bras.</li>
+<li><strong>timeoutInMilliseconds:</strong> timeout en millisecondes à appliquer aux ordres du bras.</li>
+<li><strong>drives:</strong> Définition du/ou des lecteurs de cartouches de la librairie.</li>
+<li><strong>index:</strong> Numéro de lecteur, valeur débutant à 0</li>
+<li><strong>device:</strong> Chemin du fichier de périphérique scsi SANS REMBOBINAGE associé au lecteur.</li>
+<li><strong>mtPath:</strong> Chemin vers la commande Linux de manipulation des lecteurs.</li>
+<li><strong>ddPath:</strong> Chemin vers la commande Linux de copie de bloc de données.</li>
+<li><strong>tarPath:</strong> Chemin vers la commande Linux de création d’archives tar.</li>
+<li><strong>timeoutInMilliseconds:</strong> timeout en millisecondes à appliquer aux ordres du lecteur.</li>
+</ul>
+<p>Exemple:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tapeLibraries</span><span class="p">:</span>
+  <span class="nt">TAPE_LIB_1</span><span class="p">:</span>
+    <span class="nt">robots</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span>
+        <span class="nt">device</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/dev/tape/by-id/scsiQUANTUM_10F73224E6664C84A1D00000</span>
+        <span class="nt">mtxPath</span><span class="p">:</span> <span class="s">&quot;/usr/sbin/mtx&quot;</span>
+        <span class="nt">timeoutInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600000</span>
+    <span class="nt">drives</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span>
+        <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="nt">device</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/dev/tape/by-id/scsi-1IBM_ULT3580-TD6_1235308739-nst</span>
+        <span class="nt">mtPath</span><span class="p">:</span> <span class="s">&quot;/bin/mt&quot;</span>
+        <span class="nt">ddPath</span><span class="p">:</span> <span class="s">&quot;/bin/dd&quot;</span>
+        <span class="nt">tarPath</span><span class="p">:</span> <span class="s">&quot;/bin/tar&quot;</span>
+        <span class="nt">timeoutInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600000</span>
+      <span class="p p-Indicator">-</span>
+        <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">device</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/dev/tape/by-id/scsi-1IBM_ULT3580-TD6_0951859786-nst</span>
+        <span class="nt">mtPath</span><span class="p">:</span> <span class="s">&quot;/bin/mt&quot;</span>
+        <span class="nt">ddPath</span><span class="p">:</span> <span class="s">&quot;/bin/dd&quot;</span>
+        <span class="nt">tarPath</span><span class="p">:</span> <span class="s">&quot;/bin/tar&quot;</span>
+        <span class="nt">timeoutInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600000</span>
+      <span class="p p-Indicator">-</span>
+        <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">device</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/dev/tape/by-id/scsi-1IBM_ULT3580-TD6_0269493808-nst</span>
+        <span class="nt">mtPath</span><span class="p">:</span> <span class="s">&quot;/bin/mt&quot;</span>
+        <span class="nt">ddPath</span><span class="p">:</span> <span class="s">&quot;/bin/dd&quot;</span>
+        <span class="nt">tarPath</span><span class="p">:</span> <span class="s">&quot;/bin/tar&quot;</span>
+        <span class="nt">timeoutInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600000</span>
+      <span class="p p-Indicator">-</span>
+        <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+        <span class="nt">device</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/dev/tape/by-id/scsi-1IBM_ULT3580-TD6_0566471858-nst</span>
+        <span class="nt">mtPath</span><span class="p">:</span> <span class="s">&quot;/bin/mt&quot;</span>
+        <span class="nt">ddPath</span><span class="p">:</span> <span class="s">&quot;/bin/dd&quot;</span>
+        <span class="nt">tarPath</span><span class="p">:</span> <span class="s">&quot;/bin/tar&quot;</span>
+        <span class="nt">timeoutInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="securisation-selinux">
+<h2>4.2.5.14. Sécurisation SELinux<a class="headerlink" href="#securisation-selinux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Depuis la release R13, la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> prend désormais en charge l’activation de SELinux sur le périmètre du composant worker et des processus associés aux <em>griffins</em> (greffons de préservation).</p>
+<p>SELinux (Security-Enhanced Linux) permet de définir des politiques de contrôle d’accès à différents éléments du système d’exploitation en répondant essentiellement à la question «&nbsp;May &lt;subject&gt; do &lt;action&gt; to &lt;object&gt;&nbsp;», par exemple «&nbsp;May a web server access files in user’s home directories&nbsp;».</p>
+<p>Chaque processus est ainsi confiné à un (voire plusieurs) domaine(s), et les fichiers sont étiquetés en conséquence. Un processus ne peut ainsi accéder qu’aux fichiers étiquetés pour le domaine auquel il est confiné.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ne gère actuellement que le mode <em>targeted</em> (« only <em>targeted</em> processes are protected »)</p>
+</div>
+<p>Les enjeux de la sécurisation SELinux dans le cadre de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> sont de garantir que les processus associés aux <em>griffins</em> (greffons de préservation) n’auront accès qu’au ressources système strictement requises pour leur fonctionnement et leurs échanges avec les composants <em>worker</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ne gère actuellement SELinux que pour le système d’exploitation Centos</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">SELinux n’a pas vocation à remplacer quelque système de sécurité existant, mais vise plutôt à les compléter. Aussi, la mise en place de politiques de sécurité reste de mise et à la charge de l’exploitant. Par ailleurs, l’implémentation SELinux proposée avec la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est minimale et limitée au greffon de préservation Siegfried. Cette implémentation pourra si nécessaire être complétée ou améliorée par le projet d’implémentation.</p>
+</div>
+<p>SELinux propose trois modes différents :</p>
+<ul class="simple">
+<li><em>Enforcing</em> : dans ce mode, les accès sont restreints en fonction des règles SELinux en vigueur sur la machine ;</li>
+<li><em>Permissive</em> : ce mode est généralement à considérer comme un mode de déboguage. En mode permissif, les règles SELinux seront interrogées, les erreurs d’accès logguées, mais l’accès ne sera pas bloqué.</li>
+<li><em>Disabled</em> : SELinux est désactivé. Rien ne sera restreint, rien ne sera loggué.</li>
+</ul>
+<p>La mise en oeuvre de SELinux est prise en charge par le processus de déploiement et s’effectue de la sorte :</p>
+<ul>
+<li><p class="first">Isoler dans l’inventaire de déploiement les composants worker sur des hosts dédiés (ne contenant aucun autre composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>)</p>
+</li>
+<li><p class="first">Positionner pour ces hosts un fichier <em>hostvars</em> sous <code class="docutils literal notranslate"><span class="pre">environments/host_vars/</span></code> contenant la déclaration suivante</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">selinux_state</span><span class="p">:</span> <span class="s2">&quot;enforcing&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Procéder à l’installation de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> grâce aux playbooks ansible fournis, et selon la procédure d’installation classique décrite dans le DIN</p>
+</li>
+</ul>
+</div>
+<div class="section" id="installation-de-la-stack-prometheus">
+<h2>4.2.5.15. Installation de la stack prometheus<a class="headerlink" href="#installation-de-la-stack-prometheus" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si vous disposez d’un prometheus server et alertmanager déjà existant, vous pouvez juste installer <code class="docutils literal notranslate"><span class="pre">node_exporter</span></code></p>
+</div>
+<p>Prometheus server et alertmanager sont des addons dans la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Il possible de les installer ou désinstaller via la configuration dans le fichier <code class="docutils literal notranslate"><span class="pre">cots_var.yml</span></code>.
+Voici à quoi correspond une configuration qui permettra d’installer toute la stack prometheus.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prometheus</span><span class="p">:</span>
+    <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/admin/v1/metrics</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
+    <span class="nt">server</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19090</span>
+    <span class="nt">node_exporter</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19100</span>
+        <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
+    <span class="nt">alertmanager</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19093</span>
+        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19094</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>L’adresse d’écoute de ces composants est celle de la patte d’administration.</li>
+<li>Vous pouvez surcharger la valeur de certaines de ces variables (Par exemple le port d’écoute, le path de l’API).</li>
+<li>Pour désinstaller ou désactiver un composant de la stack prometheus il suffit de mettre la valeur de <code class="docutils literal notranslate"><span class="pre">enabled</span></code> de ce composant à <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
+<li>Pour générer uniquement le fichier de configuration prometheus.yml à partir du fichier d’inventaire de l’environnement en question, il suffit de spécifier le répertoire destination dans la variable <code class="docutils literal notranslate"><span class="pre">prometheus_config_file_target_directory</span></code></li>
+</ul>
+<div class="section" id="playbooks-ansible">
+<h3>4.2.5.15.1. Playbooks ansible<a class="headerlink" href="#playbooks-ansible" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Veuillez vous référer à la documentation d’exploitation pour plus d’information.</p>
+<ul class="simple">
+<li>Installer prometheus et alertmanager</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-extra/prometheus.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
+</pre></div>
+</div>
+<ul class="simple">
+<li>Générer le fichier de conf <code class="docutils literal notranslate"><span class="pre">prometheus.yml</span></code> dans le dossier <code class="docutils literal notranslate"><span class="pre">prometheus_config_file_target_directory</span></code></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-extra/prometheus.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
+</pre></div>
+</div>
+<p>–tags gen_prometheus_config
+..</p>
+</div>
+</div>
+<div class="section" id="installation-de-grafana">
+<h2>4.2.5.16. Installation de grafana<a class="headerlink" href="#installation-de-grafana" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si vous disposez déjà d’un Grafana server, vous pouvez l’utiliser pour l’interconnecter au serveur prometheus.</p>
+</div>
+<p>Grafana server est un addon dans la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Il possible de l’installer/désinstaller via la configuration dans le fichier <code class="docutils literal notranslate"><span class="pre">cots_var.yml</span></code>.
+Voici à quoi correspond une configuration qui permettra d’installer ce serveur.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">grafana</span><span class="p">:</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">13000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>L’adresse d’écoute de ces composants est celle de la patte d’administration.</li>
+<li>Vous pouvez surcharger le numéro de port d’écoute.</li>
+<li>Pour désinstaller ou désactiver un composant il suffit de mettre la valeur de <code class="docutils literal notranslate"><span class="pre">enabled</span></code> à <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
+</ul>
+<div class="section" id="playbook-ansible">
+<h3>4.2.5.16.1. Playbook ansible<a class="headerlink" href="#playbook-ansible" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Veuillez vous référer à la documentation d’exploitation pour plus d’informations.</p>
+<ul class="simple">
+<li>Installer Grafana</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-extra/grafana.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h3>4.2.5.16.2. Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas ou le serveur grafana est dernière un serveur proxy, vous devez apporter des modification au fichier de configuration <code class="docutils literal notranslate"><span class="pre">grafana.conf.j2</span></code></p>
+<p>Voici les variables modifiées par la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> pour que ça marche derrière le proxy apache.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[server]
+root_url = http://{{ ip_admin }}:{{grafana.http_port}}/grafana
+serve_from_sub_path = true
+
+[auth.basic]
+enabled = false
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Lors de la première connexion, vous devrez changer le mot de passe par défaut (login: admin; password: admin) et configurer le datasource et créer/importer les dashboards manuellement.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="30-installation.html" class="btn btn-neutral float-right" title="4.2.6. Procédure de première installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="certificats/keystores.html" class="btn btn-neutral float-left" title="4.2.4.4. Génération des magasins de certificats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

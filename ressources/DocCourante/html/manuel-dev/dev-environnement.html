@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Configuration de l’environnement de développement &mdash; Documentation VITAM - Manuel de développement 4.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'4.0.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Détails par composant" href="include/_toc.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration de l’environnement de développement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequis">1. Prérequis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recuperez-le-code-source">2. Récupérez le code source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demarrez-docker">3. Démarrez Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dans-docker">4. Dans Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ajoutez-les-lignes-suivantes-dans-le-fichier-etc-hosts">5. Ajoutez les lignes suivantes dans le fichier <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lancez-intellij">7. Lancez IntelliJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importez-le-project-vitam-dans-intellij">8. Importez le project Vitam dans IntelliJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialisez-la-configuration">9. Initialisez la configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dans-intellij-configurez-les-chemins-suivants-pour-chaque-module-du-projet">10. Dans IntelliJ, configurez les chemins suivants pour chaque module du projet :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dossier-de-travail">11. Dossier de travail:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialisation-de-la-base-de-donnees">12. initialisation de la base de données :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demarrez-les-services-dans-intellij">13. Démarrez les services dans IntelliJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demarrage-de-l-ihm">14. Démarrage de l’IHM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisez-vitam">15. Utilisez Vitam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Configuration de l’environnement de développement</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/dev-environnement.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration-de-l-environnement-de-developpement">
+<h1>Configuration de l’environnement de développement<a class="headerlink" href="#configuration-de-l-environnement-de-developpement" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Voici comment préparez votre environnement de développement afin de pouvoir coder, démarrer les micros services, débugger…</p>
+<div class="section" id="prerequis">
+<h2>1. Prérequis<a class="headerlink" href="#prerequis" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’installation du poste de travail a été faite (installation de GIT, Maven, Docker, IntelliJ…)
+Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la récupération des fichiers SIP (.zip) du projet vitam-itests. Dans le cas contraire voici la ligne de commande à lancer :</p>
+<p>Ubuntu :</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">lfs</span> <span class="pre">install</span></code></p>
+<p>CentOS :</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git-lfs</span></code></p>
+</div>
+<div class="section" id="recuperez-le-code-source">
+<h2>2. Récupérez le code source<a class="headerlink" href="#recuperez-le-code-source" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Placez-vous dans le dossier ou vous voulez mettre le code source Vitam sur lequel vous allez travailler :</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;gitlab</span> <span class="pre">vitam/vitam&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;gitlab</span> <span class="pre">vitam/vitam-conf-dev&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;gitlab</span> <span class="pre">vitam/vitam-itests&gt;</span></code></p>
+<p><em>Remarque : toutes les lignes de commande ``cd`` des points suivants supposent que vous êtes dans votre dossier de travail</em></p>
+</div>
+<div class="section" id="demarrez-docker">
+<h2>3. Démarrez Docker<a class="headerlink" href="#demarrez-docker" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Déplacez vous dans le dossier suivant et exécuter la commande <code class="docutils literal notranslate"><span class="pre">run_cots.sh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cd</span> <span class="pre">vitam/dev-deployment</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">./run_cots.sh</span></code></p>
+</div>
+<div class="section" id="dans-docker">
+<h2>4. Dans Docker<a class="headerlink" href="#dans-docker" title="Lien permanent vers ce titre">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">[xxxxx&#64;xxxxxxxxxxxx</span> <span class="pre">code]$</span> <span class="pre">vitam-build-repo</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[xxxxx&#64;xxxxxxxxxxxx</span> <span class="pre">code]$</span> <span class="pre">vitam-deploy-cots</span></code></p>
+</div>
+<div class="section" id="ajoutez-les-lignes-suivantes-dans-le-fichier-etc-hosts">
+<h2>5. Ajoutez les lignes suivantes dans le fichier <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code><a class="headerlink" href="#ajoutez-les-lignes-suivantes-dans-le-fichier-etc-hosts" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>127.0.0.1       metadata.service.consul
+127.0.0.1       logbook.service.consul
+127.0.0.1       storage.service.consul
+127.0.0.1       workspace.service.consul
+127.0.0.1       functional-administration.service.consul
+127.0.0.1       processing.service.consul
+127.0.0.1       ingest-external.service.consul
+127.0.0.1       ingest-internal.service.consul
+127.0.0.1       access-internal.service.consul
+127.0.0.1       access-external.service.consul
+127.0.0.1       workspace.service.consul
+127.0.0.1       external.service.consul
+127.0.0.1       ihm-recette.service.consul
+127.0.0.1       offer.service.consul
+127.0.0.1    ihm-demo.service.consul
+127.0.0.1       metadata.service.consul
+127.0.0.1       logbook.service.consul
+127.0.0.1       storage.service.consul
+127.0.0.1       workspace.service.consul
+127.0.0.1       functional-administration.service.consul
+127.0.0.1       processing.service.consul
+127.0.0.1       ingest-external.service.consul
+127.0.0.1       ingest-internal.service.consul
+127.0.0.1       access-internal.service.consul
+127.0.0.1       access-external.service.consul
+127.0.0.1       workspace.service.consul
+127.0.0.1       external.service.consul
+127.0.0.1       ihm-recette.service.consul
+127.0.0.1       offer.service.consul
+127.0.0.1    offer-fs-1.service.consul
+127.0.0.1    ihm-demo.service.consul
+127.0.0.1    security-internal.service.consul
+192.30.253.113    github.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancez-intellij">
+<h2>7. Lancez IntelliJ<a class="headerlink" href="#lancez-intellij" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Et installez le plugin «&nbsp;Multirun&nbsp;».</p>
+</div>
+<div class="section" id="importez-le-project-vitam-dans-intellij">
+<h2>8. Importez le project Vitam dans IntelliJ<a class="headerlink" href="#importez-le-project-vitam-dans-intellij" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En utilisant le menu Import Project puis sélectionnez <code class="docutils literal notranslate"><span class="pre">vitam/sources/pom.xml</span></code></p>
+</div>
+<div class="section" id="initialisez-la-configuration">
+<h2>9. Initialisez la configuration<a class="headerlink" href="#initialisez-la-configuration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Copiez le dossier <code class="docutils literal notranslate"><span class="pre">vitam-conf-dev/intellig-conf/runConfigurations</span></code> dans le dossier <code class="docutils literal notranslate"><span class="pre">vitam/sources/.idea</span></code> (automatiquement créé par IntelliJ)
+Redémarrez IntelliJ.</p>
+<p><em>(XX. Ajouter le XML snippet: ``vitam/logback/vitam-logback.xml`` par exemple dans votre dossier ``HOME``)</em></p>
+</div>
+<div class="section" id="dans-intellij-configurez-les-chemins-suivants-pour-chaque-module-du-projet">
+<h2>10. Dans IntelliJ, configurez les chemins suivants pour chaque module du projet :<a class="headerlink" href="#dans-intellij-configurez-les-chemins-suivants-pour-chaque-module-du-projet" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Dans le menu déroulant des configurations de debug/run d’IntelliJ &gt; Edit Configurations…</li>
+<li>Dans la boite de dialogue Run/Debug Configuration dépliez l’item «&nbsp;Application&nbsp;» et selectionnez le premier projet.</li>
+<li><dl class="first docutils">
+<dt>Modifiez les champs :</dt>
+<dd><ul class="first last">
+<li>VM options (vérifie le chemin de l’option <code class="docutils literal notranslate"><span class="pre">-Dlogback.configurationFile=</span></code> qui doit pointer vers le fichier vitam-logback.xml précédent)</li>
+<li>Program arguments</li>
+<li>Working directory</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="dossier-de-travail">
+<h2>11. Dossier de travail:<a class="headerlink" href="#dossier-de-travail" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Exécutez le commade suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">ugo+w</span> <span class="pre">/vitam</span></code></p>
+<p>Dans <code class="docutils literal notranslate"><span class="pre">/vitam/data/storage</span></code> créez le fichier <code class="docutils literal notranslate"><span class="pre">offer-fs-1.service.consul</span></code> contenant la ligne suivante <code class="docutils literal notranslate"><span class="pre">fr.gouv.vitam.storage.offers.workspace.driver.DriverImpl</span></code></p>
+</div>
+<div class="section" id="initialisation-de-la-base-de-donnees">
+<h2>12. initialisation de la base de données :<a class="headerlink" href="#initialisation-de-la-base-de-donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>$ cd vitam/vitam-conf-dev/scripts</p>
+<p>$ ./init_data_vitam.sh</p>
+<p>Puis dans IntelliJ : lancer «&nbsp;launch cucumber_init&nbsp;»</p>
+</div>
+<div class="section" id="demarrez-les-services-dans-intellij">
+<h2>13. Démarrez les services dans IntelliJ<a class="headerlink" href="#demarrez-les-services-dans-intellij" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans le menu déroulant des configurations de debug/run d’IntelliJ selectionnez vitamIhm</p>
+<p>Lancez les services en cliquant sur bouton debug</p>
+</div>
+<div class="section" id="demarrage-de-l-ihm">
+<h2>14. Démarrage de l’IHM<a class="headerlink" href="#demarrage-de-l-ihm" title="Lien permanent vers ce titre">¶</a></h2>
+<p>$ cd vitam/sources/ihm-demo/ihm-demo-front/</p>
+<p>$ npm run start</p>
+<p>$ cd vitam/sources/ihm-recette/ihm-recette-web-front/</p>
+<p>$ npm run start</p>
+</div>
+<div class="section" id="utilisez-vitam">
+<h2>15. Utilisez Vitam<a class="headerlink" href="#utilisez-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Transfert SIP et plan de classement <a class="reference external" href="http://localhost:4201">http://localhost:4201</a></li>
+<li>Recette : Tests des requêtes DSL <a class="reference external" href="http://localhost:4202">http://localhost:4202</a></li>
+</ul>
+<p><em>Remarque :</em></p>
+<blockquote>
+<div><ul class="simple">
+<li>login : aadmin</li>
+<li>password : aadmin1234</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="include/_toc.html" class="btn btn-neutral float-right" title="Détails par composant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
