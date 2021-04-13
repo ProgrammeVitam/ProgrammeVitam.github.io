@@ -6,7 +6,7 @@ title: Le 11 mai, la version 4 de Vitam vous sera présentée
 
 ![Logos](/public/images/v4_webinaire_202105.jpg)
 
-Cet après-midi sera l'occasion de vous parler des actualités du Programme et de ses projets, de faire le point sur les nouveautés de cette nouvelle version Long Time Support, tant que le back-office que sur le front-office.
+Cet après-midi sera l'occasion de vous parler des actualités du Programme et de ses projets, de faire le point sur les nouveautés de cette [nouvelle version Long Time Support](https://www.programmevitam.fr/2021/03/15/V4/), tant que le [back-office](https://www.programmevitam.fr/pages/logiciel/Vitam_backoffice/) que sur le [front-office Vitam UI](https://www.programmevitam.fr/pages/logiciel/Vitam_frontoffice/).
 
 Pour s'inscrire :
 <a title="Logiciel billetterie en ligne"
