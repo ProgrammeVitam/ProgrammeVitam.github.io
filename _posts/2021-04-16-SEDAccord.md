@@ -8,4 +8,4 @@ title: Rapide présentation de SEDAccord
 
 Ce défi, qui vous avait été [succintement présenté](https://www.programmevitam.fr/2020/05/06/SEDAccord/), s'achèvera en juin 2021. En attendant la suite donnée à ce défi, vous trouverez dans cette vidéo de présentation de tous les défis de cette 4e promotion d'EIG/DIG, une présentation en 180 secondes de SEDAccord:
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"> <iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" frameborder="0" type="text/html" src="https://www.dailymotion.com/embed/video/x7zgtds?start=2835" width="100%" height="100%" allowfullscreen > </iframe> </div>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"> <iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" frameborder="0" type="text/html" src="https://www.dailymotion.com/embed/video/x7zgtds?autoplay=1&mute=1&start=2835" width="100%" height="100%" allowfullscreen > </iframe> </div>
