@@ -7,7 +7,7 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Actuellement, la Release 15 peut être développée et testée. Il est conseillé d’installer la Release 13, V3 de la solution logicielle Vitam, désignée comme version Long Time Support et qui a reçu une homologation de sécurité pour 2 ans.
+Actuellement, il est conseillé d’installer la Release 16, V4 de la solution logicielle Vitam, désignée comme version Long Time Support.
 Il est déconseillé d'utiliser les Releases qui ne seront pas des versions LTS.  
 
 
@@ -21,7 +21,7 @@ Il est déconseillé d'utiliser les Releases qui ne seront pas des versions LTS.
 <a name="touteversion"></a>
 ## Solution logicielle Vitam - toutes versions publiées
 
-Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et les différentes IHM. Sont mis à dispostion :
+Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et le front-office Vitam UI. A noter que l'IHM dite de démonstration est encore utilisée en complément de Vitam UI. Sont mis à dispostion :
 
 * **le code développé**
 
@@ -29,40 +29,39 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/3.14.2/mvn_repo/)
+Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/4.0.1/mvn_repo/)
 
 * **les paquets de déploiement**
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
 
-Pour la 3.0.9 de la R13 (mise à jour en novembre 2020)
-* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.9) 
-* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.0.9/mvn_repo/) 
-* URL de configuration des dépôts de binaires CentOS/RHEL :
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.9/rpm/vitam-product) 
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.9/rpm/vitam-external) 
-* URL de configuration des dépôts de binaires Debian :
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.9/deb/vitam-product) 
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.9/deb/vitam-external) 
-
-Pour la 3.14.2 de la R15 (mise à jour en janvier 2021)
-* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.14.2)   
-* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/3.14.2)    
-* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.14.2/mvn_repo/)     
+Pour la 4.0.1 de la R16 (mise à jour en avril 2021)
+* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/4.0.1)  
+* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/4.0.1)    
+* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/4.0.1/mvn_repo/)     
 * URL de configuration des dépôts de binaires CentOS/RHEL :      
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.14.2/rpm/vitam-product)       
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.14.2/rpm/vitam-external)    
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-product)       
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-external)    
 * URL de configuration des dépôts de binaires Debian :      
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.14.2/deb/vitam-product)       
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.14.2/deb/vitam-external)     
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-product)       
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-external)     
+
+
+Pour la 3.0.15 de la R13 (mise à jour en mars 2021)
+* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.15) 
+* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/3.0.15/mvn_repo/) 
+* URL de configuration des dépôts de binaires CentOS/RHEL :
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.15/rpm/vitam-product) 
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.15/rpm/vitam-external) 
+* URL de configuration des dépôts de binaires Debian :
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/3.0.15/deb/vitam-product) 
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/3.0.15/deb/vitam-external) 
+
 
 Liens de téléchargement :
-[**Version 3.14.2 (Release R15)**](https://r15.env.programmevitam.fr/)
+[**Version 4.0.1 (Release R16)**](https://r16.env.programmevitam.fr/)
 
-[**Version 3.0.9 (Release R13)**](https://r13.env.programmevitam.fr/)
-  
-[**Version 2.1.22 (Release R9)**](https://r9.env.programmevitam.fr/)
- 
+[**Version 3.0.15 (Release R13)**](https://r15.env.programmevitam.fr/) 
 
 
 
@@ -79,8 +78,7 @@ L'empreinte sha256 de la VM est disponible à cette [url](https://download.progr
 La VM de la version 3.0.1 (Release 13) peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/3.0.1/VM/demo_vitam_3.0.1.ova).
 L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/3.0.1/VM/demo_vitam_3.0.1.sha256).
 
-La VM de la version 2.1.21 (Release 9) peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/2.1.21/VM/demo_vitam_2.1.21.ova).
-L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/2.1.21/VM/demo_vitam_2.1.21.sha256).
+
 
 
 
@@ -98,7 +96,7 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels et paquets SIP:
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](https://download.programmevitam.fr/jeux_de_tests/r15/Jeux_de_tests_fonctionnels_R15.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
+([zip](https://download.programmevitam.fr/vitam_repository/4.0.0/tests/Jeux_de_tests_fonctionnels_R16.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
 <a name="preservation"></a>
 ## Outils de préservation Vitam
