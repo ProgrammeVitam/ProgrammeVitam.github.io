@@ -2,7 +2,7 @@
 layout: post
 title: Arrivée de nouveaux membres au sein du Club utilisateurs
 ---
-> Le Club utilisateurs du Programme Vitam accueillie en ce début d'année de nombreux membres et compte maintenant 29 organisations.
+> Le Club utilisateurs du Programme Vitam accueille en ce début d'année de nombreux membres et compte maintenant 29 organisations.
 
 ![Logos](/public/images/202103_utilisateurs.jpg)
 
