@@ -1,6 +1,6 @@
 ---
 layout: page
-title: de la release 5
+title: release 5
 fatherref: demonstrations
 ---
 

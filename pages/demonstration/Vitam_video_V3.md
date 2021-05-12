@@ -1,6 +1,6 @@
 ---
 layout: page
-title: de la version 3
+title: version 3
 fatherref: demonstrations
 ---
 
