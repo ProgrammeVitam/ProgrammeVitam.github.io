@@ -1,6 +1,6 @@
 ---
 layout: page
-title: version Bêta
+title: démo Bêta
 fatherref: demonstrations
 ---
 
