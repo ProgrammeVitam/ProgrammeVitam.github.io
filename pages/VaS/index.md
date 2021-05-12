@@ -10,6 +10,7 @@ level: page
 * [L'offre VaS](#offre)
 * [Les fonctionnalités de VaS](#fonctionnalites)
 * [Historique du projet](#historique)
+* [Documents de présentation](#documents)
 
 [Télécharger le document de présentation](/ressources/RefCourant/vas-def_51203103.pdf)
 ![Logos](/public/images/Logo_dev_provisoire.PNG)
@@ -121,3 +122,14 @@ Ce projet sera mené en mode agile, avec par exemple l’organisation d’un ate
 À termes, d’autres ministères, en plus des porteurs en phases 1 et 2, pourront utiliser ce service. 
 Le modèle économique est en cours d’étude et certains ministères envisagent également de proposer une offre à destination de leurs opérateurs, se basant sur VaS. 
 Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins de plusieurs de ses partenaires.
+
+
+
+
+# Documents de présentation <a name="documents"></a>
+
+- [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
+- [info souscripteurs](/ressources/RefCourant/vas-infos-souscripteur.pdf)
+- [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
+
+
