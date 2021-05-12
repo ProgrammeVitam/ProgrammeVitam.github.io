@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Vitam version 3
+title: version 3
 fatherref: demonstrations
 ---
 
