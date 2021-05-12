@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Videos de la V3
+title: de la version 3
 fatherref: demonstrations
 ---
 

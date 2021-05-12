@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Videos de présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5
+title: de la release 5
 fatherref: demonstrations
-level: page
 ---
 
 

@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Videos de présentation de la V2 de Vitam
+title: de la version 2
 fatherref: demonstrations
-level: page
 ---
 
 > Ces vidéos ont été diffusées lors de la journée de présentation de la V2 de la solution logicielle Vitam. Des compléments d'information sont disponibles dans le support de présentation de la première partie présentant les fonctionnalités de la V2, faisant une large place à la préservation numérique : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf))

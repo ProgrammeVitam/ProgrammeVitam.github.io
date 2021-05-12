@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Vidéos de la Release 4
+title: de la Release 4
 fatherref: demonstrations
 ---
 
