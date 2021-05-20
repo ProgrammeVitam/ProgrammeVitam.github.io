@@ -52,7 +52,7 @@ La documentation **ReSIP** décrit les fonctions de l'outil ReSIP en Version 1 a
 
 Il contient des hiérachie disque, SIP, DIP, csv... et toute une série de fichiers d'exemples importables et manipulable avec ReSIP.
 
-Il est accessible [ici](/ressources/Doc3.14.2/autres/fonctionnel/Tests ReSIP.zip/).
+Il est accessible [ici](https://www.programmevitam.fr/ressources/Doc3.14.2/autres/fonctionnel/Tests%20ReSIP.zip).
 
 * **le code développé**
 
