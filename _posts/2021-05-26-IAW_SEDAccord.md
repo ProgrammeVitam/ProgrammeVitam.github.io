@@ -41,4 +41,4 @@ Des premiers échanges aux travaux de finalisation de ces 10 mois de défi, la c
    data-nopb="1"
    target="_blank">Billetterie Weezevent</a>
 <script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
-ou (https://www.weezevent.com/presentation-de-sedaccord)
+[ou](https://www.weezevent.com/presentation-de-sedaccord)
