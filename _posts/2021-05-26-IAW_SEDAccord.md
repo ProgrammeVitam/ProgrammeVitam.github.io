@@ -20,7 +20,7 @@ La difficulté constatée par tous pour verser des archives bureautiques dans un
 Le recrutement conjoint d'un designer et d'une développeuse ont permis au défi de garantir l'aspect inclusif de l'outil proposé.
 
 ![Collaboration](/public/images/6-_Collaboration_FR.png)
-Des premiers échanges aux travaux de finalisation de ces 10 mois de défi, la collaboration a permis de cadre le projet, d'avancer, de réfléchir et d'aboutir à un outil qui vous sera présenter à l'occasion de ce webinaire.
+Des premiers échanges aux travaux de finalisation de ces 10 mois de défi, la collaboration a permis de cadrer le projet, d'avancer, de réfléchir et d'aboutir à un outil qui vous sera présenté à l'occasion de ce webinaire.
 
 
 ![#RenforcerLesArchives](/public/images/1-__23RenforcerLesArchives_FR_(1920x1080)_GIF.gif)
