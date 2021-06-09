@@ -77,5 +77,3 @@ Ces acteurs bénéficient d’un accès à des espaces dédiés au sein de l’o
 - [Focus informaticiens](pres_informaticiens)
 
 - [Aperçu](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf) du projet solution logicielle (V1)
-
-- [Présentation de la Première version de production de la solution logicielle Vitam](/ressources/DocCourante/autres/fonctionnel/20180411_présentation_vitam_V5_publication.pdf)
