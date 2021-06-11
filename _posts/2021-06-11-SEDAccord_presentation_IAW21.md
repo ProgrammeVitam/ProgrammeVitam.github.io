@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: #SEDAccord, un défi pour #RenforcerLesArchives
+title: SEDAccord, un défi pour RenforcerLesArchives
 ---
 
 Dans le cadre de la journée internationale des archives du 9 juin 2021, le Programme Vitam a proposé une présentation du défi SEDAccord.
