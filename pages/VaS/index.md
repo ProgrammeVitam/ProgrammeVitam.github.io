@@ -13,7 +13,7 @@ level: page
 * [Comment y souscrire ?](#souscrire)
 * [Documents de présentation](#documents)
 
-[Télécharger le document de présentation](/ressources/RefCourant/vas-def_51203103.pdf)
+[Télécharger le document de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
 ![Logos](/public/images/Logo_dev_provisoire.PNG)
 
 
@@ -158,7 +158,7 @@ Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins d
 # Documents de présentation <a name="documents"></a>
 
 - [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
-- [info souscripteurs](/ressources/RefCourant/vas-infos-souscripteur.pdf)
+- [info souscripteurs](/ressources/RefCourant/vas-infos-souscripteur-A4.pdf)
 - [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
 
 
