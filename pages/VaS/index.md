@@ -5,11 +5,12 @@ fatherref: VaS
 level: page
 ---
 
-> Cette page vous présente le projet Vitam accessible en service.
+> Cette page vous présente Vitam accessible en service.
 
 * [L'offre VaS](#offre)
 * [Les fonctionnalités de VaS](#fonctionnalites)
 * [Historique du projet](#historique)
+* [Comment y souscrire ?](#souscrire)
 * [Documents de présentation](#documents)
 
 [Télécharger le document de présentation](/ressources/RefCourant/vas-def_51203103.pdf)
@@ -123,6 +124,34 @@ Ce projet sera mené en mode agile, avec par exemple l’organisation d’un ate
 Le modèle économique est en cours d’étude et certains ministères envisagent également de proposer une offre à destination de leurs opérateurs, se basant sur VaS. 
 Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins de plusieurs de ses partenaires.
 
+
+# Comment souscrire à VaS <a name="soucrire"></a>
+
+- Contacter son service d'archives et/ou le service responsable du contrôle scientifique et technique sur ses archives
+
+- [Contacter l'équipe VaS](mailto:contact@programmevitam.fr)
+
+- Préparer les référentiels et former les utilisateurs
+
+- Lister les données et flux prioritaires et estimer :
+
+-* Reprise de données :
+
+-** poids global + nombre de documents à archiver présents sur les serveurs - Noter si des contraintes réglementaires fortes s’appliquent sur certains documents ainsi que la taille du plus gros versement estimé et la taille moyenne de versement attendu.
+
+-** poids global + nombre de documents à archiver en provenance des SI prioritaires. 
+
+-* Prévision des entrées :
+
+-** poids global + nombre de documents estimé pour les archives versées manuellement dans le système sur les deux prochaines années. Préciser également la taille du plus gros versement estimé et la taille moyenne de versement attendu.
+
+-** poids global + nombre de documents estimé en flux pour le versement par les SI prioritaires. 
+
+- Évaluer le nombre d'utilisateurs de la plateforme
+
+- Vérifier son accès au RIE et si besoin évaluer le débit nécessaire selon les données et flux priorisés
+
+- Préparer les versements
 
 
 
