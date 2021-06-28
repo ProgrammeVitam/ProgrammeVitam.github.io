@@ -17,7 +17,7 @@ fatherref: programme
 
 ![Logos](/public/images/Porteurs.jpg)
 
-## Partenaires
+## Club utilisateurs
 
 
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
@@ -50,8 +50,9 @@ fatherref: programme
 * XDemat
 * Xelians
 
-
-
-
-
 ![Logos](/public/images/Partenaires.jpg)
+
+## Gouvernance
+
+La gouvernance réunit les pilotes et porteurs ainsi qu'un représentant du Club utilisateurs, en l'occurrence le Cines.
+![Logos](/public/images/202105_gouvernance.jpg)
