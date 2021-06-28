@@ -135,17 +135,17 @@ Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins d
 
 * Lister les données et flux prioritaires et estimer :
 
-** Reprise de données :
+	* Reprise de données :
 
-*** poids global + nombre de documents à archiver présents sur les serveurs - Noter si des contraintes réglementaires fortes s’appliquent sur certains documents ainsi que la taille du plus gros versement estimé et la taille moyenne de versement attendu.
+		* poids global + nombre de documents à archiver présents sur les serveurs - Noter si des contraintes réglementaires fortes s’appliquent sur certains documents ainsi que la taille du plus gros versement estimé et la taille moyenne de versement attendu.
 
-*** poids global + nombre de documents à archiver en provenance des SI prioritaires. 
+		* poids global + nombre de documents à archiver en provenance des SI prioritaires. 
 
-** Prévision des entrées :
+	* Prévision des entrées :
 
-*** poids global + nombre de documents estimé pour les archives versées manuellement dans le système sur les deux prochaines années. Préciser également la taille du plus gros versement estimé et la taille moyenne de versement attendu.
+		* poids global + nombre de documents estimé pour les archives versées manuellement dans le système sur les deux prochaines années. Préciser également la taille du plus gros versement estimé et la taille moyenne de versement attendu.
 
-*** poids global + nombre de documents estimé en flux pour le versement par les SI prioritaires. 
+		* poids global + nombre de documents estimé en flux pour le versement par les SI prioritaires. 
 
 * Évaluer le nombre d'utilisateurs de la plateforme
 
