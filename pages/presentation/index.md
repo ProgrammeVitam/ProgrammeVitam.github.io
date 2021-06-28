@@ -55,7 +55,9 @@ Au début de l’année 2016, les lots du marché de réalisation Vitam ont ét�
 
 Conformément au calendrier fixé, les premières livraisons ont eu lieu en 2016, avec la publication des premières API en juillet et la livraison de la version Bêta-test du logiciel aux ministères porteurs et partenaires le 29 novembre.
 
-Les livraisons se sont poursuivies à raison d’une version de production de la solution logicielle chaque année en 2017, 2018 et 2019, ainsi que leurs versions intermédiaires. Début 2020 a été publiée la version 4 de la solution logicielle, ouvrant la phase "maintenance et amélioration continue" avec un renouvellement des marchés. Le lot unique pour la phase produit a été attribué à un regroupement Smile - Xelians.
+Les livraisons se sont poursuivies à raison d’une version de production de la solution logicielle chaque année en 2017, 2018 et 2019, ainsi que leurs versions intermédiaires. 
+Début 2020 a été publiée la version 3 de la solution logicielle, ouvrant la phase "maintenance et amélioration continue" avec un renouvellement des marchés. Le lot unique pour la phase produit a été attribué à un regroupement Smile - Xelians.
+La version 4 de la solution logicielle a été publiée en mars 2021, elle comporte pour la première fois le [back-office](https://www.programmevitam.fr/pages/logiciel/logiciel_backoffice/), enrichi du [front-office Vitam UI](https://www.programmevitam.fr/pages/logiciel/logiciel_frontoffice/).
 ![Frise temporelle du programme](/public/images/202006_planning_programme_V5.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
 ## La collaboration au cœur du Programme Vitam
@@ -76,4 +78,4 @@ Ces acteurs bénéficient d’un accès à des espaces dédiés au sein de l’o
 
 - [Focus informaticiens](pres_informaticiens)
 
-- [Aperçu](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf) du projet solution logicielle (V1)
+- [Aperçu](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf) du projet solution logicielle
