@@ -127,31 +127,31 @@ Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins d
 
 # Comment souscrire à VaS <a name="soucrire"></a>
 
-- Contacter son service d'archives et/ou le service responsable du contrôle scientifique et technique sur ses archives
+* Contacter son service d'archives et/ou le service responsable du contrôle scientifique et technique sur ses archives
 
-- [Contacter l'équipe VaS](mailto:contact@programmevitam.fr)
+* [Contacter l'équipe VaS](mailto:contact@programmevitam.fr)
 
-- Préparer les référentiels et former les utilisateurs
+* Préparer les référentiels et former les utilisateurs
 
-- Lister les données et flux prioritaires et estimer :
+* Lister les données et flux prioritaires et estimer :
 
--* Reprise de données :
+** Reprise de données :
 
--** poids global + nombre de documents à archiver présents sur les serveurs - Noter si des contraintes réglementaires fortes s’appliquent sur certains documents ainsi que la taille du plus gros versement estimé et la taille moyenne de versement attendu.
+*** poids global + nombre de documents à archiver présents sur les serveurs - Noter si des contraintes réglementaires fortes s’appliquent sur certains documents ainsi que la taille du plus gros versement estimé et la taille moyenne de versement attendu.
 
--** poids global + nombre de documents à archiver en provenance des SI prioritaires. 
+*** poids global + nombre de documents à archiver en provenance des SI prioritaires. 
 
--* Prévision des entrées :
+** Prévision des entrées :
 
--** poids global + nombre de documents estimé pour les archives versées manuellement dans le système sur les deux prochaines années. Préciser également la taille du plus gros versement estimé et la taille moyenne de versement attendu.
+*** poids global + nombre de documents estimé pour les archives versées manuellement dans le système sur les deux prochaines années. Préciser également la taille du plus gros versement estimé et la taille moyenne de versement attendu.
 
--** poids global + nombre de documents estimé en flux pour le versement par les SI prioritaires. 
+*** poids global + nombre de documents estimé en flux pour le versement par les SI prioritaires. 
 
-- Évaluer le nombre d'utilisateurs de la plateforme
+* Évaluer le nombre d'utilisateurs de la plateforme
 
-- Vérifier son accès au RIE et si besoin évaluer le débit nécessaire selon les données et flux priorisés
+* Vérifier son accès au RIE et si besoin évaluer le débit nécessaire selon les données et flux priorisés
 
-- Préparer les versements
+* Préparer les versements
 
 
 
