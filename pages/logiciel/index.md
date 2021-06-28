@@ -32,3 +32,7 @@ Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4
 <center>[![Vitam fonctionnalités de gestion des archives existantes](/public/images/V4_gestion_archives_existantes.png)</center>
 
 <right>[![Vitam fonctionnalités de pérennisation et intégrité](/public/images/V4_perennisation.png)</right>
+
+
+# Les composants de Vitam
+[![Les composants de Vitam](/public/images/souches_logicielles.jpg.png)
