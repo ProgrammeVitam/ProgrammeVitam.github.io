@@ -10,7 +10,7 @@ La solution logicielle Vitam est librement réutilisable. Pour constituer une pl
 La solution logicielle Vitam assurera la prise en charge d’objets variés : fichiers bureautiques, données, images fixes et animées, enregistrements sonores, messages et messageries électroniques, etc.
 Elle répondra plus particulièrement aux besoins des services qui devront, à terme, gérer de très nombreux objets (plusieurs centaines de millions voire milliards). Elle pourra s’utiliser dans un contexte mutualisé, afin de gérer une multiplicité de services producteurs.
 
-![Schéma SAE Vitam](/public/images/SchemaSAEVitam.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
+![Schéma SAE Vitam](/public/images/202007_schéma_archi_résumé_V4.png){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
 
 ## Des fonctionnalités issues du modèle OAIS.
 
