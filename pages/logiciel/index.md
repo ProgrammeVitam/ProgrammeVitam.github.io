@@ -15,13 +15,11 @@ level: page
 
 Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4 (publication : mars 2021)
 
-<left>
-![Vitam fonctionnalités d'entrée](/public/images/V4_entrees.png)
-</left>
 
-<right>
-![Vitam fonctionnalités d'accès](/public/images/V4_acces.png)
-</right>
+![Vitam fonctionnalités d'entrée](/public/images/V4_entrees.png){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
+
+![Vitam fonctionnalités d'accès](/public/images/V4_acces.png){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
+
 
 <center>
 ![Vitam fonctionnalités de gestion de la donnée](/public/images/V4_gestion_donnees.png)
