@@ -5,13 +5,16 @@ fatherref: logiciel
 level: page
 ---
 
-# En savoir plus sur le back-office et le front-office
+## En savoir plus sur le back-office et le front-office
 
 [![Vitam front-office](https://www.programmevitam.fr/public/images/Vitam_front.png)](https://www.programmevitam.fr/pages/logiciel/Vitam_frontoffice/)
 
 [![Vitam back-office](https://www.programmevitam.fr/public/images/Vitam_back.png)](https://www.programmevitam.fr/pages/logiciel/Vitam_backoffice/)
 
-# Les fonctionnalités couvertes par Vitam
+<a name="fonctionnalites"></a>
+## Les fonctionnalités couvertes par Vitam
+
+Source: https://prograide.com/pregunta/5868/-comment-creer-un-lien-vers-une-ancre-nommee-dans-multimarkdown--
 
 Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4 (publication : mars 2021)
 
