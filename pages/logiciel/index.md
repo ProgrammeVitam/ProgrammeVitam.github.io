@@ -20,7 +20,7 @@ Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4
 
 ![Vitam fonctionnalités d'accès](/public/images/V4_acces.png){: style="display: block; margin-left: auto; margin-right: 10%; height:15rem"} 
 
-![Vitam fonctionnalités de gestion de la donnée](/public/images/V4_gestion_donnee.png){: style="display: block; margin-left: 10%; margin-right: auto; height:10rem"} 
+![Vitam fonctionnalités de gestion de la donnée](/public/images/V4_gestion_donnee.png){: style="display: block; margin-left: 10%; margin-right: auto; height:5rem"} 
 
 ![Vitam fonctionnalités d'administration fonctionnelle](/public/images/V4_admi_fonct.png){: style="display: block; margin-left: auto; margin-right: 10%; height:15rem"} 
 
@@ -30,9 +30,9 @@ Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4
 
 ![Vitam fonctionnalités de stockage des objets](/public/images/V4_stockage.png){: style="display: block; margin-left: 10%; margin-right: auto; height:15rem"} 
 
-![Vitam fonctionnalités de gestion des archives existantes](/public/images/V4_gestion_archives_existantes.png){: style="display: block; margin-left: auto; margin-right: 10%; height:15rem"} 
+![Vitam fonctionnalités de gestion des archives existantes](/public/images/V4_gestion_archives_existantes.png){: style="display: block; margin-left: auto; margin-right: 10%; height:18rem"} 
 
-![Vitam fonctionnalités de pérennisation et intégrité](/public/images/V4_perennisation.png){: style="display: block; margin-left: 10%; margin-right: auto; height:15rem"} 
+![Vitam fonctionnalités de pérennisation et intégrité](/public/images/V4_perennisation.png){: style="display: block; margin-left: 10%; margin-right: auto; height:20rem"} 
 
 
 # Les composants de Vitam
