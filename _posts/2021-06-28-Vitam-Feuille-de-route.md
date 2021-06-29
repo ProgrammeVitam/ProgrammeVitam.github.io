@@ -7,3 +7,4 @@ En 2020, à l'approche de la version 4 de la solution logicielle Vitam, le Progr
 ![Logos](/public/images/Vitam_feuille_route_2020_2024.jpg)
 
 Entre liste au père Noël et anticipation des enjeux des prochaines années, les ateliers ont permis d'esquisser cette feuille de route que le Programme va maintenant décliner au fur et à mesure des itérations.
+Pour rappel, la liste des fonctionnalités déjà couvertes est [disponible ici](https://www.programmevitam.fr/pages/logiciel/#fonctionnalites).
