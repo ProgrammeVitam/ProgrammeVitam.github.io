@@ -16,38 +16,23 @@ level: page
 Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4 (publication : mars 2021)
 
 
-![Vitam fonctionnalités d'entrée](/public/images/V4_entrees.png){: style="display: block; margin-left: auto; margin-right: auto; height:10rem"} 
+![Vitam fonctionnalités d'entrée](/public/images/V4_entrees.png){: style="display: block; margin-left: 10%; margin-right: auto; height:15rem"} 
 
-![Vitam fonctionnalités d'accès](/public/images/V4_acces.png){: style="display: block; margin-left: auto; margin-right: auto; height:15rem"} 
+![Vitam fonctionnalités d'accès](/public/images/V4_acces.png){: style="display: block; margin-left: auto; margin-right: 10%; height:15rem"} 
 
+![Vitam fonctionnalités de gestion de la donnée](/public/images/V4_gestion_donnee.png){: style="display: block; margin-left: 10%; margin-right: auto; height:15rem"} 
 
-<center>
-![Vitam fonctionnalités de gestion de la donnée](/public/images/V4_gestion_donnees.png)
-</center>
+![Vitam fonctionnalités d'administration fonctionnelle](/public/images/V4_admi_fonct.png){: style="display: block; margin-left: auto; margin-right: 10%; height:15rem"} 
 
-<left>
-![Vitam fonctionnalités d'administration fonctionnelle](/public/images/V4_admi_fonct.png)
-</left>
-
-<right>
 ![Vitam fonctionnalités d'administration technique](/public/images/V4_admi_tech.png)
-</right>
 
-<center>
 ![Vitam fonctionnalités de traitements transverses](/public/images/V4_traitements_transverses.png)
-</center>
 
-<left>
 ![Vitam fonctionnalités de stockage des objets](/public/images/V4_stockage.png)
-</left>
 
-<center>
 ![Vitam fonctionnalités de gestion des archives existantes](/public/images/V4_gestion_archives_existantes.png)
-</center>
 
-<right>
 ![Vitam fonctionnalités de pérennisation et intégrité](/public/images/V4_perennisation.png)
-</right>
 
 
 # Les composants de Vitam
