@@ -14,8 +14,6 @@ level: page
 <a name="fonctionnalites"></a>
 ## Les fonctionnalités couvertes par Vitam
 
-Source: https://prograide.com/pregunta/5868/-comment-creer-un-lien-vers-une-ancre-nommee-dans-multimarkdown--
-
 Vous trouverez ci-dessous les fonctionnalités proposées par Vitam en version 4 (publication : mars 2021)
 
 Entrées           |  Accès
@@ -40,5 +38,5 @@ Pérennisation et intégrité    |
  
 
 
-# Les composants de Vitam
+## Les composants de Vitam
 ![Les composants de Vitam](/public/images/souches_logicielles.jpg)
