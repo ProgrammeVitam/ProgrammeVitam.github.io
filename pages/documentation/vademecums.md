@@ -13,7 +13,7 @@ fatherref: documentation
 	- Le paramétrage fonctionnel d’une plate-forme utilisant la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Parametrage_PF.pdf))
 	- Les tenants dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Tenants.pdf))
 * **Structuration des référentiels**
-	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Arbres.pdf))
+	- L’arbre de positionnement dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Arbre.pdf))
 	- Les profils d’unité archivistique dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Profil_Unite_archivistique.pdf))
 	- Le contrat d’accès dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Contrat_acces.pdf))
 	- Le contrat d’entrée dans la solution logicielle Vitam ([pdf](/ressources/DocCourante/autres/fonctionnel/Vademecum_Contrat_entree.pdf))
