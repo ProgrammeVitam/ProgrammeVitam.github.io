@@ -4,9 +4,19 @@ title: Anciennes documentations
 ---
 
 > Est ici présentée la documentation des anciennes versions. 
-Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation 
-de développement.
+Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
+* [Version Release 15 (3.14.2)](#R15)
+* [Version Release 14 (3.6.0)](#R14)
+* [Version Release 13 (3.0.16)](#R13_16)
+* [Version Release 8 (1.10.0-1)](#R8)
+* [Version Release 6-1.0.0](#R6)
+* [Version Release 3-0.15.1](#R3)
+* [Version Bêta-0.11.1](#Rbêta)
+
+
+
+<a name="R15"></a>
 # Version Release 15 (3.14.2)
 
 # Première approche
@@ -68,6 +78,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 
+<a name="R14"></a>
 # Version Release 14 (3.6.0)
 
 # Première approche
@@ -129,7 +140,60 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 
+<a name="R13_16"></a>
+# Version Release 13 (3.0.16)
 
+# Première approche
+* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
+* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
+([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R13.zip))
+* **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
+([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
+
+
+
+# Documentation métier
+
+* **Manuel utilisateur** ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
+* **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Organisation_de_information.pdf))
+* **Spécification des SIP** - recommandations sur la construction des paquets à archiver ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
+* **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
+* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_ArbresEtPlans.pdf))
+* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
+* **Services producteurs** - présentation des fonctionnalités associées à la notion de service producteur ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Services_producteurs.pdf))
+* **Eliminations** - présentation des fonctionnalités de mise en oeuvre des éliminations d'archives avec la solution logicielle Vitam ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Eliminations.pdf))
+* **Préservation** - présentation des fonctionnalités de mise en oeuvre de la préservation à long-terme des archives avec la solution logicielle Vitam ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_Preservation.pdf))
+* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
+* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_ProfilsDuniteArchivistique.pdf))
+* **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Ontologie.pdf))
+* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Conservation_valeur_probante.pdf))
+* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Gestion_habilitations.pdf))
+* **Modèle de workflow**  - description de la décompositon et du séquencement des  opérations ([pdf - partie 1](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Modele_de_workflow_part1.pdf)) ([pdf - partie 2](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Modele_de_workflow_part2.pdf))
+* **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Multi_strategies.pdf))
+* **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
+
+# Documentation des tests
+* **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_IHM_Recette.pdf))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeux_de_tests_fonctionnels_RELEASE13.zip))
+
+# Documentation technique
+* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc3.0.16/pdf/vitam-architecture.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/archi))
+* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc3.0.16/pdf/vitam-documentation-exploitation.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/exploitation))
+* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc3.0.16/pdf/vitam-documentation-installation.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/installation))
+* **Documentation de montées de version** (DMV) ([pdf](/ressources/Doc3.0.16/pdf/vitam-documentation-migration.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/migration))
+
+# Documentation développeur
+* **Javadoc** ([html](/ressources/Doc3.0.16/javadoc))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc3.0.16/pdf/vitam-manuel-integration.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/manuel-integration))
+* **Modèle de données** - description des collections et des champs standards ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Modele_de_donnees.pdf))
+* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc3.0.16/raml/externe))
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc3.0.16/pdf/vitam-manuel-developpement.3.0.1.pdf) \| [html](/ressources/Doc3.0.3/html/manuel-dev))
+* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc3.0.16/raml/interne))
+* **Documentation de mise à jour des unités archivistiques** ([pdf](/ressources/Doc3.0.16/pdf/vitam-maj-au.3.0.1.pdf))
+
+
+
+<a name="R13_3"></a>
 # Version Release 13 (3.0.3-1)
 
 # Première approche
@@ -193,7 +257,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Sedalib** [html](http://download.programmevitam.fr/resip/1.1/javadoc-sedalib1.1/)
 
 
-
+<a name="R8"></a>
 # Version Release 8 (1.10.0-1)
 
 ## Première approche
@@ -260,73 +324,7 @@ notion de service producteur ([pdf](/ressources/Doc1.10.0/autres/fonctionnel/VIT
 
 
 
-# Version Release 7-1.4.0
-
-## Première approche
-
-* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
-* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
-* **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
-
-## Documentation métier
-
-* **Manuel utilisateur** ([pdf](/ressources/Doc1.4.0/pdf/vitam-manuel-utilisateur.1.4.0.pdf) 
-\| [html](/ressources\Doc1.4.0\html\manuel-utilisateur))
-* **Organisation de l'information** - présentation des exigences fonctionnelles 
-et des objets métiers utilisés par la solution logicielle Vitam
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Organisation_de_l_information.pdf))
-* **Spécification des SIP** - recommandations sur la construction des paquets 
-à archiver ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
-* **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
-* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
-* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Profils_d_unite_archivistique.pdf))
-* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
-l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
-* **Services producteurs** - présentation des fonctionnalités associées à la
-notion de service producteur ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Services_producteurs.pdf))
-* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques 
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Arbre_de_positionnement_et_plan_de_classement.pdf))
-* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage 
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Regles_de_gestion.pdf))
-* **Modèle de workflow**  - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/Doc1.4.0/pdf/vitam-modele-workflow.1.4.0.pdf) \| [html](/ressources/Doc1.4.0/html/workflow-model))
-* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Valeur_probante.pdf))
-* **Présentation du générateur SEDA** - présentation de l'outil complémentaire Générateur SEDA 
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Presentation_generateur.pdf))
-* **Présentation du générateur arbres et plans** - présentation de  l'outil de génération des arbres et plans 
-([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Presentation_generateur-plan-classement.pdf))
-
-
-## Documentation des tests
-
-* **Manuel IHM recette** ([pdf](/ressources/Doc1.4.0/pdf/vitam-ihm-recette.1.4.0.pdf) 
-\| [html](/ressources/Doc1.4.0/html/ihm-recette))
-* **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/Doc1.4.0/pdf/vitam-scenario-tests.1.4.0.pdf) 
-\| [html](/ressources/Doc1.4.0/html/scenario-test))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/Doc1.4.0/autres/fonctionnel/VITAM_Cahier_de_tests_metiers.pdf))
-
-
-## Documentation technique
-
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc1.4.0/pdf/vitam-architecture.1.4.0.pdf) \| [html](/ressources/Doc1.4.0/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc1.4.0/pdf/vitam-documentation-exploitation.1.4.0.pdf) \| [html](/ressources/Doc1.4.0/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc1.4.0/pdf/vitam-documentation-installation.1.4.0.pdf) \| [html](/ressources/Doc1.4.0/html/installation))
-
-## Documentation développeur
-
-* **Javadoc** ([html](/ressources/Doc1.4.0/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc1.4.0/pdf/vitam-manuel-integration.1.4.0.pdf) \| [html](/ressources/Doc1.4.0/html/manuel-integration))
-* **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/Doc1.4.0/pdf/vitam-datamodel.1.4.0.pdf) \| [html](/ressources/Doc1.4.0/html/data-model))
-* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc1.4.0/raml/externe/index.htm))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc1.4.0/pdf/vitam-manuel-developpement.1.4.0.pdf) 
-\| [html](/ressources/Doc1.4.0/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc1.4.0/raml/interne/index.htm))
-
-
+<a name="R6"></a>
 # Version Release 6-1.0.0
 
 ## Première approche
@@ -397,134 +395,7 @@ notion de service producteur ([pdf](/ressources/Doc1.0.0/autres/fonctionnel/2018
 
 
 
-# Version Release 5-0.26.0
-
-## Première approche
-
-* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc0.26.0/Vitam_Documentation_guide_de_lecture.pdf))
-* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/Doc0.26.0/Vitam_Documentation_Kit_de_prise_en_main.pdf))
-* **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
-([pdf](/ressources/Doc0.26.0/Vitam_presentation_solution_logicielle.pdf))
-
-## Documentation métier
-
-* **Manuel utilisateur** ([pdf](/ressources/Doc0.26.0/pdf/VITAM_manuel_utilisateur.pdf) 
-\| [html](/ressources\Doc0.26.0\html\manuel-utilisateur))
-* **Organisation de l'information** - présentation des exigences fonctionnelles 
-et des objets métiers utilisés par la solution logicielle Vitam
-([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Organisation_de_l_information.pdf))
-* **Spécification des SIP** - recommandations sur la construction des paquets 
-à archiver ([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
-* **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
-([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Structuration_des_DIP.pdf))
-* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Profils_d_archivage.pdf))
-* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
-l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Gestion_des_habilitations.pdf))
-* **Services producteurs** - présentation des fonctionnalités associées à la
-notion de service producteur ([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Services_producteurs.pdf))
-* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques 
-([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Arbre_de_positionnement_et_Plan_de_classement.pdf))
-* **Mise à jour des unités archivistiques** - description des principes de rattachement d’archives à des ensembles d’archives déjà versés 
-([pdf](/ressources/Doc0.26.0/pdf/VITAM_Maj_des_AU.pdf))\| [html](/ressources/Doc0.26.0/html/maj-au))
-* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage 
-([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_regles_gestion.pdf))
-* **Modèle de workflow**  - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/Doc0.26.0/pdf/VITAM_modele_workflow.pdf) \| [html](/ressources/Doc0.26.0/html/workflow-model))
-* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Valeur_probante.pdf))
-* **Présentation du générateur SEDA** - présentation de l'outil complémentaire Générateur SEDA 
-([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Generateur_de_SIP_Mode_d_emploi.pdf))
-* **Présentation du générateur arbres et plans** - présentation de  l'outil de génération des arbres et plans 
-([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Generateur_de_SIP_arbres et plans.pdf))
-
-
-## Documentation des tests
-
-* **Manuel IHM recette** ([pdf](/ressources/Doc0.26.0/pdf/VITAM_ihm_recette.pdf) 
-\| [html](/ressources/Doc0.26.0/html/ihm-recette))
-* **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/Doc0.26.0/pdf/VITAM_Scenario_de_tests.pdf) 
-\| [html](/ressources/Doc0.26.0/html/scenario-test))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM([pdf](/ressources/Doc0.26.0/autres/fonctionnel/VITAM_Cahier_de_test_20180131.pdf)
-* **Configuration des tests de non régression automatique** 
-([pdf](/ressources/Doc0.26.0/pdf/VITAM_configuration_tnr.pdf)
-\| [html](/ressources/Doc0.26.0/html/configuration-tnr))
-
-
-## Documentation technique
-
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc0.26.0/pdf/VITAM_architecture.pdf) \| [html](/ressources/Doc0.26.0/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc0.26.0/pdf/VITAM_documentation_exploitation.pdf) \| [html](/ressources/Doc0.26.0/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc0.26.0/pdf/VITAM_documentation_installation.pdf) \| [html](/ressources/Doc0.26.0/html/installation))
-
-## Documentation développeur
-
-* **Javadoc** ([html](/ressources/Doc0.26.0/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc0.26.0/pdf/VITAM_Manuel_integration_applicative.pdf) \| [html](/ressources/Doc0.26.0/html/manuel-integration))
-* **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/Doc0.26.0/pdf/VITAM_modele_de_donnees.pdf) \| [html](/ressources/Doc0.26.0/html/data-model))
-* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc0.26.0/raml/externe/index.htm))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc0.26.0/pdf/VITAM_manuel_developpement.pdf) 
-\| [html](/ressources/Doc0.26.0/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc0.26.0/raml/interne/index.htm))
-
-
-# Version Release 4-0.20.1
-
-## Première approche
-
-* **Guide de lecture de la documentation** - quels documents à lire selon votre rôle et vos attentes?... avec une description de chaque document ([pdf](/ressources/Doc0.20.1/Vitam_Documentation_guide_de_lecture.pdf))
-* **Présentation du projet solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
-([pdf](/ressources/Doc0.20.1/Vitam_presentation_solution_logicielle.pdf))
-
-## Documentation métier
-
-* **Manuel utilisateur** ([pdf](/ressources/Doc0.20.1/pdf/VITAM_manuel_utilisateur.pdf) 
-\| [html](/ressources/Doc0.20.1/html/manuel-utilisateur))
-* **Organisation de l'information** - présentation des exigences fonctionnelles 
-et des objets métiers utilisés par la solution logicielle Vitam
-([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_Organisation_de_l_information.pdf))
-* **Spécification des SIP** - recommandations sur la construction des paquets 
-d'archives ([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_Structuration_des_SIP.pdf))
-* **Arbre de positionement et plan de classement** - description des principes d'organisation et de classement des unités archivistiques 
-([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_Arbre_de_positionnement_et_Plan_de_classement.pdf))
-* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage 
-([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_regles_gestion.pdf))
-* **Modèle de workflow**  - description de la décompositon et du séquencement des
- opérations ([pdf](/ressources/Doc0.20.1/pdf/VITAM_modele_workflow.pdf) \| [html](/ressources/Doc0.20.1/html/workflow-model))
-* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_Valeur_probante.pdf))
-* **Présentation du générateur SEDA** - présentation de l'outil complémentaire Générateur SEDA 
-([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_Generateur_de_SIP_Mode_d_emploi.pdf)) 
-
-## Documentation des tests
-
-* **Manuel IHM recette** ([pdf](/ressources/Doc0.20.1/pdf/VITAM_ihm_recette.pdf) 
-\| [html](/ressources/Doc0.20.1/html/ihm-recette))
-* **Scenarii de tests métier** - description de la stratégie des tests ([pdf](/ressources/Doc0.20.1/pdf/VITAM_Scenario_de_tests.pdf) 
-\| [html](/ressources/Doc0.20.1/html/scenario-test))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM ([pdf](/ressources/Doc0.20.1/autres/fonctionnel/VITAM_cahier_de_test_20170717.pdf)) 
-* **Configuration des tests de non régression automatique** 
-([pdf](/ressources/Doc0.20.1/pdf/VITAM_configuration_tnr.pdf)
-\| [html](/ressources/Doc0.20.1/html/configuration-tnr))
-
-## Documentation technique
-
-* **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc0.20.1/pdf/VITAM_architecture.pdf) \| [html](/ressources/Doc0.20.1/html/archi))
-* **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc0.20.1/pdf/VITAM_documentation_exploitation.pdf) \| [html](/ressources/Doc0.20.1/html/exploitation))
-* **Dossier d'installation** (DIN) ([pdf](/ressources/Doc0.20.1/pdf/VITAM_documentation_installation.pdf) \| [html](/ressources/Doc0.20.1/html/installation))
-
-## Documentation développeur
-
-* **Javadoc** ([html](/ressources/Doc0.20.1/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc0.20.1/pdf/VITAM_Manuel_integration_applicative.pdf) \| [html](/ressources/Doc0.20.1/html/manuel-integration))
-* **Modèle de données** - description des collections et des champs standards  
-([pdf](/ressources/Doc0.20.1/pdf/VITAM_modele_de_donnees.pdf) \| [html](/ressources/Doc0.20.1/html/data-model))
-* **Documentation d'API externes** - description des API REST externes en RAML ([html&raml](/ressources/Doc0.20.1/raml/externe))
-* **Manuel de développement** - éléments d'architecture interne et de 
-méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc0.20.1/pdf/VITAM_manuel_developpement.pdf) 
-\| [html](/ressources/Doc0.20.1/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en RAML ([html&raml](/ressources/Doc0.20.1/raml/interne))
-
-
+<a name="R3"></a>
 # Version Release 3-0.15.1
 
 ## Première approche 
@@ -568,7 +439,7 @@ méthode utiles aux développements ([pdf](/ressources/Doc0.15.1/pdf/vitam-manue
 * **Documentation d'API internes** - description des API REST internes en RAML ([html&raml](/ressources/Doc0.15.1/raml/interne))
 * **Documentation d'API externes** - description des API REST externes en RAML ([html&raml](/ressources/Doc0.15.1/raml/externe))
 
-
+<a name="Rbêta"></a>
 # Version Bêta-0.11.1
 
 ## Première approche
