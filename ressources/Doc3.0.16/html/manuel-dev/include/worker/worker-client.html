@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>13.3. Worker Client &mdash; Documentation VITAM - Manuel de développement 3.0.16</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'3.0.16',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="13.4. Worker Plugin" href="plugin.html" />
+    <link rel="prev" title="13.2. Worker" href="worker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">2. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">3. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">4. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">6. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">7. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">8. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">9. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">11. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">12. Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">13. Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">13.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="worker.html">13.2. Worker</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">13.3. Worker Client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#la-factory">13.3.1. La factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#les-services">13.3.2. Les services</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugin.html">13.4. Worker Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idempotent.html">13.5. Idempotence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">14. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">13. Worker</a> &raquo;</li>
+        
+      <li>13.3. Worker Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/worker/worker-client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="worker-client">
+<h1>13.3. Worker Client<a class="headerlink" href="#worker-client" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="la-factory">
+<h2>13.3.1. La factory<a class="headerlink" href="#la-factory" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Afin de récupérer le client une factory a été mise en place.
+On peut dorenavant lancer plusieurs Client Worker en parallele avec des configurations differentes.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WorkerClientFactory</span><span class="p">.</span><span class="na">changeMode</span><span class="p">(</span><span class="n">WorkerClientConfiguration</span> <span class="n">configuration</span><span class="p">)</span>
+<span class="c1">// Récupération du client</span>
+<span class="n">WorkerClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">WorkerClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>A la demande l’instance courante du client, si un fichier de configuration worker-client.conf est présent dans le classpath le client en mode de production est envoyé, sinon il s’agit du mock.</p>
+<div class="section" id="le-mock">
+<h3>13.3.1.1. Le Mock<a class="headerlink" href="#le-mock" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En l’absence d’une configuration, le client est en mode Mock. Il est possible de récupérer directement le mock :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+<span class="n">WorkerClientFactory</span><span class="p">.</span><span class="na">changeMode</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="c1">// Récupération explicite du client mock</span>
+<span class="n">WorkerClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">WorkerClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="kc">null</span><span class="p">).</span><span class="na">geClient</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="le-mode-de-production">
+<h3>13.3.1.2. Le mode de production<a class="headerlink" href="#le-mode-de-production" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour instancier son client en mode Production :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+<span class="n">WorkerClientFactory</span><span class="p">.</span><span class="na">changeMode</span><span class="p">(</span><span class="n">WorkerClientConfiguration</span> <span class="n">configuration</span><span class="p">);</span>
+<span class="c1">//creation du de la configuration</span>
+<span class="n">WorkerClientConfiguration</span> <span class="n">workerClientConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WorkerClientConfiguration</span><span class="p">(</span>
+                 <span class="s">&quot;localhost&quot;</span><span class="p">,</span>
+                  <span class="mi">8067</span>
+<span class="p">);</span>
+<span class="c1">// Récupération explicite du client</span>
+<span class="n">WorkerClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">WorkerClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="n">workerClientConfiguration</span><span class="p">).</span><span class="na">getClient</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-services">
+<h2>13.3.2. Les services<a class="headerlink" href="#les-services" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le client propose pour le moment une fonctionnalité :
+- Permet de soumettre le lancement d’une étape. Deux paramètres sont nécessaires : un string requestId + un objet DescriptionStep. Voici un exemple d’utilisation :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DescriptionStep</span> <span class="n">ds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DescriptionStep</span><span class="p">(</span><span class="k">new</span> <span class="n">Step</span><span class="p">(),</span> <span class="k">new</span> <span class="n">WorkParams</span><span class="p">());</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">EngineResponse</span><span class="o">&gt;</span> <span class="n">responses</span> <span class="o">=</span>
+         <span class="n">client</span><span class="p">.</span><span class="na">submitStep</span><span class="p">(</span><span class="s">&quot;requestId&quot;</span><span class="p">,</span> <span class="n">ds</span><span class="p">);</span>
+<span class="c1">// Now we can check the list of response</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="plugin.html" class="btn btn-neutral float-right" title="13.4. Worker Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="worker.html" class="btn btn-neutral float-left" title="13.2. Worker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

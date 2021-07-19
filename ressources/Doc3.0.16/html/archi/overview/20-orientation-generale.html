@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3.3. Orientations générales &mdash; Documentation VITAM - Architecture 3.0.16</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'3.0.16',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="3.4. Architecture fonctionnelle" href="30-architecture-fonctionnelle.html" />
+    <link rel="prev" title="3.2. Interfaces externes du système" href="10-interfaces.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">3. Vue d’ensemble</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-enjeux.html">3.1. Drivers du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-interfaces.html">3.2. Interfaces externes du système</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.3. Orientations générales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#open-source">3.3.1. Open Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-rest">3.3.2. <code class="docutils literal notranslate"><span class="pre">API</span></code> <code class="docutils literal notranslate"><span class="pre">REST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#big-data-et-cloud-computing">3.3.3. Big Data et Cloud computing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-storage">3.3.4. Cloud storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pca-pra-et-repartitions-des-travaux">3.3.5. PCA/PRA et répartitions des travaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securite-des-donnees-additionnelle">3.3.6. Sécurité des données additionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#architecture-multi-tenants">3.3.7. Architecture multi-tenants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solution-exploitable">3.3.8. Solution exploitable</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30-architecture-fonctionnelle.html">3.4. Architecture fonctionnelle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="_toc.html">3. Vue d’ensemble</a> &raquo;</li>
+        
+      <li>3.3. Orientations générales</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/overview/20-orientation-generale.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="orientations-generales">
+<h1>3.3. Orientations générales<a class="headerlink" href="#orientations-generales" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Ces orientations générales donnent la direction vers laquelle tend la solution logicielle  <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ; il contient donc des références à des fonctionnalités qui ne sont pas forcément présentes dans cette version du système <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+</div>
+<div class="section" id="open-source">
+<h2>3.3.1. Open Source<a class="headerlink" href="#open-source" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les logiciels utilisés et le résultat sont <em>Open Source</em> afin de faciliter la réutilisation et d’éviter les contraintes de marchés publics pour la réutilisation au sein des différentes entités publiques.</p>
+<p>Le logiciel produit est un logiciel de <em>Back-office</em>, supposant qu’il y a donc des <em>Front-offices</em> développés par ailleurs.</p>
+<p>Le <em>back-office</em> se veut être mutualisé entre plusieurs <em>Front-offices</em>, pour&nbsp;:</p>
+<ul class="simple">
+<li>Permettre la réutilisation des données (objets numériques et métadonnées) dans plusieurs contextes (mémoire de l’entité publique)</li>
+<li>Permettre la réduction des coûts en centralisant les investissements.</li>
+</ul>
+<p>Chaque <em>front-office</em> aura des conditions particulières d’usage du <em>back-office</em>. Ces conditions particulières pourront varier selon&nbsp;:</p>
+<ul class="simple">
+<li>La nature des grandes opérations qui pourront être effectuées (versement, accès, gestion, …)</li>
+<li>La nature des variantes d’opérations qui pourront être effectuées (ajout d’une entrée, modification d’une entrée ou de métadonnées, …)&nbsp;: en résumé lecture seule, écriture simple (insertion), écriture riche (mise à jour), effacement</li>
+<li>Le domaine d’application de ces opérations (quelles filières, quels objets numériques, quels périmètres)</li>
+<li>Le filtrage sur ces domaines (2 niveaux&nbsp;: habilité / non habilité, utilisables en fonction de règles de gestion&nbsp;: communicabilité, diffusion, données publiques/privées, …)</li>
+</ul>
+<p>Même si <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est un <em>back-office</em>, certaines <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> sont prévues pour différentes fonctions&nbsp;:</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> d’administration&nbsp;: pour les opérations d’administration (métier) à accès restreint. Selon le <em>front-office</em> utilisé, cette <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> peut ne pas être nécessaire ;</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> minimale&nbsp;: elle assure un socle minimal d”<a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> pour assurer un usage rapide de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Cette <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> est prévue pour être utilisée dans les cas simples, et donc, selon le front-office utilisé, elle peut ne pas être nécessaire ;</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> de démonstration&nbsp;: elle porte des exemples d’implémentations limitatives tant en fonctionnalité qu’en garantie de fonctionnement. Ces <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> ne doivent pas être mises en production mais sont des exemples dont peuvent s’inspirer les concepteurs d’applications <em>front-offices</em>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cette <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> porte notamment des codes de démonstration, des cas particulier d’exemples pour de futures implémentations de front-offices, mais uniquement sur un aspect codage (requêtes et réponses) pour illustrer des cas d’usages.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="api-rest">
+<h2>3.3.2. <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> <a class="reference internal" href="../introduction.html#term-rest"><span class="xref std std-term">REST</span></a><a class="headerlink" href="#api-rest" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour assurer l’interconnexion entre le <em>back-office</em> et les <em>front-offices</em>, il est proposé d’utiliser des interfaces HTTPS <a class="reference internal" href="../introduction.html#term-rest"><span class="xref std std-term">REST</span></a> (hors protocoles spécifiques additionnels de transferts de fichiers). Ainsi, toutes les fonctionnalités accessibles aux <em>front-offices</em> seront offertes via ces <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a>. Les <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> minimales et de démonstration utiliseront ces <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a>. Les <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> d’administration pourront utiliser des API spécifiques si nécessaire (mais ce n’est pas une obligation, ces API pouvant elles aussi être exposées in fine).</p>
+<p>Une analogie peut être faite entre <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> et une base de données&nbsp;:</p>
+<ul class="simple">
+<li>Une base de données peut héberger une ou plusieurs tables communes à de multiples applications clientes ;</li>
+<li>Les applications clientes utilisent des <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> (SQL) pour échanger avec le moteur de la base de données ;</li>
+<li>La base de données dispose d’une <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> spécifique d’administration pouvant utiliser les mêmes <a class="reference internal" href="../introduction.html#term-api"><span class="xref std std-term">API</span></a> (SQL) ou des API spécifiques du moteur.</li>
+</ul>
+</div>
+<div class="section" id="big-data-et-cloud-computing">
+<h2>3.3.3. Big Data et Cloud computing<a class="headerlink" href="#big-data-et-cloud-computing" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les contraintes de volumétrie (plusieurs dizaines de milliards d’objets) conduisent à une volumétrie (en nombre) dépassant les capacités des logiciels usuels (type <a class="reference internal" href="../introduction.html#term-sgbdr"><span class="xref std std-term">SGBDR</span></a>). Les technologies <a class="reference internal" href="../introduction.html#term-nosql"><span class="xref std std-term">NoSQL</span></a> ou Cloud computing à forte distribution permettent de pallier ce problème.</p>
+<p>Pour chaque objet numérique, les métadonnées associées sont variables ([Nom, Prénom, …] pour un dossier RH, [Projet, Domaine, …] pour un dossier projet, [Action, Plan comptable, … ] pour de la comptabilité, …). Cette variabilité peut être assumée par des technologies NoSQL dites <em>schemaless</em>.</p>
+<p>Chaque objet numérique peut être d’un format différent (Word, PDF, JPG, AVI, …). La lisibilité dans le temps d’un objet numérique est un enjeu majeur. Si on ne peut plus le lire (le consulter par exemple), il n’est plus compréhensible par l’humain. Les transformations de format pour en assurer la lisibilité sont donc indispensables dans le temps. Du fait de la masse (dizaines de milliards d’objets numériques), cette contrainte impose de gérer une vélocité de grande masse.</p>
+<p>Du fait de la prolifération des formats et des usages (usage dit de master pour la conservation, usage dit de diffusion dans une qualité moindre, voire d’autres usages comme une qualité de type vignette ou contenu textuel (TEXTE)), ces formats induisent eux aussi une grande variabilité qui doit être gérée de manière efficiente (vélocité).</p>
+<p>De plus, l’accès aux métadonnées ou aux objets numériques doit pouvoir se faire dans des temps acceptables (de la seconde à quelques dizaines de secondes pour certains éléments massifs). Là aussi, la vélocité est donc un point important.</p>
+<p>Ces 3 V (Volume, Variété, Vélocité) imposent une vision «&nbsp;Big Data&nbsp;» mais non analytique (<em>Big Data</em> de traitements). Il n’est pas prévu par exemple de pouvoir effectuer des traitements de masse sur le contenu des archives et d’en déduire des analyses statistiques ou d’utiliser des mécanismes d’intelligence artificielle. Ainsi le modèle Hadoop ne correspond pas à notre usage.</p>
+</div>
+<div class="section" id="cloud-storage">
+<h2>3.3.4. Cloud storage<a class="headerlink" href="#cloud-storage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La particularité de l’accès aux objets numériques est un accès unitaire à minima (l’accès à un lot se résumant à faire des accès unitaires pour chacun des éléments de ce lot). Ainsi, on accède à un courriel et non uniquement à une boîte aux lettres. De ce fait, chaque objet étant accédé unitairement, la logique retenue pour le stockage est une logique Objet (<a class="reference internal" href="../introduction.html#term-cas"><span class="xref std std-term">CAS</span></a>) et non une logique systèmes de fichiers. L’implémentation réelle peut s’appuyer sur une logique de systèmes de fichiers, mais l’interface visible sera bien objet. Le modèle de référence (ce qui ne veut pas dire l’implémentation réelle ni l’interface exacte) s’inspire de la NF Z 42-020 et du modèle <a class="reference internal" href="../introduction.html#term-swift"><span class="xref std std-term">Swift</span></a> ou <em>CEPH</em>. L’avantage des deux dernières technologies est qu’elles permettent d’envisager un modèle qui peut croître en taille sans avoir à tout changer à chaque fois. Il s’agit donc du modèle <em>Cloud Storage</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les notions de <em>Cloud computing</em> ou <em>Cloud Storage</em> ne sont pas à prendre au sens hébergement chez Amazon, Google ou Azure, mais au sens des technologies sous-jacentes.</p>
+</div>
+<p>Par contre, il doit être possible de regrouper logiquement des unités en lots (des courriels d’une boîte aux lettres) afin d’en faciliter l’accès. Comme il s’agit de regroupement logique, et que pour une même unité, plusieurs regroupements peuvent être envisagés (un courriel classé dans une boîte, et ce même courriel classé dans un dossier d’affaire), c’est une vision arborescente (dossiers, sous-dossiers, tout comme une arborescence de répertoires contenant des fichiers) disjointe des objets numériques qui est mise en oeuvre. Celle-ci s’inspire du modèle <a class="reference internal" href="../introduction.html#term-isadg"><span class="xref std std-term">IsaDG</span></a>, <a class="reference internal" href="../introduction.html#term-ead"><span class="xref std std-term">EAD</span></a>, <a class="reference internal" href="../introduction.html#term-seda"><span class="xref std std-term">SEDA</span></a> mais aussi du modèle <a class="reference internal" href="../introduction.html#term-moreq"><span class="xref std std-term">MoReq</span></a> 2010. Il a conduit à la notion d” «&nbsp;unités d’archives&nbsp;» (ou Units) structurés dans une arborescence (plan de classement).</p>
+<p>Cette façon de distinguer ce qui est porté dans l’arbre de métadonnées (le classement) et dans le stockage (les objets unitaires) permet de faciliter le développement différencié des deux en en réduisant la complexité pour chacun, ce qui permet d’envisager le remplacement plus facilement de telle ou telle partie, et en particulier pour le stockage, d’autoriser d’autres implémentations.</p>
+</div>
+<div class="section" id="pca-pra-et-repartitions-des-travaux">
+<h2>3.3.5. PCA/PRA et répartitions des travaux<a class="headerlink" href="#pca-pra-et-repartitions-des-travaux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La solution logicielle  <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> est prévue pour être installée sur un nombre de sites suffisant pour assurer la sécurité des données. Selon les volumétries, le nombre de sites peut être variable&nbsp;:</p>
+<ul class="simple">
+<li>1 site&nbsp;: Ce cas ne peut concerner que des volumes de très petite taille dont la sauvegarde journalière et complète («&nbsp;Full daily backup&nbsp;») est permise et réaliste, ainsi que l’acceptation d’un délai de remise en oeuvre de quelques jours. Ceci n’empêche pas la mise en oeuvre de sauvegarde différentielle, mais donne une limite raisonnable d’application du modèle. Une version particulière de Vitam nommée mini-Vitam devrait permettre une telle mise en oeuvre mais avec des fonctionnalités amoindries pour tenir sur un ensemble limité de serveurs&nbsp;;</li>
+<li>2 sites&nbsp;: Ce cas peut être acceptable tant qu’un plan de sauvegarde traditionnel des volumétries est applicable (moins d’un To a priori) via, par exemple, un schéma de sauvegarde de type «&nbsp;Full backup&nbsp;» hebdomadaire et «&nbsp;Incremental backup&nbsp;» journalier. Il s’agit de la réplication des architectures usuelles pour les applications informatiques. Le second site est considéré comme le site de Plan de Reprise d’Activité (PRA)&nbsp;;</li>
+<li>3 sites&nbsp;: Ce cas devrait être le plus général, car il permet de couvrir les volumes les plus importants (plusieurs centaines de To ou plus) où les moyens de sauvegarde usuels ne fonctionnent plus, tout en assurant la sécurité. En cas de sinistre sur un site, le deuxième site «&nbsp;chaud&nbsp;» permet de redémarrer rapidement le service. En cas d’incident après un sinistre, le 3 <sup>ème</sup> site assure la sécurité des données, comme une sauvegarde classique le ferait.</li>
+</ul>
+</div>
+<div class="section" id="securite-des-donnees-additionnelle">
+<h2>3.3.6. Sécurité des données additionnelle<a class="headerlink" href="#securite-des-donnees-additionnelle" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque offre de stockage doit répondre aux enjeux définis dans la norme «&nbsp;NF Z 42-020&nbsp;» (<a class="reference internal" href="../introduction.html#term-ccfn"><span class="xref std std-term">CCFN</span></a>).</p>
+<p>La recommandation en termes de sécurité est d’avoir au moins 3 copies d’une même archive, réparties sur au moins 3 sites pour des raisons de sécurités géographiques (en limitant l’impact de sinistres impliquant la disparition d’un site de production) et sur au moins 2 types de stockage de natures distinctes.</p>
+<ul>
+<li><p class="first">Le recours à plusieurs offres de stockage permet d’assurer une meilleure résilience&nbsp;: une attaque, une faille de sécurité ou un défaut d’usure sont liés à la technologie utilisée&nbsp;; varier les technologies tend à diminuer ce risque (comme il est d’usage de le faire par exemple avec les solutions de sécurité)&nbsp;;</p>
+</li>
+<li><p class="first">Plusieurs offres de stockage doivent être supportées simultanément par le logiciel Vitam afin de permettre les migrations dans le temps entre les offres (tous les 5 à 10 ans selon les technologies utilisées)&nbsp;;</p>
+</li>
+<li><p class="first">Des implémentations d’offres de stockages réalisées par exemple par des acteurs privés en dehors du Programme Vitam (constructeur, éditeur, etc.) pourront venir compléter ou remplacer les solutions proposées par le programme Vitam, ceci permettant d’offrir à Vitam une meilleure capacité à résister dans le temps par la multiplicité des choix proposés. Une illustration de l’architecture de stockage est présentée ci-après.</p>
+</li>
+<li><p class="first">Plusieurs offres de stockage permettent de servir plusieurs niveaux de services&nbsp;:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Par exemple des accès rapides pour les accès aux versions de diffusion des archives, et à l’inverse des accès lents pour les accès aux originaux (masters) potentiellement plus volumineux&nbsp;; à l’instar de la vidéo en mode HDV pouvant être considérée comme le format «&nbsp;master&nbsp;» mais non diffusable du fait de sa taille – 3 Mo/s environ, soit plus de 11 Go/h – qui serait stockée sur des supports lents, tandis que le format Xvid – 500 Mo/h – serait utilisé pour la diffusion et servi par des supports rapides&nbsp;;</p>
+</li>
+<li><p class="first">Ces niveaux de services différents permettent aussi de répondre à des exigences de sécurité (résilience par rapport à une autre offre). Il est proposé ainsi la mise en oeuvre de deux niveaux de services majeurs pour offrir un délai complémentaire de réactivité et éviter ainsi des destructions d’archives (suite à un incident, une attaque ou un défaut)&nbsp;:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Via une offre dénommée «&nbsp;stockage primaire&nbsp;» (ou secondaire en secours immédiat ou «&nbsp;chaud&nbsp;») servant aux accès rapides mais pouvant subir des éliminations tout aussi rapides (et donc dangereuses en termes de sécurité)&nbsp;;</li>
+<li>Et l’autre dénommée «&nbsp;stockage de sécurité&nbsp;», lent par nature (et même si possible «&nbsp;offline&nbsp;» ou «&nbsp;froid&nbsp;») dont les propriétés d’accès rendent lentes les opérations d’écriture et d’élimination.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="architecture-multi-tenants">
+<h2>3.3.7. Architecture multi-tenants<a class="headerlink" href="#architecture-multi-tenants" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La solution logicielle  <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doit pouvoir être instanciée sur une infrastructure mutualisée, avec une administration centralisée et unique des composants, mais en autorisant une séparation virtuelle et sécurisée des informations (archives et métadonnées) pour chaque client (client = «&nbsp;tenant&nbsp;» en anglais) ainsi que la gestion séparée de ces informations par chaque client.</p>
+<p>L’objectif est de permettre, par exemple, le regroupement d’acteurs publics au sein d’une même infrastructure pour diminuer les coûts d’infrastructure et d’exploitation, tout en assurant une étanchéité entre ces environnements logiques pour chaque client.</p>
+</div>
+<div class="section" id="solution-exploitable">
+<h2>3.3.8. Solution exploitable<a class="headerlink" href="#solution-exploitable" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Du fait de la complexité des composants à mettre en oeuvre et donc de l’exploitation associée, tant par composant que dans des visions de suivi d’opérations, la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> doit apporter un maximum d’aides et de facilités aux administrateurs techniques et exploitants, sans forcément se substituer aux outils d’administration propres à chacun des composants.</p>
+<p>Ainsi, il est nécessaire de disposer d’un outillage permettant la configuration, l’installation et la mise à jour des composants et des services pour une plate-forme <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+<p>Il est également nécessaire de disposer d’un outillage permettant de suivre l’activité du système global&nbsp;:</p>
+<ul class="simple">
+<li>Gestion des logs centralisée</li>
+<li>Suivi des opérations ou d’une opération en cours</li>
+<li>Planification</li>
+</ul>
+<p>Il n’est pas obligatoire de substituer des outils d’administration d’un composant lorsqu’ils existent déjà&nbsp;:</p>
+<ul class="simple">
+<li>Administration d’une base MongoDB ou d’une base ElasticSearch</li>
+<li>Supervision technique des <a class="reference internal" href="../introduction.html#term-vm"><span class="xref std std-term">VM</span></a> et <a class="reference internal" href="../introduction.html#term-os"><span class="xref std std-term">OS</span></a>, du réseau,…</li>
+</ul>
+<p>Par contre, certaines informations utiles (soit pour le déroulement d’une opération comme la charge CPU d’un serveur, soit pour une vision globale de l’activité comme la charge CPU ou réseau de la plate-forme) pourraient être captées par la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> pour ses propres usages (et donner de l’information à l’administrateur technique).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="30-architecture-fonctionnelle.html" class="btn btn-neutral float-right" title="3.4. Architecture fonctionnelle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="10-interfaces.html" class="btn btn-neutral float-left" title="3.2. Interfaces externes du système" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
