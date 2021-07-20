@@ -19,7 +19,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 <a name="R15"></a>
 # Version Release 15 (3.14.2)
 
-# Première approche
+## Première approche
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
 ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R13.zip))
@@ -28,7 +28,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 **[Télécharger toute la documentation métier](/ressources/Doc3.12.2/autres/fonctionnel/Release15_doc.7z)**
 
-# Documentation métier
+## Documentation métier
 * **Manuel utilisateur** ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_Organisation_de_information.pdf))
@@ -56,17 +56,17 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_Transfert.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
 
-# Documentation des tests
+## Documentation des tests
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_IHM_Recette.pdf))
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc3.14.2/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeux_de_tests_fonctionnels_RELEASE13.zip))
 
-# Documentation technique
+## Documentation technique
 * **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc3.14.2/pdf/vitam-architecture.3.6.0.pdf) \| [html](/ressources/Doc3.14.2/html/archi))
 * **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc3.14.2/pdf/vitam-documentation-exploitation.3.6.0.pdf) \| [html](/ressources/Doc3.14.2/html/exploitation))
 * **Dossier d'installation** (DIN) ([pdf](/ressources/Doc3.14.2/pdf/vitam-documentation-installation.3.6.0.pdf) \| [html](/ressources/Doc3.14.2/html/installation))
 * **Documentation de montées de version** (DMV) ([pdf](/ressources/Doc3.14.2/pdf/vitam-documentation-migration.3.6.0.pdf) \| [html](/ressources/Doc3.14.2/html/migration))
 
-# Documentation développeur
+## Documentation développeur
 * **Javadoc** ([html](/ressourcesDoc3.14.2/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc3.14.2/pdf/vitam-manuel-integration.3.6.0.pdf) \| [html](/ressources/Doc3.14.2/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
@@ -81,7 +81,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 <a name="R14"></a>
 # Version Release 14 (3.6.0)
 
-# Première approche
+## Première approche
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
 ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R13.zip))
@@ -90,7 +90,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 
 **[Télécharger toute la documentation métier](/ressources/Doc3.6.0/autres/fonctionnel/Release14_doc.7z)**
 
-# Documentation métier
+## Documentation métier
 * **Manuel utilisateur** ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
 ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_Organisation_de_information.pdf))
@@ -118,17 +118,17 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_Transfert.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
 
-# Documentation des tests
+## Documentation des tests
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_IHM_Recette.pdf))
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc3.6.0/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeux_de_tests_fonctionnels_RELEASE13.zip))
 
-# Documentation technique
+## Documentation technique
 * **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc3.6.0/pdf/vitam-architecture.3.6.0.pdf) \| [html](/ressources/Doc3.6.0/html/archi))
 * **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc3.6.0/pdf/vitam-documentation-exploitation.3.6.0.pdf) \| [html](/ressources/Doc3.6.0/html/exploitation))
 * **Dossier d'installation** (DIN) ([pdf](/ressources/Doc3.6.0/pdf/vitam-documentation-installation.3.6.0.pdf) \| [html](/ressources/Doc3.6.0/html/installation))
 * **Documentation de montées de version** (DMV) ([pdf](/ressources/Doc3.6.0/pdf/vitam-documentation-migration.3.6.0.pdf) \| [html](/ressources/Doc3.6.0/html/migration))
 
-# Documentation développeur
+## Documentation développeur
 * **Javadoc** ([html](/ressources/Doc3.6.0/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc3.6.0/pdf/vitam-manuel-integration.3.6.0.pdf) \| [html](/ressources/Doc3.6.0/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
@@ -143,7 +143,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 <a name="R13_16"></a>
 # Version Release 13 (3.0.16)
 
-# Première approche
+## Première approche
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
 ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R13.zip))
@@ -152,7 +152,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 
 
 
-# Documentation métier
+## Documentation métier
 
 * **Manuel utilisateur** ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Organisation_de_information.pdf))
@@ -172,17 +172,17 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Multi_strategies.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
 
-# Documentation des tests
+## Documentation des tests
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_IHM_Recette.pdf))
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeux_de_tests_fonctionnels_RELEASE13.zip))
 
-# Documentation technique
+## Documentation technique
 * **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc3.0.16/pdf/vitam-architecture.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/archi))
 * **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc3.0.16/pdf/vitam-documentation-exploitation.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/exploitation))
 * **Dossier d'installation** (DIN) ([pdf](/ressources/Doc3.0.16/pdf/vitam-documentation-installation.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/installation))
 * **Documentation de montées de version** (DMV) ([pdf](/ressources/Doc3.0.16/pdf/vitam-documentation-migration.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/migration))
 
-# Documentation développeur
+## Documentation développeur
 * **Javadoc** ([html](/ressources/Doc3.0.16/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc3.0.16/pdf/vitam-manuel-integration.3.0.1.pdf) \| [html](/ressources/Doc3.0.16/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards ([pdf](/ressources/Doc3.0.16/autres/fonctionnel/VITAM_Modele_de_donnees.pdf))
@@ -196,7 +196,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 <a name="R13_3"></a>
 # Version Release 13 (3.0.3-1)
 
-# Première approche
+## Première approche
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
 ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeu_de_tests_Guide_de_prise_en_main_R13.zip))
@@ -206,7 +206,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 **[Télécharger toute la documentation métier](/ressources/Doc3.0.3/autres/fonctionnel/20200320_Vitam_ DocR13.zip)**
 
 
-# Documentation métier
+## Documentation métier
 
 * **Manuel utilisateur** ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf))
 * **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
@@ -234,17 +234,17 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_Multi_strategies.pdf))
 * **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
 
-# Documentation des tests
+## Documentation des tests
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_IHM_Recette.pdf))
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc3.0.3/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](http://download.programmevitam.fr/vitam_repository/3.0.1/tests/Jeux_de_tests_fonctionnels_RELEASE13.zip))
 
-# Documentation technique
+## Documentation technique
 * **Dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc3.0.3/pdf/vitam-architecture.3.0.1.pdf) \| [html](/ressources/Doc3.0.3/html/archi))
 * **Dossier d'exploitation** (DEX) ([pdf](/ressources/Doc3.0.3/pdf/vitam-documentation-exploitation.3.0.1.pdf) \| [html](/ressources/Doc3.0.3/html/exploitation))
 * **Dossier d'installation** (DIN) ([pdf](/ressources/Doc3.0.3/pdf/vitam-documentation-installation.3.0.1.pdf) \| [html](/ressources/Doc3.0.3/html/installation))
 * **Documentation de montées de version** (DMV) ([pdf](/ressources/Doc3.0.3/pdf/vitam-documentation-migration.3.0.1.pdf) \| [html](/ressources/Doc3.0.3/html/migration))
 
-# Documentation développeur
+## Documentation développeur
 * **Javadoc** ([html](/ressources/Doc3.0.3/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc3.0.3/pdf/vitam-manuel-integration.3.0.1.pdf) \| [html](/ressources/Doc3.0.3/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
