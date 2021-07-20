@@ -40,10 +40,13 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 * Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/4.0.1)    
 * URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/4.0.1/mvn_repo/)     
 * URL de configuration des dépôts de binaires CentOS/RHEL :      
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-product)       
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-external)    
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-product)    
+   
+** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-external) 
+   
 * URL de configuration des dépôts de binaires Debian :      
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-product)       
+** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-product)  
+     
 ** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-external)     
 
 
@@ -52,15 +55,20 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 * URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/3.0.16/mvn_repo/)
 * URL de configuration des dépôts de binaires CentOS/RHEL :
 ** [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-product/)
+
 ** [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-external/)
+
 * URL de configuration des dépôts de binaires Debian :
 ** [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-product/)
+
 ** [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-external/)
+
 * [Release notes](https://github.com/ProgrammeVitam/vitam/releases/download/3.0.16/release-notes.3.0.16.pdf)
 
 * [Documentation de la version 3.0.16](
 
 Liens de téléchargement :
+
 [**Version 4.0.1 (Release R16)**](https://r16.env.programmevitam.fr/)
 
 [**Version 3.0.16 (Release R13)**](https://r13.env.programmevitam.fr/)

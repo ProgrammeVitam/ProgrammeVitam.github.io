@@ -8,6 +8,9 @@ level: page
 > Est ici présentée la documentation des versions publiées et des précédentes.
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
+* Accéder à la documentation des [Anciennes versions](/pages/documentation/liste_doc_ancienne/)
+
+
 ## Quelle documentation ?
 
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
@@ -21,4 +24,3 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 ![Logos](/public/images/202003_guide de lecture.png)
 
-* Accéder à la documentation des [Anciennes versions](/pages/documentation/liste_doc_ancienne/)
