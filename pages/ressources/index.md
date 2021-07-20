@@ -36,40 +36,40 @@ Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevit
 Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
 
 ### Pour la 4.0.3 de la R16 (mise à jour en juillet 2021)
-* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/4.0.1)  
-* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/4.0.1)    
-* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/4.0.1/mvn_repo/)     
-* URL de configuration des dépôts de binaires CentOS/RHEL :
+Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/4.0.1)  
+Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/4.0.1)    
+URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/4.0.1/mvn_repo/)     
+URL de configuration des dépôts de binaires CentOS/RHEL :
 
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-product)    
+* [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-product)    
    
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-external) 
+* [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/rpm/vitam-external) 
    
-* URL de configuration des dépôts de binaires Debian :
+URL de configuration des dépôts de binaires Debian :
 
-** [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-product)  
-     
-** [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-external)     
+*[Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-product)  
+   
+*[Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.1/deb/vitam-external)     
 
 
 ### Pour la 3.0.16 de la R13 (mise à jour en juillet 2021)
-* [Publication GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.16)
-* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/3.0.16/mvn_repo/)
-* URL de configuration des dépôts de binaires CentOS/RHEL :
+[Publication GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.16)
+URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/3.0.16/mvn_repo/)
+URL de configuration des dépôts de binaires CentOS/RHEL :
 
-** [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-product/)
+* [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-product/)
 
-** [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-external/)
+* [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-external/)
 
-* URL de configuration des dépôts de binaires Debian :
+URL de configuration des dépôts de binaires Debian :
 
-** [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-product/)
+* [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-product/)
 
-** [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-external/)
+* [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-external/)
 
-* [Release notes](https://github.com/ProgrammeVitam/vitam/releases/download/3.0.16/release-notes.3.0.16.pdf)
+[Release notes](https://github.com/ProgrammeVitam/vitam/releases/download/3.0.16/release-notes.3.0.16.pdf)
 
-* [Documentation de la version 3.0.16](
+[Documentation de la version 3.0.16](
 
 Liens de téléchargement :
 
