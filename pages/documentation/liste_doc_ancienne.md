@@ -10,9 +10,9 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Version Release 14 (3.6.0)](#R14)
 * [Version Release 13 (3.0.16)](#R13_16)
 * [Version Release 8 (1.10.0-1)](#R8)
-* [Version Release 6-1.0.0](#R6)
-* [Version Release 3-0.15.1](#R3)
-* [Version Bêta-0.11.1](#Rbêta)
+* [Version Release 6 (1.0.0)](#R6)
+* [Version Release 3 (0.15.1)](#R3)
+* [Version Bêta (0.11.1)](#Rbêta)
 
 
 
@@ -325,7 +325,7 @@ notion de service producteur ([pdf](/ressources/Doc1.10.0/autres/fonctionnel/VIT
 
 
 <a name="R6"></a>
-# Version Release 6-1.0.0
+# Version Release 6 (1.0.0)
 
 ## Première approche
 
@@ -396,7 +396,7 @@ notion de service producteur ([pdf](/ressources/Doc1.0.0/autres/fonctionnel/2018
 
 
 <a name="R3"></a>
-# Version Release 3-0.15.1
+# Version Release 3 (0.15.1)
 
 ## Première approche 
 
@@ -440,7 +440,7 @@ méthode utiles aux développements ([pdf](/ressources/Doc0.15.1/pdf/vitam-manue
 * **Documentation d'API externes** - description des API REST externes en RAML ([html&raml](/ressources/Doc0.15.1/raml/externe))
 
 <a name="Rbêta"></a>
-# Version Bêta-0.11.1
+# Version Bêta (0.11.1)
 
 ## Première approche
 
