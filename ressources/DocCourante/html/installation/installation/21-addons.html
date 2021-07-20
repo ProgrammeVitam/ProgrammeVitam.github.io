@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.1</title>
+  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.3</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'4.0.1',
+              VERSION:'4.0.3',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                4.0.1
+                4.0.3
               </div>
             
           
@@ -128,8 +128,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#fichiers-complementaires">4.2.5.12. Fichiers complémentaires</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parametrage-de-l-offre-froide-librairies-de-cartouches">4.2.5.13. Paramétrage de l’Offre Froide ( librairies de cartouches )</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#securisation-selinux">4.2.5.14. Sécurisation SELinux</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#installation-de-la-stack-prometheus">4.2.5.15. Installation de la stack prometheus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#installation-de-grafana">4.2.5.16. Installation de grafana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-de-la-stack-prometheus">4.2.5.15. Installation de la stack Prometheus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-de-grafana">4.2.5.16. Installation de Grafana</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="30-installation.html">4.2.6. Procédure de première installation</a></li>
@@ -260,7 +260,7 @@ vitam-ffmpeg-griffin
 </div>
 </div>
 <div class="section" id="retention-liee-aux-logback">
-<span id="confantivirus"></span><h2>4.2.5.3. Rétention liée aux logback<a class="headerlink" href="#retention-liee-aux-logback" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.5.3. Rétention liée aux logback<a class="headerlink" href="#retention-liee-aux-logback" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> utilise logback pour la rotation des log, ainsi que leur rétention.</p>
 <p>Il est possible d’appliquer un paramétrage spécifique pour chaque composant VITAM.</p>
 <p>Éditer le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> (et <code class="docutils literal notranslate"><span class="pre">extra_vars.yml</span></code>, dans le cas des extra) et appliquer le paramétrage dans le bloc <code class="docutils literal notranslate"><span class="pre">logback_total_size_cap</span></code> de chaque composant sur lequel appliquer la modification de paramétrage.
@@ -276,7 +276,7 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 </div>
 </div>
 <div class="section" id="parametrage-de-l-antivirus-ingest-external">
-<h2>4.2.5.4. Paramétrage de l’antivirus (ingest-external)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-external" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="confantivirus"></span><h2>4.2.5.4. Paramétrage de l’antivirus (ingest-external)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-external" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’antivirus utilisé par ingest-external est modifiable (par défaut, ClamAV) ; pour cela :</p>
 <ul>
 <li><p class="first">Éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingestexternal.antivirus</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code> pour indiquer le nom de l’antivirus à utiliser.</p>
@@ -316,6 +316,37 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
 <p class="last">Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l’antivirus soit fonctionnel, il est nécessaire, durant l’installation, de le télécharger ; il est donc nécessaire de renseigner dans l’inventaire la directive <code class="docutils literal notranslate"><span class="pre">http_proxy_environnement</span></code>.</p>
+</div>
+<div class="section" id="extra-avast-business-antivirus-for-linux">
+<h3>4.2.5.4.1. Extra: Avast Business Antivirus for Linux<a class="headerlink" href="#extra-avast-business-antivirus-for-linux" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Avast étant un logiciel soumis à licence, Vitam ne fournit pas de support ni de licence nécessaire à l’utilisation de Avast Antivirus for Linux.</p>
+<p class="last">Vous trouverez plus d’informations sur le site officiel : <a class="reference external" href="https://www.avast.com/fr-fr/business/products/linux-antivirus">Avast Business Antivirus for Linux</a></p>
+</div>
+<p>À la place de clamAV, il est possible de déployer l’antivirus <strong>Avast Business Antivirus for Linux</strong>.</p>
+<p>Pour se faire, il suffit d’éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingestexternal.antivirus:</span> <span class="pre">avast</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>.</p>
+<p>Il sera nécessaire de fournir le fichier de licence sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/antivirus/license.avastlic</span></code> pour pouvoir deployer et utiliser l’antivirus Avast.</p>
+<p>De plus, il est possible de paramétrer l’accès aux repositories (Packages &amp; Virus definitions database) dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/cots_vars.yml</span></code>.</p>
+<p>Si les paramètres ne sont pas définis, les valeurs suivantes sont appliquées par défaut.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">## Avast Business Antivirus for Linux</span>
+<span class="c1">## if undefined, the following default values are applied.</span>
+<span class="nt">avast</span><span class="p">:</span>
+    <span class="nt">manage_repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">repository</span><span class="p">:</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+        <span class="c1"># For CentOS</span>
+        <span class="nt">baseurl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://rpm.avast.com/lin/repo/dists/rhel/release</span>
+        <span class="nt">gpgcheck</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+        <span class="nt">proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">_none_</span>
+        <span class="c1"># For Debian</span>
+        <span class="nt">baseurl</span><span class="p">:</span> <span class="s">&#39;deb</span><span class="nv"> </span><span class="s">http://deb.avast.com/lin/repo</span><span class="nv"> </span><span class="s">debian-buster</span><span class="nv"> </span><span class="s">release&#39;</span>
+    <span class="nt">vps_repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://linux-av.u.avcdn.net/linux-av/avast/x86_64</span>
+    <span class="c1">## List of sha256 hash of excluded files from antivirus. Useful for test environments.</span>
+    <span class="nt">whitelist</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EMPTY&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="parametrage-des-certificats-externes-externe">
@@ -994,7 +1025,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 484
 485
 486
-487</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+487
+488
+489
+490
+491</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="c1">### global ###</span>
 
 <span class="c1"># Disable epel or Debian backports repositories install</span>
@@ -1245,7 +1280,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ingest-external&quot;</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
-        <span class="nt">antivirus</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span>
+        <span class="nt">antivirus</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span> <span class="c1"># or avast</span>
         <span class="c1"># uncomment if huge files need to be analyzed in more than 60s (default behavior)</span>
         <span class="c1">#scantimeout: 60000 # value in milliseconds</span>
         <span class="c1"># Directory where files should be placed for local ingest</span>
@@ -1408,8 +1443,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
           <span class="nt">offerdiff</span><span class="p">:</span>
             <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
             <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-        <span class="c1"># unit time per kB (in ms) used while calculating the timeout of an http request between storage and offer (if the calculated result is less than 60s, this time is used)</span>
+        <span class="c1"># unit time per kB (in ms) used while calculating the timeout of an http request between storage and offer.</span>
         <span class="nt">timeoutMsPerKB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="c1"># minimum timeout (in ms) for writing objects to offers</span>
+        <span class="nt">minWriteTimeoutMs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60000</span>
+        <span class="c1"># minimum timeout per object (in ms) for bulk writing objects to offers</span>
+        <span class="nt">minBulkWriteTimeoutMsPerObject</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
     <span class="nt">storageofferdefault</span><span class="p">:</span>
         <span class="nt">vitam_component</span><span class="p">:</span> <span class="s">&quot;offer&quot;</span>
         <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9900</span>
@@ -1773,7 +1812,25 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 276
 277
 278
-279</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -1940,20 +1997,17 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
-        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19090</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
     <span class="nt">node_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19100</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9101</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
     <span class="nt">alertmanager</span><span class="p">:</span>
-        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19093</span>
-        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19094</span>
+        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9093</span>
+        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9094</span>
 <span class="nt">grafana</span><span class="p">:</span>
-    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">13000</span>
+    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
@@ -2020,6 +2074,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;cerebro&quot;</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="c1"># logs configuration</span>
+    <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+    <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
 
 <span class="nt">siegfried</span><span class="p">:</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19000</span>
@@ -2032,6 +2089,24 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="c1"># logs configuration</span>
     <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
     <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
+
+<span class="c1">## Avast Business Antivirus for Linux</span>
+<span class="c1">## if undefined, the following default values are applied.</span>
+<span class="c1"># avast:</span>
+<span class="c1">#     manage_repository: true</span>
+<span class="c1">#     repository:</span>
+<span class="c1">#         state: present</span>
+<span class="c1">#         # For CentOS</span>
+<span class="c1">#         baseurl: http://rpm.avast.com/lin/repo/dists/rhel/release</span>
+<span class="c1">#         gpgcheck: no</span>
+<span class="c1">#         proxy: _none_</span>
+<span class="c1">#         # For Debian</span>
+<span class="c1">#         baseurl: &#39;deb http://deb.avast.com/lin/repo debian-buster release&#39;</span>
+<span class="c1">#     vps_repository: http://linux-av.u.avcdn.net/linux-av/avast/x86_64</span>
+<span class="c1">#     ## List of sha256 hash of excluded files from antivirus. Useful for test environments.</span>
+<span class="c1">#     whitelist:</span>
+<span class="c1">#         - xxxxxx</span>
+<span class="c1">#         - yyyyyy</span>
 
 <span class="nt">mongo_express</span><span class="p">:</span>
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;mongo-express&quot;</span>
@@ -2476,34 +2551,31 @@ A contrario, <code class="docutils literal notranslate"><span class="pre">/dev/n
 </ul>
 </div>
 <div class="section" id="installation-de-la-stack-prometheus">
-<h2>4.2.5.15. Installation de la stack prometheus<a class="headerlink" href="#installation-de-la-stack-prometheus" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.5.15. Installation de la stack Prometheus<a class="headerlink" href="#installation-de-la-stack-prometheus" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Si vous disposez d’un prometheus server et alertmanager déjà existant, vous pouvez juste installer <code class="docutils literal notranslate"><span class="pre">node_exporter</span></code></p>
+<p class="last">Si vous disposez d’un serveur Prometheus et alertmanager, vous pouvez installer uniquement <code class="docutils literal notranslate"><span class="pre">node_exporter</span></code>.</p>
 </div>
-<p>Prometheus server et alertmanager sont des addons dans la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Il possible de les installer ou désinstaller via la configuration dans le fichier <code class="docutils literal notranslate"><span class="pre">cots_var.yml</span></code>.
-Voici à quoi correspond une configuration qui permettra d’installer toute la stack prometheus.</p>
+<p>Prometheus server et alertmanager sont des addons dans la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+<p>Voici à quoi correspond une configuration qui permettra d’installer toute la stack prometheus.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prometheus</span><span class="p">:</span>
     <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/admin/v1/metrics</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
-        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19090</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
     <span class="nt">node_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19100</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9101</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
     <span class="nt">alertmanager</span><span class="p">:</span>
-        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19093</span>
-        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19094</span>
+        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9093</span>
+        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9094</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>L’adresse d’écoute de ces composants est celle de la patte d’administration.</li>
 <li>Vous pouvez surcharger la valeur de certaines de ces variables (Par exemple le port d’écoute, le path de l’API).</li>
-<li>Pour désinstaller ou désactiver un composant de la stack prometheus il suffit de mettre la valeur de <code class="docutils literal notranslate"><span class="pre">enabled</span></code> de ce composant à <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
 <li>Pour générer uniquement le fichier de configuration prometheus.yml à partir du fichier d’inventaire de l’environnement en question, il suffit de spécifier le répertoire destination dans la variable <code class="docutils literal notranslate"><span class="pre">prometheus_config_file_target_directory</span></code></li>
 </ul>
 <div class="section" id="playbooks-ansible">
@@ -2526,40 +2598,27 @@ Voici à quoi correspond une configuration qui permettra d’installer toute la 
 </div>
 </div>
 <div class="section" id="installation-de-grafana">
-<h2>4.2.5.16. Installation de grafana<a class="headerlink" href="#installation-de-grafana" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.5.16. Installation de Grafana<a class="headerlink" href="#installation-de-grafana" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Si vous disposez déjà d’un Grafana server, vous pouvez l’utiliser pour l’interconnecter au serveur prometheus.</p>
+<p class="last">Si vous disposez déjà d’un Grafana, vous pouvez l’utiliser pour l’interconnecter au serveur Prometheus.</p>
 </div>
-<p>Grafana server est un addon dans la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>. Il possible de l’installer/désinstaller via la configuration dans le fichier <code class="docutils literal notranslate"><span class="pre">cots_var.yml</span></code>.
-Voici à quoi correspond une configuration qui permettra d’installer ce serveur.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">grafana</span><span class="p">:</span>
-    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">13000</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>L’adresse d’écoute de ces composants est celle de la patte d’administration.</li>
-<li>Vous pouvez surcharger le numéro de port d’écoute.</li>
-<li>Pour désinstaller ou désactiver un composant il suffit de mettre la valeur de <code class="docutils literal notranslate"><span class="pre">enabled</span></code> à <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
-</ul>
-<div class="section" id="playbook-ansible">
-<h3>4.2.5.16.1. Playbook ansible<a class="headerlink" href="#playbook-ansible" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Veuillez vous référer à la documentation d’exploitation pour plus d’informations.</p>
-<ul class="simple">
-<li>Installer Grafana</li>
-</ul>
+<p>Grafana est un addon dans la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+<p>Grafana sera déployé sur l’ensemble des machines renseignées dans le groupe <code class="docutils literal notranslate"><span class="pre">[hosts_grafana]</span></code> de votre fichier d’inventaire.</p>
+<p>Pour se faire, il suffit d’exécuter le playbook associée :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-extra/grafana.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
 </pre></div>
 </div>
-</div>
 <div class="section" id="configuration">
-<h3>4.2.5.16.2. Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Dans le cas ou le serveur grafana est dernière un serveur proxy, vous devez apporter des modification au fichier de configuration <code class="docutils literal notranslate"><span class="pre">grafana.conf.j2</span></code></p>
-<p>Voici les variables modifiées par la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> pour que ça marche derrière le proxy apache.</p>
+<h3>4.2.5.16.1. Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les paramères de configuration de ce composant se trouvent dans le fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/cots_var.yml</span></code>. Vous pouvez adapter la configuration en fonction de vos besoins.</p>
+</div>
+<div class="section" id="configuration-specifique-derriere-un-proxy">
+<h3>4.2.5.16.2. Configuration spécifique derrière un proxy<a class="headerlink" href="#configuration-specifique-derriere-un-proxy" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si Grafana est déployé derrière un proxy, vous devez apporter des modification au fichier de configuration <code class="docutils literal notranslate"><span class="pre">ansible-vitam-extra/roles/grafana/templates/grafana.ini.j2</span></code></p>
+<p>Voici les variables modifiées par la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> pour permettre le fonctionnement de Grafana derrière un proxy apache.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[server]
-root_url = http://{{ ip_admin }}:{{grafana.http_port}}/grafana
+root_url = http://{{ ip_admin }}:{{ grafana.http_port | default(3000) }}/grafana
 serve_from_sub_path = true
 
 [auth.basic]
@@ -2568,7 +2627,7 @@ enabled = false
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">Lors de la première connexion, vous devrez changer le mot de passe par défaut (login: admin; password: admin) et configurer le datasource et créer/importer les dashboards manuellement.</p>
+<p class="last">Lors de la première connexion, vous devrez changer le mot de passe par défaut (login: admin; password: aadmin1234), configurer le datasource et créer/importer les dashboards manuellement.</p>
 </div>
 </div>
 </div>

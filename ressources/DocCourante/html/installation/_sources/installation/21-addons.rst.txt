@@ -39,8 +39,6 @@ Voici la liste des greffons disponibles au moment de la présente publication :
 
 .. warning:: Ne pas oublier d'avoir déclaré au préalable sur les machines cibles le dépôt de binaires associé aux *griffins*.
 
-.. _confantivirus:
-
 
 Rétention liée aux logback
 ===========================
@@ -61,6 +59,8 @@ Cas des accesslog
 Il est également possible d'appliquer un paramétrage différent par composant VITAM sur le logback *access*.
 
 Éditer le fichier ``deployment/environments/group_vars/all/vitam_vars.yml`` (et ``extra_vars.yml``, dans le cas des extra) et appliquer le paramétrage dans les directives ``access_retention_days`` et ``access_total_size_GB`` de chaque composant sur lequel appliquer la modification de paramétrage.
+
+.. _confantivirus:
 
 Paramétrage de l'antivirus (ingest-external)
 ============================================
@@ -83,6 +83,48 @@ L'antivirus utilisé par ingest-external est modifiable (par défaut, ClamAV) ; 
 .. caution:: En cas de remplacement de clamAV par un autre antivirus, l'installation de celui-ci devient dès lors un prérequis de l'installation et le script doit être testé.
 
 .. warning:: Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l'antivirus soit fonctionnel, il est nécessaire, durant l'installation, de le télécharger ; il est donc nécessaire de renseigner dans l'inventaire la directive ``http_proxy_environnement``.
+
+
+Extra: Avast Business Antivirus for Linux
+-----------------------------------------
+
+.. note:: Avast étant un logiciel soumis à licence, Vitam ne fournit pas de support ni de licence nécessaire à l'utilisation de Avast Antivirus for Linux.
+
+  Vous trouverez plus d'informations sur le site officiel : `Avast Business Antivirus for Linux <https://www.avast.com/fr-fr/business/products/linux-antivirus>`_
+
+..
+
+À la place de clamAV, il est possible de déployer l'antivirus **Avast Business Antivirus for Linux**.
+
+Pour se faire, il suffit d'éditer la variable ``vitam.ingestexternal.antivirus: avast`` dans le fichier ``deployment/environments/group_vars/all/vitam_vars.yml``.
+
+Il sera nécessaire de fournir le fichier de licence sous ``deployment/environments/antivirus/license.avastlic`` pour pouvoir deployer et utiliser l'antivirus Avast.
+
+De plus, il est possible de paramétrer l'accès aux repositories (Packages & Virus definitions database) dans le fichier ``deployment/environments/group_vars/all/cots_vars.yml``.
+
+Si les paramètres ne sont pas définis, les valeurs suivantes sont appliquées par défaut.
+
+.. code-block:: yaml
+
+  ## Avast Business Antivirus for Linux
+  ## if undefined, the following default values are applied.
+  avast:
+      manage_repository: true
+      repository:
+          state: present
+          # For CentOS
+          baseurl: http://rpm.avast.com/lin/repo/dists/rhel/release
+          gpgcheck: no
+          proxy: _none_
+          # For Debian
+          baseurl: 'deb http://deb.avast.com/lin/repo debian-buster release'
+      vps_repository: http://linux-av.u.avcdn.net/linux-av/avast/x86_64
+      ## List of sha256 hash of excluded files from antivirus. Useful for test environments.
+      whitelist:
+          - <EMPTY>
+
+..
+
 
 Paramétrage des certificats externes (\*-externe)
 =================================================
@@ -472,12 +514,13 @@ La mise en oeuvre de SELinux est prise en charge par le processus de déploiemen
 * Procéder à l'installation de la solution logicielle :term:`VITAM` grâce aux playbooks ansible fournis, et selon la procédure d’installation classique décrite dans le DIN
 
 
-Installation de la stack prometheus
+Installation de la stack Prometheus
 ===================================
 
-.. note:: Si vous disposez d'un prometheus server et alertmanager déjà existant, vous pouvez juste installer ``node_exporter``
+.. note:: Si vous disposez d'un serveur Prometheus et alertmanager, vous pouvez installer uniquement ``node_exporter``.
 
-Prometheus server et alertmanager sont des addons dans la solution :term:`VITAM`. Il possible de les installer ou désinstaller via la configuration dans le fichier ``cots_var.yml``.
+Prometheus server et alertmanager sont des addons dans la solution :term:`VITAM`.
+
 Voici à quoi correspond une configuration qui permettra d'installer toute la stack prometheus.
 
 .. code-block:: yaml
@@ -487,25 +530,23 @@ Voici à quoi correspond une configuration qui permettra d'installer toute la st
         check_consul: 10 # in seconds
         prometheus_config_file_target_directory: # Set path where "prometheus.yml" file will be generated. Example: /tmp/
         server:
-            enabled: true
-            port: 19090
+            port: 9090
         node_exporter:
             enabled: true
-            port: 19100
+            port: 9101
             metrics_path: /metrics
         alertmanager:
-            enabled: true
-            api_port: 19093
-            cluster_port: 19094
+            api_port: 9093
+            cluster_port: 9094
 ..
 
 - L'adresse d'écoute de ces composants est celle de la patte d'administration.
 - Vous pouvez surcharger la valeur de certaines de ces variables (Par exemple le port d'écoute, le path de l'API).
-- Pour désinstaller ou désactiver un composant de la stack prometheus il suffit de mettre la valeur de ``enabled`` de ce composant à ``false``
 - Pour générer uniquement le fichier de configuration prometheus.yml à partir du fichier d'inventaire de l'environnement en question, il suffit de spécifier le répertoire destination dans la variable ``prometheus_config_file_target_directory``
 
 Playbooks ansible
 -----------------
+
 Veuillez vous référer à la documentation d'exploitation pour plus d'information.
 
 * Installer prometheus et alertmanager
@@ -524,32 +565,16 @@ Veuillez vous référer à la documentation d'exploitation pour plus d'informati
 ..
 
 
-Installation de grafana
+Installation de Grafana
 =======================
 
-.. note:: Si vous disposez déjà d'un Grafana server, vous pouvez l'utiliser pour l'interconnecter au serveur prometheus.
+.. note:: Si vous disposez déjà d'un Grafana, vous pouvez l'utiliser pour l'interconnecter au serveur Prometheus.
 
-Grafana server est un addon dans la solution :term:`VITAM`. Il possible de l'installer/désinstaller via la configuration dans le fichier ``cots_var.yml``.
-Voici à quoi correspond une configuration qui permettra d'installer ce serveur.
+Grafana est un addon dans la solution :term:`VITAM`.
 
-.. code-block:: yaml
+Grafana sera déployé sur l'ensemble des machines renseignées dans le groupe ``[hosts_grafana]`` de votre fichier d'inventaire.
 
-    grafana:
-        enabled: true
-        check_consul: 10 # in seconds
-        http_port: 13000
-..
-
-- L'adresse d'écoute de ces composants est celle de la patte d'administration.
-- Vous pouvez surcharger le numéro de port d'écoute.
-- Pour désinstaller ou désactiver un composant il suffit de mettre la valeur de ``enabled`` à ``false``
-
-Playbook ansible
-----------------
-
-Veuillez vous référer à la documentation d'exploitation pour plus d'informations.
-
-* Installer Grafana
+Pour se faire, il suffit d'exécuter le playbook associée :
 
 .. code-block:: bash
 
@@ -559,18 +584,24 @@ Veuillez vous référer à la documentation d'exploitation pour plus d'informati
 Configuration
 -------------
 
-Dans le cas ou le serveur grafana est dernière un serveur proxy, vous devez apporter des modification au fichier de configuration ``grafana.conf.j2``
+Les paramères de configuration de ce composant se trouvent dans le fichier ``environments/group_vars/all/cots_var.yml``. Vous pouvez adapter la configuration en fonction de vos besoins.
 
-Voici les variables modifiées par la solution :term:`VITAM` pour que ça marche derrière le proxy apache.
+Configuration spécifique derrière un proxy
+------------------------------------------
+
+Si Grafana est déployé derrière un proxy, vous devez apporter des modification au fichier de configuration ``ansible-vitam-extra/roles/grafana/templates/grafana.ini.j2``
+
+Voici les variables modifiées par la solution :term:`VITAM` pour permettre le fonctionnement de Grafana derrière un proxy apache.
 
 .. code-block:: text
 
     [server]
-    root_url = http://{{ ip_admin }}:{{grafana.http_port}}/grafana
+    root_url = http://{{ ip_admin }}:{{ grafana.http_port | default(3000) }}/grafana
     serve_from_sub_path = true
 
     [auth.basic]
     enabled = false
+
 ..
 
-.. warning:: Lors de la première connexion, vous devrez changer le mot de passe par défaut (login: admin; password: admin) et configurer le datasource et créer/importer les dashboards manuellement.
+.. warning:: Lors de la première connexion, vous devrez changer le mot de passe par défaut (login: admin; password: aadmin1234), configurer le datasource et créer/importer les dashboards manuellement.

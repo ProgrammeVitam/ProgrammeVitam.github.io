@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Notes et procédures spécifiques R14 &mdash; Documentation VITAM - Documentation de montées de version 4.0.1</title>
+  <title>Notes et procédures spécifiques R14 &mdash; Documentation VITAM - Documentation de montées de version 4.0.3</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../',
-              VERSION:'4.0.1',
+              VERSION:'4.0.3',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -75,7 +75,7 @@
             
             
               <div class="version">
-                4.0.1
+                4.0.3
               </div>
             
           
@@ -284,10 +284,8 @@
 </div>
 <div class="section" id="audit-coherence-r13">
 <h3>Audit coherence r13<a class="headerlink" href="#audit-coherence-r13" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Cette commande réalise un audit sur les tenants et leur contrat d’accès associés</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">audit_coherence</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">access_contract</span><span class="o">=</span><span class="n">ContratTNR</span> <span class="o">-</span><span class="n">e</span> <span class="n">tenants</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
-</pre></div>
-</div>
+<p>Il est recommandé de procéder à un audit de cohérence aléatoire suite à une procédure de montée de version VITAM ou de migration de données.
+Pour ce faire, se référer au dossier d’exploitation (DEX) de la solution VITAM, section <code class="docutils literal notranslate"><span class="pre">Audit</span> <span class="pre">de</span> <span class="pre">cohérence</span></code></p>
 </div>
 </div>
 <div class="section" id="etapes-prealables-a-la-montee-de-version-gestion-de-l-arret-de-r13">
@@ -478,10 +476,8 @@ cp vitam.git/deployment/environments/TNR.xml testTNRr13</dd>
 </div>
 <div class="section" id="audit-coherence-r14">
 <h3>Audit coherence R14<a class="headerlink" href="#audit-coherence-r14" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Cette commande réalise un audit sur les tenants et leur contrat d’accès associés</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">audit_coherence</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">access_contract</span><span class="o">=</span><span class="n">ContratTNR</span> <span class="o">-</span><span class="n">e</span> <span class="n">tenants</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
-</pre></div>
-</div>
+<p>Il est recommandé de procéder à un audit de cohérence aléatoire suite à une procédure de montée de version VITAM ou de migration de données.
+Pour ce faire, se référer au dossier d’exploitation (DEX) de la solution VITAM, section <code class="docutils literal notranslate"><span class="pre">Audit</span> <span class="pre">de</span> <span class="pre">cohérence</span></code></p>
 </div>
 </div>
 </div>

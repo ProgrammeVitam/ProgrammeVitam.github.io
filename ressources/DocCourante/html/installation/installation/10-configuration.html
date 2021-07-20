@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.1</title>
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.3</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'4.0.1',
+              VERSION:'4.0.3',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                4.0.1
+                4.0.3
               </div>
             
           
@@ -600,18 +600,45 @@
 378
 379
 380
-381</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
 <span class="k">[hosts]</span>
 
 <span class="c1"># Group definition ; DO NOT MODIFY</span>
 <span class="k">[hosts:children]</span>
 <span class="na">vitam</span>
-<span class="na">prometheus</span>
-<span class="na">grafana</span>
 <span class="na">reverse</span>
 <span class="na">hosts_dev_tools</span>
 <span class="na">ldap</span>
-
 
 <span class="c1">########### Tests environments specifics ###########</span>
 
@@ -621,28 +648,18 @@
 <span class="c1"># Example</span>
 <span class="c1"># vitam-centos-01.vitam ansible_ssh_user=centos</span>
 
-<span class="c1">########### Extra VITAM applications ###########</span>
-<span class="k">[prometheus:children]</span>
-<span class="na">hosts_prometheus</span>
-<span class="na">hosts_alertmanager</span>
-
-<span class="k">[hosts_prometheus]</span>
-<span class="c1"># TODO: Put here server where this service will be deployed : prometheus server</span>
-
-<span class="k">[hosts_alertmanager]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : alertmanager</span>
-
-<span class="k">[grafana]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : grafana</span>
 
 <span class="na">[ldap] # Extra : OpenLDAP server</span>
 <span class="c1"># LDAP server !!! NOT FOR PRODUCTION !!! Test only</span>
 
+
 <span class="k">[library]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : library</span>
 
+
 <span class="k">[hosts_dev_tools]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : mongo-express, elasticsearch-head</span>
+
 
 <span class="na">[elasticsearch:children] # EXTRA : elasticsearch</span>
 <span class="na">hosts_elasticsearch_data</span>
@@ -660,19 +677,16 @@
 <span class="na">zone_admin</span>
 <span class="na">library</span>
 
-
 <span class="c1">##### Zone externe</span>
-
-
 <span class="k">[zone_external:children]</span>
 <span class="na">hosts_ihm_demo</span>
 <span class="na">hosts_ihm_recette</span>
-
 
 <span class="k">[hosts_ihm_demo]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : ihm-demo. If you own another frontend, it is recommended to leave this group blank</span>
 <span class="c1"># If you don&#39;t need consul for ihm-demo, you can set this var after each hostname :</span>
 <span class="c1"># consul_disabled=true</span>
+
 
 <span class="k">[hosts_ihm_recette]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : ihm-recette (extra feature)</span>
@@ -746,8 +760,10 @@
 <span class="k">[hosts_storage_engine]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : storage-engine</span>
 
+
 <span class="k">[hosts_batch_report]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : batch-report</span>
+
 
 <span class="k">[hosts_worker]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : worker</span>
@@ -775,6 +791,7 @@
 <span class="c1"># hostname-offre-3.vitam offer_conf=offer-s3-1</span>
 <span class="c1"># hostname-offre-4.vitam offer_conf=offer-s3-1</span>
 
+
 <span class="k">[hosts_mongodb_offer:children]</span>
 <span class="na">hosts_mongos_offer</span>
 <span class="na">hosts_mongoc_offer</span>
@@ -783,9 +800,10 @@
 <span class="k">[hosts_mongos_offer]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongos_data]</span>
 <span class="c1"># TODO: put here servers where this service will be deployed : mongos cluster for storage offers</span>
-<span class="c1"># Mandatory param : mongo_cluster_name : name of the cluster (should exist in the offer_conf configuration)</span>
+<span class="c1"># Mandatory params</span>
+<span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
 <span class="c1"># The recommended practice is to install the mongos instance on the same servers as the mongoc instances</span>
-<span class="c1"># Example (for a more complete one, see the one in the group hosts_mongos_data) :</span>
+<span class="c1"># Example</span>
 <span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1</span>
 <span class="c1"># vitam-mongo-swift-offer-02   mongo_cluster_name=offer-swift-1</span>
 <span class="c1"># vitam-mongo-fs-offer-01      mongo_cluster_name=offer-fs-1</span>
@@ -793,44 +811,52 @@
 <span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1</span>
 <span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1</span>
 
+
 <span class="k">[hosts_mongoc_offer]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongoc_data]</span>
 <span class="c1"># TODO: put here servers where this service will be deployed : mongoc cluster for storage offers</span>
-<span class="c1"># Mandatory param : mongo_cluster_name : name of the cluster (should exist in the offer_conf configuration)</span>
-<span class="c1"># Optional param : mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1"># Optional param : mongo_arbiter=true : the node will be only an arbiter ; do not add this paramter on a mongo_rs_bootstrap node</span>
+<span class="c1"># Mandatory params</span>
+<span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
+<span class="c1"># Optional params</span>
+<span class="c1">#  - mongo_rs_bootstrap=true ; mandatory for 1 node, some init commands will be executed on it</span>
+<span class="c1">#  - mongo_arbiter=true ; the node will be only an arbiter, do not add this parameter on a mongo_rs_bootstrap node</span>
+<span class="c1"># The recommended practice is to install the mongoc instance on the same servers as the mongos instances</span>
 <span class="c1"># Recommended practice in production: use 3 instances</span>
 <span class="c1"># Example :</span>
-<span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1                       mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-swift-offer-02   mongo_cluster_name=offer-swift-1</span>
-<span class="c1"># vitam-swift-offer            mongo_cluster_name=offer-swift-1                       mongo_arbiter=true</span>
-<span class="c1"># vitam-mongo-fs-offer-01      mongo_cluster_name=offer-fs-1                          mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-swift-offer            mongo_cluster_name=offer-swift-1   mongo_arbiter=true</span>
+<span class="c1"># vitam-mongo-fs-offer-01      mongo_cluster_name=offer-fs-1      mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-fs-offer-02      mongo_cluster_name=offer-fs-1</span>
-<span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1                          mongo_arbiter=true</span>
-<span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1                       mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1      mongo_arbiter=true</span>
+<span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1      mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1</span>
-<span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1                       mongo_arbiter=true</span>
+<span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1      mongo_arbiter=true</span>
+
 
 <span class="k">[hosts_mongod_offer]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongod_data]</span>
 <span class="c1"># TODO: put here servers where this service will be deployed : mongod cluster for storage offers</span>
-<span class="c1"># Mandatory param : mongo_cluster_name : name of the cluster (should exist in the offer_conf configuration)</span>
-<span class="c1"># Mandatory param : id of the current shard, increment by 1 from 0 to n</span>
-<span class="c1"># Optional param : mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1"># Optional param : mongo_arbiter=true : the node will be only an arbiter ; do not add this paramter on a mongo_rs_bootstrap node</span>
-<span class="c1"># Optional param : mongod_memory=x ; this will force the wiredtiger cache size to x (unit is GB) ; can be usefull when colocalization with elasticsearch</span>
-<span class="c1"># Optional param : is_small=true ; this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
+<span class="c1"># Mandatory params</span>
+<span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
+<span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n</span>
+<span class="c1"># Optional params</span>
+<span class="c1">#  - mongo_rs_bootstrap=true ; mandatory for 1 node of the shard, some init commands will be executed on it</span>
+<span class="c1">#  - mongo_arbiter=true ; the node will be only an arbiter, do not add this parameter on a mongo_rs_bootstrap node</span>
+<span class="c1">#  - mongod_memory=x ; this will force the wiredtiger cache size to x (unit is GB)</span>
+<span class="c1">#  - is_small=true ; this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
 <span class="c1"># Recommended practice in production: use 3 instances per shard</span>
 <span class="c1"># Example :</span>
-<span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1    mongo_shard_id=0                   mongo_rs_bootstrap=true</span>
-<span class="c1"># vitam-mongo-swift-offer-02   mongo_cluster_name=offer-swift-1    mongo_shard_id=0</span>
-<span class="c1"># vitam-swift-offer            mongo_cluster_name=offer-swift-1    mongo_shard_id=0                   mongo_arbiter=true</span>
-<span class="c1"># vitam-mongo-fs-offer-01      mongo_cluster_name=offer-fs-1       mongo_shard_id=0                   mongo_rs_bootstrap=true</span>
-<span class="c1"># vitam-mongo-fs-offer-02      mongo_cluster_name=offer-fs-1       mongo_shard_id=0</span>
-<span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1       mongo_shard_id=0                   mongo_arbiter=true</span>
-<span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1       mongo_shard_id=0                   mongo_rs_bootstrap=true</span>
-<span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1       mongo_shard_id=0                   is_small=true # PSsmin, this machine needs less hardware</span>
-<span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1       mongo_shard_id=0                   mongo_arbiter=true</span>
+<span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1   mongo_shard_id=0   mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mongo-swift-offer-02   mongo_cluster_name=offer-swift-1   mongo_shard_id=0</span>
+<span class="c1"># vitam-swift-offer            mongo_cluster_name=offer-swift-1   mongo_shard_id=0   mongo_arbiter=true</span>
+<span class="c1"># vitam-mongo-fs-offer-01      mongo_cluster_name=offer-fs-1      mongo_shard_id=0   mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mongo-fs-offer-02      mongo_cluster_name=offer-fs-1      mongo_shard_id=0</span>
+<span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1      mongo_shard_id=0   mongo_arbiter=true</span>
+<span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   is_small=true # PSsmin, this machine needs less hardware</span>
+<span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1      mongo_shard_id=0   mongo_arbiter=true</span>
+
 
 <span class="c1">##### Zone data</span>
 
@@ -861,42 +887,53 @@
 
 <span class="k">[hosts_mongos_data]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongos_offer]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : mongos cluster</span>
-<span class="c1"># Mandatory param : mongo_cluster_name=mongo-data  (&quot;mongo-data&quot; is mandatory)</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : mongos_data cluster</span>
+<span class="c1"># Mandatory params</span>
+<span class="c1">#  - mongo_cluster_name=mongo-data ; &quot;mongo-data&quot; is mandatory</span>
 <span class="c1"># The recommended practice is to install the mongos instance on the same servers as the mongoc instances</span>
 <span class="c1"># Example :</span>
 <span class="c1"># vitam-mdbs-01   mongo_cluster_name=mongo-data</span>
 <span class="c1"># vitam-mdbs-02   mongo_cluster_name=mongo-data</span>
 <span class="c1"># vitam-mdbs-03   mongo_cluster_name=mongo-data</span>
 
+
 <span class="k">[hosts_mongoc_data]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongoc_offer]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : mongoc cluster</span>
-<span class="c1"># Mandatory param : mongo_cluster_name=mongo-data  (&quot;mongo-data&quot; is mandatory)</span>
-<span class="c1"># Optional param : mandatory for 1 node of the shard, some init commands will be executed on it</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : mongoc_data cluster</span>
+<span class="c1"># Mandatory params</span>
+<span class="c1">#  - mongo_cluster_name=mongo-data ; &quot;mongo-data&quot; is mandatory</span>
+<span class="c1"># Optional params</span>
+<span class="c1">#  - mongo_rs_bootstrap=true ; mandatory for 1 node, some init commands will be executed on it</span>
+<span class="c1"># The recommended practice is to install the mongoc instance on the same servers as the mongos instances</span>
 <span class="c1"># Recommended practice in production: use 3 instances</span>
 <span class="c1"># Example :</span>
-<span class="c1"># vitam-mdbc-01   mongo_cluster_name=mongo-data                     mongo_rs_bootstrap=true</span>
-<span class="c1"># vitam-mdbc-02   mongo_cluster_name=mongo-data</span>
-<span class="c1"># vitam-mdbc-03   mongo_cluster_name=mongo-data</span>
+<span class="c1"># vitam-mdbs-01   mongo_cluster_name=mongo-data   mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mdbs-02   mongo_cluster_name=mongo-data</span>
+<span class="c1"># vitam-mdbs-03   mongo_cluster_name=mongo-data</span>
+
 
 <span class="k">[hosts_mongod_data]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongod_offer]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : mongod cluster</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : mongod_data cluster</span>
 <span class="c1"># Each replica_set should have an odd number of members (2n + 1)</span>
 <span class="c1"># Reminder: For Vitam, one mongodb shard is using one replica_set</span>
-<span class="c1"># Mandatory param : mongo_cluster_name=mongo-data (&quot;mongo-data&quot; is mandatory)</span>
-<span class="c1"># Mandatory param : id of the current shard, increment by 1 from 0 to n</span>
-<span class="c1"># Optional param : mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1"># Optional param : mongod_memory=x ; this will force the wiredtiger cache size to x (unit is GB) ; can be usefull when colocalization with elasticsearch</span>
+<span class="c1"># Mandatory params</span>
+<span class="c1">#  - mongo_cluster_name=mongo-data ; &quot;mongo-data&quot; is mandatory</span>
+<span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n</span>
+<span class="c1"># Optional params</span>
+<span class="c1">#  - mongo_rs_bootstrap=true ; mandatory for 1 node of the shard, some init commands will be executed on it</span>
+<span class="c1">#  - mongo_arbiter=true ; the node will be only an arbiter, do not add this parameter on a mongo_rs_bootstrap node</span>
+<span class="c1">#  - mongod_memory=x ; this will force the wiredtiger cache size to x (unit is GB) ; can be usefull when colocalization with elasticsearch</span>
+<span class="c1">#  - is_small=true ; this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
 <span class="c1"># Recommended practice in production: use 3 instances per shard</span>
 <span class="c1"># Example:</span>
-<span class="c1"># vitam-mdbd-01  mongo_cluster_name=mongo-data   mongo_shard_id=0  mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mdbd-01  mongo_cluster_name=mongo-data   mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mdbd-02  mongo_cluster_name=mongo-data   mongo_shard_id=0</span>
 <span class="c1"># vitam-mdbd-03  mongo_cluster_name=mongo-data   mongo_shard_id=0</span>
-<span class="c1"># vitam-mdbd-04  mongo_cluster_name=mongo-data   mongo_shard_id=1  mongo_rs_bootstrap=true</span>
+<span class="c1"># vitam-mdbd-04  mongo_cluster_name=mongo-data   mongo_shard_id=1   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mdbd-05  mongo_cluster_name=mongo-data   mongo_shard_id=1</span>
 <span class="c1"># vitam-mdbd-06  mongo_cluster_name=mongo-data   mongo_shard_id=1</span>
+
 
 <span class="c1">###### Zone admin</span>
 
@@ -907,23 +944,28 @@
 <span class="na">hosts_kibana_data</span>
 <span class="na">log_servers</span>
 <span class="na">hosts_elasticsearch_log</span>
+<span class="na">prometheus</span>
+<span class="na">hosts_grafana</span>
 
 <span class="k">[hosts_cerebro]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : vitam-elasticsearch-cerebro</span>
 
+
 <span class="k">[hosts_consul_server]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : consul</span>
 
+
 <span class="k">[hosts_kibana_data]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : kibana (for data cluster)</span>
+
 
 <span class="k">[log_servers:children]</span>
 <span class="na">hosts_kibana_log</span>
 <span class="na">hosts_logstash</span>
 
-
 <span class="k">[hosts_kibana_log]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : kibana (for log cluster)</span>
+
 
 <span class="k">[hosts_logstash]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : logstash</span>
@@ -933,6 +975,24 @@
 <span class="k">[hosts_elasticsearch_log]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : elasticsearch-log cluster</span>
 <span class="c1"># IF you connect VITAM to external SIEM, DO NOT FILL THE SECTION</span>
+
+
+<span class="c1">########### Extra VITAM applications ###########</span>
+<span class="k">[prometheus:children]</span>
+<span class="na">hosts_prometheus</span>
+<span class="na">hosts_alertmanager</span>
+
+<span class="k">[hosts_prometheus]</span>
+<span class="c1"># TODO: Put here server where this service will be deployed : prometheus server</span>
+
+
+<span class="k">[hosts_alertmanager]</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : alertmanager</span>
+
+
+<span class="k">[hosts_grafana]</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : grafana-server</span>
+
 
 <span class="c1">########### Global vars ###########</span>
 
@@ -1884,7 +1944,25 @@
 276
 277
 278
-279</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2051,20 +2129,17 @@
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
-        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19090</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
     <span class="nt">node_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19100</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9101</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
     <span class="nt">alertmanager</span><span class="p">:</span>
-        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19093</span>
-        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19094</span>
+        <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9093</span>
+        <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9094</span>
 <span class="nt">grafana</span><span class="p">:</span>
-    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">13000</span>
+    <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
@@ -2131,6 +2206,9 @@
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;cerebro&quot;</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
+    <span class="c1"># logs configuration</span>
+    <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+    <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
 
 <span class="nt">siegfried</span><span class="p">:</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19000</span>
@@ -2143,6 +2221,24 @@
     <span class="c1"># logs configuration</span>
     <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
     <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
+
+<span class="c1">## Avast Business Antivirus for Linux</span>
+<span class="c1">## if undefined, the following default values are applied.</span>
+<span class="c1"># avast:</span>
+<span class="c1">#     manage_repository: true</span>
+<span class="c1">#     repository:</span>
+<span class="c1">#         state: present</span>
+<span class="c1">#         # For CentOS</span>
+<span class="c1">#         baseurl: http://rpm.avast.com/lin/repo/dists/rhel/release</span>
+<span class="c1">#         gpgcheck: no</span>
+<span class="c1">#         proxy: _none_</span>
+<span class="c1">#         # For Debian</span>
+<span class="c1">#         baseurl: &#39;deb http://deb.avast.com/lin/repo debian-buster release&#39;</span>
+<span class="c1">#     vps_repository: http://linux-av.u.avcdn.net/linux-av/avast/x86_64</span>
+<span class="c1">#     ## List of sha256 hash of excluded files from antivirus. Useful for test environments.</span>
+<span class="c1">#     whitelist:</span>
+<span class="c1">#         - xxxxxx</span>
+<span class="c1">#         - yyyyyy</span>
 
 <span class="nt">mongo_express</span><span class="p">:</span>
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;mongo-express&quot;</span>
@@ -2914,10 +3010,6 @@
 </td></tr></table></div>
 </li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Il est possible, depuis le fichier <code class="docutils literal notranslate"><span class="pre">cots_var.yml</span></code> d’activer ou désactiver l’installation de la stack prometheus et grafana. La co-localisation de la stack prometheus et grafana est fortement recommandable.</p>
-</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Le playbook <code class="docutils literal notranslate"><span class="pre">vitam.yml</span></code> comprend des étapes avec la mention <code class="docutils literal notranslate"><span class="pre">no_log</span></code> afin de ne pas afficher en clair des étapes comme les mots de passe des certificats. En cas d’erreur, il est possible de retirer la ligne dans le fichier pour une analyse plus fine d’un éventuel problème sur une de ces étapes.</p>
