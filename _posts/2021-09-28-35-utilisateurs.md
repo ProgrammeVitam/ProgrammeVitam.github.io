@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: CGI, Lex Persona et Toulon Provence Méditeranée rejoignent le Club utilisateurs du Programme Vitam
+title: CGI, Lex Persona et Toulon Provence Méditerranée rejoignent le Club utilisateurs du Programme Vitam
 ---
 
 35 organisations composent maintenant le Club utilisateurs.
