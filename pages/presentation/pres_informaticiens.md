@@ -54,7 +54,7 @@ spécificités de processus. Cette vision permet ainsi une réutilisation plus
 large, tout en assurant la réalisation d’un outil générique intégrable, selon les 
 besoins d’acteurs variés dans leur système d’information.
 
-## Une logique de back-office
+## Une logique de back-office enrichi d'un front-office
 
 Positionnée comme une brique d’infrastructure, la solution logicielle Vitam prendra en charge toutes les 
 opérations nécessaires pour assurer la pérennisation des documents numériques 
@@ -108,6 +108,7 @@ Une plate-forme d’archivage utilisant la solution logicielle Vitam comprend :
 * Des applications de front office, permettant à des utilisateurs d’accéder aux 
 objets archivés à des fins de recherche, de consultation, de gestion du cycle de vie 
 ou de préservation :
+	* [Vitam UI, portail développé de manière communautaire et dédié à l'administration technique et fonctionnel de la plateforme]'https://www.programmevitam.fr/pages/logiciel/logiciel_frontoffice/),
 	* le frontal archivistique (IHM, Système d'Information Archivistique),
 	* des applications tierces, notamment les applications métier des services producteurs ;
 * Un back-office qui s'appuye sur des offres de stockage, dont certaines sont potentiellement tierces, qui assurent la conservation binaire des objets archivés ;
@@ -118,10 +119,12 @@ ou de préservation :
 L’ensemble fourni par Vitam comprend le code, sous licence libre, nécessaire pour mettre en œuvre :
 
 * Le coeur Vitam - constituant le back-office proprement dit. Il n’a que des API (de type REST/JSON), y compris pour son administration. Il se doit d’être intégrable complètement, et toute fonction doit pouvoir être mobilisée, via les API, par un frontal non Vitam.
-* Les IHM d’administration, « standard » et de démonstration ;
+* Les IHM d’administration, de démonstration et [Vitam UI depuis mars 2021](https://www.programmevitam.fr/pages/logiciel/logiciel_frontoffice/) ;
 * Des offres de stockage.
 
 Il est possible d’utiliser des offres externes de stockage objet, ou d’en mettre en œuvre avec le logiciel Vitam.
+
+![Souches logicielles](/public/images/souches_logicielles.jpg)
 
 ## En collaboration avec les porteurs et partenaires
 
