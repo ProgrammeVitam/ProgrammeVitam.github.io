@@ -125,7 +125,7 @@ Le modèle économique est en cours d’étude et certains ministères envisagen
 Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins de plusieurs de ses partenaires.
 
 
-# Comment souscrire à VaS <a name="soucrire"></a>
+# Comment souscrire à VaS <a name="souscrire"></a>
 
 * Contacter son service d'archives et/ou le service responsable du contrôle scientifique et technique sur ses archives
 
@@ -157,8 +157,8 @@ Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins d
 
 # Documents de présentation <a name="documents"></a>
 
-- [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
-- [info souscripteurs](/ressources/RefCourant/vas-infos-souscripteur-A4.pdf)
-- [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
+- Téléchargez le [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
+- Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-infos-souscripteur-A4.pdf)
+- Téléchargez les [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
 
 
