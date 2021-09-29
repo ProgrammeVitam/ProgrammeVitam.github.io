@@ -165,7 +165,7 @@ Cette première partie a permis de faire un point sur les fonctionnalités de la
 * les éliminations,
 * la préservation.
 
-La présentation est consultable en suivant ce lien : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf)).
+La présentation est consultable en suivant ce lien : ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf)).
 
 Les vidéos des différentes fonctionnalités de la V2, diffusées lors de cette session, sont accessibles sur la page [Démonstration](/pages/demonstration).
 
@@ -177,9 +177,9 @@ Une deuxième partie a fait un point d'actualités et un état d'avancement des 
 * Archipel (Ministère des Armées), 
 * Saphir (Ministère de l'Europe et des Affaires étrangères), 
 * Siamae (Ministère de la Transition Ecologique et Solidaire)
-	* La présentation de ces projets est consultable en suivant ce lien : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_2_présentation_V2_2e_partie_VDiffusion.pdf))
+	* La présentation de ces projets est consultable en suivant ce lien : ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_2_présentation_V2_2e_partie_VDiffusion.pdf))
 * et Vitam/in (CEA)
-	* La présentation de ce projet est consultable en suivant ce lien : ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_3_présentation_V2_2e_partie_VITAMIN_VDiffusion.pdf))
+	* La présentation de ce projet est consultable en suivant ce lien : ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_3_présentation_V2_2e_partie_VITAMIN_VDiffusion.pdf))
 
 
 **Les outils de préparation des versements**
@@ -188,7 +188,7 @@ Une troisème partie était consacrée aux outils de préparation des versements
 * Octave (Ministère de la Culture/SIAF), 
 * Archifiltre (Ministères sociaux), 
 * SedaTools (Vitam)
-	* La présentation de ces projets est consultable en suivant ce lien :  ([pdf](/ressources/DocCourante/autres/fonctionnel/20190318_4_présentation_V2_3e_partie_préparation_versement_VDiffusion.pdf))
+	* La présentation de ces projets est consultable en suivant ce lien :  ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_4_présentation_V2_3e_partie_préparation_versement_VDiffusion.pdf))
 
 
 ## Présentation de la Première version de production de la solution logicielle Vitam
