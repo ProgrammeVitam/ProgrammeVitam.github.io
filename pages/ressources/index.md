@@ -121,7 +121,7 @@ Sont mis à dispostion :
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.15.0). La release note est disponible ([pdf](https://github.com/ProgrammeVitam/vitam-griffins/releases/download/1.15.0/griffins-release-notes.1.15.0.pdf)) .
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.15.0).
 
 <a name="resip"></a>
 ## Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...
