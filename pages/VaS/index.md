@@ -158,7 +158,7 @@ Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins d
 # Documents de présentation <a name="documents"></a>
 
 - Téléchargez le [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
-- Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-infos-souscripteur-A4.pdf)
+- Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-souscripteur_3.pdf)
 - Téléchargez les [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
 
 
