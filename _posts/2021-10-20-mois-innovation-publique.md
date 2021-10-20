@@ -5,7 +5,7 @@ title: Vitam accessible en service, un projet interministériel innovant d'archi
 
 La 8e édition du Mois de l'innovation publique aura lieu du 1er au 30 novembre, occasion pour le Programme Vitam de vous présenter la toute nouvelle offre "Vitam accessible en Service".
 
-![Logos](/public/images/Logo MIP Fond blanc_1.png)
+![Logos](/public/images/MIP2021_VaS.jpg)
 
 Comme en 2020, le Programme Vitam profite du mois de l'innovation publique organisée par la Direction interministérielle de la transformation publique pour présenter le projet Vitam accessible en service.
 
@@ -29,4 +29,4 @@ Rendez-vous en ligne le 19 novembre de 14h30 à 16h30, inscriptions ci-dessous (
    target="_blank">Billetterie Weezevent</a>
 <script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
 
-![Logos](/public/images/MIP2021_VaS.jpg)
+![Logos](/public/images/Logo MIP Fond blanc_1.png)
