@@ -21,6 +21,7 @@ Répondant aussi bien aux exigences métiers des archivistes qu’à celles des 
 Inscrit à la liste des actions du programme Tech.Gouv, ce service numérique d’usage partagé « Vitam accessible en Service » permet aux services publics de répondre aux exigences légales de conservation et de participer à un projet innovant d’offre interministérielle construite par l’État pour les services de l’État et au-delà.
 
 [Pour en savoir plus](https://www.programmevitam.fr/pages/VaS/)
+
 [Nous contacter](mailto:contact@programmevitam.fr)
 
 ![Logos](/public/images/VaS_naissance_4semaines.jpg)
