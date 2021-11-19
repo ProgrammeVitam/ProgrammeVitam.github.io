@@ -29,7 +29,7 @@ Rendez-vous en ligne le 19 novembre de 14h30 à 16h30, inscriptions ci-dessous (
    target="_blank">Billetterie Weezevent</a>
 <script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
 
-[Présentation de VaS dans le cadre du mois de l'innovation publique](/ressources/efCourant/20211119_MoisIP_VaSpresentation3.pdf)
+[Présentation de VaS dans le cadre du mois de l'innovation publique](/ressources/RefCourant/20211119_MoisIP_VaSpresentation3.pdf)
 
 ![Logos](/public/images/Logo MIP Fond blanc_1.png)
 
