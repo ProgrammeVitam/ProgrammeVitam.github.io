@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>7.9.1.3. Modèle de données &mdash; Documentation VITAM - Architecture 4.0.3</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'4.0.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.9.1.4. Modèle de données" href="data_model_lifecycle.html" />
+    <link rel="prev" title="7.9.1.2. Journal de cycle de vie" href="basics_lifecycle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture
+          
+
+          
+            
+            <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch-report/_toc.html">7.2. Batch-report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/_toc.html">7.3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.6. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.8. Security-Internal</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.9. Logbook</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.9.1. Architecture Fonctionnelle</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="basics.html">7.9.1.1. Généralités</a></li>
+<li class="toctree-l4"><a class="reference internal" href="basics_lifecycle.html">7.9.1.2. Journal de cycle de vie</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.9.1.3. Modèle de données</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_model_lifecycle.html">7.9.1.4. Modèle de données</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../technique/index.html">7.9.2. Architecture technique</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.9.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.12. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.15. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../_toc.html">7. Architecture détaillée</a> &raquo;</li>
+        
+          <li><a href="../_toc.html">7.9. Logbook</a> &raquo;</li>
+        
+          <li><a href="index.html">7.9.1. Architecture Fonctionnelle</a> &raquo;</li>
+        
+      <li>7.9.1.3. Modèle de données</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/include/logbook/fonctionnelle/data_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modele-de-donnees">
+<h1>7.9.1.3. Modèle de données<a class="headerlink" href="#modele-de-donnees" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Afin d’assurer le suivi des opérations effectuées sur les archives,
+un ensemble d’informations sont conservées.</p>
+<div class="section" id="description-des-champs">
+<h2>7.9.1.3.1. Description des champs<a class="headerlink" href="#description-des-champs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les noms des champs sont basés sur les distinctions faites par PREMIS V3 entre :</p>
+<ul class="simple">
+<li>objet / agent / évènement</li>
+<li>type / identifiant</li>
+</ul>
+<p>Les champs seront tous au même niveau dans le journal ==&gt; pas de notion de bloc comme dans PREMIS, même si
+on préserve la capacité à générer un schéma PREMIS (et les blocs qui le compose).</p>
+<p>Référence: <a class="reference external" href="http://www.loc/gov/standard/premis/v3/premis-3-0-final.pdf">http://www.loc/gov/standard/premis/v3/premis-3-0-final.pdf</a></p>
+<p>Ci-après la liste des champs stockés dans le journal des opérations associées à leur correspondance métier :</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="4%" />
+<col width="38%" />
+<col width="4%" />
+<col width="8%" />
+<col width="8%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Champ</th>
+<th class="head">Description</th>
+<th class="head">Oblig.</th>
+<th class="head">Provenance</th>
+<th class="head">Exemple métier</th>
+<th class="head">Commentaire</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">event Identifier</th>
+<td>Identifiant de l’opération</td>
+<td><strong>Oui</strong></td>
+<td>interne (vitam)</td>
+<td>&#160;</td>
+<td>Unique pour chaque ligne</td>
+</tr>
+<tr class="row-odd"><th class="stub">event Type</th>
+<td>Type d’opération</td>
+<td><strong>Oui</strong></td>
+<td>interne</td>
+<td>CheckSEDA_M anifestExists</td>
+<td>Information identifiant l’étape/action concernée (format&nbsp;: etape_action)</td>
+</tr>
+<tr class="row-even"><th class="stub">event DateTime</th>
+<td>Date de l’opération</td>
+<td><strong>Oui</strong></td>
+<td>calculé par le journal</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><th class="stub">event Identifier Process</th>
+<td>Identifiant du processus</td>
+<td><strong>Oui</strong></td>
+<td>interne</td>
+<td>&#160;</td>
+<td>GUID</td>
+</tr>
+<tr class="row-even"><th class="stub">event Type Process</th>
+<td>Type de processus</td>
+<td><strong>Oui</strong></td>
+<td>interne</td>
+<td>Ingest</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><th class="stub">outcome</th>
+<td>Résultat</td>
+<td><strong>Oui</strong></td>
+<td>interne</td>
+<td>Started, OK, Fatal, Warning</td>
+<td>Il s’agit du status de l’opération. Par exemple lorsqu’une opération est lancée, le status est ‘Started’.</td>
+</tr>
+<tr class="row-even"><th class="stub">outcome Detail</th>
+<td>Code correspondant à l’erreur</td>
+<td><em>Non</em></td>
+<td>interne</td>
+<td>404_XXX</td>
+<td>Constitué d’un code d’erreur http et d’un sous code d’erreur vitam plus précis.</td>
+</tr>
+<tr class="row-odd"><th class="stub">outcome Detail Message</th>
+<td>Informations détaillant la nature de l’erreur ou le message informatif de succès</td>
+<td><strong>Oui</strong></td>
+<td>interne</td>
+<td>&#160;</td>
+<td>2 fonctions&nbsp;: Contient le message d’erreur détaillant le problème OU contient le contenu du champ SEDA ‘comment’ extrait. Dans ce dernier cas, la valeur n’est renseignée qu’une seule fois pour ne pas dupliquer l’information sur les lignes correspondant aux sous-opérations associées au même lot.</td>
+</tr>
+<tr class="row-even"><th class="stub">agent Identifier</th>
+<td>Agent réalisant l’action</td>
+<td><strong>Oui</strong></td>
+<td>calculé par le journal</td>
+<td>&#160;</td>
+<td>Nom du serveur vitam exécutant l’action: calculé par le journal</td>
+</tr>
+<tr class="row-odd"><th class="stub">agent Identifier Application</th>
+<td>Nom de l’application s’authentifiant à Vitam pour lancer l’opération</td>
+<td><strong>Non</strong></td>
+<td>externe</td>
+<td>&#160;</td>
+<td>Identifiant de l’application externe qui appelle Vitam pour effectuer une opération</td>
+</tr>
+<tr class="row-even"><th class="stub">agent Identifier Application Session</th>
+<td>Identifiant donnée par l’application utilisatrice à la session utilisée  pour lancer l’opération</td>
+<td><strong>Non</strong></td>
+<td>externe</td>
+<td>&#160;</td>
+<td>X-ApplicationId. l’application externe est responsable de la gestion de cet identifiant. Il correspond à un identifiant pour une session donnée côté application externe.</td>
+</tr>
+<tr class="row-odd"><th class="stub">event Identifier Request</th>
+<td>Identifiant de la requête déclenchant l’opération</td>
+<td><strong>Oui</strong></td>
+<td>interne</td>
+<td>&#160;</td>
+<td>X-RequestId généré par Vitam. 1 requestId est créé pour chaque nouvelle requête http venant de l’exterieur</td>
+</tr>
+<tr class="row-even"><th class="stub">agent Identifier Submission</th>
+<td>Identifiant du service versant</td>
+<td><em>Non</em></td>
+<td>externe</td>
+<td>&#160;</td>
+<td>Correspond au SubmissionAgency du SEDA.</td>
+</tr>
+<tr class="row-odd"><th class="stub">agent Identifier Originating</th>
+<td>Identifiant du service producteur</td>
+<td><em>Non</em></td>
+<td>externe</td>
+<td>123 789 456_CCAS</td>
+<td>Correspond au OriginatingAgency du SEDA.</td>
+</tr>
+<tr class="row-even"><th class="stub">object Identifier</th>
+<td>Identifiant Vitam du lot d’objets auquel s’applique l’opération (lot correspondant à une liste)</td>
+<td><em>Non</em></td>
+<td>interne</td>
+<td>&#160;</td>
+<td>Dans le cas d’une opération ‘Ingest’, il s’agit du GUID de l’entrée. Dans le cas d’une opération ‘Audit’, il s’agit par exemple du nom d’un lot d’archives prédéfini</td>
+</tr>
+<tr class="row-odd"><th class="stub">object Identifier Request</th>
+<td>Requête caractérisant un lot d’objets auquel s’applique l’opération</td>
+<td><em>Non</em></td>
+<td>externe (hors vitam)</td>
+<td>Select * from ….</td>
+<td>Ne concerne que les lots d’objets dynamique, c’est à dire obtenu par la présente requête. Ne concerne pas les lots ayant un identifiant défini.</td>
+</tr>
+<tr class="row-even"><th class="stub">object Identifier Income</th>
+<td>Identifiant externe du lot d’objets auquel s’applique l’opération</td>
+<td><em>Non</em></td>
+<td>externe</td>
+<td>&#160;</td>
+<td>Dans le cas d’une opération ‘Ingest’, il s’agit de la valeur du champ ‘MessageIdentifier’ du SEDA. A définir pour les autres types d’opération</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="data_model_lifecycle.html" class="btn btn-neutral float-right" title="7.9.1.4. Modèle de données" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="basics_lifecycle.html" class="btn btn-neutral float-left" title="7.9.1.2. Journal de cycle de vie" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

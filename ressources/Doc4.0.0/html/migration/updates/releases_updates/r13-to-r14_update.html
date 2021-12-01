@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Notes et procédures spécifiques R14 &mdash; Documentation VITAM - Documentation de montées de version 4.0.3</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'4.0.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Documentation de montées de version
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generalites.html">3. Généralités sur les versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_toc.html">4. Montées de version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Documentation de montées de version</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Notes et procédures spécifiques R14</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/updates/releases_updates/r13-to-r14_update.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="notes-et-procedures-specifiques-r14">
+<h1>Notes et procédures spécifiques R14<a class="headerlink" href="#notes-et-procedures-specifiques-r14" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Rappel : la montée de version vers la <em>release</em> R14 s’effectue depuis la <em>release</em> R13.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cette <em>release</em> de la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> s’appuie sur la version 11 de Java ainsi que la version 7 d’Elasticsearch. Ces mises à jour sont prises en charge par le processus de montée de version.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">La montée de version vers la <em>release</em> R13 a été validée par <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> dans le cadre d’une installation de type Centos 7. L’installation dite <em>from scracth</em> a quant à elle été validée pour les installations de type Centos 7 et Debian 10 (l’utilisation de la version 11 de Java impose en effet une installation de type Debian 10). La migration d’OS vers la version Debian 10 n’est pas supportée par <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> dans le cadre de la montée de version vers la <em>release</em> R14.</p>
+</div>
+<div class="section" id="etapes-prealables-a-la-montee-de-version-recreation-de-r13">
+<h2>Étapes préalables à la montée de version - Recreation de R13<a class="headerlink" href="#etapes-prealables-a-la-montee-de-version-recreation-de-r13" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="mise-a-jour-de-l-inventaire-r13">
+<h3>Mise à jour de l’inventaire R13<a class="headerlink" href="#mise-a-jour-de-l-inventaire-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les versions récentes de ansible préconisent de ne plus utiliser le caractère «&nbsp;-&nbsp;» dans les noms de groupes ansible.</p>
+<p>Pour effectuer cette modification, un script de migration est mis à disposition.</p>
+<p>La commande à lancer est</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">deployment</span>
+<span class="o">./</span><span class="n">upgrade_inventory</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recreation-de-l-environnement-r13">
+<h3>Recreation de l’environnement R13<a class="headerlink" href="#recreation-de-l-environnement-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Script de creation d’environnement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks_os</span><span class="o">/</span><span class="n">create_heat</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">l</span> <span class="n">vitam</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">password_file</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">createHeat</span><span class="o">=</span><span class="n">yes</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>Le script est à lancer afin de gérer la création des environnements. create_heat est une nouvelle méthode permettant l’optimisation de la création des environnements nous apportant un important gain de vitesse de création.</p>
+</div>
+<div class="section" id="configuration-de-l-environnement-r13">
+<h3>Configuration de l’environnement R13<a class="headerlink" href="#configuration-de-l-environnement-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Configuration niveau d’exploitation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks_os</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">-</span><span class="n">l</span> <span class="n">vitam</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">password_file</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks_os</span><span class="o">/</span><span class="n">vitam_prereq</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">-</span><span class="n">l</span> <span class="n">vitam</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">password_file</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Configuration : ntp, repositories, clé ssh, timezone, controle d’accès</p>
+</div>
+<div class="section" id="deployment-preparation-r13">
+<h3>Deployment preparation r13<a class="headerlink" href="#deployment-preparation-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Génération des certificats</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pki</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">generate_ca</span><span class="o">.</span><span class="n">sh</span>
+
+<span class="n">pki</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">generate_certs</span><span class="o">.</span><span class="n">sh</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span>
+
+<span class="o">./</span><span class="n">generate_stores</span><span class="o">.</span><span class="n">sh</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span>
+</pre></div>
+</div>
+<p>Génération des variables des environnement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">/</span><span class="n">generate_hostvars_for_1_network_interface</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span>  <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Mise en place de la configuartion réseaux</p>
+<p>Mis à jour des repositories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">check</span><span class="o">-</span><span class="n">repositories</span><span class="o">.</span><span class="n">py</span>
+
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Mis à jour des repositories servant à gérer la récupération des packages</p>
+</div>
+<div class="section" id="vitam-deployment-r13">
+<h3>Vitam deployment r13<a class="headerlink" href="#vitam-deployment-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Configuration du repositorie VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">browser</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Déploiement de la version R13 de vitam</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">/</span><span class="n">vitam</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Reverse proxy pour les composants VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">reverse</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vitam-extra-deployment-r13">
+<h3>Vitam-extra deployment r13<a class="headerlink" href="#vitam-extra-deployment-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce playbook a pour but d’importer un ensemble de playbook pour la solution VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">extra</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-check-r13">
+<h3>Installation check r13<a class="headerlink" href="#installation-check-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce playbook permet de vérifier le bon fonctionnement de VITAM et ses services installés</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">status_vitam</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tnr-execution-r13">
+<h3>TNR execution r13<a class="headerlink" href="#tnr-execution-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Execution des tests</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">load_tnr</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-p12-for-r13-audit">
+<h3>Get p12 for R13 audit<a class="headerlink" href="#get-p12-for-r13-audit" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Récupérer les clés de cryptage p12 pour l’audit de cohérence</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">getKeystoreforAudit</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="audit-coherence-r13">
+<h3>Audit coherence r13<a class="headerlink" href="#audit-coherence-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est recommandé de procéder à un audit de cohérence aléatoire suite à une procédure de montée de version VITAM ou de migration de données.
+Pour ce faire, se référer au dossier d’exploitation (DEX) de la solution VITAM, section <code class="docutils literal notranslate"><span class="pre">Audit</span> <span class="pre">de</span> <span class="pre">cohérence</span></code></p>
+</div>
+</div>
+<div class="section" id="etapes-prealables-a-la-montee-de-version-gestion-de-l-arret-de-r13">
+<h2>Étapes préalables à la montée de version - Gestion de l’arrêt de R13<a class="headerlink" href="#etapes-prealables-a-la-montee-de-version-gestion-de-l-arret-de-r13" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="arret-des-timers-systemd">
+<h3>Arrêt des <em>timers</em> systemd<a class="headerlink" href="#arret-des-timers-systemd" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes sont à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code> sur la version VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_vitam_timers</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_vitam_timers</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">ask</span><span class="o">-</span><span class="n">vault</span><span class="o">-</span><span class="k">pass</span>
+</pre></div>
+</div>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les <em>timers</em> systemd ont été arrêtés, afin de ne pas perturber la migration.</p>
+<p>Il est également recommandé de ne lancer la procédure de migration qu’après s’être assuré que plus aucun <cite>workflow</cite> n’est ni en cours, ni en statut <strong>FATAL</strong>.</p>
+</div>
+<div class="section" id="arret-des-composants-externals">
+<h3>Arrêt des composants <em>externals</em><a class="headerlink" href="#arret-des-composants-externals" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes sont aussi à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_external</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_external.yml --ask-vault-pass
+</pre></div>
+</div>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les composants <em>externals</em> ont été arrêtés, afin de ne pas perturber la migration.</p>
+</div>
+<div class="section" id="arret-de-l-ensemble-des-composants-vitam">
+<h3>Arrêt de l’ensemble des composants <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a><a class="headerlink" href="#arret-de-l-ensemble-des-composants-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes sont aussi à lancer depuis le répertoire <code class="docutils literal notranslate"><span class="pre">deployment</span></code>.</p>
+<p>Tout d’abord il y l’arrêt des applications vitam</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_vitam_apps</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span>  <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_vitam_apps</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">ask</span><span class="o">-</span><span class="n">vault</span><span class="o">-</span><span class="k">pass</span>
+</pre></div>
+</div>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les composants <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ont été arrêtés, afin de ne pas perturber la migration.</p>
+<p>Ensuite il y a l’arrêt des applications et services de supervision des environnements</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_vitam_admin</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">stop_vitam_admin</span><span class="o">.</span><span class="n">ymll</span> <span class="o">--</span><span class="n">ask</span><span class="o">-</span><span class="n">vault</span><span class="o">-</span><span class="k">pass</span>
+</pre></div>
+</div>
+<p>A l’issue de l’exécution du <cite>playbook</cite>, les composants du domaine de supervision <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> ont été arrêtés, afin de ne pas perturber la migration.</p>
+</div>
+<div class="section" id="la-sauvegarde-des-elements-r13">
+<h3>La sauvegarde des éléments R13<a class="headerlink" href="#la-sauvegarde-des-elements-r13" title="Lien permanent vers ce titre">¶</a></h3>
+<dl class="docutils">
+<dt>La sauvegarde des éléments R13 se traduit par la récupération des tests TNR effectués après le déploiement de R13.</dt>
+<dd>mkdir testTNRr13
+cp vitam.git/deployment/environments/TNR.xml testTNRr13</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="montee-de-version">
+<h2>Montée de version<a class="headerlink" href="#montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La montée de version vers la <em>release</em> R14 est réalisée par réinstallation de la solution logicielle <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> grâce aux <em>playbooks</em> ansible fournis, et selon la procédure d’installation classique décrite dans le <a class="reference internal" href="../../introduction.html#term-din"><span class="xref std std-term">DIN</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Rappel : avant de procéder à la montée de version, on veillera tout particulièrement à la bonne mise en place des <em>repositories</em> <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> associés à la nouvelle version. Se reporter à la section du <a class="reference internal" href="../../introduction.html#term-din"><span class="xref std std-term">DIN</span></a> sur la mise en place des <em>repositories</em> <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">À l’issue de l’exécution du déploiement de Vitam, les composants <em>externals</em> ainsi que les <em>timers</em> systemd seront redémarrés. Il est donc recommandé de jouer les étapes de migration suivantes dans la foulée.</p>
+</div>
+</div>
+<div class="section" id="etapes-de-migration">
+<h2>Etapes de migration<a class="headerlink" href="#etapes-de-migration" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="mise-a-jour-de-l-inventaire-r14">
+<h3>Mise à jour de l’inventaire R14<a class="headerlink" href="#mise-a-jour-de-l-inventaire-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour effectuer cette modification, un script de migration est mis à disposition.</p>
+<p>Il faut avant ça mettre à jour l’environnement avec les informations associés à nouvelle version. Il faudra changer les version</p>
+<p>Il faut récupérer les sources de la version R14, changer les version de branche et de griffins</p>
+<p>La commande à lancer est</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">deployment</span>
+<span class="o">./</span><span class="n">upgrade_inventory</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recreation-de-l-environnement-r14">
+<h3>Recreation de l’environnement R14<a class="headerlink" href="#recreation-de-l-environnement-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Script de creation d’environnement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks_os</span><span class="o">/</span><span class="n">create_heat</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">l</span> <span class="n">vitam</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">password_file</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">createHeat</span><span class="o">=</span><span class="n">yes</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>Le script est à lancer afin de gérer la création des environnements. create_heat est une nouvelle méthode permettant l’optimisation de la création des environnements nous apportant un important gain de vitesse de création.</p>
+</div>
+<div class="section" id="configuration-de-l-environnement-r14">
+<h3>Configuration de l’environnement R14<a class="headerlink" href="#configuration-de-l-environnement-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Configuration niveau d’exploitation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks_os</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">-</span><span class="n">l</span> <span class="n">vitam</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">password_file</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks_os</span><span class="o">/</span><span class="n">vitam_prereq</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">-</span><span class="n">l</span> <span class="n">vitam</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">password_file</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Configuration : ntp, repositories, clé ssh, timezone, controle d’accès</p>
+</div>
+<div class="section" id="deployment-preparation-r14">
+<h3>Deployment preparation R14<a class="headerlink" href="#deployment-preparation-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Génération des certificats</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pki</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">generate_ca</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">pki</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">generate_certs</span><span class="o">.</span><span class="n">sh</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span>
+<span class="o">./</span><span class="n">generate_stores</span><span class="o">.</span><span class="n">sh</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span>
+</pre></div>
+</div>
+<p>Génération des variables des environnement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">/</span><span class="n">generate_hostvars_for_1_network_interface</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span>  <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Mise en place de la configuartion réseaux</p>
+<p>Mis à jour des repositories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">check</span><span class="o">-</span><span class="n">repositories</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Mis à jour des repositories servant à gérer la récupération des packages</p>
+</div>
+<div class="section" id="vitam-deployment-r14">
+<h3>Vitam deployment R14<a class="headerlink" href="#vitam-deployment-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Configuration du repositorie VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">browser</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Déploiement de la version R14 de vitam</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">/</span><span class="n">vitam</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Reverse proxy pour les composants VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">reverse</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vitam-extra-deployment-r14">
+<h3>Vitam-extra deployment R14<a class="headerlink" href="#vitam-extra-deployment-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce playbook a pour but d’importer un ensemble de playbook pour la solution VITAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">extra</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-cerebro-r14-temp">
+<h3>Start Cerebro r14 - TEMP<a class="headerlink" href="#start-cerebro-r14-temp" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette étape est temporaire. Elle a été mise en place suite a des problèmes de démarrage du service Cerebro</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">start_vitam_admin</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">-</span><span class="n">l</span> <span class="n">hosts_cerebro</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-check-r14">
+<h3>Installation check R14<a class="headerlink" href="#installation-check-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce playbook permet de vérifier le bon fonctionnement de VITAM et ses services installés</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">status_vitam</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">e</span> <span class="n">confirmation</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tnr-execution-r14">
+<h3>TNR execution R14<a class="headerlink" href="#tnr-execution-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Execution des tests</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">extra</span><span class="o">/</span><span class="n">load_tnr</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reindexation-es-data">
+<h3>Réindexation ES Data<a class="headerlink" href="#reindexation-es-data" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La montée de version vers la <em>release</em> R14 requiert une réindexation totale d’ElasticSearch. Cette réindexation s’effectue à l’aide du playbook</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">reindex_es_data</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/&lt;</span><span class="n">inventaire</span><span class="o">&gt;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vitam</span><span class="o">-</span><span class="n">exploitation</span><span class="o">/</span><span class="n">reindex_es_data</span><span class="o">.</span><span class="n">yml</span>  <span class="o">--</span><span class="n">ask</span><span class="o">-</span><span class="n">vault</span><span class="o">-</span><span class="k">pass</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ce <cite>playbook</cite> ne supprime pas les anciens indexes pour laisser à l’exploitant le soin de vérifier que la procédure de migration s’est correctement déroulée. A l’issue, la suppression des index devenus inutiles devra être réalisée manuellement.</p>
+</div>
+</div>
+<div class="section" id="get-p12-for-r14-audit">
+<h3>Get p12 for R14 audit<a class="headerlink" href="#get-p12-for-r14-audit" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Récupérer les clés de cryptage p12 pour l’audit de cohérence</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">getKeystoreforAudit</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">environments</span><span class="o">/</span><span class="n">hosts</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">path_to_private_key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">u</span> <span class="n">centos</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">password</span><span class="o">-</span><span class="n">file</span> <span class="n">vault_pass</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">vitam</span><span class="o">-</span><span class="n">pf</span><span class="o">-</span><span class="nb">vars</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span><span class="o">=</span><span class="nd">@environments</span><span class="o">/</span><span class="n">environment_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="audit-coherence-r14">
+<h3>Audit coherence R14<a class="headerlink" href="#audit-coherence-r14" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est recommandé de procéder à un audit de cohérence aléatoire suite à une procédure de montée de version VITAM ou de migration de données.
+Pour ce faire, se référer au dossier d’exploitation (DEX) de la solution VITAM, section <code class="docutils literal notranslate"><span class="pre">Audit</span> <span class="pre">de</span> <span class="pre">cohérence</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

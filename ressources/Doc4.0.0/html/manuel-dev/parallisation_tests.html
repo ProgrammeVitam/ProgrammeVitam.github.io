@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Parallélisation des tests &mdash; Documentation VITAM - Manuel de développement 4.0.3</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'4.0.3',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Plugin ICU Elasticsearch" href="plugin-icu-elasticsearch.html" />
+    <link rel="prev" title="14.2. workspace" href="include/workspace/workspace.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="include/_toc.html">Détails par composant</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parallélisation des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#separation-des-tests-tdd-et-tests-d-integration">Séparation des tests TDD et tests d’intégration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parallelisation-de-tests-unitaires">Parallélisation de tests unitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-de-build-avec-les-options-de-tests">Configuration de build avec les options de tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Parallélisation des tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/parallisation_tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parallelisation-des-tests">
+<h1>Parallélisation des tests<a class="headerlink" href="#parallelisation-des-tests" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce document présente la procédure pour réduire le temps de traitement des tests en
+les parallélisant. Ce travail réfère au US#714 et au techDesign IT01.</p>
+<p>Il y a des tests TDD et des tests d’intégration dans les modules existants de la plate-forme,
+nous voulons faire paralléliser des classes de tests utilisant JUnit pour avoir la performance.
+Pour ce but, nous effectuons les étapes suivantes :</p>
+<ul class="simple">
+<li>Séparation des tests : tests unitaires et test d’intégration</li>
+<li>Parallélisation des tests unitaires</li>
+<li>Configuration de build avec les options de tests</li>
+</ul>
+<div class="section" id="separation-des-tests-tdd-et-tests-d-integration">
+<h2>Séparation des tests TDD et tests d’intégration<a class="headerlink" href="#separation-des-tests-tdd-et-tests-d-integration" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Il y a plusieurs tests d’intégration présents dans le module <em>integration-test</em> :</li>
+</ul>
+<p><em>ProcessingIT</em> : test d’intégration pour différents services : workspace, functional-administration, worker, metadata, logbook, processing</p>
+<blockquote>
+<div><p>StorageClientIT : test d’intégration pour le client du service de storage. Cela concerne deux modules:
+storage (client &amp; rest) et le client de workspace</p>
+<p>WorkerIT : test d’intégration pour les services : workspace, worker, metadata, logbook, processing</p>
+<p>FunctionalAdminIT : test d’intégration pour le service FunctionalAdministration.</p>
+<p>IngestInternalIT : test d’intégration pour le service IngestInternal.</p>
+<p>LogbookCheckConsistencyIT : test d’intégration pour le service de vérification de cohérence des journaux.</p>
+<p>*.Reconstruction*.IT : test d’intégration pour les services de reconstruction et de backup.</p>
+<p>SecurityInternalIT : test d’intégration pour le service de sécurité interne.</p>
+<p>Ces tests d’intégration sont en mode séquentiel. Pour cela, nous indiquons dans le pom.xml de ce module de test-integration</p>
+</div></blockquote>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;pluginManagement&gt;</span>
+                <span class="nt">&lt;plugins&gt;</span>
+                        <span class="nt">&lt;plugin&gt;</span>
+                                <span class="c">&lt;!-- Run the Junit unit tests in an isolated classloader and not Parallel. --&gt;</span>
+                                <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                                <span class="nt">&lt;configuration&gt;</span>
+                                        <span class="nt">&lt;parallel&gt;</span>classes<span class="nt">&lt;/parallel&gt;</span>
+                                        <span class="nt">&lt;threadCount&gt;</span>1<span class="nt">&lt;/threadCount&gt;</span>
+                                        <span class="nt">&lt;perCoreThreadCount&gt;</span>false<span class="nt">&lt;/perCoreThreadCount&gt;</span>
+                                        <span class="nt">&lt;forkCount&gt;</span>1<span class="nt">&lt;/forkCount&gt;</span>
+                                        <span class="nt">&lt;reuseForks&gt;</span>false<span class="nt">&lt;/reuseForks&gt;</span>
+                                        <span class="nt">&lt;systemPropertyVariables&gt;</span>
+                                                <span class="nt">&lt;org.owasp.esapi.opsteam&gt;</span>AC001<span class="nt">&lt;/org.owasp.esapi.opsteam&gt;</span>
+                                                <span class="nt">&lt;org.owasp.esapi.devteam&gt;</span>AC001<span class="nt">&lt;/org.owasp.esapi.devteam&gt;</span>
+                                                <span class="nt">&lt;org.owasp.esapi.resources&gt;</span>../common/common-private/src/main/resources/esapi<span class="nt">&lt;/org.owasp.esapi.resources&gt;</span>
+                                        <span class="nt">&lt;/systemPropertyVariables&gt;</span>
+                                <span class="nt">&lt;/configuration&gt;</span>
+                        <span class="nt">&lt;/plugin&gt;</span>
+                <span class="nt">&lt;/plugins&gt;</span>
+        <span class="nt">&lt;/pluginManagement&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parallelisation-de-tests-unitaires">
+<h2>Parallélisation de tests unitaires<a class="headerlink" href="#parallelisation-de-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les tests unitaires de chaque module sont configurés pour être lancés en mode parallèle.
+Pour cela, nous indiquons dans le pom.xml parent pour la phrase de build</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+                <span class="nt">&lt;plugin&gt;</span>
+                        <span class="c">&lt;!-- Run the Junit unit tests in an isolated classloader. --&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>2.19.1<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                                <span class="nt">&lt;argLine&gt;</span>-Xmx2048m -Dvitam.tmp.folder=/tmp ${coverageAgent}<span class="nt">&lt;/argLine&gt;</span>
+                                <span class="nt">&lt;parallel&gt;</span>classes<span class="nt">&lt;/parallel&gt;</span>
+                                <span class="nt">&lt;threadCount&gt;</span>3<span class="nt">&lt;/threadCount&gt;</span>
+                                <span class="nt">&lt;perCoreThreadCount&gt;</span>true<span class="nt">&lt;/perCoreThreadCount&gt;</span>
+                                <span class="nt">&lt;forkCount&gt;</span>3C<span class="nt">&lt;/forkCount&gt;</span>
+                                <span class="nt">&lt;reuseForks&gt;</span>false<span class="nt">&lt;/reuseForks&gt;</span>
+                                <span class="nt">&lt;trimStackTrace&gt;</span>false<span class="nt">&lt;/trimStackTrace&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+        <span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration-de-build-avec-les-options-de-tests">
+<h2>Configuration de build avec les options de tests<a class="headerlink" href="#configuration-de-build-avec-les-options-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">install</span></code> : lancer le build normal avec tous les tests</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">-DskipTests</span></code> : pour ignorer tous les tests:</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">test</span></code> ou <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span> <span class="pre">-DskipITs</span></code> : pour ignorer les tests d’intégration</li>
+<li><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">integration-test</span></code> : pour lancer les tests d’intégration</li>
+</ul>
+<p>Pour cela, nous ajoutons le code suivant dans le pom parent.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;executions&gt;</span>
+                <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>integration-test<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                                <span class="nt">&lt;goal&gt;</span>test<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>integration-test<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                                <span class="nt">&lt;skip&gt;</span>${skipITs}<span class="nt">&lt;/skip&gt;</span>
+                                <span class="nt">&lt;excludes&gt;</span>
+                                        <span class="nt">&lt;exclude&gt;</span>none<span class="nt">&lt;/exclude&gt;</span>
+                                <span class="nt">&lt;/excludes&gt;</span>
+                                <span class="nt">&lt;includes&gt;</span>
+                                        <span class="nt">&lt;include&gt;</span>**/*IT.java<span class="nt">&lt;/include&gt;</span>
+                                <span class="nt">&lt;/includes&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>mvn clean test-compile failsafe:integration-test: pour exécuter uniquement les tests d’intégration.</li>
+</ul>
+<p>Pour cela, nous ajoutons le code suivant dans le pom parent.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+                <span class="c">&lt;!-- Run the Junit integration tests in an isolated classloader. --&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.19.1<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                        <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>integration-test<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                        <span class="nt">&lt;goal&gt;</span>integration-test<span class="nt">&lt;/goal&gt;</span>
+                                        <span class="nt">&lt;goal&gt;</span>verify<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="plugin-icu-elasticsearch.html" class="btn btn-neutral float-right" title="Plugin ICU Elasticsearch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="include/workspace/workspace.html" class="btn btn-neutral float-left" title="14.2. workspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -30,6 +30,35 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 **[Télécharger toute la documentation métier](/ressources/Doc4.0.0/Vitam_doc_metier.zip)**
 
+## Documentation métier
+* **Manuel utilisateur** ([pdf](/ressources/Doc4.0.0/VITAM_Manuel_utilisateur_IHM.pdf))
+* **Organisation de l'information** - présentation des exigences fonctionnelles et des objets métiers utilisés par la solution logicielle Vitam
+([pdf](/ressources/Doc4.0.0/VITAM_Organisation_de_information.pdf))
+* **Spécification des SIP** - recommandations sur la construction des paquets
+à archiver ([pdf](/ressources/Doc4.0.0/VITAM_Structuration_des_SIP.pdf))
+* **Structuration des DIP** - éléments sur la construction paquets d'archives transmis par le système d’archivage pour consultation
+([pdf](/ressources/Doc4.0.0/VITAM_Structuration_des_DIP.pdf))
+* **Gestion des archives et des arborescences** (ancienne documentation "Arbre de positionement et plan de classement"
+([pdf](/ressources/Doc4.0.0/VITAM_Gestion_archives_arborescences.pdf))
+* **Règles de gestion** - présentation du principe des règles de gestion et de leur héritage
+([pdf](/ressources/Doc4.0.0/VITAM_Regles_de_gestion.pdf))
+* **Services producteurs** - présentation des fonctionnalités associées à la
+notion de service producteur ([pdf](/ressources/Doc4.0.0/VITAM_Services_producteurs.pdf))
+* **Eliminations** - présentation des fonctionnalités de mise en oeuvre des éliminations d'archives avec la solution logicielle Vitam ([pdf](/ressources/Doc4.0.0/VITAM_Eliminations.pdf))
+* **Préservation** - présentation des fonctionnalités de mise en oeuvre de la préservation à long-terme des archives avec la solution logicielle Vitam ([pdf](/ressources/Doc4.0.0/VITAM_Preservation.pdf))
+* **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/Doc4.0.0/VITAM_Profils_archivage.pdf))
+* **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/Doc4.0.0/VITAM_Profils_unite_archivistique.pdf))
+* **Ontologie** - éléments sur la notion d'ontologie ([pdf](/ressources/Doc4.0.0/VITAM_Ontologie.pdf))
+* **Conservation de la valeur probante** - présentation de la sécurisation des journaux ([pdf](/ressources/Doc4.0.0/VITAM_Conservation_valeur_probante.pdf))
+* **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
+l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/Doc4.0.0/VITAM_Gestion_habilitations.pdf))
+* **Modèle de workflow**  - description de la décompositon et du séquencement des
+ opérations ([pdf - partie 1](/ressources/Doc4.0.0/VITAM_Modele_de_workflow_part1.pdf)) ([pdf - partie 2](/ressources/Doc4.0.0/VITAM_Modele_de_workflow_part2.pdf))
+* **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/Doc4.0.0/VITAM_Multi_strategies.pdf))
+* **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/Doc4.0.0/VITAM_Transfert.pdf))
+* **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/Doc4.0.0/VITAM_Manuel_ReSIP.pdf))
+
+
 
 <a name="R15"></a>
 # Version Release 15 (3.14.2)
