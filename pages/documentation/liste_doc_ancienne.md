@@ -6,6 +6,7 @@ title: Anciennes documentations
 > Est ici présentée la documentation des anciennes versions. 
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
+* [Version Release 16 (4.0.0)](#R16)
 * [Version Release 15 (3.14.2)](#R15)
 * [Version Release 14 (3.6.0)](#R14)
 * [Version Release 13 (3.0.16)](#R13_16)
@@ -14,6 +15,20 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Version Release 3 (0.15.1)](#R3)
 * [Version Bêta (0.11.1)](#Rbêta)
 
+
+<a name="R16"></a>
+# Version Release 16 (4.0.0)
+
+## Première approche
+* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/Doc4.0.0/VITAM_Guide_de_lecture_de_la_documentation.pdf))
+* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
+([pdf](/ressources/Doc4.0.0/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/r16/Jeux_de_tests_Guide_de_prise_en_main_R16.zip))
+* **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
+([pdf](/ressources/Doc4.0.0/VITAM_Presentation_solution_logicielle.pdf))
+
+**[Télécharger toute la documentation métier et Vitam UI](/ressources/Doc4.0.0/Vitam_doc_totalite.zip)**
+
+**[Télécharger toute la documentation métier](/ressources/Doc4.0.0/Vitam_doc_metier.zip)**
 
 
 <a name="R15"></a>
