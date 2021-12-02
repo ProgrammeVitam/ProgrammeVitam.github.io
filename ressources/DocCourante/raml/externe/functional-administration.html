@@ -3114,6 +3114,405 @@ pre code {
     }
   ]
 }
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/206" target="_blank">206</a></h2><p>Partial Content, pagination involved</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="accessionregisterdetails" class="panel-title">Détails de Registres des fonds</h3></div><div class="panel-body"><div class="top-resource-description"><p>API sur les détails de registres des fonds (AccessionRegisterDetail).</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_accessionregisterdetails"><span class="parent"></span>/accessionregisterdetails</a> <span class="methods"><a href="#accessionregisterdetails_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_accessionregisterdetails" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#accessionregisterdetails_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Recherche sur les détails de registres de fonds grâce à la requête donnée en entrée</p><p>Permissions requises:</p><ul><li>accessionregisterdetails:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="accessionregisterdetails_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/accessionregisterdetails</h4></div><div class="modal-body"><div class="alert alert-info"><p>Recherche sur les détails de registres de fonds grâce à la requête donnée en entrée</p><p>Permissions requises:</p><ul><li>accessionregisterdetails:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#accessionregisterdetails_get_request" data-toggle="tab">Request</a></li><li><a href="#accessionregisterdetails_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="accessionregisterdetails_get_request"><h3>Headers</h3><ul><li><strong>Accept</strong>: <em><span class="required">required</span>(application/json)</em></li><li><strong>Content-Type</strong>: <em><span class="required">required</span>(application/json)</em></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Examples</strong>:</p><div class="examples"><pre><code>{
+  "$query": {
+    "$eq": {
+      "myField1": "myValue"
+    }
+  },
+  "$filter": {
+    "$limit": 100,
+    "$offset": 50
+  },
+  "$projection": {
+    "$fields": {
+      "myField1": 1,
+      "myField2.mySubField": 1
+    }
+  }
+}</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query":
+    { "$range": {
+      "evDateTime": {
+        "$gte": "2014-01-10", "$lte": "2016-03-10"
+      }
+    }
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
+</code></pre></div></div><div class="tab-pane" id="accessionregisterdetails_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Accessionregisterdetails correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "$query": {
+    "$eq": {
+      "myField1": "myValue"
+    }
+  },
+  "$filter": {
+    "$limit": 100,
+    "$offset": 50
+  },
+  "$projection": {
+    "$fields": {
+      "myField1": 1,
+      "myField2.mySubField": 1
+    }
+  }
+}</code></pre></div></li><li><strong>httpCode</strong>: <em><span class="required">required</span>(integer)</em><p>Contient le code retrour http</p></li><li><strong>$hits</strong>: <em><span class="required">required</span>(object)</em><p>Contient le nombre de hits</p><ul><li><strong>total</strong>: <em><span class="required">required</span>(integer)</em><p>Nombre total de résultats estimé</p></li><li><strong>offset</strong>: <em><span class="required">required</span>(integer)</em><p>Décalage du début des résultats</p></li><li><strong>limit</strong>: <em><span class="required">required</span>(integer)</em><p>Nombre maximum de résultats voulu à partir de la valeur "offset"</p></li><li><strong>size</strong>: <em><span class="required">required</span>(integer)</em><p>Nombre de résultats renvoyés</p></li></ul></li><li><strong>$results</strong>: <em><span class="required">required</span>(array of object)</em><p>Contient la list des résultats</p><p><strong>Items</strong>:</p><div class="items"><ul></ul></div></li><li><strong>$facetResults</strong>: <em>(array of object)</em><p>Contient la resultat facet</p><p><strong>Items</strong>:</p><div class="items"><ul></ul></div></li></ul><p><strong>Examples</strong>:</p><div class="examples"><pre><code>{
+  "httpCode": 200,
+  "$hits": {
+    "total": 52,
+    "size": 2,
+    "offset": 0,
+    "limit": 100
+  },
+  "$context": {
+    "$query": {
+      "$eq": {
+        "myField1": "myValue"
+      }
+    },
+    "$filter": {
+      "$limit": 100,
+      "$offset": 50
+    },
+    "$projection": {
+      "$fields": {
+        "myField1": 1,
+        "myField2.mySubField": 1
+      }
+    }
+  },
+  "$results": [
+    {
+      "myField1": "myValue1",
+      "myField2.mySubField": "mySubValue1"
+    },
+    {
+      "myField1": "myValue2",
+      "myField2.mySubField": "mySubValue2"
+    }
+  ]
+}</code></pre><pre><code>{
+	"httpCode": 200,
+	"$hits": {
+		"total": 3,
+		"size": 3,
+		"offset": 0,
+		"limit": 100
+	},
+	"$context": {
+		"$query": {
+			"$range": {
+				"start_date": {
+					"$gte": "2014-01-10",
+					"$lte": "2014-03-10"
+				}
+			}
+		},
+		"$filter": {
+			"$limit": 100
+		},
+		"$projection": {
+			"$fields": {
+				"#id": 1,
+				"start_date": 1,
+				"state": 1
+			}
+		}
+	},
+	"$results": [
+		{
+			"previousStep": "STP_INGEST_CONTROL_SIP",
+			"nextStep": "STP_OG_CHECK_AND_TRANSFORME",
+			"operation_id": "aedqaaaaacgbcaacabry4ak45ig4cwyaaaaq",
+			"processType": "INGEST",
+			"stepByStep": true,
+			"globalState": "PAUSE",
+			"stepStatus": "OK",
+			"processDate": "2017-06-27T14:56:29+0000"
+		},
+		{
+			"previousStep": "STP_INGEST_CONTROL_SIP",
+			"nextStep": "STP_OG_CHECK_AND_TRANSFORME",
+			"operation_id": "aedqaaaaacgbcaacabry4ak45cvfn5aaaaaq",
+			"processType": "INGEST",
+			"stepByStep": true,
+			"globalState": "PAUSE",
+			"stepStatus": "OK",
+			"processDate": "2017-06-27T08:28:16+0000"
+		}
+	]
+}
+</code></pre><pre><code>{
+	"httpCode": 200,
+	"$hits": {
+		"total": 3,
+		"size": 3,
+		"offset": 0,
+		"limit": 100
+	},
+	"$context": {
+		"$query": {
+			"$range": {
+				"start_date": {
+					"$gte": "2014-01-10",
+					"$lte": "2014-03-10"
+				}
+			}
+		},
+		"$filter": {
+			"$limit": 100
+		},
+		"$projection": {
+			"$fields": {
+				"#id": 1,
+				"start_date": 1,
+				"state": 1
+			}
+		}
+	},
+	"$results": [
+		{
+			"previousStep": "STP_INGEST_CONTROL_SIP",
+			"nextStep": "STP_OG_CHECK_AND_TRANSFORME",
+			"operation_id": "aedqaaaaacgbcaacabry4ak45ig4cwyaaaaq",
+			"processType": "INGEST",
+			"stepByStep": true,
+			"globalState": "PAUSE",
+			"stepStatus": "OK",
+			"processDate": "2017-06-27T14:56:29+0000"
+		},
+		{
+			"previousStep": "STP_INGEST_CONTROL_SIP",
+			"nextStep": "STP_OG_CHECK_AND_TRANSFORME",
+			"operation_id": "aedqaaaaacgbcaacabry4ak45cvfn5aaaaaq",
+			"processType": "INGEST",
+			"stepByStep": true,
+			"globalState": "PAUSE",
+			"stepStatus": "OK",
+			"processDate": "2017-06-27T08:28:16+0000"
+		}
+	]
+}
+</code></pre><pre><code>{
+  "httpCode" : 200,
+  "$hits": {
+    "total": 3,
+    "size": 3,
+    "offset": 0,
+    "limit": 100
+  },
+  "$context": {
+    "$query": {
+      "$range": {
+        "start_date": {
+          "$gte": "2014-01-10",
+          "$lte": "2014-03-10"
+        }
+      }
+    },
+    "$filter": {
+      "$limit": 100
+    },
+    "$projection": {
+      "$fields": {
+        "#id": 1,
+        "start_date": 1,
+        "state": 1
+      }
+    }
+  },
+  "$results": [
+    {
+      "SampleWorkflow": {
+        "id": "SampleWorkflow",
+        "comment": "Sample Workflow V1",
+        "steps": [
+          {
+            "id": null,
+            "workerGroupId": "DefaultWorker",
+            "stepName": "STP_PREPARE_CHECK",
+            "behavior": "BLOCKING",
+            "distribution": {
+              "kind": "REF",
+              "element": ""
+            },
+            "actions": [
+              {
+                "action": {
+                  "actionKey": "PREPARE_1_CHECK",
+                  "behavior": "BLOCKING",
+                  "in": null,
+                  "out": null
+                }
+              },
+              {
+                "action": {
+                  "actionKey": "PREPARE_2_CHECK",
+                  "behavior": "BLOCKING",
+                  "in": null,
+                  "out": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "DefaultCheckTraceability": {
+        "id": "DefaultCheckTraceability",
+        "comment": "Default Check logbook traceability Workflow V1",
+        "steps": [
+          {
+            "id": null,
+            "workerGroupId": "DefaultWorker",
+            "stepName": "STP_PREPARE_TRACEABILITY_CHECK",
+            "behavior": "BLOCKING",
+            "distribution": {
+              "kind": "REF",
+              "element": ""
+            },
+            "actions": [
+              {
+                "action": {
+                  "actionKey": "PREPARE_TRACEABILITY_CHECK",
+                  "behavior": "BLOCKING",
+                  "in": null,
+                  "out": [
+                    {
+                      "value": null,
+                      "name": "traceabilityevent.file",
+                      "uri": {
+                        "prefix": "WORKSPACE",
+                        "path": "TraceabilityOperationDetails/EVENT_DETAIL_DATA.json"
+                      },
+                      "optional": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": null,
+            "workerGroupId": "DefaultWorker",
+            "stepName": "STP_MERKLE_TREE",
+            "behavior": "BLOCKING",
+            "distribution": {
+              "kind": "REF",
+              "element": ""
+            },
+            "actions": [
+              {
+                "action": {
+                  "actionKey": "CHECK_MERKLE_TREE",
+                  "behavior": "BLOCKING",
+                  "in": [
+                    {
+                      "value": null,
+                      "name": "traceabilityevent.file",
+                      "uri": {
+                        "prefix": "WORKSPACE",
+                        "path": "TraceabilityOperationDetails/EVENT_DETAIL_DATA.json"
+                      },
+                      "optional": false
+                    }
+                  ],
+                  "out": null
+                }
+              }
+            ]
+          },
+          {
+            "id": null,
+            "workerGroupId": "DefaultWorker",
+            "stepName": "STP_VERIFY_STAMP",
+            "behavior": "BLOCKING",
+            "distribution": {
+              "kind": "REF",
+              "element": ""
+            },
+            "actions": [
+              {
+                "action": {
+                  "actionKey": "VERIFY_TIMESTAMP",
+                  "behavior": "BLOCKING",
+                  "in": [
+                    {
+                      "value": null,
+                      "name": "traceabilityevent.file",
+                      "uri": {
+                        "prefix": "WORKSPACE",
+                        "path": "TraceabilityOperationDetails/EVENT_DETAIL_DATA.json"
+                      },
+                      "optional": false
+                    }
+                  ],
+                  "out": null
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/206" target="_blank">206</a></h2><p>Partial Content, pagination involved</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="accesscontracts" class="panel-title">Access contracts</h3></div><div class="panel-body"><div class="top-resource-description"><p>API qui définit les requêtes pour accéder aux contracs d&#39;accès La requête utilise le langage de requête (DSL) de Vitam en entrée et retourne une liste de contrats d&#39;accès selon le DSL Vitam en cas de succès.</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_accesscontracts"><span class="parent"></span>/accesscontracts</a> <span class="methods"><a href="#accesscontracts_get"><span class="badge badge_get">get</span></a> <a href="#accesscontracts_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_accesscontracts" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#accesscontracts_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Requête qui retourne des résultats contenant des Contrats d&#39;accès. La requête utilise le langage de requête DSL de type <strong>recherche simple (SELECT SINGLE)</strong> de Vitam en entrée et retourne une liste de Contrats d&#39;accès selon le DSL Vitam en cas de succès.</p><p>Permissions requises:</p><ul><li>accesscontracts:read</li></ul></div><div class="clearfix"></div></div><div onclick="window.location.href = '#accesscontracts_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Requête qui retourne des résultats contenant des Contrats d&#39;accès si la requête utilise POST avec X-Http-Method-Override: GET. Si il n&#39;y a pas de X-Http-Method-Override, la requête importe un ensemble de contrats d&#39;accès qui sont sauvegardés et indexés en cas de succès</p><p>Permissions requises:</p><ul><li>accesscontracts:create:json</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="accesscontracts_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/accesscontracts</h4></div><div class="modal-body"><div class="alert alert-info"><p>Requête qui retourne des résultats contenant des Contrats d&#39;accès. La requête utilise le langage de requête DSL de type <strong>recherche simple (SELECT SINGLE)</strong> de Vitam en entrée et retourne une liste de Contrats d&#39;accès selon le DSL Vitam en cas de succès.</p><p>Permissions requises:</p><ul><li>accesscontracts:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#accesscontracts_get_request" data-toggle="tab">Request</a></li><li><a href="#accesscontracts_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="accesscontracts_get_request"><h3>Headers</h3><ul><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Examples</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -3147,6 +3546,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -3603,6 +4009,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p></div><div class="tab-pane" id="accesscontracts_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Accesscontracts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -3952,6 +4365,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -4453,6 +4873,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="ingestcontracts_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Ingestcontracts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -4880,6 +5307,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p></div><div class="tab-pane" id="ingestcontracts_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Ingestcontracts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -5229,6 +5663,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -5775,6 +6216,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="managementcontracts_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Managementcontracts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -6223,6 +6671,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p></div><div class="tab-pane" id="managementcontracts_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Managementcontracts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -6572,6 +7027,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -7163,6 +7625,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="contexts_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Contexts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -7512,6 +7981,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -8108,6 +8584,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="contexts__idc__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Contexts correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -8457,6 +8940,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -9419,6 +9909,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="profiles__idp__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Profiles correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -9768,6 +10265,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -10420,6 +10924,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p></div><div class="tab-pane" id="griffin_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Griffin correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -10769,6 +11280,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -11449,6 +11967,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="preservationscenario_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type PreservationScenario correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -11798,6 +12323,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -12506,6 +13038,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="preservationscenario__id_document__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type PreservationScenario correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -12855,6 +13394,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -13920,6 +14466,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="archiveunitprofiles__idp__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Archiveunitprofiles correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -14473,6 +15026,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="securityprofiles_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Securityprofiles correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -14822,6 +15382,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -15916,6 +16483,13 @@ pre code {
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
+}
 </code></pre></div></div><div class="tab-pane" id="agencies_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Renvoie la liste des résultats de type Agencies correspondant à la requête DSL</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$context</strong>: <em><span class="required">required</span>(object)</em><p>Contient la requête DSL liée à la réponse</p><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
@@ -16265,6 +16839,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -18529,7 +19110,7 @@ pre code {
     }
   ]
 }
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="audits" class="panel-title">Audits</h3></div><div class="panel-body"><div class="top-resource-description"><p>API d&#39;audits (Ingest). Ce point d&#39;entrée permet de créer une opération d&#39;audit. Une opération d&#39;audit est volatile, c&#39;est à dire qu&#39;elle disparaîtra dès qu&#39;elle sera terminée. Sa terminaison est liée à la production du rapport et sa récupération par le service ayant effectué l&#39;opération.</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_audits"><span class="parent"></span>/audits</a> <span class="methods"><a href="#audits_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_audits" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#audits_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO</p><p>Permissions requises:</p><ul><li>audits:create</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="audits_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/audits</h4></div><div class="modal-body"><div class="alert alert-info"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO</p><p>Permissions requises:</p><ul><li>audits:create</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#audits_post_request" data-toggle="tab">Request</a></li><li><a href="#audits_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="audits_post_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>auditType</strong>: <em><span class="required">required</span>(one of originatingagency, tenant, dsl)</em><p>Type du</p></li><li><strong>auditActions</strong>: <em><span class="required">required</span>(one of AUDIT_FILE_EXISTING, AUDIT_FILE_INTEGRITY)</em><p>l&#39;audit d&#39;existence ou l&#39;audit d&#39;intégrité</p></li><li><strong>objectId</strong>: <em>(string)</em><p>valeur de ce qui va être audité</p></li><li><strong>query</strong>: <em>(object)</em><p>requête dsl multiple batch</p><ul><li><strong>$roots</strong>: <em><span class="required">required</span>(array of string)</em><p>Contient les racines de la recherche</p></li><li><strong>$query</strong>: <em><span class="required">required</span>(array of object)</em><p>Contient plusieurs requêtes</p><p><strong>Items</strong>:</p><div class="items"><ul></ul></div></li><li><strong>$threshold</strong>: <em>(integer - minimum: 1 - maximum: 100000000)</em><p>Contient le seuil du traitement de masse (optionnel)</p></li><li><strong>$filter</strong>: <em>(object)</em><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="audits" class="panel-title">Audits</h3></div><div class="panel-body"><div class="top-resource-description"><p>APIs d&#39;audits. Ces points d&#39;entrées permettent de créer des opérations d&#39;audit. Une opération d&#39;audit est volatile, c&#39;est à dire qu&#39;elle disparaîtra dès qu&#39;elle sera terminée. Sa terminaison est liée à la production du rapport et sa récupération par le service ayant effectué l&#39;opération.</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_audits"><span class="parent"></span>/audits</a> <span class="methods"><a href="#audits_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_audits" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#audits_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO</p><p>Permissions requises:</p><ul><li>audits:create</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="audits_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/audits</h4></div><div class="modal-body"><div class="alert alert-info"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO</p><p>Permissions requises:</p><ul><li>audits:create</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#audits_post_request" data-toggle="tab">Request</a></li><li><a href="#audits_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="audits_post_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>auditType</strong>: <em><span class="required">required</span>(one of originatingagency, tenant, dsl)</em><p>Type du</p></li><li><strong>auditActions</strong>: <em><span class="required">required</span>(one of AUDIT_FILE_EXISTING, AUDIT_FILE_INTEGRITY)</em><p>l&#39;audit d&#39;existence ou l&#39;audit d&#39;intégrité</p></li><li><strong>objectId</strong>: <em>(string)</em><p>valeur de ce qui va être audité</p></li><li><strong>query</strong>: <em>(object)</em><p>requête dsl multiple batch</p><ul><li><strong>$roots</strong>: <em><span class="required">required</span>(array of string)</em><p>Contient les racines de la recherche</p></li><li><strong>$query</strong>: <em><span class="required">required</span>(array of object)</em><p>Contient plusieurs requêtes</p><p><strong>Items</strong>:</p><div class="items"><ul></ul></div></li><li><strong>$threshold</strong>: <em>(integer - minimum: 1 - maximum: 100000000)</em><p>Contient le seuil du traitement de masse (optionnel)</p></li><li><strong>$filter</strong>: <em>(object)</em><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "$roots": [
     "guid1",
     "guid2"
@@ -18701,7 +19282,13 @@ pre code {
   ],
   "$facetResults": [],
   "$context": {}
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Retourne le status de KO en cas d&#39;erreur de la création de l&#39;opération d&#39;Audit</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="traceability" class="panel-title">Traceability</h3></div><div class="panel-body"><div class="top-resource-description"><p>API de sécurisation des journaux. Ce point d&#39;entrée permet de vérifier et télécharger une opération de sécurisation des journaux</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_traceability__idop__datafiles"><span class="parent">/traceability</span>/{idop}/datafiles</a> <span class="methods"><a href="#traceability__idop__datafiles_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_traceability__idop__datafiles" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Permet de télécharger un objet représentant la sécurisation des journaux d&#39;opérations</p></div><div class="list-group"><div onclick="window.location.href = '#traceability__idop__datafiles_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger un objet représentant la sécurisation des journaux d&#39;opérations en fonction de l&#39;identificant de l&#39;opération à l&#39;origine.</p><p>Permissions requises:</p><ul><li>traceability:id:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="traceability__idop__datafiles_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/traceability</span>/{idop}/datafiles</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger un objet représentant la sécurisation des journaux d&#39;opérations en fonction de l&#39;identificant de l&#39;opération à l&#39;origine.</p><p>Permissions requises:</p><ul><li>traceability:id:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#traceability__idop__datafiles_get_request" data-toggle="tab">Request</a></li><li><a href="#traceability__idop__datafiles_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="traceability__idop__datafiles_get_request"><h3>URI Parameters</h3><ul><li><strong>idop</strong>: <em><span class="required">required</span>(string)</em><p>Identifiant de l&#39;opération concernée</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul></div><div class="tab-pane" id="traceability__idop__datafiles_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Retourne un fichier de type Datafiles</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="traceabilitychecks" class="panel-title">Vérification de la sécurisation d'un journal</h3></div><div class="panel-body"><div class="top-resource-description"><p>Permet de lancer un processus de vérification d&#39;une opération de sécurisation</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_traceabilitychecks"><span class="parent"></span>/traceabilitychecks</a> <span class="methods"><a href="#traceabilitychecks_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_traceabilitychecks" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#traceabilitychecks_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO La requête utilise le langage de requête DSL de type <strong>recherche simple (SELECT SINGLE)</strong> de Vitam en entrée.</p><p>Permissions requises:</p><ul><li>traceabilitychecks:create</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="traceabilitychecks_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/traceabilitychecks</h4></div><div class="modal-body"><div class="alert alert-info"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO La requête utilise le langage de requête DSL de type <strong>recherche simple (SELECT SINGLE)</strong> de Vitam en entrée.</p><p>Permissions requises:</p><ul><li>traceabilitychecks:create</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#traceabilitychecks_post_request" data-toggle="tab">Request</a></li><li><a href="#traceabilitychecks_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="traceabilitychecks_post_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Examples</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Conflict, operation requested is in conflict with existing data</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Retourne le status de KO en cas d&#39;erreur de la création de l&#39;opération d&#39;Audit</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_audits_referential"><span class="parent">/audits</span>/referential</a> <span class="methods"><a href="#audits_referential_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_audits_referential" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Permet de lancer un audit de vérification des référentiels</p></div><div class="list-group"><div onclick="window.location.href = '#audits_referential_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Permet de lancer un audit de vérification du référentiel précisé dans le DSL. Permissions requises:</p><ul><li>referentialaudit:check</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="audits_referential_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/audits</span>/referential</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de lancer un audit de vérification du référentiel précisé dans le DSL. Permissions requises:</p><ul><li>referentialaudit:check</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#audits_referential_post_request" data-toggle="tab">Request</a></li><li><a href="#audits_referential_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="audits_referential_post_request"><h3>Headers</h3><ul><li><strong>Accept</strong>: <em><span class="required">required</span>(application/json)</em></li><li><strong>Content-Type</strong>: <em><span class="required">required</span>(application/json)</em></li><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><div class="examples"><p><strong>-audit-profile</strong>:<br></p><pre><code>{
+  "collectionName": "Profile"
+}
+</code></pre><p><strong>-audit-agencies</strong>:<br></p><pre><code>{
+  "collectionName": "Agencies"
+}
+</code></pre></div></div><div class="tab-pane" id="audits_referential_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Succès</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Precondition Failed</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="traceability" class="panel-title">Traceability</h3></div><div class="panel-body"><div class="top-resource-description"><p>API de sécurisation des journaux. Ce point d&#39;entrée permet de vérifier et télécharger une opération de sécurisation des journaux</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_traceability__idop__datafiles"><span class="parent">/traceability</span>/{idop}/datafiles</a> <span class="methods"><a href="#traceability__idop__datafiles_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_traceability__idop__datafiles" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Permet de télécharger un objet représentant la sécurisation des journaux d&#39;opérations</p></div><div class="list-group"><div onclick="window.location.href = '#traceability__idop__datafiles_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger un objet représentant la sécurisation des journaux d&#39;opérations en fonction de l&#39;identificant de l&#39;opération à l&#39;origine.</p><p>Permissions requises:</p><ul><li>traceability:id:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="traceability__idop__datafiles_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/traceability</span>/{idop}/datafiles</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger un objet représentant la sécurisation des journaux d&#39;opérations en fonction de l&#39;identificant de l&#39;opération à l&#39;origine.</p><p>Permissions requises:</p><ul><li>traceability:id:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#traceability__idop__datafiles_get_request" data-toggle="tab">Request</a></li><li><a href="#traceability__idop__datafiles_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="traceability__idop__datafiles_get_request"><h3>URI Parameters</h3><ul><li><strong>idop</strong>: <em><span class="required">required</span>(string)</em><p>Identifiant de l&#39;opération concernée</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul></div><div class="tab-pane" id="traceability__idop__datafiles_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Retourne un fichier de type Datafiles</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="traceabilitychecks" class="panel-title">Vérification de la sécurisation d'un journal</h3></div><div class="panel-body"><div class="top-resource-description"><p>Permet de lancer un processus de vérification d&#39;une opération de sécurisation</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_traceabilitychecks"><span class="parent"></span>/traceabilitychecks</a> <span class="methods"><a href="#traceabilitychecks_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_traceabilitychecks" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#traceabilitychecks_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO La requête utilise le langage de requête DSL de type <strong>recherche simple (SELECT SINGLE)</strong> de Vitam en entrée.</p><p>Permissions requises:</p><ul><li>traceabilitychecks:create</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="traceabilitychecks_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/traceabilitychecks</h4></div><div class="modal-body"><div class="alert alert-info"><p>response : JSON asynchronous state / HTTP CODE 200 or 500 for KO La requête utilise le langage de requête DSL de type <strong>recherche simple (SELECT SINGLE)</strong> de Vitam en entrée.</p><p>Permissions requises:</p><ul><li>traceabilitychecks:create</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#traceabilitychecks_post_request" data-toggle="tab">Request</a></li><li><a href="#traceabilitychecks_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="traceabilitychecks_post_request"><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>$query</strong>: <em><span class="required">required</span>(object)</em><p>Contient une requête</p><ul></ul></li><li><strong>$filter</strong>: <em>(object)</em><p>Contains filter to apply (for GET only)</p><ul><li><strong>$offset</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$limit</strong>: <em>(integer - minimum: 1 - maximum: 100000)</em></li><li><strong>$orderby</strong>: <em>(object)</em><ul></ul></li></ul></li><li><strong>$projection</strong>: <em>(object)</em><p>Contains projection to apply (for GET only)</p><ul><li><strong>$fields</strong>: <em>(object)</em><ul></ul></li></ul></li></ul><p><strong>Examples</strong>:</p><div class="examples"><pre><code>{
   "$query": {
     "$eq": {
       "myField1": "myValue"
@@ -18734,6 +19321,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -19213,6 +19807,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -20070,6 +20671,13 @@ pre code {
   },
   "$filter": { "$limit": 100, "$offset": 10 },
   "$projection": {}
+}
+</code></pre><pre><code>{
+  "$query": {
+    "$exists": "Identifier"
+  },
+  "$filter": { "$limit": 100, "$offset": 10 },
+  "$projection": { "$fields": { "#id": 1, "start_date": 1, "state": 1 } }
 }
 </code></pre><pre><code>{
   "$query": {
@@ -21519,4 +22127,4 @@ pre code {
     "objectIdentifierIncome": "MessageIdentifier_in_SEDA",
     "events": []
   }
-</code></pre></div></div><div class="tab-pane" id="logbookoperations_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>L&#39;opération a bien été créée dans VITAM</p><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>L&#39;opération n&#39;est pas au format exigé. Ou alors la valeur des champs eventTypeProcess ou eventType est incorrecte eventTypeProcess doit avoir pour valeur "EXTERNAL", eventType doit commencer par "EXT_".</p><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>L&#39;opération existe déjà</p><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Internal Server Error, le serveur a rencontré une erreur</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Endpoints</h3></div><div class="panel-body"><div class="top-resource-description"><p>API qui liste les endpoints de la ressource /admin-external/{version}.</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_options"><span class="badge badge_options">options</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>Request that will return list of endpoints</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>Request that will return list of endpoints</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK, operation in success</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/503" target="_blank">503</a></h2><p>Service Unavailable, the requested service is unavailable</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="batchreport__ido_" class="panel-title">/batchreport/{ido}</h3></div><div class="panel-body"><div class="top-resource-description"><p>Permet de télécharger le rapport pour un traitement de masse (Elimination, Preservation, Audit, Mise à jour)</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_batchreport__ido_"><span class="parent"></span>/batchreport/{ido}</a> <span class="methods"><a href="#batchreport__ido__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_batchreport__ido_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#batchreport__ido__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger le rapport pour un traitement de masse (Elimination, Preservation, Audit, Mise à jour)</p><p>Permissions requises:</p><ul><li>batchreport:id:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="batchreport__ido__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/batchreport/{ido}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger le rapport pour un traitement de masse (Elimination, Preservation, Audit, Mise à jour)</p><p>Permissions requises:</p><ul><li>batchreport:id:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#batchreport__ido__get_request" data-toggle="tab">Request</a></li><li><a href="#batchreport__ido__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="batchreport__ido__get_request"><h3>URI Parameters</h3><ul><li><strong>ido</strong>: <em><span class="required">required</span>(string)</em><p>Identifiant de l&#39;opération concernée</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul></div><div class="tab-pane" id="batchreport__ido__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Retourne un fichier de type Batchreport</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="distributionreport__ido_" class="panel-title">/distributionreport/{ido}</h3></div><div class="panel-body"><div class="top-resource-description"><p>Permet de télécharger le rapport pour une opération de mise à jour de masse distribuée</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_distributionreport__ido_"><span class="parent"></span>/distributionreport/{ido}</a> <span class="methods"><a href="#distributionreport__ido__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_distributionreport__ido_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#distributionreport__ido__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger le rapport pour une opération de mise à jour de masse distribuée</p><p>Permissions requises:</p><ul><li>distributionreport:id:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="distributionreport__ido__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/distributionreport/{ido}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger le rapport pour une opération de mise à jour de masse distribuée</p><p>Permissions requises:</p><ul><li>distributionreport:id:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#distributionreport__ido__get_request" data-toggle="tab">Request</a></li><li><a href="#distributionreport__ido__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="distributionreport__ido__get_request"><h3>URI Parameters</h3><ul><li><strong>ido</strong>: <em><span class="required">required</span>(string)</em><p>Identifiant de l&#39;opération concernée</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul></div><div class="tab-pane" id="distributionreport__ido__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Retourne un fichier de type Distributionreport</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#formats">FileFormats</a></li><li><a href="#formatsfilecheck">FileFormats check</a></li><li><a href="#rules">Rules</a></li><li><a href="#rulesfilecheck">FileRules check</a></li><li><a href="#rulesreport__idop_">Rules report</a></li><li><a href="#accessionregisters">AccessionRegisters</a></li><li><a href="#accesscontracts">Access contracts</a></li><li><a href="#ingestcontracts">Ingest contracts</a></li><li><a href="#managementcontracts">Management contracts</a></li><li><a href="#contexts">Contexts</a></li><li><a href="#profiles">Profiles</a></li><li><a href="#griffin">griffons</a></li><li><a href="#preservationscenario">scénario de préservation</a></li><li><a href="#archiveunitprofiles">Document Types</a></li><li><a href="#securityprofiles">Security Profiles</a></li><li><a href="#agencies">Agencies</a></li><li><a href="#agenciesfilecheck">FileAgencies check</a></li><li><a href="#operations">Operations</a></li><li><a href="#workflows">Workflows</a></li><li><a href="#audits">Audits</a></li><li><a href="#traceability">Traceability</a></li><li><a href="#traceabilitychecks">Vérification de la sécurisation d'un journal</a></li><li><a href="#traceability_linkedchecks">Audit de vérification de la sécurisation des journaux</a></li><li><a href="#probativevalueexport">Valeur Probante</a></li><li><a href="#rectificationaudit">Audit rectificatif</a></li><li><a href="#evidenceaudit_">Audit de cohérence</a></li><li><a href="#rulesreferential__opid_">Référentiel des rêgles de gestion</a></li><li><a href="#agenciesreferential__opid_">Référentiel des services agents</a></li><li><a href="#ontologies">Ontologies</a></li><li><a href="#forcepause">Alpha - Pause Process</a></li><li><a href="#removeforcepause">Alpha - Remove Pause on Precess</a></li><li><a href="#accessionregisterssymbolic">Registres de fonds symboliques</a></li><li><a href="#logbookoperations">Beta - Journalisation externe</a></li><li><a href="#">Endpoints</a></li><li><a href="#batchreport__ido_">/batchreport/{ido}</a></li><li><a href="#distributionreport__ido_">/distributionreport/{ido}</a></li></ul></div></div></div></div></body></html>
+</code></pre></div></div><div class="tab-pane" id="logbookoperations_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>L&#39;opération a bien été créée dans VITAM</p><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>L&#39;opération n&#39;est pas au format exigé. Ou alors la valeur des champs eventTypeProcess ou eventType est incorrecte eventTypeProcess doit avoir pour valeur "EXTERNAL", eventType doit commencer par "EXT_".</p><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>L&#39;opération existe déjà</p><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Internal Server Error, le serveur a rencontré une erreur</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Endpoints</h3></div><div class="panel-body"><div class="top-resource-description"><p>API qui liste les endpoints de la ressource /admin-external/{version}.</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_options"><span class="badge badge_options">options</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>Request that will return list of endpoints</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>Request that will return list of endpoints</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK, operation in success</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/503" target="_blank">503</a></h2><p>Service Unavailable, the requested service is unavailable</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="batchreport__ido_" class="panel-title">/batchreport/{ido}</h3></div><div class="panel-body"><div class="top-resource-description"><p>Permet de télécharger le rapport pour un traitement de masse (Elimination, Preservation, Audit, Mise à jour, Suppression des versions des groupes d&#39;objets)</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_batchreport__ido_"><span class="parent"></span>/batchreport/{ido}</a> <span class="methods"><a href="#batchreport__ido__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_batchreport__ido_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#batchreport__ido__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger le rapport pour un traitement de masse (Elimination, Preservation, Audit, Mise à jour, Suppression des versions des groupes d&#39;objets)</p><p>Permissions requises:</p><ul><li>batchreport:id:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="batchreport__ido__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/batchreport/{ido}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger le rapport pour un traitement de masse (Elimination, Preservation, Audit, Mise à jour, Suppression des versions des groupes d&#39;objets)</p><p>Permissions requises:</p><ul><li>batchreport:id:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#batchreport__ido__get_request" data-toggle="tab">Request</a></li><li><a href="#batchreport__ido__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="batchreport__ido__get_request"><h3>URI Parameters</h3><ul><li><strong>ido</strong>: <em><span class="required">required</span>(string)</em><p>Identifiant de l&#39;opération concernée</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul></div><div class="tab-pane" id="batchreport__ido__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Retourne un fichier de type Batchreport</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="distributionreport__ido_" class="panel-title">/distributionreport/{ido}</h3></div><div class="panel-body"><div class="top-resource-description"><p>Permet de télécharger le rapport pour une opération de mise à jour de masse distribuée</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_distributionreport__ido_"><span class="parent"></span>/distributionreport/{ido}</a> <span class="methods"><a href="#distributionreport__ido__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_distributionreport__ido_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#distributionreport__ido__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Permet de télécharger le rapport pour une opération de mise à jour de masse distribuée</p><p>Permissions requises:</p><ul><li>distributionreport:id:read</li></ul></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="distributionreport__ido__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/distributionreport/{ido}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Permet de télécharger le rapport pour une opération de mise à jour de masse distribuée</p><p>Permissions requises:</p><ul><li>distributionreport:id:read</li></ul></div><ul class="nav nav-tabs"><li class="active"><a href="#distributionreport__ido__get_request" data-toggle="tab">Request</a></li><li><a href="#distributionreport__ido__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="distributionreport__ido__get_request"><h3>URI Parameters</h3><ul><li><strong>ido</strong>: <em><span class="required">required</span>(string)</em><p>Identifiant de l&#39;opération concernée</p></li></ul><h3>Headers</h3><ul><li><strong>X-Application-Id</strong>: <em>(string)</em><p>Session Identifier from client Front-Office Application</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>SESSION-ID-00001</code></pre></div></li><li><strong>X-Personal-Certificate</strong>: <em>(string)</em><p>Personal certificate (in Base64-encoded DER format), required only if this resource needs personal authentification. If the resource requires personal authentication, and no personal certificate has been provided OR the provided personal certificate is unauthorized, the server will return a 401 http status.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>MIIGfzCCBGegAwIBAgICAPcwDQYJK...</code></pre></div></li><li><strong>X-Tenant-Id</strong>: <em><span class="required">required</span>(number)</em><p>Unique Tenant Identifier.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>0</code></pre></div></li><li><strong>X-Access-Contract-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Access Contract Identifier. Allow read/write access on specific archive unit.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Access-Contract-00001</code></pre></div></li></ul></div><div class="tab-pane" id="distributionreport__ido__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Retourne un fichier de type Distributionreport</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/octet-stream</p><p><strong>Type</strong>: any</p><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Unauthorized (restricted operation), authentication in error</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, requested resource does not exist</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/412" target="_blank">412</a></h2><p>Precondition Failed, some predicates are incorrect, therefore the operation is not possible</p><h3>Headers</h3><ul><li><strong>X-Request-Id</strong>: <em><span class="required">required</span>(string)</em><p>Unique Request Identifier</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>aeeaaaaaachmj6ciaa5nwalv3rsu4laaaaaq</code></pre></div></li></ul></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#formats">FileFormats</a></li><li><a href="#formatsfilecheck">FileFormats check</a></li><li><a href="#rules">Rules</a></li><li><a href="#rulesfilecheck">FileRules check</a></li><li><a href="#rulesreport__idop_">Rules report</a></li><li><a href="#accessionregisters">AccessionRegisters</a></li><li><a href="#accessionregisterdetails">Détails de Registres des fonds</a></li><li><a href="#accesscontracts">Access contracts</a></li><li><a href="#ingestcontracts">Ingest contracts</a></li><li><a href="#managementcontracts">Management contracts</a></li><li><a href="#contexts">Contexts</a></li><li><a href="#profiles">Profiles</a></li><li><a href="#griffin">griffons</a></li><li><a href="#preservationscenario">scénario de préservation</a></li><li><a href="#archiveunitprofiles">Document Types</a></li><li><a href="#securityprofiles">Security Profiles</a></li><li><a href="#agencies">Agencies</a></li><li><a href="#agenciesfilecheck">FileAgencies check</a></li><li><a href="#operations">Operations</a></li><li><a href="#workflows">Workflows</a></li><li><a href="#audits">Audits</a></li><li><a href="#traceability">Traceability</a></li><li><a href="#traceabilitychecks">Vérification de la sécurisation d'un journal</a></li><li><a href="#traceability_linkedchecks">Audit de vérification de la sécurisation des journaux</a></li><li><a href="#probativevalueexport">Valeur Probante</a></li><li><a href="#rectificationaudit">Audit rectificatif</a></li><li><a href="#evidenceaudit_">Audit de cohérence</a></li><li><a href="#rulesreferential__opid_">Référentiel des rêgles de gestion</a></li><li><a href="#agenciesreferential__opid_">Référentiel des services agents</a></li><li><a href="#ontologies">Ontologies</a></li><li><a href="#forcepause">Alpha - Pause Process</a></li><li><a href="#removeforcepause">Alpha - Remove Pause on Precess</a></li><li><a href="#accessionregisterssymbolic">Registres de fonds symboliques</a></li><li><a href="#logbookoperations">Beta - Journalisation externe</a></li><li><a href="#">Endpoints</a></li><li><a href="#batchreport__ido_">/batchreport/{ido}</a></li><li><a href="#distributionreport__ido_">/distributionreport/{ido}</a></li></ul></div></div></div></div></body></html>
