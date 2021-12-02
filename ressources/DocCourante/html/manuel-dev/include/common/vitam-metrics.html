@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.12. Métriques dans VITAM &mdash; Documentation VITAM - Manuel de développement 4.0.3</title>
+  <title>2.12. Métriques dans VITAM &mdash; Documentation VITAM - Manuel de développement 5.rc.1</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../../',
-              VERSION:'4.0.3',
+              VERSION:'5.rc.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                4.0.3
+                5.rc.1
               </div>
             
           
@@ -247,12 +247,8 @@ Les <cite>reporters</cite> de métriques (elasticsearch ou logback) sont démarr
 <p class="first admonition-title">Note</p>
 <p class="last">Les <em>VitamMetrics</em> de type REST ou JVM n’ont pas à être modifiés pendant l’execution d’une application VITAM.</p>
 </div>
-<div class="section" id="configuration">
-<h3>2.12.2.1. Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les métriques sont configurées dans le fichier <code class="docutils literal notranslate"><span class="pre">/vitam/conf/&lt;service_id&gt;/vitam.metrics.conf</span></code>. Ce fichier contient la documentation nécessaire pour configurer correctement les métriques.</p>
-</div>
 <div class="section" id="metriques-metier">
-<h3>2.12.2.2. Métriques métier<a class="headerlink" href="#metriques-metier" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>2.12.2.1. Métriques métier<a class="headerlink" href="#metriques-metier" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les métriques métiers permettent aux développeurs d’enregistrer des métriques n’importe où dans le code, pour par exemple suivre une variable ou bien chronométrer une fonction. Pour cela il suffit d’appeler la fonction statique <em>getBusinessMetricRegistry</em> dans la classe <em>CommonBusinessApplication</em>, puis d’enregistrer une métrique.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommonBusinessApplication</span><span class="p">.</span><span class="na">getBusinessMetricsRegistry</span><span class="p">().</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;Running workflows&quot;</span><span class="p">,</span>
     <span class="k">new</span> <span class="n">Gauge</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
@@ -269,7 +265,7 @@ Les <cite>reporters</cite> de métriques (elasticsearch ou logback) sont démarr
 </div>
 </div>
 <div class="section" id="reporters">
-<h3>2.12.2.3. Reporters<a class="headerlink" href="#reporters" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>2.12.2.2. Reporters<a class="headerlink" href="#reporters" title="Lien permanent vers ce titre">¶</a></h3>
 <p>2 reporters sont disponibles, un reporter Logback (toutes les métriques sont dumpées dans Logback) ou bien un reporter ElasticSearch (toutes les métriques sont dumpées dans la base ElasticSearch Log). Le reporter est configurable avec un interval de temps entre chaque reporting.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
@@ -280,7 +276,7 @@ Les <cite>reporters</cite> de métriques (elasticsearch ou logback) sont démarr
 </div>
 </div>
 <div class="section" id="legacy">
-<h3>2.12.2.4. Legacy<a class="headerlink" href="#legacy" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>2.12.2.3. Legacy<a class="headerlink" href="#legacy" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour celui ou celle qui souhaiterais continuer le développement du système de métriques au sein de VITAM, voici quelques points qui peuvent être intéressants à développer :</p>
 <ul class="simple">
 <li>Pour un reporter ElasticSearch, vérifier l’état de la connexion à chaque reporting et augmenter progressivement le temps de reporting si la base de données n’est pas accessible.</li>

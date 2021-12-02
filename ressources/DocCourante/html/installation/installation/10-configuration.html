@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.3</title>
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 5.rc.1</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'4.0.3',
+              VERSION:'5.rc.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                4.0.3
+                5.rc.1
               </div>
             
           
@@ -1062,7 +1062,7 @@
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p class="last">Concernant la valeur de <code class="docutils literal notranslate"><span class="pre">vitam_site_name</span></code>, seuls les caractères alphanumériques et le tiret («&nbsp;-«&nbsp;) sont autorisés.</p>
+<p class="last">Concernant la valeur de <code class="docutils literal notranslate"><span class="pre">vitam_site_name</span></code>, seuls les caractères alphanumériques et le tiret («&nbsp;-«&nbsp;) sont autorisés (regexp: <code class="docutils literal notranslate"><span class="pre">[A-Za-z0-9-]</span></code>).</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1071,7 +1071,7 @@
 </div>
 <div class="section" id="fichier-vitam-security-yml">
 <h3>4.2.3.2.2. Fichier <code class="docutils literal notranslate"><span class="pre">vitam_security.yml</span></code><a class="headerlink" href="#fichier-vitam-security-yml" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La configuration des droits d’accès à VITAM est réalisée dans le fichier <a href="#id2"><span class="problematic" id="id3">|</span></a>repertoire_inventory|``group_vars/all/vitam_security.yml``, comme suit :</p>
+<p id="vitamsecurityanchor">La configuration des droits d’accès à VITAM est réalisée dans le fichier <a href="#id2"><span class="problematic" id="id3">|</span></a>repertoire_inventory|``group_vars/all/vitam_security.yml``, comme suit :</p>
 <div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1393,7 +1393,17 @@
 249
 250
 251
-252</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
 <span class="c1"># This list of offers is ordered. It has to be completed if more offers are necessary</span>
 <span class="c1"># Strategy order (1st has to be the preferred one)</span>
 <span class="nt">vitam_strategy</span><span class="p">:</span>
@@ -1499,6 +1509,12 @@
     <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
     <span class="c1"># Batch metadata computation timeout in seconds</span>
     <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+    <span class="c1"># Enable / Disable use of vitam custom headers for offer requests</span>
+    <span class="nt">enableCustomHeaders</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="c1"># List of vitam custom headers used by offer requests</span>
+    <span class="c1">#customHeaders:</span>
+    <span class="c1">#  - key: &#39;Cookie&#39;</span>
+    <span class="c1">#    value: &#39;Origin=vitam&#39;</span>
 <span class="c1">################################################################################</span>
   <span class="nt">offer-s3-1</span><span class="p">:</span>
     <span class="c1"># provider : can only be amazon-s3-v1 for Amazon SDK S3 V1</span>
@@ -1645,6 +1661,10 @@
   <span class="c1">#    Time (in seconds) to renew a token before expiration occurs</span>
   <span class="c1">#    swiftHardRenewTokenDelayBeforeExpireTime: 60</span>
   <span class="c1">#    swiftSoftRenewTokenDelayBeforeExpireTime: 300</span>
+  <span class="c1">#    enableCustomHeaders: false</span>
+  <span class="c1">#    customHeaders:</span>
+  <span class="c1">#      - key: &#39;Cookie&#39;</span>
+  <span class="c1">#        value: &#39;Origin=vitam&#39;</span>
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -1962,7 +1982,41 @@
 294
 295
 296
-297</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -1978,6 +2032,7 @@
     <span class="c1">#   wan: [&quot;10.10.10.10&quot;,&quot;1.1.1.1&quot;]</span>
     <span class="c1"># - dc3:</span>
     <span class="c1">#   wan: [&quot;10.10.10.11&quot;,&quot;1.1.1.1&quot;]</span>
+
 <span class="c1"># Please uncomment and fill values if you want to connect VITAM to external SIEM</span>
 <span class="c1"># external_siem:</span>
 <span class="c1">#     host:</span>
@@ -2140,6 +2195,40 @@
 <span class="nt">grafana</span><span class="p">:</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
+    <span class="nt">proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">grafana_datasources</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus&quot;</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;prometheus&quot;</span>
+        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-server.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.server.port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9090)</span><span class="nv"> </span><span class="s">}}/prometheus&quot;</span>
+        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus</span><span class="nv"> </span><span class="s">AlertManager&quot;</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;camptocamp-prometheus-alertmanager-datasource&quot;</span>
+        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-alertmanager.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.alertmanager.api_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9093)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">jsonData</span><span class="p">:</span>
+          <span class="nt">keepCookies</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+          <span class="nt">severity_critical</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
+          <span class="nt">severity_high</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+          <span class="nt">severity_warning</span><span class="p">:</span> <span class="s">&quot;2&quot;</span>
+          <span class="nt">severity_info</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
+    <span class="nt">grafana_dashboards</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;vitam-dashboard&#39;</span>
+        <span class="nt">orgId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">folder</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+        <span class="nt">folderUid</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
+        <span class="nt">disableDeletion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">updateIntervalSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">allowUiUpdates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">options</span><span class="p">:</span>
+          <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;/etc/grafana/provisioning/dashboards&quot;</span>
+    <span class="nt">grafana_plugins</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">camptocamp-prometheus-alertmanager-datasource</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Vonage-Grafana_Status_panel</span>
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
@@ -2176,10 +2265,6 @@
         <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="c1"># pour index logstash-*</span>
         <span class="nt">metrics</span><span class="p">:</span>
-            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="c1"># pour index metrics-vitam-*</span>
-        <span class="nt">logs</span><span class="p">:</span>
             <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
             <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="c1"># pour index metricbeat-*</span>
@@ -2225,6 +2310,9 @@
 <span class="c1">## Avast Business Antivirus for Linux</span>
 <span class="c1">## if undefined, the following default values are applied.</span>
 <span class="c1"># avast:</span>
+<span class="c1">#     # logs configuration</span>
+<span class="c1">#     logrotate: enabled # or disabled</span>
+<span class="c1">#     history_days: 30 # How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
 <span class="c1">#     manage_repository: true</span>
 <span class="c1">#     repository:</span>
 <span class="c1">#         state: present</span>
@@ -2765,13 +2853,18 @@
 147
 148
 149
-150</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">---</span>
+150
+151
+152
+153</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">---</span>
 <span class="c1"># Vitam platform secret key</span>
-<span class="na">plateforme_secret: vitamsecret</span>
+<span class="c1"># Note: It has to be the same on all sites</span>
+<span class="na">plateforme_secret: change_it_vitamsecret</span>
 
 <span class="c1"># The consul key must be 16-bytes, Base64 encoded: https://www.consul.io/docs/agent/encryption.html</span>
 <span class="c1"># You can generate it with the &quot;consul keygen&quot; command</span>
 <span class="c1"># Or you can use this script: deployment/pki/scripts/generate_consul_key.sh</span>
+<span class="c1"># Note: It has to be the same on all sites</span>
 <span class="na">consul_encrypt: Biz14ohqN4HtvZmrXp3N4A</span><span class="o">=</span><span class="s">=</span>
 
 <span class="na">mongodb:</span>
@@ -2911,7 +3004,8 @@
 
 <span class="na">vitam_offers:</span>
     <span class="na">offer-swift-1:</span>
-        <span class="na">swiftPassword: change_it_m44j57aYeRPnPXQ2</span>
+        <span class="na">swiftUser: swift_user</span>
+        <span class="na">swiftPassword: password_change_m44j57aYeRPnPXQ2</span>
     <span class="na">offer-s3-1:</span>
         <span class="na">s3AccessKey: accessKey_change_grLS8372Uga5EJSx</span>
         <span class="na">s3SecretKey: secretKey_change_p97es2m2CHXPJA1m</span>

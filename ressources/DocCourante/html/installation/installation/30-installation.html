@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.2.6. Procédure de première installation &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.3</title>
+  <title>4.2.6. Procédure de première installation &mdash; Documentation VITAM - Documentation d&#39;installation 5.rc.1</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'4.0.3',
+              VERSION:'5.rc.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                4.0.3
+                5.rc.1
               </div>
             
           
@@ -320,8 +320,27 @@ Actuellement la solution logicielle <a class="reference internal" href="../intro
 </div>
 </div>
 </div>
+<div class="section" id="tests-d-infrastructure">
+<h3>4.2.6.1.5. Tests d’infrastructure<a class="headerlink" href="#tests-d-infrastructure" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible de lancer une série de tests d’infrastructure en amont du déploiement, ceci afin de se prémunir d’éventuelles erreurs durant l’installation.</p>
+<p>Les tests sont basés sur des prérequis de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> et sont génériques. De ce fait, des «&nbsp;faux-posififs&nbsp;» peuvent être remontés dû à une configuration spécifique de votre environnement. Il est à votre charge d’analyser le rapport à l’issue des tests et de juger de la pertinence des résultats.</p>
+<p>Les tests sont les suivants :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Version d’Ansible</li>
+<li>Accès aux recursors (serveurs DNS)</li>
+<li>Présence de Java</li>
+<li>Accès aux repositories</li>
+<li>Accès aux offres objet</li>
+</ul>
+</div></blockquote>
+<p>Comme pour le déploiement, les tests s’effectuent depuis la machine <cite>ansible</cite>. La commande pour les effectuer est la suivante :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ansible-playbook ansible-vitam/checks_infra.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="id9">
-<h3>4.2.6.1.5. Déploiement<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.6.1.6. Déploiement<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une fois les étapes précédentes correctement effectuées (en particulier, la section <a class="reference internal" href="certificats/keystores.html#pkistores"><span class="std std-ref">Génération des magasins de certificats</span></a>), le déploiement s’effectue depuis la machine <cite>ansible</cite> et va distribuer la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> selon l’inventaire correctement renseigné.</p>
 <p>Une fois l’étape de la génération des hosts effectuée avec succès, le déploiement est à réaliser avec la commande suivante&nbsp;:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ansible-playbook ansible-vitam/vitam.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass</span>
@@ -330,6 +349,10 @@ Actuellement la solution logicielle <a class="reference internal" href="../intro
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Une confirmation est demandée pour lancer ce script. Il est possible de rajouter le paramètre <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">confirmation=yes</span></code> pour bypasser cette demande de confirmation (cas d’un déploiement automatisé).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est possible d’effectuer les tests d’infrastructure décrits dans la partie précédente en ajoutant le paramètre <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">checks_infra=yes</span></code>. Un rapport s’affichera à l’issue des tests et il sera donné la possibilité de poursuivre ou non le déploiement.</p>
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>

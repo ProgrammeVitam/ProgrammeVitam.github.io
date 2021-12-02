@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 4.0.3</title>
+  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 5.rc.1</title>
   
 
   
@@ -31,7 +31,7 @@
       <script type="text/javascript">
           var DOCUMENTATION_OPTIONS = {
               URL_ROOT:'../',
-              VERSION:'4.0.3',
+              VERSION:'5.rc.1',
               LANGUAGE:'fr',
               COLLAPSE_INDEX:false,
               FILE_SUFFIX:'.html',
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                4.0.3
+                5.rc.1
               </div>
             
           
@@ -315,7 +315,11 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l’antivirus soit fonctionnel, il est nécessaire, durant l’installation, de le télécharger ; il est donc nécessaire de renseigner dans l’inventaire la directive <code class="docutils literal notranslate"><span class="pre">http_proxy_environnement</span></code>.</p>
+<p class="last">Il subsiste une limitation avec l’antivirus ClamAV qui n’est actuellement pas capable de scanner des fichiers &gt; 4Go. Ainsi, il n’est pas recommandé de conserver cet antivirus en environnement de production.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Sur plate-forme Debian, ClamAV est installé sans base de données. Pour que l’antivirus soit fonctionnel, il est nécessaire, durant l’installation, de le télécharger ; il est donc nécessaire de renseigner dans l’inventaire la directive <code class="docutils literal notranslate"><span class="pre">http_proxy_environnement</span></code> ou de renseigner un <a class="reference external" href="https://www.clamav.net/documents/private-local-mirrors">miroir local privé</a>).</p>
 </div>
 <div class="section" id="extra-avast-business-antivirus-for-linux">
 <h3>4.2.5.4.1. Extra: Avast Business Antivirus for Linux<a class="headerlink" href="#extra-avast-business-antivirus-for-linux" title="Lien permanent vers ce titre">¶</a></h3>
@@ -326,12 +330,15 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 </div>
 <p>À la place de clamAV, il est possible de déployer l’antivirus <strong>Avast Business Antivirus for Linux</strong>.</p>
 <p>Pour se faire, il suffit d’éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingestexternal.antivirus:</span> <span class="pre">avast</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/vitam_vars.yml</span></code>.</p>
-<p>Il sera nécessaire de fournir le fichier de licence sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/antivirus/license.avastlic</span></code> pour pouvoir deployer et utiliser l’antivirus Avast.</p>
+<p>Il sera nécessaire de fournir le fichier de licence sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/antivirus/license.avastlic</span></code> pour pouvoir déployer et utiliser l’antivirus Avast.</p>
 <p>De plus, il est possible de paramétrer l’accès aux repositories (Packages &amp; Virus definitions database) dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/cots_vars.yml</span></code>.</p>
 <p>Si les paramètres ne sont pas définis, les valeurs suivantes sont appliquées par défaut.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">## Avast Business Antivirus for Linux</span>
 <span class="c1">## if undefined, the following default values are applied.</span>
 <span class="nt">avast</span><span class="p">:</span>
+    <span class="c1"># logs configuration</span>
+    <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+    <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">manage_repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">repository</span><span class="p">:</span>
         <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
@@ -347,6 +354,13 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EMPTY&gt;</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Vitam gère en entrée les SIPs aux formats: ZIP ou TAR (tar, tar.gz ou tar.bz2); cependant et d’après les tests effectués, il est fortement recommandé d’utiliser le format .zip pour bénéficier des meilleures performances d’analyses avec le scan-avast.sh.</p>
+</div>
+<p>De plus, il faudra prendre en compte un dimensionnement supplémentaire sur les ingest-external afin de pouvoir traiter le scan des fichiers &gt;500Mo.</p>
+<p>Dans le cas d’un SIP au format .zip ou .tar, les fichiers &gt;500Mo contenus dans le SIP seront décompressés et scannés unitairement. Ainsi la taille utilisée ne dépassera pas la taille d’un fichier.</p>
+<p>Dans le cas d’un SIP au format .tar.gz ou .tar.bz2, les SIPs &gt;500Mo seront intégralement décompressés et scannés. Ainsi, la taille utilisée correspondra à la taille du SIP décompressé.</p>
 </div>
 </div>
 <div class="section" id="parametrage-des-certificats-externes-externe">
@@ -1029,7 +1043,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 488
 489
 490
-491</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+491
+492
+493</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="c1">### global ###</span>
 
 <span class="c1"># Disable epel or Debian backports repositories install</span>
@@ -1085,9 +1101,6 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="c1"># consul_business_check: 10 # value in seconds</span>
     <span class="c1"># consul_admin_check: 10 # value in seconds</span>
 
-    <span class="c1"># metricslevel: DEBUG</span>
-    <span class="c1"># metricsinterval: 3</span>
-    <span class="c1"># metricsunit: MINUTES</span>
 
     <span class="c1"># access_retention_days: 30 # Number of days for file retention</span>
     <span class="c1"># access_total_size_cap: &quot;10GB&quot; # total acceptable size</span>
@@ -1179,7 +1192,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-computed-inherited-rules</span>
           <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:30:00&quot;</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-purge-dip</span>
-          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:20:00&quot;</span>
+          <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">*:00:00&quot;</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-purge-transfers-SIP</span>
           <span class="nt">frequency</span><span class="p">:</span> <span class="s">&quot;*-*-*</span><span class="nv"> </span><span class="s">02:25:00&quot;</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam-metadata-audit-mongodb-es</span>
@@ -1281,8 +1294,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
         <span class="nt">antivirus</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span> <span class="c1"># or avast</span>
-        <span class="c1"># uncomment if huge files need to be analyzed in more than 60s (default behavior)</span>
-        <span class="c1">#scantimeout: 60000 # value in milliseconds</span>
+        <span class="c1">#scantimeout: 1200000 # value in milliseconds; increase this value if huge files need to be analyzed in more than 20 min (default value)</span>
         <span class="c1"># Directory where files should be placed for local ingest</span>
         <span class="nt">upload_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload&quot;</span>
         <span class="c1"># Directory where successful ingested files will be moved to</span>
@@ -1312,7 +1324,6 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">static_content</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/app/ihm-demo/v2&quot;</span>
         <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ihm-demo&quot;</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="c1"># metrics_enabled: false # Set to false if ihm_demo component is outside the Vitam area (default: true)</span>
         <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
         <span class="c1"># User session timeout in milliseconds (for shiro)</span>
         <span class="nt">session_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1800000</span>
@@ -1392,7 +1403,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">schemaValidatorCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
         <span class="c1"># DIP cleanup delay (in minutes)</span>
         <span class="nt">dipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
+        <span class="nt">criticalDipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1440</span> <span class="c1"># 1 day</span>
         <span class="nt">transfersSIPTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
+        <span class="nt">workspaceFreespaceThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">25</span> <span class="c1"># when below use critical time to live when above use normal time to live</span>
         <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata/mapping&quot;</span> <span class="c1"># Directory of elasticsearch metadata mapping</span>
         <span class="c1">#### Audit data consistency MongoDB-ES ####</span>
         <span class="nt">isDataConsistencyAuditRunnable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -1487,6 +1500,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">bulkAtomicUpdateThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
         <span class="c1"># Number of jobs that can be queued in memory before blocking for bulk atomic update</span>
         <span class="nt">bulkAtomicUpdateThreadPoolQueueSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+        <span class="c1"># Dip/transfer threshold file size</span>
+        <span class="nt">binarySizePlatformThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">binarySizePlatformThresholdSizeUnit</span><span class="p">:</span> <span class="s">&quot;GIGABYTE&quot;</span>
     <span class="nt">workspace</span><span class="p">:</span>
         <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;workspace.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -1497,6 +1513,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
 
 <span class="c1"># for functional-administration, manage master/slave tenant configuration</span>
+<span class="c1"># http://www.programmevitam.fr/ressources/DocCourante/html/installation/installation/21-addons.html#passage-des-identifiants-des-referentiels-en-mode-esclave</span>
 <span class="nt">vitam_tenants_usage_external</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
     <span class="nt">identifiers</span><span class="p">:</span>
@@ -1513,10 +1530,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SECURITY_PROFILE</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CONTEXT</span>
 
+<span class="c1"># http://www.programmevitam.fr/ressources/DocCourante/html/installation/installation/21-addons.html#durees-minimales-permettant-de-controler-les-valeurs-saisies</span>
 <span class="nt">vitam_tenant_rule_duration</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span> <span class="c1"># applied tenant</span>
-    <span class="nt">rules</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">AppraisalRule </span><span class="p">:</span> <span class="s">&quot;1</span><span class="nv"> </span><span class="s">year&quot;</span> <span class="c1"># rule name : rule value</span>
+  <span class="c1"># - name: 2 # applied tenant</span>
+  <span class="c1">#   rules:</span>
+  <span class="c1">#     - AppraisalRule : &quot;1 year&quot; # rule name : rule value</span>
 
 <span class="c1"># If you want to deploy vitam in a single VM, add the vm name in this array</span>
 <span class="nt">single_vm_hostnames</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;localhost&#39;</span><span class="p p-Indicator">]</span>
@@ -1830,7 +1848,41 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 294
 295
 296
-297</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -1846,6 +1898,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="c1">#   wan: [&quot;10.10.10.10&quot;,&quot;1.1.1.1&quot;]</span>
     <span class="c1"># - dc3:</span>
     <span class="c1">#   wan: [&quot;10.10.10.11&quot;,&quot;1.1.1.1&quot;]</span>
+
 <span class="c1"># Please uncomment and fill values if you want to connect VITAM to external SIEM</span>
 <span class="c1"># external_siem:</span>
 <span class="c1">#     host:</span>
@@ -2008,6 +2061,40 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="nt">grafana</span><span class="p">:</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
+    <span class="nt">proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">grafana_datasources</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus&quot;</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;prometheus&quot;</span>
+        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-server.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.server.port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9090)</span><span class="nv"> </span><span class="s">}}/prometheus&quot;</span>
+        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus</span><span class="nv"> </span><span class="s">AlertManager&quot;</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;camptocamp-prometheus-alertmanager-datasource&quot;</span>
+        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-alertmanager.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.alertmanager.api_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9093)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">jsonData</span><span class="p">:</span>
+          <span class="nt">keepCookies</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+          <span class="nt">severity_critical</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
+          <span class="nt">severity_high</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+          <span class="nt">severity_warning</span><span class="p">:</span> <span class="s">&quot;2&quot;</span>
+          <span class="nt">severity_info</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
+    <span class="nt">grafana_dashboards</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;vitam-dashboard&#39;</span>
+        <span class="nt">orgId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">folder</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+        <span class="nt">folderUid</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
+        <span class="nt">disableDeletion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">updateIntervalSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">allowUiUpdates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">options</span><span class="p">:</span>
+          <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;/etc/grafana/provisioning/dashboards&quot;</span>
+    <span class="nt">grafana_plugins</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">camptocamp-prometheus-alertmanager-datasource</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Vonage-Grafana_Status_panel</span>
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
@@ -2044,10 +2131,6 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="c1"># pour index logstash-*</span>
         <span class="nt">metrics</span><span class="p">:</span>
-            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="c1"># pour index metrics-vitam-*</span>
-        <span class="nt">logs</span><span class="p">:</span>
             <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
             <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="c1"># pour index metricbeat-*</span>
@@ -2093,6 +2176,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="c1">## Avast Business Antivirus for Linux</span>
 <span class="c1">## if undefined, the following default values are applied.</span>
 <span class="c1"># avast:</span>
+<span class="c1">#     # logs configuration</span>
+<span class="c1">#     logrotate: enabled # or disabled</span>
+<span class="c1">#     history_days: 30 # How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
 <span class="c1">#     manage_repository: true</span>
 <span class="c1">#     repository:</span>
 <span class="c1">#         state: present</span>
@@ -2245,7 +2331,19 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 102
 103
 104
-105</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+105
+106
+107
+108
+109
+110
+111</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="c1"># Default values if unset</span>
+<span class="c1"># jvm_opts.memory: &quot;-Xms512m -Xmx512m&quot;</span>
+<span class="c1"># timer_jvm_opts.memory: &quot;-Xms32m -Xmx128m&quot;</span>
+<span class="c1"># gc: &quot;-Xlog:gc*,gc+age=trace,safepoint:file={{ vitam_folder_log }}/gc.log:utctime,pid,tags:filecount=32,filesize=64m&quot;</span>
+<span class="c1"># java: &quot;&quot;</span>
 
 <span class="nt">vitam</span><span class="p">:</span>
     <span class="nt">accessinternal</span><span class="p">:</span>
