@@ -4,8 +4,13 @@ title: Doc. des tests
 fatherref: documentation
 ---
 
+* **Vitam UI : jeu de tests pour prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([zip](https://download.programmevitam.fr/jeux_de_tests/v5rc/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
+
+* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir de l'IHM Démo
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v5rc/Jeux_de_tests_Guide_de_prise_en_main_V5_RC.zip))
+
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_IHM_Recette.pdf))
-* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/r16/Jeux_de_tests_fonctionnels_R16.zip))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v5rc/Jeux_de_tests_fonctionnels_V5_RC.zip))
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
