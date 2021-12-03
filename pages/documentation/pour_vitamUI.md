@@ -14,6 +14,8 @@ Naviguer dans la documentation par domaine :
 * [Versement et consultation](#versement)
 
 * **Vitam UI : documentation produit** ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Doc_produit.pdf))
+* **Vitam UI : guide de prise en main** ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Guide_de_prise_en_main.pdf))
+* **Vitam UI : jeu de tests pour prise en main** ([zip](/ressources/DocCourante/autre/fonctionnel/))
 
 ## Guide de lecture de la documentation Vitam UI
 <table>
