@@ -31,7 +31,8 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 ** partie 3 : préservation et intégrité ([pdf - partie 3](/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_workflow_part3.pdf)) 
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Multi_strategies.pdf))
 * **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Transfert.pdf))
-* **Manuel ReSIP** - Fonctionnalités et utilisation de l'outil ReSIP ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
+* **Le gel d’archives avec la solution logicielle Vitam** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gel.pdf))
+
 
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
 * [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
@@ -39,5 +40,6 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
 * [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
 * [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
+* [Documentation ReSIP]((https://www.programmevitam.fr/pages/documentation/resip/))
 * [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 ![Logos](/public/images/202003_guide de lecture.png)

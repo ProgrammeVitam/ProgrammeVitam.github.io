@@ -196,4 +196,5 @@ Naviguer dans la documentation par domaine :
 * [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
 * [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
 * [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
+* [Documentation ReSIP]((https://www.programmevitam.fr/pages/documentation/resip/))
 * [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)

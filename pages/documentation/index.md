@@ -18,6 +18,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
 * [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
 * [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
+* [Documentation ReSIP]((https://www.programmevitam.fr/pages/documentation/resip/))
 * [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 
 * Accéder à la documentation des [Anciennes versions](/pages/documentation/liste_doc_ancienne/)
