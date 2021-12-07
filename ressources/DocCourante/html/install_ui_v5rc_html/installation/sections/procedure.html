@@ -1,0 +1,472 @@
+<h1 id="procédure-de-déploiement-de-vitamui">Procédure de déploiement de VitamUI</h1>
+<h2 id="récupération-des-sources-de-déploiement">Récupération des sources de déploiement</h2>
+<p>Les sources de déploiement de Vitam-UI sont disponibles sous github à l’adresse suivante: <a href="https://github.com/ProgrammeVitam/vitam-ui/tree/develop/deployment" class="uri">https://github.com/ProgrammeVitam/vitam-ui/tree/develop/deployment</a></p>
+<p>Vous pouvez cloner directement la branche master_4.0.x pour obtenir les derniers éléments de la release R16 de Vitam-UI.</p>
+<pre><code>git clone https://github.com/ProgrammeVitam/vitam-ui.git --branch master_4.0.x</code></pre>
+<h2 id="préparation-des-sources-de-déploiement">Préparation des sources de déploiement</h2>
+<h3 id="préparation-des-variables-utilisés-par-lansiblerie">Préparation des variables utilisés par l’ansiblerie</h3>
+<p>Se rendre dans deployment/environments/group_vars/all/ et balayer le contenu des fichiers présents. Remplacer les variables valorisées avec “changeme” par la valeur appropriée pour votre installation.</p>
+<p>Fichiers à prendre en compte:</p>
+<p>deployment/environments/group_vars/all/repositories.yml</p>
+<p>Changer le hash de commit ou les liens selon votre repository local ou distant:</p>
+<pre class="console"><code>vitam_repositories:
+- key: vitam-java
+  value: &quot;http://pic-prod-repository.vitam-env/commit/VITAM_COMMIT/rpm/vitam-core/&quot;
+  proxy: _none_
+- key: vitam-doc
+  value: &quot;http://pic-prod-repository.vitam-env/commit/VITAM_COMMIT/rpm/vitam-extras/&quot;
+  proxy: _none_
+- key: vitam-external
+  value: &quot;http://pic-prod-repository.vitam-env/commit/VITAM_COMMIT/rpm/vitam-external/&quot;
+  proxy: _none_
+- key: vitam-product
+  value: &quot;http://pic-prod-repository.vitam-env/commit/VITAM_COMMIT/rpm/vitam-product/&quot;
+  proxy: _none_
+- key: vitam-griffins
+  value: &quot;http://pic-prod-repository.vitam-env/griffins/VITAM_GRIFFINS/rpm/&quot;
+  proxy: _none_
+- key: vitamui
+  value: &quot;http://pic-prod-repository.vitam-env/contrib/VITAMUI_COMMIT/rpm/&quot;
+  proxy: _none_</code></pre>
+<p>deployment/environments/group_vars/all/vitamui_vars.yml</p>
+<pre class="console"><code> # site name utilisé par l&#39;url de connexion et le nom de rattachement consul
+vitamui_site_name: &quot;monsite-ui&quot;
+# site name utilisé par l&#39;url vitam et le nom de rattachement consul vitam
+vitam_site_name: &quot;monsite&quot; 
+
+# Services Vitam nécessaires à l&#39;intéraction avec VitamUI.
+# (Ces services doivent être accessibles)
+vitam_vars:
+  functional_administration:
+    port_admin: 18004
+  access_external:
+    host: &quot;access-external.service.monsite.consul&quot;
+    port_service: 8444
+  ingest_external:
+    host: &quot;ingest-external.service.monsite.consul&quot;
+    port_service: 8443
+
+# Rattachement au consul de Vitam sous un autre onglet dans l&#39;interface
+# portail consul (onglet nommé par la variable name)
+consul_remote_sites:
+  - vitamui:
+    name: &quot;monsite-ui&quot;
+    wan: [&quot;vitam-env-monsite-vm.domain-env&quot;] 
+    # addresse ip ou nom de machine du consul serveur Vitam
+
+# Informations concernant le serveur smtp utilisé par le service
+# Cas-Server pour l&#39;envoi de mail pour les mots de passe perdus.
+smtp:
+  host: &quot;monhost.smpt.fr&quot;   
+  port:  2525
+  protocol: &quot;smtps&quot; 
+  user: &quot;do-not-answer&quot;
+  password: &quot;passwordAChanger&quot;
+  test_smtp_connection: false
+  auth: true  
+  tls_enable: true 
+  cas:
+    sender: &quot;do-not-answer@domain.fr&quot;
+    expiration: 1440 # temps d&#39;expiration en minutes
+
+
+# Variables utilisées pour réaliser un backup et un restore 
+# de collections pour la base de données VitamUI
+# Ces variables sont utilisées par les playbooks mongo_backup.yml 
+# et mongo_restore.yml.
+mongo_dump_folder: /backup/mongod/
+mongo_backup_reinstall:
+  - db: &quot;iam&quot;
+    collections: [&quot;applications&quot;,&quot;customers&quot;,&quot;externalParameters&quot;,&quot;groups&quot;,&quot;owners&quot;,
+    &quot;profiles&quot;, &quot;sequences&quot;,&quot;subrogations&quot;,&quot;tenants&quot;,&quot;users&quot;,&quot;providers&quot;]
+  - db: &quot;admin&quot;
+    collections: []</code></pre>
+<h3 id="configuration-des-profils-de-mots-de-passe-ansiblerie">Configuration des profils de mots de passe (Ansiblerie):</h3>
+<p>La configuration de la complexité des mots de passe est externalisé du serveur CAS, la configuration actuelle est basée sur des profils de configurations.</p>
+<p>L’exploitant / l’installateur de VITAMUI, peut choisir le profil de configuration personnalisé par instance.</p>
+<p>Pour répondre aux exigeances de la complexité des mots de passes de l’ANSSI (Agence Nationale de la Sécurité des Systèmes d’Informations), un profil dédié est configuré par défaut. Ce profil est nommé <code>'anssi'</code>, l’exploitant peut le changer en choisissant le profil custom, qui garde les anciens comportements.</p>
+<h4 id="configuration-par-défaut-profil-anssi">Configuration par défaut (Profil anssi):</h4>
+<pre><code># Password configuration
+vitamui_password_configurations:
+  anssiPolicyPattern: &#39;(^(?=(?:.*[a-z]){2,})(?=(?:.*[A-Z]){2,})(?=(?:.*[\d]){2,})[A-Za-zÀ-ÿ0-9$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]{${password.length},}$)|(^(?=(.*[$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]){2,})(?=(?:.*[A-Z]){2,})(?=(?:.*[\d]){2,})[A-Za-zÀ-ÿ0-9$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]{${password.length},}$)|(^(?=(.*[$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]){2,})(?=(?:.*[a-z]){2,})(?=(?:.*[\d]){2,})[A-Za-zÀ-ÿ0-9$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]{${password.length},}$)|(^(?=(.*[$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]){2,})(?=(?:.*[a-z]){2,})(?=(?:.*[A-Z]){2,})[A-Za-zÀ-ÿ0-9$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]{${password.length},}$)&#39;
+  password:
+    profile: &quot;anssi&quot; # default profile is anssi, for (Agence Nationale de la Sécurité des Systèmes d&#39;Information), use custom profile otherwise
+    length: 12
+    max_old_password: 12
+    check_occurrence: true
+    occurrences_chars_number: 3
+    constraints:
+      defaults:
+        fr:
+          messages:
+            - Avoir une taille d&#39;au moins ${password.length} caractères
+          special-chars:
+            title: &#39;Contenir au moins 2 caractères issus de chaque catégorie, pour au moins 3 des catégories suivantes:&#39;
+            messages:
+              - Minuscules (a-z)
+              - Majuscules (A-Z)
+              - Numériques (0-9)
+              - Caractères spéciaux (!&quot;#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)
+        en:
+          messages:
+            - Have a size of at least ${password.length} characters
+          special-chars:
+            title: &#39;Contain at least 2 characters from each category, for at least 3 of the following categories:&#39;
+            messages:
+              - Uppercases (a-z)
+              - Lowercases (A-Z)
+              - Digital (0-9)
+              - Special Characters (!&quot;#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)
+        de:
+          messages:
+            - Mindestens ${password.length} Zeichen lang sein
+          special-chars:
+            title: &#39;Mindestens 2 Zeichen aus jeder Kategorie enthalten, für mindestens 3 der folgenden Kategorien:&#39;
+            messages:
+              - Großbuchstaben (a-z)
+              - Kleinbuchstaben (A-Z)
+              - Digital (0-9)
+              - Spezielle Charaktere (!&quot;#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)</code></pre>
+<h4 id="configuration-pour-le-profil-personnalisé-profil-custom">Configuration pour le profil personnalisé (profil custom):</h4>
+<pre><code># Password configuration
+vitamui_password_configurations:
+  customPolicyPattern: &#39;^(?=.*[$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`])(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])[A-Za-zÀ-ÿ0-9$@!%*#£?&amp;=\-\/:;\(\)&quot;\.,\?!&#39;&#39;\[\]{}^\+\=_\\\|~&lt;&gt;`]{${password.length},}$&#39;
+  password:
+    profile: &quot;custom&quot;
+    length: 8
+    max_old_password: 3
+    constraints:
+      customs:
+        fr:
+          title: &#39;Pour des raisons de sécurité, votre mot de passe doit:&#39;
+          messages:
+            - Au moins ${password.length} caractères
+            - Des minuscules et des majuscules
+            - Au moins un chiffre et un caractère spécial
+            - Etre différent des ${password.max-old-password} derniers mots de passe
+        en:
+          title: &#39;For security reasons, your password must:&#39;
+          messages:
+            - At least ${password.length} characters
+            - Lowercase and uppercase
+            - At least one number and one special character
+            - Be different from the last ${password.max-old-password} passwords
+        de:
+          title: &#39;Aus Sicherheitsgründen muss Ihr Passwort:&#39;
+          messages:
+            - Mindestens ${password.length} Zeichen
+            - Klein- und Großbuchstaben
+            - Mindestens eine Zahl und ein Sonderzeichen
+            - Unterscheiden Sie sich von den letzten ${password.max-old-password} Passwörtern</code></pre>
+<h5 id="explication-de-la-configuration">Explication de la configuration:</h5>
+<h6 id="configuration-communes">Configuration communes:</h6>
+<ul>
+<li><code>vitamui_password_configurations</code> est le bloc racine, qui se situe dans le fichier <code>vitamui_vars.yml</code></li>
+<li><code>anssiPolicyPattern</code>: L’expression régulière pour le profil ANSSI.</li>
+<li><code>customPolicyPattern</code>: L’expression régulière pour le profil personnalisé (custom). &gt; L’expression régulière qui sera utilisé, dépendra du profil choisi.</li>
+<li><code>password</code>: Le préfixe de configuration qui sera chargé dans le fichier de configuration pricipale du serveur CAS.</li>
+<li><code>profile</code>: Le nom du profil à utiliser (par défault <code>anssi</code>), ou bien <code>custom</code>, pour éviter des erreurs de configuration au chargement du serveur, La déclaration d’un nom de profil devrait etre cohérent avec le bloc de configuration adéquat (voir explicaion de ces blocs au dessous).</li>
+<li><code>length</code>: La taille du mot de passe (par défaut 12 pour le profil anssi, 8 pour le profil personnalisé).</li>
+<li><code>max_old_password</code>: Le nombre de mots de passe anciens à ne pas réutiliser (par défaut 12 pour le profil anssi, 3 pour le profil custom).</li>
+<li><code>check_occurrence</code>: Le boolean permettant de vérifier la présence des occurrences du nom d’utilisateur dans le mot de passe (par défaut à <code>true</code> pour le profil anssi, <code>false</code> ou absent pour le profil custom).</li>
+<li><code>occurrences_chars_number</code>: Le nombre de caractères issues du nom d’utilisateur tolérables à utiliser dans le mot de passe (par défaut à <code>3</code> pour le profil anssi, <code>0</code> ou absent pour le profil custom).</li>
+<li><code>constraints</code>: bloc des différentes contraintes des mots de passe par profile.</li>
+</ul>
+<h6 id="configuration-pour-le-profil-anssi">Configuration pour le profil ANSSI:</h6>
+<p>Le sous bloc <code>defaults</code> du bloc <code>constraints</code> concerne les configurations par défault par bloc de langue.</p>
+<p>Ce bloc contient la liste des messages personnalisés, et les différentes contraintes en termes des caractères alphanumérique, spéciaux, miniscules, majiscules etc..</p>
+<h6 id="configuration-pour-le-profil-personnalisé">Configuration pour le profil personnalisé:</h6>
+<p>Le sous bloc <code>customs</code> du bloc <code>constraints</code> concerne les configurations du profil personnalisé par bloc de langue.</p>
+<p>Ce bloc contient la liste des messages personnalisés, et les différentes contraintes en termes des caractères alphanumérique, spéciaux, miniscules, majiscules etc..</p>
+<h6 id="les-langues-supportées-par-cas-à-ce-jour">Les langues supportées par CAS à ce jour:</h6>
+<p>Les langues supportées par CAS sont: la langue Français, la langue Anglaise et l’Allemande.</p>
+<p>Il est fortement recommandé de définir les trois blocs des différentes langues, pour garder la cohérence avec les différentes interfaces du serveur d’authentification CAS. ### Configuration des profils de mots de passe (YAML):</p>
+<p>La configuration finale transcrite dans les fichiers de configurations serveurs:</p>
+<p>Profil ANSSI:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Password configuration</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="fu">password:</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="fu">profile:</span><span class="at"> </span><span class="st">&quot;anssi&quot;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="fu">length:</span><span class="at"> </span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="fu">max-old-password:</span><span class="at"> </span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="fu">check-occurrence:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="fu">occurrences-chars-number:</span><span class="at"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="fu">constraints:</span></a>
+<a class="sourceLine" id="cb6-9" title="9">      <span class="fu">defaults:</span></a>
+<a class="sourceLine" id="cb6-10" title="10">          <span class="fu">fr:</span></a>
+<a class="sourceLine" id="cb6-11" title="11">              <span class="fu">messages:</span></a>
+<a class="sourceLine" id="cb6-12" title="12">                  <span class="kw">-</span> Avoir une taille d<span class="st">&#39;au moins ${password.length} caractères</span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="st">              special-chars:</span></a>
+<a class="sourceLine" id="cb6-14" title="14"><span class="st">                  title: &#39;</span>Contenir au moins 2 caractères issus de chaque catégorie, pour au moins 3 des catégories suivantes:<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="st">                  messages:</span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="st">                      - Minuscules (a-z)</span></a>
+<a class="sourceLine" id="cb6-17" title="17"><span class="st">                      - Majuscules (A-Z)</span></a>
+<a class="sourceLine" id="cb6-18" title="18"><span class="st">                      - Numériques (0-9)</span></a>
+<a class="sourceLine" id="cb6-19" title="19"><span class="st">                      - Caractères spéciaux (!&quot;#$%&amp;£&#39;</span>()*+,-./:;&lt;=&gt;?@<span class="kw">[]</span>^_`<span class="kw">{</span>|<span class="kw">}</span>~)</a>
+<a class="sourceLine" id="cb6-20" title="20">          <span class="fu">en:</span></a>
+<a class="sourceLine" id="cb6-21" title="21">              <span class="fu">messages:</span></a>
+<a class="sourceLine" id="cb6-22" title="22">                  <span class="kw">-</span> Have a size of at least $<span class="kw">{</span>password.length<span class="kw">}</span> characters</a>
+<a class="sourceLine" id="cb6-23" title="23">              <span class="fu">special-chars:</span></a>
+<a class="sourceLine" id="cb6-24" title="24">                  <span class="fu">title:</span><span class="at"> </span><span class="st">&#39;Contain at least 2 characters from each category, for at least 3 of the following categories:&#39;</span></a>
+<a class="sourceLine" id="cb6-25" title="25">                  <span class="fu">messages:</span></a>
+<a class="sourceLine" id="cb6-26" title="26">                      <span class="kw">-</span> Uppercases (a-z)</a>
+<a class="sourceLine" id="cb6-27" title="27">                      <span class="kw">-</span> Lowercases (A-Z)</a>
+<a class="sourceLine" id="cb6-28" title="28">                      <span class="kw">-</span> Digital (0-9)</a>
+<a class="sourceLine" id="cb6-29" title="29">                      <span class="kw">-</span> Special Characters (!<span class="st">&quot;#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)</span></a>
+<a class="sourceLine" id="cb6-30" title="30"><span class="st">          de:</span></a>
+<a class="sourceLine" id="cb6-31" title="31"><span class="st">              messages:</span></a>
+<a class="sourceLine" id="cb6-32" title="32"><span class="st">                  - Mindestens ${password.length} Zeichen lang sein</span></a>
+<a class="sourceLine" id="cb6-33" title="33"><span class="st">              special-chars:</span></a>
+<a class="sourceLine" id="cb6-34" title="34"><span class="st">                  title: &#39;Mindestens 2 Zeichen aus jeder Kategorie enthalten, für mindestens 3 der folgenden Kategorien:&#39;</span></a>
+<a class="sourceLine" id="cb6-35" title="35"><span class="st">                  messages:</span></a>
+<a class="sourceLine" id="cb6-36" title="36"><span class="st">                      - Großbuchstaben (a-z)</span></a>
+<a class="sourceLine" id="cb6-37" title="37"><span class="st">                      - Kleinbuchstaben (A-Z)</span></a>
+<a class="sourceLine" id="cb6-38" title="38"><span class="st">                      - Digital (0-9)</span></a>
+<a class="sourceLine" id="cb6-39" title="39"><span class="st">                      - Spezielle Charaktere (!&quot;</span><span class="co">#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)</span></a></code></pre></div>
+<p>Profil CUSTOM:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># Password configuration</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="fu">password:</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="fu">profile:</span><span class="at"> </span><span class="st">&quot;custom&quot;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="fu">length:</span><span class="at"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="fu">max-old-password:</span><span class="at"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="fu">constraints:</span></a>
+<a class="sourceLine" id="cb7-7" title="7">      <span class="fu">customs:</span></a>
+<a class="sourceLine" id="cb7-8" title="8">          <span class="fu">fr:</span></a>
+<a class="sourceLine" id="cb7-9" title="9">              <span class="fu">title:</span><span class="at"> </span><span class="st">&#39;Pour des raisons de sécurité, votre mot de passe doit:&#39;</span></a>
+<a class="sourceLine" id="cb7-10" title="10">              <span class="fu">messages:</span></a>
+<a class="sourceLine" id="cb7-11" title="11">                  <span class="kw">-</span> Au moins $<span class="kw">{</span>password.length<span class="kw">}</span> caractères</a>
+<a class="sourceLine" id="cb7-12" title="12">                  <span class="kw">-</span> Des minuscules et des majuscules</a>
+<a class="sourceLine" id="cb7-13" title="13">                  <span class="kw">-</span> Au moins un chiffre et un caractère spécial (!<span class="st">&quot;#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)</span></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="st">          en:</span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="st">              title: &#39;For security reasons, your password must:&#39;</span></a>
+<a class="sourceLine" id="cb7-16" title="16"><span class="st">              messages:</span></a>
+<a class="sourceLine" id="cb7-17" title="17"><span class="st">                  - At least ${password.length} characters</span></a>
+<a class="sourceLine" id="cb7-18" title="18"><span class="st">                  - Lowercase and uppercase</span></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="st">                  - At least one number and one special character (!&quot;</span><span class="co">#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)</span></a>
+<a class="sourceLine" id="cb7-20" title="20">          <span class="fu">de:</span></a>
+<a class="sourceLine" id="cb7-21" title="21">              <span class="fu">title:</span><span class="at"> </span><span class="st">&#39;Aus Sicherheitsgründen muss Ihr Passwort:&#39;</span></a>
+<a class="sourceLine" id="cb7-22" title="22">              <span class="fu">messages:</span></a>
+<a class="sourceLine" id="cb7-23" title="23">                  <span class="kw">-</span> Mindestens $<span class="kw">{</span>password.length<span class="kw">}</span> Zeichen</a>
+<a class="sourceLine" id="cb7-24" title="24">                  <span class="kw">-</span> Klein- und Großbuchstaben</a>
+<a class="sourceLine" id="cb7-25" title="25">                  <span class="kw">-</span> Mindestens eine Zahl und ein Sonderzeichen (!<span class="st">&quot;#$%&amp;£&#39;()*+,-./:;&lt;=&gt;?@[]^_`{|}~)</span></a></code></pre></div>
+<blockquote>
+<p>Note: en cas de changement manuelle par l’administrateur système du nombre de mots passe anciens à utiliser, le changement devra se faire au niveau CAS et iam-internal. Le redémarrage de ces deux composants est nécessaire.</p>
+</blockquote>
+<p>Voir le document d’exploitation qui contient différents exemples de configurations par profil.</p>
+<blockquote>
+<p>[!NOTE] L’authentification est transparente pour les utilisateurs qui possèdent déjà des comptes VITAMUI, jusqu’à expiration de leurs mots de passe. Et lors du changement de mots de passe suite à expiration de celui ci, ils verront les nouvelles contraintes exigées par la plateforme.</p>
+</blockquote>
+<h3 id="préparation-du-fichier-dinventaire">Préparation du fichier d’inventaire</h3>
+<p>Vous pouvez utiliser cet exemple pour préparer l’inventaire de déploiement de Vitam-UI.</p>
+<p><a href="https://github.com/ProgrammeVitam/vitam-ui/blob/master_4.0.x/deployment/environments/hosts.vitamui" class="uri">https://github.com/ProgrammeVitam/vitam-ui/blob/master_4.0.x/deployment/environments/hosts.vitamui</a></p>
+<blockquote>
+<p>Attention ! Pour l’instant, il n’est pas possible de multi-instancier les composants de Vitam-UI; ainsi, l’ensemble des composants doivent être instanciés une seule fois (mais possiblement sur plusieurs vms). Des tickets sont en cours pour résoudre ce problème rapidement.</p>
+</blockquote>
+<p>Renseigner selon votre cible les variables ansible suivantes:</p>
+<pre class="console"><code># exemple pour un user ssh centos 
+# sur les machines cibles de l&#39;installation
+ansible_ssh_user=centos 
+ansible_become=true
+
+# nom du site vitam distant
+vitam_site_name=changeme
+
+# url d&#39;accès à VitamUI
+vitam_reverse_external_dns=changeme 
+
+# adresse du proxy si un proxy est présent sur l&#39;infrastructure 
+# cible pour sortir sur internet
+http_proxy_environnement= </code></pre>
+<p>Exemple de variables utilisées dans le fichier inventaire:</p>
+<pre><code>[hosts:vars]
+dns_servers=[&quot;10.207.11.11&quot;,&quot;10.207.11.12&quot;]
+ansible_ssh_user=centos
+ansible_become=true
+consul_domain=consul
+url_prefix=&quot;https://{{ vitamui_site_name }}.env.programmevitam.fr&quot;
+
+# Reverse configuration
+vitam_reverse_external_dns=&quot;{{ vitamui_site_name }}.env.programmevitam.fr&quot;
+vitam_reverse_external_protocol=https
+reverse_proxy_port=80
+http_proxy_environnement=&quot;http://proxy-adress.domain-env:3128&quot;
+
+mongo_shard_id=0
+
+[hosts_vitamui_mongod:vars]
+mongo_cluster_name=mongo-vitamui
+</code></pre>
+<h3 id="customisation-des-paramètres">Customisation des paramètres</h3>
+<p>Les paramétres standards se trouvent dans deployment/environments/group_vars/all/. Ils sont valorisés avec des valeurs par défaut.</p>
+<p>Les paramètres essentiels à renseigner pour le déploiement de Vitam-UI sont externalisés dans le fichier <code>environments/vitamui_extra_vars.yml</code>.</p>
+<p><a href="https://github.com/ProgrammeVitam/vitam-ui/blob/master_4.0.x/deployment/environments/vitamui_extra_vars.yml" class="uri">https://github.com/ProgrammeVitam/vitam-ui/blob/master_4.0.x/deployment/environments/vitamui_extra_vars.yml</a></p>
+<blockquote>
+<p>Attention ! Actuellement il y a un bug avec la configuration sms, <code>sms.enabled: false</code> posera un problème au lancement de cas-server. Mais vous pouvez supprimer le bloc renseignant ces éléments.</p>
+</blockquote>
+<h3 id="préparation-des-secrets">Préparation des secrets</h3>
+<blockquote>
+<p>Conseil: Il est fortement recommandé de modifier les mots de passe des vaults !</p>
+</blockquote>
+<p>Éditer les fichiers suivants à l’aide de la commande</p>
+<pre class="console"><code>ansible-vault edit --vault-password-file vault-pass.txt</code></pre>
+<ul>
+<li>MAJ de la variable <code>consul_encrypt</code> dans le fichier</li>
+</ul>
+<pre class="console"><code>deployment/environments/group_vars/all/vault_consul.yml</code></pre>
+<p>qui doit être indentique à la valeur de <code>consul_encrypt</code> de Vitam.</p>
+<ul>
+<li>MAJ des mots de passe mongodb dans le fichier</li>
+</ul>
+<pre class="console"><code>deployment/environments/group_vars/all/vault_mongodb.yml.</code></pre>
+<p>Attention, les mots de passe ne doivent pas contenir de caractères spéciaux tel que <code>/</code>.</p>
+<ul>
+<li>MAJ des mots de passe des keystores dans le fichier</li>
+</ul>
+<pre class="console"><code>deployment/environments/group_vars/all/vault-keystores.yml`</code></pre>
+<h3 id="récupération-des-interfaces-réseaux">Récupération des interfaces réseaux</h3>
+<p>Avant de procéder à cette étape le fichier d’inventaire (fichier host de vitamui) doit être préalablement préparé.</p>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; 
+generate_hostvars_for_1_network_interface.yml --vault-password-file vault_pass.txt</code></pre>
+<blockquote>
+<p>Information: Actuellement, le rôle permettant de générer les interfaces pour 2 réseaux n’est pas fourni, vous pouvez récupérer celui de Vitam pour générer vos fichiers host_vars avec 2 interfaces. Attention ! Dans le cas d’un déploiement avec 2 interfaces, il subsiste un bug avec consul et la résolution DNS de mongo dans Vitam-UI. Un ticket de support est en cours de résolution pour résoudre ce problème rapidement.</p>
+</blockquote>
+<h2 id="gestion-des-certificats">Gestion des certificats</h2>
+<p>Les certificats générés sont utilisés dans les keystores et truststores pour la communication inter-services.</p>
+<p>Le service cas-server autorise les redirections sur les services ui lorsque ces derniers ont des certificats renseignés en base de données.</p>
+<p>Enfin, la communication vitamui-vitam est possible seulement si le certificat client de vitamui est généré et copié dans les stores de vitam. Cette opération est faite lors de l’étape de mutualisation ci après.</p>
+<p>Avertissement: Les scripts de génération de PKI sont donnés à titre d’exemple. Il est déconseillé de les utiliser en production.</p>
+<h3 id="clean-des-certificats-exemples">Clean des certificats exemples</h3>
+<p>Afin de générer toute la pki, supprimer le répertoire “/deployement/environments/certs/”</p>
+<p>Dans “deployment” exécuter :</p>
+<pre class="console"><code>rm -rf /environments/certs/&quot;</code></pre>
+<h3 id="génération-des-ca">Génération des CA</h3>
+<pre class="console"><code>./pki/scripts/generate_ca.sh</code></pre>
+<blockquote>
+<p>CA valables 10 ans.</p>
+</blockquote>
+<h3 id="génération-des-certificats">Génération des Certificats</h3>
+<pre class="console"><code>./pki/scripts/generate_certs.sh environments/&lt;hostfile environnement&gt;</code></pre>
+<blockquote>
+<p>Certificats valables 3 ans.</p>
+</blockquote>
+<p>Visualiser la fin du script de génération pour comprendre quels services sont adressés par ces certificats.</p>
+<h3 id="mutualisation-des-pkis-entre-vitam-vitam-ui">Mutualisation des PKIs entre Vitam &amp; Vitam-UI</h3>
+<p>Créer un fichier script mutualization_pki.sh et y mettre le contenu suivant:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"><span class="co">#!/usr/bin/env bash</span></a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="co">#</span></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="co"># Scripts de mutualisation des pki vitamui/vitam pour un environnement</span></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="co">#</span></a>
+<a class="sourceLine" id="cb18-6" title="6"></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="kw">set</span> <span class="ex">-e</span></a>
+<a class="sourceLine" id="cb18-8" title="8"></a>
+<a class="sourceLine" id="cb18-9" title="9"><span class="co">## PARAMS à configurer</span></a>
+<a class="sourceLine" id="cb18-10" title="10"><span class="va">VITAMUI_CERTS_DIR=</span><span class="st">&quot;vitamui.git/deployment/environments/certs&quot;</span></a>
+<a class="sourceLine" id="cb18-11" title="11"><span class="va">VITAM_CERTS_DIR=</span><span class="st">&quot;vitam.git/deployment/environments/certs&quot;</span></a>
+<a class="sourceLine" id="cb18-12" title="12"></a>
+<a class="sourceLine" id="cb18-13" title="13"><span class="bu">echo</span> <span class="st">&quot;################## VitamUi -&gt; Vitam ##################&quot;</span></a>
+<a class="sourceLine" id="cb18-14" title="14"><span class="va">VITAM_CERTS_EXTERNAL_DIR=</span><span class="st">&quot;</span><span class="va">${VITAM_CERTS_DIR}</span><span class="st">/client-external&quot;</span></a>
+<a class="sourceLine" id="cb18-15" title="15"></a>
+<a class="sourceLine" id="cb18-16" title="16"><span class="bu">echo</span> <span class="st">&quot;Importing VitamUi CA (allowing Vitam to identify VitamUi services)&quot;</span></a>
+<a class="sourceLine" id="cb18-17" title="17"><span class="fu">mkdir</span> -p <span class="st">&quot;</span><span class="va">${VITAM_CERTS_EXTERNAL_DIR}</span><span class="st">/ca&quot;</span></a>
+<a class="sourceLine" id="cb18-18" title="18"><span class="kw">for</span> <span class="ex">CA</span> in <span class="va">$(</span><span class="fu">ls</span> <span class="va">${VITAMUI_CERTS_DIR}</span>/client-vitam/ca/ca*.crt<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb18-19" title="19">   <span class="fu">cp</span> -f <span class="st">&quot;</span><span class="va">${CA}</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${VITAM_CERTS_EXTERNAL_DIR}</span><span class="st">/ca/vitamui_</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">${CA})</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb18-20" title="20"><span class="kw">done</span></a>
+<a class="sourceLine" id="cb18-21" title="21"></a>
+<a class="sourceLine" id="cb18-22" title="22"><span class="bu">echo</span> <span class="st">&quot;Importing VitamUi certs (allowing Vitam to link VitamUI&#39;s requests</span></a>
+<a class="sourceLine" id="cb18-23" title="23"><span class="st"> to its security context)&quot;</span></a>
+<a class="sourceLine" id="cb18-24" title="24"><span class="fu">mkdir</span> -p <span class="st">&quot;</span><span class="va">${VITAM_CERTS_EXTERNAL_DIR}</span><span class="st">/clients/external&quot;</span></a>
+<a class="sourceLine" id="cb18-25" title="25"><span class="kw">for</span> <span class="ex">CA</span> in <span class="va">$(</span><span class="fu">ls</span> <span class="va">${VITAMUI_CERTS_DIR}</span>/client-vitam/clients/vitamui/*.crt<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb18-26" title="26">   <span class="fu">cp</span> -f <span class="st">&quot;</span><span class="va">${CA}</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${VITAM_CERTS_EXTERNAL_DIR}</span><span class="st">/clients/external/</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">${CA})</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb18-27" title="27"><span class="kw">done</span></a>
+<a class="sourceLine" id="cb18-28" title="28"><span class="bu">echo</span> <span class="st">&quot;######################################################&quot;</span></a>
+<a class="sourceLine" id="cb18-29" title="29"></a>
+<a class="sourceLine" id="cb18-30" title="30"><span class="bu">echo</span> <span class="st">&quot;################## Vitam -&gt; VitamUi ##################&quot;</span></a>
+<a class="sourceLine" id="cb18-31" title="31"><span class="va">VITAMUI_CERTS_VITAM_DIR=</span><span class="st">&quot;</span><span class="va">${VITAMUI_CERTS_DIR}</span><span class="st">/client-vitam&quot;</span></a>
+<a class="sourceLine" id="cb18-32" title="32"></a>
+<a class="sourceLine" id="cb18-33" title="33"><span class="bu">echo</span> <span class="st">&quot;Importing Vitam CA (allowing VitamUi to identify Vitam services)&quot;</span></a>
+<a class="sourceLine" id="cb18-34" title="34"><span class="fu">mkdir</span> -p <span class="st">&quot;</span><span class="va">${VITAMUI_CERTS_VITAM_DIR}</span><span class="st">/ca&quot;</span></a>
+<a class="sourceLine" id="cb18-35" title="35"><span class="kw">for</span> <span class="ex">CA</span> in <span class="va">$(</span><span class="fu">ls</span> <span class="va">${VITAM_CERTS_DIR}</span>/server/ca/ca*.crt<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb18-36" title="36">   <span class="fu">cp</span> -f <span class="st">&quot;</span><span class="va">${CA}</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${VITAMUI_CERTS_VITAM_DIR}</span><span class="st">/ca/vitam_</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">${CA})</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb18-37" title="37"><span class="kw">done</span></a>
+<a class="sourceLine" id="cb18-38" title="38"><span class="bu">echo</span> <span class="st">&quot;######################################################&quot;</span></a></code></pre></div>
+<p>Exécuter le script:</p>
+<pre class="console"><code>./mutualization_pki.sh</code></pre>
+<p>Changer si nécessaire les paths de vitamui et vitam selon installation.</p>
+<blockquote>
+<p>Attention ! À l’issue de cette étape, il sera aussi nécessaire de regénérer les stores de la zone Vitam suite à l’ajout des certificats de Vitam-UI et de reconfigurer Vitam en utilisant le <code>--tags update_vitam_certificates</code>.</p>
+</blockquote>
+<p>​ ### Génération des stores (dans Vitamui)</p>
+<p>Dans le cas de keystores existants il faut rajouter “true” en paramètre à la commande suivante afin d’écraser les anciens keystores.</p>
+<pre class="console"><code>./generate_stores.sh (true)</code></pre>
+<h2 id="reconfiguration-de-vitam">Reconfiguration de Vitam</h2>
+<blockquote>
+<p>Les étapes suivantes se font à partir des sources de déploiement de Vitam.</p>
+</blockquote>
+<h3 id="génération-des-stores-suite-à-la-mutualisation-avec-vitam-ui-dans-vitam">Génération des stores suite à la mutualisation avec Vitam-UI (dans Vitam)</h3>
+<p>Se placer dans le répertoire “/deployement” des sources vitam et exécuter la commande suivante:</p>
+<pre class="console"><code>./generate_stores.sh</code></pre>
+<h3 id="maj-des-certificats-dans-vitam">MAJ des certificats (dans Vitam)</h3>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault-pass.txt ansible-vitam/vitam.yml --tags update_vitam_certificates</code></pre>
+<h3 id="ajout-du-contexte-vitam-ui-toujours-dans-le-dossier-déploiement-de-vitam">Ajout du contexte Vitam-UI (Toujours dans le dossier déploiement de vitam)</h3>
+<p>Il est nécessaire d’ajouter un contexte dédié à Vitam-UI pour la communication avec Vitam.</p>
+<p>Ainsi, dans les sources de déploiement de Vitam, il sera nécessaire de rajouter dans le fichier <code>deployment/environments/group_vars/all/postinstall_param.yml</code></p>
+<pre class="console"><code>vitam_additional_securityprofiles:
+  - name: vitamui-security-profile
+    identifier: vitamui-security-profile
+    hasFullAccess: true
+    permissions: &quot;null&quot;
+    contexts:
+      - name: vitamui-context
+        identifier: vitamui-context
+        status: ACTIVE
+        enable_control: false
+        # No control, idc about permissions :)
+        permissions: &quot;[ { \&quot;tenant\&quot;: 0, \&quot;AccessContracts\&quot;: [], \&quot;IngestContracts\&quot;: [] },
+                        { \&quot;tenant\&quot;: 1, \&quot;AccessContracts\&quot;: [], \&quot;IngestContracts\&quot;: [] }]&quot;
+        certificates: [&#39;external/vitamui.crt&#39;]</code></pre>
+<p>Le certificat client vitamui.crt doit être présent au niveau du répertoire environments/certs/client-external/clients/external dans le dossier de déploiement de l’installation Vitam.</p>
+<p>Puis lancer la commande suivante pour ajouter ce nouveau contexte :</p>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault_pass.txt ansible-vitam-exploitation/add_contexts.yml</code></pre>
+<p>Ce playbook prend en paramétre de manière transparente ce qui a été définit dans le fichier postinstall_param.yml. Il réalise la création du security-profile, du contexte, et l’ajout en base de données du certificat.</p>
+<p>Attention, à l’heure actuelle il n’y a pas d’API permettant de faire un “update” du context, du security-profile, et du certificat. Pour réaliser un “update” il faut donc faire d’abord une suppression de contexte (playbook ansible-vitam-exploitation/remove_contexts.yml) puis de nouveau un ajout de contexte. La suppression de contexte via le playbook remove_context.yml va prendre comme paramètre les éléments du fichier postinstall_param.yml.</p>
+<h2 id="configuration-des-dépôts-vitam-ui">Configuration des dépôts Vitam-UI</h2>
+<p>Lors du processus d’installation par l’ansiblerie on va chercher durant les différentes phases les packages applicatifs. Ces derniers doivent être renseignés sur chaque machine cible (hosts). Il est donc nécessaire de lancer un playbook de bootstrap qui va mettre à jour les addresses des repositories sur les machines distances.</p>
+<p>Pour une distribution Unix de type Centos, on trouvera sur les différentes machines cibles : /etc/yum.repos.d/vitamui-repositories.repo</p>
+<p>Pour une distribution Unix de type Debian: /etc/apt/sources.list.d/vitamui-repositories.list</p>
+<pre class="console"><code>ansible-playbook  -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault_pass.txt --extra-vars=@./environments/vitamui_extra_vars.yml bootstrap.yml</code></pre>
+<h2 id="lancement-du-déploiement-de-vitam-ui">Lancement du déploiement de Vitam-UI</h2>
+<p>Le déploiement de Vitam-UI est découpé en plusieurs playbooks.</p>
+<ul>
+<li>Core</li>
+</ul>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault_pass.txt --extra-vars=@./environments/vitamui_extra_vars.yml vitamui.yml`</code></pre>
+<ul>
+<li>Referential</li>
+</ul>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault_pass.txt --extra-vars=@./environments/vitamui_extra_vars.yml vitamui_referential.yml</code></pre>
+<ul>
+<li>Ingest</li>
+</ul>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault_pass.txt --extra-vars=@./environments/vitamui_extra_vars.yml vitamui_ingest.yml</code></pre>
+<ul>
+<li>Archive-search</li>
+</ul>
+<pre class="console"><code>ansible-playbook -i environments/&lt;hostfile environnement&gt; --vault-password-file
+vault_pass.txt --extra-vars=@./environments/vitamui_extra_vars.yml vitamui_archive_search.yml</code></pre>
+<p>NB: L’installation du reverse est comprise dans le playbook ‘core’. Le playbook core est nécessaire à l’installation des playbooks suivants. Il doit être exécuté en 1er.</p>
+<h2 id="check-dinstallation">Check d’installation</h2>
+<p>Afin de valider que Vitamui est fonctionnel il faut réaliser quelques contrôles.</p>
+<h3 id="contrôle-des-services">1°) Contrôle des services</h3>
+<p>Se rendre dans la page des outils de l’environnement Vitam et cliquer sur “portail consul”.</p>
+<p>Dans la page consul cliquer en haut à gauche sur l’onglet nommé par le datacenter utilisé (cela correspond généralement au nom de l’environnement), et aller sur le 2ème choix. Cela affiche les services vitamui uniquement.</p>
+<p>Vérifier que ces services soient verts (up).</p>
+<h3 id="contrôle-de-la-communication-vitamui-vitam">2°) Contrôle de la communication vitamui-vitam</h3>
+<p>Vitamui communique avec Vitam via des requêtes api réalisées dans ses services. On peut via les outils de debug des navigateurs internet (chrome, firefox) voir quels sont les appels réalisés.</p>
+<p>Plus facilement, on peut se rendre dans l’application referential et voir les contextes vitam depuis vitamui. Si les contextes sont bien visibles c’est que la communication vitamui-vitam fonctionne.</p>
+<p>Si ce n’est pas le cas, le mode debug du navigateur va nous permettre de voir ce qui ne va pas. Dans ce cas là aller en “Annexe” pour de plus amples informations sur les erreurs possiblement rencontrées.</p>

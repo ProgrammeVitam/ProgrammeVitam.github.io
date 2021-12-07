@@ -1,0 +1,62 @@
+<h1 id="annexes">Annexes</h1>
+<h2 id="consul">Consul</h2>
+<p>L’accès au consul de VitamUI se fait par la page des outils Vitam. Les consuls sont reliés.</p>
+<figure>
+<img src="../images/vitamui-consul-1.png" alt="accès consul" /><figcaption>accès consul</figcaption>
+</figure>
+<figure>
+<img src="../images/vitamui-consul-2.png" alt="consul vitamui" /><figcaption>consul vitamui</figcaption>
+</figure>
+<h2 id="contextes-vitamui">Contextes vitamui:</h2>
+<p>Se connecter à Vitamui en tant qu’utilisateur “admin”, cliquez sur l’onglet “Référentiels” puis sur la tuile “Contextes Applicatifs”.</p>
+<figure>
+<img src="../images/vitamui-context.png" alt="contextes sous vitamui" /><figcaption>contextes sous vitamui</figcaption>
+</figure>
+<figure>
+<img src="../images/vitam-contexts.png" alt="contextes sous vitam" /><figcaption>contextes sous vitam</figcaption>
+</figure>
+<p>Si la liste des contextes n’est pas vide alorsla communication VitamUI/Vitam est bien validée.</p>
+<p>Si ce n’est pas le cas, ouvrir la console de debug de votre navigateur internet et relever le message d’erreur.</p>
+<p>Dans le cas d’une erreur 503/401 cela signifie que la PKI est incorrecte de part et d’autres (VitamUI/Vitam) ou que le contexte n’a pas été bien inséré dans Vitam.</p>
+<p>Pour vérifier que le contexte est bien inséré côté Vitam, connectez vous à votre installation Vitam et regarder l’affichage des contextes dans l’ihm-demo (&gt;administration&gt;réferentiels&gt;contextes applicatifs). Le contexte vitamui doit être présent.</p>
+<p>Si le contexte est bien là, cela signifie que c’est l’échange de PKI qui n’a pas été faite. Refaire l’étape en question.</p>
+<p>Exemple d’erreur en cas d’absence de context vitamui_context côté Vitam:</p>
+<pre class="console"><code>timestamp   &quot;1620058767&quot;
+status  403
+error   &quot;apierror.unauthorized&quot;
+exception   &quot;fr.gouv.vitamui.commons.api.exception.ForbiddenException&quot;
+message &quot;Vitam unauthorized error: status: 401, 
+message: \&quot;Error with the response, get status: &#39;401&#39; and reason &#39;Unauthorized&#39;.\&quot;&quot;
+args    []</code></pre>
+<h2 id="problème-mongodb">Problème Mongodb</h2>
+<p>Les machines Vitam et Vitam doivent être à la même heure. Pour cela on utilise généralement un agent “ntp” avec un serveur “ntp” associé pour la synchronisation.</p>
+<p>Si les machines ne sont pas correctement synchronisées au niveau de la date système il est possible de rencontrer l’erreur suivante lors du démarrage nécessitant une connection à la base de données mongodb.</p>
+<p>Erreur “localdatetime” :</p>
+<p>TODO: ex erreur ..</p>
+<h2 id="problème-de-démarrage-cas-server">Problème de démarrage “cas-server”</h2>
+<p>Lors du démarrage du service cas-server, on peut rencontrer le message d’erreur suivant:</p>
+<p>TODO: ex erreur “certficate not found” …</p>
+<p>Dans ce cas précis il y a une incohérence/mismatch sur les certificats des services “ui” de l’application. Les certificats “ui” en base de données ne sont pas identiques à ceux présent dans les stores.</p>
+<h2 id="ère-connexion-à-vitamui">1ère connexion à VitamUI</h2>
+<figure>
+<img src="../images/vitamui-login.png" alt="login" /><figcaption>login</figcaption>
+</figure>
+<p>A la 1ère installation de VitamUI, 2 utilisateurs sont disponibles à l’usage: admin et superadmin.</p>
+<p>Les identifiants sont les suivants:</p>
+<p>user admin: login: admin@change-it.fr mdp : Change-it0!</p>
+<p>user super admin: login: superadmin@change-it.fr mdp : Change-it0!</p>
+<h2 id="installation-dun-repository">Installation d’un repository</h2>
+<h3 id="yum-centosredhat">Yum (Centos/Redhat)</h3>
+<p>Se rendre sur une machine (vm) accessible par les machines sur lesquelles nous allons installés VitamUI via le réseau.</p>
+<p>Déposer les packages VitamUI dans le répertoire voulu: exemple : /home/depot/VitamUI/</p>
+<p>Installer un serveur http afin de servir ce dossier aux autres machines du même réseau (ex: httpd avec un root director /home/depot/VitamUI)</p>
+<p>Se rendre dans ce répertoire. Effacer le répertoire “repodata” si présent via:</p>
+<pre class="console"><code>rm -Rf repodata</code></pre>
+<p>Lancer la commande</p>
+<pre class="console"><code>createrepo .</code></pre>
+<p>Le dossier repodata va être recréé et il contient le nécessaire à l’utilisation de yum sur ces packages.</p>
+<h3 id="apt-debian">Apt (Debian)</h3>
+<p>De la même manière que précédemment, installez un serveur http permettant de servir où seront vos packages Debian.</p>
+<p>Déposer les packages Debian dans ce dossier, par exemple: /home/depot/VitamUI/.</p>
+<p>Effacer le fichier Packages.gz et le recréer via la commande:</p>
+<pre class="console"><code>dpkg-scanpackages . /dev/null | gzip -9c &gt; Packages.gz</code></pre>

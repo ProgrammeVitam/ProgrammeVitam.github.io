@@ -1,0 +1,79 @@
+<h1 id="prérequis">Prérequis</h1>
+<p>Vitamui fonctionne avec le socle applicatif Vitam qui doit être préinstallé.</p>
+<p>Tout comme Vitam, Vitamui est installée sur des vms (machines virtuelles) qui doivent être dimensionnées correctement.</p>
+<p>Voici le détail de consommation mémoire par défaut des services Vitamui, ce qui va permettre de faire la répartition par vm(s).</p>
+<p>Par défaut les services java utilisent 512Mo de Ram et on a donc pour tous les services en présence:</p>
+<ul>
+<li>cas-server 512Mo</li>
+<li>consul ? (à voir)</li>
+<li>mongod ? (à voir)</li>
+<li>logstash : -Xms{{ (ansible_memory_mb.real.total / 8) | int }}m =&gt; total Ram systeme. -Xmx{{ (ansible_memory_mb.real.total / 4) | int }}m</li>
+<li>rsyslog ? (à voir)</li>
+<li>security-internal 512Mo</li>
+<li>iam-external 512Mo</li>
+<li>iam-internal 512Mo</li>
+<li>archive-search-external 512Mo</li>
+<li>archive-search-internal 512Mo</li>
+<li>ui-archive-search 512Mo</li>
+<li>ingest-internal 512Mo</li>
+<li>ingest-external 512Mo</li>
+<li>ui-ingest 512Mo</li>
+<li>referential-internal 512Mo</li>
+<li>referential-external 512Mo</li>
+<li>ui-referential 512Mo</li>
+<li>ui-identity 512Mo</li>
+<li>ui-identity-admin 512Mo</li>
+<li>ui-portal 512Mo</li>
+</ul>
+<p>NB: Ce paramétrage peut être modifié selon les besoins. Des variables sont prévus à cet effet (variable jvm_opts à utiliser pour chaque service).</p>
+<p>Exemple de répartition sur 2 hosts (machines virtuelles) disposant de</p>
+<ul>
+<li>50Go de disque dur</li>
+<li>8Go de RAM</li>
+<li>2 VCPU</li>
+</ul>
+<p>HOST1:</p>
+<ul>
+<li>(browser)</li>
+<li>archive_search_external</li>
+<li>archive_search_internal</li>
+<li>security_internal</li>
+<li>referential_external</li>
+<li>referential_internal</li>
+<li>ingest_external</li>
+<li>ingest_internal</li>
+<li>iam_external</li>
+<li>iam_internal</li>
+<li>mongod</li>
+</ul>
+<p>HOST2:</p>
+<ul>
+<li>(browser)</li>
+<li>cas-server</li>
+<li>ui-identity-admin</li>
+<li>ui-identity</li>
+<li>ui-portal</li>
+<li>ui-ingest</li>
+<li>ui-referential</li>
+<li>ui-archive-search]</li>
+<li>consul_server</li>
+<li>logstash</li>
+<li>reverseproxy</li>
+</ul>
+<p>Prequis logiciel:</p>
+<p>Sous Centos :</p>
+<p>Sous /etc/yum.repo.d/</p>
+<ul>
+<li>CentOS-Base.repo</li>
+<li>CentOS-CR.repo</li>
+<li>CentOS-Debuginfo.repo</li>
+<li>CentOS-fasttrack.repo</li>
+<li>CentOS-Sources.repo</li>
+<li>CentOS-Vault.repo</li>
+<li>CentOS-x86_64-kernel.repo</li>
+<li>epel.repo</li>
+<li>epel-testing.repo</li>
+</ul>
+<p>Les paquets de type “CentOS” sont standard à la distribution, les paquets “epel” sont nécessaires à l’installation des binaires “npm” et “nodjs” nécessaires à l’utilisation de “mongo-express”.</p>
+<p>Sous Debian:</p>
+<p>S’assurer que nodejs est installé.</p>
