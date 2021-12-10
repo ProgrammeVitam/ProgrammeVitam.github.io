@@ -57,6 +57,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 * URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/5.rc.1/)
 * URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/5.rc.1/rpm/)
 
+[Documentation de la version 5.rc.1](https://www.programmevitam.fr/pages/documentation/)
   
 
 ### Pour la 4.0.3 de la R16 (mise à jour en juillet 2021)
@@ -78,6 +79,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 * URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/4.0.3-1/mvn_repo/)  
 * URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/4.0.3-1/rpm/)  
 
+[Documentation de la version 3.0.16](https://www.programmevitam.fr/pages/documentation/liste_doc_ancienne/#R16)
 
 ### Pour la 3.0.16 de la R13 (mise à jour en juillet 2021)
 * [Publication GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.16)  
