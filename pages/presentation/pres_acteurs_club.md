@@ -70,10 +70,12 @@ de petites améliorations ou de priorisation de correction de bugs
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
 * Commissariat à l'énergie atomique et aux énergies alternatives (CEA)
 * Communauté d'agglomération de Cergy-Pontoise
+* Communauté d'agglomération Pau Béarn Pyrénées
 * Conseil départemental de la Gironde
-* Conseil département de l'Hérault
-* Conseil département de Seine-et-Marne
+* Conseil départemental de l'Hérault
+* Conseil départemental de Seine-et-Marne
 * Conseil départemental de Vaucluse
+* CooNum
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
 * Institut national de la propriété industrielle (INPI)
 * Lex Persona
@@ -85,9 +87,13 @@ de petites améliorations ou de priorisation de correction de bugs
 * Ministère des Solidarités et de la Santé
 * Mintika
 * Musée du quai Branly - Jacques-Chirac
+* Nantes métropole
+* NeoLedge
 * Olkoa
+* RATP
 * Smile
 * SopraSteria
+* SRCI Groupe Salvia Developpement
 * TGIR Huma-Num
 * Toulon Provence Méditerranée
 * Urssaf - Caisse nationale (ex-ACOSS)
@@ -95,5 +101,5 @@ de petites améliorations ou de priorisation de correction de bugs
 * XDemat
 * Xelians
 
-![Logos](/public/images/202109_utilisateurs.jpg)
+![Logos](/public/images/202112_utilisateurs.gif)
 
