@@ -61,6 +61,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
 * Institut national de la propriété industrielle (INPI)
 * Lex Persona
+* Métropole Nice Côte d'Azur
 * Ministère des Armées
 * Ministère de la Culture
 * Ministère de l’Éducation nationale et de la Jeunesse
