@@ -202,7 +202,7 @@ Documentation générale
 		<td>NA</td>
 		<td>... rechercher et télécharger des unités archivistiques contenues dans le SAE</td>
 		<td>archiviste</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Recherche_consultation.pdf">Recherche et consultation des archives</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Recherche_et_consultation.pdf">Recherche et consultation des archives</a></td>
 	</tr>
 	<tr>
 	</tr>
