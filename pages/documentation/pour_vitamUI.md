@@ -211,7 +211,6 @@ Documentation générale
 		<td>...consulter et rechercher dans le registre des fonds</td>
 		<td> archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Registre_des_fonds.pdf">Registre des fonds</a></td>
-
 </table>
 
 
