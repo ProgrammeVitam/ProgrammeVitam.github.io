@@ -7,10 +7,14 @@ fatherref: documentation
 
 * **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.5.rc.1.pdf) \| [html](/ressources/DocCourante/html/archi))  
 
-* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.5.rc.1.pdf) \| [html](/ressources/DocCourante/html/installation))  
+* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.5.rc.1.pdf) \| [html](/ressources/DocCourante/html/installation))
+
 * **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.5.rc.1.pdf) \| [html](/ressources/DocCourante/html/exploitation))  
+
 * **Vitam UI : dossier d'installation** ([html](/ressources/DocCourante/html/install_ui_v5rc_html))  
+
 * **Vitam UI : dossier d'exploitation** ([html](/ressources/DocCourante/html/exploitation_ui_v5rc_html))  
+
 * **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.5.rc.1.pdf) \| [html](/ressources/DocCourante/html/migration))  
 
 # Documentation

@@ -64,6 +64,7 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Parametrages_externes.pdf">Profil APP Paramétrages externes</a></td>
 	</tr>
 </table>
+
 <table>
 <caption><b>Domaine : référentiels<a name="referentiels"></a></b></caption>
 	<tr>
@@ -103,6 +104,7 @@ Documentation générale
 	</tr>
 	</tr>
 </table>
+
 <table>
 <caption><b>Domaine : sécurité et droits applicatifs<a name="secu"></a></b></caption>
 	<tr>
@@ -135,8 +137,8 @@ Documentation générale
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contexte_applicatif.pdf">Contexte applicatif</a></td>
 	</tr>
-
 </table>
+
 <table>
 <caption><b>Domaine : supervision et audit<a name="supervision"></a></b></caption>
 	<tr>
@@ -181,6 +183,7 @@ Documentation générale
 		<td>administrateur fonctionnel Vitam UI, super-archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Gestion_operations.pdf">Gestion des opérations</a></td>
 </table>
+
 <table>
 <caption><b>Domaine : versement et consultation<a name="versement"></a></b></caption>
 	<tr>
