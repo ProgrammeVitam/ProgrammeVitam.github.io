@@ -213,7 +213,6 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Registre_des_fonds.pdf">Registre des fonds</a></td>
 </table>
 
-
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
 * [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
