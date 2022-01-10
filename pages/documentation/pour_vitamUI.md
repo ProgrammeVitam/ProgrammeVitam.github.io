@@ -212,13 +212,3 @@ Documentation générale
 		<td> archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Registre_des_fonds.pdf">Registre des fonds</a></td>
 </table>
-
-# Documentation
-* [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
-* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
-* [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
-* [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
-* [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
-* [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
-* [Documentation ReSIP]((https://www.programmevitam.fr/pages/documentation/resip/))
-* [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
