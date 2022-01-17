@@ -117,13 +117,13 @@ Documentation générale
 		<td>3.1 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour le versement d'archives dans un coffre par une nouvelle application</td>
 		<td>administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrat_entree.pdf">Contrat d'entrée</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_entree.pdf">Contrat d'entrée</a></td>
 	</tr>
 	<tr>
 		<td>3.2 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... paramétrer des droits pour la consultation ou mise à jour d'archives dans un coffre par une nouvelle application</td>
 		<td>administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contrat_acces.pdf">Contrat d'accès</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_acces.pdf">Contrat d'accès</a></td>
 	</tr>
 	<tr>
 		<td>3.3 (obligatoire sauf si le contrat existe déjà)</td>
@@ -135,7 +135,7 @@ Documentation générale
 		<td>3.4 (obligatoire sauf si le contrat existe déjà)</td>
 		<td>... authentifier une nouvelle application interconnectée avec Vitam et lui attribuer des droits</td>
 		<td>administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_contexte_applicatif.pdf">Contexte applicatif</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contexte_applicatif.pdf">Contexte applicatif</a></td>
 	</tr>
 </table>
 
