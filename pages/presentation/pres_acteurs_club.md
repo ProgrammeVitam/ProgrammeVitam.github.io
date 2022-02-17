@@ -58,6 +58,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Conseil départemental de Seine-et-Marne
 * Conseil départemental de Vaucluse
 * CooNum
+* Direction interministérielle du numérique
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
 * Institut national de la propriété industrielle (INPI)
 * Lex Persona
@@ -84,5 +85,5 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * XDemat
 * Xelians
 
-![Logos](/public/images/202112_utilisateurs.jpg)
+![Logos](/public/images/202202_utilisateurs.png)
 
