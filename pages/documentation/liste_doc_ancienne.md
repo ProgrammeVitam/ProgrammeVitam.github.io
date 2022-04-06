@@ -54,9 +54,9 @@ notion de service producteur ([pdf](/ressources/Doc5.RC/autres/fonctionnel/VITAM
 * **Gestion des habilitations** - présentation des fonctionnalités associées à la gestion et à
 l’utilisation des habilitations (gestion des utilisateurs applicatifs et de leurs droits) ([pdf](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Gestion_habilitations.pdf))
 * **Modèle de workflow**  
-** partie 1 : référentiels ([pdf - partie 1](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Modele_de_workflow_part1.pdf)) 
-** partie 2 : gestion du cycle de vie des archives ([pdf - partie 2](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Modele_de_workflow_part2.pdf))    
-** partie 3 : préservation et intégrité ([pdf - partie 3](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Modele_de_workflow_part3.pdf)) 
+-> partie 1 : référentiels ([pdf - partie 1](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Modele_de_workflow_part1.pdf))   
+-> partie 2 : gestion du cycle de vie des archives ([pdf - partie 2](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Modele_de_workflow_part2.pdf))    
+-> partie 3 : préservation et intégrité ([pdf - partie 3](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Modele_de_workflow_part3.pdf)) 
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Multi_strategies.pdf))
 * **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Transfert.pdf))
 * **Le gel d’archives avec la solution logicielle Vitam** ([pdf](/ressources/Doc5.RC/autres/fonctionnel/VITAM_Gel.pdf))
