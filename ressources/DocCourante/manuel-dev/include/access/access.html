@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1.2. Composant Access &mdash; Documentation VITAM - Manuel de développement 5.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'5.0',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="1.3. Filtre Contrat d’accès" href="access-contract-id-filter.html" />
+    <link rel="prev" title="1.1. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">1. Access</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">1.1. Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2. Composant Access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation">1.2.1. Utilisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-mock">1.2.2. Le Mock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-d-usage-generique">1.2.3. Exemple d’usage générique</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1.2.4. Exemple d’usage générique</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="access-contract-id-filter.html">1.3. Filtre Contrat d’accès</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-rest.html">1.4. Access-rest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-securite.html">1.5. contrôle des flux d’accèss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html">1.6. vitam-pooling-client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-pooling-client.html#utilisation">1.7. Utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collect/_toc.html">2. Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">6. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">12. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">15. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">1. Access</a> &raquo;</li>
+        
+      <li>1.2. Composant Access</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/access/access.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="composant-access">
+<h1>1.2. Composant Access<a class="headerlink" href="#composant-access" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilisation">
+<h2>1.2.1. Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="configuration">
+<h3>1.2.1.1. Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le module d’access est configuré par un POM qui contient les informations nécessaires (nom du projet, numéro de version, identifiant du module parent, les sous modules (common, api, core, rest, client) de sous module d’access, etc..).
+Ces informations sont contenues dans le fichier pom.xml présent dans le répertoire de base du module Access.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;parent&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${vitam.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/parent&gt;</span>
+
+<span class="nt">&lt;artifactId&gt;</span>access<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+<span class="nt">&lt;modules&gt;</span>
+     <span class="nt">&lt;module&gt;</span>access-internal<span class="nt">&lt;/module&gt;</span>
+     <span class="nt">&lt;module&gt;</span>access-external<span class="nt">&lt;/module&gt;</span>
+<span class="nt">&lt;/modules&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-factory">
+<h3>1.2.1.2. La factory<a class="headerlink" href="#la-factory" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Afin de récupérer le client une factory a été mise en place.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client</span>
+<span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="le-mock">
+<h2>1.2.2. Le Mock<a class="headerlink" href="#le-mock" title="Lien permanent vers ce titre">¶</a></h2>
+<dl class="docutils">
+<dt>Par défaut, le client est en mode Mock. Il est possible de récupérer directement le mock.</dt>
+<dd>Si les paramètres de productions sont introuvables, le client passe en mode Mock par défaut.
+Il est possible de récupérer directement le mock :</dd>
+</dl>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>     <span class="c1">// Changer la configuration du Factory client</span>
+     <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">setConfiguration</span><span class="p">(</span><span class="n">AccessClientType</span><span class="p">.</span><span class="na">MOCK</span><span class="p">);</span>
+
+     <span class="c1">// Récupération explicite du client mock</span>
+     <span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
+
+<span class="o">-</span> <span class="n">Pour</span> <span class="n">instancier</span> <span class="n">son</span> <span class="n">client</span> <span class="n">en</span> <span class="n">mode</span> <span class="n">Production</span> <span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Changer la configuration du Factory</span>
+ <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">setConfiguration</span><span class="p">(</span><span class="n">AccessClientType</span><span class="p">.</span><span class="na">PRODUCTION</span><span class="p">);</span>
+<span class="c1">// Récupération explicite du client</span>
+<span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="l-application-rest">
+<h3>1.2.2.1. L’application rest<a class="headerlink" href="#l-application-rest" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La méthode run avec l’argument de port permet aux tests unitaires de démarrer sur un port spécifique.
+Le premier argument contient le nom du fichier de configuration access.conf (il est templatiser avec ansible)</p>
+</div>
+<div class="section" id="le-client">
+<h3>1.2.2.2. Le client<a class="headerlink" href="#le-client" title="Lien permanent vers ce titre">¶</a></h3>
+<blockquote>
+<div><p>Le client propose actuellement plusieurs méthodes permettant de gérer la lecture et la modification des collections Units, LogbookOperation, ObjectGroup, Lifecycle (Unit et OG) et de gérer l’export DIP.</p>
+<p>Le client récupère une réponse au format Json ou au format InputStream.</p>
+</div></blockquote>
+<p>Le client AdminExternalClient implémente aussi l’interface OperationStatusClient ayant la méthode suivante:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">RequestResponse</span><span class="o">&lt;</span><span class="n">ItemStatus</span><span class="o">&gt;</span> <span class="nf">getOperationProcessStatus</span><span class="p">(</span><span class="n">VitamContext</span> <span class="n">vitamContext</span><span class="p">,</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">VitamClientException</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Cette interface est passée comme paramètre au client VitamPoolingClient.</p>
+</div>
+</div>
+<div class="section" id="exemple-d-usage-generique">
+<h2>1.2.3. Exemple d’usage générique<a class="headerlink" href="#exemple-d-usage-generique" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Récupération du client dans le module ihm-demo</span>
+ <span class="n">AccessClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
+
+<span class="c1">// Récupération du dsl ( cf ihm-demo documentation)</span>
+
+<span class="c1">// Recherche des Archives Units</span>
+<span class="n">JsonNode</span> <span class="nf">selectUnits</span><span class="p">(</span><span class="n">String</span> <span class="n">dsl</span><span class="p">)</span>
+
+<span class="c1">// Recherche des Units par Identification</span>
+ <span class="n">JsonNode</span> <span class="nf">selectUnitbyId</span><span class="p">(</span><span class="n">String</span> <span class="n">sqlQuery</span><span class="p">,</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span>
+
+ <span class="c1">//Recherche d&#39;object par ID + un DSL selectObjectQuery</span>
+ <span class="n">JsonNode</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="na">selectObjectbyId</span><span class="p">(</span><span class="n">String</span> <span class="n">selectObjectQuery</span><span class="p">,</span> <span class="n">String</span> <span class="n">id</span><span class="p">);</span>
+
+ <span class="c1">//Récupération d&#39;un objet au format input stream</span>
+ <span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="na">getObjectAsInputStream</span><span class="p">(</span><span class="n">String</span> <span class="n">selectObjectQuery</span><span class="p">,</span> <span class="n">String</span> <span class="n">objectGroupId</span><span class="p">,</span> <span class="n">String</span> <span class="n">usage</span><span class="p">,</span> <span class="kt">int</span> <span class="n">version</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>1.2.4. Exemple d’usage générique<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span> <span class="c1">// Récupération du client</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">AccessClient</span> <span class="n">ACCESS_CLIENT</span> <span class="o">=</span> <span class="n">AccessClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getAccessOperationClient</span><span class="p">();</span>
+
+  <span class="p">...</span>
+
+ <span class="c1">// Autres Opérations</span>
+
+ <span class="kd">public</span> <span class="kd">static</span> <span class="n">JsonNode</span> <span class="nf">searchUnits</span><span class="p">(</span><span class="n">String</span> <span class="n">parameters</span><span class="p">)</span>
+         <span class="kd">throws</span> <span class="n">AccessClientServerException</span><span class="p">,</span> <span class="n">AccessClientNotFoundException</span><span class="p">,</span> <span class="n">InvalidParseOperationException</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">ACCESS_CLIENT</span><span class="p">.</span><span class="na">selectUnits</span><span class="p">(</span><span class="n">parameters</span><span class="p">);</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="access-contract-id-filter.html" class="btn btn-neutral float-right" title="1.3. Filtre Contrat d’accès" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="1.1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
