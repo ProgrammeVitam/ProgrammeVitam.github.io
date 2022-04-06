@@ -6,13 +6,11 @@ fatherref: documentation
 
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_lecture_de_la_documentation.pdf))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v5rc/Jeux_de_tests_Guide_de_prise_en_main_V5_RC.zip))
+([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux%20de%20tests%20Guide%20de%20prise%20en%20main%20V5.zip))
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Presentation_solution_logicielle.pdf))
 
-**[Télécharger toute la documentation métier et Vitam UI](/ressources/DocCourante/autres/fonctionnel/Vitam_doc_totalite.zip)**
-
-**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/Vitam_doc_metier.zip)**
+**[Télécharger toute la documentation métier](/ressources/DocCourante/autres/fonctionnel/Doc_v5.zip)**
 
 # Documentation
 * [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
