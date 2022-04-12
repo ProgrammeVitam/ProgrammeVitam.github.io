@@ -7,15 +7,18 @@ level: page
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
 
-Actuellement, il est conseillé d’installer la Release 16, V4 de la solution logicielle Vitam, désignée comme version Long Time Support.
-Il est déconseillé d'utiliser les Releases qui ne seront pas des versions LTS.  
-
-
 * [Solution logicielle Vitam - toutes versions publiées](#touteversion)
 * [Des exemples d'usage](#exemples)
 * [Outils de préservation Vitam](#preservation)
 * [Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...](#resip)
-* [Présentation de la deuxième version de production de la solution logicielle Vitam](#journee2)
+
+
+Actuellement, 2 versions de la solution logicielle Vitam sont livrées chaque année :
+- au printemps, une version majeure. Exemple la V5 en avril 2022.
+- à l'automne, une version appelée release candidate (RC). Exemple la V5.RC en novembre 2021.
+Les 2 versions sont homologuées.
+
+
 
 
 <a name="touteversion"></a>
@@ -29,13 +32,43 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce [lien](http://download.programmevitam.fr/vitam_repository/5.rc.1/mvn_repo/)
+Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/5.0/mvn_repo/).
 
 * **les paquets de déploiement**
 
-Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et depuis la R3-0.15.1 sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
+Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
 
-### Pour la 5.rc.1 (novembre 2021)
+### Pour la version 5 (avril 2022)
+
+- [Release note générale](/ressources/RefCourant/Release_notes_5.0.pdf)  
+- [Change-log Vitam back-office](https://github.com/ProgrammeVitam/vitam/releases/download/5.0/changelog_vitam_5.0.pdf)  
+- [Change-log Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/releases/download/5.0/changelog_vitam-ui-5.0.pdf)  
+
+
+#### *Vitam back-office*
+* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/5.0)
+* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/5.0/)
+* URL de configuration des dépôts de binaires CentOS/RHEL :  
+	* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.0/rpm/vitam-product/)  
+	* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.0/rpm/vitam-external/)
+* URL de configuration des dépôts de binaires Debian :  
+	* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.0/deb/vitam-external/)  
+	* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.0/deb/vitam-product/)
+
+
+#### *Vitam UI*
+* Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/releases/tag/5.0)
+* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/5.0/)
+* URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/5.0/rpm/)
+
+
+[Documentation de la version 5.0](https://www.programmevitam.fr/pages/documentation/)
+
+
+Liens de téléchargement pour les partenaires :  [**version 5.0**](https://v5.env.programmevitam.fr/)   
+
+
+### Pour la version 5.rc.1 (novembre 2021)
 
 [Release note générale](/ressources/RefCourant/Release_notes_5.rc.1.pdf)  
 [Change-log Vitam back-office](https://github.com/ProgrammeVitam/vitam/releases/download/5.rc.1/changelog_vitam_5.rc.1.pdf)  
@@ -57,49 +90,11 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 * URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/5.rc.1/)
 * URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/5.rc.1/rpm/)
 
-[Documentation de la version 5.rc.1](https://www.programmevitam.fr/pages/documentation/)
+[Documentation de la version 5.rc.1](https://www.programmevitam.fr/pages/documentation/liste_doc_ancienne/#5RC)
   
 
-### Pour la 4.0.4 de la R16 (mise à jour en novembre 2021)
 
-Releases note [back](/ressources/RefCourant/VitamBO_release-notes.4.0.4.pdf) et [front](/ressources/RefCourant/VitamUI_release-notes.4.0.4.pdf)
-
-#### Vitam back-office
-* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/4.0.4)  
-* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/4.0.4)  
-* URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/4.0.4/mvn_repo/)  
-* URL de configuration des dépôts de binaires CentOS/RHEL :  
-	* [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.4/rpm/vitam-product)  
-	* [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.4/rpm/vitam-external)  
-* URL de configuration des dépôts de binaires Debian :  
-	- [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.4/deb/vitam-product)  
-	- [Vitam-external](http://download.programmevitam.fr/vitam_repository/4.0.4/deb/vitam-external)  
-   
-
-#### Vitam UI
-* Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/4.0.4)  
-* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/4.0.4/mvn_repo/)  
-* URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/4.0.4/rpm/)  
-
-[Documentation de la version 3.0.16](https://www.programmevitam.fr/pages/documentation/liste_doc_ancienne/#R16)
-
-### Pour la 3.0.16 de la R13 (mise à jour en juillet 2021)
-* [Publication GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/3.0.16)  
-* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/3.0.16/mvn_repo/)  
-* URL de configuration des dépôts de binaires CentOS/RHEL :  
-	- [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-product/)  
-	- [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/rpm/vitam-external/)  
-* URL de configuration des dépôts de binaires Debian :  
-	- [Vitam-product](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-product/)  
-	- [Vitam-external](https://download.programmevitam.fr/vitam_repository/3.0.16/deb/vitam-external/)  
-* [Release notes](https://github.com/ProgrammeVitam/vitam/releases/download/3.0.16/release-notes.3.0.16.pdf)  
-
-[Documentation de la version 3.0.16](https://www.programmevitam.fr/pages/documentation/liste_doc_ancienne/#R13_16)
-
-Liens de téléchargement :   
-[**Version 5rc.1**](https://v5rc.env.programmevitam.fr/)   
-[**Version 4.0.4 (Release R16)**](https://r16.env.programmevitam.fr/)    
-[**Version 3.0.16 (Release R13)**](https://r13.env.programmevitam.fr/)  
+Liens de téléchargement pour les partenaires : [**version 5rc.1**](https://v5rc.env.programmevitam.fr/)   
 
 
 
@@ -110,11 +105,11 @@ A noter, ces liens sont utilisables par les outils de gestion de paquets (yum/ap
 Elle contient une installation complète de Vitam qui permet une découverte fonctionnelle.
 La solution logicielle étant prévue distribuée pour les grandes volumétries, l'ensemble des modules sont taillés au plus juste pour être dans cette seule machine virtuelle qui nécessite 4 vCPU et 8GO de mémoire pour fonctionner correctement.
 
-La VM de la version 3.6.0 (Release 14) peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/3.6.0/VM/demo_vitam_3.6.0.ova).
-L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/3.6.0/VM/demo_vitam_3.6.0.sha256).
+La VM de la version 5.RC peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/5.rc.1/VM/demo_vitam_5.rc.1.ova).
+L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/5.rc.1/VM/demo_vitam_5.rc.1.sha256).
 
-La VM de la version 3.0.1 (Release 13) peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/3.0.1/VM/demo_vitam_3.0.1.ova).
-L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/3.0.1/VM/demo_vitam_3.0.1.sha256).
+La VM de la version 5 peut être téléchargée en suivant ce [lien](https://download.programmevitam.fr/vitam_repository/5.0/VM/demo_vitam_5.0.ova).
+L'empreinte sha256 de la VM est disponible à cette [url](https://download.programmevitam.fr/vitam_repository/5.0/VM/demo_vitam_5.0.sha256).
 
 
 
@@ -134,7 +129,7 @@ Elle est accessible, en partie  sur GitHub pour les documents en forme brute RST
 Vous pouvez utiliser pour tester le logiciel un jeu de fichiers référentiels et paquets SIP:
 
 * **Fichiers de test du Cahier de tests métier**
-([zip](https://download.programmevitam.fr/vitam_repository/4.0.0/tests/Jeux_de_tests_fonctionnels_R16.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
+([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_fonctionnels_V5.zip)) Ces éléments vous permettent de jouer les tests du cahier de test (liste des tests manuels sur les IHM) aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) 
 
 <a name="preservation"></a>
 ## Outils de préservation Vitam
@@ -145,12 +140,12 @@ Sont mis à dispostion :
 
 * **les exécutables**
 
-* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.15.0/rpm/))
-* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.15.0/deb/))
+* URL de configuration des dépôts de binaires CentOS/RHEL : ([rpm](http://download.programmevitam.fr/vitam_griffins/1.16.0/rpm/))
+* URL de configuration des repository Debian : ([deb](http://download.programmevitam.fr/vitam_griffins/1.16.0/deb/))
 
 * **le code développé**
 
-Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.15.0).
+Il est accessible dans le dépot GitHub [Griffons](https://github.com/ProgrammeVitam/vitam-griffins/tree/1.16.0).
 
 <a name="resip"></a>
 ## Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...
@@ -176,69 +171,3 @@ Pour plus d'information :
 * **le code développé**
 
 Il contient un projet par outils et par bibliothèque, et est accessible dans le dépôt GitHub [SedaTools](https://github.com/ProgrammeVitam/sedatools). 
-
-
-<a name="journée2"></a>
-## Présentation de la deuxième version de production de la solution logicielle Vitam
-
-Le 18 mars 2019 une journée de présentation de la V2 de la solution logicielle Vitam a permis à un large public de découvrir les nouvelles fonctionnalités livrées et l'état d'avancement des projets utilisateurs. L'événement a réuni 280 participants aux Archives nationales sur le site de Pierrefitte-sur-Seine. La journée était séquencée en 3 temps.
-
-
-**La présentation des nouvelles fonctionnalités**
-
-Cette première partie a permis de faire un point sur les fonctionnalités de la V2, et de les démontrer. Les éléments présentés concernaient :
-* la recherche par facette, 
-* le contrôle de l'indexation et des métadonnées,
-* la mise à jour et la modification en masse d'une métadonnée descriptive (titre),
-* le rattachement,
-* les éliminations,
-* la préservation.
-
-La présentation est consultable en suivant ce lien : ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_1_présentation_1ere_partie_VITAM_préservation_VDiffusion.pdf)).
-
-Les vidéos des différentes fonctionnalités de la V2, diffusées lors de cette session, sont accessibles sur la page [Démonstration](/pages/demonstration).
-
-
-**Les actualités des projets d'implémentation**
-
-Une deuxième partie a fait un point d'actualités et un état d'avancement des projets d'utilisation de la solution logicielle Vitam : 
-* Adamant (Ministère de la Culture/Archives nationales), 
-* Archipel (Ministère des Armées), 
-* Saphir (Ministère de l'Europe et des Affaires étrangères), 
-* Siamae (Ministère de la Transition Ecologique et Solidaire)
-	* La présentation de ces projets est consultable en suivant ce lien : ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_2_présentation_V2_2e_partie_VDiffusion.pdf))
-* et Vitam/in (CEA)
-	* La présentation de ce projet est consultable en suivant ce lien : ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_3_présentation_V2_2e_partie_VITAMIN_VDiffusion.pdf))
-
-
-**Les outils de préparation des versements**
-
-Une troisème partie était consacrée aux outils de préparation des versements d'archives numériques : 
-* Octave (Ministère de la Culture/SIAF), 
-* Archifiltre (Ministères sociaux), 
-* SedaTools (Vitam)
-	* La présentation de ces projets est consultable en suivant ce lien :  ([pdf](/ressources/Doc2.1.1/autres/fonctionnel/20190318_4_présentation_V2_3e_partie_préparation_versement_VDiffusion.pdf))
-
-
-## Présentation de la Première version de production de la solution logicielle Vitam
-
-Une présentation de la Première version de production de la solution logicielle Vitam a eu lieu aux Archives nationales le 11 avril 2018, réunissant environ 250 personnes. Le support de présentation est consultable ici : ([pdf](/ressources/Doc1.0.0/autres/fonctionnel/20180411_présentation_vitam_V5.0_publication.pdf))
-
-
-<br>
-<hr/>
-
-## Anciennes ressources
-
-### API alpha
-
-* Package de présentation ([zip](/ressources/API-Alpha/Vitam-API-Alpha-07-2016.zip)) comprenant
-	* un fichier README.txt (version [HTML](/ressources/API-Alpha/Readme)),
-	* le fichier de licence Vitam LICENCE.txt (version [HTML](/ressources/API-Alpha/LICENCE)),
-	* un ensemble exécutable avec une JVM 8 (autour d'un serveur jetty) qui expose :
-		* la documentation html des API Vitam (pages statiques reprises ci-dessus)
-		* l'outil RAML Console permettant de manière dynamique de visualiser la documentation RAML et de faire des tests ([https://github.com/mulesoft/api-console](https://github.com/mulesoft/api-console))
-		* les Javadoc de quelques modules Vitam (query-builder, ingest.client, access.client, logbook.client)
-		* les points d'entrée REST des API externes de Access (units et objects), de Logbook (operation et lifecycle) et d'Ingest en mode "bouchonné" c'est à dire que les réponses renvoyées par le serveur sont correctes vis à vis de la documentation de l'API, mais il s'agit de "fausses" données puisqu'il n'y a pas d'implémentation du back-office Vitam derrière.
-	* des exemples de code Java pour l'utilisation des clients Access, Logbook et Ingest
-	* des exemples de requêtes CURL vers les APIs Access et Logbook
