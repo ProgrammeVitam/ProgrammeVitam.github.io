@@ -16,7 +16,7 @@ Naviguer dans la documentation par domaine :
 Documentation générale
 * **Vitam UI : documentation produit** ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Doc_produit.pdf))
 * **Vitam UI : guide de prise en main** ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Guide_de_prise_en_main.pdf))
-* **Vitam UI : jeu de tests pour prise en main** ([zip](https://download.programmevitam.fr/jeux_de_tests/v5rc/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
+* **Vitam UI : jeu de tests pour prise en main** ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
 
 ## Guide de lecture de la documentation Vitam UI
 <table>
@@ -31,31 +31,31 @@ Documentation générale
 		<td>1.1 (obligatoire)</td>
 		<td>... créer une nouvelle organisation utilisatrice de Vitam UI et lui associer 1 ou plusieurs coffre(s)</td>
 		<td>administrateur d'instance (si vous exposez Vitam UI en tant que service), administrateur technique VitamUI (si vous utilisez Vitam UI hébergé en propre)</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_organisation.pdf">Organisation</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Organisation.pdf">Organisation</a></td>
 	</tr>
 	<tr>
 		<td>1.2 (obligatoire)</td>
 		<td>... créer le compte nominatif de l'administrateur fonctionnel d'une organisation à des fins d'activation et prendre la main sur la session d'un utilisateur à des fins de support</td>
 		<td>administrateur d'instance (si vous exposez Vitam UI en tant que service), administrateur technique VitamUI (si vous utilisez Vitam UI hébergé en propre)</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_subrogation.pdf">Subrogation</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Subrogation.pdf">Subrogation</a></td>
 	</tr>
 	<tr>
 		<td>1.2 (facultatif)</td>
 		<td>... définir des droits fins sur les utilisateurs de mon organisation en créant un nouveau profil de droits</td>
 		<td>administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_profil_app_utilisateur.pdf">Profil APP Utilisateur</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Utilisateur.pdf">Profil APP Utilisateur</a></td>
 	</tr>
 	<tr>
 		<td>1.3 (obligatoire sauf si le groupe existe déjà)</td>
 		<td>... définir des regroupements de droits sur les APPs Vitam UI pour mes utilisateurs en créant un nouveau groupe de profils</td>
 		<td>administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_groupe_profil.pdf">Groupes de profils</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Groupe_profil.pdf">Groupes de profils</a></td>
 	</tr>
 	<tr>
 		<td>1.4 (obligatoire sauf si le groupe existe déjà)</td>
 		<td>... créer mes utilisateurs et leur attribuer des droits</td>
 		<td>administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_utilisateur.pdf">Utilisateur</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Utilisateur.pdf">Utilisateur</a></td>
 	</tr>
 		<tr>
 		<td>1.5 (facultatif)</td>
@@ -77,7 +77,7 @@ Documentation générale
 		<td>2.1 (obligatoire)</td>
 		<td>... déclarer un nouveau service producteur ou un nouveau service versant dans Vitam UI</td>
 		<td>administrateur fonctionnel Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_services_agents.pdf">Services agents</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Services_agents.pdf">Services agents</a></td>
 	</tr>
 	<tr>
 		<td>2.2 (Règles de gestion)</td>
@@ -89,13 +89,13 @@ Documentation générale
 		<td>2.2 (facultatif)</td>
 		<td>... déclarer un nouveau format non présent dans le référentiel PRONOM</td>
 		<td>administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_formats_fichiers.pdf">Formats de fichier</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Formats_fichiers.pdf">Formats de fichier</a></td>
 	</tr>
 	<tr>
 		<td>2.3 (facultatif)</td>
 		<td>... déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA</td>
 		<td>administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_ontologie.pdf">Ontologie</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Ontologie.pdf">Ontologie</a></td>
 	<tr>
 		<td>2.4 (facultatif)</td>
 		<td>... importer un arbre de positionnement ou un plan de classement</td>
@@ -157,7 +157,7 @@ Documentation générale
 		<td>NA</td>
 		<td>... visualiser les opérations de sécurisation et accéder aux journaux du cycle de vie des objets</td>
 		<td>administrateur technique Vitam UI</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_operations_securisation.pdf">Opérations de sécurisation</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Operations_securisation.pdf">Opérations de sécurisation</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
@@ -175,7 +175,7 @@ Documentation générale
 		<td>NA</td>
 		<td>... produire un relevé de valeur probante sur une ou plusieurs de mes archives électroniques</td>
 		<td>administrateur fonctionnel Vitam UI, super-archiviste</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_releve_valeur_probante.pdf">Relevé de valeur probante</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Releve_valeur_probante.pdf">Relevé de valeur probante</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
@@ -196,7 +196,7 @@ Documentation générale
 		<td>NA</td>
 		<td>... déposer un lot d'archives dans le SAE et en visualiser l'entrée</td>
 		<td>archiviste</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Depot_suivi_versements.pdf">Dépôt et suivi des versements</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Depot_et_suivi_versements.pdf">Dépôt et suivi des versements</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
