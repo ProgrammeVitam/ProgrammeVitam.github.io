@@ -58,10 +58,16 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Utilisateur.pdf">Utilisateur</a></td>
 	</tr>
 		<tr>
-		<td>1.5 (facultatif)</td>
+		<td>NA</td>
 		<td>... paramétrer des profils de droits permettant d’associer un contrat d’accès à un utilisateur</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Parametrages_externes.pdf">Profil APP Paramétrages externes</a></td>
+	</tr>
+		<tr>
+		<td>NA</td>
+		<td>... Créer de nouveaux profils de niveaux inférieurs, limiter l’attribution de profils à une portée d’utilisateurs et adapter la séparation des rôles</td>
+		<td>opérateur d'instance</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf">APP Hiérarchisation des profils</a></td>
 	</tr>
 </table>
 
