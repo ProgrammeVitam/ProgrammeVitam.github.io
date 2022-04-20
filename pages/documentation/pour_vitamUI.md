@@ -68,7 +68,6 @@ Documentation générale
 		<td>... Créer de nouveaux profils de niveaux inférieurs, limiter l’attribution de profils à une portée d’utilisateurs et adapter la séparation des rôles</td>
 		<td>opérateur d'instance</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf">APP Hiérarchisation des profils</a></td>
-	</tr>
 </table>
 
 <table>
@@ -107,8 +106,6 @@ Documentation générale
 		<td>... importer un arbre de positionnement ou un plan de classement</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf">Arbres et plans</a></td>
-	</tr>
-	</tr>
 </table>
 
 <table>
@@ -142,7 +139,6 @@ Documentation générale
 		<td>... authentifier une nouvelle application interconnectée avec Vitam et lui attribuer des droits</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contexte_applicatif.pdf">Contexte applicatif</a></td>
-	</tr>
 </table>
 
 <table>
