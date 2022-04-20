@@ -14,7 +14,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Version Release 8 (1.10.0-1)](#R8)
 * [Version Release 6 (1.0.0)](#R6)
 * [Version Release 3 (0.15.1)](#R3)
-* [Version Bêta (0.11.1)](#Rbêta)
+* [Version Bêta (0.11.1)](pages\documentation\liste_doc_ancienne_beta.md)
 
 
 <a name="5RC"></a>
