@@ -61,6 +61,6 @@ fatherref: documentation
 * [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)
 * [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
 * [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
-* [Documentation ReSIP]((https://www.programmevitam.fr/pages/documentation/resip/))
+* [Documentation ReSIP](https://www.programmevitam.fr/pages/documentation/resip/)
 * [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 ![Logos](/public/images/202003_guide de lecture.png)
