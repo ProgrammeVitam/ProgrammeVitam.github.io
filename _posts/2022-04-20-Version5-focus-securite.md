@@ -19,12 +19,12 @@ renforcée.
 - Le service de recherche « scroll » permettant de retourner plus de 10 000 UA doit être d’usage limité au risque d’écrouler les performances. Il
 est réservé à un usage ponctuel pour simplifier la synchronisation de métadonnées vers des applications tierces et non pour un usage illimité.
 
- 
-[En image](/public/images/V5_securite_focus.PNG)  
+<div style="text-align:center;">
 
-  
-  
-  
+[Focus sur la sécurité](/public/images/V5_securite_focus.PNG)
+
+</div>
+
 [En savoir plus sur la V5](http://www.programmevitam.fr/2022/04/13/Version5/)  
 [Accéder au code](http://www.programmevitam.fr/pages/ressources/)  
 [Accéder à la documentation de la V5](http://www.programmevitam.fr/pages/documentation/)
