@@ -17,7 +17,9 @@ fatherref: documentation
 
 * **Vitam UI : dossier d'exploitation** ([html](/ressources/DocCourante/html/exploitation_VitamUI))  
 
-* **Documentation de montées de version** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.5.0.pdf) \| [html](/ressources/DocCourante/html/migration))  
+* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.5.0.pdf) \| [html](/ressources/DocCourante/html/migration))  
+
+* **Documentation de montées de version Vitam UI** (DMV) ([html](/ressources/DocCourante/html/migration_VitamUI))  
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
