@@ -11,7 +11,7 @@ fatherref: documentation
 
 * **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.5.0.pdf) \| [html](/ressources/DocCourante/html/exploitation))  
 
-* **Vitam UI : dossier d'installation** ([à venir](/ressources/DocCourante/html/install_ui_v5_html))  
+* **Vitam UI : dossier d'installation** ([html](/ressources/DocCourante/html/installation_VitamUI))  
 
 * **Vitam UI : dossier d'exploitation** ([à venir](/ressources/DocCourante/html/exploitation_ui_v5_html))  
 
