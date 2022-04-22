@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: Version 5 de Vitam, focus sur la sécurité
+title: Version 5 de Vitam, focus sur l'offre froide
 ---
 
     La version 5 de la solution logicielle Vitam a été publiée il y a quelques jours. Le Programme Vitam souhaite en profiter pour faire quelques focus.
