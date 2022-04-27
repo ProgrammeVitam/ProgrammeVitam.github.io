@@ -26,10 +26,10 @@ Ce webinaire mettra en avant les enjeux et exigences liés au développement d�
 
 # Quand Vitam s’engage pour faciliter la collecte d’archives électroniques <a name="Collecte"></a>  
 
-La série de webinaires se poursuivra le **25 mai*** par un focus sur un nouvel outil que va proposer le Programme Vitam.  
+La série de webinaires se poursuivra le **25 mai** par un focus sur un nouvel outil que va proposer le Programme Vitam.  
  Se doter d’un SAE permettant de conserver les archives électroniques pour y donner accès sur un temps long est une étape importante dans un projet de gestion de l’information numérique. Toutefois, elle n’entraîne pas immédiatement un « remplissage » de son SAE. Le Programme Vitam, conscient des difficultés constatées par les archivistes pour collecter les archives, dialoguer avec les services versants et producteurs, préparer les paquets d’archives au SEDA, etc. a choisi d’aider ses parties prenantes à améliorer cela.
 En 2021, une développeuse et un designer ont travaillé pendant 10 mois au projet SEDAccord visant à faciliter la collecte d’archives bureautiques en recentrant les actions sur le service producteur tout en rendant transparente le passage au SEDA.
-Ce projet fait maintenant partie des travaux menés dans le cadre du « module de collecte » pour intégrer SEDAccord au socle logiciel Vitam en proposant également de traiter les versements applicatifs grâce à un connecteur générique.
+Ce projet fait maintenant partie des **travaux menés dans le cadre du « module de collecte »** pour intégrer SEDAccord au socle logiciel Vitam en proposant également de traiter les versements applicatifs grâce à un connecteur générique.
 
 **Attention :** ces développements qui ont débuté il y a quelques mois ont permis de livrer fin mars 2022 une version bêta du module de collecte, celle-ci sera expliquée pendant *ce webinaire qui s’adresse donc à un public averti en se basant sur un produit en cours de construction*.
 <p align="center">
@@ -41,7 +41,7 @@ Ce projet fait maintenant partie des travaux menés dans le cadre du « module d
 
 # S’engager avec Vitam pour construire son SAE <a name="CU"></a>  
 
-Pour achever sa série de webinaires, le Programme Vitam propose le **31 mai** une séance pour donner la parole aux membres de son Club utilisateurs. En effet, la solution logicielle Vitam est un produit participatif, une construction commune qui a vocation à répondre aux besoins de ses utilisateurs. Le Programme Vitam a mis en place des instances et des process pour assurer cette collaboration, pour favoriser l’expression des besoins, pour enrichir la solution grâce à des contributions, etc. Mais du côté des utilisateurs qu’en pensent-ils ? Comment s’organisent-ils pour s’appuyer sur un produit en construction perpétuelle à la différence d’un produit choisi sur étagère et proposé par un éditeur privé. S’engager avec Vitam c’est aussi s’engager à participer, tester, prioriser, s’exprimer. Des utilisateurs membres du Club utilisateurs Vitam vous exposeront leur choix en lien avec ce que propose le Programme Vitam.
+Pour achever sa série de webinaires, le Programme Vitam propose le **31 mai** une séance pour donner la parole aux membres de son Club utilisateurs. En effet, la solution logicielle Vitam est un produit participatif, une construction commune qui a vocation à répondre aux besoins de ses utilisateurs. Le Programme Vitam a mis en place des instances et des process pour assurer cette collaboration, pour favoriser l’expression des besoins, pour enrichir la solution grâce à des contributions, etc. Mais du côté des utilisateurs qu’en pensent-ils ? Comment s’organisent-ils pour s’appuyer sur un produit en construction perpétuelle à la différence d’un produit choisi sur étagère et proposé par un éditeur privé. **S’engager avec Vitam c’est aussi s’engager à participer, tester, prioriser, s’exprimer**. Des utilisateurs membres du Club utilisateurs Vitam vous exposeront leur choix en lien avec ce que propose le Programme Vitam.
 <p align="center">
 <img src="/public/images/VITAM_SAE.png" width="400px"/>
 </p>
