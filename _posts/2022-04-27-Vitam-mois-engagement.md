@@ -3,7 +3,13 @@ layout: post
 title: Vitam et le mois de l'engagement de l'AAF
 ---
 
-    En mai 2022, l'[Association des archivistes français](https://www.archivistes.org/) organise pour la première fois un mois de l'engagement.
+    En mai 2022, l'Association des archivistes français organise pour la première fois un mois de l'engagement.
+
+Le mois de l'engagement de l'[AAF](https://www.archivistes.org/) est né de la volonté de montrer en quoi les individus et organisations sont acteurs de l'engagement en faveur des archives, de leur défense et de leur mise en valeur.
+Le Programme Vitam a souhaité s'y associer et ainsi mettre en avant sa définition à travers différents webinaires sur les engagements qui lui tenaient à coeur.
+Pour suivre cet événement :
+- [site Internet](https://lemoisdelengagement.archivistes.org/)
+- [mot dièse Twitter](https://twitter.com/hashtag/AAFMoisEngagement?src=hashtag_click&f=live)
 
 * [Vitam et l'engagement pour un logiciel libre](#LL)
 * [Quand Vitam s’engage pour faciliter la collecte d’archives électronique](#Collecte)
@@ -11,7 +17,7 @@ title: Vitam et le mois de l'engagement de l'AAF
 
 ![Logos](/public/images/facebook-mois-engagement.jpg)
 
-Le Programme Vitam a souhaité s'y associer et ainsi montrer à travers différents webinaires les engagements qui lui tenaient à coeur.
+
 
 # Vitam et l'engagement pour un logiciel libre <a name="LL"></a>  
 
