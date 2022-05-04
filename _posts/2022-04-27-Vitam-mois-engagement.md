@@ -12,7 +12,7 @@ Pour suivre cet événement :
 - [mot dièse Twitter](https://twitter.com/hashtag/AAFMoisEngagement?src=hashtag_click&f=live)
 
 * [Vitam et l'engagement pour un logiciel libre](#LL)
-* [Quand Vitam s’engage pour faciliter la collecte d’archives électronique](#Collecte)
+* [Quand Vitam s’engage pour faciliter la collecte d’archives électroniques](#Collecte)
 * [S’engager avec Vitam pour construire son SAE](#CU)
 
 ![Logos](/public/images/facebook-mois-engagement.jpg)
