@@ -28,4 +28,5 @@ Le programme est en cours de finalisation. Vous aurez l'occasion d'en savoir plu
 - la version 5 de la solution logicielle : présentation et démonstration
 - le projet Archipel du ministère des Armées, avec ses dernières actualités et un focus sur la gestion de l'hybridité
 - le projet Saphir du ministère de l'Europe et des affaires étrangères, avec ses dernières actualités et un focus sur la gestion de la préservation
+- le projet Adamant des Archives nationales, avec ses dernières actualités et un focus sur le prototype de diffusion
 - la mutualisation d'un SAE avec l'exemple du service VaS
