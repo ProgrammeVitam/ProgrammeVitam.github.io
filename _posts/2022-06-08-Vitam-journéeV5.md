@@ -24,6 +24,7 @@ La journée aura lieu aux Archives nationales à Pierrefitte-sur-Seine. Elle est
 <script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
 
 Programme de la journée ([le télécharger](/ressources/RefCourant/30juin-programm.pdf)) :
+
 - 9h - Accueil café
 - 9h30 - Ouverture par Françoise Banat-Berger, cheffe du service interministériel des Archives de France, et Romain Delassus, chef du service du numérique du ministère de la Culture
 - 9h50 - Programme Vitam : actualités et présentation de la version 5 par Emmanuel Laborde, directeur, Marion Ville, experte fonctionnelle, Isabelle Josse, responsable produit VaS, et Thierry Devillechabrolle, architecte technique
