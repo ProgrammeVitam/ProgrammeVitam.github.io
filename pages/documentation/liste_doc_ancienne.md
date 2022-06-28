@@ -7,14 +7,14 @@ title: Anciennes documentations
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
 * [Version 5.RC](#5RC)
-* [Version Release 16 (4.0.0)](pages\documentation\liste_doc_ancienne_R16\)
-* [Version Release 15 (3.14.2)](pages\documentation\liste_doc_ancienne_R15\)
-* [Version Release 14 (3.6.0)](pages\documentation\liste_doc_ancienne_R14\)
-* [Version Release 13 (3.0.16)](pages\documentation\liste_doc_ancienne_R13\)
-* [Version Release 8 (1.10.0-1)](pages\documentation\liste_doc_ancienne_R8\)
-* [Version Release 6 (1.0.0)](pages\documentation\liste_doc_ancienne_R6\)
-* [Version Release 3 (0.15.1)](pages\documentation\liste_doc_ancienne_R3\)
-* [Version Bêta (0.11.1)](pages\documentation\liste_doc_ancienne_beta\)
+* [Version Release 16 (4.0.0)](pages/documentation/liste_doc_ancienne_R16)
+* [Version Release 15 (3.14.2)](pages/documentation/liste_doc_ancienne_R15)
+* [Version Release 14 (3.6.0)](pages/documentation/liste_doc_ancienne_R14)
+* [Version Release 13 (3.0.16)](pages/documentation/liste_doc_ancienne_R13)
+* [Version Release 8 (1.10.0-1)](pages/documentation/liste_doc_ancienne_R8)
+* [Version Release 6 (1.0.0)](pages/documentation/liste_doc_ancienne_R6)
+* [Version Release 3 (0.15.1)](pages/documentation/liste_doc_ancienne_R3)
+* [Version Bêta (0.11.1)](pages/documentation/liste_doc_ancienne_beta)
 
 
 <a name="5RC"></a>
