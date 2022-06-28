@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Anciennes documentations
+title: Anciennes documentations R6
 ---
 
 > Est ici présentée la documentation de la Release 6 (1.0.0)]
