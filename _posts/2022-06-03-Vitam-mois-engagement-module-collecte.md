@@ -7,7 +7,7 @@ title: Retour sur le webinaire "Quand Vitam s'engage pour facilliter la collecte
 
 ![Logos](/public/images/VITAM_collecteAE.png)
 
-Le 25 mai était proposé un webinaire intitulé " Quand Vitam s'engage pour faciliter la collecte d'archives électroniques". L'enregistrement vidéo sera diffusé par l'AAF prochainement, mais d'ici là, vous pouvez consulter le support de présentation:
+Le 25 mai était proposé un webinaire intitulé " Quand Vitam s'engage pour faciliter la collecte d'archives électroniques". Vous pouvez consulter le support de présentation:
 
 <p style="text-align: center;">
 <object data="/ressources/RefCourant/20220525_AAF_engagement_collecte.pdf" type="application/pdf" width="700px" height="600px">
@@ -16,6 +16,9 @@ Le 25 mai était proposé un webinaire intitulé " Quand Vitam s'engage pour fac
     </embed>
 </object>
 </p>
+
+Vous pouvez également visionner la vidéo du webinaire.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/21lLGFA_f5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Pour rappel, ce projet fait maintenant partie des **travaux menés dans le cadre du « module de collecte »** pour intégrer SEDAccord au socle logiciel Vitam en proposant également de traiter les versements applicatifs grâce à un connecteur générique.
 
