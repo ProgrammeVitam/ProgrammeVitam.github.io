@@ -39,13 +39,14 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
     - de découvertes et de tests avec la mise à disposition d’un environnement partenaire, dédié à chaque utilisateur (accès aux outils, au code, à la documentation, à l'IHM Démo, à Vitam UI, etc.) ;
 * Achat de tickets pour accéder à des prestations de support, de petites améliorations ou de priorisation de correction de bugs.
 
-## Les membres du Club utilisateurs (au 07/03/2022)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 11/07/2022)<a name="membre"></a>
 
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
 * Agence de Services et de Paiement (ASP)
 * Akompano
 * Atos
+* C6
 * Caisse nationale de l'Assurance Maladie (CNAM)
 * CGI
 * Centre Hospitalier d'Avranches-Granville
@@ -68,6 +69,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Ministère de la Culture
 * Ministère de l’Éducation nationale et de la Jeunesse
 * Ministère de l'Europe et des Affaires étrangères
+* Ministère de la Justice
 * Ministère de la Transition écologique et solidaire
 * Ministère des Solidarités et de la Santé
 * Mintika
@@ -77,6 +79,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Olkoa
 * RATP
 * Smile
+* Société du Grand Paris
 * SopraSteria
 * SRCI Groupe Salvia Developpement
 * TGIR Huma-Num
@@ -86,4 +89,4 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * XDemat
 * Xelians
 
-![Logos](/public/images/202203_utilisateurs.jpg)
+![Logos](/public/images/202207_utilisateurs.jpg)
