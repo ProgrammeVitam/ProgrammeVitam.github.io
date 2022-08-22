@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Anciennes documentations
+title: Anciennes documentations R13
 ---
 
 > Est ici présentée la documentation de la Release 13

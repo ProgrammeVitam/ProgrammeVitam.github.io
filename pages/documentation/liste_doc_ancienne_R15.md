@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Anciennes documentations
+title: Anciennes documentations R15
 ---
 
 > Est ici présentée la documentation de la Release 15 (3.14.2)

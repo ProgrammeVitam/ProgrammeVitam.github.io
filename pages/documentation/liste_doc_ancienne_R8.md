@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Anciennes documentations
+title: Anciennes documentations R8
 ---
 
 > Est ici présentée la documentation dela  Release 8 (1.10.0-1)]
