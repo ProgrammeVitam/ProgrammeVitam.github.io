@@ -23,6 +23,7 @@ Le 30 juin 2022 avait lieu aux Archives nationales à Pierrefitte-sur-Seine une 
 <details>
    <summary>la suite...</summary>
   <p>
+  
 
 ## Ouverture 
 par Françoise Banat-Berger, cheffe du service interministériel des Archives de France, et Romain Delassus, chef du service du numérique du ministère de la Culture
