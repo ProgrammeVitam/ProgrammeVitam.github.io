@@ -33,7 +33,7 @@ par Emmanuel Laborde, directeur, Marion Ville, experte fonctionnelle, Isabelle J
 <a name="Vitam">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/20220630_Vitam_v5_presentation_v1.1.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/20220630_Vitam_v5_presentation_v1.1.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/20220630_Vitam_v5_presentation_v1.1.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/20220630_Vitam_v5_presentation_v1.1.pdf">Download PDF</a>.</p>
     </embed>
@@ -48,7 +48,7 @@ par Emmanuel Laborde, directeur, Marion Ville, experte fonctionnelle, Isabelle J
 <a name="Archipel">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/20220630_NP_ARCHIPEL_JourneeVITAMV5_VF.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/20220630_NP_ARCHIPEL_JourneeVITAMV5_VF.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/20220630_NP_ARCHIPEL_JourneeVITAMV5_VF.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/20220630_NP_ARCHIPEL_JourneeVITAMV5_VF.pdf">Download PDF</a>.</p>
     </embed>
@@ -63,7 +63,7 @@ par Emmanuel Laborde, directeur, Marion Ville, experte fonctionnelle, Isabelle J
 <a name="Saphir">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/Vitam5-Saphir-preservation_20220630.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/Vitam5-Saphir-preservation_20220630.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/Vitam5-Saphir-preservation_20220630.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/Vitam5-Saphir-preservation_20220630.pdf">Download PDF</a>.</p>
     </embed>
@@ -78,7 +78,7 @@ par Emmanuel Laborde, directeur, Marion Ville, experte fonctionnelle, Isabelle J
 <a name="Adamant">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/ADAMANT_journeeVITAM_20220630_v0.1.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/ADAMANT_journeeVITAM_20220630_v0.1.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/ADAMANT_journeeVITAM_20220630_v0.1.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/ADAMANT_journeeVITAM_20220630_v0.1.pdf">Download PDF</a>.</p>
     </embed>
@@ -94,7 +94,7 @@ par Marion Ville, experte fonctionnelle - Programme Vitam et retour sur un exemp
 <a name="collecte">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/20220630_Vitam_engagement_collecte_1.0.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/20220630_Vitam_engagement_collecte_1.0.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/20220630_Vitam_engagement_collecte_1.0.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/20220630_Vitam_engagement_collecte_1.0.pdf">Download PDF</a>.</p>
     </embed>
@@ -102,7 +102,7 @@ par Marion Ville, experte fonctionnelle - Programme Vitam et retour sur un exemp
 </p>
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/2022_06_30_journee_Vitam_MINSOC.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/2022_06_30_journee_Vitam_MINSOC.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/2022_06_30_journee_Vitam_MINSOC.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/2022_06_30_journee_Vitam_MINSOC.pdf">Download PDF</a>.</p>
     </embed>
@@ -118,7 +118,7 @@ présentation par Polina Grigorieva, cheffe de projet VaS et retours d’un port
 <a name="VaS">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/20220630_Vitam_VaS.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/20220630_Vitam_VaS.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/20220630_Vitam_VaS.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/20220630_Vitam_VaS.pdf">Download PDF</a>.</p>
     </embed>
@@ -134,7 +134,7 @@ par Marie-Anne Maurel, archiviste – Cines
 <a name="Pastis">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/20220630_PresentationPASTIS_journee_VITAM.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/20220630_PresentationPASTIS_journee_VITAM.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/20220630_PresentationPASTIS_journee_VITAM.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/20220630_PresentationPASTIS_journee_VITAM.pdf">Download PDF</a>.</p>
     </embed>
@@ -158,7 +158,7 @@ par Mélanie Rebours, cheffe du Bureau du contrôle, de la collecte, des mission
 <a name="Siaf">
 
 <p style="text-align: center;">
-<object data="/ressources/RefCourant/20220630_Vitam_ANET_DIAMAN_V0.2.pdf" type="application/pdf" width="500px" height="600px">
+<object data="/ressources/RefCourant/20220630_Vitam_ANET_DIAMAN_V0.2.pdf" type="application/pdf" width="600px" height="500px">
     <embed src="/ressources/RefCourant/20220630_Vitam_ANET_DIAMAN_V0.2.pdf" type="application/pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/ressources/RefCourant/20220630_Vitam_ANET_DIAMAN_V0.2.pdf">Download PDF</a>.</p>
     </embed>
