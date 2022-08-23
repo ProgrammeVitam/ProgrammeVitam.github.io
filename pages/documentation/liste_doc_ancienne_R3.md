@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Anciennes documentations
+title: Anciennes documentations R3
 ---
 
-> Est ici présentée la documentation de la Release 3 (0.15.1)]
+> Est ici présentée la documentation de la Release 3 (0.15.1)
 
 
 # Première approche 

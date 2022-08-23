@@ -20,6 +20,10 @@ Le 30 juin 2022 avait lieu aux Archives nationales à Pierrefitte-sur-Seine une 
 * [Table ronde « Gestion de projet », animée par Olivier Szendy, directeur du projet – Direction interministérielle du numérique, avec Marion Leguay, cheffe de projet Saphir – Ministère de l’Europe et des Affaires étrangères, Nadia Bourouga, directrice de projet – Xelians, Guillemette Besson, Guillemette Besson, responsable du secteur Archives – Communauté d’agglomération de Cergy-Pontoise, Véronique Haine, architecte, et Julien Greaume, chef de projet - Nantes métropole](#TR)
 * [En savoir plus sur les dispositifs ANET et Diaman, par Mélanie Rebours, cheffe du Bureau du contrôle, de la collecte, des missions et de la coordination interministérielle – Service interministériel des Archives de France](#Siaf)
 
+<details>
+   <summary>la suite...</summary>
+  <p>
+
 ## Ouverture 
 par Françoise Banat-Berger, cheffe du service interministériel des Archives de France, et Romain Delassus, chef du service du numérique du ministère de la Culture
 <a name="intro">

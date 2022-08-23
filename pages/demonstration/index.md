@@ -14,6 +14,6 @@ level: page
 * [Présentation des fonctionnalités de la V2 de la solution logicielle Vitam (Release 9)](vitam_V2)
 * [Présentation des fonctionnalités de la solution logicielle Vitam et des API de la version Release 5(0.26.x)](vitam_R5)
 * [Présentation générale de Vitam et de l'usage des API sur la version Release 4(0.20.x)](vitam_R4)
-* [Présentation de l'usage des API sur la version Bêta](vitam_beta)
+* [Présentation de l'usage des API sur la version Bêta](vitam_0beta)
 
 
