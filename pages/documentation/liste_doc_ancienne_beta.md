@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Anciennes documentations
+title: Anciennes documentations beta
 ---
 
 > Est ici présentée la documentation de la version Bêta (0.11.1)
