@@ -39,7 +39,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
     - de découvertes et de tests avec la mise à disposition d’un environnement partenaire, dédié à chaque utilisateur (accès aux outils, au code, à la documentation, à l'IHM Démo, à Vitam UI, etc.) ;
 * Achat de tickets pour accéder à des prestations de support, de petites améliorations ou de priorisation de correction de bugs.
 
-## Les membres du Club utilisateurs (au 11/07/2022)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 16/09/2022)<a name="membre"></a>
 
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
@@ -54,7 +54,9 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Coexya
 * Commissariat à l'énergie atomique et aux énergies alternatives (CEA)
 * Communauté d'agglomération de Cergy-Pontoise
+* Communauté d'agglomération de Paris Vallée de la Marne
 * Communauté d'agglomération Pau Béarn Pyrénées
+* Conseil départemental du Gard
 * Conseil départemental de la Gironde
 * Conseil départemental de l'Hérault
 * Conseil départemental de Seine-et-Marne
@@ -84,6 +86,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * SRCI Groupe Salvia Developpement
 * TGIR Huma-Num
 * Toulon Provence Méditerranée
+* Université de Lille
 * Urssaf - Caisse nationale (ex-ACOSS)
 * Winbantu
 * XDemat
