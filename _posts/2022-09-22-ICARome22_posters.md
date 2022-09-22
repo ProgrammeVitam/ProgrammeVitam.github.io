@@ -3,9 +3,8 @@ layout: post
 title: Présentation de deux posters dans le cadre d'ICARoma22
 ---
 
-Le Programme Vitam a la chance d'être présent à la 9e conférence annuelle du Conseil international des archives qui a lieu à Rome du 19 au 23 septembre 2022. Dans ce cadre, deux posters sont présentés au public.
-
-![Logos](/public/images/ICARome.png)
+![Logos](/public/images/ICARome.png){: style="float:left; margin:1rem; height:4rem"}
+> Le Programme Vitam a la chance d'être présent à la 9e conférence annuelle du Conseil international des archives qui a lieu à Rome du 19 au 23 septembre 2022. Dans ce cadre, deux posters sont présentés au public.
 
 Un poster est consacré à la présentation du Programme Vitam, entre objectifs, soutiens, manifeste Agile, calendrier et Club utilisateurs :
 
