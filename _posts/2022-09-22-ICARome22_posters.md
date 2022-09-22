@@ -8,8 +8,8 @@ title: Présentation de deux posters dans le cadre d'ICARoma22
 
 Un poster est consacré à la présentation du Programme Vitam, entre objectifs, soutiens, manifeste Agile, calendrier et Club utilisateurs :
 
-![Logos](/public/images/Rome1.jpg)
+![Logos](/public/images/Rome1.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
 
 Le second poster est une présentation du module de collecte, dédié à faciliter le versement des archives bureautiques et la connexion de flux applicatifs à la solution logicielle Vitam :
 
-![Logos](/public/images/Rome2.jpg)
+![Logos](/public/images/Rome2.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
