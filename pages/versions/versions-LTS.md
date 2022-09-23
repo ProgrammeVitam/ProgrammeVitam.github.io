@@ -9,7 +9,7 @@ fatherref: versions
 
 [Janvier 2017 : Publication de la version Beta](https://www.programmevitam.fr/2017/01/16/beta/)
 
-[Mars 2018 : La V1 de production de la solution logicielle Vitam est publiée !](https://www.programmevitam.fr/2018/03/22/V1Prod/)
+[Novembre 2017 : Publication de la version 1 fonctionnelle (Release 5)](https://www.programmevitam.fr/2017/11/29/R5/)
 
 [Février 2019 : La V2 de la solution logicielle Vitam est publiée !](https://www.programmevitam.fr/2019/02/18/R9/)
 
