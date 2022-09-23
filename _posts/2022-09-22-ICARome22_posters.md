@@ -12,6 +12,6 @@ Un poster est consacré à la présentation du Programme Vitam, entre objectifs,
 
 Le second poster est une présentation du module de collecte, dédié à faciliter le versement des archives bureautiques et la connexion de flux applicatifs à la solution logicielle Vitam :
 
-![Logos](/public/images/Rome2.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
+![Logos](/public/images/Rome2.jpeg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
 #ICARoma22
