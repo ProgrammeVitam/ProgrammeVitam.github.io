@@ -5,8 +5,7 @@ title: VaS souffle sa première bougie
 
 ![Logos](/public/images/1an.JPG){: style="float:left; margin:1rem; height:4rem"}
 > Le 29 septembre 2021, le service VaS était ouvert. Un peu plus d'un an après, faisons le bilan entre bougies, gâteaux, métriques et usages.
-
-Avec trois ministères utilisateurs à travers ses missions archives (ministère de la Transition écologique et de la cohésion des territoires, ministères sociaux et ministère de la Culture), Vitam accessible en service est une offre opérée par le ministère de la Culture qui poursuit sa route, grandit, propose de nouvelles fonctionnalités et attire de nouveaux utilisateurs.
+> Avec trois ministères utilisateurs à travers ses missions archives (ministère de la Transition écologique et de la cohésion des territoires, ministères sociaux et ministère de la Culture), Vitam accessible en service est une offre opérée par le ministère de la Culture qui poursuit sa route, grandit, propose de nouvelles fonctionnalités et attire de nouveaux utilisateurs.
 
 ![Logos](/public/images/VaS_1.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
 
