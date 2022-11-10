@@ -5,16 +5,19 @@ fatherref: VaS
 level: page
 ---
 
+![Logos](/public/images/Logo_dev_provisoire.PNG)
 > Cette page vous présente Vitam accessible en service.
 
 * [L'offre VaS](#offre)
 * [Les fonctionnalités de VaS](#fonctionnalites)
 * [Historique du projet](#historique)
-* [Comment y souscrire ?](#souscrire)
+* [Comment préparer sa souscription ?](#souscrire)
+* [Quels sont les tarifs ?](#tarif)
 * [Documents de présentation](#documents)
 
 [Télécharger le document de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
-![Logos](/public/images/Logo_dev_provisoire.PNG)
+
+![Logos](/public/images/vas-schema-v2_51812355.png)
 
 
 # L'offre VaS <a name="offre"></a>
@@ -147,18 +150,14 @@ Ce projet, porté par le Programme Vitam, permet donc de répondre aux besoins d
 
 		* poids global + nombre de documents estimé en flux pour le versement par les SI prioritaires. 
 
-* Évaluer le nombre d'utilisateurs de la plateforme
-
 * Vérifier son accès au RIE et si besoin évaluer le débit nécessaire selon les données et flux priorisés
 
 * Préparer les versements
 
-
+# Quels sont les tarifs ? <a name="tarif"></a>
 
 # Documents de présentation <a name="documents"></a>
 
 - Téléchargez le [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
 - Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-souscripteur_3.pdf)
 - Téléchargez les [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
-
-
