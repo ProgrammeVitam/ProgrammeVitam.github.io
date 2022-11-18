@@ -32,6 +32,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Gestion de multiples stratégies de stockage** - présentation des fonctionnalités associées à la gestion et à la réalisation d'opérations de préservation numérique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Multi_strategies.pdf))
 * **Le transfert avec la solution logicielle Vitam** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Transfert.pdf))
 * **Le gel d’archives avec la solution logicielle Vitam** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Gel.pdf))
+* **Archivage sur offre froide** ([pdf](/ressources/DocCourante/autres/fonctionnel/Vitam_Archivage_sur_Offre_Froide.pdf))
 
 
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
