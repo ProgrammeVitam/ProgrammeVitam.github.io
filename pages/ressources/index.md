@@ -32,40 +32,42 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 
 * **les packages java (.jar) associés, diffusés pour Maven**
 
-Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/5.0/mvn_repo/).
+Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/5.1/mvn_repo/).
 
 * **les paquets de déploiement**
 
 Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.
 
-### Pour la version 5 (avril 2022)
+### Pour la version 5.1 (décembre 2022)
 
-- [Release note générale](/ressources/RefCourant/Release_notes_5.0.pdf)  
-- [Change-log Vitam back-office](https://github.com/ProgrammeVitam/vitam/releases/download/5.0/changelog_vitam_5.0.pdf)  
-- [Change-log Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/releases/download/5.0/changelog_vitam-ui-5.0.pdf)  
-
+- [Change-log Vitam back-office](https://github.com/ProgrammeVitam/vitam/releases/download/5.1/changelog_vitam.5.1.pdf)  
+- [Change-log Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/releases/download/5.1/changelog-vitam-UI.5.1.pdf) 
 
 #### *Vitam back-office*
-* Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/5.0)
-* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/5.0/)
-* URL de configuration des dépôts de binaires CentOS/RHEL :  
-	* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.0/rpm/vitam-product/)  
-	* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.0/rpm/vitam-external/)
-* URL de configuration des dépôts de binaires Debian :  
-	* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.0/deb/vitam-external/)  
-	* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.0/deb/vitam-product/)
+
+- Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/5.1)
+- URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/5.1/mvn_repo/) 
+- URL de configuration des dépôts de binaires CentOS/RHEL :
+- [vitam-product](https://download.programmevitam.fr/vitam_repository/5.1/rpm/vitam-product/)
+- [vitam-external](https://download.programmevitam.fr/vitam_repository/5.1/rpm/vitam-external/)
+- URL de configuration des dépôts de binaires Debian :
+- [vitam-product](https://download.programmevitam.fr/vitam_repository/5.1/deb/vitam-product/)
+- [vitam-external](https://download.programmevitam.fr/vitam_repository/5.1/deb/vitam-external/)
 
 
 #### *Vitam UI*
-* Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/releases/tag/5.0)
-* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/5.0/)
-* URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/5.0/rpm/)
+
+- Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/5.1)
+- URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/5.1/mvn_repo/)
+- URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/5.1/rpm/)
+- URL de configuration des dépôts de binaires Debian:
+https://download.programmevitam.fr/vitamui/5.1/deb/
 
 
 [Documentation de la version 5.0](https://www.programmevitam.fr/pages/documentation/)
+[Release note générale](/ressources/RefCourant/Release_notes_5.0.pdf)  
 
-
-Liens de téléchargement pour les partenaires :  [**version 5.0**](https://v5.env.programmevitam.fr/)   
+Liens de téléchargement pour les partenaires :  [**version 5.1**](https://support.programmevitam.fr/releases/5.1/index.html)  
 
 
 ### Pour la version 5.rc.1 (novembre 2021)
