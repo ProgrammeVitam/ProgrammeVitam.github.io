@@ -11,7 +11,7 @@ level: page
 * [L'offre VaS](#offre)
 * [Les fonctionnalités de VaS](#fonctionnalites)
 * [Historique du projet](#historique)
-* [Comment préparer sa souscription ?](#souscrire)
+* [Comment préparer son usage du service ?](#utiliser)
 * [Quels sont les tarifs ?](#tarif)
 * [Documents de présentation](#documents)
 
@@ -124,7 +124,7 @@ Cette deuxième étape a été l’occasion de pousser les fonctionnalités dév
 Le modèle économique repose sur la répartition des coûts entre tous les utilisateurs.
 
 
-# Comment devenir utilisateur de VaS <a name="souscrire"></a>
+# Comment préparer son usage du service ?<a name="utiliser"></a>
 
 * Contacter son service d'archives et/ou le service responsable du contrôle scientifique et technique sur ses archives
 
