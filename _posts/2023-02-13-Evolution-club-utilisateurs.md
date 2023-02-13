@@ -3,7 +3,7 @@ layout: post
 title: Aperçude l'évolution du Club utilisateurs du Programme Vitam
 ---
 
-![Logos](/public/images/ChatPGT.png){: style="float:left; margin:1rem; height:4rem"}
+![Logos](/public/images/202302_utilisateurs .jpg){: style="float:left; margin:1rem; height:4rem"}
 > En cette année 2023 qui démarre tout juste, aperçu dynamique de l'évolution du [Club utilisateurs](http://www.programmevitam.fr/pages/presentation/pres_acteurs_club/) :
 
 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
