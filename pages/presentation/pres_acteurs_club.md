@@ -39,7 +39,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
     - de découvertes et de tests avec la mise à disposition d’un environnement partenaire, dédié à chaque utilisateur (accès aux outils, au code, à la documentation, à l'IHM Démo, à Vitam UI, etc.) ;
 * Achat de tickets pour accéder à des prestations de support, de petites améliorations ou de priorisation de correction de bugs.
 
-## Les membres du Club utilisateurs (au 16/09/2022)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 13/02/2023)<a name="membre"></a>
 
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
@@ -48,7 +48,9 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Atos
 * C6
 * Caisse nationale de l'Assurance Maladie (CNAM)
+* Capgemini
 * CGI
+* Centre de recherche et de restauration des musées de France (C2RMF)  
 * Centre Hospitalier d'Avranches-Granville
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
 * Coexya
@@ -57,17 +59,24 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Communauté d'agglomération de Paris Vallée de la Marne
 * Communauté d'agglomération Pau Béarn Pyrénées
 * Conseil départemental du Gard
+* Conseil départemental du Tarn et Garonne 
 * Conseil départemental de la Gironde
 * Conseil départemental de l'Hérault
 * Conseil départemental de Seine-et-Marne
 * Conseil départemental de Vaucluse
+* Conseil départemental des Pyrénées Atlantiques  
 * CooNum
+* CNRS
+* Direction générale de l'aviation civile (DGAC)   
 * Direction interministérielle du numérique
+* DRAC Bretagne
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
 * Institut national de la propriété industrielle (INPI)
 * Lex Persona
+* Mairie de Savigny sur Orge  
 * Métropole Nice Côte d'Azur
 * Ministère des Armées
+* Ministère de l'Agriculture et de la souveraineté alimentaire  
 * Ministère de la Culture
 * Ministère de l’Éducation nationale et de la Jeunesse
 * Ministère de l'Europe et des Affaires étrangères
@@ -80,6 +89,7 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * NeoLedge
 * Olkoa
 * RATP
+* SGAMI Sud-Ouest 
 * Smile
 * Société du Grand Paris
 * SopraSteria
@@ -92,4 +102,5 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * XDemat
 * Xelians
 
-![Logos](/public/images/202207_utilisateurs.jpg)
+![Logos](/public/images/202302_utilisateurs .jpg
+)
