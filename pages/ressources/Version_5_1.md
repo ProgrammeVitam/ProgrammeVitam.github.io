@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Version 5.1 (décembre 2022)
+title: version 5.1 (décembre 2022)
 fatherref: ressources
 ---
 * [Mise à disposition du code](#github)
