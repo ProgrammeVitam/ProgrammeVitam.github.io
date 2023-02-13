@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: Aperçude l'évolution du Club utilisateurs du Programme Vitam
+title: Aperçu de l'évolution du Club utilisateurs du Programme Vitam
 ---
 
 ![Logos](/public/images/202302_utilisateurs .jpg){: style="float:left; margin:1rem; height:4rem"}
