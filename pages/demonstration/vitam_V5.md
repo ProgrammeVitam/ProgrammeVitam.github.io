@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 5
-fatherref: demonstrations
 ---
 
 Jeudi 30 juin 2022 était organisée une journée de présentation de la version 5 de la solution logicielle Vitam, occasion de démontrer les nouvelles fonctionnalités mais aussi de faire le point sur les actualités du Programme Vitam et sur l'avancée d'autres projets.

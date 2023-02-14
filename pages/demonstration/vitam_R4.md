@@ -1,7 +1,6 @@
 ---
 layout: page
 title: release 4
-fatherref: demonstrations
 ---
 
 > Présentation générale de Vitam et de l'usage des API sur la version Release 4

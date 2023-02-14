@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 3
-fatherref: demonstrations
 ---
 
 Lien rapide vers les différentes vidéos :
