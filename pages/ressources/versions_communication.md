@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Versions
-fatherref: versions
-level: page
+title: Communication sur les versions
+fatherref: ressources
 ---
 
 > Cette page présente les dernières versions de la solution logicielle Vitam.

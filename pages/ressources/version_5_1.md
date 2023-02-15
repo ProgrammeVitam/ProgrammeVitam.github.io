@@ -12,6 +12,7 @@ fatherref: ressources
 * [Exemples d'usage](#tests)
 * [Démonstration](#demo)
 
+- Avril 2022 - communication sur la publication de la version 5 : [Offre froide, module de collecte, enrichissements et nouvelles fonctionnalités au menu de la V5 de Vitam](http://www.programmevitam.fr/2022/04/13/Version5/)
 
 Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et le front-office Vitam UI. A noter que l'IHM dite de démonstration est encore utilisée en complément de Vitam UI. Sont mis à dispostion :
 
