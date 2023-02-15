@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5.7. IHM Front - Requêtes HTTP et Tenant ID &mdash; Documentation VITAM - Manuel de développement 5.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'5.0',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="5.8. Gestion des droits sur IHM demo" href="ihm-authorization.html" />
+    <link rel="prev" title="5.6. ihm-demo" href="ihm-rest-raml.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
+          
+
+          
+            
+            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collect/_toc.html">2. Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">4. Functional administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">5. IHM demo</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ihm-logbook-introduction.html">5.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-front.html">5.2. IHM Front</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-modules.html">5.3. Modules IHM Front</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-tests.html">5.4. IHM Front - Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-logbook-dat.html">5.5. DAT : module IHM logbook operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-rest-raml.html">5.6. ihm-demo</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.7. IHM Front - Requêtes HTTP et Tenant ID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cette-documentation-decrit-le-process-de-recuperation-selection-et-communication-du-tenant-id-depuis-ihm-demo-front-vers-les-api-publiques-vitam">5.7.1. Cette documentation décrit le process de récupération / sélection et communication du tenant ID depuis IHM-DEMO front vers les API publiques VITAM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-authorization.html">5.8. Gestion des droits sur IHM demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-filter-requestID.html">5.9. IHM Filter for X-Request-ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ihm-demo-serveur.html">5.10. IHM Demo serveur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">6. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">12. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">13. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">15. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
+        
+          <li><a href="_toc.html">5. IHM demo</a> &raquo;</li>
+        
+      <li>5.7. IHM Front - Requêtes HTTP et Tenant ID</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/include/ihm-demo/ihm-tenant-id.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ihm-front-requetes-http-et-tenant-id">
+<h1>5.7. IHM Front - Requêtes HTTP et Tenant ID<a class="headerlink" href="#ihm-front-requetes-http-et-tenant-id" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="cette-documentation-decrit-le-process-de-recuperation-selection-et-communication-du-tenant-id-depuis-ihm-demo-front-vers-les-api-publiques-vitam">
+<h2>5.7.1. Cette documentation décrit le process de récupération / sélection et communication du tenant ID depuis IHM-DEMO front vers les API publiques VITAM<a class="headerlink" href="#cette-documentation-decrit-le-process-de-recuperation-selection-et-communication-du-tenant-id-depuis-ihm-demo-front-vers-les-api-publiques-vitam" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="gestion-du-tenantid">
+<h3>5.7.1.1. Gestion du tenantId<a class="headerlink" href="#gestion-du-tenantid" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="cote-front">
+<h4>5.7.1.1.1. Coté front<a class="headerlink" href="#cote-front" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Actuelement, le tenantID est sauvegardé dans le navigateur client sous forme de cookie au moment de la connexion.</p>
+</div>
+<div class="section" id="cote-serveur-d-app">
+<h4>5.7.1.1.2. Coté serveur d’app<a class="headerlink" href="#cote-serveur-d-app" title="Lien permanent vers ce titre">¶</a></h4>
+</div>
+</div>
+<div class="section" id="creation-de-requetes-http-utilisant-un-tenantid-front">
+<h3>5.7.1.2. Création de requêtes HTTP utilisant un tenantID (front)<a class="headerlink" href="#creation-de-requetes-http-utilisant-un-tenantid-front" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="utilisation-de-ihmdemoclient">
+<h4>5.7.1.2.1. Utilisation de ihmDemoClient<a class="headerlink" href="#utilisation-de-ihmdemoclient" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le service ihmDemoClient permet d’instancier un client HTTP préconfiguré pour dialoguer avec le serveur d’app IHM-DEMO.
+Ce dernier contient entre autre:
+- La racine de l’url à appeler (Exemple: ihm-demo/v1/api)
+- Un intercepteur permettant d’ajouter le HEADER X-request-id à chaque requêtes.</p>
+</div>
+<div class="section" id="requetes-http-personnalisees">
+<h4>5.7.1.2.2. Requêtes http personnalisées<a class="headerlink" href="#requetes-http-personnalisees" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Si nécessaire il est possible d’utiliser $http ou un autre procédé pour faire votre requête HTTP.
+Dans ce cas, il est possible de récupérrer la clé et la valeur du header via la ligne de code suivante:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">loadStaticValues</span><span class="p">.</span><span class="nx">loadFromFile</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">headers</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">authVitamService</span><span class="p">.</span><span class="nx">cookieValue</span><span class="p">(</span><span class="nx">authVitamService</span><span class="p">.</span><span class="nx">COOKIE_TENANT_ID</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les services authVitamService et loadStaticValues doivent avoir été injectés.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ihm-authorization.html" class="btn btn-neutral float-right" title="5.8. Gestion des droits sur IHM demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ihm-rest-raml.html" class="btn btn-neutral float-left" title="5.6. ihm-demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
