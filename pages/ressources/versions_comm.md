@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Communication sur les versions
+title: Communiqués
 fatherref: ressources
 ---
 
