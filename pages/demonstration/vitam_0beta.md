@@ -1,7 +1,6 @@
 ---
 layout: page
 title: démo Bêta
-fatherref: demonstrations
 ---
 
 > Présentation de l'usage des API sur la version Bêta
