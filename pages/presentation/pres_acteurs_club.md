@@ -102,5 +102,4 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * XDemat
 * Xelians
 
-![Logos](/public/images/202302_utilisateurs .jpg
-)
+![Logos](/public/images/202302_utilisateurs .jpg)
