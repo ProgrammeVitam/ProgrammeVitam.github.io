@@ -19,8 +19,8 @@ Documentation générale
 * **Vitam UI : jeu de tests pour prise en main** ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
 
 ## Guide de lecture de la documentation Vitam UI
+![Domaine : organisation et droits utilisateurs](/public/images/VitamUI_organisation.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="orga"> 
 <table>
-<caption><b>Domaine : organisation et droits utilisateurs<a name="orga"></a></b></caption>
 	<tr>
 		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
