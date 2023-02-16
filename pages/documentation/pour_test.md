@@ -4,10 +4,7 @@ title: Doc. des tests
 fatherref: documentation
 ---
 
-* **Vitam UI : jeu de tests pour prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Guide_de_prise_en_main.pdf) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
-
-* **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir de l'IHM Démo
-([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Guide_de_prise_en_main.pdf))
+* **Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Guide_de_prise_en_main.pdf) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
 
 * **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_IHM_Recette.pdf))
 
