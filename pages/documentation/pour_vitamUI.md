@@ -85,10 +85,16 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Services_agents.pdf">Services agents</a></td>
 	</tr>
 	<tr>
-		<td>2.2 (Règles de gestion)</td>
+		<td>2.2 (facultatif)</td>
 		<td>... déclarer des nouvelles règles de gestion</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Regles_gestion.pdf">Règles de gestion</a></td>
+	</tr>
+	<tr>
+		<td>2.2 (facultatif)</td>
+		<td>... créer et modifier un profil d’archivage (PA) ou un profil d’unité archivistique (PUA), créer et modifier une notice d’un profil, importer et exporter un profil d’archivage</td>
+		<td>administrateur fonctionnel Vitam UI</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profils_documentaires.pdf">Profils documentaires</a></td>
 	</tr>
 	<tr>
 		<td>2.2 (facultatif)</td>
@@ -193,6 +199,12 @@ Documentation générale
 		<th>Je souhaite... </th>
 		<th>Je suis... </th>
 		<th>APP Vitam UI</th>
+	</tr>
+	<tr>
+		<td>NA</td>
+		<td>... créer un projet de versement, consulter et rechercher les unités archivistiques liées à un versement, ajouter des métadonnées descriptives et de gestion des unités archivistiques, consulter, valider, transférer les versements liés à un projet</td>
+		<td>archiviste</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Collecte_et_préparation_des_versements.pdf">Collecte et préparation des versements</a></td>
 	</tr>
 	<tr>
 		<td>NA</td>
