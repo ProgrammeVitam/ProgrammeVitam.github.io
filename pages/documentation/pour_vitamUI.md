@@ -20,6 +20,7 @@ Documentation générale
 
 ## Guide de lecture de la documentation Vitam UI
 ![Domaine : organisation et droits utilisateurs](/public/images/VitamUI_organisation.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="orga"> 
+### Domaine : organisation et droits utilisateurs
 <table>
 	<tr>
 		<th>Ordre d'exécution</th>
@@ -69,9 +70,9 @@ Documentation générale
 		<td>opérateur d'instance</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf">APP Hiérarchisation des profils</a></td>
 
-
+![Domaine : référentiels](/public/images/VitamUI_referentiels.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="referentiels"> 
+### Domaine : référentiels
 <table>
-<caption><b>Domaine : référentiels<a name="referentiels"></a></b></caption>
 	<tr>
 		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
@@ -112,10 +113,10 @@ Documentation générale
 		<td>... importer un arbre de positionnement ou un plan de classement</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf">Arbres et plans</a></td>
-</table>
 
+![Domaine : Sécurité et droits applicatifs](/public/images/VitamUI_securite.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="secu"> 
+### Domaine : Sécurité et droits applicatifs
 <table>
-<caption><b>Domaine : sécurité et droits applicatifs<a name="secu"></a></b></caption>
 	<tr>
 		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
@@ -145,10 +146,10 @@ Documentation générale
 		<td>... authentifier une nouvelle application interconnectée avec Vitam et lui attribuer des droits</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contexte_applicatif.pdf">Contexte applicatif</a></td>
-</table>
 
+![Domaine : supervision et audit](/public/images/VitamUI_supervision.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="supervision"> 
+### Domaine : supervision et audit
 <table>
-<caption><b>Domaine : supervision et audit<a name="supervision"></a></b></caption>
 	<tr>
 		<th>Je souhaite... </th>
 		<th>Je suis... </th>
@@ -183,10 +184,10 @@ Documentation générale
 		<td>... gérer des opérations et interagir sur les étapes du workflow des opérations</td>
 		<td>administrateur fonctionnel Vitam UI, super-archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Gestion_operations.pdf">Gestion des opérations</a></td>
-</table>
 
+![Domaine : versement et consultation](/public/images/VitamUI_versement.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="versement"> 
+### Domaine : versement et consultation
 <table>
-<caption><b>Domaine : versement et consultation<a name="versement"></a></b></caption>
 	<tr>
 		<th>Je souhaite... </th>
 		<th>Je suis... </th>
@@ -213,4 +214,3 @@ Documentation générale
 		<td>...consulter et rechercher dans le registre des fonds</td>
 		<td> archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Registre_des_fonds.pdf">Registre des fonds</a></td>
-</table>
