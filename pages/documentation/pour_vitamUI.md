@@ -68,7 +68,7 @@ Documentation générale
 		<td>... Créer de nouveaux profils de niveaux inférieurs, limiter l’attribution de profils à une portée d’utilisateurs et adapter la séparation des rôles</td>
 		<td>opérateur d'instance</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf">APP Hiérarchisation des profils</a></td>
-</table>
+
 
 <table>
 <caption><b>Domaine : référentiels<a name="referentiels"></a></b></caption>
@@ -150,43 +150,36 @@ Documentation générale
 <table>
 <caption><b>Domaine : supervision et audit<a name="supervision"></a></b></caption>
 	<tr>
-		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
 		<th>Je suis... </th>
 		<th>APP Vitam UI</th>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... consulter le journal des opérations VITAM (entrées, éliminations et données de base)</td>
 		<td>administrateur technique Vitam UI ou administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Journal_operations.pdf">Journal des opérations</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... visualiser les opérations de sécurisation et accéder aux journaux du cycle de vie des objets</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Operations_securisation.pdf">Opérations de sécurisation</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... effectuer des requêtes complexes sur les bases de données documentaires en vue de retrouver des objets</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_RequetesDSL.pdf">Requêtes DSL</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... vérifier la conformité de la conservation de mes archives</td>
 		<td>administrateur fonctionnel Vitam UI, super-archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Audit.pdf">Audit</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... produire un relevé de valeur probante sur une ou plusieurs de mes archives électroniques</td>
 		<td>administrateur fonctionnel Vitam UI, super-archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Releve_valeur_probante.pdf">Relevé de valeur probante</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... gérer des opérations et interagir sur les étapes du workflow des opérations</td>
 		<td>administrateur fonctionnel Vitam UI, super-archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Gestion_operations.pdf">Gestion des opérations</a></td>
@@ -195,25 +188,21 @@ Documentation générale
 <table>
 <caption><b>Domaine : versement et consultation<a name="versement"></a></b></caption>
 	<tr>
-		<th>Ordre d'exécution</th>
 		<th>Je souhaite... </th>
 		<th>Je suis... </th>
 		<th>APP Vitam UI</th>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... créer un projet de versement, consulter et rechercher les unités archivistiques liées à un versement, ajouter des métadonnées descriptives et de gestion des unités archivistiques, consulter, valider, transférer les versements liés à un projet</td>
 		<td>archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Collecte_et_préparation_des_versements.pdf">Collecte et préparation des versements</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... déposer un lot d'archives dans le SAE et en visualiser l'entrée</td>
 		<td>archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Depot_et_suivi_versements.pdf">Dépôt et suivi des versements</a></td>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>... rechercher et télécharger des unités archivistiques contenues dans le SAE</td>
 		<td>archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Recherche_et_consultation.pdf">Recherche et consultation des archives</a></td>
@@ -221,7 +210,6 @@ Documentation générale
 	<tr>
 	</tr>
 	<tr>
-		<td>NA</td>
 		<td>...consulter et rechercher dans le registre des fonds</td>
 		<td> archiviste</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Registre_des_fonds.pdf">Registre des fonds</a></td>
