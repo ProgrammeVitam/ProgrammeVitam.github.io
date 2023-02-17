@@ -16,18 +16,17 @@ La collecte d'archives bureautiques est donc une des composantes du **module de 
 
 ![Logos](/public/images/module_collecte.png)
 
-En mars 2022, la version 5.0 de la solution logicielle Vitam propose une version bêta de ce module de collecte avec des API dédiées au mode flux.  
+En mars 2022, la version 5.0 de la solution logicielle Vitam propose une version alpha de ce module de collecte avec des API dédiées au mode flux.  
 Ce module réutilise largement des composants internes afin de minimiser le coût
 de maintenance et permet d’envisager le développement de contrôles liés aux
 opérations d’entrées dans le module de collecte afin d’aider l’utilisateur à procéder à un versement conforme car déjà contrôlé.  
 Le module est installable de manière optionnelle.
 
-Contenu de la version bêta du module de collecte :
+Contenu de la version alpha du module de collecte :
 - Versement API Flux (constructive)
 - Exécution et envoi de SIP dans le SAE Vitam
 
-En V6.RC à l'automne 2022, les écrans de traitement des versements bureautiques et un connecteur avec API en mode lot viendront compléter ce
-module.
+En V6.RC à l'automne 2022, les écrans de traitement des versements bureautiques et un connecteur avec API en mode lot viendront compléter ce module.
   
 [Focus sur le module de collecte](/public/images/V5_module_collecte_focus.PNG)
     
