@@ -1,6 +1,6 @@
 ---
 layout: page
-title: version 5.RC.1 (novembre 2021)
+title: version 5.RC.1 (11/2021)
 fatherref: ressources
 ---
 Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et le front-office Vitam UI. A noter que l'IHM dite de démonstration est encore utilisée en complément de Vitam UI. Sont mis à dispostion :
