@@ -1,6 +1,6 @@
 ---
 layout: page
-title: version 5.1 (décembre 2022)
+title: version 5.1 (12/2022)
 fatherref: ressources
 ---
 * [Mise à disposition du code](#github)
@@ -39,12 +39,12 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 - Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/5.1)
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/5.1/mvn_repo/) 
-- URL de configuration des dépôts de binaires CentOS/RHEL :
--* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.1/rpm/vitam-product/)
--* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.1/rpm/vitam-external/)
-- URL de configuration des dépôts de binaires Debian :
--* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.1/deb/vitam-product/)
--* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.1/deb/vitam-external/)
+- URL de configuration des dépôts de binaires CentOS/RHEL :  
+-* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.1/rpm/vitam-product/)  
+-* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.1/rpm/vitam-external/)  
+- URL de configuration des dépôts de binaires Debian :  
+-* [vitam-product](https://download.programmevitam.fr/vitam_repository/5.1/deb/vitam-product/)  
+-* [vitam-external](https://download.programmevitam.fr/vitam_repository/5.1/deb/vitam-external/)  
 
 
 #### *Vitam UI*
