@@ -19,9 +19,10 @@ Documentation générale
 * **Vitam UI : jeu de tests pour prise en main** ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_Guide_de_prise_en_main_VitamUI.zip))
 
 ## Guide de lecture de la documentation Vitam UI
-![Logos](/public/images/VitamUI_organisation.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="orga">
+
 
 ### Domaine : organisation et droits utilisateurs
+![Logos](/public/images/VitamUI_organisation.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="orga">
 
 <table>
 	<tr>
@@ -73,9 +74,10 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf">APP Hiérarchisation des profils</a></td>
 
 
-![Logos](/public/images/VitamUI_referentiels.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="referentiels">  
+
 
 ### Domaine : référentiels
+![Logos](/public/images/VitamUI_referentiels.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="referentiels">  
 
 <table>
 	<tr>
@@ -120,9 +122,10 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf">Arbres et plans</a></td>
 
 
-![Logos](/public/images/VitamUI_securite.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="secu">   
+
 
 ### Domaine : Sécurité et droits applicatifs
+![Logos](/public/images/VitamUI_securite.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="secu">   
 
 <table>
 	<tr>
@@ -156,9 +159,10 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contexte_applicatif.pdf">Contexte applicatif</a></td>
 
 
-![Logos](/public/images/VitamUI_supervision.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="supervision">  
+ 
 
 ### Domaine : supervision et audit
+![Logos](/public/images/VitamUI_supervision.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="supervision"> 
 
 <table>
 	<tr>
@@ -198,9 +202,10 @@ Documentation générale
 
 
 
-![Logos](/public/images/VitamUI_versement.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="versement">  
+
 
 ### Domaine : versement et consultation
+![Logos](/public/images/VitamUI_versement.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}<a name="versement">  
 
 <table>
 	<tr>
