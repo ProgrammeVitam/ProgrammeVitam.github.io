@@ -35,7 +35,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Module de collecte** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Module_de_collecte.pdf))
 
 
-* **Manuel utilisateur de l'IHM de démonstration** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf)). *Attention : ce document présentant le fonctionnement de l'IHM de démonstration n'a plus vocation à être mis à jour, l'IHM de démonstration étant progressivement remplacée par [Vitam UI](pour_vitamUI.md).
+* **Manuel utilisateur de l'IHM de démonstration** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf)). *Attention : ce document présentant le fonctionnement de l'IHM de démonstration n'a plus vocation à être mis à jour, l'IHM de démonstration étant progressivement remplacée par [Vitam UI](pour_vitamUI.md).*
 
 
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
