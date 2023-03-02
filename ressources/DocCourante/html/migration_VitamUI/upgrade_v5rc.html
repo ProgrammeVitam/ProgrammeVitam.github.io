@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Mise à jour V5rc &mdash; Vitam-UI documentation</title>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -28,7 +29,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
-            <a href="index.html" class="icon icon-home"> Vitam-UI
+            <a href="index.html">
+            <img src="_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -45,6 +47,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="upgrade_v5.html">2. Mise à jour V5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v6rc.html">3. Mise à jour V6rc</a></li>
 </ul>
 
         </div>
@@ -72,19 +75,19 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="mise-a-jour-v5rc">
-<h1><span class="section-number">1. </span>Mise à jour V5rc<a class="headerlink" href="#mise-a-jour-v5rc" title="Lien permanent vers ce titre"></a></h1>
+<h1><span class="section-number">1. </span>Mise à jour V5rc<a class="headerlink" href="#mise-a-jour-v5rc" title="Lien permanent vers cette rubrique"></a></h1>
 <blockquote>
 <div><p><strong>Important !</strong>
 La mise à jour vers la v5rc s’opère à partir de la R16.</p>
 </div></blockquote>
 <section id="nouvelle-base-de-donnee-archivesearch">
-<h2><span class="section-number">1.1. </span>Nouvelle base de donnée archivesearch<a class="headerlink" href="#nouvelle-base-de-donnee-archivesearch" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">1.1. </span>Nouvelle base de donnée archivesearch<a class="headerlink" href="#nouvelle-base-de-donnee-archivesearch" title="Lien permanent vers cette rubrique"></a></h2>
 <p>Avant de procéder à l’application de la montée de version, dans la préparation de vos sources de deploiement, il est indispensable de rajouter la configuration de cette nouvelle base dans le fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vault-mongodb.yml</span></code>.</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>    archivesearch:
-        db: archivesearch
-        user: api-archive-search
-        password: changeit_archivesearch
-        roles: &#39;[{ role: &quot;readWrite&quot;, db: &quot;archivesearch&quot; }]&#39;
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">archivesearch</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">archivesearch</span><span class="w"></span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-archive-search</span><span class="w"></span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changeit_archivesearch</span><span class="w"></span>
+<span class="w">        </span><span class="nt">roles</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[{</span><span class="nv"> </span><span class="s">role:</span><span class="nv"> </span><span class="s">&quot;readWrite&quot;,</span><span class="nv"> </span><span class="s">db:</span><span class="nv"> </span><span class="s">&quot;archivesearch&quot;</span><span class="nv"> </span><span class="s">}]&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>N’oubliez pas d’éditer le password avec un mot de passe sécurisé pour votre installation.</p>

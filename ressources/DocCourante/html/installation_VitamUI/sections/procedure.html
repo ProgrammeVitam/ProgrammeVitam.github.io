@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. Procédure de déploiement de VitamUI &mdash; Vitam-UI documentation</title>
@@ -14,12 +14,13 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="4. Annexes" href="annexes.html" />
+    <link rel="next" title="4. Configuration des profils des mots de passe (Ansiblerie)" href="password_configurations.html" />
     <link rel="prev" title="2. Prérequis" href="prerequis.html" /> 
 </head>
 
@@ -96,7 +97,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="annexes.html">4. Annexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="password_configurations.html">4. Configuration des profils des mots de passe (Ansiblerie)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annexes.html">5. Annexes</a></li>
 </ul>
 
         </div>
@@ -124,7 +126,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="procedure-de-deploiement-de-vitamui">
-<h1><span class="section-number">3. </span>Procédure de déploiement de VitamUI<a class="headerlink" href="#procedure-de-deploiement-de-vitamui" title="Lien permanent vers ce titre"></a></h1>
+<h1><span class="section-number">3. </span>Procédure de déploiement de VitamUI<a class="headerlink" href="#procedure-de-deploiement-de-vitamui" title="Lien permanent vers cette rubrique"></a></h1>
 <blockquote>
 <div><p><strong>Astuce</strong>
 Nous vous recommandons d’utiliser Git pour le suivi de vos sources de déploiement.
@@ -132,17 +134,17 @@ Ainsi, après chacune des étapes de cette procédure, n’oubliez pas de commit
 <p>Cela vous aidera à suivre les modifications apportées à vos sources de déploiement.</p>
 </div></blockquote>
 <section id="recuperation-des-sources-de-deploiement">
-<h2><span class="section-number">3.1. </span>Récupération des sources de déploiement<a class="headerlink" href="#recuperation-des-sources-de-deploiement" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">3.1. </span>Récupération des sources de déploiement<a class="headerlink" href="#recuperation-des-sources-de-deploiement" title="Lien permanent vers cette rubrique"></a></h2>
 <p>Les sources de déploiement de Vitam-UI sont disponibles sous Github à l’adresse suivante: <a class="reference external" href="https://github.com/ProgrammeVitam/vitam-ui/tree/develop/deployment">https://github.com/ProgrammeVitam/vitam-ui/tree/develop/deployment</a></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ProgrammeVitam/vitam-ui.git
 </pre></div>
 </div>
 </section>
 <section id="preparation-des-sources-de-deploiement">
-<h2><span class="section-number">3.2. </span>Préparation des sources de déploiement<a class="headerlink" href="#preparation-des-sources-de-deploiement" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">3.2. </span>Préparation des sources de déploiement<a class="headerlink" href="#preparation-des-sources-de-deploiement" title="Lien permanent vers cette rubrique"></a></h2>
 <p>Sous le répertoire <code class="docutils literal notranslate"><span class="pre">deployment/</span></code>.</p>
 <section id="preparation-du-fichier-d-inventaire">
-<h3><span class="section-number">3.2.1. </span>Préparation du fichier d’inventaire<a class="headerlink" href="#preparation-du-fichier-d-inventaire" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.2.1. </span>Préparation du fichier d’inventaire<a class="headerlink" href="#preparation-du-fichier-d-inventaire" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Vous pouvez utiliser l’inventaire d’exemple <a class="reference external" href="https://github.com/ProgrammeVitam/vitam-ui/blob/develop/deployment/environments/hosts-ui.example">environments/hosts-ui.example</a> pour préparer votre inventaire de déploiement de Vitam-UI.</p>
 <p>Il faudra renseigner pour chacun des groupes de service Vitam-UI les VMs associés.</p>
 <blockquote>
@@ -157,33 +159,33 @@ Ainsi, après chacune des étapes de cette procédure, n’oubliez pas de commit
 </section>
 <hr class="docutils" />
 <section id="customisation-des-parametres">
-<h3><span class="section-number">3.2.2. </span>Customisation des paramètres<a class="headerlink" href="#customisation-des-parametres" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.2.2. </span>Customisation des paramètres<a class="headerlink" href="#customisation-des-parametres" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Les paramétres standards se trouvent dans <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/</span></code>. Ils sont valorisés avec des valeurs par défaut.</p>
 <p>Les paramètres essentiels à renseigner pour le déploiement de Vitam-UI sont externalisés dans le fichier <a class="reference external" href="https://github.com/ProgrammeVitam/vitam-ui/blob/develop/deployment/environments/vitamui_extra_vars.yml">environments/vitamui_extra_vars.yml</a>.</p>
 <blockquote>
 <div><p>Conseil: Vous pouvez surcharger d’autres variables dans ce même fichier afin de vous permettre d’avoir une centralisation des spécificités de votre installation.</p>
 </div></blockquote>
 <section id="consul-vars-yml">
-<h4><span class="section-number">3.2.2.1. </span>consul_vars.yml<a class="headerlink" href="#consul-vars-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.1. </span>consul_vars.yml<a class="headerlink" href="#consul-vars-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Paramètres de configuration de consul.</p>
 <p>Si vous souhaitez démarrer un cluster consul dédié à la zone Vitam-UI, il vous faudra éditer le paramètre <code class="docutils literal notranslate"><span class="pre">consul_remotes_sites</span></code> pour permettre l’interconnexion avec le cluster Vitam.</p>
 </section>
 <section id="infra-yml">
-<h4><span class="section-number">3.2.2.2. </span>infra.yml<a class="headerlink" href="#infra-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.2. </span>infra.yml<a class="headerlink" href="#infra-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Paramètres de configuration du serveur SMTP et SMS pour cas-server.</p>
 </section>
 <section id="jvm-opts-yml">
-<h4><span class="section-number">3.2.2.3. </span>jvm_opts.yml<a class="headerlink" href="#jvm-opts-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.3. </span>jvm_opts.yml<a class="headerlink" href="#jvm-opts-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Fichier permettant de configurer les paramètres des JVMs.</p>
 <p>Par défaut, la configuration mémoire est de <code class="docutils literal notranslate"><span class="pre">-Xms512m</span> <span class="pre">-Xmx512m</span></code>.</p>
 </section>
 <section id="repositories-yml">
-<h4><span class="section-number">3.2.2.4. </span>repositories.yml<a class="headerlink" href="#repositories-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.4. </span>repositories.yml<a class="headerlink" href="#repositories-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Configuration des dépôts pour l’installation de Vitam-UI.</p>
 <p>L’installation de Vitam-UI nécessite l’accès aux dépôts Vitam.</p>
 </section>
 <section id="reverse-proxy-conf-yml">
-<h4><span class="section-number">3.2.2.5. </span>reverse_proxy_conf.yml<a class="headerlink" href="#reverse-proxy-conf-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.5. </span>reverse_proxy_conf.yml<a class="headerlink" href="#reverse-proxy-conf-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Paramètres de configuration du reverse proxy permettant l’accès aux services UI.</p>
 <p>Choix possible entre apache ou nginx. Nginx permettant la multi-instanciation des composants UI.</p>
 <blockquote>
@@ -191,22 +193,22 @@ Ainsi, après chacune des étapes de cette procédure, n’oubliez pas de commit
 </div></blockquote>
 </section>
 <section id="vitam-vars-yml">
-<h4><span class="section-number">3.2.2.6. </span>vitam_vars.yml<a class="headerlink" href="#vitam-vars-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.6. </span>vitam_vars.yml<a class="headerlink" href="#vitam-vars-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Si vous avez édité les paramètres de Vitam (ports, vitam_tenants_usage_external, …), il sera nécessaire de les reporter ici.</p>
 </section>
 <section id="vitamui-vars-yml">
-<h4><span class="section-number">3.2.2.7. </span>vitamui_vars.yml<a class="headerlink" href="#vitamui-vars-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.7. </span>vitamui_vars.yml<a class="headerlink" href="#vitamui-vars-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Contient l’ensemble des paramètres des composants de Vitam-UI.</p>
 </section>
 <section id="extra-configuration-des-profils-de-mots-de-passe">
-<h4><span class="section-number">3.2.2.8. </span>Extra: Configuration des profils de mots de passe<a class="headerlink" href="#extra-configuration-des-profils-de-mots-de-passe" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.2.8. </span>Extra: Configuration des profils de mots de passe<a class="headerlink" href="#extra-configuration-des-profils-de-mots-de-passe" title="Lien permanent vers cette rubrique"></a></h4>
 <p>La configuration de la complexité des mots de passe de Vitam-UI est personnalisable.</p>
 <p><a class="reference internal" href="password_configurations.html"><span class="doc std std-doc">Voir la documentation associée</span></a></p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="preparation-des-secrets">
-<h3><span class="section-number">3.2.3. </span>Préparation des secrets<a class="headerlink" href="#preparation-des-secrets" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.2.3. </span>Préparation des secrets<a class="headerlink" href="#preparation-des-secrets" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Il est indispensable de modifier les mots de passe des vaults avant de les stocker sous Git.</p>
 <p>De plus, il faudra modifier l’ensemble des mots de passe contenus dans chacun des fichiers afin de sécuriser votre installation (notamment dans le cadre d’un déploiement en Production). Les mots de passe par défaut dans l’ansiblerie étant communiqués publiquement sur GitHub.</p>
 <blockquote>
@@ -218,7 +220,7 @@ Ainsi, après chacune des étapes de cette procédure, n’oubliez pas de commit
 </ul>
 </div></blockquote>
 <section id="script-d-aide-a-la-preparation-des-vaults">
-<h4><span class="section-number">3.2.3.1. </span>Script d’aide à la préparation des vaults<a class="headerlink" href="#script-d-aide-a-la-preparation-des-vaults" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.3.1. </span>Script d’aide à la préparation des vaults<a class="headerlink" href="#script-d-aide-a-la-preparation-des-vaults" title="Lien permanent vers cette rubrique"></a></h4>
 <blockquote>
 <div><p><strong>Information</strong>: Ce script est fourni à titre d’extra pour aider à la préparation des vaults.
 L’utilisation de Git est fortement recommandé afin de pouvoir tracer les modifications mais aussi pouvoir les annuler en cas de nécessité.</p>
@@ -236,7 +238,7 @@ Si vous voulez être sûr qu’il ne va pas écraser vos vaults existant, n’ou
 </div>
 </section>
 <section id="vault-vitamui-yml">
-<h4><span class="section-number">3.2.3.2. </span>vault-vitamui.yml<a class="headerlink" href="#vault-vitamui-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.3.2. </span>vault-vitamui.yml<a class="headerlink" href="#vault-vitamui-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Contient les mots de passe de la plateforme Vitam-UI.</p>
 <p>Il est indispensable de personnaliser ces mots de passe pour votre installation.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-vault edit --vault-password-file vault_pass.txt environments/group_vars/all/vault-vitamui.yml
@@ -251,7 +253,7 @@ Si vous voulez être sûr qu’il ne va pas écraser vos vaults existant, n’ou
 </div></blockquote>
 </section>
 <section id="vault-mongodb-yml">
-<h4><span class="section-number">3.2.3.3. </span>vault-mongodb.yml<a class="headerlink" href="#vault-mongodb-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.3.3. </span>vault-mongodb.yml<a class="headerlink" href="#vault-mongodb-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Contient les mots de passe des bases mongo-vitamui.</p>
 <p>Il est indispensable de personnaliser ces mots de passe pour votre installation.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-vault edit --vault-password-file vault_pass.txt environments/group_vars/all/vault-mongodb.yml
@@ -262,7 +264,7 @@ Si vous voulez être sûr qu’il ne va pas écraser vos vaults existant, n’ou
 </div></blockquote>
 </section>
 <section id="vault-keystores-yml">
-<h4><span class="section-number">3.2.3.4. </span>vault-keystores.yml<a class="headerlink" href="#vault-keystores-yml" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.2.3.4. </span>vault-keystores.yml<a class="headerlink" href="#vault-keystores-yml" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Contient les mots de passe des keystores.</p>
 <p>Il est indispensable de personnaliser ces mots de passe pour votre installation.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-vault edit --vault-password-file vault_pass.txt environments/group_vars/all/vault-keystores.yml
@@ -272,7 +274,7 @@ Si vous voulez être sûr qu’il ne va pas écraser vos vaults existant, n’ou
 </section>
 <hr class="docutils" />
 <section id="recuperation-des-interfaces-reseaux">
-<h3><span class="section-number">3.2.4. </span>Récupération des interfaces réseaux<a class="headerlink" href="#recuperation-des-interfaces-reseaux" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.2.4. </span>Récupération des interfaces réseaux<a class="headerlink" href="#recuperation-des-interfaces-reseaux" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Avant de procéder à cette étape le fichier d’inventaire (fichier hosts-ui.example) doit être préalablement préparé.</p>
 <ul class="simple">
 <li><p>Récupération pour 1 interface réseau</p></li>
@@ -295,13 +297,13 @@ N’oubliez pas de renseigner les <code class="docutils literal notranslate"><sp
 </section>
 <hr class="docutils" />
 <section id="gestion-des-certificats">
-<h2><span class="section-number">3.3. </span>Gestion des certificats<a class="headerlink" href="#gestion-des-certificats" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">3.3. </span>Gestion des certificats<a class="headerlink" href="#gestion-des-certificats" title="Lien permanent vers cette rubrique"></a></h2>
 <p>Les certificats générés sont utilisés dans les keystores et truststores pour la communication inter-services.</p>
 <p>Le service cas-server autorise les redirections sur les services ui lorsque ces derniers ont des certificats renseignés en base de données.</p>
 <p>Enfin, la communication entre Vitam-UI et Vitam est possible seulement si le certificat client de vitamui est généré et copié dans les stores de vitam. Cette opération est faite lors de l’étape de mutualisation ci après.</p>
 <p>Avertissement: Les scripts de génération de PKI sont donnés à titre d’exemple. Il est déconseillé de les utiliser en production.</p>
 <section id="generation-des-ca">
-<h3><span class="section-number">3.3.1. </span>Génération des CA<a class="headerlink" href="#generation-des-ca" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.3.1. </span>Génération des CA<a class="headerlink" href="#generation-des-ca" title="Lien permanent vers cette rubrique"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./pki/scripts/generate_ca.sh <span class="nb">true</span>
 </pre></div>
 </div>
@@ -311,7 +313,7 @@ N’oubliez pas de renseigner les <code class="docutils literal notranslate"><sp
 </div></blockquote>
 </section>
 <section id="generation-des-certificats">
-<h3><span class="section-number">3.3.2. </span>Génération des Certificats<a class="headerlink" href="#generation-des-certificats" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.3.2. </span>Génération des Certificats<a class="headerlink" href="#generation-des-certificats" title="Lien permanent vers cette rubrique"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./pki/scripts/generate_certs.sh environments/&lt;hostfile_vitamui&gt; <span class="nb">true</span>
 </pre></div>
 </div>
@@ -321,7 +323,7 @@ N’oubliez pas de renseigner les <code class="docutils literal notranslate"><sp
 </div></blockquote>
 <p>Visualiser la fin du script de génération pour comprendre quels services sont adressés par ces certificats.</p>
 <section id="mise-en-place-de-certificats-personnalises-pour-reverse-proxy">
-<h4><span class="section-number">3.3.2.1. </span>Mise en place de certificats personnalisés pour reverse proxy<a class="headerlink" href="#mise-en-place-de-certificats-personnalises-pour-reverse-proxy" title="Lien permanent vers ce titre"></a></h4>
+<h4><span class="section-number">3.3.2.1. </span>Mise en place de certificats personnalisés pour reverse proxy<a class="headerlink" href="#mise-en-place-de-certificats-personnalises-pour-reverse-proxy" title="Lien permanent vers cette rubrique"></a></h4>
 <p>Si vous avez des certificats personnalisés pour le reverse proxy, vous pouvez remplacer ceux générés sous <code class="docutils literal notranslate"><span class="pre">environments/certs/server/hosts/&lt;hostname&gt;/reverse.{crt,key}</span></code> par ceux fournis par votre autorité de certification.</p>
 <blockquote>
 <div><p>Info: reverse.crt est la concatenation du certificat et de la CA.</p>
@@ -333,7 +335,7 @@ N’oubliez pas de renseigner les <code class="docutils literal notranslate"><sp
 </section>
 </section>
 <section id="mutualisation-des-pkis-entre-vitam-vitam-ui">
-<h3><span class="section-number">3.3.3. </span>Mutualisation des PKIs entre Vitam &amp; Vitam-UI<a class="headerlink" href="#mutualisation-des-pkis-entre-vitam-vitam-ui" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.3.3. </span>Mutualisation des PKIs entre Vitam &amp; Vitam-UI<a class="headerlink" href="#mutualisation-des-pkis-entre-vitam-vitam-ui" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Afin de permettre à Vitam-UI de communiquer avec Vitam, il va falloir procéder à un échanges de certificats et des autorités de certifications.</p>
 <p>Pour ce faire, il existe un script permettant de faciliter cet échange qui prend les paramètres suivants:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Usage: ./scripts/mutualize_certs_for_vitamui.sh -v &lt;path_to_vitam_certs_dir&gt; -u &lt;path_to_vitamui_certs_dir&gt; <span class="o">[</span>-h<span class="o">]</span>
@@ -372,7 +374,7 @@ Voir Le chapitre : <a class="reference external" href="#reconfiguration-de-vitam
 </div></blockquote>
 </section>
 <section id="generation-des-stores-dans-vitam-ui">
-<h3><span class="section-number">3.3.4. </span>Génération des stores (dans Vitam-UI)<a class="headerlink" href="#generation-des-stores-dans-vitam-ui" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.3.4. </span>Génération des stores (dans Vitam-UI)<a class="headerlink" href="#generation-des-stores-dans-vitam-ui" title="Lien permanent vers cette rubrique"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./generate_stores.sh <span class="nb">true</span>
 </pre></div>
 </div>
@@ -383,25 +385,25 @@ Voir Le chapitre : <a class="reference external" href="#reconfiguration-de-vitam
 </section>
 <hr class="docutils" />
 <section id="reconfiguration-de-vitam">
-<h2><span class="section-number">3.4. </span>Reconfiguration de Vitam<a class="headerlink" href="#reconfiguration-de-vitam" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">3.4. </span>Reconfiguration de Vitam<a class="headerlink" href="#reconfiguration-de-vitam" title="Lien permanent vers cette rubrique"></a></h2>
 <blockquote>
 <div><p>Les étapes suivantes se font à partir des sources de déploiement de Vitam.</p>
 </div></blockquote>
 <section id="generation-des-stores-suite-a-la-mutualisation-avec-vitam-ui-dans-vitam">
-<h3><span class="section-number">3.4.1. </span>Génération des stores suite à la mutualisation avec Vitam-UI (dans Vitam)<a class="headerlink" href="#generation-des-stores-suite-a-la-mutualisation-avec-vitam-ui-dans-vitam" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.4.1. </span>Génération des stores suite à la mutualisation avec Vitam-UI (dans Vitam)<a class="headerlink" href="#generation-des-stores-suite-a-la-mutualisation-avec-vitam-ui-dans-vitam" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Se placer dans le répertoire <code class="docutils literal notranslate"><span class="pre">deployment/</span></code> des sources Vitam et exécuter la commande suivante:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./generate_stores.sh
 </pre></div>
 </div>
 </section>
 <section id="maj-des-certificats-dans-vitam">
-<h3><span class="section-number">3.4.2. </span>MAJ des certificats (dans Vitam)<a class="headerlink" href="#maj-des-certificats-dans-vitam" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.4.2. </span>MAJ des certificats (dans Vitam)<a class="headerlink" href="#maj-des-certificats-dans-vitam" title="Lien permanent vers cette rubrique"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook --vault-password-file vault_pass.txt -i environments/&lt;hostfile_vitam&gt; ansible-vitam/vitam.yml --tags update_vitam_certificates
 </pre></div>
 </div>
 </section>
 <section id="ajout-du-contexte-vitam-ui">
-<h3><span class="section-number">3.4.3. </span>Ajout du contexte Vitam-UI<a class="headerlink" href="#ajout-du-contexte-vitam-ui" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.4.3. </span>Ajout du contexte Vitam-UI<a class="headerlink" href="#ajout-du-contexte-vitam-ui" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Toujours à partir des sources de déploiement de Vitam, il est nécessaire d’ajouter un contexte dédié à Vitam-UI pour la communication avec Vitam.</p>
 <p>Ainsi, dans les sources de déploiement de Vitam, il sera nécessaire de rajouter dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/postinstall_param.yml</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>vitam_additional_securityprofiles:
@@ -432,9 +434,9 @@ Voir Le chapitre : <a class="reference external" href="#reconfiguration-de-vitam
 </section>
 <hr class="docutils" />
 <section id="installation-de-vitam-ui">
-<h2><span class="section-number">3.5. </span>Installation de Vitam-UI<a class="headerlink" href="#installation-de-vitam-ui" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">3.5. </span>Installation de Vitam-UI<a class="headerlink" href="#installation-de-vitam-ui" title="Lien permanent vers cette rubrique"></a></h2>
 <section id="configuration-des-depots-vitam-ui">
-<h3><span class="section-number">3.5.1. </span>Configuration des dépôts Vitam-UI<a class="headerlink" href="#configuration-des-depots-vitam-ui" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.5.1. </span>Configuration des dépôts Vitam-UI<a class="headerlink" href="#configuration-des-depots-vitam-ui" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Lors du processus d’installation par l’ansiblerie on va chercher durant les différentes phases les packages applicatifs. Ces derniers doivent être renseignés sur chaque machine cible (hosts). Il est donc nécessaire de lancer un playbook de bootstrap qui va mettre à jour les adresses des repositories sur les machines distances.</p>
 <p>Pour une distribution Unix de type Centos, on trouvera sur les différentes machines cibles : <code class="docutils literal notranslate"><span class="pre">/etc/yum.repos.d/vitamui-repositories.repo</span></code></p>
 <p>Pour une distribution Unix de type Debian: <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/vitamui-repositories.list</span></code></p>
@@ -446,7 +448,7 @@ Voir Le chapitre : <a class="reference external" href="#reconfiguration-de-vitam
 </div></blockquote>
 </section>
 <section id="lancement-du-deploiement-de-vitam-ui">
-<h3><span class="section-number">3.5.2. </span>Lancement du déploiement de Vitam-UI<a class="headerlink" href="#lancement-du-deploiement-de-vitam-ui" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.5.2. </span>Lancement du déploiement de Vitam-UI<a class="headerlink" href="#lancement-du-deploiement-de-vitam-ui" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Le déploiement de Vitam-UI s’effectue à l’aide du playbook <code class="docutils literal notranslate"><span class="pre">ansible-vitamui/vitamui.yml</span></code>.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook --vault-password-file vault_pass.txt -i environments/&lt;hostfile_vitamui&gt; --extra-vars<span class="o">=</span>@./environments/vitamui_extra_vars.yml ansible-vitamui/vitamui.yml
 </pre></div>
@@ -456,16 +458,16 @@ Voir Le chapitre : <a class="reference external" href="#reconfiguration-de-vitam
 </section>
 <hr class="docutils" />
 <section id="verification-de-l-installation">
-<h2><span class="section-number">3.6. </span>Vérification de l’installation<a class="headerlink" href="#verification-de-l-installation" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">3.6. </span>Vérification de l’installation<a class="headerlink" href="#verification-de-l-installation" title="Lien permanent vers cette rubrique"></a></h2>
 <p>Afin de valider que Vitam-UI est fonctionnel il faut réaliser quelques contrôles.</p>
 <section id="controle-des-services">
-<h3><span class="section-number">3.6.1. </span>1°) Contrôle des services<a class="headerlink" href="#controle-des-services" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.6.1. </span>1°) Contrôle des services<a class="headerlink" href="#controle-des-services" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Se rendre sur le portail Consul pour vérifier l’état des services.</p>
 <p>Si vous avez déployé un cluster Consul dédié à Vitam-UI, vous devriez avoir un onglet (en haut à gauche), nommé avec le nom de <code class="docutils literal notranslate"><span class="pre">vitamui_site_name</span></code>. Sélectionnez cette valeur pour n’afficher que les services Vitam-UI et vérifiez que ces services soient verts (up).</p>
 <p>Dans le cas où vous avez utilisez le cluster Consul de Vitam pour les services de Vitam-UI, les services devraient directement apparaître dans la liste des services.</p>
 </section>
 <section id="controle-de-la-communication-vitamui-vitam">
-<h3><span class="section-number">3.6.2. </span>2°) Contrôle de la communication vitamui-vitam<a class="headerlink" href="#controle-de-la-communication-vitamui-vitam" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">3.6.2. </span>2°) Contrôle de la communication vitamui-vitam<a class="headerlink" href="#controle-de-la-communication-vitamui-vitam" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Vitam-UI communique avec Vitam via des requêtes api réalisées dans ses services. On peut via les outils de debug des navigateurs internet (chrome, firefox) voir quels sont les appels réalisés.</p>
 <p>Plus facilement, on peut se rendre dans l’application referential et voir les contextes Vitam depuis Vitam-UI. Si les contextes sont bien visibles c’est que la communication Vitam-UI -&gt; Vitam fonctionne.</p>
 <p>Si ce n’est pas le cas, le mode debug du navigateur va nous permettre de voir ce qui ne va pas. Dans ce cas là aller en <a class="reference internal" href="annexes.html"><span class="doc std std-doc">Annexes</span></a> pour de plus amples informations sur les erreurs possiblement rencontrées.</p>
@@ -478,7 +480,7 @@ Voir Le chapitre : <a class="reference external" href="#reconfiguration-de-vitam
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
         <a href="prerequis.html" class="btn btn-neutral float-left" title="2. Prérequis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="annexes.html" class="btn btn-neutral float-right" title="4. Annexes" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="password_configurations.html" class="btn btn-neutral float-right" title="4. Configuration des profils des mots de passe (Ansiblerie)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
