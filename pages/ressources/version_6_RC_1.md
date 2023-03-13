@@ -43,7 +43,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 #### *Vitam UI*
 
-- Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/5.1)
+- Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/6.rc.1)
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/6.rc.1/mvn_repo/)
 - URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/6.rc.1/rpm/)
 - URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui/6.rc.1/deb/)
