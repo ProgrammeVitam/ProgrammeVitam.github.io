@@ -3,7 +3,7 @@ layout: post
 title: Organisation d'una telier dédié aux ESN
 ---
 
-![Logos](/public/images/Osmose_ESN.jpg)
+![Logos](/public/images/Osmose_ESN.JPG)
 > Entreprises du secteur numérique (ESN), le Programme Vitam souhaite vous proposer prochainement un atelier qui vous serait dédié.
 
 Le Programme Vitam prévoit d'organiser courant mai un nouvel atelier dédié aux ESN. Celles-ci sont parfois sollicitées sur le Programme Vitam, la solution logicielle, Vitam accessible en service, etc. sans avoir tous les éléments de réponse ❓ ❔  
