@@ -41,7 +41,7 @@ Releases note [back](/ressources/RefCourant/VitamBO_release-notes.4.0.4.pdf) et 
 
 #### Vitam back-office
 * Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/4.0.7)  
-* Publication [GitHub Vitam-itests](https://github.com/ProgrammeVitam/vitam-itests/tree/4.0.7)  
+
 * URL de configuration du [repository Maven](http://download.programmevitam.fr/vitam_repository/4.0.7/mvn_repo/)  
 * URL de configuration des dépôts de binaires CentOS/RHEL :  
 	* [Vitam-product](http://download.programmevitam.fr/vitam_repository/4.0.7/rpm/vitam-product)  
@@ -52,9 +52,9 @@ Releases note [back](/ressources/RefCourant/VitamBO_release-notes.4.0.4.pdf) et 
    
 
 #### Vitam UI
-* Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/4.0.7)  
-* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/4.0.7/mvn_repo/)  
-* URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/4.0.7/rpm/)  
+* Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/4.0.5)  
+* URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui/4.0.5/mvn_repo/)  
+* URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/4.0.5/rpm/)  
 
 
 
