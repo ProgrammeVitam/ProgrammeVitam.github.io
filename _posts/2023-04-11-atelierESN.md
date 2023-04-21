@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: Organisation d'una telier dédié aux ESN
+title: Organisation d'un atelier dédié aux ESN
 ---
 
 ![Logos](/public/images/Osmose_ESN.JPG)
