@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.4.2.9. Request ID &mdash; Documentation VITAM - Architecture 6.rc.1</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+      <script>
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'6.rc.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="7.4.3. Securite" href="../securite/index.html" />
+    <link rel="prev" title="7.4.2.7. Messages" href="messages.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture<img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                6.rc.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-applicative/_toc.html">4. Architecture applicative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">7. Architecture détaillée</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">7.1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch-report/_toc.html">7.2. Batch-report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collect/_toc.html">7.3. Access</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">7.4. Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../fonctionnelle/index.html">7.4.1. Architecture Fonctionnelle</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7.4.2. Architecture Technique</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">7.4.2.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUID.html">7.4.2.2. GUID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jetty.html">7.4.2.3. Configuration jetty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jetty.html#gestion-des-handlers">7.4.2.4. Gestion des Handlers :</a></li>
+<li class="toctree-l4"><a class="reference internal" href="certs-auth.html">7.4.2.5. Schéma de certificats et d’authentification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="format-identifier.html">7.4.2.6. Common format identification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="messages.html">7.4.2.7. Messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="messages.html#messages-logbook">7.4.2.8. Messages Logbook</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.4.2.9. Request ID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../securite/index.html">7.4.3. Securite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">7.5. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">7.6. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">7.7. IHM recette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7.8. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">7.9. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">7.10. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">7.11. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">7.12. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler/_toc.html">7.13. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">7.14. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">7.15. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">7.16. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">7.17. Workspace</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Architecture</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../_toc.html">7. Architecture détaillée</a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">7.4. Common</a></li>
+          <li class="breadcrumb-item"><a href="index.html">7.4.2. Architecture Technique</a></li>
+      <li class="breadcrumb-item active">7.4.2.9. Request ID</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/include/common/technique/requestID.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="request-id">
+<h1>7.4.2.9. Request ID<a class="headerlink" href="#request-id" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le <strong>Request ID</strong> est un identifiant métier de corrélation qui doit être positionné par l’appelant.</p>
+<p>Il permet de suivre un traitement à travers tous les services qui y participent.</p>
+<p>Cet identifiant est transporté par le header HTTP «&nbsp;<strong>X-REQUEST-ID</strong>&nbsp;».</p>
+<div class="section" id="filtre-client">
+<h2>7.4.2.9.1. Filtre client<a class="headerlink" href="#filtre-client" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Classe :</em> <strong>fr.gouv.vitam.common.client2.RequestIdClientFilter</strong></p>
+<p>Récupère le <strong>Request ID</strong> depuis le <strong>VitamSession</strong> et le positionne dans le Header «&nbsp;<strong>X-REQUEST-ID</strong>&nbsp;».</p>
+<p>Ce filtre est référencé dans <em>fr.gouv.vitam.common.client2.AbstractCommonClient.AbstractCommonClient(VitamClientFactoryInterface&lt;?&gt;)</em>.</p>
+</div>
+<div class="section" id="sauvegarde-dans-le-thread-local">
+<h2>7.4.2.9.2. Sauvegarde dans le thread local<a class="headerlink" href="#sauvegarde-dans-le-thread-local" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Package :</em> <strong>fr.gouv.vitam.common.thread</strong></p>
+<p>Le <strong>Request ID</strong> est sauvegardé dans l’objet <strong>VitamSession</strong> qui est positionné dans le <strong>VitamThreadFactory.VitamThread</strong> qui étend le thread local.</p>
+<p>Le <strong>VitamThreadPoolExecutor</strong> gère la recopie du <strong>VitamSession</strong> d’un thread père vers un thread fils.</p>
+<p>Le <strong>VitamThreadPoolExecutor.VitamRunnable</strong> encapsule le <strong>VitamThreadFactory.VitamThread</strong>.</p>
+<p><strong>VitamThreadUtils</strong> permet de récupérer le <strong>VitamSession</strong>. Si l’état du thread ne le permet pas, une <strong>VitamThreadAccessException</strong> est levée.</p>
+</div>
+<div class="section" id="filtre-serveur">
+<h2>7.4.2.9.3. Filtre Serveur<a class="headerlink" href="#filtre-serveur" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Classe :</em> <strong>fr.gouv.vitam.common.server2.RequestIdContainerFilter</strong></p>
+<p>Extrait le <strong>Request ID</strong> depuis le Header «&nbsp;<strong>X-REQUEST-ID</strong>&nbsp;» et le positionne dans le <strong>VitamSession</strong>.</p>
+<p>Ce filtre est référencé dans <em>fr.gouv.vitam.common.server2.application.AbstractVitamApplication.buildApplicationHandler()</em></p>
+<p>Si le request ID présent dans la session n’était pas nul, on trace un warning.</p>
+</div>
+<div class="section" id="affichage-dans-les-logs">
+<h2>7.4.2.9.4. Affichage dans les logs<a class="headerlink" href="#affichage-dans-les-logs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour afficher le request ID dans les logs, le mécanisme MDC de Logback est utilisé : <a class="reference external" href="http://logback.qos.ch/manual/mdc.html">http://logback.qos.ch/manual/mdc.html</a></p>
+<p>Dans le <strong>VitamSession</strong>, lorsque qu’on fait un <strong>setRequestId</strong>, cela positionne la valeur au niveau du MDC :</p>
+<blockquote>
+<div>MDC.put(GlobalDataRest.X_REQUEST_ID, newRequestId);</div></blockquote>
+<p>Dans la configuration de Logback, on rajoute <strong>%X{X-REQUEST-ID}</strong> dans le pattern de log. Par exemple :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;pattern&gt;</span>%d{ISO8601} [%thread] [**%X{X-REQUEST-ID}**] %-5level %logger - %replace(%caller{1..2}){&#39;Caller\+1    at |\n&#39;,&#39;&#39;} : %msg %rootException{5}%n<span class="nt">&lt;/pattern&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="messages.html" class="btn btn-neutral float-left" title="7.4.2.7. Messages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../securite/index.html" class="btn btn-neutral float-right" title="7.4.3. Securite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

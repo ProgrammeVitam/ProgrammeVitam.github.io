@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.1. Validation du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 6.rc.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+      <script>
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'6.rc.1',
+              LANGUAGE:'fr',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="6.2. Sauvegarde des éléments d’installation" href="20-ansible_backup.html" />
+    <link rel="prev" title="6. Post installation" href="_toc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation<img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                6.rc.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pre_install/_toc.html">3. Prérequis à l’installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/_toc.html">4. Procédures d’installation / mise à jour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../update/_toc.html">5. Procédures de mise à jour de la configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="_toc.html">6. Post installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Validation du déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#securisation-du-fichier-vault-pass-txt">6.1.1. Sécurisation du fichier <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation-manuelle">6.1.2. Validation manuelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation-via-consul">6.1.3. Validation via Consul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-installation-administration-fonctionnelle">6.1.4. Post-installation : administration fonctionnelle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="20-ansible_backup.html">6.2. Sauvegarde des éléments d’installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="80-troubleshooting.html">6.3. Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="80-troubleshooting.html#retour-d-experience-cas-rencontres">6.4. Retour d’expérience / cas rencontrés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade/_toc.html">7. Montée de version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/_toc.html">8. Annexes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Documentation d'installation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">6. Post installation</a></li>
+      <li class="breadcrumb-item active">6.1. Validation du déploiement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/post_install/10-validation_deploiement.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="validation-du-deploiement">
+<h1>6.1. Validation du déploiement<a class="headerlink" href="#validation-du-deploiement" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La procédure de validation est commune aux différentes méthodes d’installation.</p>
+<div class="section" id="securisation-du-fichier-vault-pass-txt">
+<h2>6.1.1. Sécurisation du fichier <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code><a class="headerlink" href="#securisation-du-fichier-vault-pass-txt" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le fichier <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> est très sensible ; il contient le mot de passe du fichier <a href="#id1"><span class="problematic" id="id2">|</span></a>repertoire_inventory|``group_vars/all/vault.yml`` qui contient les divers mots de passe de la plate-forme. A l’issue de l’installation, il est primordial de le sécuriser (suppression du fichier ou application d’un <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">400</span></code>).</p>
+</div>
+<div class="section" id="validation-manuelle">
+<h2>6.1.2. Validation manuelle<a class="headerlink" href="#validation-manuelle" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque service <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (en dehors de bases de données) expose des URL de statut à l’adresse suivante : <code class="docutils literal notranslate"><span class="pre">&lt;protocole</span> <span class="pre">web</span> <span class="pre">http</span> <span class="pre">ou</span> <span class="pre">https&gt;://&lt;host&gt;:&lt;port&gt;/admin/v1/status</span></code>
+Cette URL doit retourner une réponse HTTP 204 sur une requête HTTP GET, si OK.</p>
+<p>Un playbook d’appel de l’intégralité des autotests est également inclus (<code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam-exploitation/status_vitam.yml</span></code>). Il est à lancer de la même manière que pour l’installation de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (en renommant le playbook à exécuter).</p>
+<p>Il est également possible de vérifier la version installée de chaque composant par l’URL :</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;protocole</span> <span class="pre">web</span> <span class="pre">http</span> <span class="pre">ou</span> <span class="pre">https&gt;://&lt;host&gt;:&lt;port&gt;/admin/v1/version</span></code></p>
+</div>
+<div class="section" id="validation-via-consul">
+<h2>6.1.3. Validation via Consul<a class="headerlink" href="#validation-via-consul" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Consul possède une <a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> pour afficher l’état des services <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> et supervise le «&nbsp;/admin/v1/status&nbsp;» de chaque composant <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, ainsi que des check TCP sur les bases de données.</p>
+<p>Pour se connecter à Consul : <code class="docutils literal notranslate"><span class="pre">http//&lt;Nom</span> <span class="pre">du</span> <span class="pre">1er</span> <span class="pre">host</span> <span class="pre">dans</span> <span class="pre">le</span> <span class="pre">groupe</span> <span class="pre">ansible</span> <span class="pre">hosts_consul_server&gt;:8500/ui</span></code></p>
+<p>Pour chaque service, la couleur à gauche du composant doit être verte (correspondant à un statut OK).</p>
+<p>Si une autre couleur apparaît, cliquer sur le service «&nbsp;KO&nbsp;» et vérifier le test qui ne fonctionne pas.</p>
+</div>
+<div class="section" id="post-installation-administration-fonctionnelle">
+<h2>6.1.4. Post-installation : administration fonctionnelle<a class="headerlink" href="#post-installation-administration-fonctionnelle" title="Lien permanent vers ce titre">¶</a></h2>
+<p>A l’issue de l’installation, puis la validation, un <strong>administrateur fonctionnel</strong> doit s’assurer que :</p>
+<ul class="simple">
+<li>le référentiel PRONOM ( <a class="reference external" href="http://www.nationalarchives.gov.uk/aboutapps/pronom/droid-signature-files.htm">lien vers pronom</a>  ) est correctement importé depuis «&nbsp;Import du référentiel des formats&nbsp;» et correspond à celui employé dans Siegfried</li>
+<li>le fichier «&nbsp;rules&nbsp;» a été correctement importé via le menu «&nbsp;Import du référentiel des règles de gestion&nbsp;»</li>
+<li>à terme, le registre des fonds a été correctement importé</li>
+</ul>
+<p>Les chargements sont effectués depuis l”<a class="reference internal" href="../introduction.html#term-ihm"><span class="xref std std-term">IHM</span></a> demo.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="_toc.html" class="btn btn-neutral float-left" title="6. Post installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="20-ansible_backup.html" class="btn btn-neutral float-right" title="6.2. Sauvegarde des éléments d’installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
