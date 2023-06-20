@@ -5,6 +5,8 @@ fatherref: programme
 ---
 * [Devenir membre du Club utilisateurs](#CU)
 * [L'accompagnement proposé](#accompagnement)
+* [La comitologie du Club utilisateurs](#comito)
+* [La gouvernance du Club utilisateurs](#gouvernance)
 * [Les membres du Club utilisateurs](#membre)
 
 ## Devenir membre du Club utilisateurs<a name="CU"></a>
@@ -28,9 +30,7 @@ La convention de service proposée pour devenir membre du Club utilisateurs s’
 
 Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programme Vitam :
 
-* Réunions du Club utilisateurs : actualités du Programme Vitam, point sur la solution logicielle, démonstration, actualités des différents projets des utilisateurs, échanges sur des sujets transverses ;
-* Multilatérales : réunions régulières sur des aspects fonctionnels et métiers et/ou techniques et applicatifs ;
-* Bilatérales : dès que nécessaire pour creuser des points spécifiques ;
+* [Comitologie dédiée](#comito) 
 * Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant Ark
 (2021-…)...;
 * Accès à des outils :  
@@ -38,6 +38,38 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
     - de support avec Tuleap,  
     - de découvertes et de tests avec la mise à disposition d’un environnement partenaire, dédié à chaque utilisateur (accès aux outils, au code, à la documentation, à l'IHM Démo, à Vitam UI, etc.) ;
 * Achat de tickets pour accéder à des prestations de support, de petites améliorations ou de priorisation de correction de bugs.
+
+## La comitologie du Club utilisateurs<a name="comito"></a>
+
+* Réunions plénières du Club utilisateurs : 
+    * Rythme : 4 fois par an
+    * Qui : tous les membres du Club utilisateurs du Programme Vitam
+    * Contenu : actualités du Programme Vitam, point sur la solution logicielle, actualités des différents projets des utilisateurs, échanges sur des sujets transverses
+    * Livrable : point d’actualité / alertes sur le projet du membre
+
+* Atelier de priorisation : 
+    * Rythme : 1 fois par an
+    * Qui : tous les membres du Club utilisateurs du Programme Vitam, de manière directe ou indirecte par leur représentant
+    * Contenu : idéation sur les besoins d’évolution et amélioration du service VaS, échanges et accord sur la priorisation des travaux
+    * Livrable : liste d’expression des besoins
+
+* Multilatérales fonctionnelles et métiers : 
+    * Rythme : 4 fois par an,
+    * Qui : tous les membres du Club utilisateurs du Programme Vitam, intéressés par les aspects fonctionnels et métier 
+    * Contenu : actualités fonctionnelles du Programme Vitam, point fonctionnelle sur la solution logicielle, démonstrations, exercices d’application, échanges sur des sujets transverses
+
+* Multilatérales techniques et applicatives :
+    * Rythme : 4 fois par an,
+    * Qui : tous les membres du Club utilisateurs du Programme Vitam, intéressés par les aspects techniques et applicatifs
+    * Contenu : actualités techniques du Programme Vitam, point technique sur la solution logicielle, démonstrations, échanges sur des sujets transverses
+
+* Bilatérales : dès que nécessaire pour creuser des points spécifiques
+
+## La gouvernance du Club utilisateurs<a name="gouvernance"></a>
+
+Les membres du Club utilisateurs désignent en leur sein un représentant qui participe au comité de pilotage et  au comité de direction du Programme Vitam. Depuis mars 2023, ce rôle est tenu par la CNAM.
+
+![Logos](/public/images/202303_gouvernance_MAC.jpg)
 
 ## Les membres du Club utilisateurs (au 20/06/2023)<a name="membre"></a>
 
@@ -56,7 +88,6 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 * Centre Hospitalier d'Avranches-Granville
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
 * CGI
-* CNRS
 * Coexya
 * Commissariat à l'énergie atomique et aux énergies alternatives (CEA)
 * Communauté d'agglomération de Cergy-Pontoise
