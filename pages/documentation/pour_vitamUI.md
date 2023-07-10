@@ -95,37 +95,37 @@ Documentation générale
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Services_agents.pdf">Services agents</a></td>
 	</tr>
 	<tr>
-		<td>2.2 (facultatif)</td>
+		<td>2.2 (obligatoire)</td>
 		<td>... déclarer des nouvelles règles de gestion</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Regles_gestion.pdf">Règles de gestion</a></td>
 	</tr>
 	<tr>
-		<td>2.2 (facultatif)</td>
+		<td>2.3 (facultatif)</td>
 		<td>... créer et modifier un profil d’archivage (PA) ou un profil d’unité archivistique (PUA), créer et modifier une notice d’un profil, importer et exporter un profil d’archivage</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profils_documentaires.pdf">Profils documentaires</a></td>
 	</tr>
 	<tr>
-		<td>2.2 (facultatif)</td>
+		<td>2.4 (facultatif)</td>
 		<td>... déclarer un nouveau format non présent dans le référentiel PRONOM</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Formats_fichiers.pdf">Formats de fichier</a></td>
 	</tr>
 	<tr>
-		<td>2.3 (facultatif)</td>
+		<td>2.5 (facultatif)</td>
 		<td>... déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Ontologie.pdf">Ontologie</a></td>
 	</tr>
 	<tr>
-		<td>2.4 (facultatif)</td>
+		<td>2.6 (facultatif)</td>
 		<td>... importer un arbre de positionnement ou un plan de classement</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf">Arbres et plans</a></td>
 	</tr>
 	<tr>
-		<td>2.5 (facultatif)</td>
+		<td>2.7 (facultatif)</td>
 			<td>... rechercher et consulter un contrat de gestion, le créer et le mettre à jour</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_gestion.pdf">Contrats de gestion</a></td>
