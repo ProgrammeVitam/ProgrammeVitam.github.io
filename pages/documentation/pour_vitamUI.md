@@ -135,7 +135,6 @@ Documentation générale
 
 
 ### Domaine : Sécurité et droits applicatifs<a name="secu">  
-
 ![Logos](/public/images/VitamUI_securite.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}  
 
 
@@ -175,7 +174,8 @@ Documentation générale
  
 
 ### Domaine : supervision et audit<a name="supervision"> 
-![Logos](/public/images/VitamUI_supervision.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
+![Logos](/public/images/VitamUI_supervision.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}  
+
 
 <table>
 	<tr>
@@ -220,6 +220,7 @@ Documentation générale
 
 ### Domaine : versement et consultation<a name="versement">
 ![Logos](/public/images/VitamUI_versement.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}  
+
 
 <table>
 	<tr>
