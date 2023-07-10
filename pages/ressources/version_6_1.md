@@ -1,6 +1,6 @@
 ---
 layout: page
-title: version 6.RC.1 (01/2023)
+title: version 6.1 (06/2023)
 fatherref: ressources
 ---
 * [Mise à disposition du code](#github)
@@ -51,7 +51,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 [Documentation de la version 6.RC.1](https://www.programmevitam.fr/pages/documentation/)
 
-Liens de téléchargement pour les partenaires :  [**version 6.RC.1**](https://support.programmevitam.fr/releases/6.rc.1/index.html)
+Liens de téléchargement pour les partenaires :  [**version 6.1**](https://support.programmevitam.fr/releases/6.rc.1/index.html)
 
 <a name="doc"></a>  
 * **la documentation fonctionnelle et technique**
