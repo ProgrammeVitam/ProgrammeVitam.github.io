@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7.3.2.2. Access-client &mdash; Documentation VITAM - Architecture 6.rc.1</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <title>7.3.2.2. Access-client &mdash; Documentation VITAM - Architecture 6.1</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-      <script>
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../../',
-              VERSION:'6.rc.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/translations.js"></script>
+  <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Recherche" href="../../../search.html" />
@@ -36,14 +26,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> VITAM - Architecture<img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            VITAM - Architecture
+              <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.rc.1
+                6.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -104,7 +99,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../_toc.html">7. Architecture détaillée</a></li>
           <li class="breadcrumb-item"><a href="../_toc.html">7.3. Access</a></li>
           <li class="breadcrumb-item"><a href="_toc.html">7.3.2. Architecture Technique</a></li>
@@ -146,16 +141,31 @@ Il est possible de récupérer directement le mock :</li>
 <h1>7.3.2.4. Le client<a class="headerlink" href="#le-client" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Le client propose actuellement plusieurs méthodes :</p>
 <blockquote>
-<div>initTransaction(TransactionDto transactionDto);
-uploadArchiveUnit(String transactionId, JsonNode unitJsonNode);
-addObjectGroup(String unitId, String usage, Integer version, JsonNode objectJsonNode);
-addBinary(String unitId, String usage, Integer version, InputStream inputStreamUploaded);
-closeTransaction(String transactionId);
-ingest(String transactionId);
-uploadProjectZip(VitamContext vitamContext, String projectId, InputStream inputStreamUploaded);
-selectUnits(VitamContext vitamContext, JsonNode jsonQuery);
-getUnitsByProjectId(VitamContext vitamContext, String projectId, JsonNode dslQuery)
-getObjectStreamByUnitId(VitamContext vitamContext, String unitId, String usage, int version)</div></blockquote>
+<div>initProject(VitamContext vitamContext, ProjectDto projectDto)
+updateProject(VitamContext vitamContext, ProjectDto projectDto)
+getProjectById(VitamContext vitamContext, String projectId)
+getTransactionByProjectId(VitamContext vitamContext, String projectId)
+getTransactionById(VitamContext vitamContext, String transactionId)
+getProjects(VitamContext vitamContext)
+deleteTransactionById(VitamContext vitamContext, String transactionId)
+deleteProjectById(VitamContext vitamContext, String projectId)
+getUnitById(VitamContext vitamContext, String unitId)
+getUnitsByTransaction(VitamContext vitamContext, String transactionId, JsonNode query)
+getObjectById(VitamContext vitamContext, String gotId)
+initTransaction(VitamContext vitamContext, TransactionDto transactionDto, String projectId)
+uploadArchiveUnit(VitamContext vitamContext, JsonNode unitJsonNode, String transactionId)
+addObjectGroup(VitamContext vitamContext, String unitId, Integer version, JsonNode objectJsonNode, String usage)
+addBinary(VitamContext vitamContext, String unitId, Integer version, InputStream inputStreamUploaded, String usage)
+closeTransaction(VitamContext vitamContext, String transactionId)
+ingest(VitamContext vitamContext, String transactionId)
+abortTransaction(VitamContext vitamContext, String transactionId)
+reopenTransaction(VitamContext vitamContext, String transactionId)
+uploadProjectZip(VitamContext vitamContext, String transactionId, InputStream inputStreamUploaded)
+getObjectStreamByUnitId(VitamContext vitamContext, String unitId, String usage, int version)
+searchProject(VitamContext vitamContext, CriteriaProjectDto criteria)
+updateTransaction(VitamContext vitamContext, TransactionDto transactionDto)
+updateUnits(VitamContext vitamContext, String transactionId, InputStream is)
+selectUnitsWithInheritedRules(VitamContext vitamContext, JsonNode selectQuery)</div></blockquote>
 </div>
 
 
