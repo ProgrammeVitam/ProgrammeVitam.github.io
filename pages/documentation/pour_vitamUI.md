@@ -117,12 +117,18 @@ Documentation générale
 		<td>... déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA</td>
 		<td>administrateur technique Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Ontologie.pdf">Ontologie</a></td>
+	</tr>
 	<tr>
 		<td>2.4 (facultatif)</td>
 		<td>... importer un arbre de positionnement ou un plan de classement</td>
 		<td>administrateur fonctionnel Vitam UI</td>
 		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf">Arbres et plans</a></td>
 	</tr>
+	<tr>
+		<td>2.5 (facultatif)</td>
+			<td>... rechercher et consulter un contrat de gestion, le créer et le mettre à jour</td>
+		<td>administrateur fonctionnel Vitam UI</td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_gestion.pdf">Contrats de gestion</a></td>
 </table>  
   
 
