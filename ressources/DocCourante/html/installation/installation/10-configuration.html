@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 6.rc.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 6.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-      <script>
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'6.rc.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -36,14 +26,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation<img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VITAM - Documentation d'installation
+              <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.rc.1
+                6.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -92,7 +87,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="_toc.html">4. Procédures d’installation / mise à jour</a></li>
       <li class="breadcrumb-item active">4.2.3. Configuration du déploiement</li>
       <li class="wy-breadcrumbs-aside">
@@ -572,7 +567,12 @@
 445
 446
 447
-448</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
+448
+449
+450
+451
+452
+453</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
 <span class="k">[hosts]</span>
 
 <span class="c1"># Group definition ; DO NOT MODIFY</span>
@@ -645,6 +645,7 @@
 <span class="k">[zone_access:children]</span>
 <span class="na">hosts_ingest_external</span>
 <span class="na">hosts_access_external</span>
+<span class="na">hosts_collect_external</span>
 
 <span class="k">[hosts_ingest_external]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : ingest-external</span>
@@ -652,6 +653,10 @@
 
 <span class="k">[hosts_access_external]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : access-external</span>
+
+
+<span class="k">[hosts_collect_external]</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : collect-external</span>
 
 
 <span class="c1">##### Zone applicative</span>
@@ -670,7 +675,7 @@
 <span class="na">hosts_workspace</span>
 <span class="na">hosts_storage_engine</span>
 <span class="na">hosts_security_internal</span>
-<span class="na">hosts_collect</span>
+<span class="na">hosts_collect_internal</span>
 <span class="na">hosts_metadata_collect</span>
 <span class="na">hosts_workspace_collect</span>
 
@@ -727,8 +732,8 @@
 <span class="c1"># Optional parameter after each host : vitam_worker_capacity=&lt;integer&gt; ; please refer to your infrastructure for defining this number ; default is ansible_processor_vcpus value (cpu number in /proc/cpuinfo file)</span>
 
 
-<span class="k">[hosts_collect]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : collect</span>
+<span class="k">[hosts_collect_internal]</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : collect_internal</span>
 
 
 <span class="k">[hosts_metadata_collect]</span>
@@ -1051,105 +1056,119 @@
 <div class="section" id="fichier-main-yml">
 <h3>4.2.3.2.2. Fichier <code class="docutils literal notranslate"><span class="pre">main.yml</span></code><a class="headerlink" href="#fichier-main-yml" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La configuration des principaux paramètres est réalisée dans le fichier <a href="#id2"><span class="problematic" id="id3">|</span></a>repertoire_inventory|``group_vars/all/main/main.yml``, comme suit :</p>
-<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1"># TENANTS</span>
 <span class="c1"># List of active tenants</span>
@@ -1226,6 +1245,20 @@
     <span class="nt">logbookoperation</span><span class="p">:</span>
       <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="c1"># Default settings for collect_unit indexes</span>
+    <span class="nt">collect_unit</span><span class="p">:</span>
+      <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="c1"># Default settings for collect_objectgroup indexes</span>
+    <span class="nt">collect_objectgroup</span><span class="p">:</span>
+      <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+
+  <span class="nt">collect_grouped_tenants</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;all&#39;</span>
+    <span class="c1"># Group all tenants for collect&#39;s indexes (collect_unit &amp; collect_objectgroup)</span>
+    <span class="nt">tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">join(&#39;,&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
 <span class="nt">elasticsearch</span><span class="p">:</span>
   <span class="nt">log</span><span class="p">:</span>
     <span class="nt">index_templates</span><span class="p">:</span>
@@ -1309,7 +1342,7 @@
 <span class="c1"># Indicate context certificates relative paths under {{ inventory_dir }}/certs/client-external/clients</span>
 <span class="c1"># vitam-admin-int is mandatory for internal use (PRONOM upload)</span>
 <span class="nt">admin_context_certs</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">&#39;collect/collect.crt&#39;</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;hosts_collect&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default([])</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">&#39;&#39;</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">&#39;collect-external/collect-external.crt&#39;</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;hosts_collect_external&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default([])</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">&#39;&#39;</span><span class="nv"> </span><span class="s">}}&quot;</span>
   <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">&#39;ihm-demo/ihm-demo.crt&#39;</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;hosts_ihm_demo&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default([])</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">&#39;&#39;</span><span class="nv"> </span><span class="s">}}&quot;</span>
   <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">&#39;ihm-recette/ihm-recette.crt&#39;</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;hosts_ihm_recette&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default([])</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">&#39;&#39;</span><span class="nv"> </span><span class="s">}}&quot;</span>
   <span class="p p-Indicator">-</span> <span class="s">&quot;vitam-admin-int/vitam-admin-int.crt&quot;</span>
@@ -3222,14 +3255,14 @@
     <span class="na">ingest_external: changeita2C74cQhy84BLWCr</span>
     <span class="na">ihm_recette: changeit4FWYVK1347mxjGfe</span>
     <span class="na">ihm_demo: changeit6kQ16eyDY7QPS9fy</span>
-    <span class="na">collect: changeit6kQ16eyDYAoPS9fy</span>
+    <span class="na">collect_external: changeit6kQ16eyDYAoPS9fy</span>
   <span class="na">client_external:</span>
     <span class="na">ihm_demo: changeitGT38hhTiA32x1PLy</span>
     <span class="na">gatling: changeit2sBC5ac7NfGF9Qj7</span>
     <span class="na">ihm_recette: changeitdAZ9Eq65UhDZd9p4</span>
     <span class="na">reverse: changeite5XTzb5yVPcEX464</span>
     <span class="na">vitam_admin_int: changeitz6xZe5gDu7nhDZd9</span>
-    <span class="na">collect: changeitz6xZe5gDu7nhDZA12</span>
+    <span class="na">collect_external: changeitz6xZe5gDu7nhDZA12</span>
   <span class="na">client_storage:</span>
     <span class="na">storage: changeit647D7LWiyM6qYMnm</span>
   <span class="na">timestamping:</span>

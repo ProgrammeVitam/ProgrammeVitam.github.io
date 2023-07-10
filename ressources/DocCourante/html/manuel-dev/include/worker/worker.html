@@ -1,107 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html4" lang="fr" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>14.2. Worker &mdash; Documentation VITAM - Manuel de développement 5.0</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>15.2. Worker &mdash; Documentation VITAM - Manuel de développement 6.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'5.0',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="14.3. Worker Client" href="worker-client.html" />
-    <link rel="prev" title="14.1. Introduction" href="intro.html" /> 
+    <link rel="next" title="15.3. Worker Client" href="worker-client.html" />
+    <link rel="prev" title="15.1. Introduction" href="intro.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> VITAM - Manuel de développement
           
-
-          
-            
-            <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Manuel de développement
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                5.0
+                6.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
@@ -118,34 +60,35 @@
 <li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">9. Logbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">10. Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">12. Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">13. Technical administration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">14. Worker</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">14.1. Introduction</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">14.2. Worker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#presentation">14.2.1. Présentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-server">14.2.2. Worker-server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-core">14.2.3. Worker-core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#details-des-handlers">14.2.4. Details des Handlers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#logbook-lifecycle">14.2.5. logbook lifecycle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">14.2.6. 4.8.1 description</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">14.2.7. 4.9.1 description</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">14.2.8. 4.10.1 Description</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">14.2.9. 4.10.2 Détail des différentes maps utilisées :</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">14.2.10. 4.10.3 exécution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#journalisation-logbook-operation-logbook-life-cycle">14.2.11. 4.10.4 journalisation : logbook operation? logbook life cycle?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9">14.2.12. 4.10.5 modules utilisés</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id10">14.2.13. 4.10.6 cas d’erreur</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-common">14.2.14. Worker-common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#worker-client">14.2.15. Worker-client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler/_toc.html">12. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">13. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">14. Technical administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">15. Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">15.1. Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">15.2. Worker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#presentation">15.2.1. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-server">15.2.2. Worker-server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-core">15.2.3. Worker-core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details-des-handlers">15.2.4. Details des Handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logbook-lifecycle">15.2.5. logbook lifecycle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">15.2.6. 4.8.1 description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">15.2.7. 4.9.1 description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">15.2.8. 4.10.1 Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">15.2.9. 4.10.2 Détail des différentes maps utilisées :</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">15.2.10. 4.10.3 exécution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#journalisation-logbook-operation-logbook-life-cycle">15.2.11. 4.10.4 journalisation : logbook operation? logbook life cycle?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">15.2.12. 4.10.5 modules utilisés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">15.2.13. 4.10.6 cas d’erreur</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-common">15.2.14. Worker-common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker-client">15.2.15. Worker-client</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="worker-client.html">14.3. Worker Client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plugin.html">14.4. Worker Plugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="idempotent.html">14.5. Idempotence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="worker-client.html">15.3. Worker Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin.html">15.4. Worker Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idempotent.html">15.5. Idempotence</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">15. Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">16. Workspace</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
@@ -155,79 +98,36 @@
 <li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">VITAM - Manuel de développement</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../_toc.html">Détails par composant</a> &raquo;</li>
-        
-          <li><a href="_toc.html">14. Worker</a> &raquo;</li>
-        
-      <li>14.2. Worker</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">Détails par composant</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">15. Worker</a></li>
+      <li class="breadcrumb-item active">15.2. Worker</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/include/worker/worker.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="worker">
-<h1>14.2. Worker<a class="headerlink" href="#worker" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>15.2. Worker<a class="headerlink" href="#worker" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="presentation">
-<h2>14.2.1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="line-block">
 <div class="line"><em>Parent package:</em> <strong>fr.gouv.vitam</strong></div>
 <div class="line"><em>Package proposition:</em> <strong>fr.gouv.vitam.worker</strong></div>
@@ -239,9 +139,9 @@
 - worker-server : incluant la partie REST.</p>
 </div>
 <div class="section" id="worker-server">
-<h2>14.2.2. Worker-server<a class="headerlink" href="#worker-server" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.2. Worker-server<a class="headerlink" href="#worker-server" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="rest-api">
-<h3>14.2.2.1. Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.2.1. Rest API<a class="headerlink" href="#rest-api" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour l’instant les uri suivantes sont déclarées :</p>
 <div class="line-block">
 <div class="line"><a class="reference external" href="http://server/worker/v1">http://server/worker/v1</a></div>
@@ -249,7 +149,7 @@
 </div>
 </div>
 <div class="section" id="registration">
-<h3>14.2.2.2. Registration<a class="headerlink" href="#registration" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.2.2. Registration<a class="headerlink" href="#registration" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une partie registration permet de gérer la registration du Worker.</p>
 <p>La gestion de l’abonnement du <em>worker</em> auprès du serveur <em>processing</em> se fait à l’aide d’un ServletContextListener : <em>fr.gouv.vitam.worker.server.registration.WorkerRegistrationListener</em>.</p>
 <p>Le WorkerRegistrationListener va lancer l’enregistrement du <em>worker</em> au démarrage du serveur worker, dans un autre Thread utilisant l’instance <em>Runnable</em> : <em>fr.gouv.vitam.worker.server.registration.WorkerRegister</em>.</p>
@@ -261,7 +161,7 @@
 <p>Le lancement du serveur est indépendant de l’enregistrement du <em>worker</em> auprès du <em>processing</em> : le serveur <em>worker</em> ne s’arrêtera pas si l’enregistrement n’a pas réussi.</p>
 </div>
 <div class="section" id="configuration-de-worker">
-<h3>14.2.2.3. Configuration de worker<a class="headerlink" href="#configuration-de-worker" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.2.3. Configuration de worker<a class="headerlink" href="#configuration-de-worker" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cela présente la configuration pour un worker quand il est déployé. Deux paramètres importants quand le worker fonctionne en mode parallèle.</p>
 <blockquote>
 <div><ul>
@@ -279,7 +179,7 @@ Il est précisé par workerFamily dans le WorkerConfigration.</p>
 </div></blockquote>
 </div>
 <div class="section" id="workerbean">
-<h3>14.2.2.4. WorkerBean<a class="headerlink" href="#workerbean" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.2.4. WorkerBean<a class="headerlink" href="#workerbean" title="Lien permanent vers ce titre">¶</a></h3>
 <p>présente l’information complète sur un worker pour la procédure d’enregistrement d’un worker. Il contient les information sur le nom,
 la famille et la capacité … d’un worker et présente en mode json. Voici un example :</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;workername&quot;</span><span class="p">,</span> <span class="nt">&quot;family&quot;</span> <span class="p">:</span> <span class="s2">&quot;DefaultWorker&quot;</span><span class="p">,</span> <span class="nt">&quot;capacity&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
@@ -288,7 +188,7 @@ la famille et la capacité … d’un worker et présente en mode json. Voici un
 </div>
 </div>
 <div class="section" id="persistence-des-workers">
-<h3>14.2.2.5. Persistence des workers<a class="headerlink" href="#persistence-des-workers" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.2.5. Persistence des workers<a class="headerlink" href="#persistence-des-workers" title="Lien permanent vers ce titre">¶</a></h3>
 <blockquote>
 <div>La lise de workers est persistée dans une base de données. Pour le moment, la base est un fichier de données qui contient une tableau de
 workers en format ArrayNode et chaque worker est une élément JsonNode. Exemple ci-dessous est des données d’une liste de workers</div></blockquote>
@@ -315,7 +215,7 @@ workers en format ArrayNode et chaque worker est une élément JsonNode. Exemple
 </div>
 </div>
 <div class="section" id="desenregistrement-d-un-worker">
-<h3>14.2.2.6. Désenregistrement d’un worker<a class="headerlink" href="#desenregistrement-d-un-worker" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.2.6. Désenregistrement d’un worker<a class="headerlink" href="#desenregistrement-d-un-worker" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lorsque le worker s’arrête ou se plante, ce worker doit être désenregistré.</p>
 <ul class="simple">
 <li>Si le worker s’arrête, la demande de désenregistrement sera lancé pour le contexte «&nbsp;contextDestroyed&nbsp;» de la WorkerRegistrationListener  (implémenté de ServletContextListener) en utilisant le ProcessingManagementClient pour appeler le service de desenregistrement de distributeur.</li>
@@ -329,7 +229,7 @@ workers en format ArrayNode et chaque worker est une élément JsonNode. Exemple
 </div>
 </div>
 <div class="section" id="worker-core">
-<h2>14.2.3. Worker-core<a class="headerlink" href="#worker-core" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.3. Worker-core<a class="headerlink" href="#worker-core" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans la partie Core, sont présents les différents Handlers nécessaires pour exécuter les différentes actions.</p>
 <ul class="simple">
 <li>CheckConformityActionHandler</li>
@@ -364,7 +264,7 @@ le Handler correspondant.</p>
 </ul>
 <p>La classe WorkerImpl permet de lancer ces différents handlers.</p>
 <div class="section" id="focus-sur-la-gestion-des-entrees-sorties-des-handlers">
-<h3>14.2.3.1. Focus sur la gestion des entrées / sorties  des Handlers<a class="headerlink" href="#focus-sur-la-gestion-des-entrees-sorties-des-handlers" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.3.1. Focus sur la gestion des entrées / sorties  des Handlers<a class="headerlink" href="#focus-sur-la-gestion-des-entrees-sorties-des-handlers" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Chaque Handler a un constructeur sans argument et est lancé avec la commande :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CompositeItemStatus</span> <span class="nf">execute</span><span class="p">(</span><span class="n">WorkerParameters</span> <span class="n">params</span><span class="p">,</span> <span class="n">HandlerIO</span> <span class="n">ioParam</span><span class="p">).</span>
 <span class="p">..</span>
@@ -478,7 +378,7 @@ le Handler correspondant.</p>
 </div>
 </div>
 <div class="section" id="cas-particulier-des-tests-unitaires">
-<h3>14.2.3.2. Cas particulier des Tests unitaires<a class="headerlink" href="#cas-particulier-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.3.2. Cas particulier des Tests unitaires<a class="headerlink" href="#cas-particulier-des-tests-unitaires" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Afin d’avoir un handlerIO correctement initialisé, il faut redéfinir le handlerIO manuellement comme l’attend le handler :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a common part (@Before for instance)</span>
 <span class="n">HandlerIO</span> <span class="n">handlerIO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HandlerIO</span><span class="p">(</span><span class="s">&quot;containerName&quot;</span><span class="p">,</span> <span class="s">&quot;workerid&quot;</span><span class="p">);</span>
@@ -543,7 +443,7 @@ le Handler correspondant.</p>
 </div>
 </div>
 <div class="section" id="creation-d-un-nouveau-handler">
-<h3>14.2.3.3. Création d’un nouveau handler<a class="headerlink" href="#creation-d-un-nouveau-handler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.3.3. Création d’un nouveau handler<a class="headerlink" href="#creation-d-un-nouveau-handler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La création d’un nouveaux handler doit être motivée par certaines conditions nécessaires :</p>
 <ul class="simple">
 <li>lorsque qu’il n’y a pas de handler qui répond au besoin</li>
@@ -561,17 +461,17 @@ Celui-ci sert de clé pour :</p>
 </div>
 </div>
 <div class="section" id="details-des-handlers">
-<h2>14.2.4. Details des Handlers<a class="headerlink" href="#details-des-handlers" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.4. Details des Handlers<a class="headerlink" href="#details-des-handlers" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="detail-du-handler-checkconformityactionhandler">
-<h3>14.2.4.1. Détail du handler : CheckConformityActionHandler<a class="headerlink" href="#detail-du-handler-checkconformityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.4.1. Détail du handler : CheckConformityActionHandler<a class="headerlink" href="#detail-du-handler-checkconformityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="description">
-<h4>14.2.4.1.1. Description<a class="headerlink" href="#description" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.4.1.1. Description<a class="headerlink" href="#description" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de contrôle de l’empreinte. Il comprend désormais 2 tâches :</p>
 <p>– Vérification de l’empreinte par rapport à l’empreinte indiquée dans le manifeste (en utilisant algorithme déclaré dans manifeste)
 – Calcul d’une empreinte en SHA-512 si l’empreinte du manifeste est calculée avec un algorithme différent</p>
 </div>
 <div class="section" id="execution">
-<h4>14.2.4.1.2. Exécution<a class="headerlink" href="#execution" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.4.1.2. Exécution<a class="headerlink" href="#execution" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckConformityActionHandler recupère l’algorithme de Vitam (SHA-512) par l’input dans workflow et le fichier en InputStream par le workspace.</p>
 <p>Si l’algorithme est différent que celui dans le manifest, il calcul l’empreinte de fichier en SHA-512</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>      <span class="n">DigestType</span> <span class="n">digestTypeInput</span> <span class="o">=</span> <span class="n">DigestType</span><span class="p">.</span><span class="na">fromValue</span><span class="p">((</span><span class="n">String</span><span class="p">)</span> <span class="n">handlerIO</span><span class="p">.</span><span class="na">getInput</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">ALGO_RANK</span><span class="p">));</span>
@@ -602,12 +502,12 @@ sinon, c’est le cas WARNING. le nouveau empreint et son algorithme seront mis 
 Si nombre de KO est plus de 0, l’action est KO.</p>
 </div>
 <div class="section" id="journalisation">
-<h4>14.2.4.1.3. 4.1.3 journalisation<a class="headerlink" href="#journalisation" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.4.1.3. 4.1.3 journalisation<a class="headerlink" href="#journalisation" title="Lien permanent vers ce titre">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="section" id="logbook-lifecycle">
-<h2>14.2.5. logbook lifecycle<a class="headerlink" href="#logbook-lifecycle" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.5. logbook lifecycle<a class="headerlink" href="#logbook-lifecycle" title="Lien permanent vers ce titre">¶</a></h2>
 <p>CA 1 : Vérification de la conformité de l’empreinte. (empreinte en SHA-512 dans le manifeste)</p>
 <p>Dans le processus d’entrée, l’étape de vérification de la conformité de l’empreinte doit être appelée en position 450.
 Lorsque l’étape débute, pour chaque objet du groupe d’objet technique, une vérification d’empreinte doit être effectuée (celle de l’objet avec celle inscrite dans le manifeste SEDA). Cette étape est déjà existante actuellement.
@@ -655,10 +555,10 @@ Lorsque l’action débute, pour chaque objet du groupe d’objet technique, un 
 <li>objectIdentifierIncome : MessageIdentifier du manifest</li>
 </ul>
 <div class="section" id="modules-utilises">
-<h3>14.2.5.1. modules utilisés<a class="headerlink" href="#modules-utilises" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.1. modules utilisés<a class="headerlink" href="#modules-utilises" title="Lien permanent vers ce titre">¶</a></h3>
 <p>processing, worker, workspace et logbook</p>
 <div class="section" id="cas-d-erreur">
-<h4>14.2.5.1.1. cas d’erreur<a class="headerlink" href="#cas-d-erreur" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.1.1. cas d’erreur<a class="headerlink" href="#cas-d-erreur" title="Lien permanent vers ce titre">¶</a></h4>
 <p>XMLStreamException                          : problème de lecture SEDA
 InvalidParseOperationException              : problème de parsing du SEDA
 LogbookClientAlreadyExistsException         : un logbook client existe dans ce workflow
@@ -671,14 +571,14 @@ ContentAddressableStorageException          : erreur de stockage</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkobjectsnumberactionhandler">
-<h3>14.2.5.2. Détail du handler : CheckObjectsNumberActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectsnumberactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.2. Détail du handler : CheckObjectsNumberActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectsnumberactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id1">
-<h4>14.2.5.2.1. description<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.2.1. description<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de comparer le nombre d’objet stocké sur le workspace et le nombre d’objets déclaré dans le manifest.</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkobjectunitconsistencyactionhandler">
-<h3>14.2.5.3. Détail du handler : CheckObjectUnitConsistencyActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectunitconsistencyactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.3. Détail du handler : CheckObjectUnitConsistencyActionHandler<a class="headerlink" href="#detail-du-handler-checkobjectunitconsistencyactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce handler permet de contrôler la cohérence entre l’object/object group et l’ArchiveUnit.</p>
 <p>Pour ce but, on détecte les groupes d’object qui ne sont pas référé par au moins d’un ArchiveUnit.
 Ce tache prend deux maps de données qui ont été crée dans l’étape précédente de workflow comme input :
@@ -721,7 +621,7 @@ invalide, le logbook lifecycles de group d’object sera mis à jour.</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-checksedaactionhandler">
-<h3>14.2.5.4. Détail du handler : CheckSedaActionHandler<a class="headerlink" href="#detail-du-handler-checksedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.4. Détail du handler : CheckSedaActionHandler<a class="headerlink" href="#detail-du-handler-checksedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce handler permet de valider la validité du manifest par rapport à un schéma XSD.
 Il permet aussi de vérifier que les informations remplies dans ce manifest sont correctes.</p>
 <ul class="simple">
@@ -729,17 +629,17 @@ Il permet aussi de vérifier que les informations remplies dans ce manifest sont
 </ul>
 </div>
 <div class="section" id="detail-du-handler-checkstorageavailabilityactionhandler">
-<h3>14.2.5.5. Détail du handler : CheckStorageAvailabilityActionHandler<a class="headerlink" href="#detail-du-handler-checkstorageavailabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.5. Détail du handler : CheckStorageAvailabilityActionHandler<a class="headerlink" href="#detail-du-handler-checkstorageavailabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>TODO</p>
 </div>
 <div class="section" id="detail-du-handler-checkversionactionhandler">
-<h3>14.2.5.6. Détail du handler : CheckVersionActionHandler<a class="headerlink" href="#detail-du-handler-checkversionactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.6. Détail du handler : CheckVersionActionHandler<a class="headerlink" href="#detail-du-handler-checkversionactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <p>TODO</p>
 </div>
 <div class="section" id="detail-du-handler-extractsedaactionhandler">
-<h3>14.2.5.7. Détail du handler : ExtractSedaActionHandler<a class="headerlink" href="#detail-du-handler-extractsedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.7. Détail du handler : ExtractSedaActionHandler<a class="headerlink" href="#detail-du-handler-extractsedaactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id2">
-<h4>14.2.5.7.1. description<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.7.1. description<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet d’extraire le contenu du SEDA. Il y a :</p>
 <ul class="simple">
 <li>extraction des BinaryDataObject et PhysicalDataObject</li>
@@ -752,7 +652,7 @@ Il permet aussi de vérifier que les informations remplies dans ce manifest sont
 </ul>
 </div>
 <div class="section" id="detail-des-differentes-maps-utilisees">
-<h4>14.2.5.7.2. Détail des différentes maps utilisées<a class="headerlink" href="#detail-des-differentes-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.7.2. Détail des différentes maps utilisées<a class="headerlink" href="#detail-des-differentes-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Map&lt;String, String&gt; dataObjectIdToGuid</p>
 <blockquote>
 <div>contenu         : cette map contient l’id du DO relié à son guid
@@ -834,7 +734,7 @@ suppression     : c’est un clean en fin d’execution du handler</div></blockq
 <p>sauvegarde des maps (dataObjectIdToObjectGroupId, objectGroupIdToGuid) dans le workspace</p>
 </div>
 <div class="section" id="verifier-les-archiveunit-du-sip">
-<h4>14.2.5.7.3. Vérifier les ArchiveUnit du SIP<a class="headerlink" href="#verifier-les-archiveunit-du-sip" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.7.3. Vérifier les ArchiveUnit du SIP<a class="headerlink" href="#verifier-les-archiveunit-du-sip" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans les cas où le SIP contient un objet numérique référencé par un groupe d’objet et qu’une unité archiviste
 référence cet objet directement (au lieu de déclarer le GOT), le résultat attendu est un statut KO au niveau de
 l’étape STP_INGEST_CONTROL_SIP dans l’action CHECK_MANIFEST. Ce contrôle est effectué dans la fonction
@@ -865,39 +765,39 @@ Fin Si
 </div>
 </div>
 <div class="section" id="details-du-data-dans-l-itemstatus-retourne">
-<h4>14.2.5.7.4. Détails du data dans l’itemStatus retourné<a class="headerlink" href="#details-du-data-dans-l-itemstatus-retourne" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.7.4. Détails du data dans l’itemStatus retourné<a class="headerlink" href="#details-du-data-dans-l-itemstatus-retourne" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le itemStatus est mis à jour avec les objets du manifest.xml remontées pour mettre à jour evDetData.
 Il contient dans data le json de evDetData en tant que String.
 Les champs récupérés (s’ils existent dans le manifest) sont «&nbsp;evDetailReq&nbsp;», «&nbsp;evDateTimeReq&nbsp;», «&nbsp;ArchivalAgreement&nbsp;», «&nbsp;agIfTrans&nbsp;», «&nbsp;ServiceLevel&nbsp;».</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-indexobjectgroupactionhandler">
-<h3>14.2.5.8. Détail du handler : IndexObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-indexobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.8. Détail du handler : IndexObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-indexobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id3">
-<h4>14.2.5.8.1. 4.7.1 description<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.5.8.1. 4.7.1 description<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Indexation des objets groupes en récupérant les objets groupes du workspace. Il y a utilisation d’un client metadata.</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-indexunitactionhandler">
-<h3>14.2.5.9. 4.8 Détail du handler : IndexUnitActionHandler<a class="headerlink" href="#detail-du-handler-indexunitactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.5.9. 4.8 Détail du handler : IndexUnitActionHandler<a class="headerlink" href="#detail-du-handler-indexunitactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 </div>
 </div>
 <div class="section" id="id4">
-<h2>14.2.6. 4.8.1 description<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.6. 4.8.1 description<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Indexation des units en récupérant les units du workspace. Il y a utilisation d’un client metadata.</p>
 <div class="section" id="detail-du-handler-storeobjectgroupactionhandler">
-<h3>14.2.6.1. 4.9 Détail du handler : StoreObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-storeobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.6.1. 4.9 Détail du handler : StoreObjectGroupActionHandler<a class="headerlink" href="#detail-du-handler-storeobjectgroupactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 </div>
 </div>
 <div class="section" id="id5">
-<h2>14.2.7. 4.9.1 description<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.7. 4.9.1 description<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Persistence des objets dans l’offre de stockage depuis le workspace.</p>
 <div class="section" id="detail-du-handler-formatidentificationactionhandler">
-<h3>14.2.7.1. 4.10 Détail du handler : FormatIdentificationActionHandler<a class="headerlink" href="#detail-du-handler-formatidentificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.7.1. 4.10 Détail du handler : FormatIdentificationActionHandler<a class="headerlink" href="#detail-du-handler-formatidentificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 </div>
 </div>
 <div class="section" id="id6">
-<h2>14.2.8. 4.10.1 Description<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.8. 4.10.1 Description<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce handler permet d’identifier et contrôler automatiquement le format des objets versés.
 Il s’exécute sur les différents ObjectGroups déclarés dans le manifest. Pour chaque objectGroup, voici ce qui est effectué :</p>
 <ul class="simple">
@@ -920,7 +820,7 @@ Il s’exécute sur les différents ObjectGroups déclarés dans le manifest. Po
 </ul>
 </div>
 <div class="section" id="id7">
-<h2>14.2.9. 4.10.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.9. 4.10.2 Détail des différentes maps utilisées :<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Map&lt;String, String&gt; objectIdToUri</p>
 <blockquote>
 <div>contenu         : cette map contient l’id du BDO associé à son uri.
@@ -930,11 +830,11 @@ lecture, get    : lecture au fur et à mesure du traitement des BDO.
 suppression     : elle n’est pas enregistrée sur le workspace et est présente en mémoire uniquement.</div></blockquote>
 </div>
 <div class="section" id="id8">
-<h2>14.2.10. 4.10.3 exécution<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.10. 4.10.3 exécution<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce Handler est exécuté dans l’étape «&nbsp;Contrôle et traitements des objets&nbsp;», juste après le Handler de vérification des empreintes.</p>
 </div>
 <div class="section" id="journalisation-logbook-operation-logbook-life-cycle">
-<h2>14.2.11. 4.10.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#journalisation-logbook-operation-logbook-life-cycle" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.11. 4.10.4 journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#journalisation-logbook-operation-logbook-life-cycle" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans le traitement du Handler, sont mis à jour uniquement les journaux de cycle de vie des ObjectGroups.
 Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <ul class="simple">
@@ -946,7 +846,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <p>(Note : les messages sont informatifs et ne correspondent aucunement à ce qui sera vraiment inséré en base)</p>
 </div>
 <div class="section" id="id9">
-<h2>14.2.12. 4.10.5 modules utilisés<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.12. 4.10.5 modules utilisés<a class="headerlink" href="#id9" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le Handler utilise les modules suivants :</p>
 <ul class="simple">
 <li>Workspace (récupération / copie de fichiers)</li>
@@ -956,7 +856,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 </ul>
 </div>
 <div class="section" id="id10">
-<h2>14.2.13. 4.10.6 cas d’erreur<a class="headerlink" href="#id10" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.13. 4.10.6 cas d’erreur<a class="headerlink" href="#id10" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les différentes exceptions pouvant être rencontrées :</p>
 <ul class="simple">
 <li>ReferentialException : si un problème est rencontré lors de l’interrogation du référentiel des formats de Vitam</li>
@@ -968,9 +868,9 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <li>ProcessingException : si un problème plus général est rencontré dans le Handler</li>
 </ul>
 <div class="section" id="detail-du-handler-transfernotificationactionhandler">
-<h3>14.2.13.1. Détail du handler : TransferNotificationActionHandler<a class="headerlink" href="#detail-du-handler-transfernotificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.1. Détail du handler : TransferNotificationActionHandler<a class="headerlink" href="#detail-du-handler-transfernotificationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id11">
-<h4>14.2.13.1.1. Description<a class="headerlink" href="#id11" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.1.1. Description<a class="headerlink" href="#id11" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de finaliser le processus d’entrée d’un SIP. Cet Handler est un peu spécifique car il sera lancé même si une étape précédente tombe en erreur.</p>
 <p>Il permet de générer un xml de notification qui sera :</p>
 <ul class="simple">
@@ -980,7 +880,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <p>La première étape dans ce handler est de déterminer l’état du Workflow : OK ou KO.</p>
 </div>
 <div class="section" id="id12">
-<h4>14.2.13.1.2. Détail des différentes maps utilisées<a class="headerlink" href="#id12" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.1.2. Détail des différentes maps utilisées<a class="headerlink" href="#id12" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Map&lt;String, Object&gt; archiveUnitSystemGuid</p>
 <blockquote>
 <div>contenu         : cette map contient la liste des archives units avec son identifiant tel que déclaré dans le manifest, associé à son GUID.</div></blockquote>
@@ -992,7 +892,7 @@ Les Outcome pour les journaux de cycle de vie peuvent être les suivants :</p>
 <div>contenu         : cette map contient la liste groupes d’objets avec leur GUID généré associé à l’identifiant déclaré dans le manifest.</div></blockquote>
 </div>
 <div class="section" id="id13">
-<h4>14.2.13.1.3. exécution<a class="headerlink" href="#id13" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.1.3. exécution<a class="headerlink" href="#id13" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce Handler est exécuté en dernière position. Il sera exécuté quoi qu’il se passe avant.
 Même si le processus est KO avant, le Handler sera exécuté.</p>
 <p><em>Cas OK :</em>
@@ -1026,12 +926,12 @@ Voici sa structure générale :</p>
 <p>Le XML est alors enregistré sur le Workspace.</p>
 </div>
 <div class="section" id="id14">
-<h4>14.2.13.1.4. journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#id14" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.1.4. journalisation : logbook operation? logbook life cycle?<a class="headerlink" href="#id14" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans le traitement du Handler, le logbook est interrogé : opérations et cycles de vie.
 Cependant aucune mise à jour est effectuée lors de l’exécution de ce handler.</p>
 </div>
 <div class="section" id="id15">
-<h4>14.2.13.1.5. modules utilisés<a class="headerlink" href="#id15" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.1.5. modules utilisés<a class="headerlink" href="#id15" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le Handler utilise les modules suivants :</p>
 <ul class="simple">
 <li>Workspace (récupération / copie de fichiers)</li>
@@ -1040,7 +940,7 @@ Cependant aucune mise à jour est effectuée lors de l’exécution de ce handle
 </ul>
 </div>
 <div class="section" id="id16">
-<h4>14.2.13.1.6. cas d’erreur<a class="headerlink" href="#id16" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.1.6. cas d’erreur<a class="headerlink" href="#id16" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Les différentes exceptions pouvant être rencontrées :</p>
 <ul class="simple">
 <li>Logbook*Exception : si un problème est rencontré lors de l’interrogation du logbook</li>
@@ -1051,14 +951,14 @@ Cependant aucune mise à jour est effectuée lors de l’exécution de ce handle
 </div>
 </div>
 <div class="section" id="detail-du-handler-accessionregisteractionhandler">
-<h3>14.2.13.2. Détail du handler : AccessionRegisterActionHandler<a class="headerlink" href="#detail-du-handler-accessionregisteractionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.2. Détail du handler : AccessionRegisterActionHandler<a class="headerlink" href="#detail-du-handler-accessionregisteractionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id17">
-<h4>14.2.13.2.1. Description<a class="headerlink" href="#id17" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.2.1. Description<a class="headerlink" href="#id17" title="Lien permanent vers ce titre">¶</a></h4>
 <p>AccessionRegisterActionHandler permet de fournir une vue globale et dynamique des archives</p>
 <p>sous la responsabilité du service d’archives, pour chaque tenant.</p>
 </div>
 <div class="section" id="detail-des-maps-utilisees">
-<h4>14.2.13.2.2. Détail des maps utilisées<a class="headerlink" href="#detail-des-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.2.2. Détail des maps utilisées<a class="headerlink" href="#detail-des-maps-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Map&lt;String, String&gt; objectGroupIdToGuid</p>
 <blockquote>
 <div>contenu         : cette map contient l’id du groupe d’objet relié à son guid</div></blockquote>
@@ -1070,7 +970,7 @@ Cependant aucune mise à jour est effectuée lors de l’exécution de ce handle
 <div>contenu         : cette map contient l’id du data object relié à ses informations</div></blockquote>
 </div>
 <div class="section" id="id18">
-<h4>14.2.13.2.3. Exécution<a class="headerlink" href="#id18" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.2.3. Exécution<a class="headerlink" href="#id18" title="Lien permanent vers ce titre">¶</a></h4>
 <p>L’alimentation du registre des fonds a lieu pendant la phase de finalisation de l’entrée,</p>
 <p>une fois que les objets et les units sont rangés. («&nbsp;stepName&nbsp;»: «&nbsp;STP_INGEST_FINALISATION&nbsp;»)</p>
 <p>Le Registre des Fonds est alimenté de la manière suivante:</p>
@@ -1096,21 +996,21 @@ Cependant aucune mise à jour est effectuée lors de l’exécution de ce handle
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkingestcontractactionhandler">
-<h3>14.2.13.3. Détail du handler : CheckIngestContractActionHandler<a class="headerlink" href="#detail-du-handler-checkingestcontractactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.3. Détail du handler : CheckIngestContractActionHandler<a class="headerlink" href="#detail-du-handler-checkingestcontractactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id19">
-<h4>14.2.13.3.1. Description<a class="headerlink" href="#id19" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.3.1. Description<a class="headerlink" href="#id19" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckIngestContractHandler permet de vérifier la présence et contrôler le contrat d’entrée
 du SIP à télécharger.</p>
 </div>
 <div class="section" id="detail-des-donnees-utilisees">
-<h4>14.2.13.3.2. Détail des données utilisées<a class="headerlink" href="#detail-des-donnees-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.3.2. Détail des données utilisées<a class="headerlink" href="#detail-des-donnees-utilisees" title="Lien permanent vers ce titre">¶</a></h4>
 <blockquote>
 <div>globalSEDAParameters.json
 Ce handler prend ce fichier comme le parametre d’entrée. Le fichier contient des données gobales sur l’ensemble des
 parametrès du bordereau et il a été généré à l’étape de l’ExtractSedeActionHandler (CHECK_MANIFEST).</div></blockquote>
 </div>
 <div class="section" id="id20">
-<h4>14.2.13.3.3. Exécution<a class="headerlink" href="#id20" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.3.3. Exécution<a class="headerlink" href="#id20" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le handler cherche d’abord dans globalSEDAParameters.json le nom du contrat déclaré dans le SIP associé au balise &lt;ArchivalAgreement&gt;.
 Si il n’y as pas de déclaration de contrat d’entrée, le handler retourne le status OK. Si il y a un déclaration de contrat, une liste
 des opérations suivantes sera effectué :</p>
@@ -1142,25 +1042,25 @@ Fin Si
 </div>
 </div>
 <div class="section" id="detail-du-handler-checknoobjectsactionhandler">
-<h3>14.2.13.4. Détail du handler : CheckNoObjectsActionHandler<a class="headerlink" href="#detail-du-handler-checknoobjectsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.4. Détail du handler : CheckNoObjectsActionHandler<a class="headerlink" href="#detail-du-handler-checknoobjectsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id21">
-<h4>14.2.13.4.1. Description<a class="headerlink" href="#id21" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.4.1. Description<a class="headerlink" href="#id21" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckNoObjectsActionHandler permet de vérifier s’il y a des objects numériques dans le SIP à verser dans le système.</p>
 </div>
 <div class="section" id="id22">
-<h4>14.2.13.4.2. Détail des données utilisées<a class="headerlink" href="#id22" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.4.2. Détail des données utilisées<a class="headerlink" href="#id22" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le handler prend ce fichier manifest extrait du WORKSPACE comme le parametre d’entrée.</p>
 </div>
 <div class="section" id="id23">
-<h4>14.2.13.4.3. exécution<a class="headerlink" href="#id23" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.4.3. exécution<a class="headerlink" href="#id23" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le fichier manifest sera lu pour vérifier s’il y a des TAG «&nbsp;BinaryDataObject&nbsp;» ou «&nbsp;PhysicalDataObject&nbsp;».
 S’il en y a, le handler retourne KO, sinon OK.</p>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkarchiveunitschema">
-<h3>14.2.13.5. Détail du plugin : CheckArchiveUnitSchema<a class="headerlink" href="#detail-du-plugin-checkarchiveunitschema" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.5. Détail du plugin : CheckArchiveUnitSchema<a class="headerlink" href="#detail-du-plugin-checkarchiveunitschema" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id24">
-<h4>14.2.13.5.1. Description<a class="headerlink" href="#id24" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.5.1. Description<a class="headerlink" href="#id24" title="Lien permanent vers ce titre">¶</a></h4>
 <p>CheckArchiveUnitSchema permet d’exécuter un contrôle intelligent des archive unit en vérifiant la conformité du JSON généré dans le process pour chaque archive unit, par rapport à un schéma défini.</p>
 <div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>   1
    2
@@ -3269,16 +3169,16 @@ S’il en y a, le handler retourne KO, sinon OK.</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="id25">
-<h4>14.2.13.5.2. Détail des données utilisées<a class="headerlink" href="#id25" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.5.2. Détail des données utilisées<a class="headerlink" href="#id25" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le plugin récupère l’id de l’Archive Unit à vérifier.</p>
 </div>
 <div class="section" id="id26">
-<h4>14.2.13.5.3. exécution<a class="headerlink" href="#id26" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.5.3. exécution<a class="headerlink" href="#id26" title="Lien permanent vers ce titre">¶</a></h4>
 <p>A partir de l’Id de l’id de l’Archive Unit à vérifier, le plugin va télécharger le fichier json associé dans le Workspace.
 Par la suite, il va vérifier la validation de ce Json par rapport au schéma json de Vitam.</p>
 </div>
 <div class="section" id="detail-des-verifications">
-<h4>14.2.13.5.4. détail des vérifications<a class="headerlink" href="#detail-des-verifications" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.5.4. détail des vérifications<a class="headerlink" href="#detail-des-verifications" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans le schéma Json Vitam défini, voici les spécificités qui ont été ajoutées pour différents champs :</p>
 <ul class="simple">
 <li>StartDate pour les Rules : une date contenant une année égale à ou au dessus de l’année 9000 sera refusée.</li>
@@ -3287,13 +3187,13 @@ Par la suite, il va vérifier la validation de ce Json par rapport au schéma js
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkarchiveprofileactionhandler">
-<h3>14.2.13.6. Détail du handler : CheckArchiveProfileActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofileactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.6. Détail du handler : CheckArchiveProfileActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofileactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id27">
-<h4>14.2.13.6.1. Description<a class="headerlink" href="#id27" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.6.1. Description<a class="headerlink" href="#id27" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de vérifier le profil dans manifeste</p>
 </div>
 <div class="section" id="id28">
-<h4>14.2.13.6.2. exécution<a class="headerlink" href="#id28" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.6.2. exécution<a class="headerlink" href="#id28" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le format du profil est XSD ou RNG.
 L’exécution de l’algorithme est présenté dans le preudo-code ci-dessous:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Si le format du profil est équal à XSD
@@ -3307,13 +3207,13 @@ Fin Si
 </div>
 </div>
 <div class="section" id="detail-du-handler-checkarchiveprofilerelationactionhandler">
-<h3>14.2.13.7. Détail du handler : CheckArchiveProfileRelationActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofilerelationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.7. Détail du handler : CheckArchiveProfileRelationActionHandler<a class="headerlink" href="#detail-du-handler-checkarchiveprofilerelationactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id29">
-<h4>14.2.13.7.1. Description<a class="headerlink" href="#id29" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.7.1. Description<a class="headerlink" href="#id29" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de vérifier la relation entre le contrat d’entrée et le profil dans manifeste</p>
 </div>
 <div class="section" id="id30">
-<h4>14.2.13.7.2. exécution<a class="headerlink" href="#id30" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.7.2. exécution<a class="headerlink" href="#id30" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Si le champ «&nbsp;ArchiveProfiles&nbsp;» dans le contrat d’entrée
 contient l’identifiant du profil, retourne true</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="n">Select</span> <span class="n">select</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Select</span><span class="p">();</span>
@@ -3329,13 +3229,13 @@ contient l’identifiant du profil, retourne true</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-listarchiveunitsactionhandler">
-<h3>14.2.13.8. Détail du handler : ListArchiveUnitsActionHandler<a class="headerlink" href="#detail-du-handler-listarchiveunitsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.8. Détail du handler : ListArchiveUnitsActionHandler<a class="headerlink" href="#detail-du-handler-listarchiveunitsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id31">
-<h4>14.2.13.8.1. Description<a class="headerlink" href="#id31" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.8.1. Description<a class="headerlink" href="#id31" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de lister les unités archivistiques qui devront être mises à jour.</p>
 </div>
 <div class="section" id="id32">
-<h4>14.2.13.8.2. exécution<a class="headerlink" href="#id32" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.8.2. exécution<a class="headerlink" href="#id32" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Il prend en entrée un fichier json représentant la liste règles de gestion ayant été modifiés dans le référentiel.
 Pour chaque règle mise à jour, une requête vers la collection units est effectuée.
 Le but de cette recherche est de générer une liste d’units avec les règles de gestion associées ayant été modifiées.
@@ -3343,13 +3243,13 @@ En sortie, pour chaque unité archivistique, on aura un fichier GUID_AU.json (da
 </div>
 </div>
 <div class="section" id="detail-du-handler-listrunningingestsactionhandler">
-<h3>14.2.13.9. Détail du handler : ListRunningIngestsActionHandler<a class="headerlink" href="#detail-du-handler-listrunningingestsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.9. Détail du handler : ListRunningIngestsActionHandler<a class="headerlink" href="#detail-du-handler-listrunningingestsactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id33">
-<h4>14.2.13.9.1. Description<a class="headerlink" href="#id33" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.9.1. Description<a class="headerlink" href="#id33" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de lister les ingests toujours en cours d’exécution (processState RUNNING ou PAUSE).</p>
 </div>
 <div class="section" id="id34">
-<h4>14.2.13.9.2. exécution<a class="headerlink" href="#id34" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.9.2. exécution<a class="headerlink" href="#id34" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Une requête est effectuée sur ProcessManagement, pour récupérer la liste des ingests en cours.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ProcessQuery</span> <span class="n">pq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProcessQuery</span><span class="p">();</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listStates</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
@@ -3369,14 +3269,14 @@ En sortie, pour chaque unité archivistique, on aura un fichier GUID_AU.json (da
 </div>
 </div>
 <div class="section" id="detail-du-plugin-archiveunitrulesupdateactionplugin">
-<h3>14.2.13.10. Détail du plugin : ArchiveUnitRulesUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-archiveunitrulesupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.10. Détail du plugin : ArchiveUnitRulesUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-archiveunitrulesupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id35">
-<h4>14.2.13.10.1. Description<a class="headerlink" href="#id35" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.10.1. Description<a class="headerlink" href="#id35" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de mettre à jour les règles de gestion d’une unité archivistique. Il s’agit ici de mettre à jour le champ endDate pour les règles de gestion impactées.
 On se trouve ici en mode distribué, cela veut donc dire que l’on traite les mises à jour, unité par unité.</p>
 </div>
 <div class="section" id="id36">
-<h4>14.2.13.10.2. exécution<a class="headerlink" href="#id36" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.10.2. exécution<a class="headerlink" href="#id36" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le fichier json pour l’unité archivistique, généré dans le Handler «&nbsp;ListArchiveUnitsActionHandler&nbsp;» est récupéré.
 A partir de ce dernier, on va faire une première requète pour récupérer l’unité archivistique telle qu’enregistrée en base.</p>
 <p>Ensuite, catégorie par catégorie, des requêtes de mises à jour vont être créées.
@@ -3396,13 +3296,13 @@ Enfin, l’update final de la base de données sera exécuté, tel que ci-dessou
 </div>
 </div>
 <div class="section" id="detail-du-plugin-runningingestsupdateactionplugin">
-<h3>14.2.13.11. Détail du plugin : RunningIngestsUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-runningingestsupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.11. Détail du plugin : RunningIngestsUpdateActionPlugin<a class="headerlink" href="#detail-du-plugin-runningingestsupdateactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id37">
-<h4>14.2.13.11.1. Description<a class="headerlink" href="#id37" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.11.1. Description<a class="headerlink" href="#id37" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de mettre à jour les règles de gestion des unités archivistiques des ingests en cours.</p>
 </div>
 <div class="section" id="id38">
-<h4>14.2.13.11.2. exécution<a class="headerlink" href="#id38" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.11.2. exécution<a class="headerlink" href="#id38" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le fichier json décrivant les ingests en cours, généré dans le Handler «&nbsp;ListRunningIngestsActionHandler&nbsp;» est récupéré.
 Il va permettre, de traiter au fur et à mesure les ingests n’ayant pas été encore impactés par la mise à jour du référentiel des règles de gestion.</p>
 <p>La manière de procéder est la suivante :</p>
@@ -3429,14 +3329,14 @@ Il apparait pertinent de rendre parallélisable le traitement des ingests en cou
 </div>
 </div>
 <div class="section" id="detail-du-handler-listlifecycletraceabilityactionhandler">
-<h3>14.2.13.12. Détail du handler : ListLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-listlifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.12. Détail du handler : ListLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-listlifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id39">
-<h4>14.2.13.12.1. Description<a class="headerlink" href="#id39" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.12.1. Description<a class="headerlink" href="#id39" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de préparer les listes de cycles de vie des groupes d’objets, et des unités archivistiques.
 Il permet aussi la récupération des informations de la dernière opération de sécurisation des cycles de vie.</p>
 </div>
 <div class="section" id="id40">
-<h4>14.2.13.12.2. exécution<a class="headerlink" href="#id40" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.12.2. exécution<a class="headerlink" href="#id40" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Une première requête permet de récupérer la dernière opération de sécurisation des cycles de vie.
 S’il en existe une, on en tire les informations importantes (date d’exécution, etc.), l’opération sera exportée dans un fichier json.
 S’il n’en existe pas, une date minimale (LocalDateTime.MIN) sera utilisée pour la suite du process.</p>
@@ -3467,14 +3367,14 @@ Ces fichiers json seront utilisés plus tard dans le workflow, dans le cadre de 
 </div>
 </div>
 <div class="section" id="detail-du-plugin-createobjectsecurefileactionplugin">
-<h3>14.2.13.13. Détail du plugin : CreateObjectSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createobjectsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.13. Détail du plugin : CreateObjectSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createobjectsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id41">
-<h4>14.2.13.13.1. Description<a class="headerlink" href="#id41" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.13.1. Description<a class="headerlink" href="#id41" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de traiter, groupe d’objet par groupe d’objet, et de créer un fichier sécurisé.
 Chaque fichier sécurisé créé, sera par la suite, dans l’étape de finalisation, traité et intégré dans un fichier global.</p>
 </div>
 <div class="section" id="id42">
-<h4>14.2.13.13.2. exécution<a class="headerlink" href="#id42" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.13.2. exécution<a class="headerlink" href="#id42" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La première étape de ce plugin, consiste à récupérer le fichier json GUID/ObjectGroup/GUID_OG_n.json.
 A partir de ce json, représentant le cycle de vie devant être traité, on va créer un fichier sécurisé.
 Ce fichier sécurisé contient une ligne unique, organisée de la façon suivante :</p>
@@ -3491,14 +3391,14 @@ Ce fichier sécurisé contient une ligne unique, organisée de la façon suivant
 </div>
 </div>
 <div class="section" id="detail-du-plugin-createunitsecurefileactionplugin">
-<h3>14.2.13.14. Détail du plugin : CreateUnitSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createunitsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.14. Détail du plugin : CreateUnitSecureFileActionPlugin<a class="headerlink" href="#detail-du-plugin-createunitsecurefileactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id43">
-<h4>14.2.13.14.1. Description<a class="headerlink" href="#id43" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.14.1. Description<a class="headerlink" href="#id43" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de traiter, cycle de vie unit par cycle de vie unit, et de créer un fichier sécurisé.
 Chaque fichier sécurisé créé, sera par la suite, dans l’étape de finalisation, traité et intégré dans un fichier global.</p>
 </div>
 <div class="section" id="id44">
-<h4>14.2.13.14.2. exécution<a class="headerlink" href="#id44" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.14.2. exécution<a class="headerlink" href="#id44" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La première étape de ce plugin, consiste à récupérer le fichier json GUID/UnitsWithoutLevel/GUID_AU_n.json.
 A partir de ce json, représentant le cycle de vie devant être traité, on va créer un fichier sécurisé.
 Ce fichier sécurisé contient une ligne unique, organisée de la façon suivante :</p>
@@ -3517,25 +3417,25 @@ Ce fichier sécurisé contient une ligne unique, organisée de la façon suivant
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkclassificationlevelactionplugin">
-<h3>14.2.13.15. Détail du plugin : CheckClassificationLevelActionPlugin<a class="headerlink" href="#detail-du-plugin-checkclassificationlevelactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.15. Détail du plugin : CheckClassificationLevelActionPlugin<a class="headerlink" href="#detail-du-plugin-checkclassificationlevelactionplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id45">
-<h4>14.2.13.15.1. Description<a class="headerlink" href="#id45" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.15.1. Description<a class="headerlink" href="#id45" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de vérifier que le niveau de classification déclaré par les ArchiveUnit du manifeste est conforme à ceux attendus dans la configuration de la plate-forme</p>
 </div>
 <div class="section" id="id46">
-<h4>14.2.13.15.2. exécution<a class="headerlink" href="#id46" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.15.2. exécution<a class="headerlink" href="#id46" title="Lien permanent vers ce titre">¶</a></h4>
 <p>A partir de l’Id de l’id de l’Archive Unit à vérifier, le plugin va télécharger le fichier json associé dans le Workspace.
 Par la suite, il va vérifier le champ ClassificationLevel par rapport au celui dans ClassificationLevelService</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-finalizelifecycletraceabilityactionhandler">
-<h3>14.2.13.16. Détail du handler : FinalizeLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-finalizelifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.16. Détail du handler : FinalizeLifecycleTraceabilityActionHandler<a class="headerlink" href="#detail-du-handler-finalizelifecycletraceabilityactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id47">
-<h4>14.2.13.16.1. Description<a class="headerlink" href="#id47" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.16.1. Description<a class="headerlink" href="#id47" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de finaliser la sécurisation des cycles de vie, en générant un fichier zip, et en le sauvegardant sur les offres de stockage.</p>
 </div>
 <div class="section" id="id48">
-<h4>14.2.13.16.2. exécution<a class="headerlink" href="#id48" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.16.2. exécution<a class="headerlink" href="#id48" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le Handler va tout d’abord récupérer les fichiers json qui ont été générés dans l’étape 1 :</p>
 <ul class="simple">
 <li>le fichier json de la dernière opération de sécurisation</li>
@@ -3593,13 +3493,13 @@ Elles seront utilisés par la suite, pour les sécurisations futures.</p>
 </div>
 </div>
 <div class="section" id="detail-du-handler-generateauditreportactionhandler">
-<h3>14.2.13.17. Détail du handler : GenerateAuditReportActionHandler<a class="headerlink" href="#detail-du-handler-generateauditreportactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.17. Détail du handler : GenerateAuditReportActionHandler<a class="headerlink" href="#detail-du-handler-generateauditreportactionhandler" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id49">
-<h4>14.2.13.17.1. Description<a class="headerlink" href="#id49" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.17.1. Description<a class="headerlink" href="#id49" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce handler permet de générer le rapport d’audit</p>
 </div>
 <div class="section" id="id50">
-<h4>14.2.13.17.2. exécution<a class="headerlink" href="#id50" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.17.2. exécution<a class="headerlink" href="#id50" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La rapport commence par une partie généraliste contenant :
 * Le GUID de l’opération d’audit à l’origine de ce rapport
 * Le tenant sur lequel s’est exécuté l’audit
@@ -3625,25 +3525,25 @@ Elles seront utilisés par la suite, pour les sécurisations futures.</p>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-auditcheckobjectplugin">
-<h3>14.2.13.18. Détail du plugin : AuditCheckObjectPlugin<a class="headerlink" href="#detail-du-plugin-auditcheckobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.18. Détail du plugin : AuditCheckObjectPlugin<a class="headerlink" href="#detail-du-plugin-auditcheckobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id51">
-<h4>14.2.13.18.1. Description<a class="headerlink" href="#id51" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.18.1. Description<a class="headerlink" href="#id51" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de contrôler les objets dans le cadre d’un audit consultatif</p>
 </div>
 <div class="section" id="id52">
-<h4>14.2.13.18.2. exécution<a class="headerlink" href="#id52" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.18.2. exécution<a class="headerlink" href="#id52" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Selon le parametre auditActions, il va appeler le plugin,
 soit CheckExistenceObjectPlugin, soit CheckIntegrityObjectPlugin</p>
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkexistenceobjectplugin">
-<h3>14.2.13.19. Détail du plugin : CheckExistenceObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkexistenceobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.19. Détail du plugin : CheckExistenceObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkexistenceobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id53">
-<h4>14.2.13.19.1. Description<a class="headerlink" href="#id53" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.19.1. Description<a class="headerlink" href="#id53" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de contrôler l’existence d’un objet dans le cadre d’un audit</p>
 </div>
 <div class="section" id="id54">
-<h4>14.2.13.19.2. exécution<a class="headerlink" href="#id54" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.19.2. exécution<a class="headerlink" href="#id54" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Le plugin va tester l’existence de la cohérence entre les offres de stockages déclarées dans un GOT
 et les offres de stockages relatives à la stratégie de stockage connue du moteur de stockage</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="n">JsonNode</span> <span class="n">storageInformation</span> <span class="o">=</span> <span class="n">version</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;_storage&quot;</span><span class="p">);</span>
@@ -3664,13 +3564,13 @@ et les offres de stockages relatives à la stratégie de stockage connue du mote
 </div>
 </div>
 <div class="section" id="detail-du-plugin-checkintegrityobjectplugin">
-<h3>14.2.13.20. Détail du plugin : CheckIntegrityObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkintegrityobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>15.2.13.20. Détail du plugin : CheckIntegrityObjectPlugin<a class="headerlink" href="#detail-du-plugin-checkintegrityobjectplugin" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="section" id="id55">
-<h4>14.2.13.20.1. Description<a class="headerlink" href="#id55" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.20.1. Description<a class="headerlink" href="#id55" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Ce plugin permet de contrôler l’intégrité d’un objet archivé dans le cadre d’un audit</p>
 </div>
 <div class="section" id="id56">
-<h4>14.2.13.20.2. exécution<a class="headerlink" href="#id56" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>15.2.13.20.2. exécution<a class="headerlink" href="#id56" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Dans le cadre de l’audit, on va vérifier une empreinte d’un objet est bien celle de l’objet audité,
 en fonction de son offre de stockage.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>    <span class="n">JsonNode</span> <span class="n">offerToMetadata</span> <span class="o">=</span> <span class="n">storageClient</span><span class="p">.</span><span class="na">getObjectInformation</span><span class="p">(</span><span class="n">strategy</span><span class="p">,</span> <span class="n">version</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;_id&quot;</span><span class="p">).</span><span class="na">asText</span><span class="p">(),</span> <span class="n">offerIds</span><span class="p">);</span>
@@ -3696,12 +3596,12 @@ en fonction de son offre de stockage.</p>
 </div>
 </div>
 <div class="section" id="worker-common">
-<h2>14.2.14. Worker-common<a class="headerlink" href="#worker-common" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.14. Worker-common<a class="headerlink" href="#worker-common" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le worker-common contient majoritairement des classes utilitaires.
 A terme, il faudra que SedaUtils notamment soit «&nbsp;retravaillé&nbsp;» pour que les différentes méthodes soit déplacées dans les bons Handlers.</p>
 </div>
 <div class="section" id="worker-client">
-<h2>14.2.15. Worker-client<a class="headerlink" href="#worker-client" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>15.2.15. Worker-client<a class="headerlink" href="#worker-client" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le worker client contient le code permettant l’appel vers les API Rest offert par le worker.
 Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail, voir la partie worker-client.</p>
 </div>
@@ -3709,50 +3609,33 @@ Pour le moment une seule méthode est offerte : submitStep. Pour plus de détail
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="worker-client.html" class="btn btn-neutral float-right" title="14.3. Worker Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="intro.html" class="btn btn-neutral float-left" title="14.1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="15.1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="worker-client.html" class="btn btn-neutral float-right" title="15.3. Worker Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.
-
-    </p>
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

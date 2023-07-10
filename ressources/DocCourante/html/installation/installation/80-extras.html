@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.7. Éléments extras de l’installation &mdash; Documentation VITAM - Documentation d&#39;installation 6.rc.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.7. Éléments extras de l’installation &mdash; Documentation VITAM - Documentation d&#39;installation 6.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-      <script>
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'6.rc.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -36,14 +26,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> VITAM - Documentation d'installation<img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VITAM - Documentation d'installation
+              <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.rc.1
+                6.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,7 +85,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="_toc.html">4. Procédures d’installation / mise à jour</a></li>
       <li class="breadcrumb-item active">4.2.7. Éléments <em>extras</em> de l’installation</li>
       <li class="wy-breadcrumbs-aside">
@@ -102,8 +97,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <span class="target" id="extrainstall"></span><div class="section" id="elements-extras-de-l-installation">
-<h1>4.2.7. Éléments <em>extras</em> de l’installation<a class="headerlink" href="#elements-extras-de-l-installation" title="Lien permanent vers ce titre">¶</a></h1>
+  <div class="section" id="elements-extras-de-l-installation">
+<span id="extrainstall"></span><h1>4.2.7. Éléments <em>extras</em> de l’installation<a class="headerlink" href="#elements-extras-de-l-installation" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p class="last">Les éléments décrits dans cette section sont des éléments «&nbsp;extras&nbsp;» ; il ne sont pas officiellement supportés, et ne sont par conséquence pas inclus dans l’installation de base. Cependant, ils peuvent s’avérer utile, notamment pour les installations sur des environnements hors production.</p>
@@ -169,7 +164,12 @@
 52
 53
 54
-55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">vitam</span><span class="p">:</span>
     <span class="nt">ihm_recette</span><span class="p">:</span>
@@ -221,6 +221,11 @@
 <span class="nt">docker_opts</span><span class="p">:</span>
     <span class="nt">registry_httponly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">vitam_docker_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+    <span class="c1">## Custom CIDR address for docker bridge networks</span>
+    <span class="c1"># docker_bip: 192.168.191.1/24</span>
+    <span class="c1">## Custom CIDR address settings for docker internal networks</span>
+    <span class="c1"># docker_address_pools_cidr: 192.168.192.1/18</span>
+    <span class="c1"># docker_address_pools_size: 24</span>
 
 <span class="nt">gatling_install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">docker_install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># whether or not install docker &amp; docker images</span>

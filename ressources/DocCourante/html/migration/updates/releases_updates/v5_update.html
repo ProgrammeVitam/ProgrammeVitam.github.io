@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3.4. Notes et procédures spécifiques V5 &mdash; Documentation VITAM - Documentation de montées de version 6.rc.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.4. Notes et procédures spécifiques V5 &mdash; Documentation VITAM - Documentation de montées de version 6.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-      <script>
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'6.rc.1',
-              LANGUAGE:'fr',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/translations.js"></script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
@@ -36,14 +26,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> VITAM - Documentation de montées de version<img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Documentation de montées de version
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.rc.1
+                6.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,7 +58,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.4. Notes et procédures spécifiques V5</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">4.3.4.1. Adaptation des sources de déploiement ansible</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">4.3.4.2. Procédures à exécuter AVANT la montée de version</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.4.3. Procédures à exécuter APRÈS la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-de-la-montee-de-version">4.3.4.3. Application de la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.4.4. Procédures à exécuter APRÈS la montée de version</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="v6rc_update.html">4.3.5. Notes et procédures spécifiques V6RC</a></li>
@@ -86,7 +82,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../_toc.html">4. Montées de version</a></li>
           <li class="breadcrumb-item"><a href="_toc.html">4.3. Montées de version majeures</a></li>
       <li class="breadcrumb-item active">4.3.4. Notes et procédures spécifiques V5</li>
@@ -183,6 +179,25 @@ Ci-dessous un exemple de déclaration de stratégie de stockage et ses offres, d
 </pre></div>
 </div>
 </li>
+</ul>
+<ul>
+<li><p class="first">Ajouter des mots de passe des keystores du module de collecte le fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vault-keystores.yml</span></code>:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>keystores:
+  server:
+</pre></div>
+</div>
+<ul class="simple">
+<li>collect: changeit6kQ16eyDYAoPS9fy</li>
+</ul>
+<blockquote>
+<div><p>client_external:</p>
+</div></blockquote>
+<ul class="simple">
+<li>collect: changeitz6xZe5gDu7nhDZA12</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li><p class="first">Création de certificats dédiés au module de collecte</p>
 <ul>
 <li><p class="first">Créer un certificat client et un certificat serveur dédiés au module de collecte à l’aide de votre <code class="docutils literal notranslate"><span class="pre">PKI</span></code> et le mettre dans les chemins attendus (<code class="docutils literal notranslate"><span class="pre">environments/certs/client-external/clients/collect/</span></code> et <code class="docutils literal notranslate"><span class="pre">environments/certs/server/hosts/{hosts}</span></code>).</p>
@@ -281,10 +296,33 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </div>
 </div>
 </div>
+<div class="section" id="application-de-la-montee-de-version">
+<h2>4.3.4.3. Application de la montée de version<a class="headerlink" href="#application-de-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L’application de la montée de version s’effectue d’abord sur les sites secondaires puis sur le site primaire.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Sous Debian, si vous appliquez la montée de version depuis la V5.RC, vous devrez rajouter le paramètre <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">force_vitam_version=5.1</span></code> aux commandes suivantes. Sinon les packages vitam ne seront pas correctement mis à jour. En effet, Debian considère que 5.rc.X &gt; 5.X.</p>
+</div>
+<div class="section" id="lancement-du-master-playbook-vitam">
+<h3>4.3.4.3.1. Lancement du master playbook vitam<a class="headerlink" href="#lancement-du-master-playbook-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancement-du-master-playbook-extra">
+<h3>4.3.4.3.2. Lancement du master playbook extra<a class="headerlink" href="#lancement-du-master-playbook-extra" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/extra.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="procedures-a-executer-apres-la-montee-de-version">
-<h2>4.3.4.3. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.3.4.4. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="id1">
-<h3>4.3.4.3.1. Arrêt des timers et des accès externes à Vitam<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.4.4.1. Arrêt des timers et des accès externes à Vitam<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p class="last">Cette opération doit être effectuée IMMÉDIATEMENT APRÈS la montée de version vers la V5</p>
@@ -296,7 +334,7 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </div>
 </div>
 <div class="section" id="migration-des-unites-archivistiques">
-<h3>4.3.4.3.2. Migration des unités archivistiques<a class="headerlink" href="#migration-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.4.4.2. Migration des unités archivistiques<a class="headerlink" href="#migration-des-unites-archivistiques" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p class="last">Cette migration doit être effectuée APRÈS la montée de version V5 mais avant la réouverture du service aux utilisateurs.</p>
@@ -315,7 +353,7 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </div>
 </div>
 <div class="section" id="mise-a-jour-des-certificats">
-<h3>4.3.4.3.3. Mise à jour des certificats<a class="headerlink" href="#mise-a-jour-des-certificats" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.4.4.3. Mise à jour des certificats<a class="headerlink" href="#mise-a-jour-des-certificats" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette migration de données consiste à mettre à jour le champ <code class="docutils literal notranslate"><span class="pre">ExpirationDate</span></code> pour les anciens certificats existants dans la base de donnée.</p>
 <p>Elle est réalisée en exécutant les commandes suivantes sur <strong>tous les sites</strong> (primaire et secondaire(s)) :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_v5_certificate.yml --ask-vault-pass
@@ -323,7 +361,7 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </div>
 </div>
 <div class="section" id="migration-des-registres-de-fonds-en-details">
-<h3>4.3.4.3.4. Migration des registres de fonds en détails<a class="headerlink" href="#migration-des-registres-de-fonds-en-details" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.4.4.4. Migration des registres de fonds en détails<a class="headerlink" href="#migration-des-registres-de-fonds-en-details" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p class="last">Cette migration doit être effectuée APRÈS la montée de version V5 mais avant la réouverture du service aux utilisateurs.</p>
@@ -335,7 +373,7 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </div>
 </div>
 <div class="section" id="recalcul-du-graph-des-metadonnees-des-sites-secondaires">
-<h3>4.3.4.3.5. Recalcul du graph des métadonnées des sites secondaires<a class="headerlink" href="#recalcul-du-graph-des-metadonnees-des-sites-secondaires" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.4.4.5. Recalcul du graph des métadonnées des sites secondaires<a class="headerlink" href="#recalcul-du-graph-des-metadonnees-des-sites-secondaires" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p>Cette procédure doit être exécutée uniquement en cas de :</p>
@@ -357,7 +395,7 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </ul>
 </div>
 <div class="section" id="redemarrage-des-timers-et-des-acces-externes-a-vitam">
-<h3>4.3.4.3.6. Redémarrage des timers et des accès externes à Vitam<a class="headerlink" href="#redemarrage-des-timers-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.4.4.6. Redémarrage des timers et des accès externes à Vitam<a class="headerlink" href="#redemarrage-des-timers-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La montée de version est maintenant terminée, vous pouvez réactiver les services externals ainsi que les timers sur <strong>tous les sites</strong> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_external.yml --ask-vault-pass
   ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_vitam_timers.yml --ask-vault-pass
