@@ -224,7 +224,7 @@ Documentation générale
 	<tr>
 		<td>... créer un projet de versement, consulter et rechercher les unités archivistiques liées à un versement, ajouter des métadonnées descriptives et de gestion des unités archivistiques, consulter, valider, transférer les versements liés à un projet</td>
 		<td>archiviste</td>
-		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Collecte_et_préparation_des_versements.pdf">Collecte et préparation des versements</a></td>
+		<td><a href="https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Collecte_et_preparation_des_versements.pdf">Collecte et préparation des versements</a></td>
 	</tr>
 	<tr>
 		<td>... déposer un lot d'archives dans le SAE et en visualiser l'entrée</td>
