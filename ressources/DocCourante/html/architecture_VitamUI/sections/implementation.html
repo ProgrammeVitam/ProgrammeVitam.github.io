@@ -101,14 +101,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#detail-des-cots">4.8. Détail des COTS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cas">4.8.1. CAS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#annuaire-de-services-consul">4.8.2. Annuaire de services Consul</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#base-nosql-mongodb">4.8.3. Base NOSQL MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guidelines">4.8.1. Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-cots-vitam">4.8.2. Liste des cots Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-cots-vitamui">4.8.3. Liste des cots VITAMUI</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#multi-instanciation-des-micro-services">4.9. Multi instanciation des micro services</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#multi-instanciation">4.9.1. Multi instanciation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mono-instanciation">4.9.2. Mono instanciation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packaging-des-cots-vitamui">4.9. Packaging des cots VITAMUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vitamui-consul">4.9.1. vitamui-consul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vitamui-logstash">4.9.2. vitamui-logstash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vitamui-nginx">4.9.3. vitamui-nginx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vitamui-mongod">4.9.4. vitamui-mongod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vitamui-mongo-express">4.9.5. vitamui-mongo-express</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#annuaire-de-services-consul">4.9.6. Annuaire de services Consul</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-instanciation-des-micro-services">4.10. Multi instanciation des micro services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-instanciation">4.10.1. Multi instanciation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mono-instanciation">4.10.2. Mono instanciation</a></li>
 </ul>
 </li>
 </ul>
@@ -207,9 +216,9 @@
 </section>
 <section id="cloisonnement-des-services">
 <h3><span class="section-number">4.2.3. </span>Cloisonnement des services<a class="headerlink" href="#cloisonnement-des-services" title="Lien permanent vers cette rubrique"></a></h3>
-<p>Le cloisonnement applicatif permet de séparer les services de manière physique (subnet/port) et ainsi  limiter la portée d’une attaque en cas d’intrusion dans une des zones. Ce cloisonnement applique le principe de défense en profondeur préconisé par l’ANSI.</p>
+<p>Le cloisonnement applicatif permet de séparer les services de manière physique (subnet/port) et ainsi limiter la portée d’une attaque en cas d’intrusion dans une des zones. Ce cloisonnement applique le principe de défense en profondeur préconisé par l’ANSI.</p>
 <p>Chaque zone héberge des clusters de services. Un cluster doit être présent en entier dans une zone, et ne peut par conséquent pas être réparti dans deux zones différentes. Chaque noeud d’un cluster applicatif doit être installé sur un hôte (OS) distinct (la colocalisation de deux instances d’un même service n’étant pas supporté). La mise en oeuvre d’une infrastructure virtualisée impose de placer deux noeuds d’un même cluster applicatif sur deux serveurs physiques différents.</p>
-<p>Un exemple de découpage en zones applicative est fourni ci-dessous. Ce découpage repose sur une logique assez classique adapté à une infrastructure de type VmWare ESX. Pour une architecture reposant sur  une technologie de type Docker, il serait envisageable de découper plus finement les zones jusqu’à envisager une zone pour chaque cluster de service.</p>
+<p>Un exemple de découpage en zones applicative est fourni ci-dessous. Ce découpage repose sur une logique assez classique adapté à une infrastructure de type VmWare ESX. Pour une architecture reposant sur une technologie de type Docker, il serait envisageable de découper plus finement les zones jusqu’à envisager une zone pour chaque cluster de service.</p>
 <p>Dans cet exemple, il est prévu pour respecter les contraintes de flux inter-zones suivants :</p>
 <ul class="simple">
 <li><p>les utilisateurs de la zone USERS communiquent avec les services de la zone IHM</p></li>
@@ -231,6 +240,8 @@
 <li><p>UI Referential</p></li>
 <li><p>UI Ingest</p></li>
 <li><p>UI Archive Search</p></li>
+<li><p>UI Collect</p></li>
+<li><p>UI Pastis</p></li>
 </ul>
 </section>
 <section id="zone-api-external">
@@ -241,6 +252,8 @@
 <li><p>REFERENTIAL EXTERNAL</p></li>
 <li><p>INGEST EXTERNAL</p></li>
 <li><p>ARCHIVE SEARCH EXTERNAL</p></li>
+<li><p>COLLECT EXTERNAL</p></li>
+<li><p>PASTIS EXTERNAL</p></li>
 </ul>
 </section>
 <section id="zone-api-internal">
@@ -251,6 +264,7 @@
 <li><p>REFERENTIAL INTERNAL</p></li>
 <li><p>INGEST INTERNAL</p></li>
 <li><p>ARCHIVE SEARCH INTERNAL</p></li>
+<li><p>COLLECT INTERNAL</p></li>
 </ul>
 </section>
 <section id="zone-data">
@@ -401,7 +415,7 @@
 <p>Les secrets nécessaires au bon déploiement de VITAMUI sont les suivants :</p>
 <ul class="simple">
 <li><p>Certificat ou mot de passe de connexion SSH à un compte sudoers sur les serveurs cibles (pour le déploiement)</p></li>
-<li><p>Certificats x509 serveur (comprenant la clé privée) pour les modules de la zone d’accès (services *-external), ainsi que les CA (finales et intermédiaires) et CRL associées. Ces certificats seront déployés dans des keystores java en tant qu’élément de configuration de ces services</p></li>
+<li><p>Certificats x509 serveur (comprenant la clé privée) pour les modules de la zone d’accès (services *-external), ainsi que les CA (finales et intermédiaires) et CRL associées. Ces certificats seront déployés dans des keystores java en tant qu’élément de  configuration de ces services</p></li>
 <li><p>Certificats x509 client pour les clients du SAE (ex: les applications métier, le service ihm-admin), ainsi que les CA (finales et intermédiaires) et CRL associées. Ces certificats seront déployés dans des keystores java en tant qu’élément de configuration de ces services</p></li>
 </ul>
 <p>Les secrets définis lors de l’installation de VITAM sont les suivants :</p>
@@ -441,10 +455,7 @@
 <li><p>par sudo avec mot de passe</p>
 <ul>
 <li><p>Au lancement de la commande ansible, le mot de passe sera demandé par sudo</p></li>
-</ul>
-</li>
-<li><p>par su</p>
-<ul>
+<li><p>par su</p></li>
 <li><p>Au lancement de la commande ansible, le mot de passe root sera demandé</p></li>
 <li><p>par sudo sans mot de passe</p></li>
 </ul>
@@ -472,8 +483,7 @@
 <li><p>Publication des certificats et des clés (.crt et .key)</p></li>
 <li><p>Déploiement :</p>
 <ul>
-<li><p>Génération des magasins de certificats VITAMUI (les certificats .crt et .key sont utilisés pour construire un
-magasin de certificats qui contient des certificats .p12 et .jks)</p></li>
+<li><p>Génération des magasins de certificats VITAMUI (les certificats .crt et .key sont utilisés pour construire un magasin de certificats qui contient des certificats .p12 et .jks)</p></li>
 <li><p>Déploiement dans VITAMUI des certificats .p12 et .jks par Ansible</p>
 <p>Schéma de la PKI :</p>
 </li>
@@ -487,7 +497,8 @@ magasin de certificats qui contient des certificats .p12 et .jks)</p></li>
 <p>Le fonctionnement de la PKI de la solution VITAMUI est basé sur la même logique d’architecture que celle de Vitam.</p>
 <p>Lien des documentations existantes :</p>
 <ul class="simple">
-<li><p>PKI VITAM : <a class="reference external" href="http://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/10-overview_certificats.html">http://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/10-overview_certificats.html</a> &amp; <a class="reference external" href="https://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/15-certificates.html">https://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/15-certificates.html</a></p></li>
+<li><p>PKI VITAM : <a class="reference external" href="http://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/10-overview_certificats.html">http://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/10-overview_certificats.html</a>
+&amp; <a class="reference external" href="https://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/15-certificates.html">https://www.programmevitam.fr/ressources/DocCourante/html/installation/annexes/15-certificates.html</a></p></li>
 </ul>
 <p>La PKI voit ses fichiers répartis à deux emplacements:</p>
 <ul>
@@ -551,7 +562,7 @@ Permet de générer les certificats (serveur, client) mentionnés dans le script
 <ul class="simple">
 <li><p>deployment/environment/certs</p></li>
 </ul>
-<p>À cet emplacement figure l’ensemble de la PKI de la solution. Par défaut, on retrouvera trois zones (une par autorité):</p>
+<p>À cet emplacement figure l’ensemble de la PKI de la solution. Par défaut on retrouvera trois zones (une par autorité):</p>
 <ul class="simple">
 <li><p>server: l’ensemble du certificats permettant la communication HTTPS entre les différentes applications de la solution</p></li>
 <li><p>client-vitam: certificats utilisés par l’application pour communiquer avec Vitam. Avec le script <strong>generate_certs.sh</strong> fournis par la PKI, un certificat sera généré pour s’interfacer avec Vitam.</p></li>
@@ -571,7 +582,7 @@ Ce client se base sur un fichier de configuration dans lesquels sont référenc�
 <li><p><code class="docutils literal notranslate"><span class="pre">deployment/environement/certs/client-vitam/ca</span></code>: certificat d’autorité intervenant dans la communication VitamUI &lt;-&gt; Vitam.
 /!\ L’ensemble des CA présents dans ce répertoire seront embarqués dans le truststore exploité par le client Vitam Java lors de l’exécution du script <em>generate_keystores.sh</em>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">deployment/environement/certs/client-vitam/clients/vitamui</span></code>: certificat utilisé pour la communication VitamUI &lt;-&gt; Vitam.
-/!\ Le certificat sera embarqué dans le keystore utilisé par le client Vitam Java lors de l’exécution du script <em>generate_keystores.sh</em>.</p></li>
+/!\ Le certificat sera embarqué dans le keystore utilisé par le client Vitam Java lors de l’exécution du script generate_keystores.sh*.</p></li>
 </ul>
 </li>
 <li><p>au sein de la solution Vitam, vous avez:</p>
@@ -592,8 +603,10 @@ Cette association s’effectue dans le fichier <code class="docutils literal not
 <ul>
 <li><p>VitamUI -&gt; Vitam</p>
 <ul>
-<li><p>Copier le CA du certificat VitamUI <code class="docutils literal notranslate"><span class="pre">{vitamui_inventory_dir}/certs/client-vitam/ca/ca-*.crt</span></code> dans <code class="docutils literal notranslate"><span class="pre">{vitam_inventory_dir}/certs/client-external/ca</span></code></p></li>
-<li><p>Copier le certificat VitamUI <code class="docutils literal notranslate"><span class="pre">{vitamui_inventory_dir}/certs/client-vitam/clients/vitamui/vitamui.crt</span></code> dans <code class="docutils literal notranslate"><span class="pre">{vitam_inventory_dir}/certs/client-external/clients/external</span></code></p></li>
+<li><p>Copier le CA du certificat VitamUI <code class="docutils literal notranslate"><span class="pre">{vitamui_inventory_dir}/certs/client-vitam/ca/ca-*.crt</span></code>
+dans <code class="docutils literal notranslate"><span class="pre">{vitam_inventory_dir}/certs/client-external/ca</span></code></p></li>
+<li><p>Copier le certificat VitamUI <code class="docutils literal notranslate"><span class="pre">{vitamui_inventory_dir}/certs/client-vitam/clients/vitamui/vitamui.crt</span></code>
+dans <code class="docutils literal notranslate"><span class="pre">{vitam_inventory_dir}/certs/client-external/clients/external</span></code></p></li>
 <li><p>Mise à jour de la PKI Vitam:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">./generate_stores.sh</span></code></p></li>
@@ -626,7 +639,8 @@ Cette association s’effectue dans le fichier <code class="docutils literal not
 </li>
 <li><p>Vitam -&gt; VitamUI</p>
 <ul class="simple">
-<li><p>Copier le(s) CA(s) de Vitam <code class="docutils literal notranslate"><span class="pre">{vitam_inventory_dir}/certs/client-vitam/ca</span></code> dans <code class="docutils literal notranslate"><span class="pre">{vitamui_inventory_dir}/certs/client-vitam/ca/</span></code></p></li>
+<li><p>Copier le(s) CA(s) de Vitam <code class="docutils literal notranslate"><span class="pre">{vitam_inventory_dir}/certs/client-vitam/ca</span></code>
+dans <code class="docutils literal notranslate"><span class="pre">{vitamui_inventory_dir}/certs/client-vitam/ca/</span></code></p></li>
 <li><p>Mise à jour de la PKI VitamUI :</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">./generate_stores.sh</span></code></p></li>
@@ -716,7 +730,19 @@ TODO (le process n’est pas encore industrialisé)</p></li>
 <td><p>archive-search-internal.crt, archive-internal.key</p></td>
 <td><p>ca-root.crt</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>security-server</strong></p></td>
+<tr class="row-odd"><td><p><strong>collect-external</strong></p></td>
+<td><p>collect-external.crt, collect.key</p></td>
+<td><p>ca-root.crt</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>collect-internal</strong></p></td>
+<td><p>collect-internal.crt, collect.key</p></td>
+<td><p>ca-root.crt</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>pastis-external</strong></p></td>
+<td><p>pastis-external.crt, pastis.key</p></td>
+<td><p>ca-root.crt</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>security-server</strong></p></td>
 <td><p>security-server.crt, security-server</p></td>
 <td><p>ca-root.crt</p></td>
 </tr>
@@ -769,19 +795,130 @@ TODO (le process n’est pas encore industrialisé)</p></li>
 <hr class="docutils" />
 <section id="detail-des-cots">
 <h2><span class="section-number">4.8. </span>Détail des COTS<a class="headerlink" href="#detail-des-cots" title="Lien permanent vers cette rubrique"></a></h2>
-<section id="cas">
-<h3><span class="section-number">4.8.1. </span>CAS<a class="headerlink" href="#cas" title="Lien permanent vers cette rubrique"></a></h3>
+<section id="guidelines">
+<h3><span class="section-number">4.8.1. </span>Guidelines<a class="headerlink" href="#guidelines" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Les COTS, software utlises par les solutions VITAMUI et VITAM, sont tous open-source. Pour des besoins de maintenabilite et de securites, ils sont entierement repackages au format RPM puis publies sur les repository yum VITAMUI.</p>
+<p>VITAMUI s’appuie sur deux types de COTS dans son architecture:</p>
 <ul class="simple">
-<li><p>Description</p></li>
-<li><p>Contraintes</p></li>
+<li><p>les COTS fournit par vitam auxquels VITAMUI se branche.</p></li>
+<li><p>les COTS utilises uniquement par VITAMUI</p></li>
+</ul>
+<p>Le packaging des COTS suivront les principes suivants:</p>
+<ul class="simple">
+<li><p>Les noms de package cots seront de la forme vitamui|vitam-COTS_NAME. Les services systemd installes sur les systemes suivront la meme convention de nommage</p></li>
+<li><p>Les fichiers repackages permettront d’appliquer la protection de droits users system vitamui,vitam,vitamuidb,vitamdb</p></li>
+<li><p>Dans la mesure du possible les packages COTS rpm pourront contenir l’ensemble des fichiers du software</p></li>
+<li><p>Dans le cas contraire, le packages COTS VITAMUI|VITAM contiendrons des dependances vers les packages RPM officiels. Ils fourniront comme fichiers l’unit systemd du service COTS et des fichiers de configurations stockes dans le systeme de fichiers VITAMUI/VITAM permettant de proteger le lancement du service par les droits users systeme linux.</p></li>
+</ul>
+<p>Le packaging specifique des cots VITAMUI contiendra un Makefile dedie pour chaque afin d’adapter la generation du contenu des packages. Ils pourront egalement contenir des templates de packaging dedies pouvant redefinir les fichiers unit systemd, les fichiers de configurations, les scripts d’installation RPM executes.</p>
+<p>Le repackaging entier des COTS est la technique a priviligier pour les raisons suivantes:</p>
+<ul class="simple">
+<li><p>l’installation / desinstallation des fichiers pourra se faire entierement dans les scripts RPM</p></li>
+<li><p>aucune dependance RPM donc pas d’etapes d’installation / desinstallation supplementaire et pas de gestion de repository supplementaire si la dependance n’est pas dans les repository officiels RedHat ou epel-release.</p></li>
+<li><p>Eventuellement, les sources/binaires des cots pourront etre conserves dans le repository vitamui.</p></li>
 </ul>
 </section>
-<section id="annuaire-de-services-consul">
-<h3><span class="section-number">4.8.2. </span>Annuaire de services Consul<a class="headerlink" href="#annuaire-de-services-consul" title="Lien permanent vers cette rubrique"></a></h3>
+<section id="liste-des-cots-vitam">
+<h3><span class="section-number">4.8.2. </span>Liste des cots Vitam<a class="headerlink" href="#liste-des-cots-vitam" title="Lien permanent vers cette rubrique"></a></h3>
 <ul class="simple">
-<li><p>Description</p></li>
-<li><p>Contraintes</p></li>
+<li><p>consul</p></li>
+<li><p>mongo*</p></li>
+<li><p>mongo-express</p></li>
+<li><p>syslog</p></li>
+<li><p>elasticsearch</p></li>
+<li><p>curator</p></li>
+<li><p>siegfried</p></li>
+<li><p>cerebro</p></li>
+<li><p>logstash</p></li>
+<li><p>kibana</p></li>
+<li><p>apache</p></li>
 </ul>
+</section>
+<section id="liste-des-cots-vitamui">
+<h3><span class="section-number">4.8.3. </span>Liste des cots VITAMUI<a class="headerlink" href="#liste-des-cots-vitamui" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>consul</p></li>
+<li><p>logstash</p></li>
+<li><p>syslog</p></li>
+<li><p>mongo*</p></li>
+<li><p>nginx</p></li>
+</ul>
+</section>
+</section>
+<section id="packaging-des-cots-vitamui">
+<h2><span class="section-number">4.9. </span>Packaging des cots VITAMUI<a class="headerlink" href="#packaging-des-cots-vitamui" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="vitamui-consul">
+<h3><span class="section-number">4.9.1. </span>vitamui-consul<a class="headerlink" href="#vitamui-consul" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le soft <strong>consul</strong> sera entierement repackager dans vitamui-consul. Ce package contiendra</p>
+<ul class="simple">
+<li><p>le binaire consul dans <strong>/vitamui/bin/consul/consul</strong>,</p></li>
+<li><p>le fichier unit systemd vitamui-consul.service</p></li>
+<li><p>la ligne de commande consul dans <strong>/vitamui/conf/consul/sysconfig</strong></p></li>
+</ul>
+<p><strong>Mise a jour de la version de consul:</strong></p>
+<p>La version de consul embarquee dans le package sera parametrable au niveau du fichier pom.xml du cots vitamui-consul (fichier <strong>vitamui/cots/vitamui-consul/pom.xml</strong>). Ce nom de version sera transmis en parametre du makefile qui telechargera le binaire consul dans la bonne version</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>    ...
+<span class="nt">&lt;argument&gt;</span>CONSUL_VERSION=1.4.1<span class="nt">&lt;/argument&gt;</span>
+    ...
+</pre></div>
+</div>
+</section>
+<section id="vitamui-logstash">
+<h3><span class="section-number">4.9.2. </span>vitamui-logstash<a class="headerlink" href="#vitamui-logstash" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le soft <strong>logstash</strong> sera entierement repackage dans vitamui-logstash a partir de <strong>l’archive des sources Logstash</strong>. Le package RPM contiendra:</p>
+<ul class="simple">
+<li><p>les librairies Java et fichiers de logstash</p></li>
+<li><p>les fichiers de configuration de logstash adapte au file system vitamui dans /vitamui/conf/logstash</p></li>
+<li><p>l’unit systemd vitamui-logstash</p></li>
+</ul>
+<p>Les scripts d’installation RPM appliquerons les droits vitamuidb au package logstash (a corriger).</p>
+<p><strong>Mise a jour de la version de logstash:</strong></p>
+<p>La version de logstash embarquee dans le package sera parametrable au niveau du fichier pom.xml du cots vitamui-logstash (fichier <strong>vitamui/cots/vitamui-logstash/pom.xml</strong>). Ce nom de version sera transmis en parametre du Makefile qui telechargera l’archive de source logstash correspondant a la version choisie.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>    ...
+<span class="nt">&lt;argument&gt;</span>LOGSTASH_VERSION=7.6.0<span class="nt">&lt;/argument&gt;</span>
+    ...
+</pre></div>
+</div>
+</section>
+<section id="vitamui-nginx">
+<h3><span class="section-number">4.9.3. </span>vitamui-nginx<a class="headerlink" href="#vitamui-nginx" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le package COTS vitamui-nginx installera le soft <strong>nginx</strong> par le biais d’une dependance RPM. Cette dependance ira chercher le binaire NGINX depuis le repository <strong>epel-release</strong>. Le package vitamui-nginx contiendra:</p>
+<ul class="simple">
+<li><p>l’unit systemd vitamui-nginx</p></li>
+<li><p>la configuration du logrotate de NGINX dans le systeme de fichier vitamui</p></li>
+</ul>
+<p><strong>Mise a jour de la version de NGINX:</strong></p>
+<p>La version <strong>latest</strong> de NGINX sera installee sur le systeme. La mise a jour du softs s’effectuera a partir d’une update yum.</p>
+</section>
+<section id="vitamui-mongod">
+<h3><span class="section-number">4.9.4. </span>vitamui-mongod<a class="headerlink" href="#vitamui-mongod" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le package COTS vitamui-mongod installera le soft <strong>mongo-org</strong> par le biais d’une dependance RPM. Cette dependance ira chercher le binaire NGINX depuis les repository officiels mongo. Le package vitamui-mongod contiendra:</p>
+<ul class="simple">
+<li><p>l’unit systemd vitamui-nginx</p></li>
+<li><p>la configuration du logrotate de mongo dans le systeme de fichier vitamui</p></li>
+</ul>
+<p>La dependance vers mongod-org apportera sur le systeme les softs mongod, mongoc, mongos, mongodump, mongocli.</p>
+<p><strong>Mise a jour de la version de mongod:</strong></p>
+<p>La version mongo sera parametree au niveau du repository mongod installee sur le systeme. L’url de ce repository est renseignee dans le deploiement (var <strong>mongo_repository_url</strong>, https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ mongod_version }}/x86_64/)</p>
+<ul class="simple">
+<li><p>mise a jour mineure de mongo: =&gt; yum update via le deploiement (non teste encore et mongo est installe en version latest sur le systeme).</p></li>
+<li><p>mise a jour majeure de mongo: modifier dans le deplioement la variable <strong>mongod_version</strong> au niveau du fichier <strong>environment/group_vars/all/mongod.yml</strong>.</p>
+<ul>
+<li><p>pour un redeploiement from scratch, la version sera prise en compte au niveau de l’installation</p></li>
+<li><p>pour la mise a jour d’un environnement, suivre la procedure de mise a jour mongo</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="vitamui-mongo-express">
+<h3><span class="section-number">4.9.5. </span>vitamui-mongo-express<a class="headerlink" href="#vitamui-mongo-express" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le package rpm vitamui-mongo-express est entierement repackage a partir de de l’installation via <strong>npm</strong>. Le package contient toutes les sources de mongo-express installee dans /vitamui/app/mongo-express et le ficher unit systemd de vitamui-mongo-express.</p>
+<p><strong>Mise a jour de la version de mongo-express</strong></p>
+<p>Pour modifier la version de mongo express, editez la dans le fichier
+<strong>cots/vitamui-mongo-express/package.json</strong>.</p>
+</section>
+<section id="annuaire-de-services-consul">
+<h3><span class="section-number">4.9.6. </span>Annuaire de services Consul<a class="headerlink" href="#annuaire-de-services-consul" title="Lien permanent vers cette rubrique"></a></h3>
 <p>La découverte des services est réalisée avec Consul via l’utilisation du protocole DNS. Le service DNS configuré lors du déploiement doit pouvoir résoudre les noms DNS associés à la fois aux service_id et aux instance_id. Tout hôte portant un service VITAMUI doit utiliser ce service DNS par défaut. L’installation et la configuration du service DNS applicatif sont intégrées à VITAMUI.</p>
 <p>La résilience est assurée par l’annuaire de service Consul. Il est partagé avec VITAM.</p>
 <ul class="simple">
@@ -791,19 +928,12 @@ TODO (le process n’est pas encore industrialisé)</p></li>
 </ul>
 <p>La solution de DNS applicatif intégrée à VITAMUI et VITAM est présentée plus en détails dans la section dédiée à Consul dans la documentation VITAM.</p>
 </section>
-<section id="base-nosql-mongodb">
-<h3><span class="section-number">4.8.3. </span>Base NOSQL MongoDB<a class="headerlink" href="#base-nosql-mongodb" title="Lien permanent vers cette rubrique"></a></h3>
-<ul class="simple">
-<li><p>Description</p></li>
-<li><p>Contraintes</p></li>
-</ul>
-</section>
 </section>
 <hr class="docutils" />
 <section id="multi-instanciation-des-micro-services">
-<h2><span class="section-number">4.9. </span>Multi instanciation des micro services<a class="headerlink" href="#multi-instanciation-des-micro-services" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.10. </span>Multi instanciation des micro services<a class="headerlink" href="#multi-instanciation-des-micro-services" title="Lien permanent vers cette rubrique"></a></h2>
 <section id="multi-instanciation">
-<h3><span class="section-number">4.9.1. </span>Multi instanciation<a class="headerlink" href="#multi-instanciation" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.10.1. </span>Multi instanciation<a class="headerlink" href="#multi-instanciation" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Les services vitamui multi instanciable à ce jour sont :</p>
 <ul class="simple">
 <li><p>Service IAM Internal</p></li>
@@ -819,7 +949,12 @@ TODO (le process n’est pas encore industrialisé)</p></li>
 <li><p>Service Archive Search Internal</p></li>
 <li><p>Service Archive Search External</p></li>
 <li><p>Service UI Archive Search</p></li>
-<li><p>Service Mongod (en cours de mise à niveau/!\)</p></li>
+<li><p>Service Collect Internal</p></li>
+<li><p>Service Collect External</p></li>
+<li><p>Service UI Collect</p></li>
+<li><p>Service Pastis External</p></li>
+<li><p>Service UI Pastis</p></li>
+<li><p>Service Mongod</p></li>
 </ul>
 <p>Un load balancer/reverse proxy (à défaut Consul) est installé et configuré pour la répartition de charge entre différentes instances (cette configurtion est en cours de réalisation).</p>
 <p>La configuration de la mémoire des services est par défaut:</p>
@@ -829,7 +964,7 @@ TODO (le process n’est pas encore industrialisé)</p></li>
 <p>Cette configuration est modifiable dans les jvm_opts de l’ansiblerie, pour plus d’informations (cf: DEX).</p>
 </section>
 <section id="mono-instanciation">
-<h3><span class="section-number">4.9.2. </span>Mono instanciation<a class="headerlink" href="#mono-instanciation" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.10.2. </span>Mono instanciation<a class="headerlink" href="#mono-instanciation" title="Lien permanent vers cette rubrique"></a></h3>
 <p>Le service CAS est actuellement mono-instanciable.</p>
 </section>
 </section>
