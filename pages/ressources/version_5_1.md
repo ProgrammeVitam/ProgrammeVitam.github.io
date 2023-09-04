@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 5.1 (12/2022)
-fatherref: ressources
 ---
 * [Mise à disposition du code](#github)
 * [Package Java](#java)

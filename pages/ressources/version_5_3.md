@@ -5,6 +5,7 @@ fatherref: ressources
 ---
 
 - Avril 2022 - communication sur la publication de la version 5 : [Offre froide, module de collecte, enrichissements et nouvelles fonctionnalités au menu de la V5 de Vitam](http://www.programmevitam.fr/2022/04/13/Version5/)
+- [Publication de la version 5 de Vitam](/pages/ressources/version_5_1.md)
 
 ## Publication Vitam
 
