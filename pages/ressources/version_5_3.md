@@ -8,28 +8,28 @@ fatherref: ressources
 
 ## Publication Vitam
 
-- Publication GitHub Vitam : https://github.com/ProgrammeVitam/vitam/tree/5.3
+- [Publication GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/5.3)
 
-- URL de configuration du repository Maven : https://download.programmevitam.fr/vitam_repository/5.3/mvn_repo/
+- [URL de configuration du repository Maven](https://download.programmevitam.fr/vitam_repository/5.3/mvn_repo/)
 
 - URL de configuration des dépôts de binaires CentOS/RHEL :
-    - https://download.programmevitam.fr/vitam_repository/5.3/rpm/vitam-product/
-    - https://download.programmevitam.fr/vitam_repository/5.3/rpm/vitam-external/
+    - [Vitam-product](https://download.programmevitam.fr/vitam_repository/5.3/rpm/vitam-product/)
+    - [Vitam-external](https://download.programmevitam.fr/vitam_repository/5.3/rpm/vitam-external/)
 
 - URL de configuration des dépôts de binaires Debian :
-    - https://download.programmevitam.fr/vitam_repository/5.3/deb/vitam-product/
-    - https://download.programmevitam.fr/vitam_repository/5.3/deb/vitam-external/
+    - [Vitam-product](https://download.programmevitam.fr/vitam_repository/5.3/deb/vitam-product/)
+    - [Vitam-external](https://download.programmevitam.fr/vitam_repository/5.3/deb/vitam-external/)
 
-- Release notes : https://github.com/ProgrammeVitam/vitam/releases/download/5.3/changelog_vitam_5.3.pdf
+- [Release notes](https://github.com/ProgrammeVitam/vitam/releases/download/5.3/)changelog_vitam_5.3.pdf
  
 
 ## Publication Vitam UI
 
-- Publication GitHub Vitam UI : https://github.com/ProgrammeVitam/vitam-ui/tree/5.3
+- [Publication GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/5.3)
 
-- URL de configuration du repository Maven : https://download.programmevitam.fr/vitamui/5.3/mvn_repo/
+- [URL de configuration du repository Maven](https://download.programmevitam.fr/vitamui/5.3/mvn_repo/)
 
-- URL de configuration des dépôts de binaires CentOS/RHEL : https://download.programmevitam.fr/vitamui/5.3/rpm/
+- [URL de configuration des dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui/5.3/rpm/)
 
 <p style="text-align: center;">
 <object data="/ressources/RefCourant/changelog_vitam_5.3.pdf" type="application/pdf" width="600px" height="750px">
