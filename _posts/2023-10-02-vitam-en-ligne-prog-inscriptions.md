@@ -3,7 +3,7 @@ layout: post
 title: Vitam en ligne, programme et inscription
 ---
 
-![Logos](./public/images/PROGRAMME COMPLET V3new.jpg)
+![Logos](./public/images/PROGRAMME COMPLET_vdef.jpg)
 > Le Programme Vitam organise une deuxième édition de Vitam en ligne du 6 au 10 novembre, semaine de webinaires destinée à vous proposer de multiples interventions pour répondre aux questions de différents publics.
 
 Le programme de cette semaine s'affine, vous trouverez ci-dessus un état actuel des interventions ouvertes à l'inscription avec le module ci-dessous :
