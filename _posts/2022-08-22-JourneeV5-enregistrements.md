@@ -1,6 +1,7 @@
 ﻿---
 layout: post
 title: Retour sur la journée du 30 juin 2022 - actualités et version 5 de Vitam
+fatherref: demonstration
 ---
 
 Le 30 juin 2022 avait lieu aux Archives nationales à Pierrefitte-sur-Seine une journée consacrée aux actualités du Programme Vitam, aux [nouveautés de la version 5](vitam_V5) et aux projets des partenaires. Retour sur cette journée grâce aux enregistrements et présentations.

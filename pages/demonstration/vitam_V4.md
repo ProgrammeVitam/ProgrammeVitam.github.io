@@ -1,6 +1,7 @@
 ---
 layout: page
 title: version 4
+fatherref: demonstration
 ---
 
 Mardi 11 mai 2021 était proposé un webinaire de présentation de la version 4 de la solution logicielle Vitam, occasion de démontrer les nouvelles fonctionnalités mais aussi de faire le point sur les actualités du Programme Vitam et sur l'avancée des projets Vitam accessible en service et SEDAccord.
