@@ -9,8 +9,9 @@ Lundi 6 novembre 2023
 * [Le Programme Vitam, de ses origines à ses réalisations, retour sur son histoire et ses objectifs](#Vitam)
 * [2015-2023 : où en sont les projets Adamant, Saphir et Archipel ? Passage du projet au produit, actualités et focus sur les enjeux majeurs](#projets)
 
-* [Vitam : actualités du Programme et présentation de la V3 de la solution logicielle](#actu)
+
 Mardi 7 novembre 2023
+* [Gérer les profils d'archivage et les profils d'unité achivistique : présentation des outils (Pastis et APP Profils documentaires) et démonstrations](#Pastis)
 
 Mercredi 8 novembre 2023
 
@@ -31,6 +32,13 @@ Vendredi 10 novembre 2023
 - [Saphir](/ressources/RefCourant/Vitamenligne2023_Saphir.pdf)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DAXiAp8XEA0?si=ujd01ysN1S7a8wu3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Gérer les profils d'archivage et les profils d'unité achivistique : présentation des outils (Pastis et APP Profils documentaires) et démonstrations<a name="Pastis"></a>
+[Présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_PA-PUA.pdf)
+[Support de la démonstration](/ressources/RefCourant/Vitamenligne2023_Vitam_PA-PUA_demo.pdf)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8zomSDpvo6Y?si=DV4nG1m2Is1bo61R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## Archivage des courriers électroniques
 <a name="Mail">
