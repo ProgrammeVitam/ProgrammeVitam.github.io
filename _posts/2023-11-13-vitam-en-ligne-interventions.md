@@ -5,21 +5,26 @@ title: Vitam en ligne 2023, interventions et support
 
 ![Logos](/public/images/VIDEO.jpg)
 
-Lundi 6 novembre 2023
+**Lundi 6 novembre 2023**
 * [Le Programme Vitam, de ses origines à ses réalisations, retour sur son histoire et ses objectifs](#Vitam)
 * [2015-2023 : où en sont les projets Adamant, Saphir et Archipel ? Passage du projet au produit, actualités et focus sur les enjeux majeurs](#projets)
 
 
-Mardi 7 novembre 2023
+**Mardi 7 novembre 2023**
 * [Gérer les profils d'archivage et les profils d'unité achivistique : présentation des outils (Pastis et APP Profils documentaires) et démonstrations](#Pastis)
-* [Vitam accessible en service](#VaS)
+* [Vitam accessible en service, présentation et parole aux utilisateurs, Porteurs et Partenaires de VaS](#VaS)
 
-Mercredi 8 novembre 2023
+**Mercredi 8 novembre 2023**
+* [Collecter les archives numériques : enjeux des travaux actuels du Programme Vitam et présentation d'exemples](#collecte)
+* [Présentation des derniers travaux de Vitam](#v7)
 
-Jeudi 9 novembre 2023
+**Jeudi 9 novembre 2023**
+* [Devenir utilisateur de VaS : en savoir plus sur le raccordement au RIE](#RIE)
+* [Archivage des courriers électroniques : théorie,, retour d'expérience sur la collecte et présentation d'Archifiltre-Mails](#mails)
 
-Vendredi 10 novembre 2023
-
+**Vendredi 10 novembre 2023**
+* [En savoir plus sur le Club utilisateurs : quoi ? pour quoi ? qui ? pour qui ? Tour d'horizon de 4 utilisateurs](#Club)
+* [SAE et collectivités territoriales : exemples d'usage de Vitam et retours sur l'appel à projet ANET](#CT)
 
 ## Le Programme Vitam, de ses origines à ses réalisations, retour sur son histoire et ses objectifs<a name="Vitam"></a>
 
@@ -41,7 +46,7 @@ Consulter la présentation pour :
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8zomSDpvo6Y?si=DV4nG1m2Is1bo61R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Vitam accessible en service<a name="VaS"></a>
+## Vitam accessible en service, présentation et parole aux utilisateurs, Porteurs et Partenaires de VaS<a name="VaS"></a>
 Consulter la présentation pour : 
 - [Vitam accessible en service](/ressources/RefCourant/Vitamenligne2023_VaS_presentation.pdf)
 - [Retour d'expérience du département du Gard](/ressources/RefCourant/Vitamenligne2023_VaS_CD30_retex.pdf)
@@ -50,7 +55,27 @@ Consulter la présentation pour :
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-C886_i6t6g?si=GY7aLcm2kwWJ4nni" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Archivage des courriers électroniques
-<a name="Mail">
+## Collecter les archives numériques : enjeux des travaux actuels du Programme Vitam et présentation d'exemples<a name="collecte"></a>
+- [Présentation du module de collecte](/ressources/RefCourant/Vitamenligne2023_Vitam_presentation_collecte.pdf)
+- [Présentation de Mintika](/ressources/RefCourant/Vitamenligne2023_intervention_collecte_Mintika.pdf)
 
-[Preuve de concept - Archivage des courriers électroniques par le Programme Vitam de 2013](./ressources/RefCourant/Vitam_Preuve_de_concept_archivage_des_messageries_électroniques_V1.2_2013.pdf)
+## Présentation des derniers travaux de Vitam : nouvelles fonctionnalités de la version 7.0 de Vitam, chantiers signature électronique et identifiant pérenne, ReSIP <a name="v7"></a>
+[Présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_v7_presentation_v1.0.pdf) 
+
+## Devenir utilisateur de VaS : en savoir plus sur le raccordement au RIE<a name="RIE"></a>  
+[Présentation](/ressources/RefCourant/Vitamenligne2023_RIE_VaS_presentation.pdf)
+
+## Archivage des courriers électroniques : théorie,, retour d'expérience sur la collecte et présentation d'Archifiltre-Mails<a name="mails"></a>
+- [Présentation Vitam](/ressources/RefCourant/Vitamenligne2023_ArchivageMessageries_intro.pdf)
+- [Retours d'expérience SPM et MSS](/ressources/RefCourant/Vitamenligne2023_messageries_SPM_MSS.pdf)
+
+- [Preuve de concept - Archivage des courriers électroniques par le Programme Vitam de 2013](/ressources/RefCourant/Vitam_Preuve_de_concept_archivage_des_messageries_électroniques_V1.2_2013.pdf)
+
+## En savoir plus sur le Club utilisateurs : quoi ? pour quoi ? qui ? pour qui ? Tour d'horizon de 4 utilisateurs<a name="Club"></a>
+[Présentation du Club utilisateurs](/ressources/RefCourant/Vitamenligne2023_Clubutilisateurs.pdf)
+
+## SAE et collectivités territoriales : exemples d'usage de Vitam et retours sur l'appel à projet ANET<a name="CT"></a>
+- [Introduction Vitam](/ressources/RefCourant/Vitamenligne2023_SAE_CT.pdf)
+- [Présentation du projet des AD34](/ressources/RefCourant/Vitamenligne2023_SAE_CT_AD34.pdf)
+- [Présentation du projet de SAE de Nice métropole](/ressources/RefCourant/Vitamenligne2023_SAE_CT_Nice.pdf)
+- [Présentation ANET](/ressources/RefCourant/Vitamenligne2023_SAE_CT_ANET.pdf)
