@@ -41,8 +41,8 @@ Consulter la présentation pour :
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DAXiAp8XEA0?si=ujd01ysN1S7a8wu3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Gérer les profils d'archivage et les profils d'unité achivistique : présentation des outils (Pastis et APP Profils documentaires) et démonstrations<a name="Pastis"></a>
-- [Présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_PA-PUA.pdf)  
-- [Support de la démonstration](/ressources/RefCourant/Vitamenligne2023_Vitam_PA-PUA_demo.pdf)
+- [Consulter la présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_PA-PUA.pdf)  
+- [Consulter le support de la démonstration](/ressources/RefCourant/Vitamenligne2023_Vitam_PA-PUA_demo.pdf)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8zomSDpvo6Y?si=DV4nG1m2Is1bo61R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -56,25 +56,26 @@ Consulter la présentation pour :
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-C886_i6t6g?si=GY7aLcm2kwWJ4nni" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Collecter les archives numériques : enjeux des travaux actuels du Programme Vitam et présentation d'exemples<a name="collecte"></a>
-- [Présentation du module de collecte](/ressources/RefCourant/Vitamenligne2023_Vitam_presentation_collecte.pdf)
-- [Présentation de Mintika](/ressources/RefCourant/Vitamenligne2023_intervention_collecte_Mintika.pdf)
+- [Consulter la présentation du module de collecte](/ressources/RefCourant/Vitamenligne2023_Vitam_presentation_collecte.pdf)
+- [Consulter la présentation de Mintika](/ressources/RefCourant/Vitamenligne2023_intervention_collecte_Mintika.pdf)
 
 ## Présentation des derniers travaux de Vitam : nouvelles fonctionnalités de la version 7.0 de Vitam, chantiers signature électronique et identifiant pérenne, ReSIP <a name="v7"></a>
-[Présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_v7_presentation_v1.0.pdf) 
+[Consulter la présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_v7_presentation_v1.0.pdf) 
 
 ## Devenir utilisateur de VaS : en savoir plus sur le raccordement au RIE<a name="RIE"></a>  
-[Présentation](/ressources/RefCourant/Vitamenligne2023_RIE_VaS_presentation.pdf)
+
 
 ## Archivage des courriers électroniques : théorie,, retour d'expérience sur la collecte et présentation d'Archifiltre-Mails<a name="mails"></a>
-- [Présentation Vitam](/ressources/RefCourant/Vitamenligne2023_ArchivageMessageries_intro.pdf)
-- [Retours d'expérience SPM et MSS](/ressources/RefCourant/Vitamenligne2023_messageries_SPM_MSS.pdf)
+- [Consulter la présentation Vitam](/ressources/RefCourant/Vitamenligne2023_ArchivageMessageries_intro.pdf)
+- [Consulter les retours d'expérience SPM et MSS](/ressources/RefCourant/Vitamenligne2023_messageries_SPM_MSS.pdf)
 
-- [Preuve de concept - Archivage des courriers électroniques par le Programme Vitam de 2013](/ressources/RefCourant/Vitam_Preuve_de_concept_archivage_des_messageries_électroniques_V1.2_2013.pdf)
+- [Prendre connaissance de la preuve de concept - Archivage des courriers électroniques par le Programme Vitam de 2013](/ressources/RefCourant/Vitam_Preuve_de_concept_archivage_des_messageries_électroniques_V1.2_2013.pdf)
 
 ## En savoir plus sur le Club utilisateurs : quoi ? pour quoi ? qui ? pour qui ? Tour d'horizon de 4 utilisateurs<a name="Club"></a>
-[Présentation du Club utilisateurs](/ressources/RefCourant/Vitamenligne2023_Clubutilisateurs.pdf)
+[COnsulter la présentation du Club utilisateurs](/ressources/RefCourant/Vitamenligne2023_Clubutilisateurs.pdf)
 
 ## SAE et collectivités territoriales : exemples d'usage de Vitam et retours sur l'appel à projet ANET<a name="CT"></a>
+Consulter les documents suivants :
 - [Introduction Vitam](/ressources/RefCourant/Vitamenligne2023_SAE_CT.pdf)
 - [Présentation du projet des AD34](/ressources/RefCourant/Vitamenligne2023_SAE_CT_AD34.pdf)
 - [Présentation du projet de SAE de Nice métropole](/ressources/RefCourant/Vitamenligne2023_SAE_CT_Nice.pdf)
