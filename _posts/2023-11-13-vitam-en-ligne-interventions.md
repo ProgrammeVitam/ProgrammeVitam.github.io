@@ -70,6 +70,8 @@ Consulter la présentation pour :
 
 [Consulter la présentation](/ressources/RefCourant/Vitamenligne2023_RIE_VaS_presentation_V4_non_sensible.pdf)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xxjELxq3luQ?si=JPzpH8wkiK-aqDX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Archivage des courriers électroniques : théorie,, retour d'expérience sur la collecte et présentation d'Archifiltre-Mails<a name="mails"></a>
 - [Consulter la présentation Vitam](/ressources/RefCourant/Vitamenligne2023_ArchivageMessageries_intro.pdf)
 - [Consulter les retours d'expérience SPM et MSS](/ressources/RefCourant/Vitamenligne2023_messageries_SPM_MSS.pdf)
