@@ -59,11 +59,16 @@ Consulter la présentation pour :
 - [Consulter la présentation du module de collecte](/ressources/RefCourant/Vitamenligne2023_Vitam_presentation_collecte.pdf)
 - [Consulter la présentation de Mintika](/ressources/RefCourant/Vitamenligne2023_intervention_collecte_Mintika.pdf)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AJ2hXmti2mw?si=_BVU3QgvV2uzY-Po" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Présentation des derniers travaux de Vitam : nouvelles fonctionnalités de la version 7.0 de Vitam, chantiers signature électronique et identifiant pérenne, ReSIP <a name="v7"></a>
 [Consulter la présentation](/ressources/RefCourant/Vitamenligne2023_Vitam_v7_presentation_v1.0.pdf) 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wsfL550xzV4?si=znBU-ks_d928KBO5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Devenir utilisateur de VaS : en savoir plus sur le raccordement au RIE<a name="RIE"></a>  
 
+[Consulter la présentation](/ressources/RefCourant/Vitamenligne2023_RIE_VaS_presentation_V4_non_sensible.pdf)
 
 ## Archivage des courriers électroniques : théorie,, retour d'expérience sur la collecte et présentation d'Archifiltre-Mails<a name="mails"></a>
 - [Consulter la présentation Vitam](/ressources/RefCourant/Vitamenligne2023_ArchivageMessageries_intro.pdf)
@@ -71,8 +76,12 @@ Consulter la présentation pour :
 
 - [Prendre connaissance de la preuve de concept - Archivage des courriers électroniques par le Programme Vitam de 2013](/ressources/RefCourant/Vitam_Preuve_de_concept_archivage_des_messageries_électroniques_V1.2_2013.pdf)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b-nO56vSVAs?si=qUhnhk9aggLBzZHJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## En savoir plus sur le Club utilisateurs : quoi ? pour quoi ? qui ? pour qui ? Tour d'horizon de 4 utilisateurs<a name="Club"></a>
-[COnsulter la présentation du Club utilisateurs](/ressources/RefCourant/Vitamenligne2023_Clubutilisateurs.pdf)
+[Consulter la présentation du Club utilisateurs](/ressources/RefCourant/Vitamenligne2023_Clubutilisateurs.pdf)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sd0-Cnxh5OM?si=O4k3J7X0MI1E2RtN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## SAE et collectivités territoriales : exemples d'usage de Vitam et retours sur l'appel à projet ANET<a name="CT"></a>
 Consulter les documents suivants :
@@ -80,3 +89,5 @@ Consulter les documents suivants :
 - [Présentation du projet des AD34](/ressources/RefCourant/Vitamenligne2023_SAE_CT_AD34.pdf)
 - [Présentation du projet de SAE de Nice métropole](/ressources/RefCourant/Vitamenligne2023_SAE_CT_Nice.pdf)
 - [Présentation ANET](/ressources/RefCourant/Vitamenligne2023_SAE_CT_ANET.pdf)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X8PPe3Bo9VA?si=1fTPL3UR9EbO3yVH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
