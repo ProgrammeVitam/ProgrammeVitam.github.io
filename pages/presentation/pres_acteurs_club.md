@@ -71,11 +71,12 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 
 ![Logos](/public/images/202303_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 20/06/2023)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 30/11/2023)<a name="membre"></a>
 
 * AMUE
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
+* Agence nationale pour la gestion des déchets radioactifs (ANDRA)
 * Agence de Services et de Paiement (ASP)
 * Akompano
 * Atos
@@ -89,6 +90,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
 * CGI
 * Coexya
+* Collectivité territoriale de Guyane
 * Commissariat à l'énergie atomique et aux énergies alternatives (CEA)
 * Communauté d'agglomération de Cergy-Pontoise
 * Communauté d'agglomération de Paris Vallée de la Marne
@@ -96,6 +98,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Conseil départemental du Lot-et-Garonne
 * Conseil départemental du Gard
 * Conseil départemental du Tarn et Garonne 
+* Conseil départemental de la Charente-Maritime
 * Conseil départemental de la Gironde
 * Conseil départemental de l'Hérault
 * Conseil départemental de Seine-et-Marne
@@ -117,15 +120,18 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Ministère de la Culture
 * Ministère de l’Éducation nationale et de la Jeunesse
 * Ministère de l'Europe et des Affaires étrangères
+* Ministère de l'Intérieur et des Outre-mer
 * Ministère de la Justice
 * Ministère de la Transition écologique et solidaire
 * Ministère des Solidarités et de la Santé
 * Mintika
+* Montpellier Méditerranée Métropole
 * MSA
 * Musée du quai Branly - Jacques-Chirac
 * Nantes métropole
 * NeoLedge
 * Olkoa
+* Préfecture de police de Paris
 * RATP
 * SGAMI Sud-Ouest 
 * Smile
@@ -140,4 +146,4 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * XDemat
 * Xelians
 
-![Logos](/public/images/202306_utilisateurs.jpg)
+![Logos](/public/images/202311_utilisateurs .jpg)
