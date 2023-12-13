@@ -19,14 +19,13 @@ L’application PASTIS a pour fonction :
 2. la modification d'un profil d’archivage ou d'un profil d'unité archivistique
 3. l'export d'un profil d’archivage ou d'un profil d'unité archivistique en RNG
 
-![Pastis_catégories](/public/images/Pastis_categorie.JPG)
-
-Le profil d’archivage sert à spécifier les métadonnées du SEDA pour un contexte d’archivage donné.
-Il détermine :
-• La liste des métadonnées à utiliser parmi le dictionnaire de données SEDA.
-• Les paramétrages retenus pour ces métadonnées (cardinalité, valeur fixe attendue le cas échéant)
+Le profil d’archivage sert à spécifier les métadonnées du SEDA pour un contexte d’archivage donné.  
+Il détermine :  
+• La liste des métadonnées à utiliser parmi le dictionnaire de données SEDA.  
+• Les paramétrages retenus pour ces métadonnées (cardinalité, valeur fixe attendue le cas échéant)  
 • Des commentaires d’utilisation
 
+![Pastis_catégories](/public/images/Pastis_categorie.JPG)
 
 
 Sont mis à dispostion :
