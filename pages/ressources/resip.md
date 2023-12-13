@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Resip
+title: ReSIP
 fatherref: ressources
 ---
 
