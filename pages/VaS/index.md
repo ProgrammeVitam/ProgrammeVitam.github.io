@@ -168,7 +168,7 @@ Quelques chiffres malgré tout :
 - exemple 2 : 248 000 archives et 1,88 To pour 99 000€ l'année
 - exemple 3 : 1 million d'archives pour 317 000€ et le coût selon les To versés
 
-Le plus simple ? [Nous contacter](mailto:contact@programmevitam.fr) pour un dialogue sur le modèle économique, vos besoins et une prévision fianncière sur plusieurs années !
+Le plus simple ? [Nous contacter](mailto:contact@programmevitam.fr) pour un dialogue sur le modèle économique, vos besoins et une prévision financière sur plusieurs années !
 
 
 
