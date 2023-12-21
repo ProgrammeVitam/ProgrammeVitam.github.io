@@ -24,7 +24,7 @@ Il détermine :
 • Les paramétrages retenus pour ces métadonnées (cardinalité, valeur fixe attendue le cas échéant)  
 • Des commentaires d’utilisation
 
-![Pastis_catégories](/public/images/Pastis_categorie.JPG)
+![Pastis_catégories](/public/images/Pastis_categorie.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
 
 
 Sont mis à dispostion :
