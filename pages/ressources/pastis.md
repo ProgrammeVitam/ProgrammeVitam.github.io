@@ -9,8 +9,7 @@ fatherref: ressources
 
 ## PASTIS
 
-Après Agape, Application de Génération Automatisée de Profils Électroniques, proposée en 2009 pour la génération de profil d'archivage en Seda 0.1, 0.2, 1.0, et Sherpa, Service hébergé pour la rédaction de profils
-d’archivage, proposé depuis 2017 pour la génération de profils d'archivage en Seda 2.0 compatible 0.2 et 1.0, le projet Pastis a été initié par le Cines pour répondre en particulier à son besoin : faire des profils d’archivage facilement en SEDA 2.1 dans un contexte Vitam et Vitam UI.
+Après Agape, Application de Génération Automatisée de Profils Électroniques, proposée en 2009 pour la génération de profil d'archivage en Seda 0.1, 0.2, 1.0, et Sherpa, Service hébergé pour la rédaction de profils d’archivage, proposé depuis 2017 pour la génération de profils d'archivage en Seda 2.0 compatible 0.2 et 1.0, le projet Pastis a été initié par le Cines pour répondre en particulier à son besoin, avec le soutien du Service interministériel des archives de France : faire des profils d’archivage facilement en SEDA 2.1 dans un contexte Vitam et Vitam UI.
 
 ![Pastis_contexte](/public/images/Pastis_contexte.JPG)
 
