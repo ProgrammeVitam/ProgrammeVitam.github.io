@@ -12,10 +12,8 @@ fatherref: programme
 ## Devenir membre du Club utilisateurs<a name="CU"></a>
 La participation de nombreux acteurs est une constante du programme, afin d’en faciliter l’adoption. Les travaux du Programme Vitam, ont déjà permis d’associer un grand nombre de représentants du monde des archives et du domaine des systèmes d’information, issus de l’État, des collectivités territoriales et des établissements publics, mais aussi du secteur privé avec des dispositifs dédiés par exemple aux ESN.
 
-C’est dans ce cadre que s’inscrit la signature de la convention de membre du Club utilisateurs qui valorise une synergie entre un Utilisateur conventionné et le Programme Vitam réunis par une approche pragmatique 
-de mutualisation de moyens et une volonté d’innover, associée à un souhait de garantir et d’améliorer le niveau de performance voulu par les utilisateurs.
-Le projet tend in fine à l’utilisation de nouvelles technologies au service des publics. Le Programme Vitam sert de biotope à un écosystème innovant souhaitant assurer des fonctionnalités d’archivage électronique, en
-utilisant les technologies du Big Data et du cloud privé. Les conditions de la réalisation et de la mise à disposition des innovations techniques concernées par ce projet sont régies par une convention de service.
+C’est dans ce cadre que s’inscrit la signature de la convention de membre du Club utilisateurs qui valorise une synergie entre un Utilisateur conventionné et le Programme Vitam réunis par une approche pragmatique de mutualisation de moyens et une volonté d’innover, associée à un souhait de garantir et d’améliorer le niveau de performance voulu par les utilisateurs.
+Le projet tend in fine à l’utilisation de nouvelles technologies au service des publics. Le Programme Vitam sert de biotope à un écosystème innovant souhaitant assurer des fonctionnalités d’archivage électronique, en utilisant les technologies du Big Data et du cloud privé. Les conditions de la réalisation et de la mise à disposition des innovations techniques concernées par ce projet sont régies par une convention de service.
 
 Par Utilisateur, la convention considère toute organisation, publique ou privée, qui fait usage de la solution logicielle Vitam, en son nom propre ou pour le compte d’une autre organisation, d’une manière directe ou par l’intermédiaire d’un automatisme, par un usage courant, intermittent ou à l’étude, à n’importe quelle étape de déploiement de la solution logicielle Vitam et de ses évolutions (étude, conception, réalisation, tests, recette, livraison, mise en production, maintenance, etc.).
 
@@ -31,8 +29,7 @@ La convention de service proposée pour devenir membre du Club utilisateurs s’
 Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programme Vitam :
 
 * [Comitologie dédiée](#comito) 
-* Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant Ark
-(2021-…)...;
+* Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant Ark (2021-…), signature électronique (2022-...)...;
 * Accès à des outils :  
     - d’échanges et questions avec Osmose,  
     - de support avec Tuleap,  
@@ -71,7 +68,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 
 ![Logos](/public/images/202303_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 30/11/2023)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 31/12/2023)<a name="membre"></a>
 
 * AMUE
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
@@ -131,6 +128,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Nantes métropole
 * NeoLedge
 * Olkoa
+* Opéris
 * Préfecture de police de Paris
 * RATP
 * SGAMI Sud-Ouest 
@@ -146,4 +144,4 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * XDemat
 * Xelians
 
-![Logos](/public/images/202311_utilisateurs .jpg)
+![Logos](/public/images/202312_utilisateurs.jpg)
