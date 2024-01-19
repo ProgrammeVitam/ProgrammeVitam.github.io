@@ -78,7 +78,7 @@ Documentation générale
 ![Logos](/public/images/VitamUI_versement.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}  
 
 |Je souhaite...|Je suis...|APP Vitam UI|
-|:-----|:----|:-----|able>
+|:-----|:----|:-----|
 |créer un projet de versement, consulter et rechercher les unités archivistiques liées à un versement, ajouter des métadonnées descriptives et de gestion des unités archivistiques, consulter, valider, transférer les versements liés à un projet|archiviste|[Collecte et préparation des versements](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Collecte_et_preparation_des_versements.pdf)|
 |déposer un lot d'archives dans le SAE et en visualiser l'entrée|archiviste|[Dépôt et suivi des versements](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Depot_et_suivi_versements.pdf)|
 |rechercher et télécharger des unités archivistiques contenues dans le SAE|archiviste|[Recherche et consultation des archives](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Recherche_et_consultation.pdf)|
