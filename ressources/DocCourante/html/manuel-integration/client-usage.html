@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utilisation des clients externes &mdash; Documentation VITAM - Manuel Intégration Applicative 6.1</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="DSL Java Vitam" href="java-dsl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VITAM - Manuel Intégration Applicative
+              <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                6.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vitam.html">VITAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exemples.html">Exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java-dsl.html">DSL Java Vitam</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilisation des clients externes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#client-ingest">Client Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-access">Client Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access">Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#admin">Admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-d-un-client-externe">Configuration d’un client externe</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VITAM - Manuel Intégration Applicative</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utilisation des clients externes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/client-usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="utilisation-des-clients-externes">
+<h1>Utilisation des clients externes<a class="headerlink" href="#utilisation-des-clients-externes" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Pour faciliter l’accès aux API externes, le projet VITAM met à disposition les clients externes Java correspondant.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Le code d’ihm-demo est un bon exemple d’utilisation des clients présentés ci-dessous.</p>
+</div>
+<div class="section" id="client-ingest">
+<h2>Client Ingest<a class="headerlink" href="#client-ingest" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le client Java des API ingest externes a les coordonnées maven suivantes :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>ingest-external-client<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${vitam.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>La configuration du client est à réaliser conformément au paragraphe <a class="reference internal" href="#configuration-d-un-client-externe">Configuration d’un client externe</a> ; le fichier de configuration dédié à l’API d’ingest externe est le fichier <code class="docutils literal notranslate"><span class="pre">ingest-external-client.conf</span></code> :</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">serverHost</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.ingestexternal.host</span> <span class="p p-Indicator">}}</span>
+<span class="nt">serverPort</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.ingestexternal.port_service</span> <span class="p p-Indicator">}}</span>
+<span class="nt">secure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">sslConfiguration </span><span class="p">:</span>
+ <span class="nt">keystore </span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">keystores.client_external.ihm_demo</span> <span class="p p-Indicator">}}</span>
+ <span class="nt">truststore </span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">truststores.client_external</span> <span class="p p-Indicator">}}</span>
+<span class="nt">hostnameVerification</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div>
+<p>Le fichier définitif doit s’appeler <code class="docutils literal notranslate"><span class="pre">ingest-external-client.conf</span></code> et doit être placé dans le répertoire <code class="docutils literal notranslate"><span class="pre">/vitam/conf</span></code> ou le répertoire défini par la surconfiguration
+du chemin de configuration par l’argument passé à la JVM <code class="docutils literal notranslate"><span class="pre">-Dvitam.config.folder=/monchemin</span></code> où <code class="docutils literal notranslate"><span class="pre">monchemin</span></code> est le lieu où se trouve ce fichier de configuration.</p>
+<p>Une instance de client se récupère grâce au code suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fr.gouv.vitam.ingest.external.client</span>
+<span class="n">IngestExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">IngestExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal notranslate"><span class="pre">IngestExternalClient</span></code>.</p>
+</div>
+<div class="section" id="client-access">
+<h2>Client Access<a class="headerlink" href="#client-access" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le client Java des API access externes a les coordonnées maven suivantes :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>access-external-client<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${vitam.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>La configuration du client est à réaliser conformément au paragraphe <a class="reference internal" href="#configuration-d-un-client-externe">Configuration d’un client externe</a> ; le fichier de configuration dédié à l’API d’access externe est le fichier <code class="docutils literal notranslate"><span class="pre">access-external-client.conf</span></code> :</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">serverHost</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.accessexternal.host</span> <span class="p p-Indicator">}}</span>
+<span class="nt">serverPort</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam.accessexternal.port_service</span> <span class="p p-Indicator">}}</span>
+<span class="nt">secure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">sslConfiguration </span><span class="p">:</span>
+ <span class="nt">keystore </span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/keystore_{{ vitam_struct.vitam_component }}.p12</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">keystores.client_external.ihm_demo</span> <span class="p p-Indicator">}}</span>
+ <span class="nt">truststore </span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">keyPath</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">vitam_folder_conf</span> <span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">/truststore_{{ vitam_struct.vitam_component }}.jks</span>
+    <span class="nt">keyPassword</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">truststores.client_external</span> <span class="p p-Indicator">}}</span>
+<span class="nt">hostnameVerification</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div>
+<p>Le fichier définitif doit s’appeler <code class="docutils literal notranslate"><span class="pre">access-external-client.conf</span></code> et placé dans le répertoire par défaut <code class="docutils literal notranslate"><span class="pre">/vitam/conf</span></code> ou le répertoire définit par la surconfiguration
+du chemin de configuration par l’argument passé à la JVM <code class="docutils literal notranslate"><span class="pre">-Dvitam.config.folder=/monchemin</span></code> où <code class="docutils literal notranslate"><span class="pre">monchemin</span></code> est le lieu où se trouve ce fichier de configuration.</p>
+<div class="section" id="access">
+<h3>Access<a class="headerlink" href="#access" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une instance de client se récupère grâce au code suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="p">.</span><span class="na">gouv</span><span class="p">.</span><span class="na">vitam</span><span class="p">.</span><span class="na">access</span><span class="p">.</span><span class="na">external</span><span class="p">.</span><span class="na">client</span>
+<span class="n">AccessExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AccessExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal notranslate"><span class="pre">AccessExternalClient</span></code>.</p>
+</div>
+<div class="section" id="admin">
+<h3>Admin<a class="headerlink" href="#admin" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une instance de client se récupère grâce au code suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span><span class="p">.</span><span class="na">gouv</span><span class="p">.</span><span class="na">vitam</span><span class="p">.</span><span class="na">access</span><span class="p">.</span><span class="na">external</span><span class="p">.</span><span class="na">client</span>
+<span class="n">AdminExternalClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">AdminExternalClientFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getClient</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Pour la suite, se référer à la javadoc de la classe <code class="docutils literal notranslate"><span class="pre">AdminExternalClient</span></code>.</p>
+</div>
+</div>
+<div class="section" id="configuration-d-un-client-externe">
+<h2>Configuration d’un client externe<a class="headerlink" href="#configuration-d-un-client-externe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La configuration du client prend en compte les paramètres et fichiers suivants :</p>
+<ul>
+<li><p class="first">La propriété système Java <code class="docutils literal notranslate"><span class="pre">vitam.config.folder</span></code> : indique le répertoire dans laquelle les fichiers de configuration des clients seront recherchés (ex de déclaration en ligne de commande: <code class="docutils literal notranslate"><span class="pre">-Dvitam.config.folder=/vitam/conf/clientvitam/</span></code>) ;</p>
+</li>
+<li><p class="first">Le fichier de configuration (<code class="docutils literal notranslate"><span class="pre">&lt;api&gt;-client.conf</span></code>) : doit être présent dans le répertoire défini précédemment ; c’est un fichier de configuration qui contient notamment les éléments de configuration suivants :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">serverHost</span></code> et <code class="docutils literal notranslate"><span class="pre">serverPort</span></code> permettent d’indiquer l’hôte et le port du serveur hébergeant l’API externe ;</li>
+<li>keystore : <code class="docutils literal notranslate"><span class="pre">keyPath</span></code> et <code class="docutils literal notranslate"><span class="pre">keyPassword</span></code> permettent d’indiquer le chemin et le mot de passe du magasin de certificats contenant le certificat client utilisé par le client externe pour s’authentifier auprès de l’API externe ;</li>
+<li>trusstore : <code class="docutils literal notranslate"><span class="pre">keyPath</span></code> et <code class="docutils literal notranslate"><span class="pre">keyPassword</span></code> permettent d’indiquer le chemin et le mot de passe du magasin de certificats contenant les certificats des autorités de certification requise (i.e. AC des certificats client et serveur).</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Le client externe peut necessiter un header pour l’authentification «&nbsp;X-Personal-Certificate&nbsp;» pour certaines resources sensibles.
+Ces resources sont listées dans la collection certificate de la base de données identity.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="java-dsl.html" class="btn btn-neutral float-left" title="DSL Java Vitam" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
