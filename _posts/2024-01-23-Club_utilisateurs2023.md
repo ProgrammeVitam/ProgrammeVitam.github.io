@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: L'année 2023 du CLub utilisateurs en chiffre
+title: L'année 2023 du Club utilisateurs en chiffres
 ---
 
 ![Logos](/public/images/202312_utilisateurs_par_annee_focus2023.jpg)
