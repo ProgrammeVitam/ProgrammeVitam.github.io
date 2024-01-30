@@ -1,6 +1,6 @@
 ---
 layout: page
-title: L'offre VaS
+title: Vitam accessible en service (VaS)
 fatherref: VaS
 level: page
 ---
@@ -13,6 +13,7 @@ level: page
 * [Historique du projet](#historique)
 * [Comment préparer son usage du service ?](#utiliser)
 * [Quels sont les tarifs ?](#tarif)
+* [Les utilisateurs actuels](#utilisateurs)
 * [Documents de présentation](#documents)
 
 [Télécharger le document de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
@@ -93,22 +94,27 @@ Organiser, de manière sécurisée, pérenne et souveraine la conservation et la
 # Historique du projet VaS <a name="historique"></a>
 
 Courant 2019, le ministère de la Culture et les ministères de la Transition écologique et solidaire, et de la Cohésion des territoires et des Relations avec les collectivités territoriales ont signé une convention de service pour le projet "Vitam as a Service". 
-Devenu depuis <i>Vitam accessible en service</i> (VaS), ce projet soutenu également par la DINum et le Siaf vise dans sa première phase à produire un produit minimum viable (MVP) offrant des fonctionnalités de versement et de gestion des archives pour les archivistes. 
+
+Devenu depuis <i>Vitam accessible en service</i> (VaS), ce projet soutenu également par la DINum et le Siaf visait dans sa première phase à produire un produit minimum viable (MVP) offrant des fonctionnalités de versement et de gestion des archives pour les archivistes. 
+
 À l'origine de cette initiative se trouve le besoin des ministères d'avoir une solution dédiée pour la gestion de leur archivage intermédiaire, besoin exprimé également par plusieurs opérateurs – partenaires du Programme Vitam. 
-S'appuyant sur la réutilisation de la solution logicielle Vitam, le projet offrira une **infrastructure interministérielle mutualisée avec un front-office générique, appelé Vitam UI**.
+
+S'appuyant sur la réutilisation de la solution logicielle Vitam, le projet offre une **infrastructure interministérielle mutualisée avec un front-office générique, appelé Vitam UI**.
 
 ## En s'appuyant sur une initiative de partenaires…
 
-Les travaux de réflexion ont été entamés en s'appuyant sur l'initiative **Vitam UI (pour Interface utilisateurs)** et en y participant. 
+Les travaux de réflexion ont été entamés en s'appuyant sur l'initiative **Vitam UI (pour Interface utilisateurs)** et en y participant.   
 Cette dernière est portée depuis 2019 par deux partenaires du Programme Vitam, le CEA et le CINES, rejoints par Locarchives - Xelians, qui a déployé une offre d'archivage à partir de la solution logicielle Vitam. 
-Ensemble, ils ont listé les fonctionnalités nécessaires pour la gestion des archives en front-office, les ont priorisées et ont commencé les développements. 
+Ensemble, ils ont listé les fonctionnalités nécessaires pour la gestion des archives en front-office, les ont priorisées et ont commencé les développements.   
 Les contributions à Vitam UI seront reversées au Programme, en Open Source (licence Cecill-C1), permettant de renforcer encore l’axe directionnel fort du Programme depuis l’origine, soit la diffusion et la réutilisation la plus large possible.
 
 ## ...pour proposer rapidement un Produit minimum viable (MVP)…
 
-La phase 1 du projet VaS, extension du Programme Vitam, a débuté en même temps que sa phase maintenance et amélioration continue. 
+La phase 1 du projet VaS, extension du Programme Vitam, a débuté en même temps que sa phase maintenance et amélioration continue.   
 Une comitologie propre a été mise en place, issue du fonctionnement du Programme Vitam, avec un comité de direction, un comité de pilotage et une cellule d’urgence, créée pour agir en cas de problème majeur lorsque les mises en production seront effectives. 
-Un comité de cohérence fonctionnelle complète ce dispositif. 
+
+![alt text](/public/images/202401_gouvernance_VaS.jpg)
+
 La première phase a abouti à un MVP fin 2020 contenant les fonctionnalités socles de versements, mais aussi de gestion et d’accès aux archives par les archivistes. 
 
 
@@ -117,7 +123,7 @@ La première phase a abouti à un MVP fin 2020 contenant les fonctionnalités so
 ## … avant d’aboutir à une offre de service plus large !
 
 Une phase 2 démarre ensuite.   
-Aux porteurs initiaux du projet s’ajoutent de nouveaux ministères, dont certains, comme les Ministères sociaux, ont embarqué dès la phase 1 dans les réflexions et les échanges permettant l’acculturation de tous au projet, au Programme Vitam, aux méthodes, etc. 
+Aux porteurs initiaux du projet s’ajoutent de nouveaux ministères, dont certains, comme les Ministères sociaux, ont embarqué dès la phase 1 dans les réflexions et les échanges permettant l’acculturation de tous au projet, au Programme Vitam, aux méthodes, etc.   
 Cette deuxième étape a été l’occasion de pousser les fonctionnalités développées en phase 1, mais aussi d’ajouter des fonctionnalités qui ont pu être jugées non prioritaires au début, tout en gardant en objectif le versement dans VaS mais également le reversement dans la plate-forme des Archives nationales. 
 
 À termes, d’autres ministères, en plus des porteurs en phases 1 et 2, pourront utiliser ce service ainsi que les organisations publiques. 
@@ -170,7 +176,9 @@ Quelques chiffres malgré tout :
 
 Le plus simple ? [Nous contacter](mailto:contact@programmevitam.fr) pour un dialogue sur le modèle économique, vos besoins et une prévision financière sur plusieurs années !
 
+# Les utilisateurs actuels <a name="utilisateurs"></a>
 
+![alt text](/public/images/VaS_utilisateurs_202401.JPG)
 
 # Documents de présentation <a name="documents"></a>
 
