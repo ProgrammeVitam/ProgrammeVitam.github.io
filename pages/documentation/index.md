@@ -21,7 +21,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 * [Documentation ReSIP](https://www.programmevitam.fr/pages/documentation/resip/)
 * [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
 
-* Accéder à la documentation des anciennes versions :
+* Accéder à la documentation des anciennes versions :  
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
     * [Version 6](./liste_doc_ancienne_V6.md)
     * [Version 6.RC](./liste_doc_ancienne_V6RC.md)
