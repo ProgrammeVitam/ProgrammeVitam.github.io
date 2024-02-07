@@ -56,9 +56,9 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc6/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc6/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v5/Jeux_de_tests_fonctionnels_V6.zip))
 
 # Documentation technique
-* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc6/pdf/vitam-architecture.5.0.pdf) \| [html](/ressources/Doc5/html/archi))  
+* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc6/pdf/vitam-architecture.6.1.pdf) \| [html](/ressources/Doc5/html/archi))  
 
-* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/Doc6/pdf/vitam-documentation-installation.5.0.pdf) \| [html](/ressources/Doc5/html/installation))
+* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/Doc6/pdf/vitam-documentation-installation.6.1.pdf) \| [html](/ressources/Doc5/html/installation))
 
 * **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/Doc6/pdf/vitam-documentation-exploitation.5.0.pdf) \| [html](/ressources/Doc6/html/exploitation))  
 
@@ -68,17 +68,17 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 
 * **Vitam UI : dossier d'exploitation** ([html](/ressources/Doc6/html/exploitation_VitamUI))  
 
-* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/Doc6/pdf/vitam-documentation-migration.5.0.pdf) \| [html](/ressources/Doc6/html/migration))  
+* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/Doc6/pdf/vitam-documentation-migration.6.1.pdf) \| [html](/ressources/Doc6/html/migration))  
 
 * **Documentation de montées de version Vitam UI** (DMV) ([html](/ressources/Doc6/html/migration_VitamUI))  
 
 # Documentation développeur
 * **Javadoc** ([html](/ressources/Doc6/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc6/pdf/vitam-manuel-integration.5.0.pdf) \| [html](/ressources/Doc6/html/manuel-integration))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc6/pdf/vitam-manuel-integration.6.1.pdf) \| [html](/ressources/Doc6/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
 ([pdf](/ressources/Doc6/autres/fonctionnel/VITAM_Modele_de_donnees.pdf))
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc6/raml/externe))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc6/pdf/vitam-manuel-developpement.5.0.pdf)
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc6/pdf/vitam-manuel-developpement.6.1.pdf)
 \| [html](/ressources/Doc6/html/manuel-dev))
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc6/raml/interne))
 
