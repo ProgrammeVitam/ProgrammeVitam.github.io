@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3.1. Notes et procédures spécifiques R13 &mdash; Documentation VITAM - Documentation de montées de version 6.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.1. Notes et procédures spécifiques R13 &mdash; Documentation VITAM - Documentation de montées de version 7.0.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.1
+                7.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -62,6 +62,8 @@
 <li class="toctree-l3"><a class="reference internal" href="v5rc_update.html">4.3.3. Notes et procédures spécifiques V5RC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v5_update.html">4.3.4. Notes et procédures spécifiques V5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6rc_update.html">4.3.5. Notes et procédures spécifiques V6RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6_update.html">4.3.6. Notes et procédures spécifiques V6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
 </ul>
 </li>
 </ul>
@@ -225,6 +227,19 @@ ensuite la tâche <code class="docutils literal notranslate"><span class="pre">C
 <p>ou, si <code class="docutils literal notranslate"><span class="pre">vault_pass.txt</span></code> n’a pas été renseigné :</p>
 <p><code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">environments/&lt;inventaire&gt;</span> <span class="pre">ansible-vitam-exploitation/migration_r9_r10_ingestcontracts.yml</span> <span class="pre">--ask-vault-pass</span></code></p>
 <p>Le template <code class="docutils literal notranslate"><span class="pre">upgrade_contracts.js</span></code> contient :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Switch to masterdata database</span>
+<span class="nx">db</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s1">&#39;masterdata&#39;</span><span class="p">);</span>
+
+<span class="c1">// Update IngestContract</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">IngestContract</span><span class="p">.</span><span class="nx">find</span><span class="p">({}).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">CheckParentLink</span> <span class="o">==</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">item</span><span class="p">.</span><span class="nx">checkParentId</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">LinkParentId</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">CheckParentLink</span> <span class="o">=</span> <span class="s2">&quot;AUTHORIZED&quot;</span><span class="p">;</span>
+    <span class="nx">db</span><span class="p">.</span><span class="nx">IngestContract</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">_id</span><span class="p">},</span> <span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="nettoyage-des-dips-depuis-les-offres">
 <h3>4.3.1.3.3. Nettoyage des DIPs depuis les offres<a class="headerlink" href="#nettoyage-des-dips-depuis-les-offres" title="Lien permanent vers ce titre">¶</a></h3>

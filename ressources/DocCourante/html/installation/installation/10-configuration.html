@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 6.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 7.0.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.1
+                7.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -816,14 +816,14 @@
 <span class="c1"># TODO: put here servers where this service will be deployed : mongod cluster for storage offers</span>
 <span class="c1"># Mandatory params</span>
 <span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
-<span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n</span>
+<span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n to create multiple shards</span>
 <span class="c1"># Optional params</span>
-<span class="c1">#  - mongo_rs_bootstrap=true ; mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1">#  - mongo_arbiter=true ; the node will be only an arbiter, do not add this parameter on a mongo_rs_bootstrap node</span>
-<span class="c1">#  - mongod_memory=x ; this will force the wiredtiger cache size to x (unit is GB)</span>
-<span class="c1">#  - is_small=true ; this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
+<span class="c1">#  - mongo_rs_bootstrap=true (default: false); mandatory for 1 node of the shard, some init commands will be executed on it</span>
+<span class="c1">#  - mongo_arbiter=true (default: false); the node will be only an arbiter, it will not store data ; do not add this parameter on a mongo_rs_bootstrap node, maximum 1 node per shard</span>
+<span class="c1">#  - mongod_memory=x (default: unset); this will force the wiredtiger cache size to x (unit is GB)</span>
+<span class="c1">#  - is_small=true (default: false); this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
 <span class="c1"># Recommended practice in production: use 3 instances per shard</span>
-<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id, arbiter mode, ou PSsmin configuration.</span>
+<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id, arbiter mode or PSSmin configuration.</span>
 <span class="c1"># Example :</span>
 <span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1   mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-swift-offer-02   mongo_cluster_name=offer-swift-1   mongo_shard_id=0</span>
@@ -832,7 +832,7 @@
 <span class="c1"># vitam-mongo-fs-offer-02      mongo_cluster_name=offer-fs-1      mongo_shard_id=0</span>
 <span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1      mongo_shard_id=0   mongo_arbiter=true</span>
 <span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   mongo_rs_bootstrap=true</span>
-<span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   is_small=true # PSsmin, this machine needs less hardware</span>
+<span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   is_small=true # PSSmin, this machine needs less hardware</span>
 <span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1      mongo_shard_id=0   mongo_arbiter=true</span>
 
 
@@ -898,18 +898,18 @@
 <span class="c1"># Reminder: For Vitam, one mongodb shard is using one replica_set</span>
 <span class="c1"># Mandatory params</span>
 <span class="c1">#  - mongo_cluster_name=mongo-data ; &quot;mongo-data&quot; is mandatory</span>
-<span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n</span>
+<span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n to create multiple shards</span>
 <span class="c1"># Optional params</span>
-<span class="c1">#  - mongo_rs_bootstrap=true ; mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1">#  - mongo_arbiter=true ; the node will be only an arbiter, do not add this parameter on a mongo_rs_bootstrap node</span>
-<span class="c1">#  - mongod_memory=x ; this will force the wiredtiger cache size to x (unit is GB) ; can be usefull when colocalization with elasticsearch</span>
-<span class="c1">#  - is_small=true ; this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
+<span class="c1">#  - mongo_rs_bootstrap=true (default: false); mandatory for 1 node of the shard, some init commands will be executed on it</span>
+<span class="c1">#  - mongo_arbiter=true (default: false); the node will be only an arbiter, it will not store data ; do not add this parameter on a mongo_rs_bootstrap node, maximum 1 node per shard</span>
+<span class="c1">#  - mongod_memory=x (default: unset); this will force the wiredtiger cache size to x (unit is GB) ; can be usefull when colocalization with elasticsearch</span>
+<span class="c1">#  - is_small=true (default: false); this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
 <span class="c1"># Recommended practice in production: use 3 instances per shard</span>
-<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id, arbiter mode, ou PSsmin configuration.</span>
+<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id, arbiter mode or PSSmin configuration.</span>
 <span class="c1"># Example:</span>
 <span class="c1"># vitam-mdbd-01  mongo_cluster_name=mongo-data   mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mdbd-02  mongo_cluster_name=mongo-data   mongo_shard_id=0</span>
-<span class="c1"># vitam-mdbd-03  mongo_cluster_name=mongo-data   mongo_shard_id=0   is_small=true # PSsmin, this machine needs less hardware</span>
+<span class="c1"># vitam-mdbd-03  mongo_cluster_name=mongo-data   mongo_shard_id=0   is_small=true # PSSmin, this machine needs less hardware</span>
 <span class="c1"># vitam-mdbd-04  mongo_cluster_name=mongo-data   mongo_shard_id=1   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mdbd-05  mongo_cluster_name=mongo-data   mongo_shard_id=1</span>
 <span class="c1"># vitam-mdbd-06  mongo_cluster_name=mongo-data   mongo_shard_id=1   mongo_arbiter=true</span>
@@ -2193,11 +2193,7 @@
 359
 360
 361
-362
-363
-364
-365
-366</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+362</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2527,10 +2523,6 @@
     <span class="nt">ldap_user_group</span><span class="p">:</span> <span class="s">&quot;cn=user,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
     <span class="nt">ldap_guest_group</span><span class="p">:</span> <span class="s">&quot;cn=guest,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
 
-<span class="nt">java_prerequisites</span><span class="p">:</span>
-    <span class="nt">debian</span><span class="p">:</span> <span class="s">&quot;openjdk-11-jre-headless&quot;</span>
-    <span class="nt">redhat</span><span class="p">:</span> <span class="s">&quot;java-11-openjdk-headless&quot;</span>
-
 <span class="c1"># Backup tool on storage-offer</span>
 <span class="nt">restic</span><span class="p">:</span>
     <span class="nt">snapshot_retention</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># number of snapshots to keep</span>
@@ -2700,7 +2692,23 @@
 122
 123
 124
-125</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
 <span class="c1"># List of dead / removed tenants that should never be reused / present in vitam_tenant_ids</span>
 <span class="nt">vitam_removed_tenants</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
 <span class="c1"># Administration tenant</span>
@@ -2825,6 +2833,22 @@
   <span class="c1">#      number_of_shards: 7</span>
   <span class="c1">#      number_of_replicas: 0</span>
   <span class="c1">#  ...</span>
+
+<span class="nt">extendedConfiguration</span><span class="p">:</span>
+  <span class="nt">default</span><span class="p">:</span>
+    <span class="nt">eliminationReportExtraFields</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="p p-Indicator">]</span>
+    <span class="nt">objectGroupBlackListedFields</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;Filename&#39;</span><span class="p p-Indicator">]</span>
+  <span class="nt">custom</span><span class="p">:</span>
+  <span class="c1"># The `eliminationReportExtraFields` configuration option specifies the metadata keys that should be included in the report when performing an elimination.</span>
+  <span class="c1">#   It determines which additional metadata fields should be retained and displayed in the elimination report.</span>
+  <span class="c1">#   You can include any of the following extra fields: &quot;#id&quot;, &quot;#version&quot;, &quot;#unitups&quot;, &quot;#originating_agency&quot;, &quot;#approximate_creation_date&quot;, &quot;approximate_update_date&quot;, &quot;FilePlanPosition&quot;, &quot;SystemId&quot;, &quot;OriginatingSystemId&quot;, &quot;ArchivalAgencyArchiveUnitIdentifier&quot;, &quot;OriginatingAgencyArchiveUnitIdentifier&quot;, TransferringAgencyArchiveUnitIdentifier&quot;</span>
+  <span class="c1">#</span>
+  <span class="c1"># The `objectGroupBlackListedFields` configuration option specifies the fields that should not be reported by access-external.</span>
+  <span class="c1">#</span>
+  <span class="c1"># Example for tenant 0 :</span>
+  <span class="c1">#   0:</span>
+  <span class="c1">#     eliminationReportExtraFields: [&quot;#id&quot;, &quot;FilePlanPosition&quot;, &quot;SystemId&quot;]</span>
+  <span class="c1">#     objectGroupBlackListedFields: [&#39;Filename&#39;]</span>
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -3661,7 +3685,29 @@
 324
 325
 326
-327</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;dynamic_templates&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -3923,6 +3969,28 @@
                   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
                 <span class="p">}</span>
               <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;PersistentIdentifier&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;PersistentIdentifierType&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;PersistentIdentifierOrigin&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;PersistentIdentifierReference&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;PersistentIdentifierContent&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;DataObjectUse&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;DataObjectNumber&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span>
             <span class="p">}</span>
           <span class="p">}</span>
         <span class="p">}</span>

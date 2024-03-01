@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3.5. Notes et procédures spécifiques V6RC &mdash; Documentation VITAM - Documentation de montées de version 6.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.5. Notes et procédures spécifiques V6RC &mdash; Documentation VITAM - Documentation de montées de version 7.0.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -17,6 +17,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="4.3.6. Notes et procédures spécifiques V6" href="v6_update.html" />
     <link rel="prev" title="4.3.4. Notes et procédures spécifiques V5" href="v5_update.html" /> 
 </head>
 
@@ -33,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.1
+                7.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -62,6 +63,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.5.4. Procédures à exécuter APRÈS la montée de version</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="v6_update.html">4.3.6. Notes et procédures spécifiques V6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
 </ul>
 </li>
 </ul>
@@ -358,14 +361,28 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
 </li>
 </ul>
 </div>
+<div class="section" id="reindexation-des-referentiels-sur-elasticsearch">
+<h3>4.3.5.4.4. Réindexation des référentiels sur elasticsearch<a class="headerlink" href="#reindexation-des-referentiels-sur-elasticsearch" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette migration de données consiste à mettre à jour le modèle d’indexation des référentiels sur elasticsearch-data.</p>
+<p>Elle est réalisée en exécutant la procédure suivante sur <strong>tous les sites</strong> (primaire et secondaire(s)) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/reindex_es_data.yml --ask-vault-pass --tags <span class="s2">&quot;securityprofile, context, ontology, ingestcontract, agencies, accessionregisterdetail, archiveunitprofile, accessionregistersummary, accesscontract, fileformat, filerules, profile, griffin, preservationscenario, managementcontract&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="migration-des-mappings-elasticsearch-pour-les-metadonnees">
+<h3>4.3.5.4.5. Migration des mappings elasticsearch pour les métadonnées<a class="headerlink" href="#migration-des-mappings-elasticsearch-pour-les-metadonnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette migration de données consiste à mettre à jour le modèle d’indexation des métadonnées sur elasticsearch-data.</p>
+<p>Elle est réalisée en exécutant la procédure suivante sur <strong>tous les sites</strong> (primaire et secondaire(s)) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_elasticsearch_mapping.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
 <div class="section" id="redemarrage-des-jobs-vitam-et-des-acces-externes-a-vitam">
-<h3>4.3.5.4.4. Redémarrage des Jobs Vitam et des accès externes à Vitam<a class="headerlink" href="#redemarrage-des-jobs-vitam-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.5.4.6. Redémarrage des Jobs Vitam et des accès externes à Vitam<a class="headerlink" href="#redemarrage-des-jobs-vitam-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La montée de version est maintenant terminée, vous pouvez réactiver les services externals ainsi que les jobs Vitam sur <strong>tous les sites</strong> :</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_external.yml --ask-vault-pass
-  ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_vitam_scheduler.yml --ask-vault-pass
-  ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_vitam_scheduling.yml --ask-vault-pass
-
-..
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_external.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_vitam_scheduler.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/start_vitam_scheduling.yml --ask-vault-pass
 </pre></div>
 </div>
 </div>
@@ -377,6 +394,7 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/s
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="v5_update.html" class="btn btn-neutral float-left" title="4.3.4. Notes et procédures spécifiques V5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="v6_update.html" class="btn btn-neutral float-right" title="4.3.6. Notes et procédures spécifiques V6" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

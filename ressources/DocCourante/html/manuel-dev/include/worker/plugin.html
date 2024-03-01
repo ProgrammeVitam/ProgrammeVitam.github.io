@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>15.4. Worker Plugin &mdash; Documentation VITAM - Manuel de développement 6.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>15.4. Worker Plugin &mdash; Documentation VITAM - Manuel de développement 7.0.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6.1
+                7.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -577,436 +577,442 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 427
 428
 429
-430</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
-	<span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_OBJECT_SIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckObjectSizeActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_object_size_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_ATTACHEMENT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckAttachementActionHandler&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OG_OBJECTS_FORMAT_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.FormatIdentificationActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;format_check_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNIT_METADATA_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.IndexUnitActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;index_unit_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OG_METADATA_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.IndexObjectGroupActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;index_object_group_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OBJ_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreObjectGroupActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_object_group_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNITS_RULES_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.UnitsRulesComputePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;units_rules_compute_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreMetaDataObjectGroupActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_metadata_objectGroup_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreMetaDataUnitActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_metadata_unit_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitSchemaActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_schema_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_ARCHIVE_UNIT_PROFILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitProfileActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_profile_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_CLASSIFICATION_LEVEL&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckClassificationLevelActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_classification_level_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UPDATE_UNIT_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ArchiveUnitRulesUpdateActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;archive_units_rules_update_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UPDATE_RUNNING_INGESTS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.RunningIngestsUpdateActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;running_ingests_update_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;AUDIT_CHECK_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditCheckObjectPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_check_object_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;LIST_OBJECTGROUP_ID&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditPreparePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_prepare_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;REPORT_AUDIT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditFinalizePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_finalize_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CREATE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.CreateManifest&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_LIST_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditPrepare&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_prepare.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_CHECK_DATABASE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditDatabaseCheck&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_database_check.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditListSecuredFiles&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_list_secured_files.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_EXTRACT_ZIP_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditExtractFromZip&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_extract_from_zip.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditGenerateReports&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_generate_reports.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_PREPARE_REPORT&quot;</span><span class="o">:</span><span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span><span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditPrepareReport&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span><span class="s2">&quot;evidence_audit_prepare_report.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EVIDENCE_AUDIT_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditFinalize&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_finalize.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CORRECTIVE_AUDIT_CHECK_RESOURCE_AVAILABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.DataRectificationCheckResourceAvailability&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CORRECTIVE_AUDIT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.DataRectificationStep&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CORRECTION_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.DataCorrectionFinalize&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MIGRATION_UNITS_LIST&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.migration.MigrationUnitPrepare&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MIGRATION_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.migration.MigrationUnits&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MIGRATION_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.migration.MigrationFinalize&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EXPORT_CHECK_RESOURCE_AVAILABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.ExportCheckResourceAvailability&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PUT_BINARY_ON_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.PutBinaryOnWorkspace&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;STORE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.StoreExports&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OBJECT_GROUP_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.UpdateObjectGroupPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_update.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;RECLASSIFICATION_PREPARATION_CHECK_HOLD_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.ReclassificationPreparationCheckHoldRulesHandler&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNIT_DETACHMENT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.UnitDetachmentPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_unit_detachment.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNIT_ATTACHMENT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.UnitAttachmentPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_unit_attachment.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNIT_GRAPH_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.UnitGraphComputePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_unit_compute.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;OBJECT_GROUP_GRAPH_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.ObjectGroupGraphComputePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_object_group_compute.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MASS_UPDATE_RULES_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.management.MassUpdateRulesCheck&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MASS_UPDATE_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.description.MassUpdateCheck&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;UNIT_METADATA_CHECK_CONSISTENCY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.UnitMetadataRulesUpdateCheckConsistency&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_update_consistency.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_DISTRIBUTION_THRESHOLD&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.common.CheckDistributionThreshold&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PREPARE_UPDATE_UNIT_LIST&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.PrepareUpdateUnits&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MASS_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.description.MassUpdateUnitsProcess&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MASS_UPDATE_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.MassUpdateFinalize&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;MASS_UPDATE_UNITS_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.management.MassUpdateUnitsRulesProcess&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_QUERIES_THRESHOLD&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.CheckQueriesThreshold&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PREPARE_BULK_ATOMIC_UPDATE_UNIT_LIST&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.PrepareBulkAtomicUpdate&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;BULK_ATOMIC_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.BulkAtomicUpdateProcess&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;BULK_ATOMIC_UPDATE_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.BulkAtomicUpdateFinalize&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;ELIMINATION_ANALYSIS_UNIT_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationAnalysisUnitIndexationPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_analysis_unit_indexation.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;ELIMINATION_ACTION_DELETE_UNIT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionDeleteUnitPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_delete_unit.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;ELIMINATION_ACTION_DELETE_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionDeleteObjectGroupPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_delete_object_group.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;ELIMINATION_ACTION_DETACH_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionDetachObjectGroupPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_detach_object_group.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionAccessionRegisterUpdatePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_update_accession_register.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRANSFER_REPLY_DELETE_UNIT&quot;</span><span class="o">:</span><span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDeleteUnitPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_delete_unit.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRANSFER_REPLY_DELETE_OBJECT_GROUP&quot;</span><span class="o">:</span><span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDeleteObjectGroupPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_delete_object_group.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRANSFER_REPLY_DETACH_OBJECT_GROUP&quot;</span><span class="o">:</span><span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDetachObjectGroupPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_detach_object_group.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRANSFER_REPLY_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span><span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyAccessionRegisterUpdatePlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_update_accession_register.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRANSFER_REPLY_DELETE_SIP&quot;</span><span class="o">:</span><span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDeleteSIP&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_CREATE_REPORT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateReport&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_CREATE_DISTRIBUTION_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateDistributionFile&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PROBATIVE_VALUE_CREATE_PROBATIVE_REPORT_ENTRY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateReportEntry&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PREPARE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareUnitLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_preparation_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;BUILD_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.BuildUnitTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_build_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;GENERATE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.GenerateUnitLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_generation_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;FINALIZE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.FinalizeUnitLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_finalization_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PREPARE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareObjectGroupLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_preparation_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;BUILD_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.BuildObjectGroupTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_build_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;GENERATE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.GenerateObjectGroupLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_generation_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;FINALIZE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.FinalizeObjectGroupLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_finalization_plugin.properties&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRACEABILITY_LINKED_CHECK_PREPARE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.TraceabilityLinkedCheckPreparePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;RETRIEVE_SECURE_TRACEABILITY_DATA_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.RetrieveSecureTraceabilityDataFilePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECKS_SECURE_TRACEABILITY_DATA_HASHES&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.ChecksSecureTraceabilityDataHashesPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;EXTRACT_SECURE_TRACEABILITY_DATA_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.ExtractSecureTraceabilityDataFilePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_MERKLE_TREE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.VerifyMerkleTreeActionHandler&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;VERIFY_TIMESTAMP&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.VerifyTimeStampActionHandler&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECKS_SECURE_TRACEABILITY_DATA_STORAGELOG&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.ChecksSecureTraceabilityDataStoragelogPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRACEABILITY_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.TraceabilityFinalizationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationPreparationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_CHECK_RESOURCE_AVAILABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationCheckResourceAvailability&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_ACTION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationActionPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_EXTRACTION_AU&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationExtractionAUPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationFinalizationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_SIEGFRIED_IDENTIFICATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationSiegfriedPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_TESSERACT_SPLIT_TEXT_CONTENT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationTesseractPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_OBJECTGROUP_METADATA_SECURITY_CHECKS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationObjectGroupMetadataSecurityChecks&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_UNIT_METADATA_SECURITY_CHECKS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationUnitMetadataSecurityChecks&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_PREPARATION_INSERTION_AU_METADATA&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationPreparationInsertionAuMetadata&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_INSERTION_AU_METADATA&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationInsertionAuMetadata&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_BINARY_HASH&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationGenerateBinaryHash&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_STORAGE_BINARY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationStorageBinaryPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_INDEXATION_METADATA&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationUpdateObjectGroupPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PRESERVATION_STORAGE_METADATA_LFC&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationStorageMetadataAndLfc&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;HELLO_WORLD_PLUGIN&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.vitam.plugin.custom.HelloWorldPlugin&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;hello_world_plugin.properties&quot;</span><span class="p">,</span>
-	  <span class="s2">&quot;jarName&quot;</span><span class="o">:</span> <span class="s2">&quot;hello-world-plugin-1.14.0-SNAPSHOT.jar&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;COMPUTE_INHERITED_RULES_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesPreparationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;COMPUTE_INHERITED_RULES_ACTION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesActionPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;COMPUTE_INHERITED_RULES_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesFinalizationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;COMPUTE_INHERITED_RULES_PROGENY_IDENTIFIER&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRuleProgenyIdentifierPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;COMPUTE_INHERITED_RULES_INVALIDATOR&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesInvalidatorPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;COMPUTE_INHERITED_RULES_DELETE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesDeletePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;SAVE_ARCHIVAL_TRANSFER_REPLY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.SaveAtrPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;CHECK_ATR_AND_ADD_IT_TO_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.CheckAtrAndAddItToWorkspacePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;VERIFY_ARCHIVAL_TRANSFER_REPLY&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.VerifyAtrPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;TRANSFER_REPLY_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyFinalizationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;PREPARE_STORAGE_STRATEGIES&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.PrepareStorageStrategiesPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_REQUEST_VALIDATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupRequestValidationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_ELIGIBILITY_VALIDATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupEligibilityValidationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupPreparationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_DELETE_UNIT&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupDeleteUnitPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_DELETE_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupDeleteObjectGroupPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupAccessionRegisterUpdatePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;INGEST_CLEANUP_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupFinalizationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;REVERT_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.revertupdate.RevertUpdateUnitCheckPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;REVERT_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.revertupdate.RevertUpdateUnitPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;REVERT_UPDATE_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.revertupdate.RevertUpdateUnitFinalizePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;DELETE_GOT_VERSIONS_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsPreparationPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;DELETE_GOT_VERSIONS_ACTION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsActionPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;STORE_METADATA_AND_LFC_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsStoreMetadataAndLfcPlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;DELETE_GOT_VERSIONS_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsStoragePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;DELETE_GOT_VERSIONS_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsAccessionRegisterUpdatePlugin&quot;</span>
-	<span class="p">},</span>
-	<span class="s2">&quot;DELETE_GOT_VERSIONS_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
-	  <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsFinalizationPlugin&quot;</span>
-	<span class="p">}</span>
+430
+431
+432
+433</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_OBJECT_SIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckObjectSizeActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_object_size_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_ATTACHEMENT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckAttachementActionHandler&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;OG_OBJECTS_FORMAT_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.FormatIdentificationActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;format_check_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNIT_METADATA_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.IndexUnitActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;index_unit_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;OG_METADATA_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.IndexObjectGroupActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;index_object_group_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;OBJ_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreObjectGroupActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_object_group_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNITS_RULES_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.UnitsRulesComputePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;units_rules_compute_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;OG_METADATA_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreMetaDataObjectGroupActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_metadata_objectGroup_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNIT_METADATA_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreMetaDataUnitActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_metadata_unit_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_UNIT_SCHEMA&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitSchemaActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_schema_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_ARCHIVE_UNIT_PROFILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckArchiveUnitProfileActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_archive_unit_profile_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_CLASSIFICATION_LEVEL&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckClassificationLevelActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_classification_level_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UPDATE_UNIT_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ArchiveUnitRulesUpdateActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;archive_units_rules_update_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UPDATE_RUNNING_INGESTS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.RunningIngestsUpdateActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;running_ingests_update_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;AUDIT_CHECK_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditCheckObjectPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_check_object_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;LIST_OBJECTGROUP_ID&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditPreparePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_prepare_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;REPORT_AUDIT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.audit.AuditFinalizePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;audit_finalize_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CREATE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.CreateManifest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_LIST_OBJECT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditPrepare&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_prepare.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_CHECK_DATABASE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditDatabaseCheck&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_database_check.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_LIST_SECURED_FILES_TO_DOWNLOAD&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditListSecuredFiles&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_list_secured_files.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_EXTRACT_ZIP_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditExtractFromZip&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_extract_from_zip.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_PREPARE_GENERATE_REPORTS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditGenerateReports&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_generate_reports.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_PREPARE_REPORT&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span><span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditPrepareReport&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span><span class="s2">&quot;evidence_audit_prepare_report.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EVIDENCE_AUDIT_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.EvidenceAuditFinalize&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;evidence_audit_finalize.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CORRECTIVE_AUDIT_CHECK_RESOURCE_AVAILABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.DataRectificationCheckResourceAvailability&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CORRECTIVE_AUDIT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.DataRectificationStep&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CORRECTION_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.evidence.DataCorrectionFinalize&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MIGRATION_UNITS_LIST&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.migration.MigrationUnitPrepare&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MIGRATION_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.migration.MigrationUnits&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MIGRATION_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.migration.MigrationFinalize&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EXPORT_CHECK_RESOURCE_AVAILABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.ExportCheckResourceAvailability&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PUT_BINARY_ON_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.PutBinaryOnWorkspace&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;STORE_MANIFEST&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.dip.StoreExports&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;create_unit_secure_file_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;OBJECT_GROUP_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.UpdateObjectGroupPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_update.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;RECLASSIFICATION_PREPARATION_CHECK_HOLD_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.ReclassificationPreparationCheckHoldRulesHandler&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNIT_DETACHMENT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.UnitDetachmentPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_unit_detachment.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNIT_ATTACHMENT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.UnitAttachmentPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_unit_attachment.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNIT_GRAPH_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.UnitGraphComputePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_unit_compute.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;OBJECT_GROUP_GRAPH_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reclassification.ObjectGroupGraphComputePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;reclassification_object_group_compute.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MASS_UPDATE_RULES_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.management.MassUpdateRulesCheck&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MASS_UPDATE_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.description.MassUpdateCheck&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;UNIT_METADATA_CHECK_CONSISTENCY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.UnitMetadataRulesUpdateCheckConsistency&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_update_consistency.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_DISTRIBUTION_THRESHOLD&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.common.CheckDistributionThreshold&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PREPARE_UPDATE_UNIT_LIST&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.PrepareUpdateUnits&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MASS_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.description.MassUpdateUnitsProcess&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MASS_UPDATE_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.MassUpdateFinalize&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;MASS_UPDATE_UNITS_RULES&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.massprocessing.management.MassUpdateUnitsRulesProcess&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_QUERIES_THRESHOLD&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.CheckQueriesThreshold&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PREPARE_BULK_ATOMIC_UPDATE_UNIT_LIST&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.PrepareBulkAtomicUpdate&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;BULK_ATOMIC_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.BulkAtomicUpdateProcess&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;BULK_ATOMIC_UPDATE_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.bulkatomicupdate.BulkAtomicUpdateFinalize&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ELIMINATION_ANALYSIS_UNIT_INDEXATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationAnalysisUnitIndexationPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_analysis_unit_indexation.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ELIMINATION_ACTION_DELETE_UNIT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionDeleteUnitPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_delete_unit.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ELIMINATION_ACTION_DELETE_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionDeleteObjectGroupPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_delete_object_group.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ELIMINATION_ACTION_DETACH_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionDetachObjectGroupPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_detach_object_group.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ELIMINATION_ACTION_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.elimination.EliminationActionAccessionRegisterUpdatePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;elimination_action_update_accession_register.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRANSFER_REPLY_DELETE_UNIT&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDeleteUnitPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_delete_unit.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRANSFER_REPLY_DELETE_OBJECT_GROUP&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDeleteObjectGroupPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_delete_object_group.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRANSFER_REPLY_DETACH_OBJECT_GROUP&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDetachObjectGroupPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_detach_object_group.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRANSFER_REPLY_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyAccessionRegisterUpdatePlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;transfer_reply_update_accession_register.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRANSFER_REPLY_DELETE_SIP&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyDeleteSIP&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PROBATIVE_VALUE_CREATE_REPORT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateReport&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PROBATIVE_VALUE_CREATE_DISTRIBUTION_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateDistributionFile&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PROBATIVE_VALUE_CREATE_PROBATIVE_REPORT_ENTRY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.probativevalue.ProbativeCreateReportEntry&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PREPARE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareUnitLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_preparation_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;BUILD_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.BuildUnitTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_build_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;GENERATE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.GenerateUnitLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_generation_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;FINALIZE_UNIT_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.FinalizeUnitLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;unit_lfc_traceability_finalization_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PREPARE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.PrepareObjectGroupLfcTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_preparation_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;BUILD_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.BuildObjectGroupTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_build_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;GENERATE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.GenerateObjectGroupLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_generation_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;FINALIZE_OG_LFC_TRACEABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.lfc_traceability.FinalizeObjectGroupLifecycleTraceabilityActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;object_group_lfc_traceability_finalization_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRACEABILITY_LINKED_CHECK_PREPARE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.TraceabilityLinkedCheckPreparePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;RETRIEVE_SECURE_TRACEABILITY_DATA_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.RetrieveSecureTraceabilityDataFilePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECKS_SECURE_TRACEABILITY_DATA_HASHES&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.ChecksSecureTraceabilityDataHashesPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;EXTRACT_SECURE_TRACEABILITY_DATA_FILE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.ExtractSecureTraceabilityDataFilePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_MERKLE_TREE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.VerifyMerkleTreeActionHandler&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;VERIFY_TIMESTAMP&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.VerifyTimeStampActionHandler&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECKS_SECURE_TRACEABILITY_DATA_STORAGELOG&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.ChecksSecureTraceabilityDataStoragelogPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRACEABILITY_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.traceability.TraceabilityFinalizationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationPreparationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_CHECK_RESOURCE_AVAILABILITY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationCheckResourceAvailability&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_ACTION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationActionPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_EXTRACTION_AU&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationExtractionAUPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationFinalizationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_SIEGFRIED_IDENTIFICATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationSiegfriedPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_TESSERACT_SPLIT_TEXT_CONTENT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationTesseractPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_OBJECTGROUP_METADATA_SECURITY_CHECKS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationObjectGroupMetadataSecurityChecks&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_UNIT_METADATA_SECURITY_CHECKS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationUnitMetadataSecurityChecks&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_PREPARATION_INSERTION_AU_METADATA&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationPreparationInsertionAuMetadata&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_INSERTION_AU_METADATA&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationInsertionAuMetadata&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_BINARY_HASH&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationGenerateBinaryHash&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_STORAGE_BINARY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationStorageBinaryPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_INDEXATION_METADATA&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationUpdateObjectGroupPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PRESERVATION_STORAGE_METADATA_LFC&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.preservation.PreservationStorageMetadataAndLfc&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;HELLO_WORLD_PLUGIN&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.vitam.plugin.custom.HelloWorldPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;hello_world_plugin.properties&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jarName&quot;</span><span class="o">:</span> <span class="s2">&quot;hello-world-plugin-1.14.0-SNAPSHOT.jar&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;COMPUTE_INHERITED_RULES_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesPreparationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;COMPUTE_INHERITED_RULES_ACTION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesActionPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;COMPUTE_INHERITED_RULES_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesFinalizationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;COMPUTE_INHERITED_RULES_PROGENY_IDENTIFIER&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRuleProgenyIdentifierPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;COMPUTE_INHERITED_RULES_INVALIDATOR&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesInvalidatorPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;COMPUTE_INHERITED_RULES_DELETE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.computeinheritedrules.ComputeInheritedRulesDeletePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;SAVE_ARCHIVAL_TRANSFER_REPLY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.SaveAtrPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_ATR_AND_ADD_IT_TO_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.CheckAtrAndAddItToWorkspacePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;VERIFY_ARCHIVAL_TRANSFER_REPLY&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.VerifyAtrPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;TRANSFER_REPLY_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.transfer.reply.TransferReplyFinalizationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;PREPARE_STORAGE_STRATEGIES&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.PrepareStorageStrategiesPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_REQUEST_VALIDATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupRequestValidationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_ELIGIBILITY_VALIDATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupEligibilityValidationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupPreparationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_DELETE_UNIT&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupDeleteUnitPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_DELETE_OBJECT_GROUP&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupDeleteObjectGroupPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupAccessionRegisterUpdatePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;INGEST_CLEANUP_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.ingestcleanup.IngestCleanupFinalizationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;REVERT_CHECK&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.revertupdate.RevertUpdateUnitCheckPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;REVERT_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.revertupdate.RevertUpdateUnitPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;REVERT_UPDATE_FINALIZE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.revertupdate.RevertUpdateUnitFinalizePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;DELETE_GOT_VERSIONS_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsPreparationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;DELETE_GOT_VERSIONS_ACTION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsActionPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;STORE_METADATA_AND_LFC_WORKSPACE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsStoreMetadataAndLfcPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;DELETE_GOT_VERSIONS_STORAGE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsStoragePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;DELETE_GOT_VERSIONS_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsAccessionRegisterUpdatePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;DELETE_GOT_VERSIONS_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.deleteGotVersions.handlers.DeleteGotVersionsFinalizationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;CHECK_OBJECT_GROUP_SCHEMA&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckObjectGroupSchemaActionPlugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_object_group_schema_plugin.properties&quot;</span>
   <span class="p">}</span>
-  
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 <p>Le plugin doit implémenter la classe ActionHandler et doit surcharger soit la méthode <code class="docutils literal notranslate"><span class="pre">execute()</span></code> pour un traitement unitaire, soit la méthode <code class="docutils literal notranslate"><span class="pre">executeAll()</span></code> pour un traitemement de masse.
@@ -1694,7 +1700,17 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 629
 630
 631
-632</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;DEFAULT_WORKFLOW&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
@@ -1781,7 +1797,13 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
         <span class="p">{</span>
           <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;actionKey&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_SEDA&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="nt">&quot;behavior&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sedaParams.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/sedaParams.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
@@ -2306,6 +2328,10 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mapsExisitingGotToNewGotForAttachment.file&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/EXISTING_GOT_TO_NEW_GOT_GUID_FOR_ATTACHMENT_MAP.json&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sedaParams.json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKSPACE:Maps/sedaParams.json&quot;</span>
               <span class="p">}</span>
             <span class="p">],</span>
             <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -3212,7 +3238,17 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 629
 630
 631
-632</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;DEFAULT_WORKFLOW&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Default Ingest Workflow&quot;</span><span class="p">,</span>
   <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;PROCESS_SIP_UNITARY&quot;</span><span class="p">,</span>
@@ -3299,7 +3335,13 @@ En fonction du statut de chaque traitement on aura donc des messages différents
         <span class="p">{</span>
           <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;actionKey&quot;</span><span class="o">:</span> <span class="s2">&quot;CHECK_SEDA&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span>
+            <span class="s2">&quot;behavior&quot;</span><span class="o">:</span> <span class="s2">&quot;BLOCKING&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;sedaParams.json&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:Maps/sedaParams.json&quot;</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
@@ -3824,6 +3866,10 @@ En fonction du statut de chaque traitement on aura donc des messages différents
                 <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;mapsExisitingGotToNewGotForAttachment.file&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:Maps/EXISTING_GOT_TO_NEW_GOT_GUID_FOR_ATTACHMENT_MAP.json&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;optional&quot;</span><span class="o">:</span> <span class="kc">true</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;sedaParams.json&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="o">:</span> <span class="s2">&quot;WORKSPACE:Maps/sedaParams.json&quot;</span>
               <span class="p">}</span>
             <span class="p">],</span>
             <span class="s2">&quot;out&quot;</span><span class="o">:</span> <span class="p">[</span>
