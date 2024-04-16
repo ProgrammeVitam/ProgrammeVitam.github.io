@@ -47,7 +47,7 @@ Documentation générale
 |2.4 (facultatif)|déclarer un nouveau format non présent dans le référentiel PRONOM|administrateur technique Vitam UI|[Formats de fichiers](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Formats_fichiers.pdf)|
 |2.5 (facultatif)|déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA|administrateur technique Vitam UI|[Ontologie](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Ontologie.pdf)|
 |2.6 (facultatif)|importer un arbre de positionnement ou un plan de classement|administrateur fonctionnel Vitam UI|[Arbres et plans](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf)|
-|2.7 (facultatif)|rechercher et consulter un contrat de gestion, le créer et le mettre à jour|administrateur fonctionnel Vitam UI|[Contrat de gestion](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_gestion.pdf">Contrats de gestion)|
+|2.7 (facultatif)|rechercher et consulter un contrat de gestion, le créer et le mettre à jour|administrateur fonctionnel Vitam UI|[Contrat de gestion](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_gestion.pdf)|
 
 ### Domaine : Sécurité et droits applicatifs<a name="secu">  
 
