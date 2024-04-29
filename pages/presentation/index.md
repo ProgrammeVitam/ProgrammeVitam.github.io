@@ -29,7 +29,7 @@ Le programme Vitam a 3 objectifs, soutenus par 5 projets :
 * La réalisation de la solution logicielle libre Vitam d’archivage numérique permettant la prise en charge, la conservation et la consultation sécurisée de très gros volumes d’archives numériques définitives, intermédiaires, voire courantes ;
 * La mise en place de plate-formes d’archivage utilisant la solution logicielle Vitam, dans chacun des trois ministères, via les projets ministériels : Saphir (MEAE), Adamant (MC/Archives nationales) et Archipel (MinArm) ;
 * La diffusion et la réutilisation la plus large de la solution logicielle Vitam, en lien avec son Club utilisateurs.
-Le Programme veille également aux actions de soutien financier, de sensibilisation et d’accompagnement en matière d’archivage numérique au-delà des trois ministères porteurs du programme, via les dispositifs ANET (Archivage numérique en territoire) et DIAMAN au sein du MC/Service interministériel des Archives de France).
+Le Programme veille également aux actions de soutien financier, de sensibilisation et d’accompagnement en matière d’archivage numérique au-delà des trois ministères porteurs du programme, via les dispositifs ANET (Archivage numérique en territoire) et DIAMAN au sein du MC/Service interministériel des Archives de France.
 
 ## Le manifeste Agile de la solution logicielle
 
@@ -58,7 +58,7 @@ Conformément au calendrier fixé, les premières livraisons ont eu lieu en 2016
 Les livraisons se sont poursuivies à raison d’une version de production de la solution logicielle chaque année en 2017, 2018 et 2019, ainsi que leurs versions intermédiaires. 
 Début 2020 a été publiée la version 3 de la solution logicielle, ouvrant la phase "maintenance et amélioration continue" avec un renouvellement des marchés. Le lot unique pour la phase produit a été attribué à un regroupement Smile - Xelians.
 La version 4 de la solution logicielle a été publiée en mars 2021, elle comporte pour la première fois le [back-office](https://www.programmevitam.fr/pages/logiciel/logiciel_backoffice/), enrichi du [front-office Vitam UI](https://www.programmevitam.fr/pages/logiciel/logiciel_frontoffice/).
-![Frise temporelle du programme](/public/images/202006_planning_programme_V5.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
+![Frise temporelle du programme](/public/images/202401_ historique_phases.jpg){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
 ## La collaboration au cœur du Programme Vitam
 

@@ -29,7 +29,7 @@ La convention de service proposée pour devenir membre du Club utilisateurs s’
 Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programme Vitam :
 
 * [Comitologie dédiée](#comito) 
-* Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant Ark (2021-…), signature électronique (2022-...)...;
+* Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant pérenne (2021-…), signature électronique (2022-...)...;
 * Accès à des outils :  
     - d’échanges et questions avec Osmose,  
     - de support avec Tuleap,  
@@ -68,7 +68,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 
 ![Logos](/public/images/202303_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 31/12/2023)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 29/04/2024)<a name="membre"></a>
 
 * AMUE
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
@@ -85,6 +85,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Centre de recherche et de restauration des musées de France (C2RMF)  
 * Centre Hospitalier d'Avranches-Granville
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
+* Centre national du cinéma et de l'image animée (CNC)
 * CGI
 * Coexya
 * Collectivité territoriale de Guyane
@@ -102,11 +103,13 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Conseil départemental des Pyrénées Atlantiques  
 * CooNum
 * CNRS
+* Digitech
 * Direction générale de l'aviation civile (DGAC)   
 * Direction interministérielle du numérique
 * DRAC Bretagne
 * DRAC Hauts-de-France
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
+* Etablissement public des musées d'Orsay et de l'Orangerie (EPMO)
 * Institut national de la propriété industrielle (INPI)
 * Lex Persona
 * Mairie de Savigny sur Orge  
@@ -123,7 +126,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Ministère des Solidarités et de la Santé
 * Mintika
 * Montpellier Méditerranée Métropole
-* MSA
+* Mutualité sociale agricole (MSA)
 * Musée du quai Branly - Jacques-Chirac
 * Nantes métropole
 * NeoLedge
@@ -139,9 +142,11 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * TGIR Huma-Num
 * Toulon Provence Méditerranée
 * Université de Lille
+* Université de Bordeaux
+* Université Paris 1 Panthéon Sorbonne
 * Urssaf - Caisse nationale (ex-ACOSS)
 * Winbantu
 * XDemat
 * Xelians
 
-![Logos](/public/images/202312_utilisateurs.jpg)
+![Logos](/public/images/202404_Club.jpg)
