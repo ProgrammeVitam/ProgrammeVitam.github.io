@@ -4,8 +4,8 @@ title: Doc. de ReSIP
 fatherref: documentation
 ---
 
-* **Manuel ReSIP** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_ReSIP.pdf))
-* **FAQ ReSIP** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_FAQ_ReSIP.pdf))
+* **Manuel ReSIP** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/resip.html))
+* **FAQ ReSIP** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/resip_faq.html))
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)

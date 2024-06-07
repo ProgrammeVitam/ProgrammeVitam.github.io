@@ -23,9 +23,9 @@ Ce groupe de travail s’est articulé autour de trois phases de travail :
 * une troisième phase, initiée à partir de juillet 2018, a été consacrée aux spécifications et à la recette des services de préservation développés dans la solution logicielle Vitam.
 
 Pour consulter la documentation :
-* **Identification des formats de fichiers** ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-identification-format-v2.0.pdf))
-* **Validation du format des fichiers** ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-validation-format-v2.0.pdf))
-* **Extraction des métadonnées techniques** ([pdf](/ressources/DocCourante/autres/fonctionnel/20200131_NP_Vitam_preservation-extraction-MD-v2.0.pdf))
+* **Identification des formats de fichiers** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/chantier_identification_format.html))
+* **Validation du format des fichiers** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/chantier_preservation_validation_format.html))
+* **Extraction des métadonnées techniques** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/chantier_extraction_MD.html))
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)

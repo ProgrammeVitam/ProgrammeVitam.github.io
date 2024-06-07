@@ -8,7 +8,7 @@ fatherref: documentation
 * **Javadoc** ([html](/ressources/DocCourante/javadoc))
 * **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.7.0.1.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
-([html](https://www.programmevitam.fr/vitam-doc/fr/master/sections/modele_de_donnees.html#modele-de-donnees))
+([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/modele_de_donnees.html))
 * **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe))
 * **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.7.0.1.pdf)
 \| [html](/ressources/DocCourante/html/manuel-dev))
