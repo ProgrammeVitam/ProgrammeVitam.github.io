@@ -4,11 +4,9 @@ title: Doc. des tests
 fatherref: documentation
 ---
 
-* **Vitam et Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v7/jeux_de_tests_guide_de_prise_en_main_v7.zip))
+* **Vitam et Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v7.1/Jeux_de_tests_Guide_de_prise_en_main_v71.zip))
 
-* **Manuel IHM recette et Scenarii de tests métier** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_IHM_Recette.pdf))
-
-* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v7/Jeux_de_tests_fonctionnels_v7.zip))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v7.1/Jeux_de_tests_fonctionnels_v71.zip))
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
