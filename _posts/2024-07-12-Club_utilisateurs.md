@@ -14,4 +14,4 @@ Deux réunions plénières ont déjà eu lieu, la prochaine est programmée pour
 
 En mai 2024, une séance de présentation des fonctionnalités v7.1 et des travaux autour de la v8 avait également été proposé, occasion d'un échange entre utilisateurs Vitam et équipe Vitam, tant sur les aspects fonctionnels que techniques.
 
-[](/public/images/V7_1_202405.jpg)
+![202405](/public/images/V7_1_202405.jpg)
