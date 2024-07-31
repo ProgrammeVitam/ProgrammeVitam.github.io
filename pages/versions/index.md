@@ -1,10 +1,16 @@
 ---
 layout: page
-title: Communiqués
-fatherref: ressources
+title: Versions
+fatherref: versions
+level: page
 ---
 
-> Cette page présente les dernières versions de la solution logicielle Vitam.
+> Cette rubrique présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
+
+Actuellement, 2 versions de la solution logicielle Vitam sont livrées chaque année, au printemps et à l'automne.
+Les 2 versions sont homologuées.
+
+## Présentations
 
 - Avril 2022 : [Offre froide, module de collecte, enrichissements et nouvelles fonctionnalités au menu de la V5 de Vitam](http://www.programmevitam.fr/2022/04/13/Version5/)
 
@@ -15,9 +21,6 @@ fatherref: ressources
 - Février 2019 : [La V2 de la solution logicielle Vitam est publiée !](https://www.programmevitam.fr/2019/02/18/R9/)
 
 - Novembre 2017 : [Publication de la version 1 fonctionnelle (Release 5)](https://www.programmevitam.fr/2017/11/29/R5/)
-
-
-
 
 
 Jusqu'à début 2021, des versions mineures étaient publiées : 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sedalib
-fatherref: ressources
+fatherref: autres
 ---
 
 > Cette page présente la bibliothèque sedalib (version courante 2.5.0 compilée en mars 2021).

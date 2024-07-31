@@ -1,7 +1,7 @@
 ---
 layout: page
 title: version 7.1.1 (07/2024)
-fatherref: ressources
+fatherref: versions
 ---
 * [Mise à disposition du code](#github)
 * [Package Java](#java)

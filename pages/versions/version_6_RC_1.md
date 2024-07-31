@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 6.RC.1 (01/2023)
-fatherref: ressources
 ---
 * [Mise à disposition du code](#github)
 * [Package Java](#java)

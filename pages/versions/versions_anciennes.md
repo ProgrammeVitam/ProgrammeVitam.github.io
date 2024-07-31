@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Anciennes versions
-fatherref: ressources
+fatherref: versions
 ---
 
 > Cette page présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.

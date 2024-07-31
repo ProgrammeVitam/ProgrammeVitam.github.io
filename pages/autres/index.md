@@ -1,21 +1,14 @@
 ---
 layout: page
-title: Ressources
-fatherref: ressources
+title: Autres ressources
+fatherref: autres
 level: page
 ---
 
-> Cette rubrique présente pour les versions actuelle et passées de la solution logicielle Vitam, l'ensemble des ressources mises à disposition.
+> Cette rubrique présente l'ensemble des ressources connexes mises à disposition.
 
 * [Outils de préservation Vitam](#preservation)
 * [Outils complémentaires Vitam - RESIP, sedalib, mailextractlib...](#resip)
-
-
-Actuellement, 2 versions de la solution logicielle Vitam sont livrées chaque année :
-- au printemps, une version majeure. Exemple la V5 en avril 2022.
-- à l'automne, une version appelée release candidate (RC). Exemple la V5.RC en novembre 2021.
-Les 2 versions sont homologuées.
-
 
 <a name="preservation"></a>
 ## Outils de préservation Vitam
