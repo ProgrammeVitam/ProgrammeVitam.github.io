@@ -16,7 +16,7 @@ Naviguer dans la documentation par domaine :
 Documentation générale
 * **Vitam UI : documentation produit** ([pdf](/ressources/DocCourante/autres/fonctionnel/VitamUI_Doc_produit.pdf))
 * **Vitam et Vitam UI : guide de prise en main** ([pdf](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/guide_prise_en_main.html))
-* **Vitam UI : jeu de tests pour prise en main** ([zip](https://download.programmevitam.fr/jeux_de_tests/v7/jeux_de_tests_guide_de_prise_en_main_v7.zip))
+* **Vitam UI : jeu de tests pour prise en main** ([zip](https://download.programmevitam.fr/jeux_de_tests/v7.1/Jeux_de_tests_Guide_de_prise_en_main_v71.zip))
 * **Vitam UI : présentation de la fonctionnalité d’auto-provisioning**([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/VitamUI_Autoprovisionning.html))
 
 ## Guide de lecture de la documentation Vitam UI
