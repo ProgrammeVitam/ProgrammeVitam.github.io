@@ -10,17 +10,25 @@ level: page
 Actuellement, 2 versions de la solution logicielle Vitam sont livrées chaque année, au printemps et à l'automne.
 Les 2 versions sont homologuées.
 
-## Présentations
+## Présentation des versions
 
-- Avril 2022 : [Offre froide, module de collecte, enrichissements et nouvelles fonctionnalités au menu de la V5 de Vitam](http://www.programmevitam.fr/2022/04/13/Version5/)
+- Juillet 2024 - v7.1.1 : [Signature électronique, identifiants pérennes, métadonnées étendues, etc. sont des fonctionnalités embarquées dans la version 7.1.1. Tour d’horizon !](https://www.programmevitam.fr/2024/07/12/version7_1/)
 
-- Mars 2021 : [Contributions et front-office au menu de la version 4 de la solution logicielle Vitam](http://www.programmevitam.fr/2021/03/15/V4/)
+- Décembre 2023 - v7.0 : [Nouvelle version majeure de Vitam avec la publication de la V7.0](https://www.programmevitam.fr/2023/12/18/version7-0/)
 
-- Mars 2020 : [La version 3 de la solution logicielle Vitam est publiée](https://www.programmevitam.fr/2020/03/30/V3/)
+- Juillet 2023 - v6 : [Nouvelle version majeure de Vitam avec la publication de la V6](https://www.programmevitam.fr/2023/07/10/version6/)
 
-- Février 2019 : [La V2 de la solution logicielle Vitam est publiée !](https://www.programmevitam.fr/2019/02/18/R9/)
+- Mars 2023 - v6.RC : [Publication de la version 6.RC de la solution logicielle Vitam](https://www.programmevitam.fr/2023/03/13/version6-rc/)
 
-- Novembre 2017 : [Publication de la version 1 fonctionnelle (Release 5)](https://www.programmevitam.fr/2017/11/29/R5/)
+- Avril 2022 - v5 : [Offre froide, module de collecte, enrichissements et nouvelles fonctionnalités au menu de la V5 de Vitam](http://www.programmevitam.fr/2022/04/13/Version5/)
+
+- Mars 2021 - v4 : [Contributions et front-office au menu de la version 4 de la solution logicielle Vitam](http://www.programmevitam.fr/2021/03/15/V4/)
+
+- Mars 2020 - v3 : [La version 3 de la solution logicielle Vitam est publiée](https://www.programmevitam.fr/2020/03/30/V3/)
+
+- Février 2019 - v2 : [La V2 de la solution logicielle Vitam est publiée !](https://www.programmevitam.fr/2019/02/18/R9/)
+
+- Novembre 2017 - v1 : [Publication de la version 1 fonctionnelle (Release 5)](https://www.programmevitam.fr/2017/11/29/R5/)
 
 
 Jusqu'à début 2021, des versions mineures étaient publiées : 
