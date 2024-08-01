@@ -42,6 +42,7 @@ Il est accessible **[ici](https://download.programmevitam.fr/pastis-standalone/)
 * **un manuel utilisateur**
 
 La documentation **PASTIS** décrit les fonctions de l'outil ainsi que son utilisation à partir de l'APP Profils documentaires de Vitam UI. Les 2 outils étant semblables, l'APP Profils documentaires ou l'exécutable Pastis, la [documentation proposée pour l'application est valable pour la version standalone](/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profils_documentaires.pdf).
+
 La documentation métier dédiée aux profils d'archivage et profils d'unité archivistique peut également être utile :  
-    - **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_archivage.pdf))  
-        - **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Profils_unite_archivistique.pdf))
+    - **Profils d’archivage** - éléments sur la notion de profil d’archivage (SEDA) ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/profil_archivage.html))  
+    - **Profils d’unité archivistique** - éléments sur la notion de profil d’unité archivistique ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/profil_unite_archivistique.html))
