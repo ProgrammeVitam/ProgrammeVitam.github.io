@@ -13,6 +13,7 @@ level: page
 * [Historique du projet](#historique)
 * [Comment préparer son usage du service ?](#utiliser)
 * [Quels sont les tarifs ?](#tarif)
+* [Gouvernance](#gouvernance)
 * [Les utilisateurs actuels](#utilisateurs)
 * [Documents de présentation](#documents)
 
@@ -55,10 +56,6 @@ Organiser, de manière sécurisée, pérenne et souveraine la conservation et la
 - Enrichissement des fonctionnalités en continu 
 - Ecosystème Vitam et son club utilisateurs
 
-
-
-
-
 # Les fonctionnalités de VaS <a name="fonctionnalites"></a>
 
 ![alt text](/public/images/vas_schema.png)
@@ -87,9 +84,6 @@ Organiser, de manière sécurisée, pérenne et souveraine la conservation et la
 - Élasticité (offre qui s'adapte à la demande)
 - Centralisation de l'exploitation et de la maintenance de la plateforme
 - Centralisation des mises à jour logicielles et de sécurité
-
-
-
 
 # Historique du projet VaS <a name="historique"></a>
 
@@ -160,7 +154,6 @@ Le modèle économique repose sur la répartition des coûts entre tous les util
 
 ![alt text](/public/images/VaS_coopérants.JPG)
 
-
 # Quels sont les tarifs ? <a name="tarif"></a>
 
 Le budget est réparti entre tous les utilisateurs selon l'usage.  
@@ -176,9 +169,15 @@ Quelques chiffres malgré tout :
 
 Le plus simple ? [Nous contacter](mailto:contact@programmevitam.fr) pour un dialogue sur le modèle économique, vos besoins et une prévision financière sur plusieurs années !
 
+# La gouvernance de VaS <a name="gouvernance"></a>
+
+La gouvernance est mutualisée, associant les ministères porteurs initiaux et ceux qui ont rejoint le projet et les utilisateurs (collectivités publiques ou opérateurs de l'Etat) représentés  par 2 organisations élues en assemblée des utilisateurs.
+
+![alt text](/public/images/VaS_gouvernance.jpg)
+
 # Les utilisateurs actuels <a name="utilisateurs"></a>
 
-![alt text](/public/images/VaS_utilisateurs_202401.JPG)
+![alt text](/public/images/VaS_utilisateurs.jpg)
 
 # Documents de présentation <a name="documents"></a>
 
