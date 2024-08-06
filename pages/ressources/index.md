@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Autres ressources
-fatherref: autres
+fatherref: ressources
 level: page
 ---
 

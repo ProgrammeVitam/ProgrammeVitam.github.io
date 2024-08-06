@@ -1,7 +1,7 @@
 ---
 layout: page
 title: ReSIP
-fatherref: autres
+fatherref: ressources
 ---
 
 > Cette page présente le générateur ReSIP (version 2.7.0 - automne 2023).

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sedalib
-fatherref: autres
+fatherref: ressources
 ---
 
 > Cette page présente la bibliothèque sedalib (version courante 2.5.0 compilée en mars 2021).
@@ -26,4 +26,4 @@ Elle permet de :
 Elle contient aussi un **constructeur de haut-niveau** (classe **SIPBuilder**) qui permet de construire des SIP avec des métadonnées riches en quelques appels.
 
 Est mis à dispostion le code développé.
-Il est accessible dans le dépot GitHub, au sein du depot sedatools qui contient aussi l'application [ReSip](/pages/ressources/resip) qui utilise massivement sedalib : [SedaTools](https://github.com/ProgrammeVitam/sedatools))
+Il est accessible dans le dépot GitHub, au sein du depot sedatools qui contient aussi l'application [ReSip](/pages/ressources/resip) qui utilise massivement sedalib : [SedaTools](https://github.com/ProgrammeVitam/sedatools).

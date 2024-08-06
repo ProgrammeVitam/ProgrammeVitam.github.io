@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Profils documentaires - Pastis
-fatherref: autres
+fatherref: ressources
 ---
 
 > Cette page présente le générateur Pastis (profil d'archivage simple pour le traitement de l'information en Seda), autrement nommé Profils documentaires en tant qu'application de Vitam UI.
