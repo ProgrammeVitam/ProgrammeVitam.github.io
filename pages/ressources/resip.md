@@ -4,7 +4,7 @@ title: ReSIP
 fatherref: ressources
 ---
 
-> Cette page présente le générateur ReSIP (version 2.7.0 - automne 2023).
+> Cette page présente le générateur ReSIP (version 2.8.0 - été 2024).
 
 ![ReSIP_logo](/public/images/ReSIP.jpg)
 
@@ -32,9 +32,9 @@ Sont mis à dispostion :
     Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution 
 nécessite la présence de java 8 à 11 (non testé au delà) sur le poste ou à défaut une machine java 8 à 11 dans le répertoire "jre" au niveau de l'exécutable. 
 
-    Il est accessible **[ici](https://download.programmevitam.fr/resip/2.7.0/sedatools-package-2.7.0.tar.gz)**.
+    Il est accessible **[ici](https://download.programmevitam.fr/resip/2.8.0/resip-2.8.0-standalone.zip)**.
 
-    >A noter: le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.7.0/sedatools-package-2.7.0.tar.gzz).
+    >A noter: le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.8.0/sedatools-package-2.8.0.tar.gz).
 
 * **un manuel utilisateur**  
     La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/resip.html).
@@ -47,6 +47,11 @@ nécessite la présence de java 8 à 11 (non testé au delà) sur le poste ou à
 
 * **le code développé**  
     Il est accessible dans le dépot GitHub avec la bibliothèque sedalib [SedaTools](https://github.com/ProgrammeVitam/sedatools).
+
+
+## ReSIP version 2.8.0 (été 2024)
+
+Mise à disposition d’un paquet ReSIP embarquant une JDK Java 11.
 
 
 ## ReSIP version 2.7.0 (automne 2023)
