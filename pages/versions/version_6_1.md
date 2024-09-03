@@ -50,7 +50,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui/6.3/deb/)
 
 
-Liens de téléchargement pour les partenaires :  [**version 6.3**](https://support.programmevitam.fr/releases/6.3/index.html)
+Liens de téléchargement pour les partenaires :  [**version 6.3**](https://releases.programmevitam.fr/6.3/index.html)
 
 <a name="rn"></a>  
 * **la release note**
