@@ -63,9 +63,55 @@ Liens de téléchargement pour les partenaires :  [**version 6.3**](https://rele
 - le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.6.3.pdf)
 
 <a name="hotfix"></a>
-## Hotfix 6.3-1
+## Notes et procédures spécifiques pour le hotfix V6.3-1
 
-**Notes et procédures spécifiques V6.3-1**
+### Présentation du hotfix
+
+Le hotfix V6.3-1 associé à la version V6.3 de Vitam a pour but de corriger le `Bug #13307: Fix concurrent LFC traceability chaining`.
+
+### Mise à jour du dépôt vitam-product à l'aide des packages suivants
+
+Ajouter les 3 packages fournis dans l'archive suivante dans votre repository `6.3/vitam-product/`:
+
+* Pour YUM (rpm): https://releases.programmevitam.fr/6.3/vitam-hotfix-6.3-1-RPM.tar.gz
+* Pour APT (deb): https://releases.programmevitam.fr/6.3/vitam-hotfix-6.3-1-DEB.tar.gz
+
+### Procédure d'application du hotfix
+
+#### Arrêt de Vitam
+
+> Attention, cette opération doit être effectuée AVANT l'application du hotfix 6.3-1.
+
+Vitam doit être arrêter sur tous les sites, en commençant par le site primaire.
+
+```sh
+ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
+```
+
+#### Application du hotfix
+
+L'application du hotfix consiste à mettre à jour les packages processing, logbook & worker sur **tous les sites**.
+
+```sh
+ansible hosts_logbook,hosts_processing,hosts_worker -i environments/<inventaire> -m shell -a "yum upgrade vitam-*" --ask-vault-pass
+```
+
+#### Redémarrage de Vitam
+
+L'application du hotfix étant terminée, vous pouvez redémarrer Vitam en commençant par les sites secondaires puis le site primaire.
+
+```sh
+ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/start_vitam.yml --ask-vault-pass
+```
+
+
+
+
+
+
+
+
+
 
 .. caution:: Veuillez appliquer les procédures spécifiques à chacune des versions précédentes en fonction de la version de départ selon la suite suivante: V6.3-1.
 
@@ -79,17 +125,16 @@ Liens de téléchargement pour les partenaires :  [**version 6.3**](https://rele
 
 Les timers et les externals de Vitam doivent être arrêtés sur **tous les sites** :
 
-.. code-block:: bash
-
+```sh
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/stop_external.yml --ask-vault-pass
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/stop_vitam_scheduling.yml --ask-vault-pass
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/stop_vitam_scheduler.yml --ask-vault-pass
-
-..
+```
 
 #### Mise à jour des dépôts (YUM/APT)
 
-.. caution:: Cette opération doit être effectuée AVANT la montée de version
+> [!CAUTION]
+Cette opération doit être effectuée AVANT la montée de version
 
 Afin de pouvoir déployer la nouvelle version, vous devez mettre à jour la variable ``vitam_repositories`` sous ``environments/group_vars/all/main/repositories.yml`` afin de renseigner les dépôts à la version cible.
 
@@ -100,69 +145,63 @@ Pour le dépôt vitam-external, vous devez renseigner la version adaptée à vot
 
 Puis exécutez le playbook suivant **sur tous les sites** :
 
-.. code-block:: bash
-
+```sh
     ansible-playbook -i environments/<inventaire> ansible-vitam-extra/bootstrap.yml --ask-vault-pass
-
-..
+```
 
 #### Arrêt complet de Vitam
 
-.. caution:: Cette opération doit être effectuée AVANT la montée de version vers la V6.3
+> [!CAUTION]
+Cette opération doit être effectuée AVANT la montée de version vers la V6.3
 
-.. caution:: Cette opération doit être effectuée avec les sources de déploiements de l'ancienne version.
+> [!CAUTION]
+Cette opération doit être effectuée avec les sources de déploiements de l'ancienne version.
 
 Vitam doit être arrêté sur **tous les sites** :
 
-.. code-block:: bash
-
+```sh
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
-
-..
+```
 
 ### Application de la montée de version
 
-.. caution:: L'application de la montée de version s'effectue d'abord sur les sites secondaires puis sur le site primaire.
+> [!CAUTION]
+L'application de la montée de version s'effectue d'abord sur les sites secondaires puis sur le site primaire.
 
 #### Mise à jour du composant vitam-processing
 
 Se connecter à la VM qui héberge le composant vitam-processing
-.. code-block:: bash
 
+```sh
     yum remove vitam-processing
     yum update vitam-processing
-
-..
+```
 
 #### Mise à jour du composant vitam-worker
 
 Se connecter à la VM qui héberge le composant vitam-worker
-.. code-block:: bash
 
+```sh
     yum remove vitam-worker
     yum update vitam-worker
-
-..
+```
 
 #### Mise à jour du composant vitam-logbook
 
 Se connecter à la VM qui héberge le composant vitam-logbook
-.. code-block:: bash
 
-    yum remove vitam-logbook
-    yum update vitam-logbook
-
-..
+```sh
+yum remove vitam-logbook
+yum update vitam-logbook
+```
 
 ### Procédures à exécuter APRÈS la montée de version
 
 La montée de version est maintenant terminée, vous pouvez réactiver les services externals ainsi que les jobs Vitam sur tous les sites :
 
-.. code-block:: bash
-
+```sh
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/start_vitam.yml --ask-vault-pass
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/start_external.yml --ask-vault-pass
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/start_vitam_scheduler.yml --ask-vault-pass
     ansible-playbook -i environments/<inventaire> ansible-vitam-exploitation/start_vitam_scheduling.yml --ask-vault-pass
-
-..
+```
