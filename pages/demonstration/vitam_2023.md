@@ -1,6 +1,6 @@
 ﻿---
-layout: post
-title: Vitam en ligne 2023, interventions et support
+layout: page
+title: Vitam en ligne 2023
 fatherref: demonstrations
 ---
 
