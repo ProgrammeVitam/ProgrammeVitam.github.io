@@ -7,9 +7,9 @@ level: page
 
 > Sont ici présentées des démonstrations vidéo de l'usage de Vitam ou du développement de certaines fonctionnalités
 
-Edition 2024 de Vitam en ligne
+[Edition 2024 de Vitam en ligne](vitam_2024)
 
-Edition 2023 de Vitam en ligne
+[Edition 2023 de Vitam en ligne](vitam-2023)
 
 ## Liste des vidéos jusqu'à la version 5
 * [Présentation des fonctionnalités de la V5 de la solution logicielle Vitam et des actualités du Programme](vitam_V5)
