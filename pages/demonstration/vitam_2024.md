@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Vitam en ligne 2024
-fatherref: demonstration
+fatherref: demonstrations
 ---
 
 En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édition de sa série de webinaires "Vitam en ligne". Retrouvez-ici enregistrements et supports de présentation.
