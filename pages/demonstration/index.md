@@ -1,13 +1,17 @@
 ---
 layout: page
-title: Démonstrations
+title: Webinaires et démonstrations
 fatherref: demonstrations
 level: page
 ---
 
 > Sont ici présentées des démonstrations vidéo de l'usage de Vitam ou du développement de certaines fonctionnalités
 
-## Liste des vidéos
+Edition 2024 de Vitam en ligne
+
+Edition 2023 de Vitam en ligne
+
+## Liste des vidéos jusqu'à la version 5
 * [Présentation des fonctionnalités de la V5 de la solution logicielle Vitam et des actualités du Programme](vitam_V5)
 * [Présentation des fonctionnalités de la V4 de la solution logicielle Vitam et des actualités du Programme (Release 16)](vitam_V4)
 * [Présentation des fonctionnalités de la V3 de la solution logicielle Vitam et des actualités du Programme (Release 13)](vitam_V3)
