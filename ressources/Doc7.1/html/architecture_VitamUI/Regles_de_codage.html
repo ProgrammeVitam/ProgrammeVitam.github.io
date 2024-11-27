@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Règles de codage &mdash; Vitam-UI documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+            <a href="index.html">
+            <img src="_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sections/intro_objectifs.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/orientations_techniques.html">2. Orientations techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/architecture.html">3. Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/implementation.html">4. Implémentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/gestion.html">5. Gestion du système</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Vitam-UI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Règles de codage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Regles_de_codage.md.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="regles-de-codage">
+<h1>Règles de codage<a class="headerlink" href="#regles-de-codage" title="Lien permanent vers cette rubrique"></a></h1>
+<p>Un projet GIT de tools sera créé pour contenir les projets style cas-app1-springsecurity, vitam-import …</p>
+<p>Lors de la correction de bugs, des tests unitaires doivent être attachés à la correction afin de garantir qu’il n’y aura pas de régression.</p>
+<section id="configuration-editeur-java">
+<h2>Configuration Editeur Java<a class="headerlink" href="#configuration-editeur-java" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Fichier checkstyle + saveactions / cleanup / formatter + findbugs + pmd disponibles dans le dossier Drive configuration editeur</p>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Nous fonctionnons en différentes équipes de développement et en pull requests.</p>
+<p>Chaque développeur est lié à un groupe de 3 ou 4 personnes max.
+Ce groupe doit organiser au moins une fois par semaine.
+une réunion afin de discuter des points fonctionnels sur lequels les membres travaillent, de partager un peu plus en détail les features en cours de développement ou de faire des reviews sur les codes respectifs des membres du groupe.
+Un responsable de groupe est désigné afin de booster l’organisation avec la réservation de salles, la mise en place de l’ordre du jour des points de groupes.</p>
+<p>Avant d’attaquer une US ou une TS ou un FIX, le développeur crée une branche :
+<strong>feature_nomteam_numJira</strong></p>
+<p>Au 16/07/2019 Les noms d’équipes sont <strong>turtles, rabbits, foxes</strong></p>
+<p>Lors que les développements sont finis, une pull request doit être créée en mettant les membres du groupe et le techlead de l’équipe qui in fine valide la pull request, émet des commentaires, demande des modifications si nécessaires, vérifie le taux de couverture de tests unitaires, les tests d’intégration Spring et Cucumber.</p>
+<p>Le commit doit suivre le format indiqué si dessous.
+Le commentaire permet de faire un descriptif succint du commit.</p>
+<ol class="arabic simple">
+<li><p>Si le développement est lié à une US (User Story)
+[US ID_JIRA] Titre sommaire(en quelques mots sur une ligne)
+Description (sur une 2e ligne)</p></li>
+<li><p>Si le développement est lié à une TS (Technical Story)
+[TS ID_JIRA] Titre sommaire
+Description</p></li>
+<li><p>Si le développement est lié à une anomalie
+[FIX ID_JIRA] Titre sommaire
+Description</p></li>
+<li><p>Si le développement est plus sur une partie technique du socle
+[TECH] Titre sommaire
+Description</p></li>
+<li><p>Si le développement est plus lié à la partie test : ajout de tests, corrections de tests
+[TEST] Titre sommaire
+Description</p></li>
+<li><p>Si les modifications sont liées à la partie devops / infra
+[DEVOPS] Titre sommaire
+Description</p></li>
+</ol>
+</section>
+<section id="structure-des-packages">
+<h2>Structure des packages<a class="headerlink" href="#structure-des-packages" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Package fonctionnel
+ex: <code class="docutils literal notranslate"><span class="pre">fr.gouv.vitamui.profil,</span> <span class="pre">fr.gouv.vitamui.profilegroup</span></code>
+Chaque package fonctionnel contiendra des sous packages dao, domain et service.
+Les packages sont au singulier</p>
+<p>Les clients REST qui seront exposés sont dans un module client.
+Exemple : <code class="docutils literal notranslate"><span class="pre">api-iam-client</span></code></p>
+<p>Pas de dépendances circulaires entre les packages (à vérifier dans les code reviews)
+Mettre underscores à la place des tirets pour les noms de package.</p>
+<p>Fichier <code class="docutils literal notranslate"><span class="pre">messages.yml</span></code> pour les messages
+Se poser la question pour les propriétés si c’est une propriété interne au projet qui ne change pas ou c’est lié à l’environnement. Valeur dev, recette, préprod ou prod.
+Fichier <code class="docutils literal notranslate"><span class="pre">application-dev.yml</span></code> dans <code class="docutils literal notranslate"><span class="pre">src/main/resources/config</span></code>. Les éléments configurés dans ce fichier sont surchargées lors du déploiement avec Ansible.</p>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Les API et leurs structures doivent être validées par le comité API afin de garder une cohérence.
+cf <a class="reference external" href="https://restfulapi.net/resource-naming/">https://restfulapi.net/resource-naming/</a></p>
+</section>
+<section id="maven">
+<h2>Maven<a class="headerlink" href="#maven" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Définir le groupId pour les modules Maven pour définir le parent direct.</p>
+<p>Définir les dépendances et les versions des dépendances dans le pom parent.</p>
+<p>L’ajout ou la modification des dépendances doivent être validés par les techleads.</p>
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Commentaires en anglais, code en anglais.
+Injection de dépendances via le constructeur.
+Favoriser les classes immutables
+Eviter les méthodes statiques autant que possible</p>
+<p>Ordre des modifiers dans Java :</p>
+<ol class="arabic simple">
+<li><p>Annotations</p></li>
+<li><p>public</p></li>
+<li><p>protected</p></li>
+<li><p>private</p></li>
+<li><p>abstract</p></li>
+<li><p>static</p></li>
+<li><p>final</p></li>
+<li><p>transient</p></li>
+<li><p>volatile</p></li>
+<li><p>synchronized</p></li>
+<li><p>native</p></li>
+<li><p>strictfp</p></li>
+</ol>
+<p>Remplacer Lambda par une méthode référence :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">dto</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">processAfterQuery</span><span class="p">(</span><span class="n">dto</span><span class="p">)</span><span class="w">           </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">::</span><span class="n">processAfterQuery</span><span class="w"></span>
+<span class="kd">protected</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="nf">processAfterQuery</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dto</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Utiliser des classes de constantes le plus possible pour définir les constantes et mutualiser ces éléments.</p>
+<p>Lombok : utiliser les getters, requireargsconstructor, setters, tostring, hashcode.
+Eviter les setters dans la mesure du possible
+pour l’annotation &#64;Data privilégier les members à final
+<strong>L’utilisation des annotations de logs style &#64;Slf4j est interdite</strong>
+Le logger de VITAMUI doit être utilisé afin de garder un format de log uniforme dans le système.</p>
+</section>
+<section id="gestion-des-exceptions">
+<h2>Gestion des exceptions<a class="headerlink" href="#gestion-des-exceptions" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Pré-requis : Le module SpringBoot doit étendre les modules commons/api et commons/rest.</p>
+<p>Dans la classe ContextConfiguration du projet SpringBoot, il faut :
+Étendre la classe AbstractContextConfiguration qui se trouve dans le package fr.gouv.vitamui.commons.api.application
+Importer la classe RestExceptionHandler suit se trouve dans le package fr.gouv.vitamui.commons.rest</p>
+<p>Ces deux actions permettent d’abord de définir un Dispatcher central pour les Controllers et les Handlers de requêtes HTTP, par exemple de lever une Exception lorsqu’au Controller ne répond à une requête donnée. Ensuite ce Dispatcher définit des règles d’interception d’exceptions afin de définir la réponse adaptée à une exception dans VITAMUI.
+Les exceptions Spring sont interceptées également et transformées en Exceptions VITAMUI.
+Cette réponse correspond à un format bien défini :
+key : cette propriétée contient une clé qui permettra à l’application appelante d’identifier l’exception et de la mapper par exemple à un fonctionnement bien déterminé. Par exemple afficher une page d’authentification dans le cas d’une authentification invalide.
+message : cette propriété contient le message correspond à l’Exception. Chaque module SpringBoot définit ses propres messages d’erreurs en ajoutant le fichier errors.yml dans le dossier src/main/resources  et en changeant les messages pour les adapter à son contexte.
+args : définit une liste qui peut correspondre par exemple à une liste de noms de paramètres invalides ou aux éléments d’une requête introuvable.</p>
+<p>Exemple :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;/sae/v1/admin/checkExternalStatus/toto/1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The path &#39;GET /sae/v1/admin/checkExternalStatus/toto/1&#39; was not found on this server.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apierror.routenotfound&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Une classe utilitaire ApiErrorGenerator permet de générer une Exception VITAMUI et de donner des arguments qui peuvent être utiliser pour générer le message correspondant.
+Nos classes de Service ou Controllers doivent se baser sur ApiErrorGenerator  pour générer leurs exceptions.</p>
+<p>Les modules qui n’ont pas SpringBoot peuvent lever directement une exception sans passer par cette classe utilitaire. Les modules SpringBoot qui utilisent ces modules de base vont gérer automatiquement le format de la réponse correspondante à l’exception.</p>
+</section>
+<section id="gestion-des-logs">
+<h2>Gestion des  Logs<a class="headerlink" href="#gestion-des-logs" title="Lien permanent vers cette rubrique"></a></h2>
+<p>La gestion des logs est assez similaire à Vitam pour être cohérent à la solution globale.
+Chaque composant ou application ou module SpringBoot doit être identifié clairement avec un nom(identityRole), un nom et un identifiant de serveur sur lequel tourne cette application (identityName et identitySiteId). Cette identification correspond à un ServerIdentity.
+Via de l’auto-configuration et des données de configuration de l’application, le ServerIdentity est créé et adossé au Logger.</p>
+<p>Le Logger que nous utilisons est Logback. Logback via un rsyslog va envoyer les logs dans l’ELK de VItam.
+Un format de logs a été créé et est similaire au format de Logs de Vitam. Le fichier logback.xml contient les configurations du log avec des fichiers tournant et le format de log.
+Un rsyslog est déployé sur les machines hébergeant les composants VITAMUI  et envoie les logs applicatifs syslog vers un serveur de centralisation de logs (via facility local0)
+Un serveur de centralisation de logs est utilisé et ce serveur se base sur l’ELK Vitam:
+un mono-noeud (au minimum, ou multi-noeuds) Elasticsearch
+un moteur logstash, parsant les messages VITAM
+un afficheur de rendu/aggrégation de données Kibana</p>
+<p>Pour créer un logger, on peut utiliser une propriété statique dans la classe avec :
+private static final VitamUILogger <code class="docutils literal notranslate"><span class="pre">LOGGER</span> <span class="pre">=</span> <span class="pre">VitamUILoggerFactory.getInstance(SAEApplication.class);</span></code></p>
+<p>Attention : L’utilisation de Logger est assez restreinte. Le projet doit utiliser SpringBoot et le ServerIdentity doit être initialisé avant de pouvoir logger. Sinon une exception de type InternalServerException est levée.
+Il faut par conséquent faire attention à l’ordre d’initialisation des beans et des classes de configuration.</p>
+<p>Ajouter dans le code Java
+private static final VitamUILogger <code class="docutils literal notranslate"><span class="pre">LOGGER</span> <span class="pre">=</span> <span class="pre">VitamUILoggerFactory.getInstance(SAEApplication.class);</span></code></p>
+<p>Ajouter dans <code class="docutils literal notranslate"><span class="pre">src/main/application.yml</span></code> les informations du server-identity à la racine</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">server-identity</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">identityName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vitamui</span><span class="w"></span>
+<span class="w">  </span><span class="nt">identityRole</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sae-app</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ajouter dans <code class="docutils literal notranslate"><span class="pre">src/main/config/application-dev.yml</span></code> les informations du server-identity à la racine</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">server-identity</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">identityServerId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="fixme-todo">
+<h2>FIXME &amp; TODO<a class="headerlink" href="#fixme-todo" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Les FIXME et TODO doivent être utilisés avec parcimonie.
+Le point doit être remonté au techlead et au PO si nécessare et en fonction du degrè d’urgence de la demande, le point doit être traité dans la foulée ou une TS associée doit être créée et ajouter dans le prochain sprint.</p>
+</section>
+<section id="configuration-sonar">
+<h2>Configuration Sonar<a class="headerlink" href="#configuration-sonar" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Tous les problèmes affichés dans Sonar doivent être des problèmes pertinents pour éviter que nous soyons pollués par d’autres problèmes que nous n’allons pas prendre en compte.
+Les classes Entity de Mongo et leurs DTO correspondants ne sont pas analysés par rapport à la duplication de code. Cela évite d’avoir à afficher les erreurs de duplication sur des cas que nous avons bien voulu définir ainsi.
+Un fichier lombok.config a été créé dans le projet VITAMUI pour éviter que Sonar marque les annotations Lombok comme non couvertes.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Programme Vitam.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

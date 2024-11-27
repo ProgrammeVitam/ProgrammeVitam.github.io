@@ -1,0 +1,2815 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Architecture &mdash; Vitam-UI documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="4. Implémentation" href="implementation.html" />
+    <link rel="prev" title="2. Orientations techniques" href="orientations_techniques.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+            <a href="../index.html">
+            <img src="../_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro_objectifs.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orientations_techniques.html">2. Orientations techniques</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#applications-web">3.1. Applications Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#services-externes">3.2. Services externes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#service-iam-external">3.2.1. Service iam-external</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-cas-server">3.2.2. Service cas-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-referential-external">3.2.3. Service referential-external</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-ingest-external">3.2.4. Service ingest-external</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-archive-search-external">3.2.5. Service archive-search-external</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#services-internes">3.3. Services internes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#service-iam-internal">3.3.1. Service iam-internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-security-internal">3.3.2. Service security-internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-referential-internal">3.3.3. Service referential-internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-ingest-internal">3.3.4. Service ingest-internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-archive-search-internal">3.3.5. Service archive-search-internal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#services-dinfrastructure">3.4. Services d’infrastructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-d-archivage-vitam">3.5. Service d’archivage VITAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-d-authentification">3.6. Service d’authentification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-des-applications-externes">3.6.1. Authentification des applications externes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-des-utilisateurs-externes">3.6.2. Authentification des utilisateurs externes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-d-authentification-centralise-cas">3.6.3. Service d’authentification centralisé CAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-cas-dans-vitamui">3.6.4. Intégration CAS dans VITAMUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-d-un-utilisateur-non-authentifie">3.6.5. Authentification d’un utilisateur non authentifié</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentification-d-un-utilisateur-prealablement-authentifie">3.6.6. Authentification d’un utilisateur préalablement authentifié</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#presentation-de-la-delegation-d-authentification-dans-cas">3.6.7. Présentation de la délégation d’authentification dans CAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securisation-de-cas">3.6.8. Sécurisation de CAS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-des-proprietes-de-securite">3.6.8.1. Configuration des propriétés de sécurité</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suppression-des-acces-aux-urls-d-auto-administration">3.6.8.2. Suppression des accès aux URLs d’auto-administration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#definition-des-services-supportes">3.6.9. Définition des services supportés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-hazelcast">3.6.10. Configuration Hazelcast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnalites">3.6.11. Fonctionnalités</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-mongodb">3.6.11.1. Utilisation de MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-d-hazelcast">3.6.11.2. Utilisation d’Hazelcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentification-login-mot-de-passe">3.6.11.3. Authentification login/mot de passe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delegation-d-authentification">3.6.11.4. Délégation d’authentification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subrogation">3.6.11.5. Subrogation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interface-graphique-customisee">3.6.11.6. Interface graphique customisée</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#double-facteur-sms">3.6.11.7. Double facteur SMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gestion-du-mot-de-passe">3.6.11.8. Gestion du mot de passe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#support-serveur-oauth">3.6.11.9. Support serveur OAuth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deconnexion">3.6.11.10. Déconnexion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#throttling">3.6.11.11. Throttling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sessions-applicatives">3.7. Sessions applicatives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-sessions">3.7.1. Liste des sessions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sequence-de-creation-des-sessions">3.7.2. Séquence de création des sessions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-applicative-web">3.7.3. Session applicative Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-des-services-api">3.7.4. Session des services API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-cas">3.7.5. Session CAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-des-idp">3.7.6. Session des IDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expiration-et-cloture-des-sessions">3.7.7. Expiration et clôture des sessions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametrages-des-sessions">3.7.8. Paramétrages des sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#profils-et-roles">3.8. Profils et rôles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#groupe-de-profils">3.8.1. Groupe de profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profils">3.8.2. Profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#roles">3.8.3. Rôles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niveaux">3.8.4. Niveaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrice-des-droits">3.8.5. Matrice des droits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securisation-des-ressources">3.8.6. Sécurisation des ressources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#verification-generale">3.8.6.1. Vérification générale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-des-sous-roles">3.8.6.2. Vérification des sous-rôles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-du-tenant">3.8.6.3. Vérification du tenant</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#profils-de-parametrage-externes">3.9. Profils de paramétrage externes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#external-parameter-profile">3.9.1. External Parameter Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profil">3.9.2. Profil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-parameters">3.9.3. External Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#illustration">3.9.4. Illustration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evenement-lors-de-la-mise-a-jour">3.9.5. Événement lors de la mise à jour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#journalisation">3.10. Journalisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objectifs">3.10.1. Objectifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evenement">3.10.2. Événement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vitam">3.10.2.1. Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vitamui">3.10.2.2. VITAMUI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#application-dans-vitamui">3.10.3. Application dans VITAMUI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modele">3.10.3.1. Modèle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creation">3.10.4. Création</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sauvegarde">3.10.5. Sauvegarde</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modele-de-donnees">3.11. Modèle de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-bases-dans-le-mongo-de-vitam-ui">3.11.1. Liste des bases dans le Mongo de Vitam-UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#base-iam">3.11.2. Base iam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collection-applications">3.11.2.1. Collection applications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-customers">3.11.2.2. Collection customers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-events">3.11.2.3. Collection events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-externalparameters">3.11.2.4. Collection externalParameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-groups">3.11.2.5. Collection groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-owners">3.11.2.6. Collection owners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-profiles">3.11.2.7. Collection profiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-providers">3.11.2.8. Collection providers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-sequences">3.11.2.9. Collection sequences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-subrogations">3.11.2.10. Collection subrogations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-tenants">3.11.2.11. Collection tenants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-tokens">3.11.2.12. Collection tokens</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-users">3.11.2.13. Collection users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#base-security">3.11.3. Base security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collection-certificates">3.11.3.1. Collection certificates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-contexts">3.11.3.2. Collection contexts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#base-cas">3.11.4. Base Cas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collection-services">3.11.4.1. Collection services</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#base-archivesearch">3.11.5. Base archivesearch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collections-searchcriteriahistories-searchcriteriahistoriescollect">3.11.5.1. Collections : searchCriteriaHistories / searchCriteriaHistoriesCollect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">4. Implémentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestion.html">5. Gestion du système</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Vitam-UI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sections/architecture.md.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="architecture">
+<h1><span class="section-number">3. </span>Architecture<a class="headerlink" href="#architecture" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="applications-web">
+<h2><span class="section-number">3.1. </span>Applications Web<a class="headerlink" href="#applications-web" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Les applications Web constituent les IHM de la solution. Elles sont accessibles depuis le portail de la solution. L’authentification d’un utilisateur dans une application cliente se fait par l’intermédiaire de l’IAM CAS. Une application cliente est constituée de 2 parties.</p>
+<ul class="simple">
+<li><p>Interface utilisateur Front (IHM WEB) qui donne accès aux fonctionnalités via un navigateur</p></li>
+<li><p>Interface utilisateur Back (Service BackOffice) qui gère la communication avec CAS et les accès aux API externes</p></li>
+</ul>
+<p>Une double authentification est nécessaire pour qu’un utilisateur puissent accéder aux API externes :</p>
+<ul class="simple">
+<li><p>Le service UI Back de l’application cliente doit posséder un certificat reconnu par la solution</p></li>
+<li><p>L’utilisateur de l’application cliente doit être authentifié dans la solution (par CAS) et posséder un token valide</p></li>
+</ul>
+<p>Les applications de base :</p>
+<ul class="simple">
+<li><p>portal : application portail donnant accès aux applications</p></li>
+<li><p>identity : application pour gérer les organisations, utilisateurs, profils, etc.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="services-externes">
+<h2><span class="section-number">3.2. </span>Services externes<a class="headerlink" href="#services-externes" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Les services externes exposent des API REST publiques accessibles en HTTPS. Ces services constituent une porte d’accès aux services internes et assurent principalement un rôle de sécurisation des ressources internes.</p>
+<p>La connexion d’une application cliente à un service externe nécessite le partage de certificats X509 client et serveur dans le cadre d’un processus d’authentification mutuel (Machine To Machine/M2M). Dans la solution VITAMUI, les certificats des clients sont associés à un contexte de sécurité stocké dans une collection MongoDb gérée par le service security_internal. D’autre part, les utilisateurs clients sont identifiés et authentifiés dans les services externes par le token fourni par CAS et transmis dans les headers des requêtes REST en HTTPS.</p>
+<p>Le service externe a pour responsabilité de sécuriser les accès en effectuant les différentes étapes de vérifications des droits (générale, tenant, rôles, groupes, etc.) et de déterminer les droits résultants du client à l’origine de la requête, en réalisant l’intersection des droits applicatifs, définis dans le contexte de sécurité, avec les droits issus des profils de l’utilisateur. Le service externe s’assure ensuite que le client possède bien les droits pour accéder à la ressource demandée.</p>
+<p>Les services externes s’auto-déclarent au démarrage dans l’annuaire de service Consul.</p>
+<p>Les services disposent d’API REST pour suivre leur état et leur activité. Ces API ne sont pas accessibles publiquement.</p>
+<ul class="simple">
+<li><p>API Status pour connaître la disponibilité du service (utilisé par Consul)</p></li>
+<li><p>API Health (basée sur SpringBoot) pour suivre l’activité</p></li>
+</ul>
+<p>Les services génèrent les logs techniques dans la solution de log centralisée basée sur ELK.</p>
+<section id="service-iam-external">
+<h3><span class="section-number">3.2.1. </span>Service iam-external<a class="headerlink" href="#service-iam-external" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>Description : service externe pour la gestion des organisations, utilisateurs, profils, etc.</p></li>
+<li><p>Contraintes</p></li>
+<li><p>API swagger</p></li>
+</ul>
+</section>
+<section id="service-cas-server">
+<h3><span class="section-number">3.2.2. </span>Service cas-server<a class="headerlink" href="#service-cas-server" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>Description : service d’authentification nécessaire et accessible uniquement par l’IAM CAS</p></li>
+<li><p>Contraintes</p></li>
+<li><p>API swagger</p></li>
+</ul>
+</section>
+<section id="service-referential-external">
+<h3><span class="section-number">3.2.3. </span>Service referential-external<a class="headerlink" href="#service-referential-external" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Description : service externe pour la gestion des référentiels de la solution logicielle VITAM.</p>
+<p>Le service de référentiel externe a pour responsabilité la réception, la sécurisation des ressources internes de gestion des référentiels, et la communication sécurisée avec les couches internes.</p>
+<p>Le service de référentiel externe est composé de plusieurs points d’APIs:</p>
+<ul class="simple">
+<li><p>API des contrats d’accès (/referential/accesscontract)</p></li>
+<li><p>API des contrats d’entrées (/referential/ingestcontract)</p></li>
+<li><p>API des contrats de gestion (/referential/managementcontract)</p></li>
+<li><p>API des services agents (/referential/agency)</p></li>
+<li><p>API des formats (/referential/fileformat)</p></li>
+<li><p>API des ontologies (/referential/ontology)</p></li>
+<li><p>API des profils d’archivages (/referential/profile)</p></li>
+<li><p>API des règles de gestion (/referential/profile)</p></li>
+<li><p>API des profils de sécurité (/referential/security-profile)</p></li>
+<li><p>API des contexts applicatifs (/referential/context)</p></li>
+<li><p>API des opérations permettant le lancement différents audits (cohérence, valeur probante …).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="service-ingest-external">
+<h3><span class="section-number">3.2.4. </span>Service ingest-external<a class="headerlink" href="#service-ingest-external" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Description : service externe pour la gestion des opérations d’entrées d’archives de la solution logicielle VITAM.</p>
+<p>Le service d’ingest externe a pour responsabilité la réception, la sécurisation des ressources internes de versement, et la communication sécurisée avec les couches internes.</p>
+<p>Le service d’ingest externe est composé de plusieurs points d’APIs:</p>
+<ul class="simple">
+<li><p>API de versement des archives permettant la consommation des flux d’archives (/v1/ingest/upload)</p></li>
+<li><p>API de visualisation des journaux d’opération des opérations d’entrées (API /v1/ingest)</p></li>
+<li><p>API de visualisation détaillé d’un journal d’une opération d’entrées (/v1/ingest/{id})</p></li>
+<li><p>API permettant le téléchargement d’un rapport sous forme ODT d’une opération d’entrée (/v1/ingest/odtreport/{id})</p></li>
+<li><p>API commune est utilisé pour le téléchargement du Manifest et de l’ATR (Archival Transfer Reply) d’une opération d’entrée.
+(Manifest: /logbooks/operations/{id}/download/manifest, ATR: /logbooks/operations/{id}/download/atr)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="service-archive-search-external">
+<h3><span class="section-number">3.2.5. </span>Service archive-search-external<a class="headerlink" href="#service-archive-search-external" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Description : service externe pour la gestion d’accès et la recherche d’archives de la solution logicielle VITAM.</p>
+<p>Le service d’archive externe a pour responsabilité la réception, la sécurisation des ressources internes, et la communication sécurisée avec les couches internes d’accès aux archives.</p>
+<p>Le service d’archive externe est composé de plusieurs points d’APIs:</p>
+<ul class="simple">
+<li><p>API de recherche des archive par requetes (/archive-search/search)</p></li>
+<li><p>API de recherche des unités archivistiques (/archive-search/archiveunit/{id})</p></li>
+<li><p>API de recherche des arbres de positionnement et plans de classement (/archive-search/filingholdingscheme)</p></li>
+<li><p>API de téléchargement des objets (/archive-search/downloadobjectfromunit/{id})</p></li>
+<li><p>API d’export des résultats sous format csv (/export-csv-search)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="services-internes">
+<h2><span class="section-number">3.3. </span>Services internes<a class="headerlink" href="#services-internes" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Les services internes offrent des API REST accessibles en HTTPS uniquement depuis les services externes ou internes. Les API de ces services ne sont donc pas exposées publiquement. Les services internes implémentent les fonctionnalités de base de la solution ainsi que les fonctionnalités métiers. En fonction des besoins, les services internes peuvent être amenés à journaliser des évènements dans le logbook des opérations du socle VITAM.</p>
+<p>Les utilisateurs sont identifiés dans les services internes grâce au token transmis dans les headers des requêtes HTTPS. L’utilisation du protocole HTTPS permet de chiffrer les tokens et les informations sensibles qui sont transportées dans les requêtes. Les services internes peuvent éventuellement vérifier les droits d’accès de l’utilisateur avant d’accéder aux ressources.</p>
+<p>Les services internes s’auto-déclarent au démarrage dans l’annuaire de service Consul.</p>
+<p>Les services disposent d’API REST pour suivre leur état et leur activité.</p>
+<ul class="simple">
+<li><p>API Status pour connaître la disponibilité du service (utilisé par Consul)</p></li>
+<li><p>API Health (basée sur SpringBoot) pour suivre l’activité du service</p></li>
+</ul>
+<p>Les services génèrent les logs techniques dans la solution de log centralisée basée sur ELK.</p>
+<section id="service-iam-internal">
+<h3><span class="section-number">3.3.1. </span>Service iam-internal<a class="headerlink" href="#service-iam-internal" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>Description : service d’administration des clients, des utilisateurs et des profils, portail</p></li>
+<li><p>Contraintes</p></li>
+<li><p>API swagger</p></li>
+<li><p>Modèle de données</p></li>
+</ul>
+</section>
+<section id="service-security-internal">
+<h3><span class="section-number">3.3.2. </span>Service security-internal<a class="headerlink" href="#service-security-internal" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>Description : service de gestion de la sécurité applicative</p></li>
+<li><p>Contraintes</p></li>
+<li><p>API swagger</p></li>
+<li><p>Modèle de données</p></li>
+</ul>
+</section>
+<section id="service-referential-internal">
+<h3><span class="section-number">3.3.3. </span>Service referential-internal<a class="headerlink" href="#service-referential-internal" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Description : service interne pour la gestion des référentiels de la solution logicielle VITAM.</p>
+<p>Le service de référentiel interne reçoit les requêtes du client référentiel externe, et communique avec VITAM via les clients Admin/Access pour la récupération des données.</p>
+<p>Le service de référentiel interne est composé de plusieurs points d’APIs:</p>
+<ul class="simple">
+<li><p>API des contrats d’accès (/referential/accesscontract)</p></li>
+<li><p>API des contrats d’entrées (/referential/ingestcontract)</p></li>
+<li><p>API des contrats de gestion (/referential/managementcontract)</p></li>
+<li><p>API des services agents (/referential/agency)</p></li>
+<li><p>API des formats (/referential/fileformat)</p></li>
+<li><p>API des ontologies (/referential/ontology)</p></li>
+<li><p>API des profils d’archivages (/referential/profile)</p></li>
+<li><p>API des règles de gestion (/referential/profile)</p></li>
+<li><p>API des profils de sécurité (/referential/security-profile)</p></li>
+<li><p>API des contexts applicatifs (/referential/context)</p></li>
+<li><p>API des opérations permettant le lancement différents audits (cohérence, valeur probante …).</p></li>
+</ul>
+<p>Pour plus d’information: voir la documentation des <a class="reference external" href="https://www.programmevitam.fr/pages/documentation/pour_archiviste/">référentiels</a></p>
+</li>
+</ul>
+</section>
+<section id="service-ingest-internal">
+<h3><span class="section-number">3.3.4. </span>Service ingest-internal<a class="headerlink" href="#service-ingest-internal" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Description : service interne pour la gestion des opérations d’entrées d’archives de la solution logicielle VITAM.</p>
+<p>Le service d’ingest interne a pour responsabilité la réception, et la communication sécurisée avec les couches externes de VITAM.</p>
+<p>Le service d’ingest interne est composé de plusieurs points d’APIs:</p>
+<ul class="simple">
+<li><p>API de versement des archives permettant la consommation des flux d’archives (/v1/ingest/upload)</p></li>
+<li><p>API de visualisation des journaux d’opération des opérations d’entrées (API /v1/ingest)</p></li>
+<li><p>API de visualisation détaillé d’un journal d’une opération d’entrées (/v1/ingest/{id})</p></li>
+<li><p>API permettant le téléchargement d’un rapport sous forme ODT d’une opération d’entrée (/v1/ingest/odtreport/{id})</p></li>
+<li><p>API commune est utilisé pour le téléchargement du Manifest et de l’ATR (Archival Transfer Reply) d’une opération d’entrée.
+(Manifest: /logbooks/operations/{id}/download/manifest, ATR: /logbooks/operations/{id}/download/atr)</p></li>
+</ul>
+<p>Ce service est configuré pour qu’il puisse communiquer avec la zone d’accès de la solution logicielle VITAM.</p>
+<p>Pour aller plus loin: <a class="reference external" href="https://www.programmevitam.fr/ressources/DocCourante/raml/externe/ingest.html">API Ingest</a>, <a class="reference external" href="htps://www.programmevitam.fr/ressources/DocCourante/html/archi/archi-applicative/20-services-list.html#api-externes-ingest-external-et-access-external">API externes (ingest-external et access-external)</a></p>
+</li>
+</ul>
+</section>
+<section id="service-archive-search-internal">
+<h3><span class="section-number">3.3.5. </span>Service archive-search-internal<a class="headerlink" href="#service-archive-search-internal" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Description : service interne pour la gestion d’accès et la recherche d’archives de la solution logicielle VITAM.</p>
+<p>Le service d’archive interne a pour responsabilité la réception, et la communication sécurisée avec les couches externes VITAM.</p>
+<p>Le service d’archive interne est composé de plusieurs points d’APIs:</p>
+<ul class="simple">
+<li><p>API de recherche des archive par requêtes (/archive-search/search)</p></li>
+<li><p>API de recherche des unités archivistiques (/archive-search/archiveunit/{id})</p></li>
+<li><p>API de recherche des arbres de positionnement et plans de classement (/archive-search/filingholdingscheme)</p></li>
+<li><p>API de téléchargement des objets (/archive-search/downloadobjectfromunit/{id})</p></li>
+<li><p>API d’export des résultats sous format csv (/export-csv-search)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="services-dinfrastructure">
+<h2><span class="section-number">3.4. </span>Services d’infrastructure<a class="headerlink" href="#services-dinfrastructure" title="Lien permanent vers cette rubrique"></a></h2>
+<p>La solution utilise plusieurs services d’infrastructures :</p>
+<ul class="simple">
+<li><p>l’annuaire de service. basé sur l’outil Consul, il permet de localiser les services actifs dans l’infrastructure</p></li>
+<li><p>le service de gestion des logs rsyslog. Il permet de collecter, gérer et de transporter les logs</p></li>
+<li><p>l’outil de centralisation et de recherche des logs ELK (Elasticsearch / Logstash / Kibana)</p></li>
+</ul>
+<p>Les services d’infrastructures sont basés et mutualisés avec VITAM. Vous pouvez donc vous référer aux documentations VITAM pour avoir un détail précis du fonctionnement de ces services :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.programmevitam.fr/ressources/DocCourante/html/exploitation/composants/elasticsearch_log/_toc.html">Doc VITAM : Chaîne de log - rsyslog / ELK</a></p></li>
+<li><p><a class="reference external" href="http://www.programmevitam.fr/ressources/DocCourante/html/exploitation/composants/consul/_toc.html">Doc VITAM : Annuaire de service consul</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="service-d-archivage-vitam">
+<h2><span class="section-number">3.5. </span>Service d’archivage VITAM<a class="headerlink" href="#service-d-archivage-vitam" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Le service d’archivage se base sur le socle logiciel VITAM a pour fonction de gérer l’archivage des documents. Il apporte une forte garantie de sécurité et de disponibilité pour les archives.</p>
+<p>Ses principales caractéristiques sont :</p>
+<ul class="simple">
+<li><p>Fonctions d’archivage : versement, recherches, consultation, administration , structurations arborescentes, référentiels…</p></li>
+<li><p>Accès aux unités d’archives via un service de requêtage performant</p></li>
+<li><p>Garantie de la valeur probante par le respect des normes en vigueur, par la traçabilité des opérations et du cycle de vie des objets et leur journalisation sécurisée</p></li>
+<li><p>Sécurité et la robustesse : la gestion applicative du stockage permet une réplication des données, métadonnées, index et journaux sur plusieurs sites et plusieurs offres contrôlées.
+L’architecture interne du stockage assure la capacité de reconstruire le système à partir d’une seule offre, en une fois ou au fil de l’eau</p></li>
+<li><p>La possibilité d’une utilisation mutualisée grâce à la gestion multi-tenant des archives</p></li>
+<li><p>Offres de stockage multiple</p></li>
+<li><p>Capacité à absorber de fortes volumétries de données</p></li>
+</ul>
+<p>La documentation de la solution VITAM est disponible sur le site <a class="reference external" href="http://www.programmevitam.fr/pages/documentation/">programmevitam.fr</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="service-d-authentification">
+<h2><span class="section-number">3.6. </span>Service d’authentification<a class="headerlink" href="#service-d-authentification" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="authentification-des-applications-externes">
+<h3><span class="section-number">3.6.1. </span>Authentification des applications externes<a class="headerlink" href="#authentification-des-applications-externes" title="Lien permanent vers cette rubrique"></a></h3>
+<p>A l’initialisation de la connexion HTTPS d’une application cliente à un service API VITAMUI, un processus d’authentification mutuelle entre le client et le serveur basé sur des certificats x509 est mis en oeuvre. Le service VITAMUI contrôle le certificat applicatif x509 transmis par le client pour s’assurer de sa validité. En cas de certificat invalide, expiré ou absent du truststore du service VITAMUI, la connexion échoue.</p>
+<p>Il est fortement recommandé d’utiliser des certificats officiels pour toutes les authentifications publiques.</p>
+</section>
+<section id="authentification-des-utilisateurs-externes">
+<h3><span class="section-number">3.6.2. </span>Authentification des utilisateurs externes<a class="headerlink" href="#authentification-des-utilisateurs-externes" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Lorsque la connexion applicative a été réalisée avec succès, la solution VITAMUI récupère dans la base MongoDB le contexte de sécurité applicatif associé au certificat client. Le contexte de sécurité applicatif définit les autorisations d’accès aux différents services (rôles) et le périmètre d’accès (tenant) de l’application. Un même contexte peut être associé à plusieurs certificats. L’utilisateur se voit alors attribuer l’intersection des rôles et tenants du contexte de sécurité applicatif et de ses profils.</p>
+<p>La cinématique est la suivante :</p>
+<ol class="arabic simple">
+<li><p>Initialisation de la connexion par l’application cliente</p></li>
+<li><p>Vérification du certificat client transmis par l’application</p></li>
+<li><p>Vérification du contexte de sécurité associé au certificat</p></li>
+<li><p>Récupération des profils (rôles &amp; tenants) de l’utilisateur</p></li>
+<li><p>Intersection des rôles et tenants entre le contexte de sécurité et les profils</p></li>
+<li><p>L’utilisateur peut accéder aux ressources autorisées</p></li>
+</ol>
+<p>Il est ainsi possible de limiter les risques d’élévations de privilèges en dissociant les contextes applicatifs de 2 instances d’une même application.</p>
+<p>Par exemple, dans une première instance de l’application exposée sur un réseau public et associé à un contexte applicatif possédant des droits limités, un administrateur ne pourra pas accéder à des fonctions d’administration. En revanche, une deuxième instance, bénéficiant d’un contexte applicatif adéquat, sur un réseau protégé et accessible à ce même administrateur permettra d’effectuer des opérations à haut privilège.</p>
+</section>
+<section id="service-d-authentification-centralise-cas">
+<h3><span class="section-number">3.6.3. </span>Service d’authentification centralisé CAS<a class="headerlink" href="#service-d-authentification-centralise-cas" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Dans VITAMUI, l’authentification des utilisateurs est réalisée au moyen du service CAS. CAS est un service d’authentification centralisé (SSO et fédération d’identité), développé depuis 2004 par une communauté open source, et destiné aux applications Web .</p>
+<p>CAS propose les fonctionnalités suivantes :</p>
+<ul class="simple">
+<li><p>un protocole (CAS protocol) ouvert et documenté</p></li>
+<li><p>la prise en charge de moteur de stockage variés (LDAP, base de données, X.509, 2-facteur)</p></li>
+<li><p>la prise en charge de plusieurs protocoles (CAS, SAML, OAuth, OpenID)</p></li>
+<li><p>des bibliothèques de clients pour Java, .Net, PHP, Perl, Apache, uPortal, etc.</p></li>
+<li><p>l’intégration native avec uPortal, BlueSocket, TikiWiki, Mule, Liferay, Moodle, etc.</p></li>
+</ul>
+<p><img alt="Architecture CAS" src="../_images/dat_archi_cas.png" /></p>
+<p>Dans la solution VITAMUI, CAS porte uniquement le processus d’authentification (délégué ou non) avec les informations (tickets, cookies, etc.) nécessaires au bon fonctionnement de l’authentification. En revanche, toutes les données des utilisateurs (compte, profils, rôles, etc.) sont stockés dans une base MongoDB gérée par les services VITAMUI. Lors du processus d’authentification, CAS récupère les données des utilisateurs via des services REST dédiés et sécurisés dans VITAMUI. Il est important de noter que les crédentials d’accès à la solution, les données des utilisateurs ou des applications ne sont donc jamais stockés dans CAS.</p>
+<p>Ce choix simplifie l’exploitation de la solution car il n’est pas nécessaire de migrer les données lors de la mise à jour de CAS.</p>
+<p><img alt="Protocole CAS" src="../_images/dat_cas_1.png" /></p>
+<p>La <a class="reference external" href="https://www.apereo.org/projects/cas">documentation de CAS</a> est disponible sur internet. CAS est livré sous licence Apache 2.0.</p>
+</section>
+<section id="integration-cas-dans-vitamui">
+<h3><span class="section-number">3.6.4. </span>Intégration CAS dans VITAMUI<a class="headerlink" href="#integration-cas-dans-vitamui" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Les principes généraux de l’implémentation de CAS dans VITAMUI sont les suivants :</p>
+<ul class="simple">
+<li><p>l’email de l’utilisateur assure l’identification de l’utilisateur dans le système</p></li>
+<li><p>les applications VITAMUI (ie. Service Provider) raccordées au serveur CAS utilisent le protocole CAS. (Dans VITAMUI, la bibliothèque Spring Security fournit cette fonctionnalité)</p></li>
+<li><p>les applications VITAMUI faisant office de services providers sont déclarées dans CAS</p></li>
+<li><p>la délégation d’authentification du serveur CAS aux IDP des clients se fait en SAML 2.0</p></li>
+<li><p>les IDP SAML utilisés sont déclarés dans VITAMUI et sont stockés dans MongoDB</p></li>
+<li><p>la fonction de révocation périodique de mot de passe est assurée par CAS</p></li>
+<li><p>l’anti force brute est assurée par le serveur CAS (-&gt; throttling)</p></li>
+<li><p>la fonction de récupération de mot de passe et le contrôle de robustesse du mot de passe sont assurés par le module password management de CAS</p></li>
+<li><p>l’authentification multi-facteur est assurée par SMS (Le fonctionnement du MFA : page de login CAS, étape supplémentaire est portée par le provider du deuxième facteur) est assurée par CAS</p></li>
+<li><p>le service CAS dispose d’un certificat client pour être authentifié par VITAMUI</p></li>
+<li><p>dans un environnement web clusterisé, le reverse proxy est configuré pour assurer l’affinité de session nécessaire à la conservation du cookie de session (JSESSIONID) dans l’application WEB</p></li>
+</ul>
+<p>Dans le cas d’un utilisateur n’utilisant pas le SSO :</p>
+<ul class="simple">
+<li><p>le contrôle de robustesse du mot de passe est assuré par le service Identity de VITAMUI</p></li>
+<li><p>le chiffrement des mots de passe est assuré par le service Identity de VITAMUI</p></li>
+<li><p>le mot de passe est conservé chiffré dans le base MongoDB de VITAMUI</p></li>
+</ul>
+<p><img alt="Intégration CAS" src="../_images/dat_cas_2.png" /></p>
+</section>
+<section id="authentification-d-un-utilisateur-non-authentifie">
+<h3><span class="section-number">3.6.5. </span>Authentification d’un utilisateur non authentifié<a class="headerlink" href="#authentification-d-un-utilisateur-non-authentifie" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Pour un utilisateur, non préalablement authentifiés, l’authentification dans CAS se fait en plusieurs étapes :</p>
+<ol class="arabic simple">
+<li><p>L’utilisateur tente d’accéder à une page sécurisée et est alors redirigé var CAS</p></li>
+<li><p>une première page est affichée dans CAS pour saisir l’identifiant (unique) et le mot de passe de l’utilisateur</p></li>
+<li><p>selon le domaine email de l’utilisateur et les règles particulières à la délégation d’authentification, CAS délègue l’authentification ou authentifie lui-même l’utilisateur.</p>
+<ul class="simple">
+<li><p>pas de délégation : une seconde page est affichée pour saisir le mot de passe et le serveur CAS vérifie les credentials auprès du service Identity de VITAMUI</p></li>
+<li><p>délégation : l’utilisateur est redirigé pour authentification sur l’IDP de son organisation en SAML v2</p></li>
+</ul>
+</li>
+<li><p>CAS demande la création d’un token utilisateur via le service Identity de VITAMUI. Ce token assure l’identification de l’utilisateur dans les API external et internal de VITAMUI.</p></li>
+<li><p>le serveur CAS récupère les informations de l’utilisateur via le service Identity/CAS de VITAMUI</p></li>
+<li><p>l’application récupère le profil de l’utilisateur et son token API</p></li>
+<li><p>lors d’un appel à l’API VITAM, le token est transmis dans le header de la requête.</p></li>
+</ol>
+<p><img alt="Protocole détaillé CAS" src="../_images/dat_cas_4.png" /></p>
+</section>
+<section id="authentification-d-un-utilisateur-prealablement-authentifie">
+<h3><span class="section-number">3.6.6. </span>Authentification d’un utilisateur préalablement authentifié<a class="headerlink" href="#authentification-d-un-utilisateur-prealablement-authentifie" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Si l’utilisateur est déjà authentifié auprès du CAS, aucune page de login ne s’affiche et l’utilisateur est redirigé vers l’application souhaitée, en étant authentifié dans cette application. Suivant les utilisateurs / applications demandées, une authentification multi-facteurs peut être jouée.</p>
+</section>
+<section id="presentation-de-la-delegation-d-authentification-dans-cas">
+<h3><span class="section-number">3.6.7. </span>Présentation de la délégation d’authentification dans CAS<a class="headerlink" href="#presentation-de-la-delegation-d-authentification-dans-cas" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La délégation d’authentification est prise en charge par CAS. Actuellement, seul le protocole SAML v2 est supporté.</p>
+<p>Les étapes suivantes expliquent comment fonctionne la délégation d’authentification selon le protocole SAML v2 dans le cadre de VITAMUI.</p>
+<p>En amont de ce processus, l’IDP (SSO) doit fournir à VITAMUI l’URL associée à son service d’authentification unique (SSO), ainsi que la clé publique qui lui sera nécessaire pour valider les réponses SAML.</p>
+<p>Le schéma ci-dessous illustre les étapes et le mécanisme de connexion d’un utilisateur à une application VITAMUI, via un service d’authentification unique basé sur le protocole SAML. La liste numérotée qui suit le diagramme revient en détail sur chacune des étapes.</p>
+<p>Connexion à VITAMUI via une délégation d’authentification en SAML v2</p>
+<p><img alt="Délégation SAML CAS" src="../_images/dat_cas_3.png" /></p>
+<p>L’utilisateur tente d’accéder à une application VITAMUI hébergée</p>
+<ol class="arabic simple">
+<li><p>VITAMUI génère une demande d’authentification SAML, qui est encodée et intégrée dans l’URL associée au service d’authentification unique (SSO) de l’IDP de l’organisation cliente. Le paramètre RelayState, qui contient l’URL encodée de l’application VITAMUI à laquelle tente d’accéder l’utilisateur, est également incorporé dans l’URL d’authentification unique. Il constitue un identificateur opaque qui sera par la suite renvoyé au navigateur de l’utilisateur sans modification ni vérification.</p></li>
+<li><p>VITAMUI envoie une URL de redirection au navigateur de l’utilisateur. Cette URL inclut la demande d’authentification SAML encodée qui doit être envoyée au service d’authentification unique de l’organisation cliente.</p></li>
+<li><p>L’IDP de l’organisation cliente décode la demande SAML et en extrait l’URL du service ACS (Assertion Consumer Service) de VITAMUI et de la destination de l’utilisateur (paramètre RelayState). Il authentifie ensuite l’utilisateur, soit en l’invitant à saisir ses identifiants de connexion, soit en vérifiant ses cookies de session.</p></li>
+<li><p>L’IDP de l’organisation cliente génère une réponse SAML contenant le nom de l’utilisateur authentifié. Conformément aux spécifications SAML 2.0, cette réponse contient les signatures numériques des clés DSA/RSA publiques et privées du de l’organisation cliente.</p></li>
+<li><p>L’IDP de l’organisation cliente encode la réponse SAML et le paramètre RelayState avant de les renvoyer au navigateur de l’utilisateur. Il fournit le mécanisme permettant au navigateur de transmettre ces informations au service ACS de VITAMUI. Par exemple, il peut incorporer la réponse SAML et l’URL de destination dans un formulaire, qui inclut un script JavaScript sur la page qui se charge alors d’envoyer automatiquement le formulaire à VITAMUI.</p></li>
+<li><p>Le service ACS de VITAMUI vérifie la réponse SAML à l’aide de la clé publique du de l’organisation cliente. Si la réponse est validée, l’utilisateur est redirigé vers l’URL de destination.</p></li>
+</ol>
+<p>L’utilisateur est redirigé vers l’URL de destination. Il est désormais connecté à VITAMUI.</p>
+</section>
+<section id="securisation-de-cas">
+<h3><span class="section-number">3.6.8. </span>Sécurisation de CAS<a class="headerlink" href="#securisation-de-cas" title="Lien permanent vers cette rubrique"></a></h3>
+<p>En production, le serveur CAS sera composé de plusieurs noeuds. Il est nécessaire d’activer la sécurité et de configurer :</p>
+<ul class="simple">
+<li><p>une définition de services (dans MongoDB) propres aux URLs de production</p></li>
+<li><p>une configuration Hazelcast adéquate (stockage des sessions SSO).</p></li>
+</ul>
+<section id="configuration-des-proprietes-de-securite">
+<h4><span class="section-number">3.6.8.1. </span>Configuration des propriétés de sécurité<a class="headerlink" href="#configuration-des-proprietes-de-securite" title="Lien permanent vers cette rubrique"></a></h4>
+<p>La configuration de CAS se trouve dans le fichier YAML applicatif (en développement : cas-server-application-dev.yml). Elle concerne d’abord les trois propriétés suivantes :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.tgc.secure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># cookie de session SSO en HTTPS</span><span class="w"></span>
+<span class="nt">cas.tgc.crypto.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># cryptage / signature du cookie SSO</span><span class="w"></span>
+<span class="nt">cas.webflow.crypto.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># cryptage / signature du webflow</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>En production, il est absolument nécessaire que ces trois propriétés soient à <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</div></blockquote>
+<p>Pour la propriété <code class="docutils literal notranslate"><span class="pre">cas.tgc.crypto.enabled:</span> <span class="pre">true</span></code>, il faut définir la clé de cryptage et de signature via les propriétés suivantes :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.tgc.crypto.encryption.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de cryptage (ex. Jq-ZSJXTtrQ...)</span><span class="w"></span>
+<span class="nt">cas.tgc.crypto.signing.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de signature (ex. Qoc3V8oyK98a2Dr6...)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Pour la propriété <code class="docutils literal notranslate"><span class="pre">cas.webflow.crypto.enabled:</span> <span class="pre">true</span></code>, il faut définir la clé de cryptage et de signature via les propriétés suivantes :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.webflow.crypto.encryption.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de cryptage</span><span class="w"></span>
+<span class="nt">cas.webflow.crypto.signing.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de signature</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Si aucune clé n’est définie, le serveur CAS va les créer lui-même, ce qui ne fonctionnera pas car les clés générées seront différentes sur chaque noeud.</p>
+<p>En outre, pour la délégation d’authentification et la gestion du mot de passe, il existe deux propriétés qui sont déjà à true, mais pour lesquelles aucune clé n’a été définie :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.authn.pac4j.cookie.crypto.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chiffrement &amp; signature pour la délégation d’authentification</span><span class="w"></span>
+<span class="nt">cas.authn.pm.reset.crypto.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chiffrement &amp; signature pour la gestion du mot de passe.</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Pour la délégation d’authentification, il faut définir la clé de cryptage et de signature via les propriétés suivantes :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.authn.pac4j.cookie.crypto.encryption.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de cryptage</span><span class="w"></span>
+<span class="nt">cas.authn.pac4j.cookie.crypto.signing.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de signature</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Pour la gestion du mot de passe, il faut définir la clé de cryptage et de signature via les propriétés suivantes :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.authn.pm.reset.crypto.encryption.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de cryptage</span><span class="w"></span>
+<span class="nt">cas.authn.pm.reset.crypto.signing.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clé de signature</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="suppression-des-acces-aux-urls-d-auto-administration">
+<h4><span class="section-number">3.6.8.2. </span>Suppression des accès aux URLs d’auto-administration<a class="headerlink" href="#suppression-des-acces-aux-urls-d-auto-administration" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Les URLs d’auto-administration du CAS doivent être désactivées. La configuration suivante doit être appliquée :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.adminPagesSecurity.ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xx.xx.xx.xx</span><span class="w"></span>
+<span class="nt">cas.monitor.endpoints.sensitive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="nt">cas.monitor.endpoints.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">endpoints.sensitive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="nt">endpoints.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">management.security.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Cette dernière configuration est sans importance du moment que l’URL /status du serveur CAS n’est pas mappée en externe.</p>
+</section>
+</section>
+<section id="definition-des-services-supportes">
+<h3><span class="section-number">3.6.9. </span>Définition des services supportés<a class="headerlink" href="#definition-des-services-supportes" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Il est nécessaire de fournir lors du déploiement de la solution VITAMUI, la liste des services autorisés à interagir avec CAS en tant que Service Provider. Cette liste permet à CAS de s’assuer que le service est connu avant d’effectuer le callback. La liste des services est stockée lors du déploiement dans la base MongoDB de VITAM UI est accessible uniqument par CAS.</p>
+</section>
+<section id="configuration-hazelcast">
+<h3><span class="section-number">3.6.10. </span>Configuration Hazelcast<a class="headerlink" href="#configuration-hazelcast" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Par défaut, les noeuds Hazelcast s’auto-découvrent et les tickets sont partitionnés entre tous les noeuds et chaque ticket a un backup. Il est néanmoins possible de configurer dans CAS des propriétés permettant d’affiner le réglage d’Hazelcast :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.ticket.registry.hazelcast.cluster.members</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123.456.789.000,123.456.789.001</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.instanceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5701</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ci-dessous sont listées des propriétés permettant une gestion avancée d’Hazelcast :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.ticket.registry.hazelcast.cluster.tcpipEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.partitionMemberGroupType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HOST_AWARE|CUSTOM|PER_MEMBER|ZONE_AWARE|SPI</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.evictionPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LRU</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.maxNoHeartbeatSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.loggingType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">slf4j</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.portAutoIncrement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.maxHeapSizePercentage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.backupCount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.asyncBackupCount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.maxSizePolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USED_HEAP_PERCENTAGE</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Multicast Discovery :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cas.ticket.registry.hazelcast.cluster.multicastTrustedInterfaces</span><span class="p">:</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.multicastEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.multicastPort</span><span class="p">:</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.multicastGroup</span><span class="p">:</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.multicastTimeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<span class="nt">cas.ticket.registry.hazelcast.cluster.multicastTimeToLive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span><span class="w"></span>
+</pre></div>
+</div>
+<p>La documentation pour la génération des clés pour le cluster CAS est disponible <a class="reference external" href="https://dacurry-tns.github.io/deploying-apereo-cas/building_server_configure-server-properties.html#configure-ticket-granting-cookie-encryption">ici</a>.</p>
+</section>
+<section id="fonctionnalites">
+<h3><span class="section-number">3.6.11. </span>Fonctionnalités<a class="headerlink" href="#fonctionnalites" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le serveur CAS VITAMUI est construit sur le serveur CAS Open Source v6.1.x via un mécanisme d’overlay Maven.</p>
+<p>Les beans Spring sont chargés via les classes <code class="docutils literal notranslate"><span class="pre">AppConfig</span></code> et <code class="docutils literal notranslate"><span class="pre">WebflowConfig</span></code> déclarées par le fichier <code class="docutils literal notranslate"><span class="pre">src/main/resources/META-INF/spring.factories</span></code>.</p>
+<p>Les propriétés spécifiques au client IAM sont mappées en Java via le bean <code class="docutils literal notranslate"><span class="pre">IamClientConfigurationProperties</span></code>.</p>
+<p>La configuration est située dans le répertoire <code class="docutils literal notranslate"><span class="pre">src/main/config</span></code> et dans les fichiers <code class="docutils literal notranslate"><span class="pre">src/main/resources/application.properties</span></code> et <code class="docutils literal notranslate"><span class="pre">src/main/resources/bootstrap.properties</span></code>.</p>
+<p>Une bannière custom est affichée au lancement (<code class="docutils literal notranslate"><span class="pre">CasEmbeddedContainerUtils</span></code>).</p>
+<p>Le serveur CAS VITAMUI contient les fonctionnalités suivantes :</p>
+<section id="utilisation-de-mongodb">
+<h4><span class="section-number">3.6.11.1. </span>Utilisation de MongoDB<a class="headerlink" href="#utilisation-de-mongodb" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Les applications autorisées à s’authentifier sur le serveur CAS sont définies dans une base de données MongoDB.</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-mongo-service-registry</span></code>.</p>
+</section>
+<section id="utilisation-d-hazelcast">
+<h4><span class="section-number">3.6.11.2. </span>Utilisation d’Hazelcast<a class="headerlink" href="#utilisation-d-hazelcast" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Les informations nécessaires durant les sessions SSO sont stockées dans Hazelcast.</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-hazelcast-ticket-registry</span></code>.</p>
+</section>
+<section id="authentification-login-mot-de-passe">
+<h4><span class="section-number">3.6.11.3. </span>Authentification login/mot de passe<a class="headerlink" href="#authentification-login-mot-de-passe" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le <code class="docutils literal notranslate"><span class="pre">UserAuthenticationHandler</span></code> vérifie les credentials de l’utilisateur auprès de l’API IAM et le <code class="docutils literal notranslate"><span class="pre">UserPrincipalResolver</span></code> crée le profil utilisateur authentifié à partir des informations récupérées via l’API IAM.</p>
+<p>Après avoir saisi son identifiant (classe <code class="docutils literal notranslate"><span class="pre">DispatcherAction</span></code>):</p>
+<ul class="simple">
+<li><p>si l’utilisateur ou son subrogateur est inactif, il est envoyé vers une page dédiée (<code class="docutils literal notranslate"><span class="pre">casAccountDisabledView</span></code>)</p></li>
+<li><p>si aucun fournisseur d’identité n’est trouvé pour l’utilisateur, il est envoyé vers une page dédiée (<code class="docutils literal notranslate"><span class="pre">casAccountBadConfigurationView</span></code>).</p></li>
+</ul>
+</section>
+<section id="delegation-d-authentification">
+<h4><span class="section-number">3.6.11.4. </span>Délégation d’authentification<a class="headerlink" href="#delegation-d-authentification" title="Lien permanent vers cette rubrique"></a></h4>
+<p>L’authentification peut être déléguée à un serveur SAML externe.</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-pac4j-webflow</span></code>.</p>
+<p>Le flow d’authentification a été modifié (classe <code class="docutils literal notranslate"><span class="pre">CustomLoginWebflowConfigurer</span></code>) pour se dérouler en deux étapes :</p>
+<ul class="simple">
+<li><p>saisie de l’identifiant</p></li>
+<li><p>saisie du mot de passe (<code class="docutils literal notranslate"><span class="pre">src/main/resources/templates/casPwdView.html</span></code>) ou redirection vers le serveur SAML externe pour authentification. Cela est géré par l’action <code class="docutils literal notranslate"><span class="pre">DispatcherAction</span></code>.</p></li>
+</ul>
+<p>Cette délégation d’authentification peut être faite de manière transparente si le paramètre <code class="docutils literal notranslate"><span class="pre">idp</span></code> est présent (il est sauvé dans un cookie de session pour mémorisation).
+Cela est gérée par la classe <code class="docutils literal notranslate"><span class="pre">CustomDelegatedClientAuthenticationAction</span></code>.</p>
+</section>
+<section id="subrogation">
+<h4><span class="section-number">3.6.11.5. </span>Subrogation<a class="headerlink" href="#subrogation" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Un utilisateur peut subroger un utilisateur authentifié (« il se fait passer pour lui »).</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-surrogate-webflow</span></code>.</p>
+<p>La subrogation est gérée par CAS avec un identifiant contenant à la fois l’identifiant de l’utilisateur et le subrogateur séparé par une virgule.</p>
+<p>Pour permettre un affichage séparé des deux informations, elles sont découpées en avance dans les classes <code class="docutils literal notranslate"><span class="pre">CustomDelegatedClientAuthenticationAction</span></code> et <code class="docutils literal notranslate"><span class="pre">DispatcherAction</span></code>.</p>
+<p>Pour gérer correctement la subrogation lors d’une délégation d’authentification, le subrogé est sauvegardé en fin d’authentification (<code class="docutils literal notranslate"><span class="pre">DelegatedSurrogateAuthenticationPostProcessor</span></code>).</p>
+<p>Le droit de subroger est vérifié auprès de l’API IAM (<code class="docutils literal notranslate"><span class="pre">IamSurrogateAuthenticationService</span></code>).</p>
+<p>Le temps de session SSO est allongée dans le cas d’une subrogation générique (<code class="docutils literal notranslate"><span class="pre">DynamicTicketGrantingTicketFactory</span></code>).</p>
+</section>
+<section id="interface-graphique-customisee">
+<h4><span class="section-number">3.6.11.6. </span>Interface graphique customisée<a class="headerlink" href="#interface-graphique-customisee" title="Lien permanent vers cette rubrique"></a></h4>
+<p>L’interface graphique du serveur CAS est adapté au graphisme de VITAMUI.</p>
+<p>Les pages HTML modifiées sont dans le répertoire <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code> et les ressources statiques (JS, CSS, images) sont dans le répertoire <code class="docutils literal notranslate"><span class="pre">src/main/resources/static</span></code>.</p>
+<p>Les messages customisés sont dans les fichiers <code class="docutils literal notranslate"><span class="pre">overriden_messages*.properties</span></code> (dans <code class="docutils literal notranslate"><span class="pre">src/main/resources</span></code>).</p>
+<p>Les bons logos à afficher sont calculés via les actions <code class="docutils literal notranslate"><span class="pre">CustomInitialFlowSetupAction</span></code> (login) et <code class="docutils literal notranslate"><span class="pre">GeneralTerminateSessionAction</span></code> (logout).</p>
+<p>Après une authentification réussie, une page « connexion sécurisée » est affichée avant de rediriger sur l’application demandée. Cela est gérée par l’action : <code class="docutils literal notranslate"><span class="pre">SelectRedirectAction</span></code>.</p>
+</section>
+<section id="double-facteur-sms">
+<h4><span class="section-number">3.6.11.7. </span>Double facteur SMS<a class="headerlink" href="#double-facteur-sms" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Dans certains cas, l’authentification nécessite un second facteur sous forme de token reçu par SMS à re-saisir dans l’IHM.</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-simple-mfa</span></code>.</p>
+<p>Un webflow spécifique est géré dans <code class="docutils literal notranslate"><span class="pre">src/main/resources/webflow/mfa-simple/mfa-simple-custom-webflow.xml</span></code> pour gérer le cas où l’utilisateur n’a pas de téléphone (<code class="docutils literal notranslate"><span class="pre">casSmsMissingPhoneView</span></code>, classe <code class="docutils literal notranslate"><span class="pre">CustomSendTokenAction</span></code>), le cas du code expiré (<code class="docutils literal notranslate"><span class="pre">casSmsCodeExpiredView</span></code>, classe <code class="docutils literal notranslate"><span class="pre">CheckMfaTokenAction</span></code>) et le fait que le token n’a pas de format CAS spécifique (« CASMFA-« ).</p>
+</section>
+<section id="gestion-du-mot-de-passe">
+<h4><span class="section-number">3.6.11.8. </span>Gestion du mot de passe<a class="headerlink" href="#gestion-du-mot-de-passe" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le serveur CAS permet également de réinitialiser ou de changer son mot de passe.</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-pm-webflow</span></code>.</p>
+<p>Le changement de mot de passe est effectué auprès de l’API IAM grâce à la classe <code class="docutils literal notranslate"><span class="pre">IamPasswordManagementService</span></code>.</p>
+<p>Les emails envoyés lors de la réinitialisation du mot de passe sont internationalisés grâce aux classes <code class="docutils literal notranslate"><span class="pre">PmMessageToSend</span></code> et <code class="docutils literal notranslate"><span class="pre">I18NSendPasswordResetInstructionsAction</span></code>.</p>
+<p>Ils sont aussi différents suivant le type d’évènement : réinitialisation standard ou création de compte. Tout comme le temps d’expiration (classe <code class="docutils literal notranslate"><span class="pre">PmTransientSessionTicketExpirationPolicyBuilder</span></code>).</p>
+<p>Une API REST dans CAS permet de déclencher la réinitialisation du mot de passe : <code class="docutils literal notranslate"><span class="pre">ResetPasswordController</span></code>.</p>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">TriggerChangePasswordAction</span></code> permet de provoquer le changement de mot de l’utilisateur même s’il est déjà authentifié.</p>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">CustomVerifyPasswordResetRequestAction</span></code> gère proprement les demandes de réinit de mot de passe expirées.</p>
+<p>La durée de vie des tickets transient est réglée à 1 jour (classe <code class="docutils literal notranslate"><span class="pre">HazelcastTicketRegistryTicketCatalogConfiguration</span></code>) pour gérer les demandes de réinitialisation des mots de passe lors de la création d’un compte.</p>
+</section>
+<section id="support-serveur-oauth">
+<h4><span class="section-number">3.6.11.9. </span>Support serveur OAuth<a class="headerlink" href="#support-serveur-oauth" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le serveur CAS se comporte comme un serveur OAuth pour permettre la cinématique « Resource Owner Password flow ».</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-oauth-webflow</span></code>.</p>
+<p>L’utilisateur est authentifié via ses credentials et des credentials applicatifs et les access tokens OAuth générés sont le token d’authentification VITAM de l’utilisateur (classe <code class="docutils literal notranslate"><span class="pre">CustomOAuth20DefaultAccessTokenFactory</span></code>).</p>
+</section>
+<section id="deconnexion">
+<h4><span class="section-number">3.6.11.10. </span>Déconnexion<a class="headerlink" href="#deconnexion" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Pour éviter tout problème avec des sessions applicatives persistantes, la déconnexion détruit toutes les sessions applicatives dans le cas où aucune session SSO n’est trouvée (classe <code class="docutils literal notranslate"><span class="pre">GeneralTerminateSessionAction</span></code>).</p>
+</section>
+<section id="throttling">
+<h4><span class="section-number">3.6.11.11. </span>Throttling<a class="headerlink" href="#throttling" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le nombre de requêtes d’authentification accepté par le serveur CAS est limité.</p>
+<p>Cela est géré par la dépendance <code class="docutils literal notranslate"><span class="pre">cas-server-support-throttle</span></code>.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sessions-applicatives">
+<h2><span class="section-number">3.7. </span>Sessions applicatives<a class="headerlink" href="#sessions-applicatives" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="liste-des-sessions">
+<h3><span class="section-number">3.7.1. </span>Liste des sessions<a class="headerlink" href="#liste-des-sessions" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Il existe 4 sessions définies dans la solution VITAMUI :</p>
+<ul class="simple">
+<li><p>la session applicative Web (cookie JSESSIONID)</p></li>
+<li><p>la session des services API (token X-AUTH-TOKEN)</p></li>
+<li><p>la session applicative CAS (cookie JSESSIONID / Domaine CAS)</p></li>
+<li><p>la session de l’IDP SAML utilisé pour la délégation d’authentification</p></li>
+</ul>
+</section>
+<section id="sequence-de-creation-des-sessions">
+<h3><span class="section-number">3.7.2. </span>Séquence de création des sessions<a class="headerlink" href="#sequence-de-creation-des-sessions" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La séquence de création des sessions est liée à l’utisation du protocole CAS et à l’intégration des services API.
+Dans le processus de connexion, la création des sessions s’effectue dans l’ordre suivant :</p>
+<ol class="arabic">
+<li><p>création par l’application Web du cookie JSESSIONID</p></li>
+<li><p>création de la session SAML (dans le cas d’une délégation d’authentification)</p></li>
+<li><p>création dans CAS du cookie TGC</p></li>
+<li><p>création par CAS dans l’API VITAMUI du token API</p>
+<p>Schéma des sessions applicatives</p>
+</li>
+</ol>
+<p><img alt="Sessions Applicatives" src="../_images/dat_session_1.png" /></p>
+</section>
+<section id="session-applicative-web">
+<h3><span class="section-number">3.7.3. </span>Session applicative Web<a class="headerlink" href="#session-applicative-web" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La session applicative est portée par le cookie JSESSIONID créée dans l’application Web. Le cookie expire à l’issue du délai d’inactivité et sa durée de vie est réinitialisée à chaque utilisation. [A vérifier]</p>
+<p>Lorsque la session expire, le cookie est automatiquement recréé par l’application WEB et le client redirigé par un code HTTP 302 vers le service CAS.</p>
+<p>Si la session CAS (cookie TGC) a expiré, l’utilisateur doit se reloguer et les sessions CAS (TGC), services API (Token), et si nécessaire SAML, sont recréées. En revanche, si la session CAS est valide, l’utilisateur n’a pas besoin de se reloguer et est directement redirigé sur l’application Web. Dans ce dernier cas, la session des services est conservée et le token n’est pas recréé.</p>
+</section>
+<section id="session-des-services-api">
+<h3><span class="section-number">3.7.4. </span>Session des services API<a class="headerlink" href="#session-des-services-api" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La session des services API est porté par un token. Le token permet l’identification des utilisateurs dans les services API (external et internal) de VITAMUI. Le token expire à l’issue du délai d’inactivité et sa durée de vie est réinitialisée à chaque utilisation.</p>
+<p>Lors du processus d’authentification, le resolver de CAS extrait l’identité de l’utilisateur (de la réponse SAML en cas de délégation d’authentification) et appelle le service Identity de VITAMUI pour créer un token conservé dans la base mongoDB.</p>
+<p>Le token est fourni aux applications web, mais n’est pas visible dans le navigateur web du client car il est conservé dans la session applicative (JSESSIONID) de l’utilisateur. Dans chaque requête vers les services, le header X-Auth-Token est positionné avec la valeur du token. Avant d’accpter la requête, le service contrôle l’existence du header précédent et vérifie que le token est toujours valide.</p>
+<p>Lorsque le token a expiré, les services API génèrent une erreur 401 transmis aux applications web. Lors de la réception d’une erreur 401, l’application web invalide la session applicative (JSESSIONID) concernée, puis effectue une redirection vers le logout CAS (afin de détruire le TGC et la session SAML). L’utilisateur doit obligatoirement se reconnecter pour utiliser à nouveau l’application.</p>
+</section>
+<section id="session-cas">
+<h3><span class="section-number">3.7.5. </span>Session CAS<a class="headerlink" href="#session-cas" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La session CAS est portée par un cookie Ticket-Granting Cookie ou TGC. Le TGC est le cookie de session transmis par le serveur CAS au navigateur du client lors de la phase de login. Ce cookie ne peut être lu ou écrit que par le serveur CAS, sur canal sécurisé (HTTPS). Lors du processus d’authentification, le resolver de CAS extrait l’identité de l’utilisateur (de la réponse SAML en cas de délégation), crée le cookie TGC et un ticket dans l’URL puis stocke ces informations dans le cache HazelCast.</p>
+<p>[À vérifier]
+En cas de délégation d’authentification, si la session CAS a expiré (TGC invalide)</p>
+<ul class="simple">
+<li><p>l’utilisateur doit se reconnecter si la session SAML a expiré</p></li>
+<li><p>sinon CAS recrée automatiquement le TGC et le token</p></li>
+</ul>
+<p>Sans délégation d’authentification, l’utilisateur doit se reconnecter systématiquement pour que CAS puisse recréer le TGC et le token.</p>
+</section>
+<section id="session-des-idp">
+<h3><span class="section-number">3.7.6. </span>Session des IDP<a class="headerlink" href="#session-des-idp" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La session de l’IDP (Identiy Provider) est propre à chaque IDP SAML. Il existe néanmoins un délai maximum dans CAS pour accepter la délégation d’authentification d’un IDP SAML.</p>
+<p>L’utilisateur doit obligatoirement se reconnecter si la session SAML a expiré.</p>
+</section>
+<section id="expiration-et-cloture-des-sessions">
+<h3><span class="section-number">3.7.7. </span>Expiration et clôture des sessions<a class="headerlink" href="#expiration-et-cloture-des-sessions" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Il existe deux politiques d’expiration possibles :</p>
+<ul class="simple">
+<li><p>expiration de session par délai d’inactivité : la session expire si aucune action n’est faite (par l’utilisateur) au bout du délai d’inactivité (session Token)</p></li>
+<li><p>expiration de session par délai maximum : la session expire au bout du délai maximum depuis la date de création, quelque soit les actions faites par l’utilisateur (Sessions Applicatives &amp; CAS)</p></li>
+</ul>
+<p>À l’expiration de la session CAS, toutes les sessions applicatives sont supprimées. [Quid du token ?] Les sessions applicatives sont détruites via une redirection dans le navigateur. [À Préciser le fonctionnement via le navigateur vs certificats]</p>
+<p>Le logout d’une application web invalide la session applicative concernée, puis effectue une redirection vers le logout CAS afin de détruire la session CAS (destruction du TGC), la session API (destruction du token) et la session SAML. [à confirmer]</p>
+<p>Après un logout, l’utilisateur doit obligatoirement se reconnecter pour utiliser à nouveau l’application.</p>
+</section>
+<section id="parametrages-des-sessions">
+<h3><span class="section-number">3.7.8. </span>Paramétrages des sessions<a class="headerlink" href="#parametrages-des-sessions" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Toutes ces valeurs sont paramétrables dans l’instance de la solution.</p>
+<p>Compte principal : [à confirmer]</p>
+<ul class="simple">
+<li><p>la session applicative JSESSIONID : 15 minutes (délai d’inactivité) :</p></li>
+<li><p>la session du token : 165 minutes (délai maximum) :</p></li>
+<li><p>la session CAS TGC : 170 minutes (délai maximum) :</p></li>
+<li><p>délai maximum dans CAS pour accepter la délégation d’authentification : 14 jours (délai maximum)</p></li>
+</ul>
+<p>Dans le cas de la subrogation, on a : [à confirmer]</p>
+<ul class="simple">
+<li><p>la session applicative JSESSIONID : 15 minutes (délai d’inactivité) :</p></li>
+<li><p>la session du token : 165 minutes (délai maximum) :</p></li>
+<li><p>la session CAS TGC : 170 minutes (délai maximum) :</p></li>
+<li><p>délai maximum dans CAS pour accepter la délégation d’authentification : 14 jours (délai maximum)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="profils-et-roles">
+<h2><span class="section-number">3.8. </span>Profils et rôles<a class="headerlink" href="#profils-et-roles" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="groupe-de-profils">
+<h3><span class="section-number">3.8.1. </span>Groupe de profils<a class="headerlink" href="#groupe-de-profils" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Un groupe de profils contient (entre autres) les informations suivantes :</p>
+<ul class="simple">
+<li><p>liste de profils</p></li>
+<li><p>niveau</p></li>
+</ul>
+<p>Un groupe de profils est rattaché à un utilisateur, lui-même rattaché à une organisation. Un groupe de profil peut contenir des profils avec des tenants différents. Pour un tenant donné, un groupe de profil ne peut contenir qu’un seul profil d’une même APP.</p>
+</section>
+<section id="profils">
+<h3><span class="section-number">3.8.2. </span>Profils<a class="headerlink" href="#profils" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le profil contient (entre autres) les informations suivantes :</p>
+<ul class="simple">
+<li><p>tenant</p></li>
+<li><p>liste de rôles</p></li>
+<li><p>niveau</p></li>
+<li><p>APP</p></li>
+</ul>
+<p>Un profil contient un seul et unique tenant.</p>
+<p>L’APP permet d’autoriser l’affichage d’une application dans le portail.  Le fait de pouvoir afficher l’application dans le portail ne préjuge pas des droits qui sont nécessaires au bon fonctionnement de l’application.</p>
+<p>Un profil est modifiable uniquement par un utilisateur possédant un rôle autorisant la modification de profil et qui possède un niveau supérieur à celui du niveau du profil concerné.</p>
+<p>Un profil ne peut être rattaché qu’à un groupe de profils de même niveau.</p>
+<p>Dans une instance VITAMUI partagée, il convient de limiter les droits des administrateurs d’une organisation afin qu’ils ne puissent pas réaliser certains actions sur des ressources sensibles. (ie. customer, idp, tenant, etc.). Les profils créés à l’initialisation d’une nouvelle organisation ne doivent donc jamais comporter certains rôles (gestion des organisations, idp, tenants, etc. ) afin d’interdire à l’administrateur d’une organisation d’utiliser ou de créer de nouveaux profils avec ces rôles pour réaliser des opérations multi-tenants.</p>
+<p>Généralement l’administrateur de l’instance possède tous les droits (et donc tous les rôles).</p>
+</section>
+<section id="roles">
+<h3><span class="section-number">3.8.3. </span>Rôles<a class="headerlink" href="#roles" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Le rôle constitue la granularité la plus fine dans le système de gestion des droits. Un rôle donne des droits d’accès à des endpoints (API) correspondants à des services. Un rôle peut être affecté à un ou plusieurs profils. Dans l’implémentation VITAMUI, l’accès à un endpoint est contrôlé par l’annotation &#64;Secured. Il existe des rôles (dénommés sous-rôles) qui donnent accès à des fonctions protégées du service. Ces “sous-rôles” sont généralement contrôlés dans le corps de la méthode par le contexte de sécurité.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nd">@Secured</span><span class="p">(</span><span class="n">ROLE_CREATE_XXX</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MyDto</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">MyDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">SecurityContext</span><span class="p">.</span><span class="na">hasRole</span><span class="p">(</span><span class="n">ROLE_CREATE_XXX_YYY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">setProperty</span><span class="p">(...)</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">HTTP</span><span class="mf">.403</span><span class="w"> </span><span class="p">;.</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus :</p>
+<ul class="simple">
+<li><p>ROLE_CREATE_XXX est un rôle qui donne accès au service create</p></li>
+<li><p>ROLE_CREATE_XXX_YYY est un sous-rôle, utilisé dans le corps de la méthode, qui donne accès à une fonctionnalité spécifique de la méthode.</p></li>
+</ul>
+</section>
+<section id="niveaux">
+<h3><span class="section-number">3.8.4. </span>Niveaux<a class="headerlink" href="#niveaux" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Dans une organisation, la gestion des utilisateurs, des profils et groupe de profils repose sur le principe de la filière unidirectionnelle d’autorité étendue. Elle donne autorité au manageur sur les ressources d’une entité. Plusieurs manageurs peuvent avoir autorité sur une même entité. Un manageur n’a jamais autorité sur l’entité à laquelle il appartient. Il existe cependant un manageur administrateur qui a autorité sur toutes les ressources de toutes les entités.</p>
+<p>Schéma de l’arbre de niveaux :</p>
+<p><img alt="Arbre des niveaux" src="../_images/dat_level.png" /></p>
+<ul class="simple">
+<li><p>Une entité dispose d’un niveau représenté par une chaîne de caractère</p></li>
+<li><p>Une ressource est un objet (user, group, profile, etc.) appartenant à une entité</p></li>
+<li><p>Le manageur est un utilisateur qui a autorité sur des entités et leurs ressources associées</p></li>
+</ul>
+<p>Ex. niveau : « World.France.DSI.Infra »</p>
+<ul class="simple">
+<li><p>World : entité racine - le niveau est vide (ou zéro). Le manageur World a autorité sur toutes les entités de l’arbre (dont lui-même)</p></li>
+<li><p>France : entité enfant de World - La manageur France a autorité sur les entités DSI et Infra</p></li>
+<li><p>DSI : entité enfant de France - La manageur DSI a autorité sur l’entité Infra</p></li>
+<li><p>Infra : entité enfant de DSI - La manageur Infra n’a autorité sur rien</p></li>
+</ul>
+<p>Un utilisateur :</p>
+<ul class="simple">
+<li><p>manageur d’une ressource possède un niveau supérieur à celui de la ressource</p></li>
+<li><p>peut lister, modifier &amp; supprimer une ressource dont il est le manageur</p></li>
+<li><p>peut créer une ressource dans une entité dont il est le manageur</p></li>
+<li><p>ne peut pas effectuer une action sur une ressource dont il n’est pas manageur</p></li>
+<li><p>ne peut pas effectuer des actions s’il ne dispose pas des rôles associés à ces actions</p></li>
+<li><p>ne peut pas affecter à un profil des rôles dont il ne dispose pas (cf. gestion des profils)</p></li>
+</ul>
+<p>Un utilisateur avec un niveau vide (administrateur) :</p>
+<ul class="simple">
+<li><p>peut uniquement effectuer les actions associées aux rôles qu’il possède</p></li>
+<li><p>peut créer un profil ou un groupe de profils de niveau vide (admin)</p></li>
+<li><p>peut modifier ses ressources</p></li>
+<li><p>ne peut pas ajouter à un profil un rôle dont il ne dispose pas</p></li>
+</ul>
+<p>Un administrateur d’une organisation possède donc des droits limités aux rôles qui ont été affectés à l’initialisation du système. Il ne peut pas par exemple créer une nouvelle organisation, si ce rôle ne lui pas été donné à l’origine. D’autre part, les droits de l’administrateur restent également limités par les droits associés à ceux du contexte de sécurité de l’application qu’il utilise.</p>
+<ul class="simple">
+<li><p>un profil ou un groupe de profils ne peuvent être supprimés que s’ils ne sont plus utilisés</p></li>
+<li><p>un profil avec un niveau ne peut être rattaché qu’à un groupe de même niveau.</p></li>
+</ul>
+</section>
+<section id="matrice-des-droits">
+<h3><span class="section-number">3.8.5. </span>Matrice des droits<a class="headerlink" href="#matrice-des-droits" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Les tableaux ci-dessous indiquent les droits d’un utilisateur en fonction du niveau de la ressource cible.</p>
+<ul>
+<li><p>Matrice des droits d’un utilisateur de niveau N pour réaliser des actions sur un utilisateur de niveau cible N+1, N, N-1 :</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Niveau cible</p></th>
+<th class="head"><p>N+1</p></th>
+<th class="head"><p>N</p></th>
+<th class="head"><p>N-1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Créer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modifier</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Lire</p></td>
+<td><p>Non</p></td>
+<td><p>Oui (1)</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Supprimer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui (2)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Oui(1) : oui mais uniquement s’il s’agit de lui-même
+Oui(2) : en théorie, car il est n’est pas possible de supprimer un utilisateur</p>
+</li>
+<li><p>Matrice des droits d’un utilisateur de niveau N pour réaliser des actions sur un profil de niveau cible N+1, N, N-1 :</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Niveau cible</p></th>
+<th class="head"><p>N+1</p></th>
+<th class="head"><p>N</p></th>
+<th class="head"><p>N-1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Créer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modifier</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Lire</p></td>
+<td><p>Non</p></td>
+<td><p>Oui (1)</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Attribuer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Supprimer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+</tbody>
+</table>
+<p>Oui(1) : oui mais uniquement si le profil est présent dans son groupe de profils
+Lors de la modification du niveau du profil. Il faut vérifier qu’il n’est associé à aucun groupe.
+L’utilisateur ne peut affecter à un profil que les rôles et un tenant qu’il possède.</p>
+</li>
+<li><p>Matrice des droits d’un utilisateur de niveau N pour réaliser des actions sur un groupe de profils de niveau cible N+1, N, N-1 :</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Niveau cible</p></th>
+<th class="head"><p>N+1</p></th>
+<th class="head"><p>N</p></th>
+<th class="head"><p>N-1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Créer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modifier</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Lire</p></td>
+<td><p>Non</p></td>
+<td><p>Oui (1)</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Attribuer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Supprimer</p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Oui</p></td>
+</tr>
+</tbody>
+</table>
+<p>Oui(1) : oui mais uniquement s’il s’agit de son groupe.
+Lors de la modification du niveau d’un groupe, il faut vérifier qu’il n’a pas de profils.</p>
+</li>
+<li><p>Matrice des droits d’un administrateur de niveau racine (niveau vide) pour réaliser des actions sur une ressource de niveau cible N+1, N, N-1 :</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Niveau cible</p></th>
+<th class="head"><p>N+1</p></th>
+<th class="head"><p>N</p></th>
+<th class="head"><p>N-1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Créer</p></td>
+<td><p>-</p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modifier</p></td>
+<td><p>-</p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Lire</p></td>
+<td><p>-</p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Attribuer</p></td>
+<td><p>-</p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-even"><td><p>Supprimer</p></td>
+<td><p>-</p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+</tbody>
+</table>
+<p>Un administrateur ne peut pas affecter à un profil des rôles qui ne sont pas autorisés dans son organisation.</p>
+</li>
+</ul>
+</section>
+<section id="securisation-des-ressources">
+<h3><span class="section-number">3.8.6. </span>Sécurisation des ressources<a class="headerlink" href="#securisation-des-ressources" title="Lien permanent vers cette rubrique"></a></h3>
+<section id="verification-generale">
+<h4><span class="section-number">3.8.6.1. </span>Vérification générale<a class="headerlink" href="#verification-generale" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le processus de sécurisation des ressources est systématique et identique quel que soit l’utilisateur appelant la ressource. Ce processus, implémenté dans Spring Security, est essentiel car il permet de s’assurer qu’un utilisateur ne sorte jamais de son tenant. Ce processus de sécurisation est réalisé sur les accès aux ressources des services externals.</p>
+<p>Les étapes du processus de sécurisation sont les suivantes :</p>
+<ol class="arabic simple">
+<li><p>récupérer l’utilisateur associé au token utilisateur fourni dans le header</p></li>
+<li><p>vérifier que l’organisation de l’utilisateur possède le tenant fourni dans le header</p></li>
+<li><p>vérifier que l’utilisateur possède un profil avec le tenant fourni dans le header</p></li>
+<li><p>trouver le contexte applicatif par rapport au certificat x509 fourni dans la requête</p></li>
+<li><p>vérifier que le contexte applicatif autorise le tenant fourni dans le header</p></li>
+<li><p>créer un contexte de sécurité utilisateur qui correspond au tenant fourni dans le header et à l’intersection des rôles des profils de l’utilisateur et ceux du contexte applicatif</p></li>
+<li><p>vérifier que les rôles du contexte de sécurité de l’utilisateur autorisent l’utilisateur authentifié à appeler la ressource</p></li>
+</ol>
+<p>Si la ressource n’est pas accessible, une erreur 403 est retournée</p>
+</section>
+<section id="verification-des-sous-roles">
+<h4><span class="section-number">3.8.6.2. </span>Vérification des sous-rôles<a class="headerlink" href="#verification-des-sous-roles" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Cette étape correspond à la vérification des sous-rôles dans le service appelé. Un sous-rôle donne accès à une fonction ou à un périmètre spécifique du service.</p>
+<p>Exemple : Un utilisateur RH a le droit de modifier un autre utilisateur sauf son email (qui est sécurisé).</p>
+<ul class="simple">
+<li><p>L’utilisateur RH possède donc un rôle UPDATE_USER qui lui donne accès à l’API et au service de mise à jour globale des utilisateurs</p></li>
+<li><p>L’utilisateur RH ne possède pas le rôle UPDATE_USER_EMAIL qui permettrait de modifier l’email</p></li>
+</ul>
+<p>La vérification du rôle UPDATE_USER_EMAIL est réalisée dans le service de mise à jour de l’utilisateur.</p>
+</section>
+<section id="verification-du-tenant">
+<h4><span class="section-number">3.8.6.3. </span>Vérification du tenant<a class="headerlink" href="#verification-du-tenant" title="Lien permanent vers cette rubrique"></a></h4>
+<p>En règle générale, le tenant concerné par la requête est vérifié par le processus de vérification général. Il existe néanmoins des cas où le tenant est fourni en paramètre ou dans le corps de la requête.</p>
+<p>Dans ce cas, les étapes de sécurisation sont les suivantes :</p>
+<ul class="simple">
+<li><p>vérifier la validité du tenant dans le contexte de sécurité</p></li>
+<li><p>Si le tenant n’est pas valide, il faut éventuellement vérifier si l’utilisateur a le droit de réaliser une opération multi-tenant. Cette dernière vérification est implémentée grâce aux rôle et sous-rôles (cf. gestion des customer, des idp, des tenants, des profils, etc).</p></li>
+<li><p>Si le tenant n’est pas valide, une erreur 403 est retournée</p></li>
+</ul>
+<p>Cette implémentation permet ainsi de réaliser simplement des opérations multi-tenant en définissant des rôles appropriés. La solution VITAMUI fournit des services multi-tenant pour gérer les organisations, les fournisseurs d’identité, etc. Il est fondamental de limiter autant que possible l’utilisation de rôles muli-tenants. Il est en outre recommandé de borner l’usage des rôles multi-tenant à une zone protégée de l’infrastructure.</p>
+<p>L’ensemble des rôles autorisés dans une organisation sont définis à la création de cette organisation.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="profils-de-parametrage-externes">
+<h2><span class="section-number">3.9. </span>Profils de paramétrage externes<a class="headerlink" href="#profils-de-parametrage-externes" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="external-parameter-profile">
+<h3><span class="section-number">3.9.1. </span>External Parameter Profile<a class="headerlink" href="#external-parameter-profile" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Un profil de paramétrage externe est une entité fictive contenant les informations suivantes :</p>
+<ul class="simple">
+<li><p>le nom du profil (nom)</p></li>
+<li><p>la description du profil (description)</p></li>
+<li><p>le contrat d’accès associé (accessContract: voir external parameters)</p></li>
+<li><p>le statut du profil (enabled)</p></li>
+</ul>
+<p>Un profil de paramétrage externe permet d’associer un et unique profil à un contrat d’accès qui est lui même lié à un paramétrage externe (ExternalParameters).</p>
+</section>
+<section id="profil">
+<h3><span class="section-number">3.9.2. </span>Profil<a class="headerlink" href="#profil" title="Lien permanent vers cette rubrique"></a></h3>
+<p>voir <a class="reference external" href="#profils-et-roles">Profil et rôles</a></p>
+</section>
+<section id="external-parameters">
+<h3><span class="section-number">3.9.3. </span>External Parameters<a class="headerlink" href="#external-parameters" title="Lien permanent vers cette rubrique"></a></h3>
+<p>TODO voir section concernée.</p>
+</section>
+<section id="illustration">
+<h3><span class="section-number">3.9.4. </span>Illustration<a class="headerlink" href="#illustration" title="Lien permanent vers cette rubrique"></a></h3>
+<ul>
+<li><p>Données du profil</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60d06c74663b6f71e8459eb0168d408ea49743f8bc4f80f21f3eeb266ec90cca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;216&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test description profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tenantIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;applicationName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXTERNAL_PARAM_PROFILE_APP&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ROLE_CREATE_EXTERNAL_PARAM_PROFILE&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ROLE_EDIT_EXTERNAL_PARAM_PROFILE&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ROLE_SEARCH_EXTERNAL_PARAM_PROFILE&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;readonly&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;externalParamId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reference_identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;customerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system_customer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;profiles&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Données de l’external parameter</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60d06c73663b6f71e8459eae3ce591e616a1428bb086acd40c5c517eb8ccfda7&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reference_identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PARAM_ACCESS_CONTRACT&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ContratTNR&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;externalParameters&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Le profil de paramétrage externe provenant des deux données ci-dessus</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60d06c74663b6f71e8459eb0168d408ea49743f8bc4f80f21f3eeb266ec90cca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test description profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;accessContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ContratTNR&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;profileIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;216&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;idProfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60d06c74663b6f71e8459eb0168d408ea49743f8bc4f80f21f3eeb266ec90cca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;externalParamIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reference_identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;idExternalParam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60d06c73663b6f71e8459eae3ce591e616a1428bb086acd40c5c517eb8ccfda7&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-06-21T12:52:34.430803Z&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="evenement-lors-de-la-mise-a-jour">
+<h3><span class="section-number">3.9.5. </span>Événement lors de la mise à jour<a class="headerlink" href="#evenement-lors-de-la-mise-a-jour" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La mise à jour du profil de paramétrage externe peut générer jusqu’à trois événements de journalisation.</p>
+<p>Premier cas:</p>
+<ul class="simple">
+<li><p>Modification des données liées aux données du profil</p>
+<ul>
+<li><p>Dans ce cas de figure, on émet un événement de journal externe de type <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_PROFILE</span></code>.</p></li>
+<li><p>et un événement de modification du profil de paramétrage externe <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Deuxième cas:</p>
+<ul class="simple">
+<li><p>Modification des données liées à la donnée du paramétrage externe</p>
+<ul>
+<li><p>Dans ce cas de figure, on émet un événement de journal externe de type <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_EXTERNAL_PARAM</span></code>.</p></li>
+<li><p>et un événement de modification du profil de paramétrage externe <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Troisième cas:</p>
+<ul class="simple">
+<li><p>Modification des données liées aux données du profil et du paramétrage externe, dans ce cas de figure, on émet 3 événements de journalisation :</p>
+<ul>
+<li><p>événement de type <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_PROFILE</span></code>.</p></li>
+<li><p>événement de type <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_EXTERNAL_PARAM</span></code>.</p></li>
+<li><p>et un événement de modification du profil de paramétrage externe <code class="docutils literal notranslate"><span class="pre">EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Exemple de mise à jour de la description du profil:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aecaaaaaaghohlrwaan3ial2fyt7xnaaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tenantIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;accessContractLogbookIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC-000002&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;evType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;evTypeProc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXTERNAL_LOGBOOK&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;outcome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;outMessg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Le profil paramètrage externe a été modifié&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;outDetail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE.OK&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;evIdReq&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5043309c-c8d7-4bc9-bfcc-bd20852ce90e&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;evDateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-06-21T10:40:10.164438Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;obId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;216&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;obIdReq&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;externalparamprofile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;evDetData&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;diff\&quot;:{\&quot;-Description\&quot;:\&quot;test description profile\&quot;,\&quot;+Description\&quot;:\&quot;test description profile updated\&quot;}}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;evIdAppSession&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXTERNAL_PARAM_PROFILE_APP63597049221:5043309c-c8d7-4bc9-bfcc-bd20852ce90e:Contexte UI Identity:1:-:1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;creationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3960212756529822</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;events&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;synchronizedVitamDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-06-21T10:40:36.370328Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;vitamResponse&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;httpCode\&quot;:201,\&quot;code\&quot;:\&quot;\&quot;}&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="journalisation">
+<h2><span class="section-number">3.10. </span>Journalisation<a class="headerlink" href="#journalisation" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="objectifs">
+<h3><span class="section-number">3.10.1. </span>Objectifs<a class="headerlink" href="#objectifs" title="Lien permanent vers cette rubrique"></a></h3>
+<p>La journalisation des événements VITAMUI a pour objectifs :</p>
+<ul class="simple">
+<li><p>Conservation de la valeur probante : être en capacité de prouver toute opération effectuée sur toute unité archivistique ou tout objet qui lui est associé.</p></li>
+<li><p>La sécurité d’un SAE doit être systémique, c’est-à-dire reposer sur un faisceau d’éléments redondants dont la modification simultanée et cohérente est impossible, ou plus exactement non réalisable en pratique.</p></li>
+<li><p>Les journaux constituent un élément central de cette sécurité systémique
+Utilisation des journaux vitam NF Z42-013</p></li>
+</ul>
+<p><img alt="Journalisation" src="../_images/journalisation_architecture.png" /></p>
+</section>
+<section id="evenement">
+<h3><span class="section-number">3.10.2. </span>Événement<a class="headerlink" href="#evenement" title="Lien permanent vers cette rubrique"></a></h3>
+<section id="vitam">
+<h4><span class="section-number">3.10.2.1. </span>Vitam<a class="headerlink" href="#vitam" title="Lien permanent vers cette rubrique"></a></h4>
+<ul class="simple">
+<li><p>Un événement = Un événement Primaire (Primary) et ensemble de sous-événements secondaires (Secondary)</p>
+<ul>
+<li><p>Primary : événement initial</p>
+<ul>
+<li><p>les champs sont contrôlés par VITAM</p></li>
+<li><p>Marque le début de la transaction au sens VITAM</p></li>
+<li><p>L’heure de l’événement émise par VITAM (cohérence des journeaux)</p></li>
+</ul>
+</li>
+<li><p>Secondary : note un sous événement réalisé suite à l’action principale</p>
+<ul>
+<li><p>possède les mêmes champs que l’événement Master mais VITAM ne procède à aucun contrôle</p></li>
+<li><p>l’heure de l’événement est à l’appréciation du client</p></li>
+</ul>
+</li>
+<li><p>Fin de la transaction : le dernier sous événement doit posséder le même champ “eventType” que l’événement Master pour finir la transaction.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="vitamui">
+<h4><span class="section-number">3.10.2.2. </span>VITAMUI<a class="headerlink" href="#vitamui" title="Lien permanent vers cette rubrique"></a></h4>
+<ul class="simple">
+<li><p>Primaire et Secondaire =&gt; Un event VITAMUI (cf : <code class="docutils literal notranslate"><span class="pre">fr.gouv.vitamui.commons.logbook.domain.event</span></code>)</p></li>
+<li><p>Un appel REST =&gt; Une ou plusieurs opération métier =&gt; ensemble d’events =&gt; le premier sera l’événement primaire (Primary) et les suivants secondaires (Secondary)</p></li>
+<li><p>Stocker dans le tenant des éléments de preuve du client</p></li>
+</ul>
+<p><img alt="Journalisation" src="../_images/journalisation_transaction.png" /></p>
+</section>
+</section>
+<section id="application-dans-vitamui">
+<h3><span class="section-number">3.10.3. </span>Application dans VITAMUI<a class="headerlink" href="#application-dans-vitamui" title="Lien permanent vers cette rubrique"></a></h3>
+<section id="modele">
+<h4><span class="section-number">3.10.3.1. </span>Modèle<a class="headerlink" href="#modele" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Propriétés</p></th>
+<th class="head"><p>valeurs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EventTypeProc</p></td>
+<td><p>EXTERNAL_LOGBOOK</p></td>
+</tr>
+<tr class="row-odd"><td><p>EventType</p></td>
+<td><p>Nom du type d’événement (EXT_VITAMUI_CREATE_USER)</p></td>
+</tr>
+<tr class="row-even"><td><p>obIdReq</p></td>
+<td><p>Nom de la collection Mongo (USERS)</p></td>
+</tr>
+<tr class="row-odd"><td><p>obId</p></td>
+<td><p>Identifiant métier de l’objet</p></td>
+</tr>
+<tr class="row-even"><td><p>evDetData</p></td>
+<td><p>Contient les informations importantes (modification avant/après contenu du nouvel objet). outcome: OK, KO (Pour le master -&gt; OK, pour les sous-events le champ est libre)</p></td>
+</tr>
+<tr class="row-odd"><td><p>evIdAppSession</p></td>
+<td><p>applicationIdExt:requestId:applicationName:userIdentifier:superUserIdentifier:customerIdentifier</p></td>
+</tr>
+<tr class="row-even"><td><p>evIdReq</p></td>
+<td><p>X-Request-Id</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="creation">
+<h3><span class="section-number">3.10.4. </span>Création<a class="headerlink" href="#creation" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>L’ensemble des modifications de la base de données se font dans une unique transaction.</p></li>
+<li><p>Centralisation de la création des traces dans chaque module (IamLogbookService, ArchiveLogbookService, FlowLogbookService) (Responsable de la cohérence de la génération d’un event à partir d’un objet métier).</p></li>
+<li><p>Chaque objet de notre modèle de données possède un converter associé (Capable de convertir un objet en json qui sera mis dans le evDetData de l’event).</p></li>
+</ul>
+</section>
+<section id="sauvegarde">
+<h3><span class="section-number">3.10.5. </span>Sauvegarde<a class="headerlink" href="#sauvegarde" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>Réalisation par les tâches asynchrones (Cf : SendEventToVitamTasks.java et DeleteSynchronizedEventsTasks.java)</p></li>
+<li><p>Les événements sont regroupés par rapport à leur X-Request-Id et triés par ordre chronologique croissant.</p></li>
+<li><p>Le premier événement du groupe devient le Primary et les autres des sous-events.</p></li>
+<li><p>Le premier est recopié à la fin des sous-events afin de fermer la “transaction au sens VITAM”.</p></li>
+<li><p>Envoi vers vitam (La réponse Vitam et la date d’envoi sont toujours stockés) :</p>
+<ul>
+<li><p>Succès -&gt; Les events sont conservés X jours et sont marqué au statut “SUCCESS”</p></li>
+<li><p>Erreur -&gt; Les events sont marqués au statut “ERROR” et un retry sera effectué dans X heure.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="modele-de-donnees">
+<h2><span class="section-number">3.11. </span>Modèle de données<a class="headerlink" href="#modele-de-donnees" title="Lien permanent vers cette rubrique"></a></h2>
+<section id="liste-des-bases-dans-le-mongo-de-vitam-ui">
+<h3><span class="section-number">3.11.1. </span>Liste des bases dans le Mongo de Vitam-UI<a class="headerlink" href="#liste-des-bases-dans-le-mongo-de-vitam-ui" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>iam</p></li>
+<li><p>security</p></li>
+<li><p>cas</p></li>
+<li><p>archivesearch</p></li>
+</ul>
+</section>
+<section id="base-iam">
+<h3><span class="section-number">3.11.2. </span>Base iam<a class="headerlink" href="#base-iam" title="Lien permanent vers cette rubrique"></a></h3>
+<p><img alt="Schéma des relations entre les collections de la base IAM" src="../_images/VitamUI-iam_database.png" /></p>
+<ul class="simple">
+<li><p>Collections</p>
+<ul>
+<li><p>applications</p></li>
+<li><p>customers</p></li>
+<li><p>events</p></li>
+<li><p>externalParameters</p></li>
+<li><p>groups</p></li>
+<li><p>operations</p></li>
+<li><p>owners</p></li>
+<li><p>profiles</p></li>
+<li><p>providers</p></li>
+<li><p>sequences</p></li>
+<li><p>subrogations</p></li>
+<li><p>tenants</p></li>
+<li><p>tokens</p></li>
+<li><p>userInfos</p></li>
+<li><p>users</p></li>
+</ul>
+</li>
+</ul>
+<section id="collection-applications">
+<h4><span class="section-number">3.11.2.1. </span>Collection applications<a class="headerlink" href="#collection-applications" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 100</p></td>
+<td><p>L’identifiant (unique) de l’application</p></td>
+</tr>
+<tr class="row-even"><td><p>url</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>serviceId</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 100</p></td>
+<td><p>Le même serviceId que nous avons au niveau de la collection services</p></td>
+</tr>
+<tr class="row-even"><td><p>icon</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 50</p></td>
+<td><p>Logo de l’application</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 50</p></td>
+<td><p>Nom de l’application</p></td>
+</tr>
+<tr class="row-even"><td><p>category</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p>La catégorie de l’application</p></td>
+</tr>
+<tr class="row-odd"><td><p>position</p></td>
+<td><p>int</p></td>
+<td><p>Non null</p></td>
+<td><p>L’ordre d’affichage dans la liste des applications</p></td>
+</tr>
+<tr class="row-even"><td><p>hasCustomerList</p></td>
+<td><p>boolean</p></td>
+<td><p>default=false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>hasTenantList</p></td>
+<td><p>boolean</p></td>
+<td><p>default=false</p></td>
+<td><p>Pour pouvoir changer le tenant au niveau de l’application</p></td>
+</tr>
+<tr class="row-even"><td><p>hasHighlight</p></td>
+<td><p>boolean</p></td>
+<td><p>default=false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>tooltip</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 100</p></td>
+<td><p>Un texte pour décrire l’application</p></td>
+</tr>
+<tr class="row-even"><td><p>target</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 25</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-customers">
+<h4><span class="section-number">3.11.2.2. </span>Collection customers<a class="headerlink" href="#collection-customers" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>code</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 6, maximum = 20</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>companyName</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>language</p></td>
+<td><p>String</p></td>
+<td><p>Non null, valeurs = [FRENCH,ENGLISH]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>passwordRevocationDelay</p></td>
+<td><p>Integer</p></td>
+<td><p>Non null</p></td>
+<td><p>exprimé en jour</p></td>
+</tr>
+<tr class="row-even"><td><p>otp</p></td>
+<td><p>Enum</p></td>
+<td><p>Non null, valeurs = [OPTIONAL,DISABLED,MANDATORY]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>emailDomains</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p>Non null, Non vide</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>defaultEmailDomain</p></td>
+<td><p>String</p></td>
+<td><p>Non null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>address</p></td>
+<td><p>Address</p></td>
+<td><p>Non null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>subrogeable</p></td>
+<td><p>boolean</p></td>
+<td><p>default=false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>readonly</p></td>
+<td><p>boolean</p></td>
+<td><p>default=false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>graphicIdentity</p></td>
+<td><p>GraphicIdentity</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>gdprAlert</p></td>
+<td><p>boolean</p></td>
+<td><p>default=false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>gdprAlertDelay</p></td>
+<td><p>int</p></td>
+<td><p>minimum=1</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>GraphicIdentity (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>hasCustomGraphicIdentity</p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>logoDataBase64</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>logoHeaderBase64</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>Base64 encoded logo</p></td>
+</tr>
+<tr class="row-odd"><td><p>portalTitle</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>portalMessage</p></td>
+<td><p>String</p></td>
+<td><p>maximum length = 500 chars</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>themeColors</p></td>
+<td><p>Map&lt;String, String&gt;</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>themeColors</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vitamui-primary</p></td>
+<td><p>String</p></td>
+<td><p>hexadecimal color like</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>vitamui-secondary</p></td>
+<td><p>String</p></td>
+<td><p>hexadecimal color like</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>vitamui-tertiary</p></td>
+<td><p>String</p></td>
+<td><p>hexadecimal color like</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>vitamui-header-footer</p></td>
+<td><p>String</p></td>
+<td><p>hexadecimal color like</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>vitamui-background</p></td>
+<td><p>String</p></td>
+<td><p>hexadecimal color like</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="collection-events">
+<h4><span class="section-number">3.11.2.3. </span>Collection events<a class="headerlink" href="#collection-events" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>tenantIdentifier</p></td>
+<td><p>Integer</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>accessContractLogbookIdentifier</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>evParentId</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>evIdProc</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>evType</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>evTypeProc</p></td>
+<td><p>Enum</p></td>
+<td><p>EXTERNAL_LOGBOOK</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>outcome</p></td>
+<td><p>Enum</p></td>
+<td><p>UNKNOWN, STARTED, ALREADY_EXECUTED, OK, WARNING, KO, FATAL</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>outMessg</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>outDetail</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>evIdReq</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>evDateTime</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>obId</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>obIdReq</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>evDetData</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>evIdAppSession</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>creationDate</p></td>
+<td><p>Long</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>Enum</p></td>
+<td><p>CREATED, SUCCESS, ERROR</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>vitamResponse</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>synchronizedVitamDate</p></td>
+<td><p>OffsetDateTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Pour aller plus loin, le modèle de données Vitam concernant les journaux d’archives est accessible <a class="reference external" href="http://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VITAM_Modele_de_donnees.pdf">ici</a></p>
+</section>
+<section id="collection-externalparameters">
+<h4><span class="section-number">3.11.2.4. </span>Collection externalParameters<a class="headerlink" href="#collection-externalparameters" title="Lien permanent vers cette rubrique"></a></h4>
+<p>La collection qui définit un contrat d’accès par défaut</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 2, maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>parameters</p></td>
+<td><p>ParameterDto</p></td>
+<td><p>Not Null</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>ParameterDto (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>exemple: PARAM_ACCESS_CONTRACT</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>exemple: AC-000001</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="collection-groups">
+<h4><span class="section-number">3.11.2.5. </span>Collection groups<a class="headerlink" href="#collection-groups" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le groupe de profil définit un ensemble de profils.
+Un groupe de profil ne peut contenir qu’un seul profil par “app:tenant”. Par exemple : “profil(app1:tenant1), profil(app1:tenant2), profil(app2:tenant1)” est autorisé.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>customerId</p></td>
+<td><p>String</p></td>
+<td><p>Non Null, Clé Étrangère</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>profileIds</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p>clé étrangére</p></td>
+<td><p>les profils</p></td>
+</tr>
+<tr class="row-even"><td><p>level</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>readonly</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>enabled</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-owners">
+<h4><span class="section-number">3.11.2.6. </span>Collection owners<a class="headerlink" href="#collection-owners" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>customerId</p></td>
+<td><p>String</p></td>
+<td><p>Clé Étrangère</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>code</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 6, maximum = 20</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>companyName</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>address</p></td>
+<td><p>Address</p></td>
+<td><p></p></td>
+<td><p>embedded</p></td>
+</tr>
+<tr class="row-odd"><td><p>readonly</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Address (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>street</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>zipCode</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 10</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>city</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>country</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 50</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="collection-profiles">
+<h4><span class="section-number">3.11.2.7. </span>Collection profiles<a class="headerlink" href="#collection-profiles" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le profil définit les permissions (rôles) données à un utilisateur et l’accès à une application (applicationName), généralement une IHM qui regroupe un ensemble de fonctionnalités selon une logique métier et appelant des API backoffice.
+Un profil appartient à un groupe (de profils). Il ne peut y avoir qu’un seul et unique profile par tenant, applicationName dans un groupe.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>tenantIdentifier</p></td>
+<td><p>Integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>enabled</p></td>
+<td><p>boolean</p></td>
+<td><p>default=true</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>description</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>applicationName</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>roles</p></td>
+<td><p>List&lt;<em>Role</em>&gt;</p></td>
+<td><p></p></td>
+<td><p>rôle Spring</p></td>
+</tr>
+<tr class="row-even"><td><p>readonly</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 250</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>externalParamId</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-providers">
+<h4><span class="section-number">3.11.2.8. </span>Collection providers<a class="headerlink" href="#collection-providers" title="Lien permanent vers cette rubrique"></a></h4>
+<p>L’identity provider L’IDP est soit externe (Clients/Organisations externes) soit interne.
+L’IDP interne est CAS lui même et les utilisateurs sont alors gérés uniquement dans l’annuaire CAS de VITAMUI.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>customerId</p></td>
+<td><p>String</p></td>
+<td><p>Clé Étrangère</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>technicalName</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>internal</p></td>
+<td><p>Boolean</p></td>
+<td><p>default=true</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>patterns</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p>minimum = 1</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>enabled</p></td>
+<td><p>Boolean</p></td>
+<td><p>default=true</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>keystoreBase64</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>keystorePassword</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>Mot de passe</p></td>
+</tr>
+<tr class="row-even"><td><p>privateKeyPassword</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>Mot de passe</p></td>
+</tr>
+<tr class="row-odd"><td><p>idpMetadata</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>XML</p></td>
+</tr>
+<tr class="row-even"><td><p>spMetadata</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>XML</p></td>
+</tr>
+<tr class="row-odd"><td><p>maximumAuthenticationLifetime</p></td>
+<td><p>Integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>readonly</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-sequences">
+<h4><span class="section-number">3.11.2.9. </span>Collection sequences<a class="headerlink" href="#collection-sequences" title="Lien permanent vers cette rubrique"></a></h4>
+<p>La collection sequence permet de stocker les différentes séquences utilisées.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>Nom de la séquence</p></td>
+</tr>
+<tr class="row-even"><td><p>sequence</p></td>
+<td><p>int</p></td>
+<td><p></p></td>
+<td><p>Valeur courante</p></td>
+</tr>
+</tbody>
+</table>
+<p>La liste des noms de séquences :</p>
+<ul class="simple">
+<li><p>tenant_identifier</p></li>
+<li><p>user_identifier</p></li>
+<li><p>profile_identifier</p></li>
+<li><p>group_identifier</p></li>
+<li><p>provider_identifier</p></li>
+<li><p>customer_identifier</p></li>
+<li><p>owner_identifier</p></li>
+</ul>
+</section>
+<section id="collection-subrogations">
+<h4><span class="section-number">3.11.2.10. </span>Collection subrogations<a class="headerlink" href="#collection-subrogations" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>Enum</p></td>
+<td><p>CREATED, ACCEPTED</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>date</p></td>
+<td><p>Date</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>surrogate</p></td>
+<td><p>String</p></td>
+<td><p>email, minimum = 4, maximum = 100</p></td>
+<td><p>celui qui est subrogé</p></td>
+</tr>
+<tr class="row-even"><td><p>superUser</p></td>
+<td><p>String</p></td>
+<td><p>email, minimum = 4, maximum = 100</p></td>
+<td><p>celui qui subroge</p></td>
+</tr>
+<tr class="row-odd"><td><p>surrogateCustomerId</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>superUserCustomerId</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-tenants">
+<h4><span class="section-number">3.11.2.11. </span>Collection tenants<a class="headerlink" href="#collection-tenants" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le tenant correspond à un container (ie. espace de travail) logique.
+Chaque tenant est unique dans le système et appartient à un seul et unique client.
+Un client peut posséder plusieurs tenants.
+Un client ne doit jamais pouvoir accéder aux tenants d’un autre client.
+Les tenants VITAMUI correspondent aux tenants VITAM.
+Toutes les requêtes HTTP dans VITAMUI doivent renseigner le tenant dans le header.
+Dans VITAMUI, le tenant permet de vérifier les autorisations applicatives (certificat et contexte) et utilisateurs (profils).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>customerId</p></td>
+<td><p>String</p></td>
+<td><p>Non null, Clé Étrangère</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>identifier</p></td>
+<td><p>Integer</p></td>
+<td><p>Non null</p></td>
+<td><p>correspond au tenant vitam</p></td>
+</tr>
+<tr class="row-odd"><td><p>ownerId</p></td>
+<td><p>String</p></td>
+<td><p>Non null, Clé Étrangère</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p>exprimé en jour</p></td>
+</tr>
+<tr class="row-odd"><td><p>proof</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p>identifie le tenant de preuve</p></td>
+</tr>
+<tr class="row-even"><td><p>readonly</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>ingestContractHoldingIdentifier</p></td>
+<td><p>String</p></td>
+<td><p>Non null</p></td>
+<td><p>contrat d’entrée pour l’arbre</p></td>
+</tr>
+<tr class="row-even"><td><p>accessContractHoldingIdentifier</p></td>
+<td><p>String</p></td>
+<td><p>Non null</p></td>
+<td><p>contrat d’accès pour l’arbre</p></td>
+</tr>
+<tr class="row-odd"><td><p>itemIngestContractIdentifier</p></td>
+<td><p>String</p></td>
+<td><p>Non null</p></td>
+<td><p>contrat d’entrée pour les bordereaux</p></td>
+</tr>
+<tr class="row-even"><td><p>accessContractLogbookIdentifier</p></td>
+<td><p>String</p></td>
+<td><p>Non null</p></td>
+<td><p>contrat d’accès pour le logbook</p></td>
+</tr>
+<tr class="row-odd"><td><p>enabled</p></td>
+<td><p>Boolean</p></td>
+<td><p>Non null</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-tokens">
+<h4><span class="section-number">3.11.2.12. </span>Collection tokens<a class="headerlink" href="#collection-tokens" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>updatedDate</p></td>
+<td><p>Date</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>refId</p></td>
+<td><p>String</p></td>
+<td><p>not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>surrogation</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-users">
+<h4><span class="section-number">3.11.2.13. </span>Collection users<a class="headerlink" href="#collection-users" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>customerId</p></td>
+<td><p>String</p></td>
+<td><p>Clé Étrangère</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>enabled</p></td>
+<td><p>Boolean</p></td>
+<td><p>default = true</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>Enum</p></td>
+<td><p>default = ENABLED, BLOCKED, ANONYM, DISABLED</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>Enum</p></td>
+<td><p>NOMINATIVE, GENERIC</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>password</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 100</p></td>
+<td><p>Mot de passe</p></td>
+</tr>
+<tr class="row-even"><td><p>oldPasswords</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier</p></td>
+<td><p>String</p></td>
+<td><p>minimum = 1, maximum = 12</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>email</p></td>
+<td><p>String</p></td>
+<td><p>email, Unique</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>firstname</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 50</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>lastname</p></td>
+<td><p>String</p></td>
+<td><p>maximum = 50</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>language</p></td>
+<td><p>String</p></td>
+<td><p>Non null, valeurs = [FRENCH,ENGLISH]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>phone</p></td>
+<td><p>String</p></td>
+<td><p>phone number</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>mobile</p></td>
+<td><p>String</p></td>
+<td><p>mobile phone number</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>otp</p></td>
+<td><p>Boolean</p></td>
+<td><p>default = false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>groupId</p></td>
+<td><p>String</p></td>
+<td><p>Not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>subrogeable</p></td>
+<td><p>Boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>lastConnection</p></td>
+<td><p>OffsetDateTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>nbFailedAttempts</p></td>
+<td><p>int</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>readonly</p></td>
+<td><p>Boolean</p></td>
+<td><p>default=false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>level</p></td>
+<td><p>String</p></td>
+<td><p>Not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>passwordExpirationDate</p></td>
+<td><p>OffsetDateTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>address</p></td>
+<td><p>Address</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>analytics</p></td>
+<td><p>AnalyticsDto</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>AnalyticsDto (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>applications</p></td>
+<td><p>ApplicationAnalyticsDto</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>lastTenantIdentifier</p></td>
+<td><p>Integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>ApplicationAnalyticsDto (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>applicationId</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>accessCounter</p></td>
+<td><p>int</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>lastAccess</p></td>
+<td><p>OffsetDateTime</p></td>
+<td><p></p></td>
+<td><p>ex: YYYY-MM-ddTHH:mm:ss.ssssssZ</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+</section>
+<section id="base-security">
+<h3><span class="section-number">3.11.3. </span>Base security<a class="headerlink" href="#base-security" title="Lien permanent vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p>Collections</p>
+<ul>
+<li><p>certificates</p></li>
+<li><p>contexts</p></li>
+<li><p>events</p></li>
+</ul>
+</li>
+</ul>
+<section id="collection-certificates">
+<h4><span class="section-number">3.11.3.1. </span>Collection certificates<a class="headerlink" href="#collection-certificates" title="Lien permanent vers cette rubrique"></a></h4>
+<p>La collection certificat permet de stocker les certificats correspondants à un contexte.
+Le certificat est transmis par l’application client lors de la connexion SSL.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>contextId</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>serialNumber</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>Numéro de série du certificat</p></td>
+</tr>
+<tr class="row-odd"><td><p>subjectDN</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>Identifiant unique (Distinguished Name) du certificat</p></td>
+</tr>
+<tr class="row-even"><td><p>issuerDN</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>Identifiant unique (Distinguished Name) de l’autorité de certification</p></td>
+</tr>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>Certificat en base64</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection-contexts">
+<h4><span class="section-number">3.11.3.2. </span>Collection contexts<a class="headerlink" href="#collection-contexts" title="Lien permanent vers cette rubrique"></a></h4>
+<p>Le contexte applicatif permet d’attribuer à une application cliente selon son certificat X509 transmis lors de la connexion https les droits d’accès (rôles) à différents services.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>fullAccess</p></td>
+<td><p>Boolean</p></td>
+<td><p>default = false</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Not null</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>tenants</p></td>
+<td><p>List&lt;<em>Integer</em>&gt;</p></td>
+<td><p>Not Null, Liste de Clés Étrangère</p></td>
+<td><p>Liste des tenants autorisés</p></td>
+</tr>
+<tr class="row-even"><td><p>roleNames</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p>Not Null</p></td>
+<td><p>Liste des rôles autorisés</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="base-cas">
+<h3><span class="section-number">3.11.4. </span>Base Cas<a class="headerlink" href="#base-cas" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Cette base est initialisée à la création de l’environnement. Elle est uniquement utilisée par CAS en lecture seule.</p>
+<ul class="simple">
+<li><p>Collection</p>
+<ul>
+<li><p>services</p></li>
+</ul>
+</li>
+</ul>
+<section id="collection-services">
+<h4><span class="section-number">3.11.4.1. </span>Collection services<a class="headerlink" href="#collection-services" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>serviceId</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>url du service web</p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>nom du service</p></td>
+</tr>
+<tr class="row-odd"><td><p>logoutType</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>logoutUrl</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>url de logout</p></td>
+</tr>
+<tr class="row-odd"><td><p>attributeReleasePolicy</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Stratégie des attributs</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="base-archivesearch">
+<h3><span class="section-number">3.11.5. </span>Base archivesearch<a class="headerlink" href="#base-archivesearch" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Cette base est utilisée pour stocker les critères de filtres de recherche des utilisateurs. Aujourd’hui, elle est utilisée uniquement par le service Archive-Search, en particulier l’application de consultation et de recherche d’archives.</p>
+<ul class="simple">
+<li><p>Collections</p>
+<ul>
+<li><p>searchCriteriaHistories</p></li>
+<li><p>searchCriteriaHistoriesCollect</p></li>
+</ul>
+</li>
+</ul>
+<section id="collections-searchcriteriahistories-searchcriteriahistoriescollect">
+<h4><span class="section-number">3.11.5.1. </span>Collections : searchCriteriaHistories / searchCriteriaHistoriesCollect<a class="headerlink" href="#collections-searchcriteriahistories-searchcriteriahistoriescollect" title="Lien permanent vers cette rubrique"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p>String</p></td>
+<td><p>Clé Primaire</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Not Null, minimum = 1, maximum = 150</p></td>
+<td><p>Nom de la recherche sauvegardée</p></td>
+</tr>
+<tr class="row-even"><td><p>userId</p></td>
+<td><p>String</p></td>
+<td><p>Not Null</p></td>
+<td><p>L’identifiant de l’utilisateur</p></td>
+</tr>
+<tr class="row-odd"><td><p>date</p></td>
+<td><p>Date</p></td>
+<td><p></p></td>
+<td><p>Date de la sauvegarde des critères de recherche</p></td>
+</tr>
+<tr class="row-even"><td><p>searchCriteriaList</p></td>
+<td><p>List&lt;<em>SearchCriteriasDto</em>&gt;</p></td>
+<td><p></p></td>
+<td><p>Liste des critères de recherches sauvegardées incluant les critères d’arbres et plan</p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>SearchCriteriasDto (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>nodes</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p></p></td>
+<td><p>liste des identifiants des noeuds d’arbre de positionnement/ plans de classement</p></td>
+</tr>
+<tr class="row-odd"><td><p>criteriaList</p></td>
+<td><p>List&lt;<em>SearchCriteriaElementsDto</em>&gt;</p></td>
+<td><p></p></td>
+<td><p>liste des critères de recherches sauvegardées</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>SearchCriteriaElementsDto (Embarqué)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Contrainte(s)</p></th>
+<th class="head"><p>Remarque(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>criteria</p></td>
+<td><p>String</p></td>
+<td><p></p></td>
+<td><p>le nom du critère de recherche (eg: Title, StartDate, #opi, #id …)</p></td>
+</tr>
+<tr class="row-odd"><td><p>values</p></td>
+<td><p>List&lt;<em>String</em>&gt;</p></td>
+<td><p></p></td>
+<td><p>liste des valeurs du critère de filtre</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="orientations_techniques.html" class="btn btn-neutral float-left" title="2. Orientations techniques" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="implementation.html" class="btn btn-neutral float-right" title="4. Implémentation" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Programme Vitam.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

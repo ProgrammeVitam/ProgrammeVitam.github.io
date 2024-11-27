@@ -23,6 +23,7 @@ Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documen
 
 * Accéder à la documentation des anciennes versions :  
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
+    * [Version 7.1](./liste_doc_ancienne_v7.1.md)
     * [Version 6](./liste_doc_ancienne_V6.md)
     * [Version 6.RC](./liste_doc_ancienne_V6RC.md)
     * [Version 5](./liste_doc_ancienne_V5.md)

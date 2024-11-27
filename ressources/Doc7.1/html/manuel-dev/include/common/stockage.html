@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.11. Common-storage &mdash; Documentation VITAM - Manuel de développement 7.0.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="3.12. Métriques dans VITAM" href="vitam-metrics.html" />
+    <link rel="prev" title="3.10. Common format identification" href="format-identifier.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Manuel de développement
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                7.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collect/_toc.html">2. Collect</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">3. Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GUID.html">3.2. Global Unique Identifier (GUID) pour Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Digest.html">3.3. Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logger.html">3.4. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JunitHelper.html">3.5. JunitHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client.html">3.6. Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html">3.7. DirectedCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html#graph">3.8. Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VitamCode.html">3.9. Code d’erreur Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format-identifier.html">3.10. Common format identification</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.11. Common-storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#presentation-des-apis-java">3.11.1. Présentation des APIs Java</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">3.11.2. Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#presentation-des-methodes-dans-swift-filesystem">3.11.3. Présentation des méthodes dans SWIFT &amp; FileSystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detail-de-l-implementation-hashfilesystem">3.11.4. Détail de l’implémentation HashFileSystem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vitam-metrics.html">3.12. Métriques dans VITAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private/_toc.html">3.13. Common-private</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">6. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ingest/_toc.html">7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler/_toc.html">12. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">13. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">14. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">15. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">16. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">Détails par composant</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">3. Common</a></li>
+      <li class="breadcrumb-item active">3.11. Common-storage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/include/common/stockage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="common-storage">
+<h1>3.11. Common-storage<a class="headerlink" href="#common-storage" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le common storage est un module commun pour plusieurs modules qui consiste à gérer des objets stockés dans un container et/ou dans un répertoire, ce module propose plusieurs offres de stockage (Jclouds), par exemple filesystem, Swift (open stack et ceph) et s3 configurables par code (java) ou par fichier de configuration. Dans les chapitres suivants, on présentera les 3 modes de configuration.</p>
+<div class="section" id="presentation-des-apis-java">
+<h2>3.11.1. Présentation des APIs Java<a class="headerlink" href="#presentation-des-apis-java" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="introduction">
+<h3>3.11.1.1. Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le Module common storage expose un ensemble des méthodes qui gèrent la création, la mise à jour , la suppression des conteneurs, des répertoires et des objets. Vous trouverez ci-dessous la liste des méthodes avec leurs fonctions attendues.</p>
+<p>L’API principale est l’interface <code class="docutils literal notranslate"><span class="pre">ContentAddressableStorage</span></code>. Celle-ci a la hiérarchie de classe suivante :</p>
+<ul class="simple">
+<li>ContentAddressableStorageAbstract : classe abstraite implémentant quelques méthodes communes<ul>
+<li>HashFileSystem : implémentation d’un CAS sur FileSystem (via java.nio.*) avec un répertoire par sous-répertoire permettant un stockage d’un grand nombre d’objets (jusqu’à 500e6 objets )</li>
+<li>ContentAddressableStorageJcloudsAbstract : classe abstraite implémentant la plupart des méthodes pour une implémentation jclouds sous-jacente<ul>
+<li>FileSystem : implémentation d’un CAS sur FileSystem (via jclouds) avec un répertoire à plat sous les containers</li>
+<li>OpenstackSwift : classe d’implémentation permettant le stockage sur Swift (via jclouds)</li>
+<li>AmazonS3V1 : classe d’implémentation permettant le stockage sur S3 (via le sdk amazon s3 v1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="liste-des-methodes">
+<h3>3.11.1.2. Liste des méthodes<a class="headerlink" href="#liste-des-methodes" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first">getContainerInformation : consulter les informations d’un conteneur (pour la version 0.14.0-SNAPSHOT)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Paramètres :</li>
+<li>containerName::String</li>
+<li>Retourner : (pour la version 0.14.0-SNAPSHOT) l’espace utilisé et l’espace disponible par région</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">CreateContainer : créer un conteneur</p>
+<blockquote>
+<div><ul class="simple">
+<li>Paramètres :</li>
+<li>containerName::String</li>
+<li>Retourner :</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">getUriListDigitalObjectFromFolder :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Paramètres :</p>
+<blockquote>
+<div><ul class="simple">
+<li>containerName::String (le nom de conteneur à consulter)</li>
+<li>folderName::String (le nom de répertoire à consulter pour lister les URIs des objets )</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Retourner :</p>
+<blockquote>
+<div><ul class="simple">
+<li>List&lt;URI&gt;: La liste des URIs des objets dans le répertoire cité ci-dessus.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">getObjectMetadatas: lire et récupérer les métadonnées d’un objet (le fichier ou le répertoire)</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>Paramètres :</li>
+<li>containerName::String (le nom de conteneur dans lequel qu’on stock l’object)</li>
+<li>objectId::String (Id de l’object. S’il est null, c’est-à-dire, il est un répertoire)</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Retourner :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">MetadatasObject: La classe qui contient les informations de metadata</p>
+<blockquote>
+<div><ul class="simple">
+<li>objectName: l’ID du fichier</li>
+<li>type: le type (dossier comme Units, Binary, ObjectGroup, Reports, …)</li>
+<li>digest: l’empreinte</li>
+<li>fileOwner: propriétaire</li>
+<li>fileSize: taille du fichier</li>
+<li>lastAccessDate: date de dernier accès</li>
+<li>lastModifiedDate: date de modification des données</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Dans le cas échéant, la méthode retourne une immutable empty list.</p>
+<blockquote>
+<div><blockquote>
+<div><ul>
+<li><p class="first">uncompressObject : cette méthode extrait des fichiers compressés toute en indiquant le type de l’archive, pour cette version (v0.14.0) supporte 4 types : zip, tar, tar.gz et tar.bz2.</p>
+<blockquote>
+<div><blockquote>
+<div><p>-Paramètres :</p>
+<blockquote>
+<div><ul class="simple">
+<li>containerName::String : c’est le nom de container dans lequel on stocke les objets</li>
+<li>folderName::String : c’est le répertoire racine .</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul>
+<li><p class="first">archiveType :: String : c’est le nom ou le type de l’archive (exemple: application/zip , application/x-tar)</p>
+<blockquote>
+<div><ul class="simple">
+<li>compressedInputStream::InputStream c’est le stream des objets compressés</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>retourner :</li>
+</ul>
+</div></blockquote>
+<p>Dans le cas échéant (uncompress KO) la méthode génère une exception avec un message internal server.</p>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>3.11.2. Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La première chose que nous devons faire est d’ajouter la dépendance maven dans le pom.xml du projet. Après il faut configurer le contexte de stockage souhaité (filesystem/swift ceph/ swift openStack), (on traitera cette problématique au chapitre 2.1 et 2.2)</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+     <span class="nt">&lt;groupId&gt;</span>fr.gouv.vitam<span class="nt">&lt;/groupId&gt;</span>
+     <span class="nt">&lt;artifactId&gt;</span>common-storage<span class="nt">&lt;artifactId&gt;</span>
+     <span class="nt">&lt;version&gt;</span>x.x.x<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>La configuration de l’offre de stockage est basée sur plusieurs paramètres.</p>
+<dl class="docutils">
+<dt>Les paramètres communs aux types d’offres sont:</dt>
+<dd><ul class="first last simple">
+<li>provider :: String : le type de l’offre de stockage (valeur par défaut si chaîne vide: filesystem) Les valeurs possibles sont:
+- filesystem
+- openstack-swift
+- amazon-s3-v1</li>
+</ul>
+</dd>
+<dt>Pour une offre Filesystem, les paramètres de configuration sont :</dt>
+<dd><ul class="first last simple">
+<li>storagePath :: String : path de stockage pour l’offre FileSystem</li>
+</ul>
+</dd>
+<dt>Pour une offre Swift les paramètres de configuration sont :</dt>
+<dd><ul class="first last simple">
+<li>swiftKeystoneAuthUrl* :: String : URL d’authentification keystone</li>
+<li>swiftUser* :: String : le nom de l’utilisateur (sur rados, il prend la forme &lt;tenant&gt;$&lt;user&gt;)</li>
+</ul>
+</dd>
+<dt>Pour une offre S3 les paramètres de configuration sont :</dt>
+<dd><ul class="first last">
+<li><p class="first">s3AccessKey :: String : Access Key ID</p>
+</li>
+<li><p class="first">s3SecretKey :: String : Secret Access key</p>
+</li>
+<li><p class="first">s3RegionName :: String : region (pour les requêtes signées en algorithme V4)</p>
+</li>
+<li><p class="first">s3Endpoint :: String : URL du stockage</p>
+</li>
+<li><dl class="first docutils">
+<dt>s3SignerType :: String <span class="classifier-delimiter">:</span> <span class="classifier">type de signature utilisé (cf documentation officielle Amazon sur la <a class="reference external" href="https://docs.aws.amazon.com/fr_fr/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">signature des requêtes</a>). Valeurs possibles :</span></dt>
+<dd><ul class="first last simple">
+<li>“AWSS3V4SignerType” : signature V4 (valeur par défaut si chaîne vide)</li>
+<li>“S3SignerType” : signature V2</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">s3TrustStore :: String : chemin vers le fichier TrustStore contenant le certificat racine de l’autorité du certificat du stockage (obligatoire en cas de SSL)</p>
+</li>
+<li><dl class="first docutils">
+<dt>s3PathStyleEnabled :: Boolean <span class="classifier-delimiter">:</span> <span class="classifier">type d’accès aux buckets S3 (cf documentation officielle Amazon sur l”<a class="reference external" href="https://docs.aws.amazon.com/fr_fr/AmazonS3/latest/dev/VirtualHosting.html">hébergement virtuel de compartiments</a>). Valeurs possibles :</span></dt>
+<dd><ul class="first last simple">
+<li>“true” : l’accès en mode «&nbsp;path-style&nbsp;» (exemple d’URI : <code class="docutils literal notranslate"><span class="pre">http://mys3domain/mybucket/</span></code>)</li>
+<li>“false” : l’accès en «&nbsp;virtual-hosted-style&nbsp;» (exemple d’URI : <code class="docutils literal notranslate"><span class="pre">http://mybucket.mys3domain/</span></code>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">s3MaxConnections :: Integer : nombre maximum de connexions HTTP ouvertes</p>
+</li>
+<li><p class="first">s3ConnectionTimeout :: Integer : temps maximum pour l’établissement d’une connexion avant d’abandonner (en millisecondes)</p>
+</li>
+<li><p class="first">s3SocketTimeout :: Integer : temps maximum pour le transfert de la donnée avant d’abandonner (en millisecondes)</p>
+</li>
+<li><p class="first">s3RequestTimeout :: Integer : temps maximum pour l’exécution de la requête avant d’abandonner (en millisecondes)</p>
+</li>
+<li><p class="first">s3ClientExecutionTimeout :: Integer : temps maximum pour l’exécution de la requête par le client java avant d’abandonner (en millisecondes)</p>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="configuration-par-code">
+<h3>3.11.2.1. Configuration par code<a class="headerlink" href="#configuration-par-code" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exemple-filesystem">
+<h4>3.11.2.1.1. Exemple <cite>filesystem</cite><a class="headerlink" href="#exemple-filesystem" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">StorageConfiguration</span> <span class="n">storeConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StorageConfiguration</span><span class="p">().</span><span class="na">setProvider</span><span class="p">(</span><span class="n">StorageProvider</span><span class="p">.</span><span class="na">FILESYSTEM</span><span class="p">.</span><span class="na">getValue</span><span class="p">())</span>
+ <span class="p">.</span><span class="na">setStoragePath</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-swift-ceph">
+<h4>3.11.2.1.2. Exemple SWIFT CEPH<a class="headerlink" href="#exemple-swift-ceph" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StorageConfiguration</span> <span class="n">storeConfiguration</span> <span class="o">=</span> <span class="n">new</span> <span class="n">StorageConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">setProvider</span><span class="p">(</span><span class="n">StorageProvider</span><span class="o">.</span><span class="n">SWIFT</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+ <span class="o">.</span><span class="n">setSwiftKeystoneAuthUrl</span><span class="p">(</span><span class="s2">&quot;http://10.10.10.10:5000/auth/v1.0)</span>
+ <span class="o">.</span><span class="n">setSwiftDomain</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">setSwiftUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">setSwiftPassword</span><span class="p">(</span><span class="n">passwd</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-swift-openstack">
+<h4>3.11.2.1.3. Exemple SWIFT OpenStack<a class="headerlink" href="#exemple-swift-openstack" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StorageConfiguration</span> <span class="n">storeConfiguration</span> <span class="o">=</span> <span class="n">new</span> <span class="n">StorageConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">setProvider</span><span class="p">(</span><span class="n">StorageProvider</span><span class="o">.</span><span class="n">SWIFT</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+ <span class="o">.</span><span class="n">setKeystoneEndPoint</span><span class="p">(</span><span class="s2">&quot;http://10.10.10.10:5000/auth/v1.0)</span>
+ <span class="o">.</span><span class="n">setSwiftUid</span><span class="p">(</span><span class="n">swift</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">setSwiftSubUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">setCredential</span><span class="p">(</span><span class="n">passwd</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-s3">
+<h4>3.11.2.1.4. Exemple S3<a class="headerlink" href="#exemple-s3" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Cet exemple correspond aux valeurs d’une image docker Openio.</p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StorageConfiguration</span> <span class="n">storeConfiguration</span> <span class="o">=</span> <span class="n">new</span> <span class="n">StorageConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">setProvider</span><span class="p">(</span><span class="n">StorageProvider</span><span class="o">.</span><span class="n">AMAZON_S3_V1</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+ <span class="o">.</span><span class="n">setS3RegionName</span><span class="p">(</span><span class="n">Regions</span><span class="o">.</span><span class="n">US_WEST_1</span><span class="o">.</span><span class="n">getName</span><span class="p">());</span>
+ <span class="o">.</span><span class="n">setS3Endpoint</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:6007&quot;</span><span class="p">);</span>
+ <span class="o">.</span><span class="n">setS3AccessKey</span><span class="p">(</span><span class="s2">&quot;demo:demo&quot;</span><span class="p">);</span>
+ <span class="o">.</span><span class="n">setS3SecretKey</span><span class="p">(</span><span class="s2">&quot;DEMO_PASS&quot;</span><span class="p">);</span>
+ <span class="o">.</span><span class="n">setS3PathStyleAccessEnabled</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-par-fichier">
+<h3>3.11.2.2. Configuration par fichier<a class="headerlink" href="#configuration-par-fichier" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Exemple d’un fichier de configuration :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openstack-swift</span>
+<span class="nt">swiftKeystoneAuthUrl </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://10.10.10.10:5000/auth/v1.0</span>
+<span class="nt">swiftDomain </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam</span>
+<span class="nt">swiftUser </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swift</span>
+<span class="nt">swiftPassword </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
+</pre></div>
+</div>
+<p>Dans ce cas, on peut utiliser un Builder qui permet de fournir le context associé au provider.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ContentAddressableStorage</span> <span class="n">storage</span><span class="o">=</span><span class="n">StoreContextBuilder</span><span class="p">.</span><span class="na">newStoreContext</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="presentation-des-methodes-dans-swift-filesystem">
+<h2>3.11.3. Présentation des méthodes dans SWIFT &amp; FileSystem<a class="headerlink" href="#presentation-des-methodes-dans-swift-filesystem" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="id1">
+<h3>3.11.3.1. Introduction<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il y a deux classes qui héritent les APIs. L’une utilise SWIFT et l’autre utilise FileSystem.</p>
+</div>
+<div class="section" id="id2">
+<h3>3.11.3.2. Liste des méthodes<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="getobjectinformation">
+<h4>3.11.3.2.1. <code class="docutils literal notranslate"><span class="pre">getObjectInformation</span></code><a class="headerlink" href="#getobjectinformation" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>SWIFT: Obtenir l’objet par les APIs Swift</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="p">.</span><span class="na">setFileOwner</span><span class="p">(</span><span class="s">&quot;Vitam_&quot;</span> <span class="o">+</span> <span class="n">containerName</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+   <span class="n">result</span><span class="p">.</span><span class="na">setType</span><span class="p">(</span><span class="n">containerName</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+   <span class="n">result</span><span class="p">.</span><span class="na">setLastAccessDate</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">objectId</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">SwiftObject</span> <span class="n">swiftobject</span> <span class="o">=</span> <span class="n">getSwiftAPi</span><span class="p">()</span>
+           <span class="p">.</span><span class="na">getObjectApi</span><span class="p">(</span><span class="n">swiftApi</span><span class="p">.</span><span class="na">getConfiguredRegions</span><span class="p">().</span><span class="na">iterator</span><span class="p">().</span><span class="na">next</span><span class="p">(),</span> <span class="n">containerName</span><span class="p">).</span><span class="na">get</span><span class="p">(</span><span class="n">objectId</span><span class="p">);</span>
+
+       <span class="n">result</span><span class="p">.</span><span class="na">setObjectName</span><span class="p">(</span><span class="n">objectId</span><span class="p">);</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setDigest</span><span class="p">(</span><span class="n">computeObjectDigest</span><span class="p">(</span><span class="n">containerName</span><span class="p">,</span> <span class="n">objectId</span><span class="p">,</span> <span class="n">VitamConfiguration</span><span class="p">.</span><span class="na">getDefaultDigestType</span><span class="p">()));</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setFileSize</span><span class="p">(</span><span class="n">swiftobject</span><span class="p">.</span><span class="na">getPayload</span><span class="p">().</span><span class="na">getContentMetadata</span><span class="p">().</span><span class="na">getContentLength</span><span class="p">());</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setLastModifiedDate</span><span class="p">(</span><span class="n">swiftobject</span><span class="p">.</span><span class="na">getLastModified</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="n">Container</span> <span class="n">container</span> <span class="o">=</span> <span class="n">getContainerApi</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">containerName</span><span class="p">);</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setObjectName</span><span class="p">(</span><span class="n">containerName</span><span class="p">);</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setDigest</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setFileSize</span><span class="p">(</span><span class="n">container</span><span class="p">.</span><span class="na">getBytesUsed</span><span class="p">());</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setLastModifiedDate</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>FileSystem: Obtenir le fichier de jclouds par le nom du conteneur et le nom du dossier</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">getFileFromJClouds</span><span class="p">(</span><span class="n">containerName</span><span class="p">,</span> <span class="n">objectId</span><span class="p">);</span>
+   <span class="n">BasicFileAttributes</span> <span class="n">basicAttribs</span> <span class="o">=</span> <span class="n">getFileAttributes</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+   <span class="kt">long</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">size</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">getPath</span><span class="p">()));</span>
+   <span class="k">if</span> <span class="p">(</span><span class="kc">null</span> <span class="o">!=</span> <span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">objectId</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+           <span class="n">result</span><span class="p">.</span><span class="na">setObjectName</span><span class="p">(</span><span class="n">objectId</span><span class="p">);</span>
+           <span class="n">result</span><span class="p">.</span><span class="na">setDigest</span><span class="p">(</span><span class="n">computeObjectDigest</span><span class="p">(</span><span class="n">containerName</span><span class="p">,</span> <span class="n">objectId</span><span class="p">,</span> <span class="n">VitamConfiguration</span><span class="p">.</span><span class="na">getDefaultDigestType</span><span class="p">()));</span>
+           <span class="n">result</span><span class="p">.</span><span class="na">setFileSize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+           <span class="n">result</span><span class="p">.</span><span class="na">setObjectName</span><span class="p">(</span><span class="n">containerName</span><span class="p">);</span>
+           <span class="n">result</span><span class="p">.</span><span class="na">setDigest</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+           <span class="n">result</span><span class="p">.</span><span class="na">setFileSize</span><span class="p">(</span><span class="n">getFolderUsedSize</span><span class="p">(</span><span class="n">file</span><span class="p">));</span>
+       <span class="p">}</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setType</span><span class="p">(</span><span class="n">containerName</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setFileOwner</span><span class="p">(</span><span class="s">&quot;Vitam_&quot;</span> <span class="o">+</span> <span class="n">containerName</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setLastAccessDate</span><span class="p">(</span><span class="n">basicAttribs</span><span class="p">.</span><span class="na">lastAccessTime</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+       <span class="n">result</span><span class="p">.</span><span class="na">setLastModifiedDate</span><span class="p">(</span><span class="n">basicAttribs</span><span class="p">.</span><span class="na">lastModifiedTime</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="detail-de-l-implementation-hashfilesystem">
+<h2>3.11.4. Détail de l’implémentation HashFileSystem<a class="headerlink" href="#detail-de-l-implementation-hashfilesystem" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Logique d’implémentation</p>
+<ul class="simple">
+<li>/&lt;storage-path&gt; : défini par configuration<ul>
+<li>/container-name : sur les offres de stockage, cela est construit dans le CAS Manager par concaténation du type d’objet et du tenant . Cette configuration n’est pas la configuration cible (notamment par rapport à l’offre froide)<ul>
+<li>/0/a/b/c/&lt;fichier&gt; : avec 0abc les 4 premiers hexdigits du SHA-256 du nom du fichier stocké</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="format-identifier.html" class="btn btn-neutral float-left" title="3.10. Common format identification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vitam-metrics.html" class="btn btn-neutral float-right" title="3.12. Métriques dans VITAM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.2. DAT : module ingest-internal &mdash; Documentation VITAM - Manuel de développement 7.0.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="7.3. DAT : module ingest-external" href="ingest-external-dat.html" />
+    <link rel="prev" title="7.1. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Manuel de développement
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                7.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collect/_toc.html">2. Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/_toc.html">3. Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-administration/_toc.html">4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-demo/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ihm-recette/_toc.html">6. IHM demo</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">7. Ingest</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">7.1. Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.2. DAT : module ingest-internal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules-et-packages">7.2.1. Modules et packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes-metier">7.2.2. Classes métier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ingest-external-dat.html">7.3. DAT : module ingest-external</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ingest-internal-client.html">7.4. ingest-internal-client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ingest-internal-client.html#utilisation">7.5. Utilisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ingest-external-client.html">7.6. ingest-external-client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ingest-external-client.html#utilisation">7.7. Utilisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ingest-external-antivirus.html">7.8. ingest-external-antivirus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ingest.html">7.9. INGEST</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-security/_toc.html">8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logbook/_toc.html">9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/_toc.html">10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler/_toc.html">12. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">13. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">14. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">15. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">16. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">Détails par composant</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">7. Ingest</a></li>
+      <li class="breadcrumb-item active">7.2. DAT : module ingest-internal</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/include/ingest/ingest-internal-dat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="dat-module-ingest-internal">
+<h1>7.2. DAT : module ingest-internal<a class="headerlink" href="#dat-module-ingest-internal" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce document présente l’ensemble du manuel développement concernant le développment du module
+ingest-internal qui est identifié par le user story #84, qui contient :</p>
+<ul class="simple">
+<li>modules &amp; packages</li>
+<li>classes métiers</li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="modules-et-packages">
+<h2>7.2.1. Modules et packages<a class="headerlink" href="#modules-et-packages" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ingest-internal</p>
+<ul class="simple">
+<li>ingest-internal-common : contenant des classes pour les traitements commons de modules ingest-internal</li>
+<li>ingest-internal-model  : définir les modèles de données utilisé dans le module</li>
+<li>ingest-internal-api     : définir des APIs de traitement dépôt des SIP vers le base MongoDb</li>
+<li>ingest-internal-core    : implémentation des APIs</li>
+<li>ingest-internal-rest    : le serveur REST de ingest-internal qui donnes des traitement sur dépôt de document SIP.</li>
+<li>ingest-internal-client  : client ingest-internal qui sera utilisé par les autres modules interne de VITAM pour le service de dépôt des SIPs</li>
+</ul>
+</div>
+<div class="section" id="classes-metier">
+<h2>7.2.2. Classes métier<a class="headerlink" href="#classes-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans cette section, nous présentons quelques classes principales dans des modules/packages
+qu’on a abordé ci-dessus.</p>
+<div class="section" id="ingest-internal-model">
+<h3>7.2.2.1. ingest-internal-model<a class="headerlink" href="#ingest-internal-model" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">UploadResponseDTO.java</span></code> : définir le modèle de réponse sur l’opération de dépôt SIP (upload). Il contient l’information sur le nom de fichier SIP, le code de retour VITAM, le code de retour HTTP, le message et le status.</li>
+</ul>
+</div>
+<div class="section" id="ingest-internal-api">
+<h3>7.2.2.2. ingest-internal-api<a class="headerlink" href="#ingest-internal-api" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">UploadService.java</span></code> : interface pour le service de dépôt interne.</li>
+</ul>
+</div>
+<div class="section" id="ingest-internal-core">
+<h3>7.2.2.3. ingest-internal-core<a class="headerlink" href="#ingest-internal-core" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">MetaDataImpl.java</span></code> : implémenter des fonctionnalités de traitement sur le métadata, pré-défini dans -MetaData.java</li>
+</ul>
+</div>
+<div class="section" id="ingest-internal-rest">
+<h3>7.2.2.4. ingest-internal-rest<a class="headerlink" href="#ingest-internal-rest" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">IngestInternalRessource.java</span></code> : définir des ressources différentes pour le serveur REST ingest-internal</li>
+<li><code class="docutils literal notranslate"><span class="pre">IngestInternalApplication.java</span></code> : créer &amp; lancer le serveur d’application avec une configuration</li>
+</ul>
+</div>
+<div class="section" id="ingest-internal-client">
+<h3>7.2.2.5. ingest-internal-client<a class="headerlink" href="#ingest-internal-client" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">IngestInternalClient.java</span></code> : interface client IngestInternal</li>
+<li><code class="docutils literal notranslate"><span class="pre">IngestInternalInternalClientMock.java</span></code> : mock client ingest-internal</li>
+<li><code class="docutils literal notranslate"><span class="pre">IngestInternalClientRest.java</span></code> : le client ingest-internal et des fonctionnalités en se connectant au serveur REST</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="7.1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ingest-external-dat.html" class="btn btn-neutral float-right" title="7.3. DAT : module ingest-external" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.13.23. Implémentation de l’authentification &mdash; Documentation VITAM - Manuel de développement 7.0.1</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="3.13.24. Implémentation du secret de la plateforme" href="secret-plateforme.html" />
+    <link rel="prev" title="3.13.22. Implémentation de l’éxécution des requêtes mono-query DSL" href="Execution-request-dsl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            VITAM - Manuel de développement
+              <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                7.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collect/_toc.html">2. Collect</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">3. Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">3.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUID.html">3.2. Global Unique Identifier (GUID) pour Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Digest.html">3.3. Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Logger.html">3.4. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../JunitHelper.html">3.5. JunitHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../client.html">3.6. Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph.html">3.7. DirectedCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph.html#graph">3.8. Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VitamCode.html">3.9. Code d’erreur Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../format-identifier.html">3.10. Common format identification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stockage.html">3.11. Common-storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vitam-metrics.html">3.12. Métriques dans VITAM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="_toc.html">3.13. Common-private</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="certs-auth.html">3.13.1. Génération de certificats et de keystore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esapi-utilisation.html">3.13.2. esapi utilisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="format-identifier.html">3.13.3. Format Identifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph-introduction.html">3.13.4. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph-dat.html">3.13.5. DAT : module Graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="parametres.html">3.13.6. Paramètres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Uri.html">3.13.7. Uniform Resource Identifier (URI) (vitam)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html">3.13.8. Configuration de apache shiro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html#presentation-authentification-via-certificats">3.13.9. Présentation authentification via certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html#decryptage-de-shiro-ini">3.13.10. Décryptage de shiro.ini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html#utilisation-des-certificats">3.13.11. Utilisation des certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html">3.13.12. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#classes-de-filtres">3.13.13. Classes de filtres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#implementer-des-filters">3.13.14. Implémenter des filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#appliquer-le-filtre-pour-vitam">3.13.15. Appliquer le filtre pour Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html">3.13.16. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#classe-de-filtre">3.13.17. Classe de filtre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#ajout-du-filtre">3.13.18. Ajout du filtre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#modules-vitam-impactes">3.13.19. Modules Vitam impactés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sanity-checker.html">3.13.20. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultVitamApplicationConfiguration.html">3.13.21. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Execution-request-dsl.html">3.13.22. Implémentation de l’éxécution des requêtes mono-query DSL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.13.23. Implémentation de l’authentification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="secret-plateforme.html">3.13.24. Implémentation du secret de la plateforme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">6. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler/_toc.html">12. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">13. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">14. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">15. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">16. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../_toc.html">Détails par composant</a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">3. Common</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">3.13. Common-private</a></li>
+      <li class="breadcrumb-item active">3.13.23. Implémentation de l’authentification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/include/common/private/mongodb-securite.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="implementation-de-l-authentification">
+<h1>3.13.23. Implémentation de l’authentification<a class="headerlink" href="#implementation-de-l-authentification" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="implementation-de-l-authentification-mongodbaccess">
+<h2>3.13.23.1. Implémentation de l’authentification (MongoDbAccess)<a class="headerlink" href="#implementation-de-l-authentification-mongodbaccess" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’authentification est le processus de vérification de l’identité du client, donc vous avez besoin d’utiliser quatre paramètres dans la fichier de configuration</p>
+<blockquote>
+<div>«&nbsp;dbAuthentication&nbsp;», «&nbsp;dbUserName&nbsp;», «&nbsp;dbName&nbsp;», «&nbsp;dbPassword&nbsp;»</div></blockquote>
+<p>La gestion de l’authentification doit être débrayable –
+Si «&nbsp;dbAuthentication&nbsp;» est égal à «&nbsp;false&nbsp;», il doit être possible de continuer à
+utiliser des bases de données Mongo sans authentification.</p>
+<p>Si «&nbsp;dbAuthentication&nbsp;» est égal à «&nbsp;true&nbsp;», il faut créer le MongoClient contenant MongoCredential
+qui représente les informations d’identification pour l’authentification auprès d’un serveur mongo,
+ainsi que la source des informations d’identification et le mécanisme d’authentification à utiliser.</p>
+<p>Ici, Les utilisateurs «&nbsp;dbUserName&nbsp;» se lient à une base de données spécifique «&nbsp;dbName&nbsp;».
+Il a besoin du mot de passe «&nbsp;dbPassword&nbsp;» pour entrer dans la base et <a class="reference internal" href="../../../introduction.html#term-crud"><span class="xref std std-term">CRUD</span></a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">MongoClient</span> <span class="nf">createMongoClient</span><span class="p">(</span><span class="n">DbConfiguration</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">MongoClientOptions</span> <span class="n">options</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">MongoDbNode</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">.</span><span class="na">getMongoDbNodes</span><span class="p">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">ServerAddress</span><span class="o">&gt;</span> <span class="n">serverAddress</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ServerAddress</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">MongoDbNode</span> <span class="n">node</span> <span class="p">:</span> <span class="n">nodes</span><span class="p">){</span>
+        <span class="n">serverAddress</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">ServerAddress</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">getDbHost</span><span class="p">(),</span> <span class="n">node</span><span class="p">.</span><span class="na">getDbPort</span><span class="p">()));</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">configuration</span><span class="p">.</span><span class="na">isDbAuthentication</span><span class="p">())</span> <span class="p">{</span>
+        <span class="c1">// create user with username, password and specify the database name</span>
+        <span class="n">MongoCredential</span> <span class="n">credential</span> <span class="o">=</span> <span class="n">MongoCredential</span><span class="p">.</span><span class="na">createCredential</span><span class="p">(</span>
+            <span class="n">configuration</span><span class="p">.</span><span class="na">getDbUserName</span><span class="p">(),</span> <span class="n">configuration</span><span class="p">.</span><span class="na">getDbName</span><span class="p">(),</span> <span class="n">configuration</span><span class="p">.</span><span class="na">getDbPassword</span><span class="p">().</span><span class="na">toCharArray</span><span class="p">());</span>
+
+        <span class="c1">// create an instance of mongoclient</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">serverAddress</span><span class="p">,</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">credential</span><span class="p">),</span> <span class="n">options</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">serverAddress</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>–      List&lt;ServerAddress&gt; serverAddress:</dt>
+<dd>La liste des adresses du serveur qui permet la base de données mongodb de connecter plusieurs nœuds</dd>
+<dt>–      Arrays.asList(credential):</dt>
+<dd>La liste des informations d’identification que ce client authentifie toutes les connexions avec</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Execution-request-dsl.html" class="btn btn-neutral float-left" title="3.13.22. Implémentation de l’éxécution des requêtes mono-query DSL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="secret-plateforme.html" class="btn btn-neutral float-right" title="3.13.24. Implémentation du secret de la plateforme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
