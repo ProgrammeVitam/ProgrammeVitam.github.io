@@ -42,7 +42,7 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 
 ### La collecte des archives en mode flux
 
-- [Présentation de la collecte des archives en mode flux]
+- [Présentation de la collecte des archives en mode flux](/ressources/RefCourant/20241126_LaCollecteEnModeFlux_V0.2.pdf)
 
 - Webinaire
 
