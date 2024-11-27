@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 5.3 (08/2023)
-fatherref: versions
 ---
 
 - Avril 2022 - communication sur la publication de la version 5 : [Offre froide, module de collecte, enrichissements et nouvelles fonctionnalités au menu de la V5 de Vitam](http://www.programmevitam.fr/2022/04/13/Version5/)
