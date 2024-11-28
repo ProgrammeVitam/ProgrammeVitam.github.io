@@ -14,6 +14,6 @@ Il est encore temps de s'inscrire aux prochaines sessions :
 - vendredi 20 décembre matin : [Profil d’archivage et profil d’unité archivistique avec Pastis, présentation avec le Siaf de l’outil de PA – PUA, des fonctionnalités et des usages.](https://events.teams.microsoft.com/event/ed064b97-273f-4232-88a5-37f4408eaeef@5d0b42b2-7ba0-42b9-bd88-2dd1558bd190)
 - vendredi 20 décembre après-midi : [Vitam et Vitam UI, principales fonctionnalités, tour d’horizon général des fonctionnalités du logiciel Vitam par l’usage de son front-office Vitam UI.](https://events.teams.microsoft.com/event/2c59eec0-2ee8-4d5a-8781-86f7db49287b@5d0b42b2-7ba0-42b9-bd88-2dd1558bd190)
 
-Quant aux présentations et enregistrements, ils sont [mis à votre disposition au fur et à mesure](./pages/demonstration/vitam_2024).
+Quant aux présentations et enregistrements, ils sont [mis à votre disposition au fur et à mesure](https://www.programmevitam.fr/pages/demonstration/vitam_2024/).
 
 ![Logos](/public/images/Vitamenligne_2024_merci.jpg)
