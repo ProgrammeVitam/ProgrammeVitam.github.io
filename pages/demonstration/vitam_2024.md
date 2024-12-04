@@ -48,3 +48,21 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1d76CkZIq8Q?si=2UxrZ755MUlVFFvU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+## Mercredi 4 décembre 2024
+
+### Atelier dédié aux ESN
+
+- [Présentation du Programme Vitam](/ressources/RefCourant/20241204_Vitamenligne2024_ESN.pptx)
+
+- Webinaire
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FSsjasxZr-I?si=EROsh8Ko0eqzxBqn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+### L'archivage en mode mutualisé, exemples
+
+- [Présentation de Nantes métropole et de la communauté d'agglomération de Cergy-Pontoise)](/ressources/RefCourant/20241204_Vitamenligne2024_Mutualisation_VF.pptx)
+
+- Webinaire
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3nX3HPm0Nuw?si=1omW2Ay3AlGfiES3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
