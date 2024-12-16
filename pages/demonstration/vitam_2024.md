@@ -52,7 +52,7 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 
 ### Atelier dédié aux ESN
 
-- [Présentation du Programme Vitam](/ressources/RefCourant/20241204_Vitamenligne2024_ESN.pptx)
+- [Présentation du Programme Vitam](/ressources/RefCourant/20241204_Vitamenligne2024_ESN.pdf)
 
 - Webinaire
 
@@ -61,8 +61,22 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 
 ### L'archivage en mode mutualisé, exemples
 
-- [Présentation de Nantes métropole et de la communauté d'agglomération de Cergy-Pontoise)](/ressources/RefCourant/20241204_Vitamenligne2024_Mutualisation_VF.pptx)
+- [Présentation de Nantes métropole et de la communauté d'agglomération de Cergy-Pontoise)](/ressources/RefCourant/20241204_Vitamenligne2024_Mutualisation_VF.pdf)
 
 - Webinaire
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3nX3HPm0Nuw?si=1omW2Ay3AlGfiES3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Jeudi 12 décembre 2024
+
+### La conteneurisation
+
+- [Présentation du Programme Vitam](/ressources/RefCourant/20241212_Vitamenligne_Conteneurisation.pdf)
+
+- Webinaire
+
+### ReSIP
+
+- [Présentation du Programme Vitam](/ressources/RefCourant/20241212_Vitamenligne2024_ReSIP.pdf)
+
+- Webinaire
