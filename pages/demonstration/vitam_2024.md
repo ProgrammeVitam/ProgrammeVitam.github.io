@@ -75,6 +75,8 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 
 - Webinaire
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jZJ-So_GSaU?si=6H7SXaodFMKZVIqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### ReSIP
 
 - [Présentation du Programme Vitam](/ressources/RefCourant/20241212_Vitamenligne2024_ReSIP.pdf)
