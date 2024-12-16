@@ -12,7 +12,7 @@ fatherref: versions
 
 
 Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et le front-office Vitam UI. 
-La présentation des fonctionnalités est [disponible sur cet article](https://www.programmevitam.fr/2024/12/06/version8_0/).
+La présentation des fonctionnalités est [disponible sur cet article](https://www.programmevitam.fr/2024/12/16/version8_0/).
 Sont mis à dispostion :
 
 <a name="github"></a>
