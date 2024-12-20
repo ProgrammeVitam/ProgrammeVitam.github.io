@@ -93,8 +93,10 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 
 - Webinaire
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XuLhIQiAeJ0?si=pbIh690OxDLthmFD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Vitam et Vitam UI, présentation des grandes fonctionnalités
 
-- [Présentation du Programme Vitam]()
+- [Présentation du Programme Vitam](/ressources/RefCourant/202412_Vitamenligne_presentation_fonctionnalites_vdef.pdf)
 
 - Webinaire
