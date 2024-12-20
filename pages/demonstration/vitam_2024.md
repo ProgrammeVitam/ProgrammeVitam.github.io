@@ -84,3 +84,17 @@ En novembre - décembre 2024, le Programme Vitam vous propose une nouvelle édit
 - Webinaire
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HmvN-7BSb80?si=t2COhL4bvy6tVFF5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Vendredi 20 décembre 2024
+
+### Profil d'archivage et profil d'unité archivistique avec 202411_presentation_VaS_du_20241118
+
+- [Présentation du Programme Vitam et du SIAF](/ressources/RefCourant/20241220_Pastis_SIAF_v5.pdf)
+
+- Webinaire
+
+### Vitam et Vitam UI, présentation des grandes fonctionnalités
+
+- [Présentation du Programme Vitam]()
+
+- Webinaire
