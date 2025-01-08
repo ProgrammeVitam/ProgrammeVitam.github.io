@@ -4,8 +4,9 @@ title: version 7.0
 fatherref: versions
 ---
 * [Mise à disposition du code](#github)
-* [7.0.1 - décembre 2023](#701)
 * [7.0.2 - décembre 2024](#702)
+* [7.0.1 - décembre 2023](#701)
+
 
 
 
@@ -47,7 +48,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui_repository/7.0.2/rpm/)
 - URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui_repository/7.0.2/deb/)
 
-Liens de téléchargement pour les partenaires :  [**version 7.0**](https://support.programmevitam.fr/releases/7.0.2/index.html)
+Liens de téléchargement pour les partenaires :  [**version 7.0.2**](https://releases.programmevitam.fr/7.0.2/index.html)
 
 #### La documentation fonctionnelle et technique
 
@@ -90,7 +91,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui_repository/7.0.1/rpm/)
 - URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui_repository/7.0.1/deb/)
 
-Liens de téléchargement pour les partenaires :  [**version 7.0**](https://support.programmevitam.fr/releases/7.0.1/index.html)
+Liens de téléchargement pour les partenaires :  [**version 7.0.1**](https://releases.programmevitam.fr/7.0.1/index.html)
 
 #### La documentation fonctionnelle et technique
 
