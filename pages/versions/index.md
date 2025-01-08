@@ -12,6 +12,8 @@ Les 2 versions sont homologuées.
 
 ## Présentation des versions
 
+- Décembre 2024 - v8.0 : [Une belle version 8.0 pour finir l'année 2024](https://www.programmevitam.fr/2024/12/16/version8_0/)
+
 - Juillet 2024 - v7.1.1 : [Signature électronique, identifiants pérennes, métadonnées étendues, etc. sont des fonctionnalités embarquées dans la version 7.1.1. Tour d’horizon !](https://www.programmevitam.fr/2024/07/12/version7_1/)
 
 - Décembre 2023 - v7.0 : [Nouvelle version majeure de Vitam avec la publication de la V7.0](https://www.programmevitam.fr/2023/12/18/version7-0/)
