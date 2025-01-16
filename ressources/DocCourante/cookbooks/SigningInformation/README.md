@@ -132,7 +132,7 @@ Le bloc `<SigningInformation>` permet de décrire les informations de signature 
 **Important** : Afin de simplifier le versement d'archives avec signature électronique, les versions `7.0+` de Vitam supportent le versement d'unités archivistiques avec le bloc `<SigningInformation>` dans le message ArchiveTransfer utilisant les versions `2.1` et `2.2` du SEDA, en tant que champ libre (extension).
 À noter cependant que, dans ce cas, la balise `<SigningInformation>` est mutuellement incompatible avec les balises `<Signature>`, `<GPS>`, `<OriginatingSystemIdReplyTo>` et `<TextContent>`.
 De même, si plusieurs champs libres (extensions) sont présents, la balise `<SigningInformation>` doit être la première de la liste.
-Vitam recommande cependant l'utilisation de la version `2.3` du SEDA, notamment en présence des champs  `<SigningInformation>`.
+Vitam recommande néanmoins l'utilisation de la version `2.3` du SEDA, notamment en présence des champs  `<SigningInformation>`.
 
 ## Principes de modélisation
 
@@ -206,7 +206,7 @@ Exemple de document signé avec signature et horodatage embarqués :
 
 Ce cas démontre le cas où un objet binaire contenant à la fois le document signé et horodaté, ainsi que les preuves de
 signature (XML, PDF et annexes), le tout packagé dans un seul binaire de type archive ZIP. La modélisation est similaire
-au [cas 1](#cas-1---document-simple-embarquant-une-signature-et-un-horodatage):
+au [cas 1](#cas-1---document-simple-embarquant-une-signature-et-un-horodatage) :
 
 - Un objet binaire décrit au sein d'un bloc `<BinaryDataObject>`,
 - Une unité archivistique `<ArchiveUnit>` décrivant le binaire et les informations de signature le concernant au sein d'un bloc `<SigningInformation>`
@@ -610,7 +610,7 @@ déclarées à la racine du bloc `<DescriptiveMetadata>`, et sont référencées
 </ArchiveTransfer>
 ```
 
-### Cas 5 - Duplication des informations de signature dans l'unité archivistique racine
+### Cas 5 - Duplication de métadonnées dans l'unité d'archives racine
 
 Dans le cas d'un document signé accompagné de binaires détachés, il est possible de recopier/dupliquer les
 informations de signature des unités archivistiques « filles » au niveau de l'unité archivistique « racine ».
@@ -1058,6 +1058,221 @@ Exemple de document signé avec signature et horodatage embarqués avec champs l
       </ArchiveUnit>
     </DescriptiveMetadata>
     <!-- ... -->
+  </DataObjectPackage>
+  <!-- ... -->
+</ArchiveTransfer>
+```
+
+### Cas 8 - Profil d'Archivage pour archive ZIP contenant le document signé et horodaté ainsi que ses preuves complémentaires
+
+Ce cas est identique au [cas 2](#cas-2---archive-zip-contenant-le-document-signé-et-horodaté-ainsi-que-ses-preuves-complémentaires),
+mais avec un contrôle de structure du `manifest.xml` du SEDA réalisé au travers d'un **Profil d'Archivage** au format `RNG`
+(Relax NG).
+
+Le [Profil d'Archivage](./8-%20Profil%20d'Archivage%20pour%20binaire%20unique%20avec%20document%20signé%20horodaté%20et%20preuves%20complémentaires/ArchivalProfile.rng)
+décrit l'ensemble des contraintes telles que :
+- La présence du bloc `<SigningInformation>`, avec des rôles de signature attendus, ainsi que les informations de
+  signature, de l'horodatage et des preuves additionnelles...
+- La présence d'un groupe d'objet technique associé à l'unité archivistique
+
+```xml
+<element name="DescriptiveMetadata">
+  <element name="ArchiveUnit">
+    <!-- ... -->
+    <group>
+      <element name="Content">
+        <!-- ... -->
+        <element name="SigningInformation">
+          <!-- Required Signing Roles -->
+          <element name="SigningRole">
+            <value type="token">SignedDocument</value>
+          </element>
+          <element name="SigningRole">
+            <value type="token">Signature</value>
+          </element>
+          <element name="SigningRole">
+            <value type="token">Timestamp</value>
+          </element>
+          <element name="SigningRole">
+            <value type="token">AdditionalProof</value>
+          </element>
+          <!-- Require signature, timestamp and additional proof information declaration -->
+          <element name="SignatureDescription">
+            <element name="Signer">
+              <element name="FullName">
+                <data type="token" />
+              </element>
+              <element name="SigningTime">
+                <data type="dateTime" />
+              </element>
+            </element>
+          </element>
+          <element name="TimestampingInformation">
+            <element name="TimeStamp">
+              <data type="dateTime" />
+            </element>
+          </element>
+          <element name="AdditionalProof">
+            <oneOrMore>
+              <element name="AdditionalProofInformation">
+                <data type="token" />
+              </element>
+            </oneOrMore>
+          </element>
+        </element>
+      </element>
+      <element name="DataObjectReference">
+        <optional>
+          <attribute name="id">
+            <data type="ID" />
+          </attribute>
+        </optional>
+        <!-- Reference to DataObjectGroup -->
+        <element name="DataObjectGroupReferenceId">
+          <data type="NCName" />
+        </element>
+      </element>
+    </group>
+  </element>
+</element>
+```
+
+Le fichier `manifest.xml` référence le Profil d'Archivage (importé préalablement dans Vitam) via :
+
+```xml
+<ArchiveTransfer>
+  <!-- ... -->
+  <DataObjectPackage>
+    <!-- ... -->
+    <ManagementMetadata>
+      <!-- Archive Profile identifier -->
+      <ArchivalProfile>MyArchivalProfileId</ArchivalProfile>
+    </ManagementMetadata>
+  </DataObjectPackage>
+  <!-- ... -->
+</ArchiveTransfer>
+```
+
+### Cas 9 - Profil d'Archivage pour archive ZIP contenant le document signé et horodaté ainsi que ses preuves complémentaires
+
+Ce cas est identique au [cas 3](#cas-3---binaires-multiples), mais avec un contrôle de structure du `manifest.xml` du
+SEDA réalisé au travers d'un **Profil d'Archivage** au format `RNG` (Relax NG).
+
+Le [Profil d'Archivage](./9-%20Profil%20d'Archivage%20pour%20binaires%20multiples/ArchivalProfile.rng) décrit l'ensemble
+des contraintes telles que :
+- La présence d'une unité archivistique "mère", avec un bloc `<SigningInformation>` décrivant les rôles de signature, les
+  rôles de signature détachés, ainsi que les informations de signature, de l'horodatage...
+- La présence d'une unité archivistique "fille" avec un bloc `<SigningInformation>` décrivant les rôles de signature
+  ainsi que les preuves complémentaires...
+- La présence de 2 groupes d'objets techniques pour chacune des unités archivistiques "mère" et "fille".
+
+```xml
+<element name="DescriptiveMetadata">
+  <element name="ArchiveUnit">
+    <!-- ... -->
+    <group>
+      <element name="Content">
+        <!-- ... -->
+        <element name="SigningInformation">
+
+          <!-- Required Signing Roles -->
+          <element name="SigningRole">
+            <value type="token">SignedDocument</value>
+          </element>
+          <element name="SigningRole">
+            <value type="token">Signature</value>
+          </element>
+          <element name="SigningRole">
+            <value type="token">Timestamp</value>
+          </element>
+
+          <!-- Required Detached Signing Roles -->
+          <element name="DetachedSigningRole">
+            <value type="token">AdditionalProof</value>
+          </element>
+
+          <!-- Require signature and timestamp information declaration -->
+          <element name="SignatureDescription">
+            <element name="Signer">
+              <element name="FullName">
+                <data type="token" />
+              </element>
+              <element name="SigningTime">
+                <data type="dateTime" />
+              </element>
+            </element>
+          </element>
+          <element name="TimestampingInformation">
+            <element name="TimeStamp">
+              <data type="dateTime" />
+            </element>
+          </element>
+        </element>
+      </element>
+      <oneOrMore>
+        <!-- One or more child archive units -->
+        <element name="ArchiveUnit">
+          <!-- ... -->
+          <group>
+            <element name="Content">
+              <!-- ... -->
+              <element name="SigningInformation">
+                <!-- Signing Roles of child archive unit -->
+                <element name="SigningRole">
+                  <value type="token">AdditionalProof</value>
+                </element>
+
+                <!-- AdditionalProof information declaration -->
+                <element name="AdditionalProof">
+                  <oneOrMore>
+                    <element name="AdditionalProofInformation">
+                      <data type="token" />
+                    </element>
+                  </oneOrMore>
+                </element>
+              </element>
+            </element>
+            <element name="DataObjectReference">
+              <optional>
+                <attribute name="id">
+                  <data type="ID" />
+                </attribute>
+              </optional>
+              <!-- Reference to DataObjectGroup of child unit -->
+              <element name="DataObjectGroupReferenceId">
+                <data type="NCName" />
+              </element>
+            </element>
+          </group>
+        </element>
+      </oneOrMore>
+      <element name="DataObjectReference">
+        <optional>
+          <attribute name="id">
+            <data type="ID" />
+          </attribute>
+        </optional>
+        <!-- Reference to DataObjectGroup of parent unit -->
+        <element name="DataObjectGroupReferenceId">
+          <data type="NCName" />
+        </element>
+      </element>
+    </group>
+  </element>
+</element>
+```
+
+Le fichier `manifest.xml` référence le Profil d'Archivage (importé préalablement dans Vitam) via :
+
+```xml
+<ArchiveTransfer>
+  <!-- ... -->
+  <DataObjectPackage>
+    <!-- ... -->
+    <ManagementMetadata>
+      <!-- Archive Profile identifier -->
+      <ArchivalProfile>MyArchivalProfileId</ArchivalProfile>
+    </ManagementMetadata>
   </DataObjectPackage>
   <!-- ... -->
 </ArchiveTransfer>
