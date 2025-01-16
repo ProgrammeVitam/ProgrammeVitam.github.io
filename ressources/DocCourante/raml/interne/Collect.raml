@@ -190,6 +190,38 @@ documentation:
             application/json:
               type: object
               example: !include libraries/examples/transactionResponse.json
+  /{id}/upload:
+    displayName: upload d'une archive Zip à un projet avec gestion automatique des transactions
+    is: [ StandardTraits.StandardOptionalHeader,
+          StandardTraits.StandardHeader401, StandardTraits.StandardHeader404,
+          StandardTraits.StandardHeader409, StandardTraits.StandardHeader412 ]
+    post:
+      description: |
+        Permet de soumettre un ensemble de binaire au format Zip.
+        L'arborescence est rattachée à une transaction auto-générée dont l'identifiant est retourné à l'appelant.
+        Optionnellement, le Zip peut contenir un fichier "metadata.csv" ou "metadata.jsonl" décrivant l'ensemble des
+        métadonnées de l'arborescence.
+
+        Il est à noter que dans le cas d'un fichier de métadonnées au format JSONL (metadata.jsonl), la sélection des
+        métadonnées peut se faire uniquement via le champ `File` ou via un sélecteur (champ `Selector`),
+        limité à la clé `#uploadFile`.
+
+        Attention : Cette API est alpha / expérimentale.
+      body:
+        application/zip:
+      headers:
+        X-tenant-Id:
+          required: true
+        X-Encoding:
+          required: false
+          description: "Encodage du zip, par default VITAM utilise UTF-8"
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              example: !include libraries/examples/uploadZipToProjectResponseExample.json
+
 
 /transactions:
   displayName: Transactions
@@ -325,11 +357,11 @@ documentation:
       responses:
         200:
   /{id}/upload:
+    displayName: upload d'une archive Zip à une transaction
     uriParameters:
       id:
         required: true
         description: Identifiant de la transaction
-    displayName: upload d'une archive Zip
     is: [ StandardTraits.StandardOptionalHeader,
           StandardTraits.StandardHeader401, StandardTraits.StandardHeader404,
           StandardTraits.StandardHeader409, StandardTraits.StandardHeader412 ]
@@ -341,6 +373,9 @@ documentation:
       headers:
         X-tenant-Id:
           required: true
+        X-Encoding:
+          required: false
+          description: "Encodage du zip, par default VITAM utilise UTF-8"
       responses:
         200:
           body:
