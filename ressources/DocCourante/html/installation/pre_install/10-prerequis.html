@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 7.0.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 8.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                7.0.1
+                8.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,7 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#base-commune">3.2.1. Base commune</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pki">3.2.2. PKI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#systemes-d-exploitation">3.2.3. Systèmes d’exploitation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#deploiement-sur-environnement-centos">3.2.3.1. Déploiement sur environnement CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deploiement-sur-environnement-almalinux">3.2.3.1. Déploiement sur environnement AlmaLinux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#deploiement-sur-environnement-debian">3.2.3.2. Déploiement sur environnement Debian</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#presence-d-un-agent-antiviral">3.2.3.3. Présence d’un agent antiviral</a></li>
 </ul>
@@ -163,8 +163,8 @@
 <h2>3.2.3. Systèmes d’exploitation<a class="headerlink" href="#systemes-d-exploitation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Seules deux distributions Linux suivantes sont supportées à ce jour :</p>
 <ul class="simple">
-<li>CentOS 7</li>
-<li>Debian 10 (buster)</li>
+<li>AlmaLinux 9</li>
+<li>Debian 12 (bookworm)</li>
 </ul>
 <p>SELinux doit être configuré en mode <code class="docutils literal notranslate"><span class="pre">permissive</span></code> ou <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. Toutefois depuis la release R13, la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> prend désormais en charge l’activation de SELinux sur le périmètre du composant worker et des processus associés aux <em>griffins</em> (greffons de préservation).</p>
 <div class="admonition note">
@@ -175,14 +175,14 @@
 <p class="first admonition-title">Prudence</p>
 <p class="last">En cas d’installation initiale, les utilisateurs et groupes systèmes (noms et <a class="reference internal" href="../introduction.html#term-uid"><span class="xref std std-term">UID</span></a>) utilisés par VITAM (et listés dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a>) ne doivent pas être présents sur les serveurs cible. Ces comptes sont créés lors de l’installation de VITAM et gérés par VITAM.</p>
 </div>
-<div class="section" id="deploiement-sur-environnement-centos">
-<h3>3.2.3.1. Déploiement sur environnement CentOS<a class="headerlink" href="#deploiement-sur-environnement-centos" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="deploiement-sur-environnement-almalinux">
+<h3>3.2.3.1. Déploiement sur environnement AlmaLinux<a class="headerlink" href="#deploiement-sur-environnement-almalinux" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li>Disposer d’une plate-forme Linux CentOS 7 installée selon la répartition des services souhaités. En particulier, ces serveurs doivent avoir :<ul>
+<li>Disposer d’une plate-forme Linux AlmaLinux 9 installée selon la répartition des services souhaités. En particulier, ces serveurs doivent avoir :<ul>
 <li>une configuration de temps synchronisée (ex: en récupérant le temps à un serveur centralisé)</li>
 <li>Des autorisations de flux conformément aux besoins décrits dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a></li>
 <li>une configuration des serveurs de noms correcte (cette configuration sera surchargée lors de l’installation)</li>
-<li>un accès à un dépôt (ou son miroir) CentOS 7 (base et extras) et EPEL 7</li>
+<li>un accès à un dépôt (ou son miroir) AlmaLinux 9 (base et extras) et EPEL 9</li>
 </ul>
 </li>
 <li>Disposer des binaires VITAM : paquets <a class="reference internal" href="../introduction.html#term-rpm"><span class="xref std std-term">RPM</span></a> de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec VITAM (vitam-external)</li>
@@ -192,11 +192,11 @@
 <div class="section" id="deploiement-sur-environnement-debian">
 <h3>3.2.3.2. Déploiement sur environnement Debian<a class="headerlink" href="#deploiement-sur-environnement-debian" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li>Disposer d’une plate-forme Linux Debian «&nbsp;buster&nbsp;» installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :<ul>
+<li>Disposer d’une plate-forme Linux Debian «&nbsp;bookworm&nbsp;» installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :<ul>
 <li>une configuration de temps synchronisée (ex: en récupérant le temps à un serveur centralisé)</li>
 <li>Des autorisations de flux conformément aux besoins décrits dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a></li>
 <li>une configuration des serveurs de noms correcte (cette configuration sera surchargée lors de l’installation)</li>
-<li>un accès à un dépôt (ou son miroir) Debian (base et extras) et buster-backports</li>
+<li>un accès à un dépôt (ou son miroir) Debian (base et extras) et bookworm-backports</li>
 <li>un accès internet, car le dépôt docker sera ajouté</li>
 </ul>
 </li>

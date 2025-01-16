@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 7.0.1</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 8.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                7.0.1
+                8.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,7 +57,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#fichiers-de-deploiement">4.2.3.1. Fichiers de déploiement</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#informations-plate-forme">4.2.3.2. Informations <cite>plate-forme</cite></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#declaration-des-secrets">4.2.3.3. Déclaration des secrets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#le-mapping-elasticsearch-pour-unit-et-objectgroup">4.2.3.4. Le mapping ElasticSearch pour Unit et ObjectGroup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#la-configuration-d-elasticsearch">4.2.3.4. La configuration d’ElasticSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-mapping-elasticsearch-pour-unit-et-objectgroup">4.2.3.5. Le mapping ElasticSearch pour Unit et ObjectGroup</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="20-certificats.html">4.2.4. Gestion des certificats</a></li>
@@ -572,7 +573,22 @@
 450
 451
 452
-453</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
 <span class="k">[hosts]</span>
 
 <span class="c1"># Group definition ; DO NOT MODIFY</span>
@@ -581,14 +597,15 @@
 <span class="na">reverse</span>
 <span class="na">hosts_dev_tools</span>
 <span class="na">ldap</span>
+<span class="na">hosts_vitamui</span>
 
 <span class="c1">########### Tests environments specifics ###########</span>
 
 <span class="c1"># EXTRA : Front reverse-proxy (test environments ONLY) ; add machine name after</span>
 <span class="k">[reverse]</span>
-<span class="c1"># optional : after machine, if this machine is different from VITAM machines, you can specify another become user</span>
+<span class="c1"># optional : if this machine is different from VITAM machines, you can specify another become user</span>
 <span class="c1"># Example</span>
-<span class="c1"># vitam-centos-01.vitam ansible_ssh_user=centos</span>
+<span class="c1"># vm-reverse.vitam ansible_ssh_user=reverse_user</span>
 
 
 <span class="na">[ldap] # Extra : OpenLDAP server</span>
@@ -978,6 +995,20 @@
 <span class="c1"># TODO: Put here servers where this service will be deployed : grafana-server</span>
 
 
+<span class="c1">################################################################################</span>
+<span class="c1"># ZONE VITAMUI</span>
+<span class="c1">################################################################################</span>
+<span class="k">[hosts_vitamui]</span>
+<span class="c1"># optional: To deploy exporters on VitamUI</span>
+
+
+<span class="k">[hosts_vitamui:children]</span>
+<span class="na">hosts_vitamui_mongod</span>
+
+<span class="k">[hosts_vitamui_mongod]</span>
+<span class="c1"># optional: To deploy mongodb-exporter on VitamUI</span>
+
+
 <span class="c1">########### Global vars ###########</span>
 
 <span class="k">[hosts:vars]</span>
@@ -1168,7 +1199,8 @@
 110
 111
 112
-113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+113
+114</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1"># TENANTS</span>
 <span class="c1"># List of active tenants</span>
@@ -1210,15 +1242,15 @@
 
 <span class="c1"># LOGGING</span>
 <span class="c1"># vitam_defaults:</span>
-<span class="c1">#   access_retention_days: 30 # Number of days for file retention</span>
-<span class="c1">#   access_total_size_cap: &quot;10GB&quot; # total acceptable size</span>
+<span class="c1">#   access_retention_days: 365 # Number of days for accesslog retention</span>
+<span class="c1">#   access_total_size_cap: &quot;5GB&quot; # total acceptable size</span>
 <span class="c1">#   logback_max_file_size: &quot;10MB&quot;</span>
 <span class="c1">#   logback_total_size_cap:</span>
 <span class="c1">#     file:</span>
-<span class="c1">#       history_days: 30</span>
+<span class="c1">#       history_days: 365</span>
 <span class="c1">#       totalsize: &quot;5GB&quot;</span>
 <span class="c1">#     security:</span>
-<span class="c1">#       history_days: 30</span>
+<span class="c1">#       history_days: 365</span>
 <span class="c1">#       totalsize: &quot;5GB&quot;</span>
 
 <span class="c1"># ELASTICSEARCH</span>
@@ -1270,17 +1302,18 @@
       <span class="nt">default</span><span class="p">:</span>
         <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="nt">curator</span><span class="p">:</span>
-  <span class="nt">log</span><span class="p">:</span>
-    <span class="nt">metrics</span><span class="p">:</span>
-      <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-      <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-    <span class="nt">logstash</span><span class="p">:</span>
-      <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-      <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
 
-<span class="c1"># PACKAGES</span>
-<span class="nt">disable_internet_repositories_install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1"># Disable EPEL or Debian backports repositories install</span>
+<span class="nt">curator</span><span class="p">:</span>
+  <span class="nt">indices</span><span class="p">:</span>
+    <span class="nt">vitam</span><span class="p">:</span>
+      <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+      <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">365</span>
+    <span class="nt">access</span><span class="p">:</span>
+      <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+      <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">180</span>
+    <span class="nt">system</span><span class="p">:</span>
+      <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
+      <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
 </pre></div>
 </td></tr></table></div>
 <p>Une attention particulère doit être portée à la configuration du nombre de shards et de replicas dans le paramètre <code class="docutils literal notranslate"><span class="pre">vitam_elasticsearch_tenant_indexation.default_config</span></code>.</p>
@@ -2193,13 +2226,20 @@
 359
 360
 361
-362</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+362
+363
+364
+365
+366
+367
+368</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">check_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">check_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span> <span class="c1"># in seconds</span>
     <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WARN</span> <span class="c1"># Available log_level are: TRACE, DEBUG, INFO, WARN or ERR</span>
+    <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="c1"># Please uncomment and fill values if you want to connect VITAM to external SIEM</span>
 <span class="c1"># external_siem:</span>
@@ -2210,6 +2250,7 @@
     <span class="nt">log</span><span class="p">:</span>
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9201&quot;</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
         <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
         <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
@@ -2217,34 +2258,23 @@
         <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">error</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/7.6/modules-fielddata.html</span>
-        <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/7.6/circuit-breaker.html#fielddata-circuit-breaker</span>
+        <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/modules-fielddata.html</span>
+        <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/circuit-breaker.html#fielddata-circuit-breaker</span>
         <span class="nt">dynamic_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30s</span>
-        <span class="c1"># default index template</span>
-        <span class="nt">index_templates</span><span class="p">:</span>
-            <span class="nt">packetbeat</span><span class="p">:</span>
-                <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+        <span class="c1"># log configuration</span>
         <span class="nt">log_appenders</span><span class="p">:</span>
             <span class="nt">root</span><span class="p">:</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
             <span class="nt">rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
+                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;2GB&quot;</span>
             <span class="nt">deprecation_rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;1GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;20&quot;</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
             <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;1GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
             <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;1GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
         <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
         <span class="c1"># thread_pool:</span>
@@ -2270,32 +2300,23 @@
         <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">debug</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/6.5/modules-fielddata.html</span>
-        <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/6.5/circuit-breaker.html#fielddata-circuit-breaker</span>
+        <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/modules-fielddata.html</span>
+        <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/circuit-breaker.html#fielddata-circuit-breaker</span>
         <span class="nt">dynamic_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30s</span>
-        <span class="c1"># default index template</span>
-        <span class="nt">index_templates</span><span class="p">:</span>
+        <span class="c1"># log configuration</span>
         <span class="nt">log_appenders</span><span class="p">:</span>
             <span class="nt">root</span><span class="p">:</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
             <span class="nt">rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
                 <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
             <span class="nt">deprecation_rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
+                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;20&quot;</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
             <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
             <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-                <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;50&quot;</span>
                 <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
         <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
         <span class="c1"># thread_pool:</span>
@@ -2315,7 +2336,6 @@
     <span class="nt">mongoc_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
     <span class="nt">mongod_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
     <span class="nt">mongo_authentication</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;mongos.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">drop_info_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># Drop mongo (I)nformational log, for Verbosity Level of 0</span>
     <span class="c1"># logs configuration</span>
@@ -2324,21 +2344,24 @@
 
 <span class="nt">logstash</span><span class="p">:</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;logstash.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logstash</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10514</span>
     <span class="nt">rest_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20514</span>
+    <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="c1"># logstash xms &amp; xmx in Megabytes</span>
-    <span class="c1"># jvm_xms: 2048</span>
-    <span class="c1"># jvm_xmx: 2048</span>
-    <span class="c1"># workers_number: 4</span>
+    <span class="c1">## logstash xms &amp; xmx in Megabytes</span>
+    <span class="c1"># jvm_xms: 256 # default to memory_size/8</span>
+    <span class="c1"># jvm_xmx: 1024 # default to memory_size/4</span>
+    <span class="c1"># workers_number: 4 # default to cores*threads</span>
     <span class="nt">log_appenders</span><span class="p">:</span>
         <span class="nt">rolling</span><span class="p">:</span>
-            <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-            <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+            <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
+            <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;2GB&quot;</span>
         <span class="nt">json_rolling</span><span class="p">:</span>
-            <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;100MB&quot;</span>
-            <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+            <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
+            <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;2GB&quot;</span>
+
+<span class="nt">filebeat</span><span class="p">:</span>
+    <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="c1"># Prometheus params</span>
 <span class="nt">prometheus</span><span class="p">:</span>
@@ -2347,11 +2370,13 @@
     <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
-        <span class="nt">tsdb_retention_time</span><span class="p">:</span> <span class="s">&quot;7d&quot;</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">tsdb_retention_time</span><span class="p">:</span> <span class="s">&quot;15d&quot;</span>
         <span class="nt">tsdb_retention_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
     <span class="nt">node_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9101</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
         <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
         <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
@@ -2359,10 +2384,12 @@
     <span class="nt">consul_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9107</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
     <span class="nt">elasticsearch_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9114</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
         <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
         <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
@@ -2370,16 +2397,30 @@
     <span class="nt">alertmanager</span><span class="p">:</span>
         <span class="nt">api_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9093</span>
         <span class="nt">cluster_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9094</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="c1">#receivers: # https://grafana.com/blog/2020/02/25/step-by-step-guide-to-setting-up-prometheus-alertmanager-with-slack-pagerduty-and-gmail/</span>
         <span class="c1">#- name: &quot;slack_alert&quot;</span>
         <span class="c1">#  slack_configs:</span>
         <span class="c1">#  - api_url: &quot;https://hooks.slack.com/services/xxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
         <span class="c1">#    channel: &#39;#your_alert_channel&#39;</span>
         <span class="c1">#    send_resolved: true</span>
+    <span class="nt">blackbox_exporter</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9115</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">targets</span><span class="p">:</span>
+            <span class="c1">## List all the targeted URLs that must be controled with blackbox</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_reverse_external_protocol</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;https&#39;)</span><span class="nv"> </span><span class="s">}}://{{</span><span class="nv"> </span><span class="s">vitam_reverse_external_dns</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">reverse_proxy_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(443)</span><span class="nv"> </span><span class="s">}},reverse&quot;</span>
+    <span class="nt">mongodb_exporter</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">port_mongoc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9216</span>
+        <span class="nt">port_mongod</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9217</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="nt">grafana</span><span class="p">:</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
+    <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">grafana_datasources</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus&quot;</span>
@@ -2414,7 +2455,7 @@
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
-    <span class="nt">log</span><span class="p">:</span>
+    <span class="nt">indices</span><span class="p">:</span>
         <span class="nt">metricbeat</span><span class="p">:</span>
             <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
             <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
@@ -2434,6 +2475,7 @@
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
         <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
+        <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logstash-vitam*&quot;</span>
         <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="c1"># default shards &amp; replica</span>
@@ -2460,8 +2502,11 @@
         <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 
 <span class="nt">syslog</span><span class="p">:</span>
-    <span class="c1"># value can be syslog-ng or rsyslog</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;rsyslog&quot;</span>
+    <span class="c1"># value can be syslog-ng, rsyslog or filebeat (default)</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;filebeat&quot;</span>
+
+<span class="c1"># filebeat:</span>
+<span class="c1"># Default values are under ansible-vitam/roles/filebeat/defaults/main.yml</span>
 
 <span class="nt">cerebro</span><span class="p">:</span>
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;cerebro&quot;</span>
@@ -2495,12 +2540,12 @@
 <span class="c1">#     manage_repository: true</span>
 <span class="c1">#     repository:</span>
 <span class="c1">#         state: present</span>
-<span class="c1">#         # For CentOS</span>
-<span class="c1">#         baseurl: http://rpm.avast.com/lin/repo/dists/rhel/release</span>
+<span class="c1">#         # For RedHat family</span>
+<span class="c1">#         baseurl: https://repo.avcdn.net/linux-av/rpm/el9/release</span>
 <span class="c1">#         gpgcheck: no</span>
 <span class="c1">#         proxy: _none_</span>
-<span class="c1">#         # For Debian</span>
-<span class="c1">#         baseurl: &#39;deb http://deb.avast.com/lin/repo debian-buster release&#39;</span>
+<span class="c1">#         # For Debian family</span>
+<span class="c1">#         baseurl: &#39;deb https://repo.avcdn.net/linux-av/deb debian-bookworm release&#39;</span>
 <span class="c1">#     vps_repository: http://linux-av.u.avcdn.net/linux-av/avast/x86_64</span>
 <span class="c1">#     ## List of sha256 hash of excluded files from antivirus. Useful for test environments.</span>
 <span class="c1">#     whitelist:</span>
@@ -2538,19 +2583,19 @@
         <span class="c1"># mongo-offer</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">offer_conf</span><span class="nv"> </span><span class="s">}}&quot;</span>
           <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongodb</span>
-          <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">offer_conf</span><span class="nv"> </span><span class="s">}}-mongos.service.consul:{{</span><span class="nv"> </span><span class="s">mongodb.mongos_port</span><span class="nv"> </span><span class="s">}}&quot;</span>
+          <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">offer_conf</span><span class="nv"> </span><span class="s">}}-mongos.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">mongodb.mongos_port</span><span class="nv"> </span><span class="s">}}&quot;</span>
           <span class="nt">user</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">mongodb[offer_conf].admin.user</span><span class="nv"> </span><span class="s">}}&quot;</span>
           <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">mongodb[offer_conf].admin.password</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="c1"># # mongo-data (only if mono-sharded cluster)</span>
         <span class="c1"># - name: mongo-data</span>
         <span class="c1">#   type: mongodb</span>
-        <span class="c1">#   host: &quot;mongo-data-mongos.service.consul:{{ mongodb.mongos_port }}&quot;</span>
+        <span class="c1">#   host: &quot;mongo-data-mongos.service.{{ consul_domain }}:{{ mongodb.mongos_port }}&quot;</span>
         <span class="c1">#   user: &quot;{{ mongodb[&#39;mongo-data&#39;].admin.user }}&quot;</span>
         <span class="c1">#   password: &quot;{{ mongodb[&#39;mongo-data&#39;].admin.password }}&quot;</span>
         <span class="c1"># # mongo-vitamui (only if vitamui is deployed)</span>
         <span class="c1"># - name: mongo-vitamui</span>
         <span class="c1">#   type: mongodb</span>
-        <span class="c1">#   host: mongo-vitamui-mongod.service.consul:{{ mongodb.mongod_port }}</span>
+        <span class="c1">#   host: mongo-vitamui-mongod.service.{{ consul_domain }}:{{ mongodb.mongod_port }}</span>
         <span class="c1">#   # Add the following params on environments/group_vars/all/main/vault-vitam.yml</span>
         <span class="c1">#   # They can be found under vitamui&#39;s deployment sources on environments/group_vars/all/vault-mongodb.yml</span>
         <span class="c1">#   user: &quot;{{ mongodb[&#39;mongo-vitamui&#39;].admin.user }}&quot;</span>
@@ -2558,7 +2603,7 @@
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
-<p>Dans le cas du choix du <a class="reference internal" href="../introduction.html#term-cots"><span class="xref std std-term">COTS</span></a> d’envoi des messages syslog dans logastsh, il est possible de choisir entre <code class="docutils literal notranslate"><span class="pre">syslog-ng</span></code> et <code class="docutils literal notranslate"><span class="pre">rsyslog</span></code>. Il faut alors modifier la valeur de la directive <code class="docutils literal notranslate"><span class="pre">syslog.name</span></code>; la valeur par défaut est <code class="docutils literal notranslate"><span class="pre">rsyslog</span></code>.</p>
+<p>Dans le cas du choix du <a class="reference internal" href="../introduction.html#term-cots"><span class="xref std std-term">COTS</span></a> d’envoi des messages syslog dans logstash, il est possible de choisir entre <code class="docutils literal notranslate"><span class="pre">filebeat</span></code>, <code class="docutils literal notranslate"><span class="pre">syslog-ng</span></code> et <code class="docutils literal notranslate"><span class="pre">rsyslog</span></code>. Il faut alors modifier la valeur de la directive <code class="docutils literal notranslate"><span class="pre">syslog.name</span></code>; la valeur par défaut est <code class="docutils literal notranslate"><span class="pre">filebeat</span></code>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">si vous décommentez et renseignez les valeurs dans le bloc <code class="docutils literal notranslate"><span class="pre">external_siem</span></code>, les messages seront envoyés (par <code class="docutils literal notranslate"><span class="pre">syslog</span></code> ou <code class="docutils literal notranslate"><span class="pre">syslog-ng</span></code>, selon votre choix de déploiement) dans un <a class="reference internal" href="../introduction.html#term-siem"><span class="xref std std-term">SIEM</span></a> externe à la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, aux valeurs indiquées dans le bloc ; il n’est alors pas nécessaire de renseigner de partitions pour les groupes ansible <code class="docutils literal notranslate"><span class="pre">[hosts_logstash]</span></code> et <code class="docutils literal notranslate"><span class="pre">[hosts_elasticsearch_log]</span></code>.</p>
@@ -2708,9 +2753,22 @@
 138
 139
 140
-141</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
 <span class="c1"># List of dead / removed tenants that should never be reused / present in vitam_tenant_ids</span>
-<span class="nt">vitam_removed_tenants</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">vitam_removed_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="p p-Indicator">]</span>
 <span class="c1"># Administration tenant</span>
 <span class="nt">vitam_tenant_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 
@@ -2784,6 +2842,7 @@
   <span class="c1">#   - preservationscenario</span>
   <span class="c1">#   - profile</span>
   <span class="c1">#   - securityprofile</span>
+  <span class="c1">#   - schema</span>
   <span class="c1">###</span>
   <span class="nt">masterdata</span><span class="p">:</span>
   <span class="c1">#  {collection}:</span>
@@ -2837,17 +2896,29 @@
 <span class="nt">extendedConfiguration</span><span class="p">:</span>
   <span class="nt">default</span><span class="p">:</span>
     <span class="nt">eliminationReportExtraFields</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="p p-Indicator">]</span>
-    <span class="nt">objectGroupBlackListedFields</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;Filename&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">ingestReportUnitExtraFields</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;PersistentIdentifier&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">ingestReportObjectExtraFields</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;PersistentIdentifier&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">objectGroupBlackListedFields</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&#39;Filename&#39;</span> <span class="p p-Indicator">]</span>
   <span class="nt">custom</span><span class="p">:</span>
   <span class="c1"># The `eliminationReportExtraFields` configuration option specifies the metadata keys that should be included in the report when performing an elimination.</span>
   <span class="c1">#   It determines which additional metadata fields should be retained and displayed in the elimination report.</span>
   <span class="c1">#   You can include any of the following extra fields: &quot;#id&quot;, &quot;#version&quot;, &quot;#unitups&quot;, &quot;#originating_agency&quot;, &quot;#approximate_creation_date&quot;, &quot;approximate_update_date&quot;, &quot;FilePlanPosition&quot;, &quot;SystemId&quot;, &quot;OriginatingSystemId&quot;, &quot;ArchivalAgencyArchiveUnitIdentifier&quot;, &quot;OriginatingAgencyArchiveUnitIdentifier&quot;, TransferringAgencyArchiveUnitIdentifier&quot;</span>
+  <span class="c1">#</span>
+  <span class="c1"># The `ingestReportUnitExtraFields` configuration option specifies the metadata keys that should be included in the ATR when performing an ingest.</span>
+  <span class="c1">#   It determines which additional metadata fields should be retained and displayed in the ATR report.</span>
+  <span class="c1">#   You can include any of the following extra fields: &quot;FilePlanPosition&quot;, &quot;OriginatingSystemId&quot;, &quot;ArchivalAgencyArchiveUnitIdentifier&quot;, &quot;OriginatingAgencyArchiveUnitIdentifier&quot;, TransferringAgencyArchiveUnitIdentifier&quot;, &quot;PersistentIdentifier&quot;</span>
+  <span class="c1">#</span>
+  <span class="c1"># The `ingestReportObjectExtraFields` configuration option specifies the metadata keys that should be included in the ATR when performing an ingest.</span>
+  <span class="c1">#   It determines which additional metadata fields should be retained and displayed in the ATR report.</span>
+  <span class="c1">#   You can include any of the following extra fields: &quot;PersistentIdentifier&quot;, &quot;PhysicalId&quot;</span>
   <span class="c1">#</span>
   <span class="c1"># The `objectGroupBlackListedFields` configuration option specifies the fields that should not be reported by access-external.</span>
   <span class="c1">#</span>
   <span class="c1"># Example for tenant 0 :</span>
   <span class="c1">#   0:</span>
   <span class="c1">#     eliminationReportExtraFields: [&quot;#id&quot;, &quot;FilePlanPosition&quot;, &quot;SystemId&quot;]</span>
+  <span class="c1">#     ingestReportUnitExtraFields: [ &quot;FilePlanPosition&quot;, &quot;OriginatingSystemId&quot;, &quot;ArchivalAgencyArchiveUnitIdentifier&quot;, &quot;OriginatingAgencyArchiveUnitIdentifier&quot;, &quot;TransferringAgencyArchiveUnitIdentifier&quot;, &quot;PersistentIdentifier&quot; ]</span>
+  <span class="c1">#     ingestReportObjectExtraFields: [ &quot;PersistentIdentifier&quot; ]</span>
   <span class="c1">#     objectGroupBlackListedFields: [&#39;Filename&#39;]</span>
 </pre></div>
 </td></tr></table></div>
@@ -3350,9 +3421,14 @@
 </div>
 </div>
 </div>
+<div class="section" id="la-configuration-d-elasticsearch">
+<h2>4.2.3.4. La configuration d’ElasticSearch<a class="headerlink" href="#la-configuration-d-elasticsearch" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les paramètres de configuration d’ElasticSearch sont configurables à travers le fichier de configuration, accessible plus spécifiquement dans le chemin suivant :</p>
+<p><code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/vitam/files/elasticsearch-settings/elasticsearch-configuration.json</span></code></p>
+</div>
 <div class="section" id="le-mapping-elasticsearch-pour-unit-et-objectgroup">
-<h2>4.2.3.4. Le mapping ElasticSearch pour Unit et ObjectGroup<a class="headerlink" href="#le-mapping-elasticsearch-pour-unit-et-objectgroup" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les mappings des indexes elasticsearch pour les collections masterdata Unit et ObjectGroup sont configurables de l’extérieur, plus spécifiquement dans le dossier <a href="#id20"><span class="problematic" id="id21">|</span></a>repertoire_inventory|``deployment/ansible-vitam/roles/elasticsearch-mapping/files/<a href="#id22"><span class="problematic" id="id23">``</span></a>, ce dossier contient:</p>
+<h2>4.2.3.5. Le mapping ElasticSearch pour Unit et ObjectGroup<a class="headerlink" href="#le-mapping-elasticsearch-pour-unit-et-objectgroup" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les mappings des indexes elasticsearch pour les collections masterdata Unit et ObjectGroup sont configurables de l’extérieur, plus spécifiquement dans le dossier <code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/elasticsearch-mapping/files/</span></code>, ce dossier contient:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/elasticsearch-mapping/files/unit-es-mapping.json</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/elasticsearch-mapping/files/og-es-mapping.json</span></code></li>
@@ -3706,8 +3782,7 @@
 345
 346
 347
-348
-349</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+348</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;dynamic_templates&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -4011,6 +4086,9 @@
     <span class="nt">&quot;_opi&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;_batchId&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+    <span class="p">},</span>
     <span class="nt">&quot;_sp&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
     <span class="p">},</span>
@@ -4022,10 +4100,6 @@
     <span class="p">},</span>
     <span class="nt">&quot;_up&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;_uds&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="nt">&quot;_us&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
@@ -4061,12 +4135,20 @@
 </div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Le paramétrage de ce mapping se fait sur les deux composants <code class="docutils literal notranslate"><span class="pre">metadata</span></code> et le composant extra``ihm-recette``.</p>
+<p class="last">Le paramétrage de ce mapping se fait sur les composants <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, <code class="docutils literal notranslate"><span class="pre">metadata_collect</span></code> et le composant extra <code class="docutils literal notranslate"><span class="pre">ihm-recette</span></code>.</p>
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
-<p>En cas de changement du mapping, il faut veiller à ce que cette mise à jour soit en accord avec l’Ontologie de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
-<p class="last">Le mapping est pris en compte lors de la première création des indexes. Pour une nouvelle installation de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, les mapping seront automatiquement pris en compte. Cependant, la modification des mappings nécessite une réindexation via l’API dédiée si VITAM est déjà installé.</p>
+<p class="last">En cas de changement du mapping, il faut veiller à ce que cette mise à jour soit en accord avec l’Ontologie de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.
+Le mapping est pris en compte lors de la première création des indexes.
+Pour une nouvelle installation de <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, les mappings seront automatiquement pris en compte.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Une modification de ces mappings après installation peut-être faite mais nécessitera de rejouer les playbooks <code class="docutils literal notranslate"><span class="pre">metadata</span></code> et <code class="docutils literal notranslate"><span class="pre">metadata_collect</span></code> avant de réindexer:
+<code class="docutils literal notranslate"><span class="pre">ansible-vitam/services/vitam/metadata.yml</span></code>
+<code class="docutils literal notranslate"><span class="pre">ansible-vitam/services/vitam/metadata_collect.yml</span></code>
+<code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/reindex_es_data.yml</span></code></p>
 </div>
 </div>
 </div>

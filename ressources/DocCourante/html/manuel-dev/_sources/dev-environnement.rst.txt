@@ -7,20 +7,21 @@ Voici comment préparez votre environnement de développement afin de pouvoir co
 ------------------------------
 1. Prérequis
 ------------------------------
-L'installation du poste de travail a été faite (installation de GIT, Maven, Docker, IntelliJ...)
-Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la récupération des fichiers SIP (.zip) du projet vitam-itests. Dans le cas contraire voici la ligne de commande à lancer :
 
-Ubuntu :
+L'installation du poste de travail a été faite (installation de GIT, Maven, Docker, IntelliJ...).
 
-``$ git lfs install``
+Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la récupération des fichiers SIP (.zip) du projet vitam-itests.
 
-CentOS :
+Dans le cas contraire voici la ligne de commande à lancer :
 
-``$ sudo yum install git-lfs``
+Debian family : ``$ git lfs install``
+
+RedHat family : ``$ sudo yum install git-lfs``
 
 ------------------------------
 2. Récupérez le code source
 ------------------------------
+
 Placez-vous dans le dossier ou vous voulez mettre le code source Vitam sur lequel vous allez travailler :
 
 ``$ git clone <gitlab vitam/vitam>``
@@ -58,36 +59,21 @@ Déplacez vous dans le dossier suivant et exécuter la commande ``run_cots.sh``
 	127.0.0.1       metadata.service.consul
 	127.0.0.1       logbook.service.consul
 	127.0.0.1       storage.service.consul
-	127.0.0.1       workspace.service.consul
 	127.0.0.1       functional-administration.service.consul
 	127.0.0.1       processing.service.consul
 	127.0.0.1       ingest-external.service.consul
 	127.0.0.1       ingest-internal.service.consul
 	127.0.0.1       access-internal.service.consul
 	127.0.0.1       access-external.service.consul
+	127.0.0.1       collect-internal.service.consul
+	127.0.0.1       collect-external.service.consul
 	127.0.0.1       workspace.service.consul
-	127.0.0.1       external.service.consul
+	127.0.0.1       workspace-collect.service.consul
+	127.0.0.1       offer-fs-1.service.consul
 	127.0.0.1       ihm-recette.service.consul
-	127.0.0.1       offer.service.consul
-	127.0.0.1    ihm-demo.service.consul
-	127.0.0.1       metadata.service.consul
-	127.0.0.1       logbook.service.consul
-	127.0.0.1       storage.service.consul
-	127.0.0.1       workspace.service.consul
-	127.0.0.1       functional-administration.service.consul
-	127.0.0.1       processing.service.consul
-	127.0.0.1       ingest-external.service.consul
-	127.0.0.1       ingest-internal.service.consul
-	127.0.0.1       access-internal.service.consul
-	127.0.0.1       access-external.service.consul
-	127.0.0.1       workspace.service.consul
-	127.0.0.1       external.service.consul
-	127.0.0.1       ihm-recette.service.consul
-	127.0.0.1       offer.service.consul
-	127.0.0.1    offer-fs-1.service.consul
-	127.0.0.1    ihm-demo.service.consul
-	127.0.0.1    security-internal.service.consul
-	192.30.253.113    github.com
+	127.0.0.1       ihm-demo.service.consul
+	127.0.0.1       security-internal.service.consul
+	192.30.253.113  github.com
 
 ------------------------------
 7. Lancez IntelliJ
@@ -104,9 +90,10 @@ En utilisant le menu Import Project puis sélectionnez ``vitam/sources/pom.xml``
 ------------------------------------------------------------
 9. Initialisez la configuration
 ------------------------------------------------------------
-Copiez le dossier ``vitam-conf-dev/intellig-conf/runConfigurations`` dans le dossier ``vitam/sources/.idea`` (automatiquement créé par IntelliJ)
-Redémarrez IntelliJ.
 
+Copiez le dossier ``vitam-conf-dev/intellig-conf/runConfigurations`` dans le dossier ``vitam/sources/.idea`` (automatiquement créé par IntelliJ)
+
+Redémarrez IntelliJ.
 
 *(XX. Ajouter le XML snippet: ``vitam/logback/vitam-logback.xml`` par exemple dans votre dossier ``HOME``)*
 
@@ -124,9 +111,8 @@ Redémarrez IntelliJ.
 ------------------------------
 11. Dossier de travail:
 ------------------------------
-Exécutez le commade suivante :
 
-``$ sudo chmod -R ugo+w /vitam``
+Exécutez le commade suivante : ``$ sudo chmod -R ugo+w /vitam``
 
 Dans ``/vitam/data/storage`` créez le fichier ``offer-fs-1.service.consul`` contenant la ligne suivante ``fr.gouv.vitam.storage.offers.workspace.driver.DriverImpl``
 

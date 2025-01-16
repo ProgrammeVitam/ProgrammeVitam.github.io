@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration de l’environnement de développement &mdash; Documentation VITAM - Manuel de développement 7.0.1</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Configuration de l’environnement de développement &mdash; Documentation VITAM - Manuel de développement 8.0.0</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                7.0.1
+                8.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -101,12 +101,11 @@
 <p>Voici comment préparez votre environnement de développement afin de pouvoir coder, démarrer les micros services, débugger…</p>
 <div class="section" id="prerequis">
 <h2>1. Prérequis<a class="headerlink" href="#prerequis" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L’installation du poste de travail a été faite (installation de GIT, Maven, Docker, IntelliJ…)
-Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la récupération des fichiers SIP (.zip) du projet vitam-itests. Dans le cas contraire voici la ligne de commande à lancer :</p>
-<p>Ubuntu :</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">lfs</span> <span class="pre">install</span></code></p>
-<p>CentOS :</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git-lfs</span></code></p>
+<p>L’installation du poste de travail a été faite (installation de GIT, Maven, Docker, IntelliJ…).</p>
+<p>Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la récupération des fichiers SIP (.zip) du projet vitam-itests.</p>
+<p>Dans le cas contraire voici la ligne de commande à lancer :</p>
+<p>Debian family : <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">lfs</span> <span class="pre">install</span></code></p>
+<p>RedHat family : <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git-lfs</span></code></p>
 </div>
 <div class="section" id="recuperez-le-code-source">
 <h2>2. Récupérez le code source<a class="headerlink" href="#recuperez-le-code-source" title="Lien permanent vers ce titre">¶</a></h2>
@@ -132,36 +131,21 @@ Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>127.0.0.1       metadata.service.consul
 127.0.0.1       logbook.service.consul
 127.0.0.1       storage.service.consul
-127.0.0.1       workspace.service.consul
 127.0.0.1       functional-administration.service.consul
 127.0.0.1       processing.service.consul
 127.0.0.1       ingest-external.service.consul
 127.0.0.1       ingest-internal.service.consul
 127.0.0.1       access-internal.service.consul
 127.0.0.1       access-external.service.consul
+127.0.0.1       collect-internal.service.consul
+127.0.0.1       collect-external.service.consul
 127.0.0.1       workspace.service.consul
-127.0.0.1       external.service.consul
+127.0.0.1       workspace-collect.service.consul
+127.0.0.1       offer-fs-1.service.consul
 127.0.0.1       ihm-recette.service.consul
-127.0.0.1       offer.service.consul
-127.0.0.1    ihm-demo.service.consul
-127.0.0.1       metadata.service.consul
-127.0.0.1       logbook.service.consul
-127.0.0.1       storage.service.consul
-127.0.0.1       workspace.service.consul
-127.0.0.1       functional-administration.service.consul
-127.0.0.1       processing.service.consul
-127.0.0.1       ingest-external.service.consul
-127.0.0.1       ingest-internal.service.consul
-127.0.0.1       access-internal.service.consul
-127.0.0.1       access-external.service.consul
-127.0.0.1       workspace.service.consul
-127.0.0.1       external.service.consul
-127.0.0.1       ihm-recette.service.consul
-127.0.0.1       offer.service.consul
-127.0.0.1    offer-fs-1.service.consul
-127.0.0.1    ihm-demo.service.consul
-127.0.0.1    security-internal.service.consul
-192.30.253.113    github.com
+127.0.0.1       ihm-demo.service.consul
+127.0.0.1       security-internal.service.consul
+192.30.253.113  github.com
 </pre></div>
 </div>
 </div>
@@ -175,8 +159,8 @@ Assurez-vous que le plugin lfs pour GIT a été installé pour vous permettre la
 </div>
 <div class="section" id="initialisez-la-configuration">
 <h2>9. Initialisez la configuration<a class="headerlink" href="#initialisez-la-configuration" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Copiez le dossier <code class="docutils literal notranslate"><span class="pre">vitam-conf-dev/intellig-conf/runConfigurations</span></code> dans le dossier <code class="docutils literal notranslate"><span class="pre">vitam/sources/.idea</span></code> (automatiquement créé par IntelliJ)
-Redémarrez IntelliJ.</p>
+<p>Copiez le dossier <code class="docutils literal notranslate"><span class="pre">vitam-conf-dev/intellig-conf/runConfigurations</span></code> dans le dossier <code class="docutils literal notranslate"><span class="pre">vitam/sources/.idea</span></code> (automatiquement créé par IntelliJ)</p>
+<p>Redémarrez IntelliJ.</p>
 <p><em>(XX. Ajouter le XML snippet: ``vitam/logback/vitam-logback.xml`` par exemple dans votre dossier ``HOME``)</em></p>
 </div>
 <div class="section" id="dans-intellij-configurez-les-chemins-suivants-pour-chaque-module-du-projet">
@@ -200,8 +184,7 @@ Redémarrez IntelliJ.</p>
 </div>
 <div class="section" id="dossier-de-travail">
 <h2>11. Dossier de travail:<a class="headerlink" href="#dossier-de-travail" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Exécutez le commade suivante :</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">ugo+w</span> <span class="pre">/vitam</span></code></p>
+<p>Exécutez le commade suivante : <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">ugo+w</span> <span class="pre">/vitam</span></code></p>
 <p>Dans <code class="docutils literal notranslate"><span class="pre">/vitam/data/storage</span></code> créez le fichier <code class="docutils literal notranslate"><span class="pre">offer-fs-1.service.consul</span></code> contenant la ligne suivante <code class="docutils literal notranslate"><span class="pre">fr.gouv.vitam.storage.offers.workspace.driver.DriverImpl</span></code></p>
 </div>
 <div class="section" id="initialisation-de-la-base-de-donnees">

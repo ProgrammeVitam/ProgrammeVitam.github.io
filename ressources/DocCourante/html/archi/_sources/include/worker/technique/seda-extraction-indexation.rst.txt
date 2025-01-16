@@ -30,6 +30,8 @@ containerId/Maps/DATA_OBJECT_TO_OBJECT_GROUP_ID_MAP.json
 containerId/Maps/DATA_OBJECT_ID_TO_DATA_OBJECT_DETAIL_MAP.json
 containerId/Maps/DATA_OBJECT_ID_TO_GUID_MAP.json
 containerId/Maps/OBJECT_GROUP_ID_TO_GUID_MAP.json
+containerId/Maps/ARCHIVE_ID_TO_ARCHIVE_DETAIL_MAP.jsonl
+containerId/Maps/DO_GUID_TO_DO_MAP.json
 containerId/UnitsLevel/
 containerId/UnitsLevel/ingestLevelStack.json
 containerId/ATR/

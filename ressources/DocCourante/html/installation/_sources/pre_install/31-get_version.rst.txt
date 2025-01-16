@@ -66,17 +66,13 @@ Un dépôt supplémentaire est à paramétrer pour pouvoir dérouler l'installat
 
 .. note:: remplacer <version_griffins> par la version à déployer.
 
-Utilisation du package global d'installation
-============================================
+Utilisation des packages de livraison
+=====================================
 
-.. note:: Le `package` global d'installation n'est pas présent dans les dépôts publics.
+Le `package` global -FULL d'installation contient les livrables binaires (dépôts AlmaLinux, Debian, Maven & Documentation)
 
-Le `package` global d'installation contient les livrables binaires (dépôts CentOS, Debian, Maven) 
+Sur la machine "ansible" dédiée au déploiement de la solution logicielle :term:`VITAM`, décompresser le package -DEPLOYMENT (au format ``tar.gz``).
 
-Sur la machine "ansible" dédiée au déploiement de la solution logicielle :term:`VITAM`, décompresser le package (au format ``tar.gz``).
+Sur le *repository* "VITAM", récupérer également depuis le fichier d'extension ``tar.gz`` les binaires d'installation (-RPM pour AlmaLinux ; -DEB pour Debian) et les faire prendre en compte par le *repository*.
 
-Pour l'installation des *griffins*, il convient de récupérer, puis décompresser, le package associé (au format ``zip``).
-
-Sur le *repository* "VITAM", récupérer également depuis le fichier d'extension ``tar.gz`` les binaires d'installation (rpm pour CentOS ; deb pour Debian) et les faire prendre en compte par le *repository*.
-
-Sur le *repository* "*griffins*", récupérer également depuis le fichier d'extension ``zip`` les binaires d'installation (rpm pour CentOS ; deb pour Debian) et les faire prendre en compte par le *repository*.
+Sur le *repository* "*griffins*", récupérer également depuis le fichier d'extension ``tar.gz`` les binaires d'installation (-RPM pour AlmaLinux ; -DEB pour Debian) et les faire prendre en compte par le *repository*.

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3.9. Notes et procédures spécifiques V8.0 &mdash; Documentation VITAM - Documentation de montées de version 8.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="prev" title="4.3.8. Notes et procédures spécifiques V7.1" href="v7_1_update.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Documentation de montées de version
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                8.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generalites.html">3. Généralités sur les versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">4. Montées de version</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../principles.html">4.1. Principes généraux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bugfixes_updates/_toc.html">4.2. Montées de version <em>bugfix</em></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">4.3. Montées de version majeures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="r13_update.html">4.3.1. Notes et procédures spécifiques R13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r16_update.html">4.3.2. Notes et procédures spécifiques R16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v5rc_update.html">4.3.3. Notes et procédures spécifiques V5RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v5_update.html">4.3.4. Notes et procédures spécifiques V5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6rc_update.html">4.3.5. Notes et procédures spécifiques V6RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6_update.html">4.3.6. Notes et procédures spécifiques V6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_1_update.html">4.3.8. Notes et procédures spécifiques V7.1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.9. Notes et procédures spécifiques V8.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">4.3.9.1. Adaptation des sources de déploiement ansible</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">4.3.9.2. Procédures à exécuter AVANT la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-de-la-montee-de-version">4.3.9.3. Application de la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.9.4. Procédures à exécuter APRÈS la montée de version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Documentation de montées de version</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">4. Montées de version</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">4.3. Montées de version majeures</a></li>
+      <li class="breadcrumb-item active">4.3.9. Notes et procédures spécifiques V8.0</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/updates/releases_updates/v8_0_update.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="notes-et-procedures-specifiques-v8-0">
+<h1>4.3.9. Notes et procédures spécifiques V8.0<a class="headerlink" href="#notes-et-procedures-specifiques-v8-0" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Veuillez appliquer les procédures spécifiques à chacune des versions précédentes en fonction de la version de départ selon la suite suivante: V6 -&gt; V7.0 -&gt; V7.1 -&gt; V8.0</p>
+</div>
+<div class="section" id="adaptation-des-sources-de-deploiement-ansible">
+<h2>4.3.9.1. Adaptation des sources de déploiement ansible<a class="headerlink" href="#adaptation-des-sources-de-deploiement-ansible" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="configuration-des-jobs-d-audit">
+<h3>4.3.9.1.1. Configuration des jobs d’audit<a class="headerlink" href="#configuration-des-jobs-d-audit" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est maintenant possible de configurer les jobs d’audit d’intégrité et d’existence par tenant, et par conséquent la définition des jobs d’audit a changé.</p>
+<p>L’ancienne configuration définissait la fréquence d’exécution et les paramètres des jobs dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code> :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>vitam_timers:</dt>
+<dd><dl class="first last docutils">
+<dt>functional_administration:</dt>
+<dd>frequency_integrity_audit: «&nbsp;0 0 0 1 JAN ? 2020&nbsp;»
+frequency_existence_audit: «&nbsp;0 0 0 1 JAN ? 2020&nbsp;»</dd>
+</dl>
+</dd>
+<dt>scheduler:</dt>
+<dd><dl class="first last docutils">
+<dt>job_parameters:</dt>
+<dd><dl class="first last docutils">
+<dt>integrity_audit:</dt>
+<dd>operations_delay_in_minutes: 1440</dd>
+<dt>existence_audit:</dt>
+<dd>operations_delay_in_minutes: 1440</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>La nouvelle configuration n’utilise plus les valeurs de <code class="docutils literal notranslate"><span class="pre">vitam_timers.functional_administration.frequency_integrity_audit</span></code> et <code class="docutils literal notranslate"><span class="pre">vitam_timers.functional_administration.frequency_existence_audit</span></code>, et prend la forme suivante :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>scheduler:</dt>
+<dd><dl class="first last docutils">
+<dt>job_parameters:</dt>
+<dd><dl class="first last docutils">
+<dt>integrity_audit:</dt>
+<dd><ul class="first last simple">
+<li>key: SYSTEM
+selected_tenants: [1]
+operations_delay_in_minutes: 1440
+frequency: «&nbsp;0 0 2 ? * * <a href="#id1"><span class="problematic" id="id2">*</span></a>&nbsp;» # Every day at 2am</li>
+<li>key: TENANT2
+selected_tenants: [2]
+operations_delay_in_minutes: 1440
+frequency: «&nbsp;0 0 4 ? * * <a href="#id3"><span class="problematic" id="id4">*</span></a>&nbsp;» # Every day at 4am</li>
+</ul>
+</dd>
+<dt>existence_audit:</dt>
+<dd><ul class="first last simple">
+<li>key: SYSTEM
+selected_tenants: [1,2]
+operations_delay_in_minutes: 1440
+frequency: «&nbsp;0 0 6 ? * * <a href="#id5"><span class="problematic" id="id6">*</span></a>&nbsp;» # Every day at 6am</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Pour <code class="docutils literal notranslate"><span class="pre">integrity_audit</span></code> et <code class="docutils literal notranslate"><span class="pre">existence_audit</span></code>, il conviendra de définir une entrée par tenant ou groupe de tenant devant s’exécuter à la même fréquence. Les différents champs sont décrits ci-dessous :</p>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">key</span></code> doit être unique et sera ajouté au nom du job. Il doit donc être de forme alphanumérique, sans espaces.</p>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">selected_tenants</span></code> liste les identifiants de tenants auquel la fréquence s’applique. S’il est vide ou non renseigné, la fréquence s’appliquera à tous les tenants.</p>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">operations_delay_in_minutes</span></code> correspond au paramètre de la version précédente.</p>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">frequency</span></code> correspond aux fréquences précédemment définies dans les paramètres <code class="docutils literal notranslate"><span class="pre">vitam_timers.functional_administration.frequency_integrity_audit</span></code> et <code class="docutils literal notranslate"><span class="pre">vitam_timers.functional_administration.frequency_existence_audit</span></code>.</p>
+</div>
+<div class="section" id="deploiement-des-exporters-pour-vitamui">
+<h3>4.3.9.1.2. Déploiement des exporters pour VitamUI<a class="headerlink" href="#deploiement-des-exporters-pour-vitamui" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si vous utilisez VitamUI et que vous souhaitez déployer les exporters permettant de mettre en place la remontée de métriques dans Prometheus, vous devrez ajouter les groupes suivants au fichier d’inventaire (cf. inventaire d’exemple: <code class="docutils literal notranslate"><span class="pre">environments/hosts.example</span></code>):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>[hosts:children]
+hosts_vitamui</p>
+<div class="section" id="zone-vitamui">
+<h4>4.3.9.1.2.1. # ZONE VITAMUI<a class="headerlink" href="#zone-vitamui" title="Lien permanent vers ce titre">¶</a></h4>
+<p>[hosts_vitamui]
+# optional: To deploy exporters on VitamUI</p>
+<p>[hosts_vitamui:children]
+hosts_vitamui_mongod</p>
+<p>[hosts_vitamui_mongod]
+# optional: To deploy mongodb-exporter on VitamUI</p>
+<p>Pour permettre de déployer l’exporter mongodb, vous devrez ajouter au fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/main/vault-vitam.yml</span></code> les paramètres associés à la BDD mongo-vitamui:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>mongodb:</dt>
+<dd><dl class="first last docutils">
+<dt>mongo-vitamui:</dt>
+<dd><p class="first">mongod_port: 27017
+admin:</p>
+<blockquote class="last">
+<div>user: vitamdb-admin
+password: admin1234</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Avant de pouvoir exécuter le playbook de configuration des exporters pour VitamUI, il faudra au préalable récupérer les host_vars à l’aide du playbook <code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/generate_hostvars_for_2_network_interfaces.yml</span></code> ou <code class="docutils literal notranslate"><span class="pre">ansible-vitam-exploitation/generate_hostvars_for_1_network_interface.yml</span></code>.</p>
+<p>Ensuite, ces exporters seront déployés à l’aide du playbook: <code class="docutils literal notranslate"><span class="pre">ansible-vitam-extra/vitamui_prometheus.yml</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-avant-la-montee-de-version">
+<h2>4.3.9.2. Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="mise-a-jour-des-depots-yum-apt">
+<h3>4.3.9.2.1. Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version</p>
+</div>
+<p>Afin de pouvoir déployer la nouvelle version, vous devez mettre à jour la variable <code class="docutils literal notranslate"><span class="pre">vitam_repositories</span></code> sous <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/main/repositories.yml</span></code> afin de renseigner les dépôts à la version cible.</p>
+<p>Pour le dépôt vitam-external, vous devez renseigner la version adaptée à votre système d’exploitation (par exemple pour la version 8.0.0):</p>
+<ul class="simple">
+<li>AlmaLinux 9: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/8.0.0/rpm/vitam-external/9/">https://download.programmevitam.fr/vitam_repository/8.0.0/rpm/vitam-external/9/</a></li>
+<li>Debian 12: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/8.0.0/deb/vitam-external/12/">https://download.programmevitam.fr/vitam_repository/8.0.0/deb/vitam-external/12/</a></li>
+</ul>
+<p>Puis exécutez le playbook suivant <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/bootstrap.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="arret-complet-de-vitam">
+<h3>4.3.9.2.2. Arrêt complet de Vitam<a class="headerlink" href="#arret-complet-de-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V8.0</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiements de l’ancienne version.</p>
+</div>
+<p>Vitam doit être arrêté sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="application-de-la-montee-de-version">
+<h2>4.3.9.3. Application de la montée de version<a class="headerlink" href="#application-de-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L’application de la montée de version s’effectue d’abord sur les sites secondaires puis sur le site primaire.</p>
+</div>
+<div class="section" id="lancement-du-master-playbook-vitam">
+<h3>4.3.9.3.1. Lancement du master playbook vitam<a class="headerlink" href="#lancement-du-master-playbook-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancement-du-master-playbook-extra">
+<h3>4.3.9.3.2. Lancement du master playbook extra<a class="headerlink" href="#lancement-du-master-playbook-extra" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/extra.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-apres-la-montee-de-version">
+<h2>4.3.9.4. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="migration-des-mappings-elasticsearch-pour-les-metadonnees">
+<h3>4.3.9.4.1. Migration des mappings elasticsearch pour les métadonnées<a class="headerlink" href="#migration-des-mappings-elasticsearch-pour-les-metadonnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette migration de données consiste à mettre à jour le modèle d’indexation des métadonnées sur elasticsearch-data.</p>
+<p>Elle est réalisée en exécutant la procédure suivante sur <strong>tous les sites</strong> (primaire et secondaire(s)) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_elasticsearch_mapping.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="migration-des-profiles">
+<h3>4.3.9.4.2. Migration des profiles<a class="headerlink" href="#migration-des-profiles" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette migration est à effectuer APRÈS la montée de version vers Vitam V8.0 et uniquement sur <strong>site primaire</strong>.</p>
+</div>
+<p>Ce playbook de migration a pour but de mettre à jour les notices en y intégrant la notion de <strong>SedaVersion</strong>.</p>
+<p>Le script effectue les actions suivantes :
+- Définit par défaut la version <strong>SEDA 2.3</strong> pour les AUP (<em>Archive Unit Profile</em>).
+- Si un fichier est présent pour les AP (<em>Archive Profile</em>), il tente de déterminer la version à partir de celui-ci. Dans le cas contraire, la version par défaut sera appliquée.</p>
+<p>Pour lancer ce playbook, utilisez la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migrate_profiles_v7.1_to_v8.0.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="migration-unites-archivistiques-avec-demande-de-transfert-non-completee">
+<h3>4.3.9.4.3. Migration unités archivistiques avec demande de transfert non complétée<a class="headerlink" href="#migration-unites-archivistiques-avec-demande-de-transfert-non-completee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette migration permet de corriger des erreurs de sécurisation ou d’audit sur des unités archivistiques pour lesquelles une demande de transfert a été initiée, mais dont le transfert effectif n’a pas été finalisée.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette procédure doit être exécutée uniquement en cas de migration majeure vers Vitam V8.0+ depuis :
+- Une version 7.1.1 ou inférieure
+- Une version 7.0.1 ou inférieure
+- Une version 6.3-1 ou inférieure</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette migration est à effectuer <strong>APRES</strong> l’installation et uniquement sur le <strong>site primaire</strong>.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Dans le cas où un tenant comporte un très grand nombre d’unités archivistiques dont la demande de transfert a été initiée pour un tenant donné (plus de 100 000 unités archivistiques), la migration ne pourra alors s’opérer. Le support Vitam devra alors être contacté.</p>
+</div>
+<p>Pour lancer la migration, le playbook suivant doit être exécuté :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_metadata_transfer_request_traceability.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="v7_1_update.html" class="btn btn-neutral float-left" title="4.3.8. Notes et procédures spécifiques V7.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

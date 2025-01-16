@@ -103,7 +103,7 @@ La configuration s'effectue dans le fichier |repertoire_inventory|``group_vars/a
      :language: yaml
      :linenos:
 
-Dans le cas du choix du :term:`COTS` d'envoi des messages syslog dans logastsh, il est possible de choisir entre ``syslog-ng`` et ``rsyslog``. Il faut alors modifier la valeur de la directive ``syslog.name``; la valeur par défaut est ``rsyslog``.
+Dans le cas du choix du :term:`COTS` d'envoi des messages syslog dans logstash, il est possible de choisir entre ``filebeat``, ``syslog-ng`` et ``rsyslog``. Il faut alors modifier la valeur de la directive ``syslog.name``; la valeur par défaut est ``filebeat``.
 
 .. note:: si vous décommentez et renseignez les valeurs dans le bloc ``external_siem``, les messages seront envoyés (par ``syslog`` ou ``syslog-ng``, selon votre choix de déploiement) dans un :term:`SIEM` externe à la solution logicielle :term:`VITAM`, aux valeurs indiquées dans le bloc ; il n'est alors pas nécessaire de renseigner de partitions pour les groupes ansible ``[hosts_logstash]`` et ``[hosts_elasticsearch_log]``.
 
@@ -212,10 +212,18 @@ Exemple du fichier ``vault-cots.yml`` ::
    ansible-vault rekey vault-cots.yml
 
 
+La configuration d'ElasticSearch
+================================
+
+Les paramètres de configuration d'ElasticSearch sont configurables à travers le fichier de configuration, accessible plus spécifiquement dans le chemin suivant :
+
+``deployment/ansible-vitam/roles/vitam/files/elasticsearch-settings/elasticsearch-configuration.json``
+
+
 Le mapping ElasticSearch pour Unit et ObjectGroup
 =================================================
 
-Les mappings des indexes elasticsearch pour les collections masterdata Unit et ObjectGroup sont configurables de l'extérieur, plus spécifiquement dans le dossier |repertoire_inventory|``deployment/ansible-vitam/roles/elasticsearch-mapping/files/``, ce dossier contient:
+Les mappings des indexes elasticsearch pour les collections masterdata Unit et ObjectGroup sont configurables de l'extérieur, plus spécifiquement dans le dossier ``deployment/ansible-vitam/roles/elasticsearch-mapping/files/``, ce dossier contient:
 
 * ``deployment/ansible-vitam/roles/elasticsearch-mapping/files/unit-es-mapping.json``
 * ``deployment/ansible-vitam/roles/elasticsearch-mapping/files/og-es-mapping.json``
@@ -226,9 +234,14 @@ Exemple du fichier mapping de la collection ObjectGroup :
      :language: json
      :linenos:
 
-.. note:: Le paramétrage de ce mapping se fait sur les deux composants ``metadata`` et le composant extra``ihm-recette``.
+.. note:: Le paramétrage de ce mapping se fait sur les composants ``metadata``, ``metadata_collect`` et le composant extra ``ihm-recette``.
 
 .. caution::
     En cas de changement du mapping, il faut veiller à ce que cette mise à jour soit en accord avec l'Ontologie de :term:`VITAM`.
+    Le mapping est pris en compte lors de la première création des indexes.
+    Pour une nouvelle installation de :term:`VITAM`, les mappings seront automatiquement pris en compte.
 
-    Le mapping est pris en compte lors de la première création des indexes. Pour une nouvelle installation de :term:`VITAM`, les mapping seront automatiquement pris en compte. Cependant, la modification des mappings nécessite une réindexation via l'API dédiée si VITAM est déjà installé.
+.. note:: Une modification de ces mappings après installation peut-être faite mais nécessitera de rejouer les playbooks ``metadata`` et ``metadata_collect`` avant de réindexer:
+    ``ansible-vitam/services/vitam/metadata.yml``
+    ``ansible-vitam/services/vitam/metadata_collect.yml``
+    ``ansible-vitam-exploitation/reindex_es_data.yml``

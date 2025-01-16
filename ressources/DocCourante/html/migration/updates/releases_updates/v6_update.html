@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3.6. Notes et procédures spécifiques V6 &mdash; Documentation VITAM - Documentation de montées de version 7.0.1</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.6. Notes et procédures spécifiques V6 &mdash; Documentation VITAM - Documentation de montées de version 8.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                7.0.1
+                8.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -65,6 +65,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_1_update.html">4.3.8. Notes et procédures spécifiques V7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v8_0_update.html">4.3.9. Notes et procédures spécifiques V8.0</a></li>
 </ul>
 </li>
 </ul>
@@ -288,6 +290,29 @@ ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migr
 </div>
 <p>Vitam doit être arrêté sur <strong>tous les sites</strong> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="duplication-des-packages-lors-de-la-mise-a-jour">
+<h3>4.3.6.2.6. Duplication des packages lors de la mise à jour<a class="headerlink" href="#duplication-des-packages-lors-de-la-mise-a-jour" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V6</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée uniquement pour les systèmes d’exploitation à base de RPM (CentOS 7 &amp; AlmaLinux 9) sur un vitam éteint.</p>
+</div>
+<p>Un bug a été introduit dans la construction des packages RPM à partir de la V6RC. Si vous effectuez une montée de version depuis la V6RC (v6.rc.1 ou inférieure), vous devrez appliquer la commande suivante pour supprimer les précédents packages. Sinon lors de de la mise à jour, le package précédent ne sera pas désinstallé conduisant à la présence de plusieurs versions du même package.</p>
+<p>Exemple d’erreur:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/var/tmp/rpm-tmp.fGwZMk: ligne <span class="m">1</span> : fg: pas de contrôle de tâche
+erreur : %preun<span class="o">(</span>vitam-offer-6.2-1.noarch<span class="o">)</span> scriptlet échoué, état de sortie <span class="m">1</span>
+Error in PREUN scriptlet in rpm package vitam-offer
+erreur : vitam-offer-6.2-1.noarch: effacer échoué
+</pre></div>
+</div>
+<p>Voici la commande à exécuter pour permettre la désinstallation des packages de la version précédente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible vitam --ask-vault-pass -v -a <span class="s2">&quot;yum --setopt=tsflags=noscripts remove -y vitam-*.noarch&quot;</span> -i environments/&lt;inventaire&gt;
 </pre></div>
 </div>
 </div>

@@ -166,7 +166,7 @@ Rôle :
 Fonctions :
 
 * Gestion des journaux (ajout, lecture)
-* Sécurisation des journaux (timer systemd)
+* Sécurisation des journaux
 
 Contraintes techniques :
 

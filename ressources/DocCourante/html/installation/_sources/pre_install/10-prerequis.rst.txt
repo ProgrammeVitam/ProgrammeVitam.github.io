@@ -20,7 +20,7 @@ Le déploiement est orchestré depuis un poste ou serveur d'administration ; les
   + **openssh-client** (client SSH utilisé par ansible)
   + **JRE OpenJDK 11** et **openssl** (du fait de la génération de certificats / *stores*, l'utilitaire ``keytool`` est nécessaire)
 
-* un accès ssh vers un utilisateur d'administration avec élévation de privilèges vers les droits ``root``, ``vitam``, ``vitamdb`` (les comptes ``vitam`` et ``vitamdb`` sont créés durant le déploiement) sur les serveurs cibles.  
+* un accès ssh vers un utilisateur d'administration avec élévation de privilèges vers les droits ``root``, ``vitam``, ``vitamdb`` (les comptes ``vitam`` et ``vitamdb`` sont créés durant le déploiement) sur les serveurs cibles.
 * Le compte utilisé sur le serveur d'administration doit avoir confiance dans les serveurs sur lesquels la solution logicielle :term:`VITAM` doit être installée (fichier ``~/.ssh/known_hosts`` correctement renseigné)
 
 .. note:: Se référer à la `documentation d'usage <http://docs.ansible.com/ansible/latest/intro_getting_started.html>`_ pour les procédures de connexion aux machines-cibles depuis le serveur ansible.
@@ -52,26 +52,26 @@ Systèmes d'exploitation
 
 Seules deux distributions Linux suivantes sont supportées à ce jour :
 
-* CentOS 7
-* Debian 10 (buster)
+* AlmaLinux 9
+* Debian 12 (bookworm)
 
-SELinux doit être configuré en mode ``permissive`` ou ``disabled``. Toutefois depuis la release R13, la solution logicielle :term:`VITAM` prend désormais en charge l'activation de SELinux sur le périmètre du composant worker et des processus associés aux *griffins* (greffons de préservation). 
+SELinux doit être configuré en mode ``permissive`` ou ``disabled``. Toutefois depuis la release R13, la solution logicielle :term:`VITAM` prend désormais en charge l'activation de SELinux sur le périmètre du composant worker et des processus associés aux *griffins* (greffons de préservation).
 
-.. note:: En cas de changement de mode SELinux, redémarrer les machines pour la bonne prise en compte de la modification avant de lancer le déploiement. 
+.. note:: En cas de changement de mode SELinux, redémarrer les machines pour la bonne prise en compte de la modification avant de lancer le déploiement.
 
 .. Sujets à adresser : préciser la version minimale ; donner une matrice de compatibilité -> post-V1
 
 .. caution:: En cas d'installation initiale, les utilisateurs et groupes systèmes (noms et :term:`UID`) utilisés par VITAM (et listés dans le :term:`DAT`) ne doivent pas être présents sur les serveurs cible. Ces comptes sont créés lors de l'installation de VITAM et gérés par VITAM.
 
-Déploiement sur environnement CentOS
-------------------------------------
+Déploiement sur environnement AlmaLinux
+---------------------------------------
 
-* Disposer d'une plate-forme Linux CentOS 7 installée selon la répartition des services souhaités. En particulier, ces serveurs doivent avoir :
+* Disposer d'une plate-forme Linux AlmaLinux 9 installée selon la répartition des services souhaités. En particulier, ces serveurs doivent avoir :
 
   + une configuration de temps synchronisée (ex: en récupérant le temps à un serveur centralisé)
   + Des autorisations de flux conformément aux besoins décrits dans le :term:`DAT`
   + une configuration des serveurs de noms correcte (cette configuration sera surchargée lors de l'installation)
-  + un accès à un dépôt (ou son miroir) CentOS 7 (base et extras) et EPEL 7
+  + un accès à un dépôt (ou son miroir) AlmaLinux 9 (base et extras) et EPEL 9
 
 * Disposer des binaires VITAM : paquets :term:`RPM` de VITAM (vitam-product) ainsi que les paquets d'éditeurs tiers livrés avec VITAM (vitam-external)
 * Disposer, si besoin, des binaires pour l'installation des *griffins*
@@ -79,12 +79,12 @@ Déploiement sur environnement CentOS
 Déploiement sur environnement Debian
 ------------------------------------
 
-* Disposer d'une plate-forme Linux Debian "buster" installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :
+* Disposer d'une plate-forme Linux Debian "bookworm" installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :
 
   + une configuration de temps synchronisée (ex: en récupérant le temps à un serveur centralisé)
   + Des autorisations de flux conformément aux besoins décrits dans le :term:`DAT`
   + une configuration des serveurs de noms correcte (cette configuration sera surchargée lors de l'installation)
-  + un accès à un dépôt (ou son miroir) Debian (base et extras) et buster-backports
+  + un accès à un dépôt (ou son miroir) Debian (base et extras) et bookworm-backports
   + un accès internet, car le dépôt docker sera ajouté
 
 * Disposer des binaires VITAM : paquets deb de VITAM (vitam-product) ainsi que les paquets d'éditeurs tiers livrés avec VITAM (vitam-external)
