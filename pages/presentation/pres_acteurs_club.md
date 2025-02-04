@@ -162,4 +162,4 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * XDemat
 * Xelians
 
-![Logos](/public/images/Club_202407.jpg)
+![Logos](/public/images/Clubutilisateurs_202412.png)
