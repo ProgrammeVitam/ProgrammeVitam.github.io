@@ -64,11 +64,11 @@ Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programm
 
 ## La gouvernance du Club utilisateurs<a name="gouvernance"></a>
 
-Les membres du Club utilisateurs désignent en leur sein un représentant qui participe au comité de pilotage et  au comité de direction du Programme Vitam. Depuis mars 2023, ce rôle est tenu par la CNAM.
+Les membres du Club utilisateurs désignent en leur sein un représentant qui participe au comité de pilotage et  au comité de direction du Programme Vitam. Depuis janvier 2025, ce rôle est tenu par le CEA.
 
-![Logos](/public/images/202303_gouvernance_MAC.jpg)
+![Logos](/public/images/202501_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 12/07/2024)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 15/01/2025)<a name="membre"></a>
 
 * AMUE
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
@@ -102,6 +102,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Conseil départemental de la Gironde
 * Conseil départemental de l'Hérault
 * Conseil départemental de Seine-et-Marne
+* Conseil départemental des Bouches-du-Rhône
 * Conseil départemental des Pyrénées Atlantiques  
 * CooNum
 * CNRS
@@ -110,17 +111,24 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Direction interministérielle du numérique
 * DRAC Bretagne
 * DRAC Hauts-de-France
+* DRAC Pays de la Loire
+* Établissement de communication et de production audiovisuelle de la Défense (ECPAD)
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
 * Etablissement public des musées d'Orsay et de l'Orangerie (EPMO)
+* Gendarmerie nationale
+* Huma-Num
 * Institut national de la propriété industrielle (INPI)
+* Institut national de recherche pour l'agriculture, l'alimentation et l'environnement (INRAE)
 * Islean
 * Lex Persona
 * Mairie de Savigny sur Orge  
+* Maison des Sciences de l’Homme Mondes (MSH Mondes)
 * Médiathèque du patrimoine et de la photographie
 * Métropole Nice Côte d'Azur
 * Ministère des Armées
 * Ministère de l'Agriculture et de la souveraineté alimentaire  
 * Ministère de la Culture
+* Ministère de l'Economie et des Finances
 * Ministère de l’Éducation nationale et de la Jeunesse
 * Ministère de l'Europe et des Affaires étrangères
 * Ministère de l'Intérieur et des Outre-mer
@@ -141,15 +149,15 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * RATP
 * SGAMI Sud-Ouest 
 * Smile
-* Société du Grand Paris
+* Société des Grands Projets
 * SopraSteria
 * SRCI Groupe Salvia Developpement
-* TGIR Huma-Num
 * Toulon Provence Méditerranée
 * Université de Lille
 * Université de Bordeaux
 * Université Paris 1 Panthéon Sorbonne
 * Urssaf - Caisse nationale (ex-ACOSS)
+* Ville de Paris
 * Winbantu
 * XDemat
 * Xelians

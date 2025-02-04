@@ -20,5 +20,5 @@ fatherref: programme
 
 ## Gouvernance
 
-La gouvernance réunit les pilotes et porteurs ainsi qu'un représentant du Club utilisateurs, en l'occurrence la Cnam.
-![Logos](/public/images/202303_gouvernance_MAC.jpg)
+La gouvernance réunit les pilotes et porteurs ainsi qu'un représentant du Club utilisateurs, en l'occurrence le CEA.
+![Logos](/public/images/202501_gouvernance_MAC.jpg)
