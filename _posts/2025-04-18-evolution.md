@@ -3,7 +3,7 @@ layout: post
 title: 2015-2025, évolution en quelques chiffres
 ---
 
-![Logos](/public/images/sticker_10ans_Vitam.png){: style="float:right; margin:3rem; height:30rem"}
+![Logos](/public/images/sticker_10ans_Vitam.png)
 > Le 9 mars 2015 était signée la convention lançant officiellement le Programme Vitam. Les 10 ans du Programme ont été fêtés le mois dernier, occasion de revenir sur l'évolution en quelques chiffres.
 
 A l'occasion d'un bilan d'activité en 2018, un tableau de différents indicateurs était dressé qui nous permet avec les chiffres d'aujourd'hui de souligner l'évolution du Programme Vitam.
