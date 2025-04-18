@@ -14,7 +14,7 @@ A l'occasion d'un bilan d'activité en 2018, un tableau de différents indicateu
 |Produit|1 logiciel back-office, de la version bêta à la version 2|1 logiciel back et front-office de la version 3 à la version 8.1, ReSIP, Pastis||
 |Budget|16,5 millions d'euros sur la période|1,9 millions d'euros pour le Programme Vitam et 1,43 millions d'euros pour Vitam accessible en service||
 |Nombre de collborateurs|40 (10 agents publics et 30 prestataires)|27 (7 agents publics et 20 prestataires)|Chiffres de février 2018 et d'avril 2025|
-|Nombre de minnistères porteurs|3|3 pour le Programme Vitam et 6 pour Vitam accessible en service|Chiffres de février 2018 et d'avril 2025|
+|Nombre de ministères porteurs|3|3 pour le Programme Vitam et 6 pour Vitam accessible en service|Chiffres de février 2018 et d'avril 2025|
 |Nombre de partenaires|4|92|Chiffres de février 2018 et d'avril 2025|
 |Nombre d'itérations "agiles"|31|150|Chiffres de février 2018 et d'avril 2025|
 |Nombre de "users stories"|+ de 680|+ de 14 600|Chiffres de février 2018 et d'avril 2025|
