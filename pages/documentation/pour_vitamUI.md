@@ -37,7 +37,7 @@ Documentation générale
 
 ### Domaine : référentiels<a name="referentiels">  
 
-![Logos](/public/images/VitamUI_referentiels.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
+![Logos](/public/images/VitamUI_referentiels.png){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
 |Ordre d'exécution|Je souhaite...|Je suis...|APP Vitam UI|
 |:----|:-----|:----|:-----|
