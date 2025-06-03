@@ -223,14 +223,14 @@ Les paramètres de configuration d'ElasticSearch sont configurables à travers l
 Le mapping ElasticSearch pour Unit et ObjectGroup
 =================================================
 
-Les mappings des indexes elasticsearch pour les collections masterdata Unit et ObjectGroup sont configurables de l'extérieur, plus spécifiquement dans le dossier ``deployment/ansible-vitam/roles/elasticsearch-mapping/files/``, ce dossier contient:
+Les mappings des indexes elasticsearch pour les collections Unit et ObjectGroup sont configurables de l'extérieur, plus spécifiquement dans le dossier ``environments/files/elasticsearch-mappings/``, ce dossier contient:
 
-* ``deployment/ansible-vitam/roles/elasticsearch-mapping/files/unit-es-mapping.json``
-* ``deployment/ansible-vitam/roles/elasticsearch-mapping/files/og-es-mapping.json``
+* ``unit-es-mapping.json``
+* ``og-es-mapping.json``
 
 Exemple du fichier mapping de la collection ObjectGroup :
 
-  .. literalinclude:: ../../../../deployment/ansible-vitam/roles/elasticsearch-mapping/files/og-es-mapping.json
+  .. literalinclude:: ../../../../deployment/environments/files/elasticsearch-mappings/og-es-mapping.json
      :language: json
      :linenos:
 

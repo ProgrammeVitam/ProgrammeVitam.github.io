@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 8.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 8.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8.0.0
+                8.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1837,7 +1837,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">criticalDipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1440</span> <span class="c1"># 1 day</span>
     <span class="nt">transfersSIPTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
     <span class="nt">workspaceFreespaceThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">25</span> <span class="c1"># when below use critical time to live when above use normal time to live</span>
-    <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata-collect/mapping&quot;</span> <span class="c1"># Directory of elasticsearch metadata mapping</span>
+    <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata-collect/mapping&quot;</span> <span class="c1"># Directory of elasticsearch metadata-collect mapping</span>
     <span class="nt">refreshElasticIndexPostIndexingMode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">context_path</span><span class="p">:</span> <span class="s">&quot;/metadata-collect&quot;</span>
   <span class="nt">workspace_collect</span><span class="p">:</span>
@@ -2209,37 +2209,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 335
 336
 337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+338</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2428,40 +2398,10 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">grafana_datasources</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus&quot;</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;prometheus&quot;</span>
-        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
-        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-server.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.server.port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9090)</span><span class="nv"> </span><span class="s">}}/prometheus&quot;</span>
-        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus</span><span class="nv"> </span><span class="s">AlertManager&quot;</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;camptocamp-prometheus-alertmanager-datasource&quot;</span>
-        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
-        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-alertmanager.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.alertmanager.api_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9093)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">jsonData</span><span class="p">:</span>
-          <span class="nt">keepCookies</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-          <span class="nt">severity_critical</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
-          <span class="nt">severity_high</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
-          <span class="nt">severity_warning</span><span class="p">:</span> <span class="s">&quot;2&quot;</span>
-          <span class="nt">severity_info</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
-    <span class="nt">grafana_dashboards</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;vitam-dashboard&#39;</span>
-        <span class="nt">orgId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">folder</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-        <span class="nt">folderUid</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
-        <span class="nt">disableDeletion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">updateIntervalSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-        <span class="nt">allowUiUpdates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">options</span><span class="p">:</span>
-          <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;/etc/grafana/provisioning/dashboards&quot;</span>
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
+    <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">indices</span><span class="p">:</span>
         <span class="nt">metricbeat</span><span class="p">:</span>
             <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>

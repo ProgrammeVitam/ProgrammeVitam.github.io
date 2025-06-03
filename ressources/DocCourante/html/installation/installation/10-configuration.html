@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 8.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 8.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8.0.0
+                8.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1627,7 +1627,30 @@
 214
 215
 216
-217</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
 <span class="c1"># This list of offers will be ordered by the property rank. It has to be completed if more offers are necessary</span>
 <span class="c1"># The property rank indicates the rank of the offer in the strategy. The ranking is done is ASC order and should be different for all declared offers</span>
 <span class="nt">vitam_strategy</span><span class="p">:</span>
@@ -1685,7 +1708,7 @@
 <span class="c1"># WARNING : for offer names, please only use [a-z][a-z0-9-]* pattern</span>
 <span class="nt">vitam_offers</span><span class="p">:</span>
   <span class="nt">offer-fs-1</span><span class="p">:</span>
-    <span class="c1"># param can be filesystem-hash (recomended) or filesystem (not recomended)</span>
+    <span class="c1"># param can be filesystem-hash (recommended) or filesystem (not recommended)</span>
     <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filesystem-hash</span>
     <span class="c1">### Optional parameters</span>
     <span class="c1"># Offer log compaction</span>
@@ -1700,6 +1723,9 @@
     <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
     <span class="c1"># Batch metadata computation timeout in seconds</span>
     <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
+    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
+    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="c1">################################################################################</span>
   <span class="nt">offer-swift-1</span><span class="p">:</span>
     <span class="c1"># provider : openstack-swift for v1 or openstack-swift-v3 for v3</span>
@@ -1725,7 +1751,9 @@
     <span class="nt">swiftConnectionTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200000</span>
     <span class="c1">#Max time (in milliseconds) waiting for a data from the server (socket) (optional, 60000 by default)</span>
     <span class="nt">swiftReadTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60000</span>
-    <span class="c1">#Default number of retries on errors</span>
+    <span class="c1"># Disable keep-alive. Optional, defaults to false.</span>
+    <span class="nt">swiftDisableKeepAlive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="c1">#Default number of (re)tries on errors</span>
     <span class="nt">swiftNbRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
     <span class="c1">#Time (in seconds) to renew a token before expiration occurs (blocking) (optional, 60 by default)</span>
     <span class="nt">swiftHardRenewTokenDelayBeforeExpireTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
@@ -1743,6 +1771,9 @@
     <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
     <span class="c1"># Batch metadata computation timeout in seconds</span>
     <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
+    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
+    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="c1"># Enable / Disable use of vitam custom headers for offer requests</span>
     <span class="nt">enableCustomHeaders</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="c1"># List of vitam custom headers used by offer requests</span>
@@ -1774,6 +1805,14 @@
     <span class="nt">s3RequestTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
     <span class="c1"># s3ClientExecutionTimeout (optional): Max time (in milliseconds) for a request by java client (0 by default, disabled)</span>
     <span class="nt">s3ClientExecutionTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+    <span class="c1"># Disable multipart upload of large objects (legacy mode / not recommended, only for S3 servers without multipart upload support)</span>
+    <span class="nt">s3DisableMultipartUpload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="c1"># Max upload size for single object upload size in MB (min: 5 MB, max: 5 GB, default: 5 GB)</span>
+    <span class="nt">s3MaxUploadPartSizeMB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5_120</span>
+    <span class="c1"># Nb retries for S3 multipart upload cleanup</span>
+    <span class="nt">s3MultiPartCleanNbRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+    <span class="c1"># Wait delay for S3 multipart upload cleanup (in milliseconds)</span>
+    <span class="nt">s3MultiPartCleanWaitingTimeInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10_000</span>
     <span class="c1"># Offer log compaction</span>
     <span class="nt">offer_log_compaction</span><span class="p">:</span>
       <span class="c1">## Expiration, here offer logs 21 days old will be compacted</span>
@@ -1786,6 +1825,9 @@
     <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
     <span class="c1"># Batch metadata computation timeout in seconds</span>
     <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
+    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
+    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="c1">################################################################################</span>
   <span class="nt">offer-tape-1</span><span class="p">:</span>
     <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tape-library</span>
@@ -1807,6 +1849,9 @@
     <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
     <span class="c1"># Batch metadata computation timeout in seconds</span>
     <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
+    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
+    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="c1">################################################################################</span>
   <span class="c1"># WARNING: Swift V1 is deprecated</span>
   <span class="c1"># example_swift_v1:</span>
@@ -1837,6 +1882,7 @@
   <span class="c1">#    swiftMaxConnections: 1000</span>
   <span class="c1">#    swiftConnectionTimeout: 200000</span>
   <span class="c1">#    swiftReadTimeout: 60000</span>
+  <span class="c1">#    swiftDisableKeepAlive: false</span>
   <span class="c1">#    Time (in seconds) to renew a token before expiration occurs</span>
   <span class="c1">#    swiftHardRenewTokenDelayBeforeExpireTime: 60</span>
   <span class="c1">#    swiftSoftRenewTokenDelayBeforeExpireTime: 300</span>
@@ -2202,37 +2248,7 @@
 335
 336
 337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+338</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2421,40 +2437,10 @@
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="nt">http_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">grafana_datasources</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus&quot;</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;prometheus&quot;</span>
-        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
-        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-server.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.server.port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9090)</span><span class="nv"> </span><span class="s">}}/prometheus&quot;</span>
-        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Prometheus</span><span class="nv"> </span><span class="s">AlertManager&quot;</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;camptocamp-prometheus-alertmanager-datasource&quot;</span>
-        <span class="nt">access</span><span class="p">:</span> <span class="s">&quot;proxy&quot;</span>
-        <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;http://prometheus-alertmanager.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">prometheus.alertmanager.api_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(9093)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">basicAuth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">jsonData</span><span class="p">:</span>
-          <span class="nt">keepCookies</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-          <span class="nt">severity_critical</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
-          <span class="nt">severity_high</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
-          <span class="nt">severity_warning</span><span class="p">:</span> <span class="s">&quot;2&quot;</span>
-          <span class="nt">severity_info</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
-    <span class="nt">grafana_dashboards</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;vitam-dashboard&#39;</span>
-        <span class="nt">orgId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">folder</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-        <span class="nt">folderUid</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
-        <span class="nt">disableDeletion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">updateIntervalSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-        <span class="nt">allowUiUpdates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">options</span><span class="p">:</span>
-          <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;/etc/grafana/provisioning/dashboards&quot;</span>
 
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
+    <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">indices</span><span class="p">:</span>
         <span class="nt">metricbeat</span><span class="p">:</span>
             <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
@@ -2766,7 +2752,19 @@
 151
 152
 153
-154</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
 <span class="c1"># List of dead / removed tenants that should never be reused / present in vitam_tenant_ids</span>
 <span class="nt">vitam_removed_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="p p-Indicator">]</span>
 <span class="c1"># Administration tenant</span>
@@ -2778,7 +2776,7 @@
 <span class="c1">#</span>
 <span class="c1"># Elastic search index configuration settings :</span>
 <span class="c1"># - &#39;number_of_shards&#39; : number of shards per index. Every ES shard is stored as a lucene index.</span>
-<span class="c1"># - &#39;number_of_replicas&#39;: number of additional copies of primary shards</span>
+<span class="c1"># - &#39;number_of_replicas&#39; : number of additional copies of primary shards</span>
 <span class="c1"># The total number of shards : number_of_shards * (1 primary + M number_of_replicas)</span>
 <span class="c1">#</span>
 <span class="c1"># CAUTION : The total number of shards should be lower than or equal to the number of elasticsearch-data instances in the cluster</span>
@@ -2815,10 +2813,26 @@
 <span class="c1">#  - A single ES node should not handle &gt; 200 shards (be it a primary or a replica)</span>
 <span class="c1">#  - It is recommended to start small and add more shards when needed (re-sharding requires a re-indexation operation)</span>
 <span class="c1">#</span>
+<span class="c1"># Custom mappingFile &amp; customSearch</span>
+<span class="c1"># ---------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># metadata &amp; metadata_collect collections (for unit &amp; objectgroup)</span>
+<span class="c1"># - &#39;mappingFile&#39; : (Optional) The name of the associated mapping. Must be placed under `environments/files/elasticsearch-mappings/`</span>
+<span class="c1"># - &#39;customSearch&#39; : (Optional) Mandatory if you modify the default mappingFile or provided a dedicated one.</span>
+<span class="c1">#</span>
+<span class="c1">#  Example:</span>
+<span class="c1">#    mappingFile: dedicated-unit-es-mapping.json</span>
+<span class="c1">#    customSearch:</span>
+<span class="c1">#      - fieldPath: Title</span>
+<span class="c1">#        types:</span>
+<span class="c1">#          - Strict</span>
+<span class="c1">#          - Minimal</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
 <span class="c1"># /!\ IMPORTANT :</span>
 <span class="c1"># Changing the configuration of an existing tenant requires re-indexation of the tenants and/or tenant groups</span>
 <span class="c1">#</span>
-<span class="c1"># Please refer to documentation for more details.</span>
+<span class="c1"># Please refer to the documentation for more details.</span>
 <span class="c1">#</span>
 <span class="c1">###</span>
 <span class="nt">vitam_elasticsearch_tenant_indexation</span><span class="p">:</span>
@@ -2850,7 +2864,6 @@
   <span class="c1">#    number_of_replicas: 2</span>
   <span class="c1">#  ...</span>
 
-
   <span class="c1">###</span>
   <span class="c1"># Custom index settings for regular tenants.</span>
   <span class="c1">###</span>
@@ -2866,9 +2879,6 @@
   <span class="c1">#      number_of_shards: 3</span>
   <span class="c1">#      number_of_replicas: 0</span>
   <span class="c1">#  ...</span>
-
-
-
 
   <span class="c1">###</span>
   <span class="c1"># Custom index settings for grouped tenants.</span>
@@ -3428,10 +3438,10 @@
 </div>
 <div class="section" id="le-mapping-elasticsearch-pour-unit-et-objectgroup">
 <h2>4.2.3.5. Le mapping ElasticSearch pour Unit et ObjectGroup<a class="headerlink" href="#le-mapping-elasticsearch-pour-unit-et-objectgroup" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les mappings des indexes elasticsearch pour les collections masterdata Unit et ObjectGroup sont configurables de l’extérieur, plus spécifiquement dans le dossier <code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/elasticsearch-mapping/files/</span></code>, ce dossier contient:</p>
+<p>Les mappings des indexes elasticsearch pour les collections Unit et ObjectGroup sont configurables de l’extérieur, plus spécifiquement dans le dossier <code class="docutils literal notranslate"><span class="pre">environments/files/elasticsearch-mappings/</span></code>, ce dossier contient:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/elasticsearch-mapping/files/unit-es-mapping.json</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">deployment/ansible-vitam/roles/elasticsearch-mapping/files/og-es-mapping.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">unit-es-mapping.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">og-es-mapping.json</span></code></li>
 </ul>
 <p>Exemple du fichier mapping de la collection ObjectGroup :</p>
 <blockquote>
