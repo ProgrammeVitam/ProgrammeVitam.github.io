@@ -4,7 +4,7 @@ title: Doc. des tests
 fatherref: documentation
 ---
 
-* **Vitam et Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_Guide_de_prise_en_main_v80.zip))
+* **Vitam et Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.1.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_Guide_de_prise_en_main_v80.zip))
 
 * **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/DocCourante/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_fonctionnels_v80.zip))
 
