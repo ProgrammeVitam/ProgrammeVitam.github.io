@@ -247,7 +247,7 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */</code></pre><h4 id="requêtes-de
 ],
 "$filter": {},
 "$projection": {}
-}</code></pre><p><strong>Notes :</strong></p><ul><li>La recherche multi-requêtes est actuellement supportée à titre <strong>expérimental</strong>.</li><li>Selon la complexité des sous-requêtes, les recherches multi-requêtes peuvent être très couteuses.</li><li>Les filtres de recherche, et en particulier <strong>$limit</strong> et <strong>$offset</strong>, s&#39;appliquent uniquement sur la dernière requête. Les autres (premières) sous-requêtes ne doivent pas renvoyer un nombre de résultats trop important (10000+) au risque d&#39;un comportement de recherche non déterminé.</li></ul><h5 id="recherche-avec-facet"><strong>Recherche avec facet</strong></h5><p>Il s&#39;agit d&#39;une recherche de Units contenant des requêtes d&#39;aggrégation en plus. Dans ce mode, <strong>$facets</strong> contient au moins une requête d&#39;aggrégation. La forme des facets est la suivante :</p><ul><li><strong>$name</strong> : le nom de la facet (repris dans la réponse), doit être unique dans la liste des facets</li><li><strong>$xxxx</strong> : une commande de facet (cf la liste) Les facets peuvent être jouées sur une recherche mono-requête ou multi-requêtes.</li></ul><p><strong>Exemples :</strong></p><p>1/ Rechercher les unités ayant "Alpha" uniquement sur les enfants des unités de $roots ayant une profondeur relative de 1 à 5 et le nombre d&#39;unité archivistiques par DescriptionLevel pour les 5 valeurs de DescriptionLevel les plus utilisées.</p><pre><code class="language-json">{
+}</code></pre><p><strong>Notes :</strong></p><ul><li>La recherche multi-requêtes est actuellement supportée à titre <strong>expérimental</strong>.</li><li>Selon la complexité des sous-requêtes, les recherches multi-requêtes peuvent être très couteuses.</li><li>Les filtres de recherche, et en particulier <strong>$limit</strong> et <strong>$offset</strong>, s&#39;appliquent uniquement sur la dernière requête. Les autres (premières) sous-requêtes ne doivent pas renvoyer un nombre de résultats trop important (10000+) au risque d&#39;un comportement de recherche non déterminé.</li></ul><h5 id="recherche-avec-facet"><strong>Recherche avec facet</strong></h5><p>Il s&#39;agit d&#39;une recherche de Units contenant des requêtes d&#39;agrégation en plus. Dans ce mode, <strong>$facets</strong> contient au moins une requête d&#39;agrégation. La forme des facets est la suivante :</p><ul><li><strong>$name</strong> : le nom de la facet (repris dans la réponse), doit être unique dans la liste des facets</li><li><strong>$xxxx</strong> : une commande de facet (cf la liste) Les facets peuvent être jouées sur une recherche mono-requête ou multi-requêtes.</li></ul><p>Vitam supporte les types de facettes suivants :</p><ul><li>"$terms" : Calcule des facettes ou des catégories basées sur les valeurs distinctes d&#39;un champ spécifique et le nombre associé.</li><li>"$filters" : pour obtenir des résultats d&#39;agrégations par filtres sur les résultats.</li><li>"$range" : pour obtenir des agrégations par plages de dates.</li><li>"$sum" : pour obtenir des totaux sur des champs.</li><li>"$count" : pour obtenir le nombre de valeurs présentes sur des champs.</li></ul><p><strong>Exemples :</strong></p><p>1/ Rechercher les unités ayant "Alpha" uniquement sur les enfants des unités de $roots ayant une profondeur relative de 1 à 5 et le nombre d&#39;unité archivistiques par DescriptionLevel pour les 5 valeurs de DescriptionLevel les plus utilisées.</p><pre><code class="language-json">{
 "$roots": [
   "GUID1",
   "GUID2"
@@ -294,6 +294,42 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */</code></pre><h4 id="requêtes-de
       "$field": "DescriptionLevel",
       "$size": 5,
       "$order": "ASC"
+    }
+  }
+]
+}</code></pre><p>3/ Rechercher les unités ayant le texte "Alpha" dans le titre et le total sur un champ donné "champSize".</p><pre><code class="language-json">{
+"$roots": [],
+"$query": [
+  {
+    "$match": { "Title": "Alpha" },
+    "$depth": 5
+  }
+],
+"$filter": {},
+"$projection": {},
+"$facets": [
+  {
+    "$name": "total_champSize",
+    "$sum": {
+      "$field": "champSize"
+    }
+  }
+]
+}</code></pre><p>4/ Rechercher les unités ayant le texte "Alpha" dans le titre et le nombre de valeurs présentes sur le champ "champ".</p><pre><code class="language-json">{
+"$roots": [],
+"$query": [
+  {
+    "$match": { "Title": "Alpha" },
+    "$depth": 5
+  }
+],
+"$filter": {},
+"$projection": {},
+"$facets": [
+  {
+    "$name": "count_not_null_values",
+    "$count": {
+      "$field": "champ"
     }
   }
 ]
@@ -436,7 +472,7 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */</code></pre><h4 id="requêtes-de
 }
 }</code></pre><p><strong>Remarque :</strong></p><ul><li>Pour la collection <em>unit</em>, il est possible de demander la construction de l&#39;ensemble des règles héritées en utilisant une projection <em>spéciale</em> <strong>$rules</strong>. Si cette projection est utilisée, l&#39;ensemble des champs de l&#39;unité archivistique est remonté. Cette projection ne devrait être utilisée que dans le point d&#39;API <em>/units/{id}</em> (GET BY ID).</li></ul><p>Il est également à noter que la projection <em>$rules</em> est <strong>dépréciée</strong> et devrait être supprimée dans une prochaine release. Elle est remplacée par une nouvelle API GET /unitsWithInheritedRules**.</p><pre><code class="language-json">{
 "$projection": { "$fields": { "$rules": 1 } }
-}</code></pre><h2 id="facets">Facets</h2><p>Les commandes de la Facet peuvent être :</p><table class="table"><thead><tr><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>$terms</td><td>nom du champ, nombre et ordre des résulats</td><td>Répartition selon des valeurs textuelles du champ</td></tr><tr><td>$date_range</td><td>nom de champ, format, ranges</td><td>Répartition selon les dates selon un intervalle défini "ranges"</td></tr><tr><td>$filters</td><td>requêtes de filtre</td><td>Répartition selon les requêtes définies (même format qu&#39;une $query)</td></tr></tbody></table><h3 id="opérateur-terms--répartition-selon-des-valeurs-textuelles-du-champ">Opérateur $terms : répartition selon des valeurs textuelles du champ</h3><p><strong>Format :</strong></p><ul><li><code>{ "$terms" : { "$field" : "field_name", "$size" : x, "$order": "field_order" } }</code> : où <em>field_name</em> (obligatoire) est le nom du champ, <em>x</em> (obligatoire) le nombre de valeurs textuelles remontées et <em>field_order</em> est l&#39;ordre (valeurs : ASC/DESC).</li></ul><p><strong>Exemple :</strong> Recherche la répartition de tous les résultats de recherche pour les 3 valeurs les plus utilisées du champ DescriptionLevel :</p><ul><li><code>{ "$name": "facet_desclevel", "$terms" : { "$field" : "DescriptionLevel", "$size" : 3, "$order" : "ASC"  } }</code></li></ul><h3 id="opérateur-date_range-">Opérateur $date_range :</h3><p><strong>Format :</strong></p><ul><li><code>{ "$date_range" : { "$field" : "field_name", "$format" : "format" , "$ranges": [ {"$from": "from","$to": "to"}]} }</code> : où <em>field_name</em> (obligatoire) est le nom du champ, <em>format</em>(obligatoire) le format de la date (Ex :&#39;dd-mm-yyyy), <em>ranges</em>(obligatoire) une liste d&#39;object possedant un champ <em>from</em> et/ou un champ <em>to</em></li></ul><p><strong>Exemple :</strong> Recherche du nombre de résultats pour une date EndDate située entre 2010 et 2018 et une EndDate supèrieure à 1900 :</p><pre><code class="language-json">"$facets": [
+}</code></pre><h2 id="facets">Facets</h2><p>Les commandes de la Facet peuvent être :</p><table class="table"><thead><tr><th>Opérateur</th><th>Arguments</th><th>Commentaire</th></tr></thead><tbody><tr><td>$terms</td><td>nom du champ, nombre et ordre des résulats</td><td>Répartition selon des valeurs textuelles du champ</td></tr><tr><td>$date_range</td><td>nom de champ, format, ranges</td><td>Répartition selon les dates selon un intervalle défini "ranges"</td></tr><tr><td>$filters</td><td>requêtes de filtre</td><td>Répartition selon les requêtes définies (même format qu&#39;une $query)</td></tr><tr><td>$sum</td><td>nom du champ</td><td>Somme des valeurs du champ</td></tr><tr><td>$count</td><td>nom du champ</td><td>Nombre de valeurs présentes du champ</td></tr></tbody></table><h3 id="opérateur-terms--répartition-selon-des-valeurs-textuelles-du-champ">Opérateur $terms : répartition selon des valeurs textuelles du champ</h3><p><strong>Format :</strong></p><ul><li><code>{ "$terms" : { "$field" : "field_name", "$size" : x, "$order": "field_order" } }</code> : où <em>field_name</em> (obligatoire) est le nom du champ, <em>x</em> (obligatoire) le nombre de valeurs textuelles remontées et <em>field_order</em> est l&#39;ordre (valeurs : ASC/DESC).</li></ul><p><strong>Exemple :</strong> Recherche la répartition de tous les résultats de recherche pour les 3 valeurs les plus utilisées du champ DescriptionLevel :</p><ul><li><code>{ "$name": "facet_desclevel", "$terms" : { "$field" : "DescriptionLevel", "$size" : 3, "$order" : "ASC"  } }</code></li></ul><h3 id="opérateur-date_range-">Opérateur $date_range :</h3><p><strong>Format :</strong></p><ul><li><code>{ "$date_range" : { "$field" : "field_name", "$format" : "format" , "$ranges": [ {"$from": "from","$to": "to"}]} }</code> : où <em>field_name</em> (obligatoire) est le nom du champ, <em>format</em>(obligatoire) le format de la date (Ex :&#39;dd-mm-yyyy), <em>ranges</em>(obligatoire) une liste d&#39;object possedant un champ <em>from</em> et/ou un champ <em>to</em></li></ul><p><strong>Exemple :</strong> Recherche du nombre de résultats pour une date EndDate située entre 2010 et 2018 et une EndDate supèrieure à 1900 :</p><pre><code class="language-json">"$facets": [
   {"$name": "EndDate",
     "$date_range": {
       "$field": "EndDate",
@@ -455,7 +491,7 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */</code></pre><h4 id="requêtes-de
       ]
     }
   }
-]</code></pre><h3 id="opérateur-filters--répartition-selon-les-requêtes-définies">Opérateur $filters : Répartition selon les requêtes définies</h3><p><strong>Format :</strong></p><ul><li><code>{ "$filters" : { "$query_filters" : [ { "$name" : "filter_name", "$query" : { QUERY } } ] } }</code> : où pour chaque filtre <em>name</em> (obligatoire) est le nom du filter et <em>query</em> contient une query dsl valide (cf partie QUERY de cette documentation).</li></ul><p><strong>Exemple :</strong> Recherche la répartition des résultat pour la présence d&#39;un champ titre en français et la présence d&#39;un champ titre en anglais :</p><pre><code class="language-json">{ "$name": "facet_title_langs", "$filters" : {
+]</code></pre><h3 id="opérateur-filters--répartition-selon-les-requêtes-définies">Opérateur $filters : Répartition selon les requêtes définies</h3><p><strong>Format :</strong></p><ul><li><code>{ "$filters" : { "$query_filters" : [ { "$name" : "filter_name", "$query" : { QUERY } } ] } }</code> : où pour chaque filtre <em>name</em> (obligatoire) est le nom du filter et <em>query</em> contient une query dsl valide (cf partie QUERY de cette documentation).</li></ul><p><strong>Exemple :</strong> Recherche la répartition des résultats pour la présence d&#39;un champ titre en français et la présence d&#39;un champ titre en anglais :</p><pre><code class="language-json">{ "$name": "facet_title_langs", "$filters" : {
     "$query_filters": [
       {
         "$name": "french_title",
@@ -471,6 +507,34 @@ LIMIT n ORDER BY field1 ASC   /* les Filtres */</code></pre><h4 id="requêtes-de
       }
     ]
   }
+}</code></pre><h3 id="opérateur-sum--calcul-de-la-somme-des-valeurs-du-champ">Opérateur $sum : Calcul de la somme des valeurs du champ</h3><p><strong>Format :</strong></p><ul><li><code>{ "$sum" : { "$field" : "field_name" } }</code> : où <em>field_name</em> (obligatoire) est le nom du champ.</li></ul><p><strong>Exemple :</strong> Calculer la somme des valeurs du champ <em>Ingested</em>:</p><pre><code class="language-json">{
+"$facets": [
+  {
+    "$name": "Sum_Ingested",
+    "$sum": {
+      "$field": "Ingested"
+    }
+  }
+]
+}</code></pre><p><strong>Exemple de facette sur des champs Nested :</strong> Calculer la somme du champ <em>Size</em> de l&#39;objet nested <em>#qualifiers.versions</em>:</p><pre><code class="language-json">
+"$facets": [
+ {
+   "$name": "facet_total_Version",
+   "$sum": {
+     "$field": "#qualifiers.versions.Size",
+     "$subobject": "#qualifiers.versions"
+   }
+ }
+]
+</code></pre><h3 id="opérateur-count--calcul-du-nombre-de-valeurs-présentes-du-champ">Opérateur $count : Calcul du nombre de valeurs présentes du champ</h3><p><strong>Format :</strong></p><ul><li><code>{ "$count" : { "$field" : "field_name" } }</code> : où <em>field_name</em> (obligatoire) est le nom du champ.</li></ul><p><strong>Exemple :</strong> Calculer le nombre de valeurs présentes du champ <em>SubmissionAgency</em>:</p><pre><code class="language-json">{
+"$facets": [
+  {
+    "$name": "count_SubmissionAgency",
+    "$count": {
+      "$field": "SubmissionAgency"
+    }
+  }
+]
 }</code></pre><h3 id="notes-sur-les-opérateurs">Notes sur les opérateurs</h3><ul><li>Les champs analysés ne peuvent pas être utilisés en argument <em>$field</em>.</li></ul><h2 id="actions">Actions</h2><p>Dans le cas d&#39;un update, les opérateurs suivants sont utilisables</p><table class="table"><thead><tr><th>Opérateur</th><th>Commentaire</th></tr></thead><tbody><tr><td>$set</td><td>Crée ou modifie la valeur d&#39;un champ (requêtes de modification uniquement)</td></tr><tr><td>$unset</td><td>Supprime un ou plusieurs champs (requêtes de modification uniquement)</td></tr><tr><td>$add</td><td>Ajout d&#39;une valeur à un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr><tr><td>$pull</td><td>Supprime une valeur d&#39;un champ de type liste non redondante (requêtes de reclassification uniquement)</td></tr><tr><td>$setregex</td><td>Permet de modifier une valeur par pattern dans l&#39;update de masse des unités d&#39;archive</td></tr></tbody></table><h3 id="opérateur-set--ajouter-plusieurs-règles-de-gestion">Opérateur $set : Ajouter plusieurs règles de gestion</h3><pre><code class="language-json">{
 "$roots": ["managementRulesUpdate"],
 "$query": [],
