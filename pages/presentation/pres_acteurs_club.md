@@ -68,14 +68,15 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 
 ![Logos](/public/images/202501_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 15/01/2025)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 12/06/2025)<a name="membre"></a>
 
-* AMUE
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
 * Agence nationale pour la gestion des déchets radioactifs (ANDRA)
 * Agence de Services et de Paiement (ASP)
+* Aix Marseille Provence métropole
 * Akompano
+* AMUE
 * Atos
 * C6
 * Caisse nationale de l'Assurance Maladie (CNAM)
@@ -103,7 +104,9 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Conseil départemental de l'Hérault
 * Conseil départemental de Seine-et-Marne
 * Conseil départemental des Bouches-du-Rhône
+* Conseil départemental des Hauts-de-Seine
 * Conseil départemental des Pyrénées Atlantiques  
+* Conseil départemental des Yvelines
 * CooNum
 * CNRS
 * Digitech
@@ -112,6 +115,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * DRAC Bretagne
 * DRAC Hauts-de-France
 * DRAC Pays de la Loire
+* DSI de Polynésie française
 * Établissement de communication et de production audiovisuelle de la Défense (ECPAD)
 * Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
 * Etablissement public des musées d'Orsay et de l'Orangerie (EPMO)
@@ -142,6 +146,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Musée du quai Branly - Jacques-Chirac
 * Nantes métropole
 * NeoLedge
+* NumOp
 * Ofpra
 * Olkoa
 * Opéris
@@ -152,6 +157,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Société des Grands Projets
 * SopraSteria
 * SRCI Groupe Salvia Developpement
+* Synap6
 * Toulon Provence Méditerranée
 * Université de Lille
 * Université de Bordeaux
@@ -162,4 +168,4 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * XDemat
 * Xelians
 
-![Logos](/public/images/separation par types d'utilisateurDEC2024@2x.png)
+![Logos](/public/images/Club_JUIN2025.png)
