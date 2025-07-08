@@ -38,7 +38,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/8.1.1/mvn_repo/) 
 - URL de configuration des dépôts de binaires CentOS/RHEL :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.1/rpm/vitam-product/)  
-    - [vitam-external](* https://download.programmevitam.fr/vitam_repository/8.1.1/rpm/vitam-external/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.1/rpm/vitam-external/)  
 - URL de configuration des dépôts de binaires Debian :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.1/deb/vitam-product/)  
     - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.1/deb/vitam-external/)
@@ -61,6 +61,6 @@ Elle est accessible, en partie sur GitHub pour les documents en forme brute RST,
 <a name="rn"></a>  
 ### La release note
 
-- la [release note de la version 8.0.0](/ressources/RefCourant/Release_notes8.1.pdf)
+- la [release note de la version 8.1.1](/ressources/RefCourant/Release_notes8.1.pdf)
 - le [change-log du back-office](/ressources/RefCourant/VITAM-CHANGELOG.8.1.1.pdf)
 - le [change-log du front-office](/ressources/RefCourant/VITAMUI-CHANGELOG.8.1.1.pdf)
