@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 6
-fatherref: versions
 ---
 
 
