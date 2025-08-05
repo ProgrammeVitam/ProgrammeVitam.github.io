@@ -11,15 +11,15 @@ fatherref: documentation
 
 * **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.8.0.0.pdf) \| [html](/ressources/DocCourante/html/exploitation))  
 
-* **Vitam UI : dossier d'architecture technique** (DAT) ([html](/ressources/DocCourante/html/architecture_VitamUI))
+* **Vitam UI : dossier d'architecture technique** (DAT) ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/architecture/))
 
-* **Vitam UI : dossier d'installation** ([html](/ressources/DocCourante/html/installation_VitamUI))  
+* **Vitam UI : dossier d'installation** ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/installation/))  
 
-* **Vitam UI : dossier d'exploitation** ([html](/ressources/DocCourante/html/exploitation_VitamUI))  
+* **Vitam UI : dossier d'exploitation** ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/exploitation/))  
 
 * **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.8.0.0.pdf) \| [html](/ressources/DocCourante/html/migration))  
 
-* **Documentation de montées de version Vitam UI** (DMV) ([html](/ressources/DocCourante/html/migration_VitamUI))  
+* **Documentation de montées de version Vitam UI** (DMV) ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/migration/))  
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
