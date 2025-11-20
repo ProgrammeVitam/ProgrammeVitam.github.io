@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3.8. Notes et procédures spécifiques V7.1 &mdash; Documentation VITAM - Documentation de montées de version 8.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="4.3.9. Notes et procédures spécifiques V8.0" href="v8_0_update.html" />
+    <link rel="prev" title="4.3.7. Notes et procédures spécifiques V7" href="v7_0_update.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Documentation de montées de version
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                8.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generalites.html">3. Généralités sur les versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">4. Montées de version</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../principles.html">4.1. Principes généraux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bugfixes_updates/_toc.html">4.2. Montées de version <em>bugfix</em></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">4.3. Montées de version majeures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="r13_update.html">4.3.1. Notes et procédures spécifiques R13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r16_update.html">4.3.2. Notes et procédures spécifiques R16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v5rc_update.html">4.3.3. Notes et procédures spécifiques V5RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v5_update.html">4.3.4. Notes et procédures spécifiques V5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6rc_update.html">4.3.5. Notes et procédures spécifiques V6RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6_update.html">4.3.6. Notes et procédures spécifiques V6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.8. Notes et procédures spécifiques V7.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">4.3.8.1. Adaptation des sources de déploiement ansible</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">4.3.8.2. Procédures à exécuter AVANT la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-de-la-montee-de-version">4.3.8.3. Application de la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.8.4. Procédures à exécuter APRÈS la montée de version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="v8_0_update.html">4.3.9. Notes et procédures spécifiques V8.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v8_1_update.html">4.3.10. Notes et procédures spécifiques V8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.11. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Documentation de montées de version</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">4. Montées de version</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">4.3. Montées de version majeures</a></li>
+      <li class="breadcrumb-item active">4.3.8. Notes et procédures spécifiques V7.1</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/updates/releases_updates/v7_1_update.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="notes-et-procedures-specifiques-v7-1">
+<h1>4.3.8. Notes et procédures spécifiques V7.1<a class="headerlink" href="#notes-et-procedures-specifiques-v7-1" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Veuillez appliquer les procédures spécifiques à chacune des versions précédentes en fonction de la version de départ selon la suite suivante: V5 -&gt; V6RC -&gt; V6 -&gt; V7.0.</p>
+</div>
+<div class="section" id="adaptation-des-sources-de-deploiement-ansible">
+<h2>4.3.8.1. Adaptation des sources de déploiement ansible<a class="headerlink" href="#adaptation-des-sources-de-deploiement-ansible" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="modification-de-la-personnalisation-des-roles-des-clusters-elasticsearch">
+<h3>4.3.8.1.1. Modification de la personnalisation des rôles des clusters Elasticsearch<a class="headerlink" href="#modification-de-la-personnalisation-des-roles-des-clusters-elasticsearch" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Elasticsearch ayant fait évoluer la définition des paramètres des rôles pour chacun des noeuds, si vous avez personnalisés les rôles associés à vos serveurs pour chacun de vos clusters Elasticsearch (log ou data), les paramètres de configuration au niveau de l’ansiblerie doivent être adaptés.</p>
+<p>Les paramètres suivants permettant la personnalisation des rôles ont étés retirés:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">is_master</span><span class="o">=</span><span class="s">true is_data=true is_ingest=false</span>
+</pre></div>
+</div>
+<p>Vous devrez les remplacer par la nouvelle convention sous forme de tableau pour chacun des hosts personnalisés:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">elasticsearch_roles</span><span class="o">=</span><span class="s">[master, data]</span>
+</pre></div>
+</div>
+<p>Cette nouvelle convention offre plus de souplesse dans la définition de l’ensemble des rôles possible pour un cluster Elasticsearch (cf. <a class="reference external" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html#node-roles">Documentation officielle - Node Roles</a>).
+Attention une mauvaise configuration de ces paramètres avancés pourrait mener à une incohérence de la configuration rendant vos clusters non fonctionnels.</p>
+</div>
+<div class="section" id="modifications-du-role-curator">
+<h3>4.3.8.1.2. Modifications du rôle curator<a class="headerlink" href="#modifications-du-role-curator" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le rôle curator permet la rotation des indexes du cluster elasticsearch-log. Il a pour but de permettre de fermer et supprimer au bout d’un certain temps les anciens indexes afin de limiter l’empreinte mémoire associée.</p>
+<p>Dans un contexte d’environnement de production, les logs applicatif vitam son stockés par défaut pour une durée de 365j et les accesslogs pour une durée de 180j.</p>
+<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">curator.log.*</span></code> ont évolués en <code class="docutils literal notranslate"><span class="pre">curator.indices.*</span></code>.</p>
+<p>Ancienne configuration par défaut:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>curator:</dt>
+<dd><dl class="first last docutils">
+<dt>log:</dt>
+<dd><dl class="first last docutils">
+<dt>metrics:</dt>
+<dd>close: 7
+delete: 30</dd>
+<dt>logstash:</dt>
+<dd>close: 10
+delete: 30</dd>
+<dt>metricbeat:</dt>
+<dd>close: 5
+delete: 10</dd>
+<dt>packetbeat:</dt>
+<dd>close: 5
+delete: 10</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Nouvelle configuration par défaut:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>curator:</dt>
+<dd><p class="first">## Pour personnaliser les dates d’exécution des actions close/delete
+# actions:
+#   close:
+#     calendar: “<em>-</em>-* 00:10:00”
+#   delete:
+#     calendar: “<em>-</em>-* 00:20:00”
+indices:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>vitam:</dt>
+<dd>close: 30
+delete: 365</dd>
+<dt>access:</dt>
+<dd>close: 30
+delete: 180</dd>
+<dt>system:</dt>
+<dd>close: 7
+delete: 30</dd>
+<dt>metricbeat:</dt>
+<dd>close: 5
+delete: 10</dd>
+<dt>packetbeat:</dt>
+<dd>close: 5
+delete: 10</dd>
+</dl>
+<p>## Exemple d’index personnel avec préfixe personnalisé
+## Sans le paramètre prefix, les actions seront exécutées sur les indexes nommés logstash-mycustom*
+## Avec le paramètre prefix défini, les actions seront exécutées sur les indexes nommés myprefix*
+# mycustom:
+#   prefix: myprefix
+#   close: 15
+#   delete: 30</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>Le listing des éléments <code class="docutils literal notranslate"><span class="pre">curator.indices.&lt;index_name&gt;</span></code> permet de créer les fichiers de configuration adaptés à la mise en place des rotations de chacun des indexes.</p>
+<p>Chacun des nouveaux indices sera préfixé selon la convention de nommage <code class="docutils literal notranslate"><span class="pre">logstash-&lt;index_name&gt;</span></code>.</p>
+<p>Si vous aviez personnalisés le prefix des indexes à gérer par curator à l’aide de la variable <code class="docutils literal notranslate"><span class="pre">curator.log.prefix</span></code> (par défaut “logstash-<a href="#id1"><span class="problematic" id="id2">*</span></a>”). Vous devez maintenant la modifier à l’aide du paramètre <code class="docutils literal notranslate"><span class="pre">curator.indices.&lt;index_name&gt;.prefix</span></code>.</p>
+</div>
+<div class="section" id="ajout-de-nouveaux-exporters">
+<h3>4.3.8.1.3. Ajout de nouveaux exporters<a class="headerlink" href="#ajout-de-nouveaux-exporters" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ces nouveaux exporters permettent de collecter des métriques afin d’afficher ces éléments via Grafana dans les dashboards associés.</p>
+<p>Blackbox Exporter permet de collecter des métriques sur le statut des URLs listées dans <code class="docutils literal notranslate"><span class="pre">prometheus.blackbox_exporter.targets</span></code>.</p>
+<p>MongoDB Exporter permet de collecter des métriques sur les différents clusters mongo-vitam.</p>
+<p>Il est possible de les désactiver via <code class="docutils literal notranslate"><span class="pre">prometheus.blackbox_exporter.enabled:</span> <span class="pre">false</span></code> ou <code class="docutils literal notranslate"><span class="pre">prometheus.mongodb_exporter.enabled:</span> <span class="pre">false</span></code></p>
+<p>Ouvrir les ports suivants de Prometheus -&gt; Exporters pour permettre la collecte des métriques:</p>
+<ul class="simple">
+<li>Blackbox Exporter: <code class="docutils literal notranslate"><span class="pre">prometheus.blackbox_exporter.port:</span> <span class="pre">9115</span></code></li>
+<li>MongoC Exporter: <code class="docutils literal notranslate"><span class="pre">prometheus.mongodb_exporter.port_mongoc:</span> <span class="pre">9216</span></code></li>
+<li>MongoD Exporter: <code class="docutils literal notranslate"><span class="pre">prometheus.mongodb_exporter.port_mongod:</span> <span class="pre">9217</span></code></li>
+</ul>
+</div>
+<div class="section" id="modification-de-la-duree-de-retention-des-logs-par-defaut">
+<h3>4.3.8.1.4. Modification de la durée de rétention des logs par défaut<a class="headerlink" href="#modification-de-la-duree-de-retention-des-logs-par-defaut" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Par défaut on conserve maintenant 365j de logs (accesslogs &amp; applicatif) dans une limite de 5GB (par composant). De plus, nous avons réduit la quantité de logs gc de <code class="docutils literal notranslate"><span class="pre">32*64m=2048m</span></code> à <code class="docutils literal notranslate"><span class="pre">8*32m=256m</span></code>.</p>
+<p>Il est toujours possible de personnaliser ce paramétrage par défaut via les variables suivantes:</p>
+<ul class="simple">
+<li>Pour les gc:
+* <code class="docutils literal notranslate"><span class="pre">vitam_defaults.jvm_opts.gc</span></code> ou par composant en utilisant la variable <code class="docutils literal notranslate"><span class="pre">vitam.&lt;composant&gt;.jvm_opts.gc</span></code>.</li>
+<li>Pour les accesslogs:
+* <code class="docutils literal notranslate"><span class="pre">vitam_defaults.access_retention_days:</span> <span class="pre">365</span></code> ou par composant en utilisant la variable <code class="docutils literal notranslate"><span class="pre">vitam.&lt;composant&gt;.access_retention_days:</span> <span class="pre">365</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">vitam_defaults.access_total_size_cap:</span> <span class="pre">5GB</span></code> ou par composant en utilisant la variable <code class="docutils literal notranslate"><span class="pre">vitam.&lt;composant&gt;.access_total_size_cap:</span> <span class="pre">5GB</span></code>.</li>
+<li>Pour les logs applicatifs:
+* <code class="docutils literal notranslate"><span class="pre">vitam_defaults.logback_total_size_cap.file.history_days:</span> <span class="pre">365</span></code> ou par composant en utilisant la variable <code class="docutils literal notranslate"><span class="pre">vitam.&lt;composant&gt;.logback_total_size_cap.file.history_days:</span> <span class="pre">365</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">vitam_defaults.logback_total_size_cap.file.totalsize:</span> <span class="pre">5GB</span></code> ou par composant en utilisant la variable <code class="docutils literal notranslate"><span class="pre">vitam.&lt;composant&gt;.logback_total_size_cap.file.totalsize:</span> <span class="pre">5GB</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="modification-de-la-methodologie-de-concentration-des-logs">
+<h3>4.3.8.1.5. Modification de la méthodologie de concentration des logs<a class="headerlink" href="#modification-de-la-methodologie-de-concentration-des-logs" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un nouveau composant applicatif (Filebeat) permettant de collecter les logs dans le cluster elasticsearch-log a été ajouté.</p>
+<p>La méthode de collecte via rsyslog et syslog-ng sera donc dépréciée dans les futures releases.</p>
+<p>Vous pouvez continuer à utiliser les précédentes méthodes de concentation de logs via la configuration du paramètre <code class="docutils literal notranslate"><span class="pre">syslog.name:</span> <span class="pre">filebeat</span></code> (rsyslog, syslog-ng).</p>
+</div>
+<div class="section" id="nouveau-mode-de-deploiement-en-container-beta">
+<h3>4.3.8.1.6. Nouveau mode de déploiement en container (beta)<a class="headerlink" href="#nouveau-mode-de-deploiement-en-container-beta" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Attention, à ne pas utiliser en production.</p>
+</div>
+<p>Pour permettre le déploiement en mode conteneur de Vitam, vous devez configurer les valeurs suivantes:</p>
+<p>Dans le fichier de configuration des repositories <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/main/repositories.yml</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">install_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">container</span> <span class="c1"># Default to legacy</span>
+
+<span class="nt">container_repository</span><span class="p">:</span>
+  <span class="nt">registry_url</span><span class="p">:</span>
+  <span class="nt">username</span><span class="p">:</span>
+  <span class="nt">password</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Actuellement l’antivirus n’est pas supporté par le déploiement en mode conteneur, vous devrez configurer la valeur suivante: <code class="docutils literal notranslate"><span class="pre">vitam.ingest_external.ignore_antivirus_check:</span> <span class="pre">true</span></code>.</p>
+<p>De plus, le composant library n’est pas supporté en mode container, vous devrez laisser vide le groupe <code class="docutils literal notranslate"><span class="pre">[library]</span></code> de votre inventaire.</p>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-avant-la-montee-de-version">
+<h2>4.3.8.2. Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="arret-des-timers-et-des-acces-externes-a-vitam">
+<h3>4.3.8.2.1. Arrêt des timers et des accès externes à Vitam<a class="headerlink" href="#arret-des-timers-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V7.1.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiements de l’ancienne version.</p>
+</div>
+<p>Les timers et les externals de Vitam doivent être arrêtés sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_external.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduling.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduler.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="mise-a-jour-des-depots-yum-apt">
+<h3>4.3.8.2.2. Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version</p>
+</div>
+<p>Afin de pouvoir déployer la nouvelle version, vous devez mettre à jour la variable <code class="docutils literal notranslate"><span class="pre">vitam_repositories</span></code> sous <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/main/repositories.yml</span></code> afin de renseigner les dépôts à la version cible.</p>
+<p>Pour le dépôt vitam-external, vous devez renseigner la version adaptée à votre système d’exploitation (par exemple pour la version 7.1.0):</p>
+<ul class="simple">
+<li>CentOS 7: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/7.1.0/rpm/vitam-external/7/">https://download.programmevitam.fr/vitam_repository/7.1.0/rpm/vitam-external/7/</a></li>
+<li>AlmaLinux 9: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/7.1.0/rpm/vitam-external/9/">https://download.programmevitam.fr/vitam_repository/7.1.0/rpm/vitam-external/9/</a></li>
+<li>Debian 11: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/7.1.0/deb/vitam-external/11/">https://download.programmevitam.fr/vitam_repository/7.1.0/deb/vitam-external/11/</a></li>
+<li>Debian 12: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/7.1.0/deb/vitam-external/12/">https://download.programmevitam.fr/vitam_repository/7.1.0/deb/vitam-external/12/</a></li>
+</ul>
+<p>Puis exécutez le playbook suivant <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/bootstrap.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="montee-de-version-vers-mongo-6-0">
+<h3>4.3.8.2.3. Montée de version vers mongo 6.0<a class="headerlink" href="#montee-de-version-vers-mongo-6-0" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette montée de version doit être effectuée AVANT la montée de version V7.1 de Vitam et après l’arrêt des tâches planifiées et des externals.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée après avoir mis à jour les dépôts Vitam en V7.1.</p>
+</div>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V7.1 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mise à jour mongo</span>
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_mongodb_60.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="montee-de-version-vers-mongo-7-0">
+<h3>4.3.8.2.4. Montée de version vers mongo 7.0<a class="headerlink" href="#montee-de-version-vers-mongo-7-0" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette montée de version doit être effectuée AVANT la montée de version V7.1 de vitam et après la montée de version de MongoDB 6.0 ci-dessus.</p>
+</div>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V7.1 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_mongodb_70.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="arret-complet-de-vitam">
+<h3>4.3.8.2.5. Arrêt complet de Vitam<a class="headerlink" href="#arret-complet-de-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V7.1</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiements de l’ancienne version.</p>
+</div>
+<p>Vitam doit être arrêté sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="suppression-des-anciens-meta-packages-de-cots">
+<h3>4.3.8.2.6. Suppression des anciens meta-packages de COTS<a class="headerlink" href="#suppression-des-anciens-meta-packages-de-cots" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V7.1 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/remove_old_metapackages.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="duplication-des-packages-lors-de-la-mise-a-jour">
+<h3>4.3.8.2.7. Duplication des packages lors de la mise à jour<a class="headerlink" href="#duplication-des-packages-lors-de-la-mise-a-jour" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V7.1</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée uniquement pour les systèmes d’exploitation à base de RPM (CentOS 7 &amp; AlmaLinux 9) sur un vitam éteint.</p>
+</div>
+<p>Un bug a été introduit dans la construction des packages RPM à partir de la V6RC. Si vous effectuez une montée de version depuis la V6RC (v6.rc.1 ou inférieure), la V6 (v6.2 ou inférieure) ou la V7.0 (v7.0.1 ou inférieure), vous devrez appliquer la commande suivante pour supprimer les précédents packages. Sinon lors de de la mise à jour, le package précédent ne sera pas désinstallé conduisant à la présence de plusieurs versions du même package.</p>
+<p>Exemple d’erreur:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/var/tmp/rpm-tmp.fGwZMk: ligne <span class="m">1</span> : fg: pas de contrôle de tâche
+erreur : %preun<span class="o">(</span>vitam-offer-6.2-1.noarch<span class="o">)</span> scriptlet échoué, état de sortie <span class="m">1</span>
+Error in PREUN scriptlet in rpm package vitam-offer
+erreur : vitam-offer-6.2-1.noarch: effacer échoué
+</pre></div>
+</div>
+<p>Voici la commande à exécuter pour permettre la désinstallation des packages de la version précédente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible vitam --ask-vault-pass -v -a <span class="s2">&quot;yum --setopt=tsflags=noscripts remove -y vitam-*.noarch&quot;</span> -i environments/&lt;inventaire&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="application-de-la-montee-de-version">
+<h2>4.3.8.3. Application de la montée de version<a class="headerlink" href="#application-de-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L’application de la montée de version s’effectue d’abord sur les sites secondaires puis sur le site primaire.</p>
+</div>
+<div class="section" id="lancement-du-master-playbook-vitam">
+<h3>4.3.8.3.1. Lancement du master playbook vitam<a class="headerlink" href="#lancement-du-master-playbook-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancement-du-master-playbook-extra">
+<h3>4.3.8.3.2. Lancement du master playbook extra<a class="headerlink" href="#lancement-du-master-playbook-extra" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/extra.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-apres-la-montee-de-version">
+<h2>4.3.8.4. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="reindexation-de-l-indice-logstash-vitam-courant">
+<h3>4.3.8.4.1. Réindexation de l’indice logstash-vitam courant<a class="headerlink" href="#reindexation-de-l-indice-logstash-vitam-courant" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Suite à la mise en place de filebeat (mode par défaut), le mapping associé aux indices a évolué. Afin de prendre en compte le nouveau mapping dans l’indice de la journée courante, vous devrez appliquer le playbook de migration suivant sur <strong>tous les sites</strong>.</p>
+<p>Tant que vous n’aurez pas appliqué ce playbook, la centralisation des logs sera défectueuse et entrainera de très nombreux logs d’erreurs au niveau des serveurs logstash.</p>
+<p>Si vous n’appliquez pas ce playbook, cette erreur se corrigera automatiquement à la création de l’indice du lendemain. Vous n’aurez juste pas accès à la centralisation des logs pour la journée courante dans les outils tel que Kibana.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/rename_current_logstash_vitam_index.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="migration-des-mappings-elasticsearch-pour-les-metadonnees">
+<h3>4.3.8.4.2. Migration des mappings elasticsearch pour les métadonnées<a class="headerlink" href="#migration-des-mappings-elasticsearch-pour-les-metadonnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette migration de données consiste à mettre à jour le modèle d’indexation des métadonnées sur elasticsearch-data.</p>
+<p>Elle est réalisée en exécutant la procédure suivante sur <strong>tous les sites</strong> (primaire et secondaire(s)) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_elasticsearch_mapping.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="v7_0_update.html" class="btn btn-neutral float-left" title="4.3.7. Notes et procédures spécifiques V7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="v8_0_update.html" class="btn btn-neutral float-right" title="4.3.9. Notes et procédures spécifiques V8.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

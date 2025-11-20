@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.13.5. DAT : module Graph &mdash; Documentation VITAM - Manuel de développement 8.1.0</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="3.13.6. Paramètres" href="parametres.html" />
+    <link rel="prev" title="3.13.4. Introduction" href="graph-introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            VITAM - Manuel de développement
+              <img src="../../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                8.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#rappels">Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-environnement.html">Configuration de l’environnement de développement</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../_toc.html">Détails par composant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../access/_toc.html">1. Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collect/_toc.html">2. Collect</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../_toc.html">3. Common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">3.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUID.html">3.2. Global Unique Identifier (GUID) pour Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Digest.html">3.3. Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Logger.html">3.4. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../JunitHelper.html">3.5. JunitHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../client.html">3.6. Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph.html">3.7. DirectedCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph.html#graph">3.8. Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VitamCode.html">3.9. Code d’erreur Vitam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../format-identifier.html">3.10. Common format identification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stockage.html">3.11. Common-storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vitam-metrics.html">3.12. Métriques dans VITAM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="_toc.html">3.13. Common-private</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="certs-auth.html">3.13.1. Génération de certificats et de keystore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esapi-utilisation.html">3.13.2. esapi utilisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="format-identifier.html">3.13.3. Format Identifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph-introduction.html">3.13.4. Introduction</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.13.5. DAT : module Graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="parametres.html">3.13.6. Paramètres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Uri.html">3.13.7. Uniform Resource Identifier (URI) (vitam)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html">3.13.8. Configuration de apache shiro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html#presentation-authentification-via-certificats">3.13.9. Présentation authentification via certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html#decryptage-de-shiro-ini">3.13.10. Décryptage de shiro.ini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shiro.html#utilisation-des-certificats">3.13.11. Utilisation des certificats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html">3.13.12. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#classes-de-filtres">3.13.13. Classes de filtres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#implementer-des-filters">3.13.14. Implémenter des filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security-filter.html#appliquer-le-filtre-pour-vitam">3.13.15. Appliquer le filtre pour Vitam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html">3.13.16. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#classe-de-filtre">3.13.17. Classe de filtre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#ajout-du-filtre">3.13.18. Ajout du filtre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tenant-filter.html#modules-vitam-impactes">3.13.19. Modules Vitam impactés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sanity-checker.html">3.13.20. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultVitamApplicationConfiguration.html">3.13.21. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Execution-request-dsl.html">3.13.22. Implémentation de l’éxécution des requêtes mono-query DSL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb-securite.html">3.13.23. Implémentation de l’authentification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="secret-plateforme.html">3.13.24. Implémentation du secret de la plateforme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../functional-administration/_toc.html">4. Functional administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-demo/_toc.html">5. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ihm-recette/_toc.html">6. IHM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ingest/_toc.html">7. Ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-security/_toc.html">8. Security-Internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logbook/_toc.html">9. Logbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata/_toc.html">10. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../processing/_toc.html">11. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler/_toc.html">12. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../storage/_toc.html">13. Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical-administration/_toc.html">14. Technical administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worker/_toc.html">15. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/_toc.html">16. Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallisation_tests.html">Parallélisation des tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin-icu-elasticsearch.html">Plugin ICU Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gestion-database.html">Gestion des bases de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../client-ressource-rest.html">Ressources et clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devstack_vm.html">Création d’une machine de dev contenant <em>Swift</em></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VITAM - Manuel de développement</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../_toc.html">Détails par composant</a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">3. Common</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">3.13. Common-private</a></li>
+      <li class="breadcrumb-item active">3.13.5. DAT : module Graph</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/include/common/private/graph-dat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="dat-module-graph">
+<h1>3.13.5. DAT : module Graph<a class="headerlink" href="#dat-module-graph" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce document présente l’ensemble de manuel développement concernant l’algorithme de graph qui représente le story #510, qui contient :</p>
+<div class="section" id="modules-packages">
+<h2>3.13.5.1. modules &amp; packages<a class="headerlink" href="#modules-packages" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="modules-et-packages">
+<h3>3.13.5.1.1. Modules et packages<a class="headerlink" href="#modules-et-packages" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Au présent : nous proposons le schéma ci-dessous représentant le module principal
+et ses sous modules.</p>
+<p>graph</p>
+<ul>
+<li><p class="first">DirectedCycle : Directed cycle detection :  un graphe orienté donné a un cycle dirigé? Si oui, trouver un tel cycle. DirectedCycle.java résout ce problème en utilisant la recherche en profondeur d’abord.</p>
+<blockquote>
+<div><p>Depth-first orders: fait de recherche en profondeur d’abord sur chaque sommet exactement une fois. Trois ordres de sommet sont d’un intérêt dans des
+applications typiques:</p>
+<p>Preorder: Mettre le sommet(vertex) sur une file d’attente avant  les appels récursifs.
+Postorder: Mettre le sommet(vertex)  sur une file d’attente après les appels récursifs.
+Reverse postorder: Mettre le sommet(vertex)  sur une pile après les appels récursifs.</p>
+<p>Le Depth-first search est l’algorithme de recherche des composantes fortement connexes.
+L’algorithme consiste à démarrer d’un sommet et à avancer dans le graphe en ne repassant pas deux fois par le même sommet. Lorsque l’on est bloqué, on “”revient sur ses pas”” jusqu’à pouvoir repartir vers un sommet non visité. Cette opération de “”retour sur ses pas”” est très élégamment prise en charge  par l’écriture d’une procédure récursive.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Après la parse de Unit recursive et la creation d’arbre orienté.Le choix de la racine de départ de l’arbre orienté se fait en faisant le test récursive si l’élément ne possède pas  un up alors c’est un racine .</p>
+<ul>
+<li><p class="first">DirectedGraph  : Un graphe orienté (ou digraphe) est un ensemble de sommets et une collection de bords orientés qui relie chacun une paire ordonnée de sommets.</p>
+<blockquote>
+<div><p>Un bord dirigé pointe du premier sommet de la paire et les points au deuxième sommet de la paire.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Graph Un graphe est composé d’un ensemble de sommets et un ensemble d’arêtes . Chaque arête représente une liaison entre deux sommets.</p>
+<blockquote>
+<div><p>Deux sommets sont voisins s’ils sont reliés par un bord , et le degré d’un sommet est le nombre de ses voisins.
+Graph data type. Graph-processing algorithms généralement d’abord construit une représentation interne d’un graphe en ajoutant des arêtes (edges), puis le traiter par itération sur les sommets et sur les sommets adjacents à un sommet donné.</p>
+<p>L’algorithme de chemin le plus long est utilisé pour trouver la longueur maximale d’un graph donné.
+La longueur maximale peut être mesuré par le nombre maximal d’arêtes ou de la somme des poids dans un graph pondéré.</p>
+<p>L’algorithme de chemin le plus long permet de définir dans notre cas le niveau d’indexation de chaque Unit .</p>
+</div></blockquote>
+</li>
+</ul>
+<p>L’algorithme de parcours en profondeur (ou DFS, pour Depth First Search) est un algorithme de parcours d’arbre, et plus généralement de parcours de graphe, qui se décrit naturellement de manière récursive.
+Son application la plus simple consiste à déterminer s’il existe un chemin d’un sommet à un autre.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="graph-introduction.html" class="btn btn-neutral float-left" title="3.13.4. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parametres.html" class="btn btn-neutral float-right" title="3.13.6. Paramètres" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

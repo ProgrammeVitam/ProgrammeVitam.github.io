@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Architecture applicative &mdash; Documentation VITAM - Architecture 8.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="4.1. Architecture applicative" href="10-applicative-architecture.html" />
+    <link rel="prev" title="3.4. Architecture fonctionnelle" href="../overview/30-architecture-fonctionnelle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VITAM - Architecture
+              <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                8.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/_toc.html">3. Vue d’ensemble</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Architecture applicative</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html">4.1. Architecture applicative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-data-architecture-multisite.html">4.2. Architecture des données &amp; multisite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html">4.3. Services métiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../archi-exploit-infra/_toc.html">5. Architecture technique / exploitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../securite/_toc.html">6. Sécurité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../include/_toc.html">7. Architecture détaillée</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VITAM - Architecture</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">4. Architecture applicative</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/archi-applicative/_toc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="architecture-applicative">
+<h1>4. Architecture applicative<a class="headerlink" href="#architecture-applicative" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette section décrit l’architecture applicative interne de la solution logicielle <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>, i.e. les différents composants la constituant et leurs interactions.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="10-applicative-architecture.html">4.1. Architecture applicative</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html#drivers-de-l-architecture">4.1.1. Drivers de l’architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html#services">4.1.2. Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html#detail-des-flux-d-information-metier">4.1.3. Détail des flux d’information métier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-applicative-architecture.html#donnees-metier">4.1.4. Données métier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11-data-architecture-multisite.html">4.2. Architecture des données &amp; multisite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11-data-architecture-multisite.html#inventaire-des-donnees">4.2.1. Inventaire des données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-data-architecture-multisite.html#stockage-et-strategies">4.2.2. Stockage et stratégies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-data-architecture-multisite.html#multisite">4.2.3. Multisite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-data-architecture-multisite.html#strategies-multisite">4.2.4. Stratégies &amp; multisite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="20-services-list.html">4.3. Services métiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#api-externes-ingest-external-et-access-external">4.3.1. <code class="docutils literal notranslate"><span class="pre">API</span></code> externes (ingest-external et access-external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#moteur-d-entree-ingest-internal">4.3.2. Moteur d’entrée (ingest-internal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#moteur-d-acces-access-internal">4.3.3. Moteur d’accès (access-internal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#gestion-des-droits-acces-security-internal">4.3.4. Gestion des droits &amp; accès (security-internal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#moteur-dexecution-processing">4.3.5. Moteur d’exécution (processing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#espace-de-travail-workspace">4.3.6. Espace de travail (workspace)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#worker-worker">4.3.7. Worker (worker)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#moteur-de-donnees-metadata">4.3.8. Moteur de données (metadata)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#moteur-de-journalisation-logbook">4.3.9. Moteur de journalisation (logbook)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#gestion-des-referentiels-functional-administration">4.3.10. Gestion des référentiels (functional-administration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#moteur-de-stockage-storage">4.3.11. Moteur de stockage (storage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#offre-de-stockage-par-defaut-storage-offer-default">4.3.12. Offre de stockage par défaut (storage-offer-default)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#interface-de-demonstration-ihm-demo">4.3.13. Interface de démonstration (ihm-demo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#scheduler">4.3.14. Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-services-list.html#connecteur-generique">4.3.15. Connecteur générique</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../overview/30-architecture-fonctionnelle.html" class="btn btn-neutral float-left" title="3.4. Architecture fonctionnelle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="10-applicative-architecture.html" class="btn btn-neutral float-right" title="4.1. Architecture applicative" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
