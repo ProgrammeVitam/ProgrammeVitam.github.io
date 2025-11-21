@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 7.0
-fatherref: versions
 ---
 * [Mise à disposition du code](#github)
 * [7.0.3 - juillet 2025](#703)
