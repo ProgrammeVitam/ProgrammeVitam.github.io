@@ -6,7 +6,7 @@ title: Anciennes documentations V8.0
 
 * **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/guide_lecture.html))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_Guide_de_prise_en_main_v71.zip))
+([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_Guide_de_prise_en_main_v80.zip))
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
 ([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/presentation_solution_logicielle.html))
 
@@ -112,18 +112,18 @@ Documentation générale
 
 ### Documentation des tests
 
-* **Vitam et Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v7.1/Jeux_de_tests_Guide_de_prise_en_main_v71.zip))
+* **Vitam et Vitam UI : guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam à partir du front-office Vitam UI ([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemples utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_Guide_de_prise_en_main_v80.zip))
 
-* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc8.0/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc8.0/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v7.1/Jeux_de_tests_fonctionnels_v71.zip))
+* **Cahier de tests métier** - liste des tests manuels sur les IHM aux formats Calc ([ods](/ressources/Doc8.0/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.ods)) \| et Excel ([xlsx](/ressources/Doc8.0/autres/fonctionnel/VITAM_cahier_de_recette_fonctionnel.xlsx)) avec les fichiers de tests associés ([zip](https://download.programmevitam.fr/jeux_de_tests/v8.0/Jeux_de_tests_fonctionnels_v80.zip))
 
 ### Documentation développeur
 
 * **Javadoc** ([html](/ressources/Doc8.0/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc8.0/pdf/vitam-manuel-integration.7.0.1.pdf) \| [html](/ressources/Doc8.0/html/manuel-integration))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc8.0/pdf/vitam-manuel-integration.8.0.0.pdf) \| [html](/ressources/Doc8.0/html/manuel-integration))
 * **Modèle de données** - description des collections et des champs standards  
-([html](https://www.programmevitam.fr/vitam-doc/fr/master_7.1.x/sections/modele_de_donnees.html))
-* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc8.0e/raml/externe))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc8.0/pdf/vitam-manuel-developpement.7.0.1.pdf)
+([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.0.x/sections/modele_de_donnees.html))
+* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc8.0/raml/externe))
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc8.0/pdf/vitam-manuel-developpement.8.0.0.pdf)
 \| [html](/ressources/Doc8.0/html/manuel-dev))
 
 * **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc8.0/raml/interne))
@@ -131,21 +131,21 @@ Documentation générale
 ### Documentation technique
 
 
-* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc8.0/pdf/vitam-architecture.7.0.1.pdf) \| [html](/ressources/Doc8.0/html/archi))  
+* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc8.0/pdf/vitam-architecture.8.0.0.pdf) \| [html](/ressources/Doc8.0/html/archi))  
 
-* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/Doc8.0e/pdf/vitam-documentation-installation.7.0.1.pdf) \| [html](/ressources/Doc8.0/html/installation))
+* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/Doc8.0e/pdf/vitam-documentation-installation.8.0.0.pdf) \| [html](/ressources/Doc8.0/html/installation))
 
-* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/Doc8.0/pdf/vitam-documentation-exploitation.7.0.1.pdf) \| [html](/ressources/Doc8.0/html/exploitation))  
+* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/Doc8.0/pdf/vitam-documentation-exploitation.8.0.0.pdf) \| [html](/ressources/Doc8.0/html/exploitation))  
 
-* **Vitam UI : dossier d'architecture technique** (DAT) ([html](/ressources/Doc8.0e/html/architecture_VitamUI))
+* **Vitam UI : dossier d'architecture technique** (DAT) ([html](/ressources/Doc8.0/html/architecture_VitamUI))
 
-* **Vitam UI : dossier d'installation** ([html](/ressources/Doc8.0e/html/installation_VitamUI))  
+* **Vitam UI : dossier d'installation** ([html](/ressources/Doc8.0/html/installation_VitamUI))  
 
 * **Vitam UI : dossier d'exploitation** ([html](/ressources/Doc8.0/html/exploitation_VitamUI))  
 
-* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/Doc8.0/pdf/vitam-documentation-migration.7.0.1.pdf) \| [html](/ressources/Doc8.0/html/migration))  
+* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/Doc8.0/pdf/vitam-documentation-migration.8.0.0.pdf) \| [html](/ressources/Doc8.0/html/migration))  
 
-* **Documentation de montées de version Vitam UI** (DMV) ([html](/ressources/Doc8.0e/html/migration_VitamUI))  
+* **Documentation de montées de version Vitam UI** (DMV) ([html](/ressources/Doc8.0/html/migration_VitamUI))  
 
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
 * [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
