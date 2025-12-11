@@ -62,5 +62,5 @@ Elle est accessible, en partie sur GitHub pour les documents en forme brute RST,
 ### La release note
 
 - la [release note de la version 8.1.1](/ressources/RefCourant/Release_notes8.1.pdf)
-- le [change-log du back-office](/ressources/RefCourant/VITAM-CHANGELOG.8.1.1.pdf)
-- le [change-log du front-office](/ressources/RefCourant/VITAMUI-CHANGELOG.8.1.1.pdf)
+- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.8.1.1_vdef.pdf)
+- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.8.1.1_vdef.pdf)
