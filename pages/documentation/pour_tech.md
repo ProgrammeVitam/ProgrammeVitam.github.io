@@ -5,21 +5,21 @@ fatherref: documentation
 ---
 
 
-* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.8.1.0.pdf) \| [html](/ressources/DocCourante/html/archi))  
+* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.9.0.0.pdf) \| [html](/ressources/DocCourante/html/archi))  
 
-* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.8.1.0.pdf) \| [html](/ressources/DocCourante/html/installation))
+* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.9.0.0.pdf) \| [html](/ressources/DocCourante/html/installation))
 
-* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.8.1.0.pdf) \| [html](/ressources/DocCourante/html/exploitation))  
+* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.9.0.0.pdf) \| [html](/ressources/DocCourante/html/exploitation))  
 
-* **Vitam UI : dossier d'architecture technique** (DAT) ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/architecture/))
+* **Vitam UI : dossier d'architecture technique** (DAT) ([html](https://download.programmevitam.fr/vitamui_repository/9.0.0/doc/architecture/))
 
-* **Vitam UI : dossier d'installation** ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/installation/))
+* **Vitam UI : dossier d'installation** ([html](https://download.programmevitam.fr/vitamui_repository/9.0.0/doc/installation/))
 
-* **Vitam UI : dossier d'exploitation** ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/exploitation/))
+* **Vitam UI : dossier d'exploitation** ([html](https://download.programmevitam.fr/vitamui_repository/9.0.0/doc/exploitation/))
 
-* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.8.0.0.pdf) \| [html](/ressources/DocCourante/html/migration))  
+* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.9.0.0.pdf) \| [html](/ressources/DocCourante/html/migration))  
 
-* **Documentation de montées de version Vitam UI** (DMV) ([html](https://download.programmevitam.fr/vitamui_repository/8.1.1/doc/migration/))
+* **Documentation de montées de version Vitam UI** (DMV) ([html](https://download.programmevitam.fr/vitamui_repository/9.0.0/doc/migration/))
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
@@ -30,4 +30,5 @@ fatherref: documentation
 * [Documentation Vitam UI](https://www.programmevitam.fr/pages/documentation/pour_vitamUI/)
 * [Documentation ReSIP](https://www.programmevitam.fr/pages/documentation/resip/)
 * [Chantier préservation : documentation](https://www.programmevitam.fr/pages/documentation/sur_chantier_preservation/)
+
 ![Logos](/public/images/202003_guide de lecture.png)
