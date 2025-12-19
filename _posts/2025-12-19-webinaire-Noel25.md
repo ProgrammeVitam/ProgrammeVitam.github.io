@@ -14,6 +14,6 @@ Retrouvez ci-dessous la vidéo de ce webinaire :
 
 Le [support présenté est également disponible ici](/ressources/RefCourant/Bilan 2025 Vitam.pdf)
 
-**Nota bene pour les participants au webinaire :** pendant la démonstration, Alice s'est laissé suprprendre par les fichiers vides qui sont fort heureusement rejetés par le module de collecte, son jeu de test était mal préparé. Les bonnes leçons de cet exercice *live* :
+**Nota bene pour les participants au webinaire :** pendant la démonstration, Alice s'est laissé surprendre par les fichiers vides qui sont fort heureusement rejetés par le module de collecte, son jeu de test était mal préparé. Les bonnes leçons de cet exercice *live* :
 - mieux préparer ses démos et jeux de tests,
 - clarifier le message d'erreur qui apparait (la *story* définissant ce besoin de développement est d'ores et déjà créée) !
