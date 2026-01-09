@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Autres ressources
+title: Additionnel
 fatherref: ressources
 level: page
 ---
