@@ -28,7 +28,7 @@ Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevi
 
 #### Les paquets de déploiement
 
-Ils permettent d'installer de manière outillée la solution, sous forme RPM pour CentOS 7 et sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.  
+Ils permettent d’installer de manière outillée la solution, sous forme RPM pour CentOS 7 et AlmaLinux 9 et sous forme DEB pour Debian 11 et 12. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.  
     - Pour [Vitam](https://github.com/ProgrammeVitam/deployment/tree/7.1.5/vitam)  
     - Pour [Vitam UI](https://github.com/ProgrammeVitam/deployment/tree/7.1.5/vitam-ui)
 
@@ -38,7 +38,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/7.1.5/mvn_repo/) 
 - URL de configuration des dépôts de binaires CentOS/RHEL :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.5/rpm/vitam-product/)  
-    - [vitam-external](* https://download.programmevitam.fr/vitam_repository/7.1.5/rpm/vitam-external/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.5/rpm/vitam-external/)  
 - URL de configuration des dépôts de binaires Debian :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.5/deb/vitam-product/)  
     - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.5/deb/vitam-external/)
@@ -78,7 +78,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/7.1.3/mvn_repo/) 
 - URL de configuration des dépôts de binaires CentOS/RHEL :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.3/rpm/vitam-product/)  
-    - [vitam-external](* https://download.programmevitam.fr/vitam_repository/7.1.3/rpm/vitam-external/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.3/rpm/vitam-external/)  
 - URL de configuration des dépôts de binaires Debian :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.3/deb/vitam-product/)  
     - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.3/deb/vitam-external/)
@@ -117,7 +117,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/7.1.2/mvn_repo/) 
 - URL de configuration des dépôts de binaires CentOS/RHEL :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.2/rpm/vitam-product/)  
-    - [vitam-external](* https://download.programmevitam.fr/vitam_repository/7.1.2/rpm/vitam-external/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.2/rpm/vitam-external/)  
 - URL de configuration des dépôts de binaires Debian :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.2/deb/vitam-product/)  
     - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.2/deb/vitam-external/)
@@ -156,7 +156,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/7.1.1/mvn_repo/) 
 - URL de configuration des dépôts de binaires CentOS/RHEL :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.1/rpm/vitam-product/)  
-    - [vitam-external](* https://download.programmevitam.fr/vitam_repository/7.1.1/rpm/vitam-external/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.1/rpm/vitam-external/)  
 - URL de configuration des dépôts de binaires Debian :  
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/7.1.1/deb/vitam-product/)  
     - [vitam-external](https://download.programmevitam.fr/vitam_repository/7.1.1/deb/vitam-external/)
