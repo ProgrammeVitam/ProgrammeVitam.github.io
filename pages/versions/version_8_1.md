@@ -3,12 +3,10 @@ layout: page
 title: version 8.1 (07/2025)
 fatherref: versions
 ---
+
 * [Mise à disposition du code](#github)
-* [Package Java](#java)
-* [Paquets de déploiement](#déploiement)
-* [Machine virtuelle](#vm)
-* [Documentation](#doc)
-* [Release note](#rn)
+* [8.1.2 - janvier 2026](#812)
+* [8.1.1 - juillet 2025](#811)
 
 
 Il s'agit du logiciel Vitam proprement dit, réunissant le back-office et le front-office Vitam UI. 
@@ -20,19 +18,63 @@ Sont mis à dispostion :
 
 Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ site.github.repo }}).
 
-<a name="java"></a>
-### Les packages java (.jar) associés, diffusés pour Maven
+<a name="812"></a>
+### Version 8.1.2 (janvier 2026)
+
+#### Les packages java (.jar) associés, diffusés pour Maven
+
+Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/8.1.2/mvn_repo/).
+
+#### Les paquets de déploiement
+
+Ils permettent d’installer de manière outillée la solution, sous forme RPM pour CentOS 7 et AlmaLinux 9 et sous forme DEB pour Debian 11 et 12. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.  
+    - Pour [Vitam](https://github.com/ProgrammeVitam/deployment/tree/8.1.2/vitam)  
+    - Pour [Vitam UI](https://github.com/ProgrammeVitam/deployment/tree/8.1.2/vitam-ui)
+
+##### *Vitam back-office*
+
+- Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/8.1.2)
+- URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/8.1.2/mvn_repo/) 
+- URL de configuration des dépôts de binaires CentOS/RHEL :  
+    - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.2/rpm/vitam-product/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.2/rpm/vitam-external/)  
+- URL de configuration des dépôts de binaires Debian :  
+    - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.2/deb/vitam-product/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.2/deb/vitam-external/)
+
+##### *Vitam UI*
+
+- Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/8.1.2)
+- URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui_repository/8.1.2/mvn_repo/)
+- URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui_repository/8.1.2/rpm/)
+- URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui_repository/8.1.2/deb/)
+
+Liens de téléchargement pour les partenaires :  [**version 8.1.1**](https://releases.programmevitam.fr/8.1.2/index.html)
+
+#### La documentation fonctionnelle et technique
+
+Elle est accessible, en partie sur GitHub pour les documents en forme brute RST, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation).
+
+#### La release note
+
+- la [release note de la version 8.1.1](/ressources/RefCourant/Release_notes8.1.pdf)
+- le [change-log du back-office 8.1.2](/ressources/RefCourant/vitam-changelog.8.1.2_vdef.pdf)
+- le [change-log du front-office 8.1.2](/ressources/RefCourant/vitamui-changelog.8.1.2_vdef.pdf)
+
+<a name="811"></a>
+### Version 8.1.1 (juillet 2025)
+
+#### Les packages java (.jar) associés, diffusés pour Maven
 
 Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/8.1.1/mvn_repo/).
 
-<a name="déploiement"></a>
-### Les paquets de déploiement
+#### Les paquets de déploiement
 
-Ils permettent d'installer de manière outillée la solution, sous forme RPM pour Alma Linux et sous forme deb pour Debian. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.  
+Ils permettent d’installer de manière outillée la solution, sous forme RPM pour CentOS 7 et AlmaLinux 9 et sous forme DEB pour Debian 11 et 12. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.  
     - Pour [Vitam](https://github.com/ProgrammeVitam/deployment/tree/8.1.1/vitam)  
     - Pour [Vitam UI](https://github.com/ProgrammeVitam/deployment/tree/8.1.1/vitam-ui)
 
-#### *Vitam back-office*
+##### *Vitam back-office*
 
 - Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/8.1.1)
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/8.1.1/mvn_repo/) 
@@ -43,8 +85,7 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
     - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.1/deb/vitam-product/)  
     - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.1/deb/vitam-external/)
 
-
-#### *Vitam UI*
+##### *Vitam UI*
 
 - Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/8.1.1)
 - URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui_repository/8.1.1/mvn_repo/)
@@ -53,14 +94,12 @@ Ils permettent d'installer de manière outillée la solution, sous forme RPM pou
 
 Liens de téléchargement pour les partenaires :  [**version 8.1.1**](https://releases.programmevitam.fr/8.1.1/index.html)
 
-<a name="doc"></a>  
-### La documentation fonctionnelle et technique
+#### La documentation fonctionnelle et technique
 
 Elle est accessible, en partie sur GitHub pour les documents en forme brute RST, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation).
 
-<a name="rn"></a>  
-### La release note
+#### La release note
 
 - la [release note de la version 8.1.1](/ressources/RefCourant/Release_notes8.1.pdf)
-- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.8.1.1_vdef.pdf)
-- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.8.1.1_vdef.pdf)
+- le [change-log du back-office 8.1.1](/ressources/RefCourant/vitam-changelog.8.1.1_vdef.pdf)
+- le [change-log du front-office 8.1.1](/ressources/RefCourant/vitamui-changelog.8.1.1_vdef.pdf)
