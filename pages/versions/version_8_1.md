@@ -1,6 +1,6 @@
 ---
 layout: page
-title: version 8.1 (07/2025)
+title: version 8.1
 fatherref: versions
 ---
 
