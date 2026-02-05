@@ -55,8 +55,8 @@ Liens de téléchargement pour les partenaires :  [**version 7.1.5**](https://su
 #### La release note
 
 - la [release note de la version 7.1.1](/ressources/RefCourant/Release_notes_7.1.1_vdef.pdf)
-- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.7.1.5.pdf)
-- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.7.1.5.pdf)
+- le [change-log du back-office 7.1.5](/ressources/RefCourant/vitam-changelog.7.1.5.pdf)
+- le [change-log du front-office 7.1.5](/ressources/RefCourant/vitamui-changelog.7.1.5.pdf)
 
 <a name="713"></a>
 ### La version 7.1.3 (juillet 2025)
@@ -95,8 +95,8 @@ Liens de téléchargement pour les partenaires :  [**version 7.1.3**](https://su
 #### La release note
 
 - la [release note de la version 7.1.1](/ressources/RefCourant/Release_notes_7.1.1_vdef.pdf)
-- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.7.1.3.pdf)
-- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.7.1.3.pdf)
+- le [change-log du back-office 7.1.3](/ressources/RefCourant/vitam-changelog.7.1.3.pdf)
+- le [change-log du front-office 7.1.3](/ressources/RefCourant/vitamui-changelog.7.1.3.pdf)
 
 <a name="712"></a>
 ### La version 7.1.2 (janvier 2025)
@@ -134,8 +134,8 @@ Liens de téléchargement pour les partenaires :  [**version 7.1.2**](https://su
 #### La release note
 
 - la [release note de la version 7.1.1](/ressources/RefCourant/Release_notes_7.1.1_vdef.pdf)
-- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.7.1.2.pdf)
-- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.7.1.2.pdf)
+- le [change-log du back-office 7.1.2](/ressources/RefCourant/vitam-changelog.7.1.2.pdf)
+- le [change-log du front-office 7.1.2](/ressources/RefCourant/vitamui-changelog.7.1.2.pdf)
 
 <a name="711"></a>
 ### La version 7.1.1 (juillet 2024)
@@ -177,5 +177,5 @@ Elle est accessible, en partie sur GitHub pour les documents en forme brute RST,
 #### La release note
 
 - la [release note de la version 7.1.1](/ressources/RefCourant/Release_notes_7.1.1_vdef.pdf)
-- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.7.1.1.pdf)
-- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.7.1.1.pdf)
+- le [change-log du back-office 7.1.1](/ressources/RefCourant/vitam-changelog.7.1.1.pdf)
+- le [change-log du front-office 7.1.1](/ressources/RefCourant/vitamui-changelog.7.1.1.pdf)
