@@ -22,6 +22,8 @@ Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ s
 <a name="715"></a>
 ### La version 7.1.5 (janvier 2026)
 
+Attention : ce sera la dernière livrasion de cette version dépréciée depuis fin 2025.
+
 #### Les packages java (.jar) associés, diffusés pour Maven
 
 Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/7.1.5/mvn_repo/).
