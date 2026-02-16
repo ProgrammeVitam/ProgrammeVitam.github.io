@@ -4,7 +4,7 @@ title: ReSIP
 fatherref: ressources
 ---
 
-> Cette page présente le générateur ReSIP (version 2.9.0 - hiver 2025-2026).
+> Cette page présente le générateur ReSIP (version 2.9.1 - hiver 2025-2026).
 
 ![ReSIP_logo](/public/images/ReSIP.jpg)
 
@@ -31,9 +31,9 @@ Sont mis à dispostion :
 * **le paquet d'installation sous Windows**  
     Il s'agit d'un conteneur zip à décompresser en local et dont l'exécution nécessite la présence de java 8 à 11 (non testé au delà) sur le poste ou à défaut une machine java 8 à 11 dans le répertoire "jre" au niveau de l'exécutable. 
 
-    Il est accessible **[ici](https://download.programmevitam.fr/resip/2.9.0/resip-2.9.0-standalone.zip)**.
+    Il est accessible **[ici](https://download.programmevitam.fr/resip/2.9.1/resip-2.9.1-standalone.zip)**.
 
-    >A noter: le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.9.0/sedatools-package-2.9.0-package.zip).
+    >A noter: le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.9.1/sedatools-package-2.9.0-package.zip).
 
 * **un manuel utilisateur**  
     La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](https://www.programmevitam.fr/vitam-doc/fr/master_9.0.x/sections/resip.html).
@@ -47,7 +47,7 @@ Sont mis à dispostion :
 * **le code développé**  
     Il est accessible dans le dépot GitHub avec la bibliothèque sedalib [SedaTools](https://github.com/ProgrammeVitam/sedatools).
 
-## ReSIP version 2.9.0 (hiver 2025-2026)
+## ReSIP version 2.9.1 (hiver 2025-2026)
 
 ### Ajout de fonctionnalités 
 
@@ -67,7 +67,11 @@ Sont mis à dispostion :
 - Analyse MIME pour les formats de boîte à lettre 
 - Internationalisation de l’interface utilisateur 
 
- Consulter la [release note de ReSIP version 2.9.0](/ressources/RefCourant/Release notes_RESIP_2_9_0.pdf)
+#### Correction d’anomalie
+
+- bug #15608 : Impossible d'importer un fichier de plus de 2GB  
+
+ Consulter la [release note de ReSIP version 2.9.1](/ressources/RefCourant/Release notes_RESIP_2_9_1.pdf)
 
 Evolution techniques 
 
