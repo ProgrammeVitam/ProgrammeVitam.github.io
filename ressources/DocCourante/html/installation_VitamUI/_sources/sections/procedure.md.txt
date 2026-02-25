@@ -29,7 +29,7 @@ Il faudra renseigner pour chacun des groupes de service Vitam-UI les VMs associ�
 > * Suivez les balises `# EDIT`, elles précisent si les groupes sont Mandatory ou Optionnal.
 > * Si vous utilisez le `reverse: nginx`, vous pouvez multi-instancier les composants `[zone_vitamui_ui]` et `[zone_vitamui_admin]`.
 > * Si vous configurez un cluster consul dédié à la zone Vitam-UI (groupe `[hosts_vitamui_consul_server]`), vous devrez renseigner la valeur `vitamui_site_name` différente de `vitam_site_name`.
-> * `vitam_reverse_external_dns` doit être défini pour la configuration du reverse proxy d'accès aux composants UI. Cette valeur défini l'url d'accès à la plateforme.
+> * `vitamui_reverse_external_dns` doit être défini pour la configuration du reverse proxy d'accès aux composants UI. Cette valeur défini l'url d'accès à la plateforme.
 
 ---
 
@@ -327,6 +327,12 @@ Ce playbook prend en paramétre le contenu du fichier `postinstall_param.yml`. I
 Attention, à l'heure actuelle il n'y a pas d'API permettant de faire un "update" du context, du security-profile, et du certificat.
 
 Pour réaliser un "update" il faut donc faire d'abord une suppression de contexte (playbook `ansible-vitam-exploitation/remove_contexts.yml`) puis de nouveau un ajout de contexte. La suppression de contexte via le playbook `remove_contexts.yml` va prendre comme paramètre les éléments du fichier `postinstall_param.yml`.
+
+# Configuration d'accès à des instances Vitam externes tierces (optionnel)
+
+Il est possible de mettre en place des connexions vers des SAE (Systèmes d'Archivage Électronique) Vitam tiers. i.e. autres instances externes de Vitam. Ceci permet de préparer la collecte d'archives à destination d'un autre SAE en utilisant les référentiels de l'instance cible pour un tenant donné.
+
+La configuration d'accès nécessaire est décrite dans la documentation d'exploitation.
 
 ---
 

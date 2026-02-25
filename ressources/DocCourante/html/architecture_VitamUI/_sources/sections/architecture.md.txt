@@ -3,6 +3,7 @@
 ## Applications Web
 
 Les applications Web constituent les IHM de la solution. Elles sont accessibles depuis le portail de la solution.
+
 L'authentification d'un utilisateur dans une application cliente se fait par l'intermédiaire de l'IAM CAS. Une application cliente est constituée de 2 parties.
 
 * Interface utilisateur Front (IHM WEB) qui donne accès aux fonctionnalités via un navigateur
@@ -24,7 +25,7 @@ Les applications de base :
 
 Les services externes exposent des API REST publiques accessibles en HTTPS. Ces services constituent une porte d'accès aux services internes et assurent principalement un rôle de sécurisation des ressources internes.
 
-La connexion d'une application cliente à un service externe nécessite le partage de certificats X509 client et serveur dans le cadre d'un processus d'authentification mutuel (Machine To Machine/M2M). Dans la solution VITAMUI, les certificats des clients sont associés à un contexte de sécurité stocké dans une collection MongoDb gérée par le service security_internal. D'autre part, les utilisateurs clients sont identifiés et authentifiés dans les services externes par le token fourni par CAS et transmis dans les headers des requêtes REST en HTTPS.
+La connexion d'une application cliente à un service externe nécessite le partage de certificats X509 client et serveur dans le cadre d'un processus d'authentification mutuel (Machine To Machine/M2M). Dans la solution VitamUI, les certificats des clients sont associés à un contexte de sécurité stocké dans une collection MongoDB gérée par le service security. D'autre part, les utilisateurs clients sont identifiés et authentifiés dans les services externes par le token fourni par CAS et transmis dans les headers des requêtes REST en HTTPS.
 
 Le service externe a pour responsabilité de sécuriser les accès en effectuant les différentes étapes de vérifications des droits (générale, tenant, rôles, groupes, etc.) et de déterminer les droits résultants du client à l'origine de la requête, en réalisant l'intersection des droits applicatifs, définis dans le contexte de sécurité, avec les droits issus des profils de l'utilisateur. Le service externe s'assure ensuite que le client possède bien les droits pour accéder à la ressource demandée.
 
@@ -37,67 +38,47 @@ Les services disposent d'API REST pour suivre leur état et leur activité. Ces 
 
 Les services génèrent les logs techniques dans la solution de log centralisée basée sur ELK.
 
-### Service iam-external
-
-* Description : service externe pour la gestion des organisations, utilisateurs, profils, etc.
-* Contraintes
-* API swagger
-
 ### Service cas-server
 
 * Description : service d’authentification nécessaire et accessible uniquement par l'IAM CAS
 * Contraintes
 * API swagger
 
-### Service referential-external
+### Service referential
 
-* Description : service externe pour la gestion des référentiels de la solution logicielle VITAM.
+* Description : service pour la gestion des référentiels de la solution logicielle VITAM.
 
-  Le service de référentiel externe a pour responsabilité la réception, la sécurisation des ressources internes de gestion des référentiels, et la communication sécurisée avec les couches internes.
+  Le service de referential a pour responsabilité la réception et la sécurisation des ressources de gestion des référentiels ainsi que la communication sécurisée avec Vitam via les clients Admin/Access pour la récupération des données.
 
-  Le service de référentiel externe est composé de plusieurs points d'APIs:
+  Le service de référentiel est composé de plusieurs points d'APIs:
 
-    * API des contrats d'accès (/referential/accesscontract)
-    * API des contrats d'entrées (/referential/ingestcontract)
-    * API des contrats de gestion (/referential/managementcontract)
-    * API des services agents (/referential/agency)
-    * API des formats (/referential/fileformat)
-    * API des ontologies (/referential/ontology)
-    * API des profils d'archivages (/referential/profile)
-    * API des règles de gestion (/referential/profile)
-    * API des profils de sécurité (/referential/security-profile)
-    * API des contexts applicatifs (/referential/context)
-    * API des opérations permettant le lancement différents audits (cohérence, valeur probante ...).
+  * API des contrats d'accès (/referential/accesscontracts)
+  * API des contrats d'entrées (/referential/ingestcontract)
+  * API des contrats de gestion (/referential/managementcontract)
+  * API des services agents (/referential/agency)
+  * API des formats (/referential/fileformat)
+  * API des ontologies (/referential/ontology)
+  * API des profils d'archivages (/referential/profile)
+  * API des règles de gestion (/referential/profile)
+  * API des profils de sécurité (/referential/security-profile)
+  * API des contexts applicatifs (/referential/context)
+  * API des opérations permettant le lancement différents audits (cohérence, valeur probante ...).
 
-### Service ingest-external
+  Pour plus d'information: voir la documentation des [référentiels](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
 
-* Description : service externe pour la gestion des opérations d'entrées d'archives de la solution logicielle VITAM.
+### Service archive-search
 
-  Le service d'ingest externe a pour responsabilité la réception, la sécurisation des ressources internes de versement, et la communication sécurisée avec les couches internes.
+* Description : service pour la gestion d'accès et la recherche d'archives de la solution logicielle VITAM.
 
-  Le service d'ingest externe est composé de plusieurs points d'APIs:
+  Le service archive-search a pour responsabilité la réception et la sécurisation des ressources internes ainsi que la communication sécurisée avec Vitam via les clients Admin/Access pour la récupération des données.
 
-    * API de versement des archives permettant la consommation des flux d'archives (/v1/ingest/upload)
-    * API de visualisation des journaux d'opération des opérations d'entrées (API /v1/ingest)
-    * API de visualisation détaillé d'un journal d'une opération d'entrées (/v1/ingest/{id})
-    * API permettant le téléchargement d'un rapport sous forme ODT d'une opération d'entrée (/v1/ingest/odtreport/{id})
-    * API commune est utilisé pour le téléchargement du Manifest et de l'ATR (Archival Transfer Reply) d'une opération d'entrée.
-      (Manifest: /logbooks/operations/{id}/download/manifest, ATR: /logbooks/operations/{id}/download/atr)
+  Le service d'archive est composé de plusieurs points d'APIs:
 
-### Service archive-search-external
-
-* Description : service externe pour la gestion d'accès et la recherche d'archives de la solution logicielle VITAM.
-
-  Le service d'archive externe a pour responsabilité la réception, la sécurisation des ressources internes, et la communication sécurisée avec les couches internes d'accès aux archives.
-
-  Le service d'archive externe est composé de plusieurs points d'APIs:
-
-    * API de recherche des archive par requetes (/archive-search/search)
-    * API de recherche des unités archivistiques (/archive-search/archiveunit/{id})
-    * API de recherche des arbres de positionnement et plans de classement (/archive-search/filingholdingscheme)
-    * API de téléchargement des objets (/archive-search/downloadobjectfromunit/{id})
-    * API d'export des résultats sous format csv (/export-csv-search)
-
+  * API de recherche des archive par requetes (/archive-search/search)
+  * API de recherche des unités archivistiques (/archive-search/archiveunit/{id})
+  * API de recherche des arbres de positionnement et plans de classement (/archive-search/filingholdingscheme)
+  * API de téléchargement des objets (/archive-search/downloadobjectfromunit/{id})
+  * API d'export des résultats sous format csv (/export-csv-search)
 
 ### Service de collect externe
 
@@ -105,39 +86,40 @@ Les services génèrent les logs techniques dans la solution de log centralisée
 
   Le service collecte externe est composé de plusieurs points d'APIs:
 
+  * GET /collect-api/projects: get projects paginated
+  * POST /collect-api/projects: Create new collect project
+  * GET /collect-api/projects/{id}: GET project Details
+  * PUT /collect-api/projects/{id}: updateProject
+  * DELETE /collect-api/projects/{id}: DELETE project
+  * GET /collect-api/projects/{id}/last-transaction: GET last Transaction for project
+  * GET /collect-api/projects/{id}/transactions:    GET transactions by project paginated
+  * POST /collect-api/projects/{id}/transactions:    Create Transaction For Project
+  * GET /collect-api/projects/archive-units/searchcriteriahistory:  GET the search criteria history
+  * POST /collect-api/projects/archive-units/searchcriteriahistory:  Create search criteria history for collect
+  * PUT /collect-api/projects/archive-units/searchcriteriahistory/{id}: Update Search criteria history
+  * DELETE /collect-api/projects/archive-units/searchcriteriahistory/{id}: DELETE Search criteria history
+  * GET /collect-api/projects/object-groups/downloadobjectfromunit/{id}: Download Archive Unit Object
+  * POST /collect-api/projects/upload: Upload collect zip file
+  * GET /collect-api/transactions/{id}: GET transaction by project
+  * PUT/collect-api/transactions/{id}: updateTransaction
+  * PUT /collect-api/transactions/{id}/abort: Abort transaction operation
+  * PUT /collect-api/transactions/{id}/reopen: Reopen transaction operation
+  * PUT /collect-api/transactions/{id}/send: Send transaction operation
+  * PUT /collect-api/transactions/{id}/validate:Validate transaction operation
+  * PUT /collect-api/transactions/{transactionId}/update-units-metadata: Upload on streaming metadata file and update
+    archive units
+  * POST/collect-api/transactions/archive-units/{transactionId}/export-csv-search: export into csv format archive units by
+    criteria
+  * POST/collect-api/transactions/archive-units/{transactionId}/search: GET AU collect paginated
+  * GET /collect-api/transactions/archive-units/archiveunit/{id}: Find the Archive Unit Details
 
-* GET /collect-api/projects: get projects paginated
-* POST /collect-api/projects: Create new collect project
-* GET /collect-api/projects/{id}: GET project Details
-* PUT /collect-api/projects/{id}: updateProject
-* DELETE /collect-api/projects/{id}: DELETE project
-* GET /collect-api/projects/{id}/last-transaction: GET last Transaction for project
-* GET /collect-api/projects/{id}/transactions:    GET transactions by project paginated
-* POST /collect-api/projects/{id}/transactions:    Create Transaction For Project
-* GET /collect-api/projects/archive-units/searchcriteriahistory:  GET the search criteria history
-* POST /collect-api/projects/archive-units/searchcriteriahistory:  Create search criteria history for collect
-* PUT /collect-api/projects/archive-units/searchcriteriahistory/{id}: Update Search criteria history
-* DELETE /collect-api/projects/archive-units/searchcriteriahistory/{id}: DELETE Search criteria history
-* GET /collect-api/projects/object-groups/downloadobjectfromunit/{id}: Download Archive Unit Object
-* POST /collect-api/projects/upload: Upload collect zip file
-* GET /collect-api/transactions/{id}: GET transaction by project
-* PUT/collect-api/transactions/{id}: updateTransaction
-* PUT /collect-api/transactions/{id}/abort: Abort transaction operation
-* PUT /collect-api/transactions/{id}/reopen: Reopen transaction operation
-* PUT /collect-api/transactions/{id}/send: Send transaction operation
-* PUT /collect-api/transactions/{id}/validate:Validate transaction operation
-* PUT /collect-api/transactions/{transactionId}/update-units-metadata: Upload on streaming metadata file and update archive units
-* POST/collect-api/transactions/archive-units/{transactionId}/export-csv-search: export into csv format archive units by criteria
-* POST/collect-api/transactions/archive-units/{transactionId}/search: GET AU collect paginated
-* GET /collect-api/transactions/archive-units/archiveunit/{id}: Find the Archive Unit Details
+### Service de gestion de profils documentaires (Pastis)
 
-### Service externe de gestion de profils documentaires (Pastis-external)
+* Description : Accéder, Créer, Modifier ou Supprimer les profils d'archivage et les profils d'unité archivistique
 
-* Description :  Accéder, Créer, Modifier ou Supprimer les profils d'archivage et les profils d'unité archivistique
+Le service Pastis est composé de plusieurs points d'APIs:
 
-Le service Pastis externe est composé de plusieurs points d'APIs:
-
-## Pastis Controller
+#### Pastis Controller
 
 * POST /pastis-api/pastis/archiveprofile: Download Archive Profile
 * POST /pastis-api/pastis/edit: Transform profile
@@ -145,7 +127,7 @@ Le service Pastis externe est composé de plusieurs points d'APIs:
 * GET /pastis-api/pastis/profile: Create new Profile by type PA or PUA
 * POST /pastis-api/pastis/profile: Upload Profile Vitamui
 
-## Profile controller
+#### Profile controller
 
 * GET /pastis-api/profile: Get entities paginated
 * POST /pastis-api/profile: Create Archival Profile
@@ -156,7 +138,7 @@ Le service Pastis externe est composé de plusieurs points d'APIs:
 * POST /pastis-api/profile/import: import profile
 * PUT /pastis-api/profile/updateProfileFile/{id}: Importer un fichier xsd ou rng dans un profil
 
-## Archival-profile unit controller
+#### Archival-profile unit controller
 
 * GET /pastis-api/archival-profile: Get entity
 * POST /pastis-api/archival-profile: Create Archival Unit Profile
@@ -183,78 +165,38 @@ Les services disposent d'API REST pour suivre leur état et leur activité.
 
 Les services génèrent les logs techniques dans la solution de log centralisée basée sur ELK.
 
-### Service iam-internal
+### Service iam
 
 * Description : service d’administration des clients, des utilisateurs et des profils, portail
 * Contraintes
 * API swagger
 * Modèle de données
 
-### Service security-internal
+### Service security
 
 * Description : service de gestion de la sécurité applicative
 * Contraintes
 * API swagger
 * Modèle de données
 
-### Service referential-internal
+### Service ingest
 
-* Description : service interne pour la gestion des référentiels de la solution logicielle VITAM.
+* Description : Service pour la gestion des opérations d'entrées d'archives de la solution logicielle VITAM.
 
-  Le service de référentiel interne reçoit les requêtes du client référentiel externe, et communique avec VITAM via les clients Admin/Access pour la récupération des données.
+  Le service d'ingest interne a pour responsabilité la réception et la communication sécurisée avec les couches externes de VITAM.
 
-  Le service de référentiel interne est composé de plusieurs points d'APIs:
-
-  * API des contrats d'accès (/referential/accesscontract)
-  * API des contrats d'entrées (/referential/ingestcontract)
-  * API des contrats de gestion (/referential/managementcontract)
-  * API des services agents (/referential/agency)
-  * API des formats (/referential/fileformat)
-  * API des ontologies (/referential/ontology)
-  * API des profils d'archivages (/referential/profile)
-  * API des règles de gestion (/referential/profile)
-  * API des profils de sécurité (/referential/security-profile)
-  * API des contexts applicatifs (/referential/context)
-  * API des opérations permettant le lancement différents audits (cohérence, valeur probante ...).
-
-  Pour plus d'information: voir la documentation des [référentiels](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
-
-### Service ingest-internal
-
-* Description : service interne pour la gestion des opérations d'entrées d'archives de la solution logicielle VITAM.
-
-  Le service d'ingest interne a pour responsabilité la réception, et la communication sécurisée avec les couches externes de VITAM.
-
-  Le service d'ingest interne est composé de plusieurs points d'APIs:
+  Le service d'ingest est composé de plusieurs points d'APIs:
 
   * API de versement des archives permettant la consommation des flux d'archives (/v1/ingest/upload)
   * API de visualisation des journaux d'opération des opérations d'entrées (API /v1/ingest)
   * API de visualisation détaillé d'un journal d'une opération d'entrées (/v1/ingest/{id})
   * API permettant le téléchargement d'un rapport sous forme ODT d'une opération d'entrée (/v1/ingest/odtreport/{id})
   * API commune est utilisé pour le téléchargement du Manifest et de l'ATR (Archival Transfer Reply) d'une opération d'entrée.
-      (Manifest: /logbooks/operations/{id}/download/manifest, ATR: /logbooks/operations/{id}/download/atr)
+    (Manifest: /logbooks/operations/{id}/download/manifest, ATR: /logbooks/operations/{id}/download/atr)
 
   Ce service est configuré pour qu'il puisse communiquer avec la zone d'accès de la solution logicielle VITAM.
 
   Pour aller plus loin: [API Ingest](https://www.programmevitam.fr/ressources/DocCourante/raml/externe/ingest.html), [API externes (ingest-external et access-external)](htps://www.programmevitam.fr/ressources/DocCourante/html/archi/archi-applicative/20-services-list.html#api-externes-ingest-external-et-access-external)
-
-### Service archive-search-internal
-
-* Description : service interne pour la gestion d'accès et la recherche d'archives de la solution logicielle VITAM.
-
-  Le service d'archive interne a pour responsabilité la réception, et la communication sécurisée avec les couches externes VITAM.
-
-  Le service d'archive interne est composé de plusieurs points d'APIs:
-
-  * API de recherche des archive par requêtes (/archive-search/search)
-  * API de recherche des unités archivistiques (/archive-search/archiveunit/{id})
-  * API de recherche des arbres de positionnement et plans de classement (/archive-search/filingholdingscheme)
-  * API de téléchargement des objets (/archive-search/downloadobjectfromunit/{id})
-  * API d'export des résultats sous format csv (/export-csv-search)
-
-
-### Service de collect interne
-
 
 ---
 
@@ -431,6 +373,7 @@ En production, le serveur CAS sera composé de plusieurs noeuds. Il est nécessa
 #### Configuration des propriétés de sécurité
 
 La configuration de CAS se trouve dans le fichier YAML applicatif (en développement : cas-server-application-dev.yml).
+
 Elle concerne d’abord les trois propriétés suivantes :
 
 ```yaml
@@ -441,23 +384,27 @@ cas.webflow.crypto.enabled: true # cryptage / signature du webflow
 
 > En production, il est absolument nécessaire que ces trois propriétés soient à `true`.
 
-Pour la propriété `cas.tgc.crypto.enabled: true`, il faut définir la clé de cryptage et de signature via les propriétés suivantes :
+Pour la propriété `cas.tgc.crypto.enabled: true`, il faut définir la clé de cryptage et de signature via les propriétés
+suivantes :
 
 ```yaml
 cas.tgc.crypto.encryption.key: clé de cryptage (ex. Jq-ZSJXTtrQ...)
 cas.tgc.crypto.signing.key: clé de signature (ex. Qoc3V8oyK98a2Dr6...)
 ```
 
-Pour la propriété `cas.webflow.crypto.enabled: true`, il faut définir la clé de cryptage et de signature via les propriétés suivantes :
+Pour la propriété `cas.webflow.crypto.enabled: true`, il faut définir la clé de cryptage et de signature via les
+propriétés suivantes :
 
 ```yaml
 cas.webflow.crypto.encryption.key: clé de cryptage
 cas.webflow.crypto.signing.key: clé de signature
 ```
 
-Si aucune clé n’est définie, le serveur CAS va les créer lui-même, ce qui ne fonctionnera pas car les clés générées seront différentes sur chaque noeud.
+Si aucune clé n’est définie, le serveur CAS va les créer lui-même, ce qui ne fonctionnera pas car les clés générées
+seront différentes sur chaque noeud.
 
-En outre, pour la délégation d’authentification et la gestion du mot de passe, il existe deux propriétés qui sont déjà à true, mais pour lesquelles aucune clé n’a été définie :
+En outre, pour la délégation d’authentification et la gestion du mot de passe, il existe deux propriétés qui sont déjà à
+true, mais pour lesquelles aucune clé n’a été définie :
 
 ```yaml
 cas.authn.pac4j.cookie.crypto.enabled: chiffrement & signature pour la délégation d’authentification
@@ -579,10 +526,11 @@ Cela est géré par la dépendance `cas-server-support-pac4j-webflow`.
 
 Le flow d'authentification a été modifié (classe `CustomLoginWebflowConfigurer`) pour se dérouler en deux étapes :
 
-* saisie de l'identifiant
-* saisie du mot de passe (`src/main/resources/templates/casPwdView.html`) ou redirection vers le serveur SAML externe pour authentification. Cela est géré par l'action `DispatcherAction`.
+* saisie de l'identifiant (`src/main/resources/templates/emailForm.html`)
+* saisie du mot de passe (`src/main/resources/templates/passwordForm.html`) ou redirection vers le serveur SAML externe pour authentification. Cela est géré par l'action `DispatcherAction`.
 
 Cette délégation d'authentification peut être faite de manière transparente si le paramètre `idp` est présent (il est sauvé dans un cookie de session pour mémorisation).
+
 Cela est gérée par la classe `CustomDelegatedClientAuthenticationAction`.
 
 #### Subrogation
@@ -675,6 +623,7 @@ Il existe 4 sessions définies dans la solution VITAMUI :
 ### Séquence de création des sessions
 
 La séquence de création des sessions est liée à l'utisation du protocole CAS et à l'intégration des services API.
+
 Dans le processus de connexion, la création des sessions s'effectue dans l'ordre suivant :
 
 1. création par l'application Web du cookie JSESSIONID
@@ -726,7 +675,7 @@ L'utilisateur doit obligatoirement se reconnecter si la session SAML a expiré.
 
 Il existe deux politiques d'expiration possibles :
 
-* expiration de session par délai d'inactivité : la session expire si aucune action n'est faite (par l'utilisateur) au bout du délai d'inactivité (session Token)
+* expiration de session par délai d'inactivité : la session expire si aucune action n'est faite (par l'utilisateur) au   bout du délai d'inactivité (session Token)
 * expiration de session par délai maximum : la session expire au bout du délai maximum depuis la date de création, quelque soit les actions faites par l'utilisateur (Sessions Applicatives & CAS)
 
 À l’expiration de la session CAS, toutes les sessions applicatives sont supprimées. [Quid du token ?] Les sessions applicatives sont détruites via une redirection dans le navigateur. [À Préciser le fonctionnement via le navigateur vs certificats]
@@ -792,15 +741,15 @@ Généralement l'administrateur de l'instance possède tous les droits (et donc 
 Le rôle constitue la granularité la plus fine dans le système de gestion des droits. Un rôle donne des droits d’accès à des endpoints (API) correspondants à des services. Un rôle peut être affecté à un ou plusieurs profils. Dans l'implémentation VITAMUI, l’accès à un endpoint est contrôlé par l’annotation @Secured. Il existe des rôles (dénommés sous-rôles) qui donnent accès à des fonctions protégées du service. Ces “sous-rôles” sont généralement contrôlés dans le corps de la méthode par le contexte de sécurité.
 
 ```java
-    @Secured(ROLE_CREATE_XXX)
-public MyDto create(final @Valid @RequestBody MyDto dto){
-    if(SecurityContext.hasRole(ROLE_CREATE_XXX_YYY){
-    setProperty(...)
+@Secured(ROLE_CREATE_XXX)
+public MyDto create(final @Valid @RequestBody MyDto dto) {
+    if (SecurityContext.hasRole(ROLE_CREATE_XXX_YYY) {
+        setProperty(...)
     }
     else{
-    return HTTP.403;.
+        return HTTP .403;.
     }
-    }
+}
 ```
 
 Dans l'exemple ci-dessus :
@@ -843,8 +792,7 @@ Un utilisateur avec un niveau vide (administrateur) :
 * peut modifier ses ressources
 * ne peut pas ajouter à un profil un rôle dont il ne dispose pas
 
-Un administrateur d'une organisation possède donc des droits limités aux rôles qui ont été affectés à l'initialisation du système. Il ne peut pas par exemple créer une nouvelle organisation, si ce rôle ne lui pas été donné à l'origine.
-D'autre part, les droits de l'administrateur restent également limités par les droits associés à ceux du contexte de sécurité de l'application qu'il utilise.
+Un administrateur d'une organisation possède donc des droits limités aux rôles qui ont été affectés à l'initialisation du système. Il ne peut pas par exemple créer une nouvelle organisation, si ce rôle ne lui pas été donné à l'origine. D'autre part, les droits de l'administrateur restent également limités par les droits associés à ceux du contexte de sécurité de l'application qu'il utilise.
 
 * un profil ou un groupe de profils ne peuvent être supprimés que s'ils ne sont plus utilisés
 * un profil avec un niveau ne peut être rattaché qu’à un groupe de même niveau.
@@ -876,6 +824,7 @@ Les tableaux ci-dessous indiquent les droits d'un utilisateur en fonction du niv
   | Supprimer      | Non   | Non     | Oui   |
 
   Oui(1) : oui mais uniquement si le profil est présent dans son groupe de profils Lors de la modification du niveau du profil. Il faut vérifier qu’il n’est associé à aucun groupe.
+
   L'utilisateur ne peut affecter à un profil que les rôles et un tenant qu'il possède.
 
 * Matrice des droits d'un utilisateur de niveau N pour réaliser des actions sur un groupe de profils de niveau cible N+1, N, N-1 :
@@ -889,6 +838,7 @@ Les tableaux ci-dessous indiquent les droits d'un utilisateur en fonction du niv
   | Supprimer      | Non   | Non     | Oui   |
 
   Oui(1) : oui mais uniquement s'il s'agit de son groupe.
+
   Lors de la modification du niveau d'un groupe, il faut vérifier qu’il n’a pas de profils.
 
 * Matrice des droits d'un administrateur de niveau racine (niveau vide) pour réaliser des actions sur une ressource de niveau cible N+1, N, N-1 :
@@ -907,7 +857,7 @@ Les tableaux ci-dessous indiquent les droits d'un utilisateur en fonction du niv
 
 La liste de profils crées par défaut pour chaque tenant :
 
-```yaml
+```yml
     -   Nom: Profil pour la gestion des contrats d'accès
         Description: Gestion des contrats d'accès dans Vitam
         Application: ACCESS_APP
@@ -957,6 +907,7 @@ La liste de profils crées par défaut pour chaque tenant :
         Rôles:
             - ROLE_GET_AUDITS
             - ROLE_RUN_AUDITS
+            - ROLE_GET_OPERATIONS
 
     -   Nom: Profil pour la gestion des opérations de sécurisation
         Description: Gestion des opérations de sécurisation dans Vitam
@@ -1046,10 +997,7 @@ La liste de profils crées par défaut pour chaque tenant :
         Description: Profil pour la recherche et consultation des archives dans Vitam sans mises à jour des règles, sans export DIP et sans élimination
         Application: ARCHIVE_SEARCH_MANAGEMENT_APP
         Rôles:
-            - ROLE_CREATE_ARCHIVE_SEARCH
-            - ROLE_GET_ARCHIVE_SEARCH
-            - ROLE_GET_ALL_ARCHIVE_SEARCH
-            - ROLE_SEARCH_WITH_RULES
+            - ROLE_ARCHIVE_SEARCH_GET_ARCHIVE_SEARCH
             - ROLE_GET_ACCESS_CONTRACTS
             - ROLE_GET_RULES
 
@@ -1057,11 +1005,8 @@ La liste de profils crées par défaut pour chaque tenant :
         Description: Profil pour la recherche et consultation des archives dans Vitam sans mises à jour des règles de gestion, avec export DIP et sans élimination
         Application: ARCHIVE_SEARCH_MANAGEMENT_APP
         Rôles:
-            - ROLE_CREATE_ARCHIVE_SEARCH
-            - ROLE_GET_ARCHIVE_SEARCH
-            - ROLE_GET_ALL_ARCHIVE_SEARCH
+            - ROLE_ARCHIVE_SEARCH_GET_ARCHIVE_SEARCH
             - ROLE_EXPORT_DIP
-            - ROLE_SEARCH_WITH_RULES
             - ROLE_GET_ACCESS_CONTRACTS
             - ROLE_GET_RULES
 
@@ -1069,17 +1014,13 @@ La liste de profils crées par défaut pour chaque tenant :
         Description: Profil pour la recherche et consultation des archives dans Vitam avec mise à jour des règles, export DIP, opérations d'élimination, reclassement, demande de transfert et acquittement de transfert
         Application: ARCHIVE_SEARCH_MANAGEMENT_APP
         Rôles:
-            - ROLE_CREATE_ARCHIVE_SEARCH
-            - ROLE_GET_ARCHIVE_SEARCH
-            - ROLE_GET_ALL_ARCHIVE_SEARCH
-            - ROLE_SEARCH_WITH_RULES
+            - ROLE_ARCHIVE_SEARCH_GET_ARCHIVE_SEARCH
             - ROLE_EXPORT_DIP
             - ROLE_ELIMINATION
-            - ROLE_UPDATE_MANAGEMENT_RULES
             - ROLE_COMPUTED_INHERITED_RULES
             - ROLE_GET_ACCESS_CONTRACTS
             - ROLE_RECLASSIFICATION
-            - ROLE_UPDATE_UNIT_DESC_METADATA
+            - ROLE_ARCHIVE_SEARCH_UPDATE_ARCHIVE_UNIT
             - ROLE_TRANSFER_REQUEST
             - ROLE_TRANSFER_ACKNOWLEDGMENT
             - ROLE_GET_RULES
@@ -1094,7 +1035,7 @@ La liste de profils crées par défaut pour chaque tenant :
         Description: Pastis-Gestion des profils documentaires
         Application: PASTIS_APP
         Rôles:
-            - ROL_GET_PASTIS
+            - ROLE_GET_PASTIS
             - ROLE_GET_ARCHIVE_PROFILES_UNIT
             - ROLE_UPDATE_ARCHIVE_PROFILES_UNIT
             - ROLE_CREATE_ARCHIVE_PROFILES_UNIT
@@ -1113,58 +1054,59 @@ La liste de profils crées par défaut pour chaque tenant :
             - ROLE_GET_PROJECTS
             - ROLE_CREATE_PROJECTS
             - ROLE_UPDATE_PROJECTS
-            - ROLE_GET_FILLING_PLAN_ACCESS
             - ROLE_GET_ACCESS_CONTRACTS
             - ROLE_GET_RULES
             - ROLE_SEND_TRANSACTIONS
+            - ROLE_DOWNLOAD_SIP_TRANSACTIONS
             - ROLE_CLOSE_TRANSACTIONS
+            - ROLE_UPDATE_UNITS_METADATA
             - ROLE_REOPEN_TRANSACTIONS
             - ROLE_ABORT_TRANSACTIONS
             - ROLE_GET_TRANSACTIONS
             - ROLE_CREATE_TRANSACTIONS
             - ROLE_UPDATE_TRANSACTIONS
-            - ROLE_DELETE_TRANSACTIONS
-            - ROLE_UPDATE_UNITS_METADATA
+            - ROLE_ARCHIVE_SEARCH_UPDATE_ARCHIVE_UNIT
 ```
 
 ## Application avec plusieurs profils
 
 Au niveau de chaque application on a la possibilité d'avoir plusieurs profils, pour distinguer entre les utilisateurs qui ont droits à certaines fonctionnalitées et d'autres qui n'ont pas les droits.
+
 L'objectif du document est de présenter les deux profils créés pour l'application Archive-Search.
 
-- Un profil "****Profil pour la recherche et consultation des archives avec mises à jour des règles****" :
-  droit d'accès à l'ensemble des fonctionnalités de recherche des règles en plus des fonctionnalités actuelles.
+* Un profil "**Profil pour la recherche et consultation des archives avec mises à jour des règles**" : droit d'accès à l'ensemble des fonctionnalités de recherche des règles en plus des fonctionnalités actuelles.
   Par défaut, l'administrateur ADMIN_ROOT créé à l'initialisation de l'organisation possède ce profil pour cette APP.
-- Un profil "****Profil pour la recherche et consultation des archives sans mises à jour des règles****" :
-  aucun droit d'accès sur les fonctionnalités de recherche des règles
+* Un profil "**Profil pour la recherche et consultation des archives sans mises à jour des règles**" : aucun droit d'accès sur les fonctionnalités de recherche des règles
 
 ### Procèdure d'implémentation
 
 Pour l'implémentation de cette évolution il faut ajouter un deuxième profil au niveau de la BD avec une liste des roles specifiques et d'autres informations qui concernent ce profil.
+
 Après il faut modifier le fichier customer-init.yml en ajoutant le deuxième profil créé.
+
 Au niveau Angular on peut utiliser la directive : **HasRoleDirective** prend comme entrée un objet qui contient 3 informations :
 
-- L'Id de l'application.
-- L'identifiant du tenant (de type number).
-- Le role en question (une liste des roles est initialisée au niveau de l'enum ***VitamuiRoles***).
+* L'Id de l'application.
+* L'identifiant du tenant (de type number).
+* Le role en question (une liste des roles est initialisée au niveau de l'enum ***VitamuiRoles***).
 
-- Exemple pour afficher un composant pour les users qui ont le role ROLE_SEARCH_WITH_RULES
-  
+* Exemple pour afficher un composant pour les users qui ont le role ROLE_ARCHIVE_SEARCH_GET_ARCHIVE_SEARCH
+
   ```html
   <ng-template [vitamuiCommonHasRole]="dataToSearchWithRules">
   <button> <div class="btn-primary">click search with rules</div>
   </button></ng-template>
   ```
 
-Au niveau du fichier ts :
+  Au niveau du fichier ts :
 
-```js
-dataToSearchWithRules = {
-appId: "ApplicationId",
-tenantIdentifier: 1,
-role: 'ROLE_SEARCH_WITH_RULES',
-};
-```
+  ```js
+  dataToSearchWithRules = {
+      appId: "ApplicationId",
+      tenantIdentifier: 1,
+      role: 'ROLE_ARCHIVE_SEARCH_GET_ARCHIVE_SEARCH',
+  };
+  ```
 
 ### Les profils de l'application "Recherche et consultation des archives"
 
@@ -1310,22 +1252,21 @@ La mise à jour du profil de paramétrage externe peut générer jusqu'à trois 
 Premier cas:
 
 * Modification des données liées aux données du profil
-    * Dans ce cas de figure, on émet un événement de journal externe de type `EXT_VITAMUI_UPDATE_PROFILE`.
-    * et un événement de modification du profil de paramétrage externe `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE`
+  * Dans ce cas de figure, on émet un événement de journal externe de type `EXT_VITAMUI_UPDATE_PROFILE`.
+  * et un événement de modification du profil de paramétrage externe `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE`
 
 Deuxième cas:
 
 * Modification des données liées à la donnée du paramétrage externe
-    * Dans ce cas de figure, on émet un événement de journal externe de type `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM`.
-    * et un événement de modification du profil de paramétrage externe `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE`.
+  * Dans ce cas de figure, on émet un événement de journal externe de type `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM`.
+  * et un événement de modification du profil de paramétrage externe `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE`.
 
 Troisième cas:
 
-* Modification des données liées aux données du profil et du paramétrage externe, dans ce cas de figure, on émet 3
-  événements de journalisation :
-    * événement de type `EXT_VITAMUI_UPDATE_PROFILE`.
-    * événement de type `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM`.
-    * et un événement de modification du profil de paramétrage externe `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE`.
+* Modification des données liées aux données du profil et du paramétrage externe, dans ce cas de figure, on émet 3 événements de journalisation :
+  * événement de type `EXT_VITAMUI_UPDATE_PROFILE`.
+  * événement de type `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM`.
+  * et un événement de modification du profil de paramétrage externe `EXT_VITAMUI_UPDATE_EXTERNAL_PARAM_PROFILE`.
 
 Exemple de mise à jour de la description du profil:
 
@@ -1367,8 +1308,8 @@ Le fichier doit obligatoirement être nommé ainsi afin qu'il puisse être récu
 
 Après l'installation de VitamUI le fichier des ontologies sera placé dans les deux répertoires (au niveau de la machine) :
 
-* vitamui/conf/archive-search-internal/
-* vitamui/conf/collect-internal/
+* vitamui/conf/archive-search/
+* vitamui/conf/collect/
 
 Ensuite, s'il y a un besoin d'ajouter des nouvelles ontologies, il suffit juste de modifier le fichier directement au niveau des machines. Sinon changer le fichier **environments/ontology/external_ontology_fields.json** et relancer les deux tâches :
 
@@ -1428,14 +1369,15 @@ La journalisation des événements VITAMUI a pour objectifs :
 #### Vitam
 
 * Un événement = Un événement Primaire (Primary) et ensemble de sous-événements secondaires (Secondary)
-    * Primary : événement initial
-        * les champs sont contrôlés par VITAM
-        * Marque le début de la transaction au sens VITAM
-        * L’heure de l’événement émise par VITAM (cohérence des journeaux)
-    * Secondary : note un sous événement réalisé suite à l’action principale
-        * possède les mêmes champs que l’événement Master mais VITAM ne procède à aucun contrôle
-        * l’heure de l’événement est à l’appréciation du client
-    * Fin de la transaction : le dernier sous événement doit posséder le même champ “eventType” que l’événement Master pour finir la transaction.
+  * Primary : événement initial
+    * les champs sont contrôlés par VITAM
+    * Marque le début de la transaction au sens VITAM
+    * L’heure de l’événement émise par VITAM (cohérence des journeaux)
+  * Secondary : note un sous événement réalisé suite à l’action principale
+    * possède les mêmes champs que l’événement Master mais VITAM ne procède à aucun contrôle
+    * l’heure de l’événement est à l’appréciation du client
+  * Fin de la transaction : le dernier sous événement doit posséder le même champ “eventType” que l’événement Master
+    pour finir la transaction.
 
 #### VITAMUI
 
@@ -1449,20 +1391,21 @@ La journalisation des événements VITAMUI a pour objectifs :
 
 #### Modèle
 
-| Propriétés      | valeurs                                                                                          |
-| --------------- | ------------------------------------------------------------------------------------------------ |
-| EventTypeProc   | EXTERNAL_LOGBOOK                                                                                 |
-| EventType       | Nom du type d'événement (EXT_VITAMUI_CREATE_USER)                                                |
-| obIdReq         | Nom de la collection Mongo (USERS)                                                               |
-| obId            | Identifiant métier de l’objet                                                                    |
-| evDetData       | Contient les informations importantes (modification avant/après contenu du nouvel objet). outcome: OK, KO (Pour le master -> OK, pour les sous-events le champ est libre) |
-| evIdAppSession  | applicationIdExt:requestId:applicationName:userIdentifier:superUserIdentifier:customerIdentifier |
-| evIdReq         | X-Request-Id                                                                                     |
+| Propriétés     | valeurs                                                                                                                                                                   |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| EventTypeProc  | EXTERNAL_LOGBOOK                                                                                                                                                          |
+| EventType      | Nom du type d'événement (EXT_VITAMUI_CREATE_USER)                                                                                                                         |
+| obIdReq        | Nom de la collection Mongo (USERS)                                                                                                                                        |
+| obId           | Identifiant métier de l’objet                                                                                                                                             |
+| evDetData      | Contient les informations importantes (modification avant/après contenu du nouvel objet). outcome: OK, KO (Pour le master -> OK, pour les sous-events le champ est libre) |
+| evIdAppSession | applicationIdExt:requestId:applicationName:userIdentifier:superUserIdentifier:customerIdentifier                                                                          |
+| evIdReq        | X-Request-Id                                                                                                                                                              |
 
 ### Création
 
 * L’ensemble des modifications de la base de données se font dans une unique transaction.
-* Centralisation de la création des traces dans chaque module (IamLogbookService, ArchiveLogbookService,FlowLogbookService) (Responsable de la cohérence de la génération d’un event à partir d’un objet métier).
+* Centralisation de la création des traces dans chaque module (IamLogbookService,
+  ArchiveLogbookService,FlowLogbookService) (Responsable de la cohérence de la génération d’un event à partir d’un objet métier).
 * Chaque objet de notre modèle de données possède un converter associé (Capable de convertir un objet en json qui sera mis dans le evDetData de l’event).
 
 ### Sauvegarde
@@ -1472,8 +1415,8 @@ La journalisation des événements VITAMUI a pour objectifs :
 * Le premier événement du groupe devient le Primary et les autres des sous-events.
 * Le premier est recopié à la fin des sous-events afin de fermer la “transaction au sens VITAM”.
 * Envoi vers vitam (La réponse Vitam et la date d'envoi sont toujours stockés) :
-    * Succès -> Les events sont conservés X jours et sont marqué au statut “SUCCESS”
-    * Erreur -> Les events sont marqués au statut “ERROR” et un retry sera effectué dans X heure.
+  * Succès -> Les events sont conservés X jours et sont marqué au statut “SUCCESS”
+  * Erreur -> Les events sont marqués au statut “ERROR” et un retry sera effectué dans X heure.
 
 ---
 
@@ -1491,26 +1434,26 @@ La journalisation des événements VITAMUI a pour objectifs :
 ![Schéma des relations entre les collections de la base IAM](../images/VitamUI-iam_database.png)
 
 * Collections
-    * applications
-    * customers
-    * events
-    * externalParameters
-    * groups
-    * operations
-    * owners
-    * profiles
-    * providers
-    * sequences
-    * subrogations
-    * tenants
-    * tokens
-    * userInfos
-    * users
+  * applications
+  * customers
+  * events
+  * externalParameters
+  * groups
+  * operations
+  * owners
+  * profiles
+  * providers
+  * sequences
+  * subrogations
+  * tenants
+  * tokens
+  * userInfos
+  * users
 
 #### Collection applications
 
 | Nom             | Type    | Contrainte(s)              | Remarque(s)                                                          |
-| --------------- | ------- | -------------------------- | -------------------------------------------------------------------- |
+|-----------------|---------|----------------------------|----------------------------------------------------------------------|
 | _id             | String  | Clé Primaire               |                                                                      |
 | identifier      | String  | minimum = 1, maximum = 100 | L'identifiant (unique) de l'application                              |
 | url             | String  | minimum = 1, maximum = 100 |                                                                      |
@@ -1528,7 +1471,7 @@ La journalisation des événements VITAMUI a pour objectifs :
 #### Collection customers
 
 | Nom                     | Type            | Contrainte(s)                                     | Remarque(s)     |
-| ----------------------- | --------------- | ------------------------------------------------- | --------------- |
+|-------------------------|-----------------|---------------------------------------------------|-----------------|
 | _id                     | String          | Clé Primaire                                      |                 |
 | identifier              | String          | minimum = 1, maximum = 12                         |                 |
 | code                    | String          | minimum = 6, maximum = 20                         |                 |
@@ -1570,7 +1513,7 @@ La journalisation des événements VITAMUI a pour objectifs :
 #### Collection events
 
 | Nom                             | Type           | Contrainte(s)                                              | Remarque(s) |
-| ------------------------------- | -------------- | ---------------------------------------------------------- | ----------- |
+|---------------------------------|----------------|------------------------------------------------------------|-------------|
 | _id                             | String         | Clé Primaire                                               |             |
 | tenantIdentifier                | Integer        | not null                                                   |             |
 | accessContractLogbookIdentifier | String         | not null                                                   |             |
@@ -1599,7 +1542,7 @@ Pour aller plus loin, le modèle de données Vitam concernant les journaux d'arc
 La collection qui définit un contrat d'accès par défaut
 
 | Nom        | Type         | Contrainte(s)              | Remarque(s) |
-| ---------- | ------------ | -------------------------- | ----------- |
+|------------|--------------|----------------------------|-------------|
 | _id        | String       | Clé Primaire               |             |
 | identifier | String       | minimum = 1, maximum = 12  |             |
 | name       | String       | minimum = 2, maximum = 100 |             |
@@ -1617,10 +1560,11 @@ La collection qui définit un contrat d'accès par défaut
 #### Collection groups
 
 Le groupe de profil définit un ensemble de profils.
+
 Un groupe de profil ne peut contenir qu’un seul profil par “app:tenant”. Par exemple : “profil(app1:tenant1), profil(app1:tenant2), profil(app2:tenant1)” est autorisé.
 
 | Nom         | Type           | Contrainte(s)             | Remarque(s) |
-| ----------- | -------------- | ------------------------- | ----------- |
+|-------------|----------------|---------------------------|-------------|
 | _id         | String         | Clé Primaire              |             |
 | identifier  | String         | minimum = 1, maximum = 12 |             |
 | customerId  | String         | Non Null, Clé Étrangère   |             |
@@ -1634,7 +1578,7 @@ Un groupe de profil ne peut contenir qu’un seul profil par “app:tenant”. P
 #### Collection owners
 
 | Nom         | Type    | Contrainte(s)             | Remarque(s) |
-| ----------- | ------- | ------------------------- | ----------- |
+|-------------|---------|---------------------------|-------------|
 | _id         | String  | Clé Primaire              |             |
 | identifier  | String  | minimum = 1, maximum = 12 |             |
 | customerId  | String  | Clé Étrangère             |             |
@@ -1656,10 +1600,11 @@ Un groupe de profil ne peut contenir qu’un seul profil par “app:tenant”. P
 #### Collection profiles
 
 Le profil définit les permissions (rôles) données à un utilisateur et l’accès à une application (applicationName), généralement une IHM qui regroupe un ensemble de fonctionnalités selon une logique métier et appelant des API backoffice.
+
 Un profil appartient à un groupe (de profils). Il ne peut y avoir qu’un seul et unique profile par tenant, applicationName dans un groupe.
 
 | Nom              | Type         | Contrainte(s)             | Remarque(s) |
-| ---------------- | ------------ | ------------------------- | ----------- |
+|------------------|--------------|---------------------------|-------------|
 | _id              | String       | Clé Primaire              |             |
 | identifier       | String       | minimum = 1, maximum = 12 |             |
 | tenantIdentifier | Integer      |                           |             |
@@ -1675,10 +1620,11 @@ Un profil appartient à un groupe (de profils). Il ne peut y avoir qu’un seul 
 #### Collection providers
 
 L’identity provider L’IDP est soit externe (Clients/Organisations externes) soit interne.
+
 L’IDP interne est CAS lui même et les utilisateurs sont alors gérés uniquement dans l’annuaire CAS de VITAMUI.
 
 | Nom                           | Type           | Contrainte(s)             | Remarque(s)  |
-| ----------------------------- | -------------- | ------------------------- | ------------ |
+|-------------------------------|----------------|---------------------------|--------------|
 | _id                           | String         | Clé Primaire              |              |
 | customerId                    | String         | Clé Étrangère             |              |
 | identifier                    | String         | minimum = 1, maximum = 12 |              |
@@ -1700,14 +1646,13 @@ L’IDP interne est CAS lui même et les utilisateurs sont alors gérés uniquem
 La collection sequence permet de stocker les différentes séquences utilisées.
 
 | Nom      | Type   | Contrainte(s) | Remarque(s)        |
-| -------- | ------ | ------------- | ------------------ |
+|----------|--------|---------------|--------------------|
 | _id      | String | Clé Primaire  |                    |
 | name     | String | Not Null      | Nom de la séquence |
 | sequence | int    |               | Valeur courante    |
 
 La liste des noms de séquences :
 
-* tenant_identifier
 * user_identifier
 * profile_identifier
 * group_identifier
@@ -1718,7 +1663,7 @@ La liste des noms de séquences :
 #### Collection subrogations
 
 | Nom                 | Type   | Contrainte(s)                     | Remarque(s)           |
-| ------------------- | ------ | --------------------------------- | --------------------- |
+|---------------------|--------|-----------------------------------|-----------------------|
 | _id                 | String | Clé Primaire                      |                       |
 | status              | Enum   | CREATED, ACCEPTED                 |                       |
 | date                | Date   |                                   |                       |
@@ -1729,16 +1674,18 @@ La liste des noms de séquences :
 
 #### Collection tenants
 
-Le tenant correspond à un container (ie. espace de travail) logique.
-Chaque tenant est unique dans le système et appartient à un seul et unique client.
-Un client peut posséder plusieurs tenants.
-Un client ne doit jamais pouvoir accéder aux tenants d’un autre client.
+Le tenant correspond à un container (ie. espace de travail) logique. Chaque tenant est unique dans le système et appartient à un seul et unique client.
+
+Un client peut posséder plusieurs tenants. Un client ne doit jamais pouvoir accéder aux tenants d’un autre client.
+
 Les tenants VITAMUI correspondent aux tenants VITAM.
+
 Toutes les requêtes HTTP dans VITAMUI doivent renseigner le tenant dans le header.
+
 Dans VITAMUI, le tenant permet de vérifier les autorisations applicatives (certificat et contexte) et utilisateurs (profils).
 
 | Nom                             | Type    | Contrainte(s)           | Remarque(s)                          |
-| ------------------------------- | ------- | ----------------------- | ------------------------------------ |
+|---------------------------------|---------|-------------------------|--------------------------------------|
 | _id                             | String  | Clé Primaire            |                                      |
 | customerId                      | String  | Non null, Clé Étrangère |                                      |
 | identifier                      | Integer | Non null                | correspond au tenant vitam           |
@@ -1755,7 +1702,7 @@ Dans VITAMUI, le tenant permet de vérifier les autorisations applicatives (cert
 #### Collection tokens
 
 | Nom         | Type    | Contrainte(s) | Remarque(s) |
-| ----------- | ------- | ------------- | ----------- |
+|-------------|---------|---------------|-------------|
 | _id         | String  |               |             |
 | updatedDate | Date    | not null      |             |
 | refId       | String  | not null      |             |
@@ -1764,7 +1711,7 @@ Dans VITAMUI, le tenant permet de vérifier les autorisations applicatives (cert
 #### Collection users
 
 | Nom                    | Type           | Contrainte(s)                                | Remarque(s)  |
-| ---------------------- | -------------- | -------------------------------------------- | ------------ |
+|------------------------|----------------|----------------------------------------------|--------------|
 | _id                    | String         | Clé Primaire                                 |              |
 | customerId             | String         | Clé Étrangère                                |              |
 | enabled                | Boolean        | default = true                               |              |
@@ -1808,17 +1755,18 @@ Dans VITAMUI, le tenant permet de vérifier les autorisations applicatives (cert
 ### Base security
 
 * Collections
-    * certificates
-    * contexts
-    * events
+  * certificates
+  * contexts
+  * events
 
 #### Collection certificates
 
 La collection certificat permet de stocker les certificats correspondants à un contexte.
+
 Le certificat est transmis par l’application client lors de la connexion SSL.
 
 | Nom          | Type   | Contrainte(s) | Remarque(s)                                                            |
-| ------------ | ------ | ------------- | ---------------------------------------------------------------------- |
+|--------------|--------|---------------|------------------------------------------------------------------------|
 | _id          | String | Clé Primaire  |                                                                        |
 | contextId    | String | Not Null      |                                                                        |
 | serialNumber | String | Not Null      | Numéro de série du certificat                                          |
@@ -1831,7 +1779,7 @@ Le certificat est transmis par l’application client lors de la connexion SSL.
 Le contexte applicatif permet d’attribuer à une application cliente selon son certificat X509 transmis lors de la connexion https les droits d’accès (rôles) à différents services.
 
 | Nom        | Type            | Contrainte(s)                     | Remarque(s)                 |
-| ---------- | --------------- | --------------------------------- | --------------------------- |
+|------------|-----------------|-----------------------------------|-----------------------------|
 | _id        | String          | Clé Primaire                      |                             |
 | fullAccess | Boolean         | default = false                   |                             |
 | name       | String          | Not null                          |                             |
@@ -1843,12 +1791,12 @@ Le contexte applicatif permet d’attribuer à une application cliente selon son
 Cette base est initialisée à la création de l'environnement. Elle est uniquement utilisée par CAS en lecture seule.
 
 * Collection
-    * services
+  * services
 
 #### Collection services
 
 | Nom                    | Type   | Contrainte(s) | Remarque(s)             |
-| ---------------------- | ------ | ------------- | ----------------------- |
+|------------------------|--------|---------------|-------------------------|
 | _id                    | String | Clé Primaire  |                         |
 | serviceId              | String | Not Null      | url du service web      |
 | name                   | String |               | nom du service          |
@@ -1861,13 +1809,13 @@ Cette base est initialisée à la création de l'environnement. Elle est uniquem
 Cette base est utilisée pour stocker les critères de filtres de recherche des utilisateurs. Aujourd'hui, elle est utilisée uniquement par le service Archive-Search, en particulier l'application de consultation et de recherche d'archives.
 
 * Collections
-    * searchCriteriaHistories
-    * searchCriteriaHistoriesCollect
+  * searchCriteriaHistories
+  * searchCriteriaHistoriesCollect
 
 #### Collections : searchCriteriaHistories / searchCriteriaHistoriesCollect
 
 | Nom                | Type                       | Contrainte(s)                        | Remarque(s)                                                                          |
-| ------------------ | -------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
+|--------------------|----------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | _id                | String                     | Clé Primaire                         |                                                                                      |
 | name               | String                     | Not Null, minimum = 1, maximum = 150 | Nom de la recherche sauvegardée                                                      |
 | userId             | String                     | Not Null                             | L'identifiant de l'utilisateur                                                       |
