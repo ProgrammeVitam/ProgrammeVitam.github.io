@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 8.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8.1.0
+                9.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1302,7 +1302,18 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 553
 554
 555
-556</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="c1">### global ###</span>
 
 <span class="c1"># Vitam deployment mode. Allowed values are :</span>
@@ -1556,10 +1567,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ingest-external&quot;</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
-    <span class="nt">antivirus</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span> <span class="c1"># or avast</span>
     <span class="c1"># this variable has containerization purposes only : must not be used in production environment</span>
     <span class="nt">ignore_antivirus_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="c1">#scantimeout: 1200000 # value in milliseconds; increase this value if huge files need to be analyzed in more than 20 min (default value)</span>
     <span class="c1"># Directory where files should be placed for local ingest</span>
     <span class="nt">upload_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload&quot;</span>
     <span class="c1"># Directory where successful ingested files will be moved to</span>
@@ -1784,6 +1793,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="c1"># Dip/transfer threshold file size</span>
     <span class="nt">binarySizePlatformThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="nt">binarySizePlatformThresholdSizeUnit</span><span class="p">:</span> <span class="s">&quot;GIGABYTE&quot;</span>
+    <span class="c1"># this variable has containerization purposes only : must not be used in production environment</span>
+    <span class="nt">ignore_antivirus_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
   <span class="nt">workspace</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;workspace.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -1805,6 +1816,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">statusTransactionThreadFrequency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
     <span class="nt">bulkAtomicUpdateThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
     <span class="nt">bulkAtomicUpdateThreadPoolQueueSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+    <span class="c1"># Max waiting time (in seconds) for transaction validation before timeout on SIP ingest.</span>
+    <span class="nt">maxWaitDelayForTransactionValidationInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
     <span class="nt">bulkAtomicUpdateBatchSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
   <span class="nt">collect_external</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">collect-external</span>
@@ -1849,6 +1862,15 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
     <span class="nt">context_path</span><span class="p">:</span> <span class="s">&quot;/workspace-collect&quot;</span>
+  <span class="nt">antivirus</span><span class="p">:</span>
+    <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">antivirus</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;antivirus.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8082</span>
+    <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28082</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;antivirus&quot;</span>
+    <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">engine</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span> <span class="c1"># or avast</span>
 
 <span class="c1"># http://www.programmevitam.fr/ressources/DocCourante/html/installation/installation/21-addons.html#durees-minimales-permettant-de-controler-les-valeurs-saisies</span>
 <span class="nt">vitam_tenant_rule_duration</span><span class="p">:</span>
@@ -2209,7 +2231,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 335
 336
 337
-338</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+338
+339
+340</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2385,6 +2409,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9115</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+        <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
         <span class="nt">targets</span><span class="p">:</span>
             <span class="c1">## List all the targeted URLs that must be controled with blackbox</span>
             <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_reverse_external_protocol</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;https&#39;)</span><span class="nv"> </span><span class="s">}}://{{</span><span class="nv"> </span><span class="s">vitam_reverse_external_dns</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">reverse_proxy_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(443)</span><span class="nv"> </span><span class="s">}},reverse&quot;</span>
@@ -2684,7 +2710,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 125
 126
 127
-128</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+128
+129
+130
+131
+132
+133</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1">## JVM configuration for Vitam components</span>
 
@@ -2808,6 +2839,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
     <span class="nt">workspace_collect</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">antivirus</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>

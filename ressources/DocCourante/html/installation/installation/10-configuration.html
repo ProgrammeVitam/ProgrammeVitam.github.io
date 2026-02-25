@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 8.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8.1.0
+                9.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -775,7 +775,7 @@
 <span class="c1"># LIMIT and 1 machine per offer when filesystem or filesystem-hash provider</span>
 <span class="c1"># Possibility to declare multiple machines with same provider only when provider is s3 or swift.</span>
 <span class="c1"># Mandatory param for each offer is offer_conf and points to offer_opts.yml &amp; vault-vitam.yml (with same tree)</span>
-<span class="c1"># Optionnal parameter: restic_enabled=true (only 1 per offer_conf) available for providers filesystem*, openstack-swift-v3 &amp; amazon-s3-v1</span>
+<span class="c1"># Optional parameter: restic_enabled=true (only 1 per offer_conf) available for providers filesystem*, openstack-swift-v3 &amp; amazon-s3-v2</span>
 <span class="c1"># for swift</span>
 <span class="c1"># hostname-offre-1.vitam offer_conf=offer-swift-1 restic_enabled=true</span>
 <span class="c1"># hostname-offre-2.vitam offer_conf=offer-swift-1</span>
@@ -1648,9 +1648,7 @@
 235
 236
 237
-238
-239
-240</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
+238</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
 <span class="c1"># This list of offers will be ordered by the property rank. It has to be completed if more offers are necessary</span>
 <span class="c1"># The property rank indicates the rank of the offer in the strategy. The ranking is done is ASC order and should be different for all declared offers</span>
 <span class="nt">vitam_strategy</span><span class="p">:</span>
@@ -1782,17 +1780,13 @@
     <span class="c1">#    value: &#39;Origin=vitam&#39;</span>
 <span class="c1">################################################################################</span>
   <span class="nt">offer-s3-1</span><span class="p">:</span>
-    <span class="c1"># provider : can only be amazon-s3-v1 for Amazon SDK S3 V1</span>
-    <span class="nt">provider</span><span class="p">:</span> <span class="s">&#39;amazon-s3-v1&#39;</span>
+    <span class="c1"># provider : can only be amazon-s3-v2 for Amazon SDK S3 V2</span>
+    <span class="nt">provider</span><span class="p">:</span> <span class="s">&#39;amazon-s3-v2&#39;</span>
     <span class="c1"># s3Endpoint : URL of connection to S3</span>
     <span class="nt">s3Endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://172.17.0.2:6007</span>
     <span class="c1">### Optional parameters</span>
     <span class="c1"># s3RegionName (optional): Region name (default value us-east-1)</span>
     <span class="nt">s3RegionName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-west-1</span>
-    <span class="c1"># s3SignerType (optional): Signing algorithm.</span>
-    <span class="c1">#     - signature V4 : &#39;AWSS3V4SignerType&#39; (default value)</span>
-    <span class="c1">#     - signature V2 : &#39;S3SignerType&#39;</span>
-    <span class="nt">s3SignerType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWSS3V4SignerType</span>
     <span class="c1"># s3PathStyleAccessEnabled (optional): &#39;true&#39; to access bucket in &quot;path-style&quot;, else &quot;virtual-hosted-style&quot; (true by default)</span>
     <span class="nt">s3PathStyleAccessEnabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="c1"># s3MaxConnections (optional): Max total connection (concurrent connections) (50 by default)</span>
@@ -1813,6 +1807,8 @@
     <span class="nt">s3MultiPartCleanNbRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
     <span class="c1"># Wait delay for S3 multipart upload cleanup (in milliseconds)</span>
     <span class="nt">s3MultiPartCleanWaitingTimeInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10_000</span>
+    <span class="c1"># Ignore S3 HTTPS certificate hostname validation (defaults to false, not for production environments)</span>
+    <span class="nt">s3IgnoreCertificateHostnameValidation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="c1"># Offer log compaction</span>
     <span class="nt">offer_log_compaction</span><span class="p">:</span>
       <span class="c1">## Expiration, here offer logs 21 days old will be compacted</span>
@@ -2248,7 +2244,9 @@
 335
 336
 337
-338</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+338
+339
+340</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2424,6 +2422,8 @@
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9115</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
+        <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
         <span class="nt">targets</span><span class="p">:</span>
             <span class="c1">## List all the targeted URLs that must be controled with blackbox</span>
             <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_reverse_external_protocol</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;https&#39;)</span><span class="nv"> </span><span class="s">}}://{{</span><span class="nv"> </span><span class="s">vitam_reverse_external_dns</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">reverse_proxy_port</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(443)</span><span class="nv"> </span><span class="s">}},reverse&quot;</span>
@@ -3792,7 +3792,29 @@
 345
 346
 347
-348</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;dynamic_templates&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -4137,6 +4159,28 @@
     <span class="nt">&quot;_aud&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
       <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;strict_date_optional_time&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;_errors&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;evId&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;obId&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;evTypeProc&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;outDetail&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;outMessg&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;evDetData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
