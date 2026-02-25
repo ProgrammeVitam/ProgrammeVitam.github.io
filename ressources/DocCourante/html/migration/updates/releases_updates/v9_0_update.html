@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3. Montées de version majeures &mdash; Documentation VITAM - Documentation de montées de version 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.11. Notes et procédures spécifiques V9.0 &mdash; Documentation VITAM - Documentation de montées de version 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -17,8 +17,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="4.3.1. Notes et procédures spécifiques R13" href="r13_update.html" />
-    <link rel="prev" title="4.2.8. Notes et procédures spécifiques V7.1" href="../bugfixes_updates/v7_1_update.html" /> 
+    <link rel="next" title="4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé" href="migration_container.html" />
+    <link rel="prev" title="4.3.10. Notes et procédures spécifiques V8.1" href="v8_1_update.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,7 +51,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">4. Montées de version</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../principles.html">4.1. Principes généraux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bugfixes_updates/_toc.html">4.2. Montées de version <em>bugfix</em></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Montées de version majeures</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">4.3. Montées de version majeures</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="r13_update.html">4.3.1. Notes et procédures spécifiques R13</a></li>
 <li class="toctree-l3"><a class="reference internal" href="r16_update.html">4.3.2. Notes et procédures spécifiques R16</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v5rc_update.html">4.3.3. Notes et procédures spécifiques V5RC</a></li>
@@ -62,7 +62,10 @@
 <li class="toctree-l3"><a class="reference internal" href="v7_1_update.html">4.3.8. Notes et procédures spécifiques V7.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v8_0_update.html">4.3.9. Notes et procédures spécifiques V8.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v8_1_update.html">4.3.10. Notes et procédures spécifiques V8.1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="v9_0_update.html">4.3.11. Notes et procédures spécifiques V9.0</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.11. Notes et procédures spécifiques V9.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">4.3.11.1. Adaptation des sources de déploiement ansible</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
 </ul>
 </li>
@@ -85,9 +88,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../_toc.html">4. Montées de version</a></li>
-      <li class="breadcrumb-item active">4.3. Montées de version majeures</li>
+          <li class="breadcrumb-item"><a href="_toc.html">4.3. Montées de version majeures</a></li>
+      <li class="breadcrumb-item active">4.3.11. Notes et procédures spécifiques V9.0</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/updates/releases_updates/_toc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/updates/releases_updates/v9_0_update.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,27 +99,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="montees-de-version-majeures">
-<span id="releases-updates"></span><h1>4.3. Montées de version majeures<a class="headerlink" href="#montees-de-version-majeures" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le schéma ci-dessous décrit le principe général pour effectuer plusieurs montée de version majeures en une seule opération de maintenance. Tous les chemins ne sont pas forcément supportés, veuillez vous reporter au support <a class="reference internal" href="../../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> afin de vous assurer que le chemin que vous prévoyez soit officiellement supporté.</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/update_workflow_majeur.drawio.png"><img alt="../../_images/update_workflow_majeur.drawio.png" src="../../_images/update_workflow_majeur.drawio.png" style="width: 530.5px; height: 173.0px;" /></a>
+  <div class="section" id="notes-et-procedures-specifiques-v9-0">
+<h1>4.3.11. Notes et procédures spécifiques V9.0<a class="headerlink" href="#notes-et-procedures-specifiques-v9-0" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Veuillez appliquer les procédures spécifiques à chacune des versions précédentes en fonction de la version de départ selon la suite suivante: V7.1 -&gt; V8.0 -&gt; V8.1 -&gt; V9.0</p>
 </div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="r13_update.html">4.3.1. Notes et procédures spécifiques R13</a></li>
-<li class="toctree-l1"><a class="reference internal" href="r16_update.html">4.3.2. Notes et procédures spécifiques R16</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v5rc_update.html">4.3.3. Notes et procédures spécifiques V5RC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v5_update.html">4.3.4. Notes et procédures spécifiques V5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v6rc_update.html">4.3.5. Notes et procédures spécifiques V6RC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v6_update.html">4.3.6. Notes et procédures spécifiques V6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v7_1_update.html">4.3.8. Notes et procédures spécifiques V7.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v8_0_update.html">4.3.9. Notes et procédures spécifiques V8.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v8_1_update.html">4.3.10. Notes et procédures spécifiques V8.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="v9_0_update.html">4.3.11. Notes et procédures spécifiques V9.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="migration_container.html">4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
-</ul>
+<div class="section" id="adaptation-des-sources-de-deploiement-ansible">
+<h2>4.3.11.1. Adaptation des sources de déploiement ansible<a class="headerlink" href="#adaptation-des-sources-de-deploiement-ansible" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="migration-de-la-configuration-d-offres-s3">
+<h3>4.3.11.1.1. Migration de la configuration d’offres S3<a class="headerlink" href="#migration-de-la-configuration-d-offres-s3" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas de l’utilisation d’une offre de stockage S3, le provider <code class="docutils literal notranslate"><span class="pre">amazon-s3-v1</span></code> n’est plus disponible. Il est remplacé par le provider <code class="docutils literal notranslate"><span class="pre">amazon-s3-v2</span></code>.</p>
+<p>La clé de configuration <code class="docutils literal notranslate"><span class="pre">vitam_offers.&lt;offre&gt;.s3SignerType</span></code> n’est plus paramétrable à présent et doit être supprimée. Seul le mode de signature <code class="docutils literal notranslate"><span class="pre">AWSS3V4SignerType</span></code> (par défaut dans les versions précédentes de Vitam) est supportée à présent. Le mode de signature <code class="docutils literal notranslate"><span class="pre">S3SignerType</span></code> (dangereux / déprécié par Amazon AWS) n’est plus supporté.</p>
+<p>De même, la validation des hostnames des certificats HTTPS est dorénavant activée par défault dans le nouveau provider <code class="docutils literal notranslate"><span class="pre">amazon-s3-v2</span></code>. La validation peut être désactivée via la clé <code class="docutils literal notranslate"><span class="pre">vitam_offers.&lt;offre&gt;.s3IgnoreCertificateHostnameValidation</span></code> (uniquement pour environnements de test).</p>
+<p>Il convient de mettre à jour la configuration des offres de stockage en conséquent (<code class="docutils literal notranslate"><span class="pre">vitam_offers.&lt;offre&gt;.provider</span></code>) dans les sources de déploiement.</p>
+</div>
 </div>
 </div>
 
@@ -123,8 +121,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../bugfixes_updates/v7_1_update.html" class="btn btn-neutral float-left" title="4.2.8. Notes et procédures spécifiques V7.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="r13_update.html" class="btn btn-neutral float-right" title="4.3.1. Notes et procédures spécifiques R13" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="v8_1_update.html" class="btn btn-neutral float-left" title="4.3.10. Notes et procédures spécifiques V8.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="migration_container.html" class="btn btn-neutral float-right" title="4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
