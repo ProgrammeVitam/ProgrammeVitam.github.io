@@ -71,11 +71,11 @@ Sont mis à dispostion :
 
 - bug #15608 : Impossible d'importer un fichier de plus de 2GB  
 
- Consulter la [release note de ReSIP version 2.9.1](/ressources/RefCourant/Release notes_RESIP_2_9_1.pdf)
+#### Evolution techniques 
 
-Evolution techniques 
+Montée de version COTS et des librairies : Montée de version de DROID, Utilisation d’Apache Tika.
 
-Montée de version COTS et des librairies : Passage en Java 17, Montée de version de DROID, Utilisation d’Apache Tika. 
+ Consulter la [release note de ReSIP version 2.9.1](/ressources/RefCourant/ en attente )
 
 ## ReSIP version 2.8.0 (été 2024)
 
