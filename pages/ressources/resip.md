@@ -49,33 +49,29 @@ Sont mis à dispostion :
 
 ## ReSIP version 2.9.1 (hiver 2025-2026)
 
-### Ajout de fonctionnalités 
+### Ajout de fonctionnalités
+- Montée de version du SEDA 2.3
 
-#### Montée de version du SEDA 2.3 
+    - Import et export d’un manifest en SEDA 2.3. Contrôle de conformité liés à la version SEDA 2.3. Ajout des métadonnées relatives à la version 2.3 du SEDA : bloc PersistentIdentifier (Identifiant pérenne) et bloc SigningInformation (Information sur la signature)
+    - Amélioration de la prise en compte des informations de date (millisecondes et fuseaux horaires).
 
-- Import et export d’un manifest en SEDA 2.3 
-- Ajout des métadonnées relatives à la version 2.3 du SEDA : bloc PersistentIdentifier (Identifiant pérenne) et bloc SigningInformation (Information sur la signature) 
-- Contrôle de conformité en SEDA 2.3 
-- Amélioration de la prise en compte des informations de date (millisecondes et fuseaux horaires). 
+- Améliorations dans les fonctionnalités d’extraction des mails
+    - Amélioration des performances
+    - Prise en charge des mails signés
+    - Analyse MIME pour les formats de boîte à lettre
+    - Internationalisation de l’interface utilisateur
 
-#### Montée de version de DROID 
+### Évolutions techniques
 
-#### Améliorations dans les fonctionnalités d’extraction des mails 
+- ReSip est proposé avec 2 packagings au choix, avec ou sans jre embarquée. Le packaging avec jre permet aux utilisateurs ne disposant pas de jre sur leur poste de travail d’utiliser ReSip sans prérequis d’installation. La version de jre embarquée dans ce cas est la version open source “Adoptium” sans les outils optionnels de JDK ce qui restreint l’exposition aux vulnérabilités éventuelles liées à la JDK. La version sans jre laisse libre l’utilisateur du choix de jre à utiliser. La version de Java utilisée est Java 11.
 
-- Amélioration des performances 
-- Prise en charge des mails signés 
-- Analyse MIME pour les formats de boîte à lettre 
-- Internationalisation de l’interface utilisateur 
+- Montée de version COTS et des librairies : Montée de version de DROID 6.8.0, Utilisation d’Apache Tika 3.2.3.
 
-#### Correction d’anomalie
+### Correction d’anomalie
 
-- bug #15608 : Impossible d'importer un fichier de plus de 2GB  
+- Bug #15608 : Impossible d'importer un fichier de plus de 2GB
 
-#### Evolution techniques 
-
-Montée de version COTS et des librairies : Montée de version de DROID, Utilisation d’Apache Tika.
-
- Consulter la [release note de ReSIP version 2.9.1](/ressources/RefCourant/ en attente )
+Consulter la [release note de ReSIP version 2.9.1](/ressources/RefCourant/Release notes_RESIP_2_9_1_v2.pdf)
 
 ## ReSIP version 2.8.0 (été 2024)
 
