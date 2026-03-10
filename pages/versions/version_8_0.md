@@ -55,8 +55,8 @@ Liens de téléchargement pour les partenaires :  [**version 8.0.2**](https://re
 ##### La release note
 
 - la [release note de la version 8.0.0](/ressources/RefCourant/Release_notes_v8.0_v1.0.pdf)
-- le [change-log du back-office 8.0.2](/ressources/RefCourant/vitam-changelog.8.0.2.pdf)
-- le [change-log du front-office 8.0.2](/ressources/RefCourant/vitamui-changelog.8.0.2.pdf)
+- le [change-log du back-office 8.0.2](/ressources/RefCourant/Vitam-changelog.8.0.2.pdf)
+- le [change-log du front-office 8.0.2](/ressources/RefCourant/Vitamui-changelog.8.0.2.pdf)
 
 <a name="801"></a>
 ### Version 8.0.1 (juillet 2025)
