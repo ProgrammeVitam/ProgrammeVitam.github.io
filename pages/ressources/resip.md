@@ -33,7 +33,7 @@ Sont mis à dispostion :
 
     Il est accessible **[ici](https://download.programmevitam.fr/resip/2.9.1/resip-2.9.1-standalone.zip)**.
 
-    >A noter: le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.9.1/sedatools-package-2.9.0-package.zip).
+    >A noter: le fichier .jar utilisable sous Linux est disponible [ici](https://download.programmevitam.fr/resip/2.9.1/sedatools-package-2.9.1.zip).
 
 * **un manuel utilisateur**  
     La documentation **ReSIP** décrit les fonctions de l'outil ReSIP ainsi que son utilisation simple et avancée et peut être consultée en suivant ce [lien](https://www.programmevitam.fr/vitam-doc/fr/master_9.0.x/sections/resip.html).
