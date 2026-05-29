@@ -8,6 +8,7 @@ fatherref: programme
 * [La comitologie du Club utilisateurs](#comito)
 * [La gouvernance du Club utilisateurs](#gouvernance)
 * [Les membres du Club utilisateurs](#membre)
+* [Quelques liens utiles pour les membres du Club utilisateurs](https://www.programmevitam.fr/pages/presentation/CU_detail/)
 
 ## Devenir membre du Club utilisateurs<a name="CU"></a>
 La participation de nombreux acteurs est une constante du programme, afin d’en faciliter l’adoption. Les travaux du Programme Vitam, ont déjà permis d’associer un grand nombre de représentants du monde des archives et du domaine des systèmes d’information, issus de l’État, des collectivités territoriales et des établissements publics, mais aussi du secteur privé avec des dispositifs dédiés par exemple aux ESN.
@@ -182,4 +183,4 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * XDemat
 * Xelians
 
-![Logos](/public/images/Club_JUIN2025.png)
+![Logos](/public/images/ClubUtilisateurs_MAI2026.png)
