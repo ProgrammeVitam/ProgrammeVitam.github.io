@@ -29,7 +29,7 @@ La convention de service proposée pour devenir membre du Club utilisateurs s’
 Rapide revue de ce qui est proposé aux membres du Club utilisateurs du Programme Vitam :
 
 * [Comitologie dédiée](#comito) 
-* Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant pérenne (2021-…), signature électronique (2022-...)...;
+* Chantiers métier ou techniques : préparation des entrées (2015-2016), accès (2015-2016), préservation (2017-2019), gestion des archives classifiées (2017-2019), gestion de la preuve (2017-2018), identifiant pérenne (2021-2024), signature électronique (2022-2024)...;
 * Accès à des outils :  
     - d’échanges et questions avec Osmose,  
     - de support avec Tuleap,  
@@ -68,13 +68,14 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 
 ![Logos](/public/images/202501_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 12/06/2025)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 29/05/2026)<a name="membre"></a>
 
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
 * Agence nationale pour la gestion des déchets radioactifs (ANDRA)
 * Agence de Services et de Paiement (ASP)
 * Aix Marseille Provence métropole
+* Aix Marseille université
 * Akompano
 * AMUE
 * Atos
@@ -88,6 +89,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Centre Hospitalier d'Avranches-Granville
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
 * Centre national du cinéma et de l'image animée (CNC)
+* Château de Fontainebleau
 * CGI
 * Coexya
 * Collectivité territoriale de Guyane
@@ -96,9 +98,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Communauté d'agglomération de Cergy-Pontoise
 * Communauté d'agglomération de Paris Vallée de la Marne
 * Communauté d'agglomération Pau Béarn Pyrénées
-* Conseil départemental du Lot-et-Garonne
-* Conseil départemental du Gard
-* Conseil départemental du Tarn et Garonne 
+* Conseil départemental de Haute-Loire
 * Conseil départemental de la Charente-Maritime
 * Conseil départemental de la Gironde
 * Conseil départemental de l'Hérault
@@ -107,20 +107,27 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Conseil départemental des Hauts-de-Seine
 * Conseil départemental des Pyrénées Atlantiques  
 * Conseil départemental des Yvelines
+* Conseil départemental du Lot-et-Garonne
+* Conseil départemental du Gard
+* Conseil départemental du Tarn et Garonne 
 * CooNum
 * CNRS
 * Digitech
 * Direction générale de l'aviation civile (DGAC)   
 * Direction interministérielle du numérique
+* DRAC Auvergne Rhône Alpes
 * DRAC Bretagne
 * DRAC Hauts-de-France
 * DRAC Pays de la Loire
-* DSI de Polynésie française
+* DSI du Gouvernement de Polynésie française
+* Ecole nationale des Ponts et Chaussées (ENPC)
 * Établissement de communication et de production audiovisuelle de la Défense (ECPAD)
-* Etablissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
-* Etablissement public des musées d'Orsay et de l'Orangerie (EPMO)
+* Établissement Public d'Exploitation du Livre Foncier Informatisé (EPELFI)
+* Établissement public des musées d'Orsay et de l'Orangerie (EPMO)
 * Gendarmerie nationale
 * Huma-Num
+* Institut national de l'audiovisuel (INA)
+* Institut national de l'Histoire de l'Art (INHA)
 * Institut national de la propriété industrielle (INPI)
 * Institut national de recherche pour l'agriculture, l'alimentation et l'environnement (INRAE)
 * Islean
@@ -151,17 +158,24 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Olkoa
 * Opéris
 * Préfecture de police de Paris
+* Présidence de la République
 * RATP
+* Seine Yvelines numérique
+* Select
 * SGAMI Sud-Ouest 
 * Smile
+* SNCF
 * Société des Grands Projets
 * SopraSteria
+* Sorbonne université
 * SRCI Groupe Salvia Developpement
 * Synap6
 * Toulon Provence Méditerranée
+* Toulouse métropole
 * Université de Lille
 * Université de Bordeaux
 * Université Paris 1 Panthéon Sorbonne
+* Université polytechnique Hauts de France
 * Urssaf - Caisse nationale (ex-ACOSS)
 * Ville de Paris
 * Winbantu
