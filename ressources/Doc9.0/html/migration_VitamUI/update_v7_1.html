@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Mise à jour mineure / bugfix V7.1.x &mdash; Vitam-UI documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=6b8777ff" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d1a510d7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="2. Mise à jour mineure / bugfix V8.0.x" href="update_v8_0.html" />
+    <link rel="prev" title="8. Migration d’un vitamui legacy vers un vitamui conteneurisé" href="migration_container.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v5rc.html">1. Mise à jour V5rc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v5.html">2. Mise à jour V5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v6rc.html">3. Mise à jour V6rc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v6.html">4. Mise à jour V6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v7_1.html">5. Procédure de Montée de version VitamUI V7.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v8_0.html">6. Procédure de Montée de version VitamUI V8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_v8_1.html">7. Procédure de Montée de version VitamUI V8.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration_container.html">8. Migration d’un vitamui legacy vers un vitamui conteneurisé</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Mise à jour mineure / bugfix V7.1.x</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">1.1. Adaptation des sources de déploiement ansible</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mise-a-jour-des-certificats">1.1.1. Mise à jour des certificats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-des-jetons-de-communication-interne-cas">1.1.2. Configuration des jetons de communication interne CAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">1.2. Procédures à exécuter AVANT la montée de version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mise-a-jour-des-depots-yum-apt">1.2.1. Mise à jour des dépôts (YUM/APT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reinitialisation-des-certificats-en-bdd">1.2.2. Réinitialisation des certificats en bdd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arret-complet-de-vitamui">1.2.3. Arrêt complet de VitamUI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#application-de-la-montee-de-version">1.3. Application de la montée de version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lancement-du-master-playbook-vitamui">1.3.1. Lancement du master playbook vitamui</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">1.4. Procédures à exécuter APRÈS la montée de version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="update_v8_0.html">2. Mise à jour mineure / bugfix V8.0.x</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Vitam-UI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Mise à jour mineure / bugfix V7.1.x</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/update_v7_1.md.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mise-a-jour-mineure-bugfix-v7-1-x">
+<h1><span class="section-number">1. </span>Mise à jour mineure / bugfix V7.1.x<a class="headerlink" href="#mise-a-jour-mineure-bugfix-v7-1-x" title="Lien vers cette rubrique"></a></h1>
+<section id="adaptation-des-sources-de-deploiement-ansible">
+<h2><span class="section-number">1.1. </span>Adaptation des sources de déploiement ansible<a class="headerlink" href="#adaptation-des-sources-de-deploiement-ansible" title="Lien vers cette rubrique"></a></h2>
+<section id="mise-a-jour-des-certificats">
+<h3><span class="section-number">1.1.1. </span>Mise à jour des certificats<a class="headerlink" href="#mise-a-jour-des-certificats" title="Lien vers cette rubrique"></a></h3>
+<blockquote>
+<div><p>Cette opération doit être effectuée en cas de mise à jour mineure depuis une version v7.1.2- (v7.1.2 ou inférieure) vers une version v7.1.3+ (v7.1.3 ou supérieure).
+Cette opération doit être effectuée avec les sources de déploiement de la V7.1.3+.</p>
+</div></blockquote>
+<p>Il est fortement recommandé de re-générer la PKI pour corriger le nom de domaine des certificats (Common Name / Subject Alternative Name) des services VitamUI afin qu’ils soient conformes au domaine consul associé.</p>
+<p>En particulier, si les certificats sont générés via une PKI de production, il faudra veiller à bien les préfixer par <code class="docutils literal notranslate"><span class="pre">vitamui-</span></code> (exemple <code class="docutils literal notranslate"><span class="pre">vitamui-iam-external.service.consul</span></code> et <code class="docutils literal notranslate"><span class="pre">vitamui-iam-external.service.site1.consul</span></code>, au lieu de <code class="docutils literal notranslate"><span class="pre">iam-external.service.consul</span></code> et <code class="docutils literal notranslate"><span class="pre">iam-external.service.site1.consul</span></code>)</p>
+<p>Si vous utilisez la PKI d’exemple de VitamUI, vous pouvez procéder à la re-génération des nouveaux certificats comme suit :</p>
+<ul>
+<li><p>Générer les nouveaux certificats</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./pki/scripts/generate_certs.sh<span class="w"> </span>environments/&lt;inventaire&gt;<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Le paramètre true permet d’écraser les certificats existants.</p>
+</div></blockquote>
+</li>
+<li><p>Mutualisation des PKIs entre Vitam &amp; VitamUI</p>
+<p>Afin de permettre à VitamUI de communiquer avec Vitam, il va falloir procéder à un échanges de certificats et des autorités de certifications.</p>
+<p>Pour ce faire, il existe un script permettant de faciliter cet échange qui prend les paramètres suivants:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./scripts/mutualize_certs_for_vitamui.sh<span class="w"> </span>-v<span class="w"> </span>../../vitam.git/deployment/environments/certs<span class="w"> </span>-u<span class="w"> </span>./environments/certs
+</pre></div>
+</div>
+<blockquote>
+<div><p>Attention ! Après cette étape, il sera nécessaire de regénérer les stores de la zone Vitam, suite à l’ajout des certificats de VitamUI, et de reconfigurer Vitam en utilisant le <code class="docutils literal notranslate"><span class="pre">--tags</span> <span class="pre">update_vitam_certificates</span></code>.</p>
+</div></blockquote>
+</li>
+<li><p>Re-générer les stores de VitamUI</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./generate_stores.sh<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Le paramètre true permet d’écraser les stores existants.</p>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><p><strong>Important :</strong> La mise à jour des certificats est fortement recommandée. Dans le cas où vous ne souhaitez pas la réaliser, il faudra alors désactiver les contrôles de certificats via la clé <code class="docutils literal notranslate"><span class="pre">vitamui_defaults.services.ssl_hostname_verification</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="configuration-des-jetons-de-communication-interne-cas">
+<h3><span class="section-number">1.1.2. </span>Configuration des jetons de communication interne CAS<a class="headerlink" href="#configuration-des-jetons-de-communication-interne-cas" title="Lien vers cette rubrique"></a></h3>
+<blockquote>
+<div><p>Cette opération doit être effectuée en cas de mise à jour mineure depuis une version v7.1.2- (version 7.1.2 ou inférieure) vers une version v7.1.3+ (version 7.1.3 ou supérieure).</p>
+</div></blockquote>
+<p>Une nouvelle clé <code class="docutils literal notranslate"><span class="pre">vitamui.cas_server.secret_token</span></code> doit être éditée dans le fichier de configuration <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vault-vitamui.yml</span></code>. Elle permet de sécuriser les appels d’API entre le CAS Server et IAM.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-vault<span class="w"> </span>edit<span class="w"> </span>--vault-password-file<span class="w"> </span>vault_pass.txt<span class="w"> </span>environments/group_vars/all/vault-vitamui.yml
+</pre></div>
+</div>
+<blockquote>
+<div><p>Attention, la clé devrait être configurée avec une clé alphanumérique longue et sans caractères spéciaux.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="procedures-a-executer-avant-la-montee-de-version">
+<h2><span class="section-number">1.2. </span>Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien vers cette rubrique"></a></h2>
+<section id="mise-a-jour-des-depots-yum-apt">
+<h3><span class="section-number">1.2.1. </span>Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien vers cette rubrique"></a></h3>
+<p>Afin de pouvoir déployer la nouvelle version, vous devez mettre à jour la variable <code class="docutils literal notranslate"><span class="pre">vitam_repositories</span></code> sous <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/repositories.yml</span></code> afin de renseigner les dépôts à la version cible.</p>
+<p>Puis exécutez le playbook suivant :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>environments/&lt;inventaire&gt;<span class="w"> </span>ansible-vitamui-extra/bootstrap.yml<span class="w"> </span>--ask-vault-pass
+</pre></div>
+</div>
+</section>
+<section id="reinitialisation-des-certificats-en-bdd">
+<h3><span class="section-number">1.2.2. </span>Réinitialisation des certificats en bdd<a class="headerlink" href="#reinitialisation-des-certificats-en-bdd" title="Lien vers cette rubrique"></a></h3>
+<p>En cas de re-génération des certificats, ils doivent être mis à jour en base de données.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>environments/&lt;inventaire&gt;<span class="w"> </span>ansible-vitamui-exploitation/reinit_security_certificates.yml<span class="w"> </span>--ask-vault-pass
+</pre></div>
+</div>
+</section>
+<section id="arret-complet-de-vitamui">
+<h3><span class="section-number">1.2.3. </span>Arrêt complet de VitamUI<a class="headerlink" href="#arret-complet-de-vitamui" title="Lien vers cette rubrique"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>environments/&lt;inventaire&gt;<span class="w"> </span>ansible-vitamui-exploitation/stop_vitamui.yml<span class="w"> </span>--ask-vault-pass
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="application-de-la-montee-de-version">
+<h2><span class="section-number">1.3. </span>Application de la montée de version<a class="headerlink" href="#application-de-la-montee-de-version" title="Lien vers cette rubrique"></a></h2>
+<section id="lancement-du-master-playbook-vitamui">
+<h3><span class="section-number">1.3.1. </span>Lancement du master playbook vitamui<a class="headerlink" href="#lancement-du-master-playbook-vitamui" title="Lien vers cette rubrique"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>environments/&lt;inventaire&gt;<span class="w"> </span>ansible-vitamui/vitamui.yml<span class="w"> </span>--ask-vault-pass
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="procedures-a-executer-apres-la-montee-de-version">
+<h2><span class="section-number">1.4. </span>Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien vers cette rubrique"></a></h2>
+<p>N/A</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="migration_container.html" class="btn btn-neutral float-left" title="8. Migration d’un vitamui legacy vers un vitamui conteneurisé" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="update_v8_0.html" class="btn btn-neutral float-right" title="2. Mise à jour mineure / bugfix V8.0.x" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2021, Programme Vitam.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

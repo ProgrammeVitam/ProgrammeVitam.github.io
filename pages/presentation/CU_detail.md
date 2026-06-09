@@ -36,3 +36,7 @@ Sont ici regroupées quelques informations à destination des membres du Club ut
 
 - [Outil Tuleap](https://assistance.programmevitam.fr/)
 - [Mode d'emploi de Tuleap](https://www.programmevitam.fr/ressources/RefCourant/Tuleap_mode_emploi_202605.pdf)
+
+## Je veux prendre un rdv avec le Programme Vitam
+
+- [Accès l'agenda partagé d'Alice Grippon](https://outlook.office.com/bookwithme/user/25493d5764274a049de3696cc1bead06@culture.gouv.fr?anonymous&ep=pcard)

@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Prérequis &mdash; Vitam-UI documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=6b8777ff" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d1a510d7"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="3. Procédure de déploiement de VitamUI" href="procedure.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Prérequis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="procedure.html">3. Procédure de déploiement de VitamUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="procedure.html#configuration-d-acces-a-des-instances-vitam-externes-tierces-optionnel">4. Configuration d’accès à des instances Vitam externes tierces (optionnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="password_configurations.html">5. Configuration des profils des mots de passe (Ansiblerie)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annexes.html">6. Annexes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Vitam-UI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Prérequis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sections/prerequis.md.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="prerequis">
+<h1><span class="section-number">2. </span>Prérequis<a class="headerlink" href="#prerequis" title="Lien vers cette rubrique"></a></h1>
+<p>VitamUI fonctionne avec le socle applicatif Vitam qui doit être préinstallé.</p>
+<p>Tout comme Vitam, VitamUI est installé sur des VMs (machines virtuelles) qui doivent être dimensionnées correctement.</p>
+<p>Voici le détail de consommation mémoire par défaut des services VitamUI permettant de faire la répartition par VMs.</p>
+<p>Les services Java de VitamUI ont pour configuration par défaut <code class="docutils literal notranslate"><span class="pre">-Xms128m</span> <span class="pre">-Xmx512m</span></code> ce qui est suffisant pour la majorité des cas d’usage. Cependant, il est possible de surcharger cette configuration par défaut à l’aide des variables <code class="docutils literal notranslate"><span class="pre">vitamui.&lt;composant&gt;.jvm_opts.memory</span></code> du fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/jvm_opts.yml</span></code>.</p>
+<p>De même, pour la base mongo-vitamui, une limitation de <code class="docutils literal notranslate"><span class="pre">mongod_memory=1</span></code> est suffisant vu la quantité de données stockée dans cette base (sans cette limitation, par défaut, la base mongo-vitamui consommera la moitié de la RAM disponible).</p>
+<p>Ainsi, on peut envisager la répartition suivante tout en assurant un minimum de redondances des composants:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Server</p></th>
+<th class="head text-center"><p>VCPUs</p></th>
+<th class="head text-center"><p>RAM</p></th>
+<th class="head"><p>Composants</p></th>
+<th class="head text-center"><p>Total RAM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UI-1</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>4</p></td>
+<td><p>ReverseProxy<br/>  Tous les composants UIs</p></td>
+<td class="text-center"><p>&lt; 1Go</p></td>
+</tr>
+<tr class="row-odd"><td><p>UI-2</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>4</p></td>
+<td><p>ReverseProxy<br/>  Tous les composants UIs</p></td>
+<td class="text-center"><p>&lt; 1Go</p></td>
+</tr>
+<tr class="row-even"><td><p>APP-1</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>8</p></td>
+<td><p>mongo-vitamui (1G)<br/>api-gateway (128m – 512m)<br/>iam (128m – 512m)<br/>ingest (128m – 512m)<br/>referential (128m – 512m)<br/>archive_search (128m – 512m)<br/>pastis (128m – 512m)</p></td>
+<td class="text-center"><p>&lt; 4Go</p></td>
+</tr>
+<tr class="row-odd"><td><p>APP-2</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>8</p></td>
+<td><p>mongo-vitamui (1G)<br/>api-gateway (128m – 512m)<br/>iam (128m – 512m)<br/>ingest (128m – 512m)<br/>collect (128m – 512m)<br/>referential (128m – 512m)<br/>security (128m – 512m)</p></td>
+<td class="text-center"><p>&lt; 4Go</p></td>
+</tr>
+<tr class="row-even"><td><p>APP-3</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>8</p></td>
+<td><p>mongo-vitamui (1G)<br/>cas-server (128m – 512m)<br/>collect (128m – 512m)<br/>pastis (128m – 512m)<br/>archive_search (128m – 512m)<br/>security (128m – 512m)</p></td>
+<td class="text-center"><p>&lt; 4Go</p></td>
+</tr>
+</tbody>
+</table>
+<p>Les composants suivants sont optionnels:</p>
+<ul class="simple">
+<li><p>consul</p></li>
+<li><p>logstash</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="procedure.html" class="btn btn-neutral float-right" title="3. Procédure de déploiement de VitamUI" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2021, Programme Vitam.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

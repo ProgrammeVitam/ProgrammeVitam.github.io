@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Gestion du système &mdash; Vitam-UI documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="4. Implémentation" href="implementation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+            <a href="../index.html">
+            <img src="../_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro_objectifs.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orientations_techniques.html">2. Orientations techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">3. Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">4. Implémentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Gestion du système</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chaine-de-deploiement">5.1. Chaîne de déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#packaging">5.1.1. Packaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#depots">5.1.2. Dépôts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#principes-de-deploiement">5.1.3. Principes de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cloisonnement">5.2. Cloisonnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logs-techniques">5.3. Logs techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supervision">5.4. Supervision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metriques">5.5. Métriques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pra">5.6. PRA</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Vitam-UI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>Gestion du système</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sections/gestion.md.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="gestion-du-systeme">
+<h1><span class="section-number">5. </span>Gestion du système<a class="headerlink" href="#gestion-du-systeme" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="chaine-de-deploiement">
+<h2><span class="section-number">5.1. </span>Chaîne de déploiement<a class="headerlink" href="#chaine-de-deploiement" title="Lien permanent vers cette rubrique"></a></h2>
+<ul class="simple">
+<li><p>Les composants de la solution VITAMUI sont installés et configurés par un outil de déploiement automatique (ansible) dans des systèmes d’exploitation cibles (VM, container..).</p></li>
+<li><p>La procédure d’installation et de configuration se fait à travers un ensemble de scripts dont le code source est stocké dans le repository GIT.</p></li>
+<li><p>L’outil de déploiement (yum) utilise exclusivement les dépôts de packages pour installer les logiciels, afin de se décharger des étapes d’installation des dépendances et de la gestion de conflit de fichiers.</p></li>
+</ul>
+<p>Schéma du processus de déploiement</p>
+<p><img alt="Processus de déploiement" src="../_images/dat_chaine_deploiement.png" /></p>
+<section id="packaging">
+<h3><span class="section-number">5.1.1. </span>Packaging<a class="headerlink" href="#packaging" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Les packages VITAMUI sont disponibles au format RPM (CentOS) et DEB (Debian).</p>
+<p>Chaque package respecte les principes suivants :</p>
+<ul class="simple">
+<li><p>Nom des packages : <code class="docutils literal notranslate"><span class="pre">vitamui-&lt;id&gt;</span></code> du package</p></li>
+<li><p>Version du package : Numéro de “release” du projet</p></li>
+<li><p>Les dossiers (ainsi que les droits associés) compris dans les packages respectent les principes dictés dans la section dédiée aux utilisateurs, dossiers et droits.</p></li>
+<li><p>Les fichiers de configuration sont gérés par l’outil de déploiement de manière externe aux packages et ne sont pas inclus dans les packages.</p></li>
+</ul>
+<p>Les composants de la solution VITAMUI sont tous disponibles sous forme de packages natif aux distributions supportées (rpm pour CentOS 7). Ceci inclut notamment :</p>
+<ul class="simple">
+<li><p>L’usage des pré-requis (au sens Require ou Depends) nativement inclus dans la distribution concernée</p></li>
+<li><p>L’arborescence des répertoires OS de la distribution concernée</p></li>
+<li><p>L’usage du système de démarrage systemd.</p></li>
+</ul>
+<p>Les packages ne contiennent pas de pré/post action d’arrêt/démarrage/redémarrage de services. La gestion de démarrage des services et leur démarrage (a minima initial) est de la responsabilité de l’outillage de déploiement.</p>
+<p>Les fichiers de configuration ne sont pas gérés dans les packages RPM. Par conséquent, ils n’apparaissent pas dans le résultat de commandes telles que rpm -ql. Les fichiers de configuration sont instanciés par l’outil de déploiement. Pour éviter la génération de fichier .rpmnew ou .rpmsave, il n’est pas utilisé la directive %config.</p>
+<p>Les limitations associés au format de packaging choisi sont :</p>
+<ul class="simple">
+<li><p>L’instanciation d’une seule instance d’un même moteur par machine (il n’est ainsi pas possible d’installer 2 moteurs d’exécution sur le même OS) ;</p></li>
+<li><p>La redondance de certains contenus dans les packages (ex: les librairies Java sont embarquées dans les packages, et non tirées dans les dépendances de package)</p></li>
+</ul>
+</section>
+<section id="depots">
+<h3><span class="section-number">5.1.2. </span>Dépôts<a class="headerlink" href="#depots" title="Lien permanent vers cette rubrique"></a></h3>
+<p>L’installation de VITAMUI s’appuie sur des dépôts Nexus et dans le Repository RPM; ou tout autre repository mis en oeuvre suite au build.  Il est également possible de déployer VITAMUI en générant des dépôts locaux sur les machines cibles.</p>
+</section>
+<section id="principes-de-deploiement">
+<h3><span class="section-number">5.1.3. </span>Principes de déploiement<a class="headerlink" href="#principes-de-deploiement" title="Lien permanent vers cette rubrique"></a></h3>
+<p>Les principes généraux de déploiement sont les suivants :</p>
+<ul class="simple">
+<li><p>Les packages d’installation (rpm/deb) sont identiques pour tous les environnements. Seule leur configuration change.</p></li>
+<li><p>La configuration des services est externalisée et gérée par l’outillage de déploiement.</p></li>
+<li><p>Le déploiement est décrit intégralement dans un fichier de définition du déploiement. En dehors des pré-requis, le déploiement initial est automatisé en totalité (sauf exception).</p></li>
+<li><p>Les services sont configurés par défaut pour permettre leur colocalisation (dans le sens de la colocalisation de deux instances de deux moteurs différents) (ex: dossiers d’installation / de fonctionnement différents, ports d’écoute différents, …).</p></li>
+<li><p>Le déploiement s’effectue à partir d’un point central. Les commandes passées sur chaque serveur à partir de ce point central utilisent le protocole SSH.</p></li>
+</ul>
+<p>Le service de déploiement fourni permet le déploiement de la solution VITAMUI.</p>
+<ul class="simple">
+<li><p>Gestion des binaires d’installations (version, intégrité)</p></li>
+<li><p>Gestion des éléments de configuration spécifiques à chaque plate-forme</p></li>
+<li><p>Pilotage de l’installation des services sur les éléments d’infrastructure (VM/containers) de manière cohérente</p></li>
+</ul>
+<p>Données gérées :</p>
+<ul class="simple">
+<li><p>Configuration technique du système VITAMUI</p></li>
+<li><p>Certificats x509 : le moteur de déploiement et de configuration doit posséder la référence des certificats techniques déployés sur la plate-forme (car il doit entre autres assurer la cohérence de ces certificats entre les différentes instances des composants VITAMUI déployés)</p></li>
+</ul>
+</section>
+</section>
+<section id="cloisonnement">
+<h2><span class="section-number">5.2. </span>Cloisonnement<a class="headerlink" href="#cloisonnement" title="Lien permanent vers cette rubrique"></a></h2>
+<p>TODO</p>
+</section>
+<section id="logs-techniques">
+<h2><span class="section-number">5.3. </span>Logs techniques<a class="headerlink" href="#logs-techniques" title="Lien permanent vers cette rubrique"></a></h2>
+<p>La gestion des logs techniques dans VITAMUI est similaire à celle de VITAM. Pour une description complète du fonctionnement des  logs et d’ELK, il est possible de se référer à la documentation VITAM.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.programmevitam.fr/ressources/DocCourante/html/archi/archi-exploit-infra/05-logs-architecture.html">Doc VITAM : Chaîne de log - rsyslog / ELK</a></p></li>
+</ul>
+</section>
+<section id="supervision">
+<h2><span class="section-number">5.4. </span>Supervision<a class="headerlink" href="#supervision" title="Lien permanent vers cette rubrique"></a></h2>
+<p>TODO</p>
+</section>
+<section id="metriques">
+<h2><span class="section-number">5.5. </span>Métriques<a class="headerlink" href="#metriques" title="Lien permanent vers cette rubrique"></a></h2>
+<p>TODO</p>
+</section>
+<section id="pra">
+<h2><span class="section-number">5.6. </span>PRA<a class="headerlink" href="#pra" title="Lien permanent vers cette rubrique"></a></h2>
+<p>TODO</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="implementation.html" class="btn btn-neutral float-left" title="4. Implémentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Programme Vitam.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -119,23 +119,21 @@ Documentation générale
 ### Documentation développeur
 
 * **Javadoc** ([html](/ressources/Doc8.1/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc8.1/pdf/vitam-manuel-integration.8.1.0.pdf) \| [html](/ressources/Doc8.1/html/manuel-integration))
+* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/Doc8.1/pdf/vitam-manuel-integration.8.1.0.pdf)
 * **Modèle de données** - description des collections et des champs standards  
 ([html](https://www.programmevitam.fr/vitam-doc/fr/master_8.1.x/sections/modele_de_donnees.html))
-* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/Doc8.1/raml/externe))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc8.1/pdf/vitam-manuel-developpement.8.1.0.pdf)
-\| [html](/ressources/Doc8.1/html/manuel-dev))
 
-* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/Doc8.1/raml/interne))
+* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/Doc8.1/pdf/vitam-manuel-developpement.8.1.0.pdf)
+
 
 ### Documentation technique
 
 
-* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc8.1/pdf/vitam-architecture.8.1.0.pdf) \| [html](/ressources/Doc8.1/html/archi))  
+* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/Doc8.1/pdf/vitam-architecture.8.1.0.pdf)
 
-* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/Doc8.1/pdf/vitam-documentation-installation.8.1.0.pdf) \| [html](/ressources/Doc8.1/html/installation))
+* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/Doc8.1/pdf/vitam-documentation-installation.8.1.0.pdf)
 
-* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/Doc8.1/pdf/vitam-documentation-exploitation.8.1.0.pdf) \| [html](/ressources/Doc8.1/html/exploitation))  
+* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/Doc8.1/pdf/vitam-documentation-exploitation.8.1.0.pdf) 
 
 * **Vitam UI : dossier d'architecture technique** (DAT) ([html](/ressources/Doc8.1/html/architecture_VitamUI))
 
@@ -143,7 +141,7 @@ Documentation générale
 
 * **Vitam UI : dossier d'exploitation** ([html](/ressources/Doc8.1/html/exploitation_VitamUI))  
 
-* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/Doc8.1/pdf/vitam-documentation-migration.8.1.0.pdf) \| [html](/ressources/Doc8.1/html/migration))  
+* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/Doc8.1/pdf/vitam-documentation-migration.8.1.0.pdf) 
 
 * **Documentation de montées de version Vitam UI** (DMV) ([html](/ressources/Doc8.1/html/migration_VitamUI))  
 

@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<rng:grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:seda="fr:gouv:culture:archivesdefrance:seda:v2.3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="fr:gouv:culture:archivesdefrance:seda:v2.3" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="fr:gouv:culture:archivesdefrance:seda:v2.3" seda:warnings="">
+  <rng:start>
+    <rng:element name="ArchiveTransfer">
+      <rng:zeroOrMore>
+        <rng:attribute>
+          <rng:anyName>
+            <rng:except>
+              <rng:nsName/>
+              <rng:nsName ns=""/>
+            </rng:except>
+          </rng:anyName>
+        </rng:attribute>
+      </rng:zeroOrMore>
+      <rng:optional>
+        <rng:attribute name="id">
+          <rng:data type="ID"/>
+        </rng:attribute>
+      </rng:optional>
+      <rng:optional>
+        <rng:element name="Comment">
+          <rng:data type="string"/>
+        </rng:element>
+      </rng:optional>
+      <rng:element name="Date">
+        <rng:data type="dateTime"/>
+      </rng:element>
+      <rng:element name="MessageIdentifier">
+        <rng:data type="string"/>
+      </rng:element>
+      <rng:element name="ArchivalAgreement">
+        <rng:data type="token"/>
+      </rng:element>
+      <rng:element name="CodeListVersions">
+        <rng:optional>
+          <rng:element name="ReplyCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="MessageDigestAlgorithmCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="MimeTypeCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="EncodingCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="FileFormatCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="CompressionAlgorithmCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="DataObjectVersionCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="StorageRuleCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="AppraisalRuleCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="AccessRuleCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="DisseminationRuleCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="ReuseRuleCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="ClassificationRuleCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="AuthorizationReasonCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+        <rng:optional>
+          <rng:element name="RelationshipCodeListVersion">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:optional>
+      </rng:element>
+      <rng:element name="DataObjectPackage">
+        <rng:optional>
+          <rng:attribute name="id">
+            <rng:data type="ID"/>
+          </rng:attribute>
+        </rng:optional>
+        <rng:zeroOrMore>
+          <rng:choice>
+            <rng:element name="DataObjectGroup">
+              <rng:attribute name="id">
+                <rng:data type="ID"/>
+              </rng:attribute>
+              <rng:element name="BinaryDataObject">
+                <xsd:annotation>
+                  <xsd:documentation>Binaire ZIP (4 étiquettes/1 binaire)</xsd:documentation>
+                </xsd:annotation>
+                <rng:attribute name="id">
+                  <rng:data type="ID"/>
+                </rng:attribute>
+                <rng:element name="DataObjectVersion">
+                  <rng:data type="token"/>
+                </rng:element>
+                <rng:choice>
+                  <rng:element name="Uri">
+                    <rng:data type="anyURI"/>
+                  </rng:element>
+                </rng:choice>
+                <rng:optional>
+                  <rng:element name="MessageDigest">
+                    <rng:choice>
+                      <rng:data type="base64Binary"/>
+                      <rng:data type="hexBinary"/>
+                    </rng:choice>
+                    <rng:attribute name="algorithm">
+                      <rng:value type="token">SHA-512</rng:value>
+                    </rng:attribute>
+                  </rng:element>
+                </rng:optional>
+                <rng:element name="Size">
+                  <rng:data type="positiveInteger"/>
+                </rng:element>
+                <rng:optional>
+                  <rng:element name="FormatIdentification">
+                    <rng:element name="FormatLitteral">
+                      <rng:data type="string"/>
+                    </rng:element>
+                    <rng:optional>
+                      <rng:element name="MimeType">
+                        <rng:data type="token"/>
+                      </rng:element>
+                    </rng:optional>
+                    <rng:optional>
+                      <rng:element name="FormatId">
+                        <rng:data type="token"/>
+                      </rng:element>
+                    </rng:optional>
+                  </rng:element>
+                </rng:optional>
+                <rng:element name="FileInfo">
+                  <rng:element name="Filename">
+                    <rng:data type="string"/>
+                  </rng:element>
+                  <rng:element name="LastModified">
+                    <rng:data type="dateTime"/>
+                  </rng:element>
+                </rng:element>
+              </rng:element>
+            </rng:element>
+          </rng:choice>
+        </rng:zeroOrMore>
+        <rng:element name="DescriptiveMetadata">
+          <rng:element name="ArchiveUnit">
+            <rng:attribute name="id">
+              <rng:data type="ID"/>
+            </rng:attribute>
+            <rng:choice>
+              <rng:group>
+                <rng:element name="Content">
+                  <rng:element name="DescriptionLevel">
+                    <rng:value type="token">Item</rng:value>
+                  </rng:element>
+                  <rng:element name="Title">
+                    <rng:data type="string"/>
+                  </rng:element>
+                  <rng:element name="Description">
+                    <rng:data type="string"/>
+                  </rng:element>
+                  <rng:element name="SigningInformation">
+                    <rng:element name="SigningRole">
+                      <rng:value type="token">SignedDocument</rng:value>
+                    </rng:element>
+                    <rng:element name="SigningRole">
+                      <rng:value type="token">Signature</rng:value>
+                    </rng:element>
+                    <rng:element name="SigningRole">
+                      <rng:value type="token">Timestamp</rng:value>
+                    </rng:element>
+                    <rng:element name="SigningRole">
+                      <rng:value type="token">AdditionalProof</rng:value>
+                    </rng:element>
+                    <rng:element name="SignatureDescription">
+                      <rng:element name="Signer">
+                        <rng:element name="FullName">
+                          <rng:data type="token"/>
+                        </rng:element>
+                        <rng:element name="SigningTime">
+                          <rng:data type="dateTime"/>
+                        </rng:element>
+                      </rng:element>
+                    </rng:element>
+                    <rng:element name="TimestampingInformation">
+                      <rng:element name="TimeStamp">
+                        <rng:data type="dateTime"/>
+                      </rng:element>
+                    </rng:element>
+                    <rng:element name="AdditionalProof">
+                      <rng:oneOrMore>
+                      <rng:element name="AdditionalProofInformation">
+                        <rng:data type="token"/>
+                      </rng:element>
+                      </rng:oneOrMore>
+                    </rng:element>
+                  </rng:element>
+                </rng:element>
+                <rng:element name="DataObjectReference">
+                  <rng:optional>
+                    <rng:attribute name="id">
+                      <rng:data type="ID"/>
+                    </rng:attribute>
+                  </rng:optional>
+                  <rng:element name="DataObjectGroupReferenceId" a:defaultValue="gid2710482">
+                    <rng:data type="NCName"/>
+                  </rng:element>
+                </rng:element>
+              </rng:group>
+            </rng:choice>
+          </rng:element>
+        </rng:element>
+        <rng:element name="ManagementMetadata">
+          <rng:optional>
+            <rng:attribute name="id">
+              <rng:data type="token"/>
+            </rng:attribute>
+          </rng:optional>
+          <rng:optional>
+          <rng:element name="ArchivalProfile">
+            <rng:data type="token"/>
+          </rng:element>
+          </rng:optional>
+          <rng:optional>
+            <rng:element name="AcquisitionInformation">
+              <rng:data type="token"/>
+            </rng:element>
+          </rng:optional>
+          <rng:optional>
+            <rng:element name="LegalStatus">
+              <rng:data type="token"/>
+            </rng:element>
+          </rng:optional>
+          <rng:element name="OriginatingAgencyIdentifier">
+            <rng:data type="token"/>
+          </rng:element>
+          <rng:element name="SubmissionAgencyIdentifier">
+            <rng:data type="token"/>
+          </rng:element>
+        </rng:element>
+      </rng:element>
+      <rng:optional>
+        <rng:element name="TransferRequestReplyIdentifier">
+          <rng:data type="token"/>
+        </rng:element>
+      </rng:optional>
+      <rng:element name="ArchivalAgency">
+        <rng:element name="Identifier">
+          <rng:data type="token"/>
+        </rng:element>
+      </rng:element>
+      <rng:element name="TransferringAgency">
+        <rng:element name="Identifier">
+          <rng:data type="token"/>
+        </rng:element>
+      </rng:element>
+    </rng:element>
+  </rng:start>
+  <rng:define name="OpenType">
+    <rng:zeroOrMore>
+      <rng:element>
+        <rng:anyName/>
+        <rng:zeroOrMore>
+          <rng:attribute>
+            <rng:anyName/>
+          </rng:attribute>
+        </rng:zeroOrMore>
+      </rng:element>
+    </rng:zeroOrMore>
+  </rng:define>
+</rng:grammar>

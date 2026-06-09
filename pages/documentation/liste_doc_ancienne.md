@@ -6,6 +6,7 @@ title: Anciennes documentations
 > Est ici présentée la documentation des anciennes versions. 
 Elle couvre à la fois les sujets métiers, d'architecture, ainsi que la documentation de développement.
 
+* [Version 9.0](.liste_doc_ancienne_v9.0.md)
 * [Version 8.1](./liste_doc_ancienne_v8.1.md)
 * [Version 8.0](./liste_doc_ancienne_v8.0.md)
 * [Version 7.1](./liste_doc_ancienne_v7.1.md)
