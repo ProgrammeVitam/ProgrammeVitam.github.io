@@ -12,6 +12,10 @@ Actuellement, 2 versions de la solution logicielle Vitam sont livrées chaque an
 Les 2 versions sont homologuées.
 
 * [Solution logicielle Vitam - toutes versions publiées](#touteversion)
+* [Version 7.1](./version_7_1.md)
+* [Version 7.0](./version_7_0.md)
+* [Version 6](./version_6.md)
+* [Version 6.RC](./version_6_RC_1.md)
 * [Version 5](#version5)
 * [Version 5.RC](#version5RC)
 * [Version 4](#version4)
