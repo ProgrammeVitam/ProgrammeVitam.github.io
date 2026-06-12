@@ -54,11 +54,12 @@ Liens de téléchargement pour les partenaires :  [**version 9.0.1**](https://re
 
 Elle est accessible, en partie sur GitHub pour les documents en forme brute RST, mais aussi directement sous forme PDF et/ou HTML sur la page [Documentation](/pages/documentation).
 
-#### La release note
+#### Les changelogs
 
-- la [release note de la version 9.0.0](/ressources/RefCourant/Release notes9.0_v1.0.pdf)
 - le [change-log du back-office](/ressources/RefCourant/Vitam-changelog.9.0.1.pdf)
 - le [change-log du front-office](/ressources/RefCourant/Vitamui-changelog.9.0.1.pdf)
+- pour rappel, la [release note de la version 9.0.0](/ressources/RefCourant/Release notes9.0_v1.0.pdf)
+
 
 <a name="900"></a>
 ### La version 9.0.0 - janvier 2026
