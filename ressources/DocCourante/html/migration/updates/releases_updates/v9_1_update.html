@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3.12. Notes et procédures spécifiques V9.1 &mdash; Documentation VITAM - Documentation de montées de version 9.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="4.3.13. Migration d’un vitam legacy vers un vitam conteneurisé" href="migration_container.html" />
+    <link rel="prev" title="4.3.11. Notes et procédures spécifiques V9.0" href="v9_0_update.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VITAM - Documentation de montées de version
+              <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                9.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html#rappels">2. Rappels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generalites.html">3. Généralités sur les versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../_toc.html">4. Montées de version</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../principles.html">4.1. Principes généraux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bugfixes_updates/_toc.html">4.2. Montées de version <em>bugfix</em></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">4.3. Montées de version majeures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="r13_update.html">4.3.1. Notes et procédures spécifiques R13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r16_update.html">4.3.2. Notes et procédures spécifiques R16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v5rc_update.html">4.3.3. Notes et procédures spécifiques V5RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v5_update.html">4.3.4. Notes et procédures spécifiques V5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6rc_update.html">4.3.5. Notes et procédures spécifiques V6RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6_update.html">4.3.6. Notes et procédures spécifiques V6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.3.7. Notes et procédures spécifiques V7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v7_1_update.html">4.3.8. Notes et procédures spécifiques V7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v8_0_update.html">4.3.9. Notes et procédures spécifiques V8.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v8_1_update.html">4.3.10. Notes et procédures spécifiques V8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v9_0_update.html">4.3.11. Notes et procédures spécifiques V9.0</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.12. Notes et procédures spécifiques V9.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">4.3.12.1. Adaptation des sources de déploiement ansible</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">4.3.12.2. Procédures à exécuter AVANT la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-de-la-montee-de-version">4.3.12.3. Application de la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.12.4. Procédures à exécuter APRÈS la montée de version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.13. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VITAM - Documentation de montées de version</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../_toc.html">4. Montées de version</a></li>
+          <li class="breadcrumb-item"><a href="_toc.html">4.3. Montées de version majeures</a></li>
+      <li class="breadcrumb-item active">4.3.12. Notes et procédures spécifiques V9.1</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/updates/releases_updates/v9_1_update.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="notes-et-procedures-specifiques-v9-1">
+<h1>4.3.12. Notes et procédures spécifiques V9.1<a class="headerlink" href="#notes-et-procedures-specifiques-v9-1" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Veuillez appliquer les procédures spécifiques à chacune des versions précédentes en fonction de la version de départ selon la suite suivante: V7.1 -&gt; V8.0 -&gt; V8.1 -&gt; V9.0 -&gt; V9.1</p>
+</div>
+<div class="section" id="adaptation-des-sources-de-deploiement-ansible">
+<h2>4.3.12.1. Adaptation des sources de déploiement ansible<a class="headerlink" href="#adaptation-des-sources-de-deploiement-ansible" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="renommage-de-variables-pour-mise-en-coherence-des-noms-et-groupes">
+<h3>4.3.12.1.1. Renommage de variables pour mise en cohérence des noms et groupes<a class="headerlink" href="#renommage-de-variables-pour-mise-en-coherence-des-noms-et-groupes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Afin de faciliter la maintenance et les évolutions autour de l’ansiblerie, certaines variables et groupes d’hôtes ont étés renommés pour correspondre à la convention de nommage établie.</p>
+<p>Les variables de configuration suivantes ont étés renommées ainsi:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam</span><span class="p">:</span>
+  <span class="nt">accessexternal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; access_external</span>
+  <span class="nt">accessinternal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; access_internal</span>
+  <span class="nt">batchreport</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; batch_report</span>
+  <span class="nt">ingestexternal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; ingest_external</span>
+  <span class="nt">ingestinternal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; ingest_internal</span>
+  <span class="nt">elastickibanainterceptor</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; elastic_kibana_interceptor</span>
+  <span class="nt">storageengine</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; storage</span>
+  <span class="nt">storageofferdefault</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; offer</span>
+</pre></div>
+</div>
+<p>Les groupes d’hôtes suivants du fichier d’inventaire ont étés renommés ainsi:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[hosts_storage_engine] -&gt; [hosts_storage]</span>
+<span class="k">[hosts_storage_offer_default] -&gt; [hosts_offer]</span>
+</pre></div>
+</div>
+<p>Ces modifications sont à reporter dans vos configurations, vous pouvez effectuer cette opération en exécutant les commandes sed suivantes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;s/accessexternal/access_external/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/accessinternal/access_internal/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/batchreport/batch_report/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/ingestexternal/ingest_external/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/ingestinternal/ingest_internal/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/elastickibanainterceptor/elastic_kibana_interceptor/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/storageengine/storage/g&#39;</span> environments/group_vars/all/*/*.yml
+sed -i <span class="s1">&#39;s/storageofferdefault/offer/g&#39;</span> environments/group_vars/all/*/*.yml
+
+sed -i <span class="s1">&#39;s/hosts_storage_engine/hosts_storage/g&#39;</span> environments/&lt;inventaire&gt;
+sed -i <span class="s1">&#39;s/hosts_storage_offer_default/hosts_offer/g&#39;</span> environments/&lt;inventaire&gt;
+</pre></div>
+</div>
+<p>Pour information, le playbook <code class="docutils literal notranslate"><span class="pre">ansible-vitam/services/vitam/storage-engine.yml</span></code> a été renommé en <code class="docutils literal notranslate"><span class="pre">ansible-vitam/services/vitam/storage.yml</span></code>.</p>
+</div>
+<div class="section" id="configuration-du-nombre-de-shards-replicas-pour-chaque-indices-elasticsearch-log">
+<h3>4.3.12.1.2. Configuration du nombre de shards/replicas pour chaque indices elasticsearch-log<a class="headerlink" href="#configuration-du-nombre-de-shards-replicas-pour-chaque-indices-elasticsearch-log" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ces modifications impliquent des changements de la configuration Ansible associée aux indices pour plus de cohérence avec les autres variables de configuration.</p>
+<p>Ainsi, les clés de configurations suivantes ont étés retirées:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">kibana.log.metrics.replica</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kibana.log.metrics.shards</span></code></li>
+</ul>
+<p>Elles ont étés remplacées par ces variables spécifiques pour chacun de vos indices:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">elasticsearch</span><span class="p">:</span>
+  <span class="nt">log</span><span class="p">:</span>
+    <span class="nt">indices</span><span class="p">:</span>
+      <span class="nt">default_config</span><span class="p">:</span> <span class="c1"># Default configuration if others indices are undefined</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">vitam</span><span class="p">:</span> <span class="c1"># Configuration for indexes logstash-vitam-*</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">access</span><span class="p">:</span> <span class="c1"># Configuration for indexes logstash-access-*</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Si aucune valeur pour les indices <code class="docutils literal notranslate"><span class="pre">vitam</span></code> ou <code class="docutils literal notranslate"><span class="pre">access</span></code> n’est spécifiée, c’est la configuration <code class="docutils literal notranslate"><span class="pre">default_config</span></code> qui sera appliquée.</li>
+<li>Si la configuration <code class="docutils literal notranslate"><span class="pre">default_config</span></code> n’est pas spécifiée, les valeurs par défaut sont <code class="docutils literal notranslate"><span class="pre">shards:</span> <span class="pre">1</span></code> et <code class="docutils literal notranslate"><span class="pre">replicas:</span> <span class="pre">1</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-avant-la-montee-de-version">
+<h2>4.3.12.2. Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="arret-des-timers-et-des-acces-externes-a-vitam">
+<h3>4.3.12.2.1. Arrêt des timers et des accès externes à Vitam<a class="headerlink" href="#arret-des-timers-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V9.1</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiement de l’ancienne version.</p>
+</div>
+<p>Les timers et les externals de Vitam doivent être arrêtés sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_external.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduling.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="mise-a-jour-des-depots-yum-apt">
+<h3>4.3.12.2.2. Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version</p>
+</div>
+<p>Afin de pouvoir déployer la nouvelle version, vous devez mettre à jour la variable <code class="docutils literal notranslate"><span class="pre">vitam_repositories</span></code> sous <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/main/repositories.yml</span></code> afin de renseigner les dépôts à la version cible.</p>
+<p>Pour le dépôt vitam-external, vous devez renseigner la version adaptée à votre système d’exploitation (par exemple pour la version 9.1.0):</p>
+<ul class="simple">
+<li>AlmaLinux 9: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/9.1.0/rpm/vitam-external/9/">https://download.programmevitam.fr/vitam_repository/9.1.0/rpm/vitam-external/9/</a></li>
+<li>Debian 12: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/9.1.0/deb/vitam-external/12/">https://download.programmevitam.fr/vitam_repository/9.1.0/deb/vitam-external/12/</a></li>
+</ul>
+<p>Puis exécutez le playbook suivant <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/bootstrap.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="mise-a-jour-intermediaire-des-clusters-elasticsearch">
+<h3>4.3.12.2.3. Mise à jour intermédiaire des clusters ElasticSearch<a class="headerlink" href="#mise-a-jour-intermediaire-des-clusters-elasticsearch" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V9.1</p>
+</div>
+<p>Cette procédure permet de faire le saut intermédiaire entre les versions 7 et 8 des clusters ElasticSearch (data &amp; log).</p>
+<p>Le saut final vers la version 9 d’ElasticSearch sera effectué lors de la mise à jour de Vitam via l’exécution du master playbook <code class="docutils literal notranslate"><span class="pre">ansible-vitam/vitam.yml</span></code>.</p>
+<p>Exécutez les playbooks suivants sur <strong>tous les sites</strong> pour mettre à jour vos clusters ElasticSearch vers la version intermédiaire 8.19.8 :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/services/cots/elasticsearch_log.yml --ask-vault-pass -e <span class="s2">&quot;elasticsearch_version=8.19.8&quot;</span>
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/services/cots/elasticsearch_data.yml --ask-vault-pass -e <span class="s2">&quot;elasticsearch_version=8.19.8&quot;</span>
+</pre></div>
+</div>
+<p>Attention, à partir de cette étape, il va falloir s’assurer que l’ensemble des indexes présents sur les clusters ElasticSearch (data &amp; log) sont compatibles avec la version 9 d’ElasticSearch avant de poursuivre la procédure de montée de version. Les indexes incompatibles sont ceux créés avec une version antérieure à la version 8.x d’ElasticSearch.</p>
+<div class="section" id="pour-elasticsearch-log">
+<h4>4.3.12.2.3.1. Pour ElasticSearch-Log<a class="headerlink" href="#pour-elasticsearch-log" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/check_incompatible_elasticsearch_v9_indices.yml --ask-vault-pass -t elasticsearch_log
+</pre></div>
+</div>
+<p>Vous pouvez aussi vérifier la compatibilité via Kibana-Log:</p>
+<ul class="simple">
+<li>Accédez à la section <code class="docutils literal notranslate"><span class="pre">Management</span> <span class="pre">&gt;</span> <span class="pre">Stack</span> <span class="pre">Management</span> <span class="pre">&gt;</span> <span class="pre">Stack</span> <span class="pre">&gt;</span> <span class="pre">Upgrade</span> <span class="pre">Assistant</span></code></li>
+<li>Vérifiez que les indexes ne sont pas marqués comme <code class="docutils literal notranslate"><span class="pre">Incompatible</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">current</span> <span class="pre">version</span> <span class="pre">of</span> <span class="pre">Elasticsearch</span></code></li>
+</ul>
+<p>Si des indexes incompatibles sont détectés, soit vous procédez à la migration des données à l’aide de la procédure dédiée, sinon, si les données ne sont pas critiques, vous pouvez les supprimer en ajoutant les paramètres <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">delete_incompatible_indices=true</span> <span class="pre">--tags</span> <span class="pre">elasticsearch_log</span></code> au playbook de détection.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération supprimera définitivement les indexes concernés. Assurez-vous d’avoir sauvegardé ou réindexé l’ensemble des données nécessaires avant de poursuivre.</p>
+</div>
+</div>
+<div class="section" id="pour-elasticsearch-data">
+<h4>4.3.12.2.3.2. Pour ElasticSearch-Data<a class="headerlink" href="#pour-elasticsearch-data" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/check_incompatible_elasticsearch_v9_indices.yml --ask-vault-pass -t elasticsearch_data
+</pre></div>
+</div>
+<p>Si des indexes incompatibles sont détectés, vous devez procéder à la réindexation de ces indexes. Pour cela, exécutez le playbook de réindexation :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/reindex_es_data.yml --ask-vault-pass
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si seulement une sous-partie des indexes est incompatible avec la nouvelle version d’ElasticSearch, il ne sera pas nécessaire de réindexer l’ensemble des données. Dans ce cas, référez-vous à la documentation d’exploitation sur la réindexation <span class="xref std std-ref">reindexation_es</span> pour cibler uniquement les indexes concernés.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p>Durant la réindexation, les tâches planifiées et les accès externes à Vitam doivent être arrêtés.</p>
+<p class="last">Cette opération peut prendre plusieurs heures en fonction de la quantité de données à réindexer. Si la durée de réindexation est trop longue pour votre production, veuillez vous référer à la procédure de migration de données Vitam vers un nouveau cluster ElasticSearch tampon.</p>
+</div>
+<p>À l’issue de la réindexation, vous pouvez réexécuter le playbook de détection avec les paramètres <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">delete_incompatible_indices=true</span> <span class="pre">--tags</span> <span class="pre">elasticsearch_data</span></code> afin de supprimer les indexes incompatibles restants.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération supprimera définitivement les indexes concernés. Assurez-vous d’avoir sauvegardé ou réindexé l’ensemble des données nécessaires avant de poursuivre.</p>
+</div>
+</div>
+</div>
+<div class="section" id="mise-a-jour-de-mongodb-8-0-23">
+<h3>4.3.12.2.4. Mise à jour de MongoDB 8.0.23<a class="headerlink" href="#mise-a-jour-de-mongodb-8-0-23" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last"><strong>Attention</strong>
+Cette opération doit être effectuée après avoir mis à jour les dépôts Vitam en V9.1.
+Cette opération est à effectuer si vous venez des versions de Vitam suivante: V8.1.2- ou V9.0.0.
+Il est recommandé d’effectuer un backup des bases de données à l’aide de mongodump avant de poursuivre.</p>
+</div>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V9.1 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_mongodb_80.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="arret-complet-de-vitam">
+<h3>4.3.12.2.5. Arrêt complet de Vitam<a class="headerlink" href="#arret-complet-de-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V9.1</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiement de l’ancienne version.</p>
+</div>
+<p>Vitam doit être arrêté sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="application-de-la-montee-de-version">
+<h2>4.3.12.3. Application de la montée de version<a class="headerlink" href="#application-de-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L’application de la montée de version s’effectue d’abord sur les sites secondaires puis sur le site primaire.</p>
+</div>
+<div class="section" id="lancement-du-master-playbook-vitam">
+<h3>4.3.12.3.1. Lancement du master playbook vitam<a class="headerlink" href="#lancement-du-master-playbook-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancement-du-master-playbook-extra">
+<h3>4.3.12.3.2. Lancement du master playbook extra<a class="headerlink" href="#lancement-du-master-playbook-extra" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/extra.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-apres-la-montee-de-version">
+<h2>4.3.12.4. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="migration-des-mappings-elasticsearch-pour-les-metadonnees">
+<h3>4.3.12.4.1. Migration des mappings elasticsearch pour les métadonnées<a class="headerlink" href="#migration-des-mappings-elasticsearch-pour-les-metadonnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette migration de données consiste à mettre à jour le modèle d’indexation des métadonnées sur elasticsearch-data.</p>
+<p>Elle est réalisée en exécutant la procédure suivante sur <strong>tous les sites</strong> (primaire et secondaire(s)) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_elasticsearch_mapping.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="v9_0_update.html" class="btn btn-neutral float-left" title="4.3.11. Notes et procédures spécifiques V9.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="migration_container.html" class="btn btn-neutral float-right" title="4.3.13. Migration d’un vitam legacy vers un vitam conteneurisé" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Ce document est distribué sous les termes de la Licence Ouverte V2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
