@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.8. Notes et procédures spécifiques V7.1 &mdash; Documentation VITAM - Documentation de montées de version 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.2.8. Notes et procédures spécifiques V7.1 &mdash; Documentation VITAM - Documentation de montées de version 9.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -17,7 +17,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="4.3. Montées de version majeures" href="../releases_updates/_toc.html" />
+    <link rel="next" title="4.2.9. Notes et procédures spécifiques V8.0" href="v8_0_update.html" />
     <link rel="prev" title="4.2.7. Notes et procédures spécifiques V7.0" href="v7_0_update.html" /> 
 </head>
 
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -59,9 +59,13 @@
 <li class="toctree-l3"><a class="reference internal" href="v6_update.html">4.2.6. Notes et procédures spécifiques V6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v7_0_update.html">4.2.7. Notes et procédures spécifiques V7.0</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.8. Notes et procédures spécifiques V7.1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.2.8.1. Procédures à exécuter APRÈS la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">4.2.8.1. Procédures à exécuter AVANT la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.2.8.2. Procédures à exécuter APRÈS la montée de version</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="v8_0_update.html">4.2.9. Notes et procédures spécifiques V8.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v8_1_update.html">4.2.10. Notes et procédures spécifiques V8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v9_0_update.html">4.2.11. Notes et procédures spécifiques V9.0</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../releases_updates/_toc.html">4.3. Montées de version majeures</a></li>
@@ -97,10 +101,27 @@
              
   <div class="section" id="notes-et-procedures-specifiques-v7-1">
 <h1>4.2.8. Notes et procédures spécifiques V7.1<a class="headerlink" href="#notes-et-procedures-specifiques-v7-1" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="procedures-a-executer-avant-la-montee-de-version">
+<h2>4.2.8.1. Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="mise-a-jour-de-mongodb-vers-la-version-7-0-28">
+<h3>4.2.8.1.1. Mise à jour de MongoDB vers la version 7.0.28<a class="headerlink" href="#mise-a-jour-de-mongodb-vers-la-version-7-0-28" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last"><strong>Attention</strong>
+Cette opération doit être effectuée après avoir mis à jour les dépôts Vitam en V7.1.
+Cette opération est à effectuer si vous venez des versions de Vitam suivante: V7.1.4-.
+Il est recommandé d’effectuer un backup des bases de données à l’aide de mongodump avant de poursuivre.</p>
+</div>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V7.1 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_mongodb_70.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="procedures-a-executer-apres-la-montee-de-version">
-<h2>4.2.8.1. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>4.2.8.2. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="migration-unites-archivistiques-avec-demande-de-transfert-non-completee">
-<h3>4.2.8.1.1. Migration unités archivistiques avec demande de transfert non complétée<a class="headerlink" href="#migration-unites-archivistiques-avec-demande-de-transfert-non-completee" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.2.8.2.1. Migration unités archivistiques avec demande de transfert non complétée<a class="headerlink" href="#migration-unites-archivistiques-avec-demande-de-transfert-non-completee" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette migration permet de corriger des erreurs de sécurisation ou d’audit sur des unités archivistiques pour lesquelles une demande de transfert a été initiée, mais dont le transfert effectif n’a pas été finalisée.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
@@ -127,7 +148,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="v7_0_update.html" class="btn btn-neutral float-left" title="4.2.7. Notes et procédures spécifiques V7.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../releases_updates/_toc.html" class="btn btn-neutral float-right" title="4.3. Montées de version majeures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="v8_0_update.html" class="btn btn-neutral float-right" title="4.2.9. Notes et procédures spécifiques V8.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

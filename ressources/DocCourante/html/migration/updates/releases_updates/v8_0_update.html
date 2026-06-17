@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3.9. Notes et procédures spécifiques V8.0 &mdash; Documentation VITAM - Documentation de montées de version 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.9. Notes et procédures spécifiques V8.0 &mdash; Documentation VITAM - Documentation de montées de version 9.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -69,7 +69,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="v8_1_update.html">4.3.10. Notes et procédures spécifiques V8.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v9_0_update.html">4.3.11. Notes et procédures spécifiques V9.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v9_1_update.html">4.3.12. Notes et procédures spécifiques V9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.13. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
 </ul>
 </li>
 </ul>
@@ -218,8 +219,25 @@ password: admin1234</div></blockquote>
 </div>
 <div class="section" id="procedures-a-executer-avant-la-montee-de-version">
 <h2>4.3.9.2. Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="arret-des-timers-et-des-acces-externes-a-vitam">
+<h3>4.3.9.2.1. Arrêt des timers et des accès externes à Vitam<a class="headerlink" href="#arret-des-timers-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V8.0.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiements de l’ancienne version.</p>
+</div>
+<p>Les timers et les externals de Vitam doivent être arrêtés sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_external.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduling.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduler.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
 <div class="section" id="mise-a-jour-des-depots-yum-apt">
-<h3>4.3.9.2.1. Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.9.2.2. Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p class="last">Cette opération doit être effectuée AVANT la montée de version</p>
@@ -235,8 +253,22 @@ password: admin1234</div></blockquote>
 </pre></div>
 </div>
 </div>
+<div class="section" id="mise-a-jour-de-mongodb-7-0-28">
+<h3>4.3.9.2.3. Mise à jour de MongoDB 7.0.28<a class="headerlink" href="#mise-a-jour-de-mongodb-7-0-28" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last"><strong>Attention</strong>
+Cette opération doit être effectuée après avoir mis à jour les dépôts Vitam en V8.0.
+Cette opération est à effectuer si vous venez des versions de Vitam suivante: V7.1.4-.
+Il est recommandé d’effectuer un backup des bases de données à l’aide de mongodump avant de poursuivre.</p>
+</div>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V8.0 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_mongodb_70.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
 <div class="section" id="arret-complet-de-vitam">
-<h3>4.3.9.2.2. Arrêt complet de Vitam<a class="headerlink" href="#arret-complet-de-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>4.3.9.2.4. Arrêt complet de Vitam<a class="headerlink" href="#arret-complet-de-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition caution">
 <p class="first admonition-title">Prudence</p>
 <p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V8.0</p>

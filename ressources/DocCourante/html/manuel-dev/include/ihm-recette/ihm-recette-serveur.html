@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.3. IHM Recette serveur &mdash; Documentation VITAM - Manuel de développement 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>6.3. IHM Recette serveur &mdash; Documentation VITAM - Manuel de développement 9.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -72,9 +72,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../scheduler/_toc.html">12. Scheduler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">13. Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">14. Technical administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">15. Worker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">16. Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../worker/_toc.html">14. Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">15. Workspace</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
@@ -171,21 +170,23 @@
 <div class="section" id="fichier-ihm-recette-conf">
 <h3>6.3.3.1. Fichier <code class="docutils literal notranslate"><span class="pre">ihm-recette.conf</span></code><a class="headerlink" href="#fichier-ihm-recette-conf" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#jinja2: lstrip_blocks: True
+jettyConfig: jetty-config.xml
+
 serverHost: {{ ip_service }}
 port: {{ vitam_struct.port_service }}
 
-baseUrl: &quot;/{{ vitam_struct.baseuri }}&quot;
-baseUri: &quot;/{{ vitam_struct.baseuri }}&quot;
+baseUrl: /{{ vitam_struct.baseuri }}
+baseUri: /{{ vitam_struct.baseuri }}
 
-jettyConfig: jetty-config.xml
 authentication: true
 enableXsrFilter: true
 enableSession: true
 
 secureMode:
 {% for securemode in vitam_struct.secure_mode %}
-- {{ securemode }}
+  - {{ securemode }}
 {% endfor %}
+
 sipDirectory: {{ vitam_folder_data }}/test-data
 performanceReportDirectory: {{ vitam_folder_data }}/report/performance
 
@@ -193,14 +194,13 @@ testSystemSipDirectory: {{ vitam_folder_data }}/test-data/system
 testSystemReportDirectory: {{ vitam_folder_data }}/report/system
 ingestMaxThread: {{ ansible_processor_cores * ansible_processor_threads_per_core + 1 }}
 
-#
-workspaceUrl: {{vitam.workspace | client_url}}
+urlWorkspace: {{ vitam.workspace | client_url }}
 
-# Configuration MongoDB
+# MongoDB configuration
 mongoDbNodes:
 {% for server in groups[&#39;hosts_mongos_data&#39;] %}
-- dbHost: {{ hostvars[server][&#39;ip_service&#39;] }}
-  dbPort: {{ mongodb.mongos_port }}
+  - dbHost: {{ hostvars[server][&#39;ip_service&#39;] }}
+    dbPort: {{ mongodb.mongos_port }}
 {% endfor %}
 # Actually need this field for compatibility
 dbName: admin
@@ -208,25 +208,25 @@ dbName: admin
 masterdataDbName: masterdata
 logbookDbName: logbook
 metadataDbName: metadata
-dbAuthentication: {{ mongodb.mongo_authentication }}
+dbAuthentication: {{ mongodb.mongo_authentication | bool | lower }}
 dbUserName: {{ mongodb[&#39;mongo-data&#39;][&#39;admin&#39;][&#39;user&#39;] }}
 dbPassword: {{ mongodb[&#39;mongo-data&#39;][&#39;admin&#39;][&#39;password&#39;] }}
 
-# ElasticSearch
+# ElasticSearch configuration
 clusterName: {{ vitam_struct.cluster_name }}
 elasticsearchNodes:
 {% for server in groups[&#39;hosts_elasticsearch_data&#39;] %}
-- hostName: {{ hostvars[server][&#39;ip_service&#39;] }}
-  httpPort: {{ elasticsearch.data.port_http }}
+  - hostName: {{ hostvars[server][&#39;ip_service&#39;] }}
+    httpPort: {{ elasticsearch.data.port_http }}
 {% endfor %}
 
 # Functional Admin Configuration
 functionalAdminAdmin:
-   functionalAdminServerHost: {{ vitam.functional_administration.host }}
-   functionalAdminServerPort: {{ vitam.functional_administration.port_admin }}
-   adminBasicAuth:
-      userName: {{ admin_basic_auth_user }}
-      password: {{ admin_basic_auth_password }}
+  functionalAdminServerHost: {{ vitam.functional_administration.host }}
+  functionalAdminServerPort: {{ vitam.functional_administration.port_admin }}
+  adminBasicAuth:
+    userName: {{ admin_basic_auth_user }}
+    password: {{ admin_basic_auth_password }}
 
 # ES index configuration
 functionalAdminIndexationSettings:
@@ -260,23 +260,23 @@ metadataIndexationSettings:
 {% if vitam_elasticsearch_tenant_indexation.dedicated_tenants is defined and vitam_elasticsearch_tenant_indexation.dedicated_tenants is not none %}
   dedicated_tenants:
   {% for entry in vitam_elasticsearch_tenant_indexation.dedicated_tenants %}
-  - tenants: &#39;{{ entry.tenants }}&#39;
+    - tenants: &#39;{{ entry.tenants }}&#39;
     {% if entry.unit is defined %}
-    unit:
+      unit:
       {% if entry.unit.number_of_shards is defined %}
-      number_of_shards: {{ entry.unit.number_of_shards }}
+        number_of_shards: {{ entry.unit.number_of_shards }}
       {% endif %}
       {% if entry.unit.number_of_replicas is defined %}
-      number_of_replicas: {{ entry.unit.number_of_replicas }}
+        number_of_replicas: {{ entry.unit.number_of_replicas }}
       {% endif %}
     {% endif %}
     {% if entry.objectgroup is defined %}
-    objectgroup:
+      objectgroup:
       {% if entry.objectgroup.number_of_shards is defined %}
-      number_of_shards: {{ entry.objectgroup.number_of_shards }}
+        number_of_shards: {{ entry.objectgroup.number_of_shards }}
       {% endif %}
       {% if entry.objectgroup.number_of_replicas is defined %}
-      number_of_replicas: {{ entry.objectgroup.number_of_replicas }}
+        number_of_replicas: {{ entry.objectgroup.number_of_replicas }}
       {% endif %}
     {% endif %}
   {% endfor %}
@@ -285,28 +285,29 @@ metadataIndexationSettings:
 {% if vitam_elasticsearch_tenant_indexation.grouped_tenants is defined and vitam_elasticsearch_tenant_indexation.grouped_tenants is not none %}
   grouped_tenants:
   {% for entry in vitam_elasticsearch_tenant_indexation.grouped_tenants %}
-  - name: &#39;{{ entry.name }}&#39;
-    tenants: &#39;{{ entry.tenants }}&#39;
+    - name: &#39;{{ entry.name }}&#39;
+      tenants: &#39;{{ entry.tenants }}&#39;
     {% if entry.unit is defined %}
-    unit:
+      unit:
       {% if entry.unit.number_of_shards is defined %}
-      number_of_shards: {{ entry.unit.number_of_shards }}
+        number_of_shards: {{ entry.unit.number_of_shards }}
       {% endif %}
       {% if entry.unit.number_of_replicas is defined %}
-      number_of_replicas: {{ entry.unit.number_of_replicas }}
+        number_of_replicas: {{ entry.unit.number_of_replicas }}
       {% endif %}
     {% endif %}
     {% if entry.objectgroup is defined %}
-    objectgroup:
+      objectgroup:
       {% if entry.objectgroup.number_of_shards is defined %}
-      number_of_shards: {{ entry.objectgroup.number_of_shards }}
+        number_of_shards: {{ entry.objectgroup.number_of_shards }}
       {% endif %}
       {% if entry.objectgroup.number_of_replicas is defined %}
-      number_of_replicas: {{ entry.objectgroup.number_of_replicas }}
+        number_of_replicas: {{ entry.objectgroup.number_of_replicas }}
       {% endif %}
     {% endif %}
   {% endfor %}
 {% endif %}
+
 elasticsearchConfigurationFile: {{ vitam_folder_conf }}/elasticsearch-settings/elasticsearch-configuration.json
 logbookIndexationSettings:
   default_config:
@@ -317,14 +318,14 @@ logbookIndexationSettings:
 {% if vitam_elasticsearch_tenant_indexation.dedicated_tenants is defined and vitam_elasticsearch_tenant_indexation.dedicated_tenants is not none %}
   dedicated_tenants:
   {% for entry in vitam_elasticsearch_tenant_indexation.dedicated_tenants %}
-  - tenants: &#39;{{ entry.tenants }}&#39;
+    - tenants: &#39;{{ entry.tenants }}&#39;
     {% if entry.logbookoperation is defined %}
-    logbookoperation:
+      logbookoperation:
       {% if entry.logbookoperation.number_of_shards is defined %}
-      number_of_shards: {{ entry.logbookoperation.number_of_shards }}
+        number_of_shards: {{ entry.logbookoperation.number_of_shards }}
       {% endif %}
       {% if entry.logbookoperation.number_of_replicas is defined %}
-      number_of_replicas: {{ entry.logbookoperation.number_of_replicas }}
+        number_of_replicas: {{ entry.logbookoperation.number_of_replicas }}
       {% endif %}
     {% endif %}
   {% endfor %}
@@ -333,15 +334,15 @@ logbookIndexationSettings:
 {% if vitam_elasticsearch_tenant_indexation.grouped_tenants is defined and vitam_elasticsearch_tenant_indexation.grouped_tenants is not none %}
   grouped_tenants:
   {% for entry in vitam_elasticsearch_tenant_indexation.grouped_tenants %}
-  - name: &#39;{{ entry.name }}&#39;
-    tenants: &#39;{{ entry.tenants }}&#39;
+    - name: &#39;{{ entry.name }}&#39;
+      tenants: &#39;{{ entry.tenants }}&#39;
     {% if entry.logbookoperation is defined %}
-    logbookoperation:
+      logbookoperation:
       {% if entry.logbookoperation.number_of_shards is defined %}
-      number_of_shards: {{ entry.logbookoperation.number_of_shards }}
+        number_of_shards: {{ entry.logbookoperation.number_of_shards }}
       {% endif %}
       {% if entry.logbookoperation.number_of_replicas is defined %}
-      number_of_replicas: {{ entry.logbookoperation.number_of_replicas }}
+        number_of_replicas: {{ entry.logbookoperation.number_of_replicas }}
       {% endif %}
     {% endif %}
   {% endfor %}

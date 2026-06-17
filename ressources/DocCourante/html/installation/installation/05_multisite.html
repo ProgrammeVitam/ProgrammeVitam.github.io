@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.2. Cas particulier d’une installation multi-sites &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.2. Cas particulier d’une installation multi-sites &mdash; Documentation VITAM - Documentation d&#39;installation 9.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -147,7 +147,7 @@ Certains timers systemd seront en revanche démarrés pour mettre en place la re
       <span class="nt">wan</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;dc2-host-1&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc2-host-2&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;dc2-host-3&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-<p>Il faut également prévoir de déclarer, lors de l’installation de chaque site distant, la variable <code class="docutils literal notranslate"><span class="pre">ip_wan</span></code> pour les partitions hébergeant les serveurs Consul (groupe ansible <code class="docutils literal notranslate"><span class="pre">hosts_consul_server</span></code>) et les offres de stockage (groupe ansible <code class="docutils literal notranslate"><span class="pre">hosts_storage_offer_default</span></code>, considérées distantes par le site primaire).
+<p>Il faut également prévoir de déclarer, lors de l’installation de chaque site distant, la variable <code class="docutils literal notranslate"><span class="pre">ip_wan</span></code> pour les partitions hébergeant les serveurs Consul (groupe ansible <code class="docutils literal notranslate"><span class="pre">hosts_consul_server</span></code>) et les offres de stockage (groupe ansible <code class="docutils literal notranslate"><span class="pre">hosts_offer</span></code>, considérées distantes par le site primaire).
 Ces ajouts sont à faire dans <code class="docutils literal notranslate"><span class="pre">environments/host_vars/&lt;nom</span> <span class="pre">partition&gt;</span></code>.</p>
 <p>Exemple:</p>
 <blockquote>
@@ -339,7 +339,7 @@ La valeur doit donc être identique pour chaque site.</p>
 </div>
 <div class="section" id="flux-entre-storage-et-offer">
 <h2>4.2.2.3. Flux entre Storage et Offer<a class="headerlink" href="#flux-entre-storage-et-offer" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans le cas <strong>d’appel en https entre les composants Storage et Offer</strong>, il faut modifier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code> et indiquer <code class="docutils literal notranslate"><span class="pre">https_enabled:</span> <span class="pre">true</span></code> dans <code class="docutils literal notranslate"><span class="pre">storageofferdefault</span></code>.</p>
+<p>Dans le cas <strong>d’appel en https entre les composants Storage et Offer</strong>, il faut modifier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code> et indiquer <code class="docutils literal notranslate"><span class="pre">https_enabled:</span> <span class="pre">true</span></code> dans <code class="docutils literal notranslate"><span class="pre">offer</span></code>.</p>
 <p>Il convient également également d’ajouter:</p>
 <ul class="simple">
 <li><dl class="first docutils">

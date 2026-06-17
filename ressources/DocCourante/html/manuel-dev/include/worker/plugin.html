@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>15.4. Worker Plugin &mdash; Documentation VITAM - Manuel de développement 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>14.4. Worker Plugin &mdash; Documentation VITAM - Manuel de développement 9.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -17,8 +17,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="15.5. Idempotence" href="idempotent.html" />
-    <link rel="prev" title="15.3. Worker Client" href="worker-client.html" /> 
+    <link rel="next" title="14.5. Idempotence" href="idempotent.html" />
+    <link rel="prev" title="14.3. Worker Client" href="worker-client.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -62,22 +62,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../processing/_toc.html">11. Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../scheduler/_toc.html">12. Scheduler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage/_toc.html">13. Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../technical-administration/_toc.html">14. Technical administration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">15. Worker</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">15.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="worker.html">15.2. Worker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="worker-client.html">15.3. Worker Client</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">15.4. Worker Plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#presentation">15.4.1. Présentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gestion-des-entrants-du-plugin">15.4.2. Gestion des entrants du plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gestion-des-statuts-du-plugin-itemstatus">15.4.3. Gestion des statuts du plugin : ItemStatus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#integration-d-un-nouveau-plugin">15.4.4. Intégration d’un nouveau plugin</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="_toc.html">14. Worker</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">14.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="worker.html">14.2. Worker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="worker-client.html">14.3. Worker Client</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">14.4. Worker Plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#presentation">14.4.1. Présentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gestion-des-entrants-du-plugin">14.4.2. Gestion des entrants du plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gestion-des-statuts-du-plugin-itemstatus">14.4.3. Gestion des statuts du plugin : ItemStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-d-un-nouveau-plugin">14.4.4. Intégration d’un nouveau plugin</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="idempotent.html">15.5. Idempotence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idempotent.html">14.5. Idempotence</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">16. Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/_toc.html">15. Workspace</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallisation_tests.html">Parallélisation des tests</a></li>
@@ -102,8 +101,8 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../_toc.html">Détails par composant</a></li>
-          <li class="breadcrumb-item"><a href="_toc.html">15. Worker</a></li>
-      <li class="breadcrumb-item active">15.4. Worker Plugin</li>
+          <li class="breadcrumb-item"><a href="_toc.html">14. Worker</a></li>
+      <li class="breadcrumb-item active">14.4. Worker Plugin</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/include/worker/plugin.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,14 +113,14 @@
            <div itemprop="articleBody">
              
   <div class="section" id="worker-plugin">
-<h1>15.4. Worker Plugin<a class="headerlink" href="#worker-plugin" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>14.4. Worker Plugin<a class="headerlink" href="#worker-plugin" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="presentation">
-<h2>15.4.1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>14.4.1. Présentation<a class="headerlink" href="#presentation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un plugin est un programme informatique conçu pour ajouter des fonctionnalités à un autre logiciel (appelé logiciel hôte).
 En français, on utilise également les termes équivalents de «&nbsp;module d’extension&nbsp;» ou de «&nbsp;greffon&nbsp;».
 Dans le cadre de VITAM, un plugin pourra être ajouté dans un ou plusieurs Workflow(s) spécifique(s) pour effectuer de nouvelles fonctionnalités sur un type d’objet prédéfini (archive unit, manifest, …)</p>
 <div class="section" id="presentation-de-l-architecture-vitam">
-<h3>15.4.1.1. Présentation de l’architecture VITAM<a class="headerlink" href="#presentation-de-l-architecture-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.1.1. Présentation de l’architecture VITAM<a class="headerlink" href="#presentation-de-l-architecture-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Dans VITAM, on appelle Workflow une liste d’étapes (steps) devant être exécutées sur un objet particulier.</p>
 <blockquote>
 <div><ul class="simple">
@@ -143,7 +142,7 @@ Dans le cadre de VITAM, un plugin pourra être ajouté dans un ou plusieurs Work
 <img alt="../../_images/archi_plugin_globale.jpg" class="align-center" src="../../_images/archi_plugin_globale.jpg" />
 </div>
 <div class="section" id="definition-du-plugin-vitam">
-<h3>15.4.1.2. Définition du plugin VITAM<a class="headerlink" href="#definition-du-plugin-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.1.2. Définition du plugin VITAM<a class="headerlink" href="#definition-du-plugin-vitam" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Un plugin au sens VITAM propose une liste d’action(s) à réaliser sur un ou plusieurs objets de même type.
 A l’heure actuelle, un plugin ne peut être ajouté qu’à froid. Un redémarrage de la plateforme est nécessaire pour prendre en considération l’ajout d’un nouveau plugin à un workflow existant.
 Au démarrage, le serveur worker charge tous les  plugins ainsi que leurs fichiers de properties.
@@ -594,7 +593,31 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
 444
 445
 446
-447</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;CHECK_DIGEST&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckConformityActionPlugin&quot;</span><span class="p">,</span>
     <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_conformity_plugin.properties&quot;</span>
@@ -623,7 +646,7 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
     <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;store_object_group_plugin.properties&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;OBJ_STORAGE_COLLECT&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.StoreObjectGroupCollectActionPlugin&quot;</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.handler.StoreObjectGroupCollectActionPlugin&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;UNITS_RULES_COMPUTE&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.UnitsRulesComputePlugin&quot;</span><span class="p">,</span>
@@ -1039,6 +1062,30 @@ La liste des plugins à charger est déclarée dans un fichier de configuration 
   <span class="s2">&quot;CHECK_OBJECT_GROUP_SCHEMA&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.CheckObjectGroupSchemaActionPlugin&quot;</span><span class="p">,</span>
     <span class="s2">&quot;propertiesFile&quot;</span><span class="o">:</span> <span class="s2">&quot;check_object_group_schema_plugin.properties&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_PREPARATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentPreparationPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_UPDATE_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentUpdateUnitsPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_PREPARE_CHILD_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentPrepareChildUnitsPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_UPDATE_CHILD_UNITS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentUpdateChildUnitsPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_UPDATE_OBJECT_GROUPS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentUpdateObjectGroupsPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_UPDATE_CHILD_OBJECT_GROUPS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentUpdateChildObjectGroupsPlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_ACCESSION_REGISTER_UPDATE&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentAccessionRegisterUpdatePlugin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;ORIGINATING_AGENCY_REASSIGNMENT_FINALIZATION&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;className&quot;</span><span class="o">:</span> <span class="s2">&quot;fr.gouv.vitam.worker.core.plugin.reassignment.OriginatingAgencyReassignmentFinalizationPlugin&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1055,9 +1102,9 @@ Un plugin prend en paramètres :
 </div>
 </div>
 <div class="section" id="gestion-des-entrants-du-plugin">
-<h2>15.4.2. Gestion des entrants du plugin<a class="headerlink" href="#gestion-des-entrants-du-plugin" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>14.4.2. Gestion des entrants du plugin<a class="headerlink" href="#gestion-des-entrants-du-plugin" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="workerparameters">
-<h3>15.4.2.1. WorkerParameters<a class="headerlink" href="#workerparameters" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.2.1. WorkerParameters<a class="headerlink" href="#workerparameters" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les paramètres WorkerParameters sont des paramètres permettant aux différents plugins d’exécuter leurs différentes actions.</p>
 <p>Actuellement 5 paramètres sont obligatoires pour tous les workers :
 - urlMetadata afin d’intialiser le client metadata
@@ -1090,7 +1137,7 @@ Un plugin prend en paramètres :
 </div>
 </div>
 <div class="section" id="handlerio">
-<h3>15.4.2.2. HandlerIO<a class="headerlink" href="#handlerio" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.2.2. HandlerIO<a class="headerlink" href="#handlerio" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le HandlerIO a pour charge d’assurer la liaison avec le Workspace et la mémoire entre les différentes actions d’un step, exécutées dans différents plugins.
 Dans un workflow, est spécifiée une liste d’objets (de fichiers, de valeurs, etc…) qui en complément des WorkerParameters peuvent être transmis à travers le HandlerIO.
 Il revient au HandlerIO d’assurer la livraison de ces différents objets.</p>
@@ -2483,7 +2530,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </ul>
 <p>Chaque plugin peut donc accéder aux différents inputs ou peut stocker différents outputs dès lors qu’ils sont bien déclarés dans la configuration.</p>
 <div class="section" id="recuperer-un-json-sur-le-workspace">
-<h4>15.4.2.2.1. Récupérer un Json sur le workspace<a class="headerlink" href="#recuperer-un-json-sur-le-workspace" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>14.4.2.2.1. Récupérer un Json sur le workspace<a class="headerlink" href="#recuperer-un-json-sur-le-workspace" title="Lien permanent vers ce titre">¶</a></h4>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// récupérons sur le workspace un json répresenant un objet sur lequel l&#39;action est en cours</span>
 <span class="kd">final</span> <span class="n">JsonNode</span> <span class="n">jsonOG</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="p">.</span><span class="na">getJsonFromWorkspace</span><span class="p">(</span>
                  <span class="n">IngestWorkflowConstants</span><span class="p">.</span><span class="na">OBJECT_GROUP_FOLDER</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">params</span><span class="p">.</span><span class="na">getObjectName</span><span class="p">());</span>
@@ -2491,7 +2538,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 </div>
 <div class="section" id="transferer-un-fichier-sur-le-workspace">
-<h4>15.4.2.2.2. Transférer un fichier sur le Workspace<a class="headerlink" href="#transferer-un-fichier-sur-le-workspace" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>14.4.2.2.2. Transférer un fichier sur le Workspace<a class="headerlink" href="#transferer-un-fichier-sur-le-workspace" title="Lien permanent vers ce titre">¶</a></h4>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// transférons sur le workspace un inputstream</span>
 <span class="n">InputStreamFromOutputStream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">isos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamFromOutputStream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="n">handlerIO</span><span class="p">.</span><span class="na">transferInputStreamToWorkspace</span><span class="p">(</span>
@@ -2507,7 +2554,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 </div>
 <div class="section" id="recuperer-un-objet-specifique-determine-dans-le-workflow">
-<h4>15.4.2.2.3. Récupérer un objet spécifique déterminé dans le workflow<a class="headerlink" href="#recuperer-un-objet-specifique-determine-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>14.4.2.2.3. Récupérer un objet spécifique déterminé dans le workflow<a class="headerlink" href="#recuperer-un-objet-specifique-determine-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Soit la déclaration d’inputs :</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;in&quot;</span><span class="o">:</span> <span class="p">[</span>
  <span class="p">{</span>
@@ -2546,7 +2593,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 </div>
 <div class="section" id="travailler-sur-le-workspace-sur-un-fichier-temporaire">
-<h4>15.4.2.2.4. Travailler sur le Workspace sur un fichier temporaire<a class="headerlink" href="#travailler-sur-le-workspace-sur-un-fichier-temporaire" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>14.4.2.2.4. Travailler sur le Workspace sur un fichier temporaire<a class="headerlink" href="#travailler-sur-le-workspace-sur-un-fichier-temporaire" title="Lien permanent vers ce titre">¶</a></h4>
 <p>S’il est nécessaire de travailler sur un fichier temporaire sur le workspace, il est possible de faire :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// créons un fichier temporaire sur le workspace</span>
 <span class="n">File</span> <span class="n">temporaryFile</span> <span class="o">=</span> <span class="n">handlerIO</span><span class="p">.</span><span class="na">getNewLocalFile</span><span class="p">(</span><span class="s">&quot;MyTempFile&quot;</span> <span class="o">+</span> <span class="n">objectName</span><span class="p">);</span>
@@ -2554,7 +2601,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 </div>
 <div class="section" id="enregistrer-un-output">
-<h4>15.4.2.2.5. Enregistrer un <cite>output</cite><a class="headerlink" href="#enregistrer-un-output" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>14.4.2.2.5. Enregistrer un <cite>output</cite><a class="headerlink" href="#enregistrer-un-output" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Soit la déclaration d’outputs :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;out&quot;: [
  {
@@ -2599,7 +2646,7 @@ Les inputs peuvent être utilisés par les différents plugins (selon la spécif
 </div>
 </div>
 <div class="section" id="gestion-des-statuts-du-plugin-itemstatus">
-<h2>15.4.3. Gestion des statuts du plugin : ItemStatus<a class="headerlink" href="#gestion-des-statuts-du-plugin-itemstatus" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>14.4.3. Gestion des statuts du plugin : ItemStatus<a class="headerlink" href="#gestion-des-statuts-du-plugin-itemstatus" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le plugin dans sa méthode execute, doit forcément retourner un objet de type ItemStatus.</p>
 <p>Il doit être instancié avec un identifiant tehnique précisant l’action exécutée.
 Cette instanciation est nécessaire pour pouvoir appliquer une liste de messages humains qui seront calculés en fonction du statut de l’action (cf paragraphe 3.1).</p>
@@ -2629,7 +2676,7 @@ Si l’on se trouve dans un plugin devant traiter une liste d’objets (ex : gro
 </pre></div>
 </div>
 <div class="section" id="journalisation-operation-et-cycle-de-vie">
-<h3>15.4.3.1. Journalisation : opération et cycle de vie<a class="headerlink" href="#journalisation-operation-et-cycle-de-vie" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.3.1. Journalisation : opération et cycle de vie<a class="headerlink" href="#journalisation-operation-et-cycle-de-vie" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le worker, lorsqu’il récupérera le statut du plugin, devra traduire les différentes clés (ID_PLUGIN + STATUT) en messages humains en utilisant par défaut le fichier de properties VITAM (vitam-logbook-messages_fr.properties).
 Si les clés ne sont pas définies dans le fichier de properties VITAM, alors le worker utilisera les labels définis dans le fichier de properties du plugin.</p>
 <p>Si l’on souhaite gérer les différents messages qui seront enregistrés dans les journaux d’opération, il faudra dans le plugin, ajouter un fichier de properties intégrant les différentes clés (identifiant du plugin + statut final éventuellement).</p>
@@ -2674,10 +2721,10 @@ En fonction du statut de chaque traitement on aura donc des messages différents
 </div>
 </div>
 <div class="section" id="integration-d-un-nouveau-plugin">
-<h2>15.4.4. Intégration d’un nouveau plugin<a class="headerlink" href="#integration-d-un-nouveau-plugin" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>14.4.4. Intégration d’un nouveau plugin<a class="headerlink" href="#integration-d-un-nouveau-plugin" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Afin d’ajouter un nouveau plugin dans l’architecture VITAM, il convient de réaliser plusieurs opérations.</p>
 <div class="section" id="ajout-de-l-action-dans-le-workflow">
-<h3>15.4.4.1. Ajout de l’action dans le Workflow<a class="headerlink" href="#ajout-de-l-action-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.4.1. Ajout de l’action dans le Workflow<a class="headerlink" href="#ajout-de-l-action-dans-le-workflow" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Dans le bon Workflow, il s’agit d’ajouter une action dans l’étape adéquate.</p>
 <div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
@@ -4033,7 +4080,7 @@ Il suffit donc d’ajouter les informations dans le Workflow adéquat.</p>
 <p>De cette manière, l’action de vérification du manifest par un XSD maison se déroulera dans l’étape «&nbsp;STP_INGEST_CONTROL_SIP&nbsp;» et ne bloquera pas le processus en cas d’erreur (pour que l’on puisse continuer le workflow en cas d’erreur).</p>
 </div>
 <div class="section" id="ajout-du-plugin-dans-la-liste-des-plugins">
-<h3>15.4.4.2. Ajout du plugin dans la liste des plugins<a class="headerlink" href="#ajout-du-plugin-dans-la-liste-des-plugins" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.4.2. Ajout du plugin dans la liste des plugins<a class="headerlink" href="#ajout-du-plugin-dans-la-liste-des-plugins" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une fois l’action déclarée dans le Workflow, il convient de préciser les informations au Worker pour qu’il puisse connaitre le code à exécuter pour ce type d’action.
 Dans le fichier de configuration plugins.json de l’ansiblerie du Worker, il conviendra d’ajouter les lignes suivantes :</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;CHECK_MANIFEST_CUSTOM_XSD&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -4045,7 +4092,7 @@ Dans le fichier de configuration plugins.json de l’ansiblerie du Worker, il co
 <p>Pour information, le fichier de configuration plugins.json se trouve dans le répertoire /vitam/conf/worker/ du Worker.</p>
 </div>
 <div class="section" id="creation-du-plugin">
-<h3>15.4.4.3. Création du plugin<a class="headerlink" href="#creation-du-plugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.4.3. Création du plugin<a class="headerlink" href="#creation-du-plugin" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Maintenant le plugin déclaré, il convient enfin de coder le plugin à proprement parler.
 Pour ceci, il faut donc créer une classe CheckManifestCustomXSD.java qui doit implémenter la classe ActionHandler et notamment surcharger la méthode <code class="docutils literal notranslate"><span class="pre">execute()</span></code> pour un plugin unitaire
 ou la méthode <code class="docutils literal notranslate"><span class="pre">executeAll()</span></code> pour un traitemement de masse.</p>
@@ -4108,7 +4155,7 @@ ou la méthode <code class="docutils literal notranslate"><span class="pre">exec
 </div>
 </div>
 <div class="section" id="installation-du-plugin">
-<h3>15.4.4.4. Installation du plugin<a class="headerlink" href="#installation-du-plugin" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.4.4.4. Installation du plugin<a class="headerlink" href="#installation-du-plugin" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le plugin devra être fourni sous forme de jar (s’il provient d’une source externe à VITAM) et devra être installé dans le Worker, dans <code class="docutils literal notranslate"><span class="pre">/vitam/lib/worker/</span></code></p>
 </div>
 </div>
@@ -4118,8 +4165,8 @@ ou la méthode <code class="docutils literal notranslate"><span class="pre">exec
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="worker-client.html" class="btn btn-neutral float-left" title="15.3. Worker Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="idempotent.html" class="btn btn-neutral float-right" title="15.5. Idempotence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="worker-client.html" class="btn btn-neutral float-left" title="14.3. Worker Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="idempotent.html" class="btn btn-neutral float-right" title="14.5. Idempotence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

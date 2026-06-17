@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>3.2. Pré-requis plate-forme &mdash; Documentation VITAM - Documentation d&#39;installation 9.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -110,9 +110,9 @@
 <p>Le déploiement est orchestré depuis un poste ou serveur d’administration ; les pré-requis suivants doivent y être présents :</p>
 <ul class="simple">
 <li>packages nécessaires :<ul>
-<li><strong>ansible</strong> (version <strong>2.9</strong> minimale et conseillée ; se référer à la <a class="reference external" href="http://docs.ansible.com/ansible/latest/intro_installation.html">documentation ansible</a> pour la procédure d’installation)</li>
+<li><strong>ansible</strong> (version <strong>2.14</strong> minimale et conseillée ; se référer à la <a class="reference external" href="http://docs.ansible.com/ansible/latest/intro_installation.html">documentation ansible</a> pour la procédure d’installation)</li>
 <li><strong>openssh-client</strong> (client SSH utilisé par ansible)</li>
-<li><strong>JRE OpenJDK 11</strong> et <strong>openssl</strong> (du fait de la génération de certificats / <em>stores</em>, l’utilitaire <code class="docutils literal notranslate"><span class="pre">keytool</span></code> est nécessaire)</li>
+<li><strong>JRE OpenJDK 21</strong> et <strong>openssl</strong> (du fait de la génération de certificats / <em>stores</em>, l’utilitaire <code class="docutils literal notranslate"><span class="pre">keytool</span></code> est nécessaire)</li>
 </ul>
 </li>
 <li>un accès ssh vers un utilisateur d’administration avec élévation de privilèges vers les droits <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">vitam</span></code>, <code class="docutils literal notranslate"><span class="pre">vitamdb</span></code> (les comptes <code class="docutils literal notranslate"><span class="pre">vitam</span></code> et <code class="docutils literal notranslate"><span class="pre">vitamdb</span></code> sont créés durant le déploiement) sur les serveurs cibles.</li>
@@ -192,7 +192,7 @@
 <div class="section" id="deploiement-sur-environnement-debian">
 <h3>3.2.3.2. Déploiement sur environnement Debian<a class="headerlink" href="#deploiement-sur-environnement-debian" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
-<li>Disposer d’une plate-forme Linux Debian «&nbsp;bookworm&nbsp;» installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :<ul>
+<li>Disposer d’une plate-forme Linux Debian 12 «&nbsp;bookworm&nbsp;» installée selon la répartition des services souhaitée. En particulier, ces serveurs doivent avoir :<ul>
 <li>une configuration de temps synchronisée (ex: en récupérant le temps à un serveur centralisé)</li>
 <li>Des autorisations de flux conformément aux besoins décrits dans le <a class="reference internal" href="../introduction.html#term-dat"><span class="xref std std-term">DAT</span></a></li>
 <li>une configuration des serveurs de noms correcte (cette configuration sera surchargée lors de l’installation)</li>
@@ -203,18 +203,10 @@
 <li>Disposer des binaires VITAM : paquets deb de VITAM (vitam-product) ainsi que les paquets d’éditeurs tiers livrés avec VITAM (vitam-external)</li>
 <li>Disposer, si besoin, des binaires pour l’installation des <em>griffins</em></li>
 </ul>
-<div class="admonition warning">
-<p class="first admonition-title">Avertissement</p>
-<p class="last">Pour l’installation des <em>packages</em> mongoDB, il est nécessaire de mettre à disposition le <em>package</em> <code class="docutils literal notranslate"><span class="pre">libcurl3</span></code> présent en <em>stretch</em> uniquement (le <em>package</em> <code class="docutils literal notranslate"><span class="pre">libcurl4</span></code> sera désinstallé).</p>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Avertissement</p>
-<p class="last">Le <em>package</em> <code class="docutils literal notranslate"><span class="pre">curl</span></code> est installé depuis les dépôts <code class="docutils literal notranslate"><span class="pre">stretch</span></code>.</p>
-</div>
 </div>
 <div class="section" id="presence-d-un-agent-antiviral">
 <h3>3.2.3.3. Présence d’un agent antiviral<a class="headerlink" href="#presence-d-un-agent-antiviral" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Dans le cas de partitions sur lesquelles un agent antiviral est déjà configuré (typiquement, <em>golden image</em>), il est recommandé de positionner une exception sur l’arborescence <code class="docutils literal notranslate"><span class="pre">/vitam</span></code> et les sous-arborescences, hormis la partition hébergeant le composant <code class="docutils literal notranslate"><span class="pre">ingest-exteral</span></code> (emploi d’un agent antiviral en prérequis des <em>ingest</em> ; se reporter à <a class="reference internal" href="../installation/21-addons.html#confantivirus"><span class="std std-ref">Paramétrage de l’antivirus (ingest-external)</span></a>).</p>
+<p>Dans le cas de partitions sur lesquelles un agent antiviral est déjà configuré (typiquement, <em>golden image</em>), il est recommandé de positionner une exception sur l’arborescence <code class="docutils literal notranslate"><span class="pre">/vitam</span></code> et les sous-arborescences, hormis la partition hébergeant le composant <code class="docutils literal notranslate"><span class="pre">ingest-external</span></code> (emploi d’un agent antiviral en prérequis des <em>ingest</em> ; se reporter à <a class="reference internal" href="../installation/21-addons.html#confantivirus"><span class="std std-ref">Paramétrage de l’antivirus (ingest-external)</span></a>).</p>
 </div>
 </div>
 <div class="section" id="materiel">

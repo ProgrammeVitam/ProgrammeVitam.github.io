@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3.11. Notes et procédures spécifiques V9.0 &mdash; Documentation VITAM - Documentation de montées de version 9.0.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>4.3.11. Notes et procédures spécifiques V9.0 &mdash; Documentation VITAM - Documentation de montées de version 9.1.0</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -17,7 +17,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé" href="migration_container.html" />
+    <link rel="next" title="4.3.12. Notes et procédures spécifiques V9.1" href="v9_1_update.html" />
     <link rel="prev" title="4.3.10. Notes et procédures spécifiques V8.1" href="v8_1_update.html" /> 
 </head>
 
@@ -34,7 +34,7 @@
               <img src="../../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -64,9 +64,13 @@
 <li class="toctree-l3"><a class="reference internal" href="v8_1_update.html">4.3.10. Notes et procédures spécifiques V8.1</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.11. Notes et procédures spécifiques V9.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#adaptation-des-sources-de-deploiement-ansible">4.3.11.1. Adaptation des sources de déploiement ansible</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-avant-la-montee-de-version">4.3.11.2. Procédures à exécuter AVANT la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-de-la-montee-de-version">4.3.11.3. Application de la montée de version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedures-a-executer-apres-la-montee-de-version">4.3.11.4. Procédures à exécuter APRÈS la montée de version</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v9_1_update.html">4.3.12. Notes et procédures spécifiques V9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_container.html">4.3.13. Migration d’un vitam legacy vers un vitam conteneurisé</a></li>
 </ul>
 </li>
 </ul>
@@ -114,6 +118,112 @@
 <p>De même, la validation des hostnames des certificats HTTPS est dorénavant activée par défault dans le nouveau provider <code class="docutils literal notranslate"><span class="pre">amazon-s3-v2</span></code>. La validation peut être désactivée via la clé <code class="docutils literal notranslate"><span class="pre">vitam_offers.&lt;offre&gt;.s3IgnoreCertificateHostnameValidation</span></code> (uniquement pour environnements de test).</p>
 <p>Il convient de mettre à jour la configuration des offres de stockage en conséquent (<code class="docutils literal notranslate"><span class="pre">vitam_offers.&lt;offre&gt;.provider</span></code>) dans les sources de déploiement.</p>
 </div>
+<div class="section" id="deploiement-du-nouveau-composant-vitam-antivirus">
+<h3>4.3.11.1.2. Déploiement du nouveau composant vitam-antivirus<a class="headerlink" href="#deploiement-du-nouveau-composant-vitam-antivirus" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’appel a l’antivirus été externalisé dans un nouveau composant permettant son déploiement autonome. Actuellement, ce nouveau composant est colocalisé avec les groupes <code class="docutils literal notranslate"><span class="pre">hosts_ingest_external</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">hosts_worker</span></code>. Cependant, il n’est utile sur les workers que lors de l’utilisation du module de collecte.</p>
+<p>Ainsi, vous pouvez désactiver son déploiement sur les workers si vous n’utilisez pas le module de collecte en appliquant la procédure suivante.</p>
+<p>Dans le playbook <code class="docutils literal notranslate"><span class="pre">ansible-vitam/services/vitam/antivirus.yml</span></code>, supprimez la chaine de caractère <code class="docutils literal notranslate"><span class="pre">:hosts_worker</span></code>.</p>
+<p>Résultat attendu après modification:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hosts_ingest_external</span>
+  <span class="nt">any_errors_fatal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">roles</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">antivirus</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vitam</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">vitam_struct</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam.antivirus</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">antivirus</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-avant-la-montee-de-version">
+<h2>4.3.11.2. Procédures à exécuter AVANT la montée de version<a class="headerlink" href="#procedures-a-executer-avant-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="arret-des-timers-et-des-acces-externes-a-vitam">
+<h3>4.3.11.2.1. Arrêt des timers et des accès externes à Vitam<a class="headerlink" href="#arret-des-timers-et-des-acces-externes-a-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V9.0</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiement de l’ancienne version.</p>
+</div>
+<p>Les timers et les externals de Vitam doivent être arrêtés sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_external.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduling.yml --ask-vault-pass
+ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam_scheduler.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="mise-a-jour-des-depots-yum-apt">
+<h3>4.3.11.2.2. Mise à jour des dépôts (YUM/APT)<a class="headerlink" href="#mise-a-jour-des-depots-yum-apt" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version</p>
+</div>
+<p>Afin de pouvoir déployer la nouvelle version, vous devez mettre à jour la variable <code class="docutils literal notranslate"><span class="pre">vitam_repositories</span></code> sous <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/main/repositories.yml</span></code> afin de renseigner les dépôts à la version cible.</p>
+<p>Pour le dépôt vitam-external, vous devez renseigner la version adaptée à votre système d’exploitation (par exemple pour la version 9.0.0):</p>
+<ul class="simple">
+<li>AlmaLinux 9: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/9.0.0/rpm/vitam-external/9/">https://download.programmevitam.fr/vitam_repository/9.0.0/rpm/vitam-external/9/</a></li>
+<li>Debian 12: <a class="reference external" href="https://download.programmevitam.fr/vitam_repository/9.0.0/deb/vitam-external/12/">https://download.programmevitam.fr/vitam_repository/9.0.0/deb/vitam-external/12/</a></li>
+</ul>
+<p>Puis exécutez le playbook suivant <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/bootstrap.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="mise-a-jour-de-mongodb-8-0-23">
+<h3>4.3.11.2.3. Mise à jour de MongoDB 8.0.23<a class="headerlink" href="#mise-a-jour-de-mongodb-8-0-23" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last"><strong>Attention</strong>
+Cette opération doit être effectuée après avoir mis à jour les dépôts Vitam en V9.1.
+Cette opération est à effectuer si vous venez des versions de Vitam suivante: V8.1.2-.
+Il est recommandé d’effectuer un backup des bases de données à l’aide de mongodump avant de poursuivre.</p>
+</div>
+<p>Exécutez le playbook suivant à partir de l’ansiblerie de la V9.0 <strong>sur tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-migration/migration_mongodb_80.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="arret-complet-de-vitam">
+<h3>4.3.11.2.4. Arrêt complet de Vitam<a class="headerlink" href="#arret-complet-de-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée AVANT la montée de version vers la V9.0</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">Cette opération doit être effectuée avec les sources de déploiements de l’ancienne version.</p>
+</div>
+<p>Vitam doit être arrêté sur <strong>tous les sites</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-exploitation/stop_vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="application-de-la-montee-de-version">
+<h2>4.3.11.3. Application de la montée de version<a class="headerlink" href="#application-de-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition caution">
+<p class="first admonition-title">Prudence</p>
+<p class="last">L’application de la montée de version s’effectue d’abord sur les sites secondaires puis sur le site primaire.</p>
+</div>
+<div class="section" id="lancement-du-master-playbook-vitam">
+<h3>4.3.11.3.1. Lancement du master playbook vitam<a class="headerlink" href="#lancement-du-master-playbook-vitam" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam/vitam.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancement-du-master-playbook-extra">
+<h3>4.3.11.3.2. Lancement du master playbook extra<a class="headerlink" href="#lancement-du-master-playbook-extra" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i environments/&lt;inventaire&gt; ansible-vitam-extra/extra.yml --ask-vault-pass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-a-executer-apres-la-montee-de-version">
+<h2>4.3.11.4. Procédures à exécuter APRÈS la montée de version<a class="headerlink" href="#procedures-a-executer-apres-la-montee-de-version" title="Lien permanent vers ce titre">¶</a></h2>
+<p>N/A</p>
 </div>
 </div>
 
@@ -122,7 +232,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="v8_1_update.html" class="btn btn-neutral float-left" title="4.3.10. Notes et procédures spécifiques V8.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="migration_container.html" class="btn btn-neutral float-right" title="4.3.12. Migration d’un vitam legacy vers un vitam conteneurisé" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="v9_1_update.html" class="btn btn-neutral float-right" title="4.3.12. Notes et procédures spécifiques V9.1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

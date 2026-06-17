@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.3. Configuration du déploiement &mdash; Documentation VITAM - Documentation d&#39;installation 9.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -581,14 +581,7 @@
 458
 459
 460
-461
-462
-463
-464
-465
-466
-467
-468</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
+461</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Group definition ; DO NOT MODIFY</span>
 <span class="k">[hosts]</span>
 
 <span class="c1"># Group definition ; DO NOT MODIFY</span>
@@ -596,7 +589,6 @@
 <span class="na">vitam</span>
 <span class="na">reverse</span>
 <span class="na">hosts_dev_tools</span>
-<span class="na">ldap</span>
 <span class="na">hosts_vitamui</span>
 
 <span class="c1">########### Tests environments specifics ###########</span>
@@ -606,10 +598,6 @@
 <span class="c1"># optional : if this machine is different from VITAM machines, you can specify another become user</span>
 <span class="c1"># Example</span>
 <span class="c1"># vm-reverse.vitam ansible_ssh_user=reverse_user</span>
-
-
-<span class="na">[ldap] # Extra : OpenLDAP server</span>
-<span class="c1"># LDAP server !!! NOT FOR PRODUCTION !!! Test only</span>
 
 
 <span class="k">[library]</span>
@@ -690,7 +678,7 @@
 <span class="na">hosts_scheduler</span>
 <span class="na">hosts_logbook</span>
 <span class="na">hosts_workspace</span>
-<span class="na">hosts_storage_engine</span>
+<span class="na">hosts_storage</span>
 <span class="na">hosts_security_internal</span>
 <span class="na">hosts_collect_internal</span>
 <span class="na">hosts_metadata_collect</span>
@@ -728,7 +716,7 @@
 
 <span class="k">[hosts_scheduler]</span>
 <span class="c1"># TODO: Put here servers where this service will be deployed : scheduler</span>
-<span class="c1"># Optional parameter after each host : vitam_scheduler_thread_count=&lt;integer&gt; ; This is the number of threads that are available for concurrent execution of jobs. ; default is 3 thread</span>
+<span class="c1"># WARNING: Only ONE server is currently supported for this service. Scheduler component will automatically be removed on other nodes (Mandatory while upgrading Vitam, do not modify this group before!).</span>
 
 
 <span class="k">[hosts_processing]</span>
@@ -736,8 +724,8 @@
 <span class="c1"># WARNING: put only one server for this service, not more !</span>
 
 
-<span class="k">[hosts_storage_engine]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : storage-engine</span>
+<span class="k">[hosts_storage]</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : storage</span>
 
 
 <span class="k">[hosts_batch_report]</span>
@@ -766,11 +754,11 @@
 <span class="c1">##### Zone storage</span>
 
 <span class="na">[zone_storage:children] # DO NOT MODIFY</span>
-<span class="na">hosts_storage_offer_default</span>
+<span class="na">hosts_offer</span>
 <span class="na">hosts_mongodb_offer</span>
 
-<span class="k">[hosts_storage_offer_default]</span>
-<span class="c1"># TODO: Put here servers where this service will be deployed : storage-offer-default</span>
+<span class="k">[hosts_offer]</span>
+<span class="c1"># TODO: Put here servers where this service will be deployed : offer</span>
 <span class="c1"># LIMIT : only 1 offer per machine</span>
 <span class="c1"># LIMIT and 1 machine per offer when filesystem or filesystem-hash provider</span>
 <span class="c1"># Possibility to declare multiple machines with same provider only when provider is s3 or swift.</span>
@@ -793,7 +781,7 @@
 
 <span class="k">[hosts_mongos_offer]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongos_data]</span>
-<span class="c1"># TODO: put here servers where this service will be deployed : mongos cluster for storage offers</span>
+<span class="c1"># TODO: put here servers where this service will be deployed : mongos cluster for offers</span>
 <span class="c1"># Mandatory params</span>
 <span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
 <span class="c1"># The recommended practice is to install the mongos instance on the same servers as the mongoc instances</span>
@@ -808,7 +796,7 @@
 
 <span class="k">[hosts_mongoc_offer]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongoc_data]</span>
-<span class="c1"># TODO: put here servers where this service will be deployed : mongoc cluster for storage offers</span>
+<span class="c1"># TODO: put here servers where this service will be deployed : mongoc cluster for offers</span>
 <span class="c1"># Mandatory params</span>
 <span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
 <span class="c1"># Optional params</span>
@@ -830,27 +818,26 @@
 
 <span class="k">[hosts_mongod_offer]</span>
 <span class="c1"># WARNING : DO NOT COLLOCATE WITH [hosts_mongod_data]</span>
-<span class="c1"># TODO: put here servers where this service will be deployed : mongod cluster for storage offers</span>
+<span class="c1"># TODO: put here servers where this service will be deployed : mongod cluster for offers</span>
 <span class="c1"># Mandatory params</span>
 <span class="c1">#  - mongo_cluster_name=&lt;offer_name&gt; ; name of the cluster (should exist on vitam_strategy configuration in offer_opts.yml)</span>
 <span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n to create multiple shards</span>
 <span class="c1"># Optional params</span>
 <span class="c1">#  - mongo_rs_bootstrap=true (default: false); mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1">#  - mongo_arbiter=true (default: false); the node will be only an arbiter, it will not store data ; do not add this parameter on a mongo_rs_bootstrap node, maximum 1 node per shard</span>
 <span class="c1">#  - mongod_memory=x (default: unset); this will force the wiredtiger cache size to x (unit is GB)</span>
 <span class="c1">#  - is_small=true (default: false); this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
 <span class="c1"># Recommended practice in production: use 3 instances per shard</span>
-<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id, arbiter mode or PSSmin configuration.</span>
+<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id or PSSmin configuration.</span>
 <span class="c1"># Example :</span>
 <span class="c1"># vitam-mongo-swift-offer-01   mongo_cluster_name=offer-swift-1   mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-swift-offer-02   mongo_cluster_name=offer-swift-1   mongo_shard_id=0</span>
-<span class="c1"># vitam-swift-offer            mongo_cluster_name=offer-swift-1   mongo_shard_id=0   mongo_arbiter=true</span>
+<span class="c1"># vitam-swift-offer            mongo_cluster_name=offer-swift-1   mongo_shard_id=0</span>
 <span class="c1"># vitam-mongo-fs-offer-01      mongo_cluster_name=offer-fs-1      mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-fs-offer-02      mongo_cluster_name=offer-fs-1      mongo_shard_id=0</span>
-<span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1      mongo_shard_id=0   mongo_arbiter=true</span>
+<span class="c1"># vitam-fs-offer               mongo_cluster_name=offer-fs-1      mongo_shard_id=0</span>
 <span class="c1"># vitam-mongo-s3-offer-01      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mongo-s3-offer-02      mongo_cluster_name=offer-s3-1      mongo_shard_id=0   is_small=true # PSSmin, this machine needs less hardware</span>
-<span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1      mongo_shard_id=0   mongo_arbiter=true</span>
+<span class="c1"># vitam-s3-offer               mongo_cluster_name=offer-s3-1      mongo_shard_id=0</span>
 
 
 <span class="c1">##### Zone data</span>
@@ -918,18 +905,17 @@
 <span class="c1">#  - mongo_shard_id=x ; increment by 1 from 0 to n to create multiple shards</span>
 <span class="c1"># Optional params</span>
 <span class="c1">#  - mongo_rs_bootstrap=true (default: false); mandatory for 1 node of the shard, some init commands will be executed on it</span>
-<span class="c1">#  - mongo_arbiter=true (default: false); the node will be only an arbiter, it will not store data ; do not add this parameter on a mongo_rs_bootstrap node, maximum 1 node per shard</span>
 <span class="c1">#  - mongod_memory=x (default: unset); this will force the wiredtiger cache size to x (unit is GB) ; can be usefull when colocalization with elasticsearch</span>
 <span class="c1">#  - is_small=true (default: false); this will force the priority for this server to be lower when electing master ; hardware can be downgraded for this machine</span>
 <span class="c1"># Recommended practice in production: use 3 instances per shard</span>
-<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id, arbiter mode or PSSmin configuration.</span>
+<span class="c1"># IMPORTANT : Updating cluster configuration is NOT supported. Do NOT add/remove a host to an existing replica set, update shard id or PSSmin configuration.</span>
 <span class="c1"># Example:</span>
 <span class="c1"># vitam-mdbd-01  mongo_cluster_name=mongo-data   mongo_shard_id=0   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mdbd-02  mongo_cluster_name=mongo-data   mongo_shard_id=0</span>
 <span class="c1"># vitam-mdbd-03  mongo_cluster_name=mongo-data   mongo_shard_id=0   is_small=true # PSSmin, this machine needs less hardware</span>
 <span class="c1"># vitam-mdbd-04  mongo_cluster_name=mongo-data   mongo_shard_id=1   mongo_rs_bootstrap=true</span>
 <span class="c1"># vitam-mdbd-05  mongo_cluster_name=mongo-data   mongo_shard_id=1</span>
-<span class="c1"># vitam-mdbd-06  mongo_cluster_name=mongo-data   mongo_shard_id=1   mongo_arbiter=true</span>
+<span class="c1"># vitam-mdbd-06  mongo_cluster_name=mongo-data   mongo_shard_id=1</span>
 
 
 <span class="c1">###### Zone admin</span>
@@ -1081,7 +1067,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Il est possible de multi-instancier le composant «&nbsp;storage-offer-default&nbsp;» dans le cas d’un <em>provider</em> de type objet (s3, swift). Il faut ajouter <code class="docutils literal notranslate"><span class="pre">offer_conf=&lt;le</span> <span class="pre">nom&gt;</span></code>.</p>
+<p class="last">Il est possible de multi-instancier le composant <code class="docutils literal notranslate"><span class="pre">offer</span></code> dans le cas d’un <em>provider</em> de type objet (s3, swift). Il faut ajouter <code class="docutils literal notranslate"><span class="pre">offer_conf=&lt;le</span> <span class="pre">nom&gt;</span></code>.</p>
 </div>
 </div>
 <div class="section" id="fichier-main-yml">
@@ -1200,11 +1186,12 @@
 111
 112
 113
-114</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+114
+115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1"># TENANTS</span>
 <span class="c1"># List of active tenants</span>
-<span class="nt">vitam_tenant_ids</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+<span class="nt">vitam_tenant_ids</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0-9</span><span class="p p-Indicator">]</span>
 <span class="c1"># For functional-administration, manage master/slave tenant configuration</span>
 <span class="c1"># http://www.programmevitam.fr/ressources/DocCourante/html/installation/installation/21-addons.html#passage-des-identifiants-des-referentiels-en-mode-esclave</span>
 <span class="nt">vitam_tenants_usage_external</span><span class="p">:</span>
@@ -1289,19 +1276,20 @@
   <span class="nt">collect_grouped_tenants</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;all&#39;</span>
     <span class="c1"># Group all tenants for collect&#39;s indexes (collect_unit &amp; collect_objectgroup)</span>
-    <span class="nt">tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">join(&#39;,&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">}}&quot;</span>
 
 <span class="nt">elasticsearch</span><span class="p">:</span>
   <span class="nt">log</span><span class="p">:</span>
-    <span class="nt">index_templates</span><span class="p">:</span>
-      <span class="nt">default</span><span class="p">:</span>
-        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">indices</span><span class="p">:</span>
+      <span class="nt">default_config</span><span class="p">:</span>
+        <span class="c1"># Default configuration if others indices (vitam or access) are undefined</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">data</span><span class="p">:</span>
-    <span class="nt">index_templates</span><span class="p">:</span>
-      <span class="nt">default</span><span class="p">:</span>
-        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="nt">indices</span><span class="p">:</span>
+      <span class="nt">default_config</span><span class="p">:</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 
 <span class="nt">curator</span><span class="p">:</span>
   <span class="nt">indices</span><span class="p">:</span>
@@ -1370,7 +1358,7 @@
 
 <span class="c1">### Admin context name and tenants ###</span>
 <span class="nt">admin_context_name</span><span class="p">:</span> <span class="s">&quot;admin-context&quot;</span>
-<span class="nt">admin_context_tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="nt">admin_context_tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">expand_list</span><span class="nv"> </span><span class="s">}}&quot;</span>
 
 <span class="c1"># Indicate context certificates relative paths under {{ inventory_dir }}/certs/client-external/clients</span>
 <span class="c1"># vitam-admin-int is mandatory for internal use (PRONOM upload)</span>
@@ -1411,481 +1399,41 @@
 <h3>4.2.3.2.4. Fichier <code class="docutils literal notranslate"><span class="pre">offers_opts.yml</span></code><a class="headerlink" href="#fichier-offers-opts-yml" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La déclaration de configuration des offres de stockage associées se fait dans le fichier <a href="#id6"><span class="problematic" id="id7">|</span></a>repertoire_inventory|``group_vars/all/main/offers_opts.yml`` :</p>
 <blockquote>
-<div><div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This is the default vitam strategy (&#39;default&#39;). It is mandatory and must define a referent offer.</span>
-<span class="c1"># This list of offers will be ordered by the property rank. It has to be completed if more offers are necessary</span>
-<span class="c1"># The property rank indicates the rank of the offer in the strategy. The ranking is done is ASC order and should be different for all declared offers</span>
+<div><div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># Simple example of offers configuration file.</span>
+<span class="c1"># Please refer to the offer_opts.yml.example file for more details about all available parameters and their meaning.</span>
+
+<span class="c1">## Strategy definition</span>
 <span class="nt">vitam_strategy</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer-fs-1</span>
     <span class="nt">referent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">rank</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="c1"># - name: offer-fs-2</span>
+  <span class="c1">#   rank: 10</span>
+  <span class="c1">#   distant: true</span>
+  <span class="c1">#   vitam_site_name: dc2</span>
 
-<span class="c1"># Optional params for each offers in vitam_strategy. If not set, the default values are applied.</span>
-<span class="c1">#    referent: false              # true / false (default), only one per site must be referent</span>
-<span class="c1">#    status: ACTIVE               # ACTIVE (default) / INACTIVE</span>
-<span class="c1">#    vitam_site_name: distant-dc2 # default is the value of vitam_site_name defined in your local inventory file, should be specified with the vitam_site_name defined for the distant offer</span>
-<span class="c1">#    distant: false               # true / false (default). If set to true, it will not check if the provider for this offer is correctly set</span>
-<span class="c1">#    id: idoffre                  # OPTIONAL, but IF ACTIVATED, MUST BE UNIQUE &amp; SAME if on another site</span>
-<span class="c1">#    asyncRead: false             # true / false (default). Should be set to true for tape offer only</span>
-<span class="c1">#    rank: 0                      # Integer that indicates in ascending order the priority of the offer in the strategy</span>
-
-<span class="c1"># Example for tape offer:</span>
-<span class="c1"># Tape offer mustn&#39;t be referent (referent: false) and should be configured as asynchrone read (asyncRead: true)</span>
-<span class="c1">#  - name: offer-tape-1</span>
-<span class="c1">#    referent: false</span>
-<span class="c1">#    asyncRead: true</span>
-<span class="c1">#    rank: 0</span>
-
-<span class="c1"># Example distant offer:</span>
-<span class="c1">#  - name: distant</span>
-<span class="c1">#    referent: false</span>
-<span class="c1">#    vitam_site_name: distant-dc2</span>
-<span class="c1">#    distant: true # Only add this parameter when distant offer (not on same platform)</span>
-<span class="c1">#    rank: 1</span>
-
-<span class="c1"># WARNING : multi-strategy is a BETA functionality</span>
-<span class="c1"># More strategies can be added but are optional</span>
-<span class="c1"># Strategy name must only use [a-z][a-z0-9-]* pattern</span>
-<span class="c1"># Any strategy must contain at least one offer</span>
-<span class="c1"># This list of offers is ordered. It can and has to be completed if more offers are necessary</span>
-<span class="c1"># Every strategy can define at most one referent offer.</span>
-<span class="c1"># other_strategies:</span>
-<span class="c1">#  metadata:</span>
-<span class="c1">#    - name: offer-fs-1</span>
-<span class="c1">#      referent: true</span>
-<span class="c1">#      rank: 0</span>
-<span class="c1">#    - name: offer-fs-2</span>
-<span class="c1">#      referent: false</span>
-<span class="c1">#      rank: 1</span>
-<span class="c1">#  binary:</span>
-<span class="c1">#    - name: offer-fs-2</span>
-<span class="c1">#      referent: false</span>
-<span class="c1">#      rank: 0</span>
-<span class="c1">#    - name: offer-s3-1</span>
-<span class="c1">#      referent: false</span>
-<span class="c1">#      rank: 1</span>
-
-<span class="c1"># DON&#39;T forget to add associated passwords in vault-vitam.yml with same tree when using provider openstack-swift*</span>
-<span class="c1"># ATTENTION !!! Each offer has to have a distinct name, except for clusters binding a same physical storage</span>
-<span class="c1"># WARNING : for offer names, please only use [a-z][a-z0-9-]* pattern</span>
+<span class="c1">## Offers configuration</span>
 <span class="nt">vitam_offers</span><span class="p">:</span>
   <span class="nt">offer-fs-1</span><span class="p">:</span>
-    <span class="c1"># param can be filesystem-hash (recommended) or filesystem (not recommended)</span>
     <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filesystem-hash</span>
-    <span class="c1">### Optional parameters</span>
-    <span class="c1"># Offer log compaction</span>
-    <span class="nt">offer_log_compaction</span><span class="p">:</span>
-      <span class="c1">## Expiration, here offer logs 21 days old will be compacted</span>
-      <span class="nt">expiration_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
-      <span class="c1">## Choose one of &quot;MILLENNIA&quot;, &quot;HALF_DAYS&quot;, &quot;MILLIS&quot;, &quot;FOREVER&quot;, &quot;MICROS&quot;, &quot;CENTURIES&quot;, &quot;DECADES&quot;, &quot;YEARS&quot;, &quot;DAYS&quot;, &quot;SECONDS&quot;, &quot;HOURS&quot;, &quot;MONTHS&quot;, &quot;WEEKS&quot;, &quot;NANOS&quot;, &quot;MINUTES&quot;, &quot;ERAS&quot;</span>
-      <span class="nt">expiration_unit</span><span class="p">:</span> <span class="s">&quot;DAYS&quot;</span>
-      <span class="c1">## Compaction bulk size here 10 000 offers logs (at most) will be compacted (Expected value between 1 000 and 200 000)</span>
-      <span class="nt">compaction_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-    <span class="c1"># Batch processing thread pool size</span>
-    <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-    <span class="c1"># Batch metadata computation timeout in seconds</span>
-    <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
-    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
-    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
-    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="c1">################################################################################</span>
-  <span class="nt">offer-swift-1</span><span class="p">:</span>
-    <span class="c1"># provider : openstack-swift for v1 or openstack-swift-v3 for v3</span>
-    <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openstack-swift-v3</span>
-    <span class="c1"># swiftKeystoneAuthUrl : URL de connexion à keystone</span>
-    <span class="nt">swiftKeystoneAuthUrl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://openstack-hostname:port/auth/1.0</span>
-    <span class="c1"># swiftDomain : domaine OpenStack dans lequel l&#39;utilisateur est enregistré</span>
-    <span class="nt">swiftDomain</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">domaine</span>
-    <span class="c1"># swiftUser: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
-    <span class="c1"># swiftPassword: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
-    <span class="c1"># swiftProjectName : nom du projet openstack</span>
-    <span class="nt">swiftProjectName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monTenant</span>
-    <span class="c1">### Optional parameters</span>
-    <span class="c1"># swiftUrl: optional variable to force the swift URL</span>
-    <span class="c1"># swiftUrl: https://swift-hostname:port/swift/v1</span>
-    <span class="c1">#SSL TrustStore</span>
-    <span class="nt">swiftTrustStore</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/chemin_vers_mon_fichier/monSwiftTrustStore.jks</span>
-    <span class="c1">#Max connection (concurrent connections), per route, to keep in pool (if a pooling ConnectionManager is used) (optional, 200 by default)</span>
-    <span class="nt">swiftMaxConnectionsPerRoute</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
-    <span class="c1">#Max total connection (concurrent connections) to keep in pool (if a pooling ConnectionManager is used) (optional, 1000 by default)</span>
-    <span class="nt">swiftMaxConnections</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-    <span class="c1">#Max time (in milliseconds) for waiting to establish connection (optional, 200000 by default)</span>
-    <span class="nt">swiftConnectionTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200000</span>
-    <span class="c1">#Max time (in milliseconds) waiting for a data from the server (socket) (optional, 60000 by default)</span>
-    <span class="nt">swiftReadTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60000</span>
-    <span class="c1"># Disable keep-alive. Optional, defaults to false.</span>
-    <span class="nt">swiftDisableKeepAlive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="c1">#Default number of (re)tries on errors</span>
-    <span class="nt">swiftNbRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="c1">#Time (in seconds) to renew a token before expiration occurs (blocking) (optional, 60 by default)</span>
-    <span class="nt">swiftHardRenewTokenDelayBeforeExpireTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
-    <span class="c1">#Time (in seconds) to renew a token before expiration occurs (optional, 300 by default)</span>
-    <span class="nt">swiftSoftRenewTokenDelayBeforeExpireTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Offer log compaction</span>
-    <span class="nt">offer_log_compaction</span><span class="p">:</span>
-      <span class="c1">## Expiration, here offer logs 21 days old will be compacted</span>
-      <span class="nt">expiration_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
-      <span class="c1">## Choose one of &quot;MILLENNIA&quot;, &quot;HALF_DAYS&quot;, &quot;MILLIS&quot;, &quot;FOREVER&quot;, &quot;MICROS&quot;, &quot;CENTURIES&quot;, &quot;DECADES&quot;, &quot;YEARS&quot;, &quot;DAYS&quot;, &quot;SECONDS&quot;, &quot;HOURS&quot;, &quot;MONTHS&quot;, &quot;WEEKS&quot;, &quot;NANOS&quot;, &quot;MINUTES&quot;, &quot;ERAS&quot;</span>
-      <span class="nt">expiration_unit</span><span class="p">:</span> <span class="s">&quot;DAYS&quot;</span>
-      <span class="c1">## Compaction bulk size here 10 000 offers logs (at most) will be compacted (Expected value between 1 000 and 200 000)</span>
-      <span class="nt">compaction_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-    <span class="c1"># Batch processing thread pool size</span>
-    <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-    <span class="c1"># Batch metadata computation timeout in seconds</span>
-    <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
-    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
-    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
-    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="c1"># Enable / Disable use of vitam custom headers for offer requests</span>
-    <span class="nt">enableCustomHeaders</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="c1"># List of vitam custom headers used by offer requests</span>
-    <span class="c1">#customHeaders:</span>
-    <span class="c1">#  - key: &#39;Cookie&#39;</span>
-    <span class="c1">#    value: &#39;Origin=vitam&#39;</span>
-<span class="c1">################################################################################</span>
-  <span class="nt">offer-s3-1</span><span class="p">:</span>
-    <span class="c1"># provider : can only be amazon-s3-v2 for Amazon SDK S3 V2</span>
-    <span class="nt">provider</span><span class="p">:</span> <span class="s">&#39;amazon-s3-v2&#39;</span>
-    <span class="c1"># s3Endpoint : URL of connection to S3</span>
-    <span class="nt">s3Endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://172.17.0.2:6007</span>
-    <span class="c1">### Optional parameters</span>
-    <span class="c1"># s3RegionName (optional): Region name (default value us-east-1)</span>
-    <span class="nt">s3RegionName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-west-1</span>
-    <span class="c1"># s3PathStyleAccessEnabled (optional): &#39;true&#39; to access bucket in &quot;path-style&quot;, else &quot;virtual-hosted-style&quot; (true by default)</span>
-    <span class="nt">s3PathStyleAccessEnabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="c1"># s3MaxConnections (optional): Max total connection (concurrent connections) (50 by default)</span>
-    <span class="nt">s3MaxConnections</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-    <span class="c1"># s3ConnectionTimeout (optional): Max time (in milliseconds) for waiting to establish connection (10000 by default)</span>
-    <span class="nt">s3ConnectionTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200000</span>
-    <span class="c1"># s3SocketTimeout (optional): Max time (in milliseconds) for reading from a connected socket (50000 by default)</span>
-    <span class="nt">s3SocketTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50000</span>
-    <span class="c1"># s3RequestTimeout (optional): Max time (in milliseconds) for a request (0 by default, disabled)</span>
-    <span class="nt">s3RequestTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="c1"># s3ClientExecutionTimeout (optional): Max time (in milliseconds) for a request by java client (0 by default, disabled)</span>
-    <span class="nt">s3ClientExecutionTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="c1"># Disable multipart upload of large objects (legacy mode / not recommended, only for S3 servers without multipart upload support)</span>
-    <span class="nt">s3DisableMultipartUpload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="c1"># Max upload size for single object upload size in MB (min: 5 MB, max: 5 GB, default: 5 GB)</span>
-    <span class="nt">s3MaxUploadPartSizeMB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5_120</span>
-    <span class="c1"># Nb retries for S3 multipart upload cleanup</span>
-    <span class="nt">s3MultiPartCleanNbRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="c1"># Wait delay for S3 multipart upload cleanup (in milliseconds)</span>
-    <span class="nt">s3MultiPartCleanWaitingTimeInMilliseconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10_000</span>
-    <span class="c1"># Ignore S3 HTTPS certificate hostname validation (defaults to false, not for production environments)</span>
-    <span class="nt">s3IgnoreCertificateHostnameValidation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="c1"># Offer log compaction</span>
-    <span class="nt">offer_log_compaction</span><span class="p">:</span>
-      <span class="c1">## Expiration, here offer logs 21 days old will be compacted</span>
-      <span class="nt">expiration_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
-      <span class="c1">## Choose one of &quot;MILLENNIA&quot;, &quot;HALF_DAYS&quot;, &quot;MILLIS&quot;, &quot;FOREVER&quot;, &quot;MICROS&quot;, &quot;CENTURIES&quot;, &quot;DECADES&quot;, &quot;YEARS&quot;, &quot;DAYS&quot;, &quot;SECONDS&quot;, &quot;HOURS&quot;, &quot;MONTHS&quot;, &quot;WEEKS&quot;, &quot;NANOS&quot;, &quot;MINUTES&quot;, &quot;ERAS&quot;</span>
-      <span class="nt">expiration_unit</span><span class="p">:</span> <span class="s">&quot;DAYS&quot;</span>
-      <span class="c1">## Compaction bulk size here 10 000 offers logs (at most) will be compacted (Expected value between 1 000 and 200 000)</span>
-      <span class="nt">compaction_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-    <span class="c1"># Batch processing thread pool size</span>
-    <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-    <span class="c1"># Batch metadata computation timeout in seconds</span>
-    <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
-    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
-    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
-    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="c1">################################################################################</span>
-  <span class="nt">offer-tape-1</span><span class="p">:</span>
-    <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tape-library</span>
-    <span class="c1"># tapeLibraryConfiguration:</span>
-    <span class="c1">#   ...</span>
-    <span class="c1"># topology:</span>
-    <span class="c1">#   ...</span>
-    <span class="c1"># tapeLibraries:</span>
-    <span class="c1">#   ...</span>
-    <span class="c1"># Offer log compaction</span>
-    <span class="nt">offer_log_compaction</span><span class="p">:</span>
-      <span class="c1">## Expiration, here offer logs 21 days old will be compacted</span>
-      <span class="nt">expiration_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
-      <span class="c1">## Choose one of &quot;MILLENNIA&quot;, &quot;HALF_DAYS&quot;, &quot;MILLIS&quot;, &quot;FOREVER&quot;, &quot;MICROS&quot;, &quot;CENTURIES&quot;, &quot;DECADES&quot;, &quot;YEARS&quot;, &quot;DAYS&quot;, &quot;SECONDS&quot;, &quot;HOURS&quot;, &quot;MONTHS&quot;, &quot;WEEKS&quot;, &quot;NANOS&quot;, &quot;MINUTES&quot;, &quot;ERAS&quot;</span>
-      <span class="nt">expiration_unit</span><span class="p">:</span> <span class="s">&quot;DAYS&quot;</span>
-      <span class="c1">## Compaction bulk size here 10 000 offers logs (at most) will be compacted (Expected value between 1 000 and 200 000)</span>
-      <span class="nt">compaction_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-    <span class="c1"># Batch processing thread pool size</span>
-    <span class="nt">maxBatchThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-    <span class="c1"># Batch metadata computation timeout in seconds</span>
-    <span class="nt">batchMetadataComputationTimeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
-    <span class="c1"># Clean up non-rewritable / non-overridable objects on write errors.</span>
-    <span class="c1"># True (default) for fast auto-recovery in most failure cases, but may cause data loses in rare cases of concurrent (re-)writes by other threads. Use at your own risk.</span>
-    <span class="nt">cleanupObjectsOnWriteError</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="c1">################################################################################</span>
-  <span class="c1"># WARNING: Swift V1 is deprecated</span>
-  <span class="c1"># example_swift_v1:</span>
-  <span class="c1">#    provider: openstack-swift</span>
-  <span class="c1">#    swiftKeystoneAuthUrl: https://keystone/auth/1.0</span>
-  <span class="c1">#    swiftDomain: domain</span>
-  <span class="c1">#    swiftUser: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
-  <span class="c1">#    swiftPassword: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
-  <span class="c1"># THIS PART IS ONLY FOR CLEANING (and mandatory for this use case)</span>
-  <span class="c1">#    swiftProjectId: related to OS_PROJECT_ID</span>
-  <span class="c1">#    swiftRegionName: related to OS_REGION_NAME</span>
-  <span class="c1">#    swiftInterface: related to OS_INTERFACE</span>
-  <span class="c1"># example_swift_v3:</span>
-  <span class="c1">#    provider: openstack-swift-v3</span>
-  <span class="c1">#    swiftKeystoneAuthUrl: https://keystone/v3</span>
-  <span class="c1">#    swiftDomain: domaine</span>
-  <span class="c1">#    swiftUser: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
-  <span class="c1">#    swiftPassword: has to be set in vault-vitam.yml (encrypted) with same structure =&gt; DO NOT COMMENT OUT</span>
-  <span class="c1">#    swiftProjectName: monTenant</span>
-  <span class="c1">#    projectName: monTenant</span>
-  <span class="c1"># THIS PART IS ONLY FOR CLEANING (and mandatory for this use case)</span>
-  <span class="c1">#    swiftProjectId: related to OS_PROJECT_ID</span>
-  <span class="c1">#    swiftRegionName: related to OS_REGION_NAME</span>
-  <span class="c1">#    swiftInterface: related to OS_INTERFACE</span>
-
-  <span class="c1">#    swiftTrustStore: /chemin_vers_mon_fichier/monSwiftTrustStore.jks</span>
-  <span class="c1">#    swiftMaxConnectionsPerRoute: 200</span>
-  <span class="c1">#    swiftMaxConnections: 1000</span>
-  <span class="c1">#    swiftConnectionTimeout: 200000</span>
-  <span class="c1">#    swiftReadTimeout: 60000</span>
-  <span class="c1">#    swiftDisableKeepAlive: false</span>
-  <span class="c1">#    Time (in seconds) to renew a token before expiration occurs</span>
-  <span class="c1">#    swiftHardRenewTokenDelayBeforeExpireTime: 60</span>
-  <span class="c1">#    swiftSoftRenewTokenDelayBeforeExpireTime: 300</span>
-  <span class="c1">#    enableCustomHeaders: false</span>
-  <span class="c1">#    customHeaders:</span>
-  <span class="c1">#      - key: &#39;Cookie&#39;</span>
-  <span class="c1">#        value: &#39;Origin=vitam&#39;</span>
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -2231,22 +1779,7 @@
 322
 323
 324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+325</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2263,11 +1796,11 @@
 <span class="nt">elasticsearch</span><span class="p">:</span>
     <span class="nt">log</span><span class="p">:</span>
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9201&quot;</span>
+        <span class="nt">port_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9201</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
-        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">log</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-log</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-log</span>
         <span class="nt">consul_check_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">error</span>
@@ -2278,18 +1811,18 @@
         <span class="c1"># log configuration</span>
         <span class="nt">log_appenders</span><span class="p">:</span>
             <span class="nt">root</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info</span>
             <span class="nt">rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
                 <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;2GB&quot;</span>
             <span class="nt">deprecation_rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;20&quot;</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
         <span class="c1"># thread_pool:</span>
         <span class="c1">#     index:</span>
@@ -2306,13 +1839,13 @@
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="c1"># default is 0.1 (10%) and should be quite enough in most cases</span>
         <span class="c1">#index_buffer_size_ratio: &quot;0.15&quot;</span>
-        <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9200&quot;</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
-        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
+        <span class="nt">port_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9200</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-data</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-data</span>
         <span class="nt">consul_check_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-        <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">debug</span>
+        <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/modules-fielddata.html</span>
         <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/circuit-breaker.html#fielddata-circuit-breaker</span>
@@ -2320,18 +1853,18 @@
         <span class="c1"># log configuration</span>
         <span class="nt">log_appenders</span><span class="p">:</span>
             <span class="nt">root</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info</span>
             <span class="nt">rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
                 <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
             <span class="nt">deprecation_rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;20&quot;</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
         <span class="c1"># thread_pool:</span>
         <span class="c1">#     index:</span>
@@ -2349,9 +1882,9 @@
     <span class="nt">mongos_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
     <span class="nt">mongoc_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
     <span class="nt">mongod_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
-    <span class="nt">mongo_authentication</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">mongo_authentication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">drop_info_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># Drop mongo (I)nformational log, for Verbosity Level of 0</span>
+    <span class="nt">drop_info_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1"># Drop mongo (I)nformational log, for Verbosity Level of 0</span>
     <span class="c1"># logs configuration</span>
     <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
     <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
@@ -2376,12 +1909,19 @@
 
 <span class="nt">filebeat</span><span class="p">:</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="c1"># processors:</span>
+    <span class="c1">#     # https://www.elastic.co/docs/reference/beats/filebeat/add-host-metadata</span>
+    <span class="c1">#     - add_host_metadata:</span>
+    <span class="c1">#         when.not.contains.tags: forwarded</span>
+    <span class="c1">#     # https://www.elastic.co/guide/en/beats/filebeat/current/add-cloud-metadata</span>
+    <span class="c1">#     - add_cloud_metadata: ~</span>
+    <span class="c1">#     # https://www.elastic.co/docs/reference/beats/filebeat/add-docker-metadata</span>
+    <span class="c1">#     - add_docker_metadata: ~</span>
 
 <span class="c1"># Prometheus params</span>
 <span class="nt">prometheus</span><span class="p">:</span>
     <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/admin/v1/metrics</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -2392,20 +1932,19 @@
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9101</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
-        <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+        <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">consul_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9107</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
     <span class="nt">elasticsearch_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9114</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
-        <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+        <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">alertmanager</span><span class="p">:</span>
@@ -2441,47 +1980,28 @@
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">indices</span><span class="p">:</span>
-        <span class="nt">metricbeat</span><span class="p">:</span>
-            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-        <span class="nt">packetbeat</span><span class="p">:</span>
-            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
 
 <span class="nt">kibana</span><span class="p">:</span>
-    <span class="nt">header_value</span><span class="p">:</span> <span class="s">&quot;reporting&quot;</span>
     <span class="nt">import_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">import_retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="c1"># logs configuration</span>
     <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
     <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">log</span><span class="p">:</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_log&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kibana_log</span>
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">log</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logstash-vitam*&quot;</span>
+        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logstash-vitam*</span>
         <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-        <span class="c1"># default shards &amp; replica</span>
-        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="c1"># pour index logstash-*</span>
-        <span class="nt">metrics</span><span class="p">:</span>
-            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="c1"># pour index metricbeat-*</span>
-        <span class="nt">metricbeat</span><span class="p">:</span>
-            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span> <span class="c1"># must be a factor of 30</span>
-            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="nt">data</span><span class="p">:</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_data&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kibana_data</span>
         <span class="c1"># OMA : bugdette : api_call_timeout is used for retries ; should ceate a separate variable rather than this one</span>
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
-        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logbookoperation_*&quot;</span>
+        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logbookoperation_*</span>
         <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="c1"># index template for .kibana</span>
         <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -2489,13 +2009,10 @@
 
 <span class="nt">syslog</span><span class="p">:</span>
     <span class="c1"># value can be syslog-ng, rsyslog or filebeat (default)</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;filebeat&quot;</span>
-
-<span class="c1"># filebeat:</span>
-<span class="c1"># Default values are under ansible-vitam/roles/filebeat/defaults/main.yml</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filebeat</span>
 
 <span class="nt">cerebro</span><span class="p">:</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;cerebro&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cerebro</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="c1"># logs configuration</span>
@@ -2515,7 +2032,7 @@
         <span class="c1"># frequency freshclam for database update per day (from 0 to 24 - 24 meaning hourly check)</span>
         <span class="nt">db_update_periodicity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="nt">private_mirror_address</span><span class="p">:</span>
-        <span class="nt">use_proxy</span><span class="p">:</span> <span class="s">&quot;no&quot;</span>
+        <span class="nt">use_proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="c1">## Avast Business Antivirus for Linux</span>
 <span class="c1">## if undefined, the following default values are applied.</span>
@@ -2528,7 +2045,7 @@
 <span class="c1">#         state: present</span>
 <span class="c1">#         # For RedHat family</span>
 <span class="c1">#         baseurl: https://repo.avcdn.net/linux-av/rpm/el9/release</span>
-<span class="c1">#         gpgcheck: no</span>
+<span class="c1">#         gpgcheck: false</span>
 <span class="c1">#         proxy: _none_</span>
 <span class="c1">#         # For Debian family</span>
 <span class="c1">#         baseurl: &#39;deb https://repo.avcdn.net/linux-av/deb debian-bookworm release&#39;</span>
@@ -2539,22 +2056,23 @@
 <span class="c1">#         - yyyyyy</span>
 
 <span class="nt">mongo_express</span><span class="p">:</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;mongo-express&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongo-express</span>
 
-<span class="nt">ldap_authentification</span><span class="p">:</span>
-    <span class="nt">ldap_protocol</span><span class="p">:</span> <span class="s">&quot;ldap&quot;</span>
-    <span class="nt">ldap_server</span><span class="p">:</span> <span class="s">&quot;{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;ldap&#39;]|length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">groups[&#39;ldap&#39;]|first</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}&quot;</span>
-    <span class="nt">ldap_port</span><span class="p">:</span> <span class="s">&quot;389&quot;</span>
-    <span class="nt">ldap_base</span><span class="p">:</span> <span class="s">&quot;dc=programmevitam,dc=fr&quot;</span>
-    <span class="nt">ldap_login</span><span class="p">:</span> <span class="s">&quot;cn=Manager,dc=programmevitam,dc=fr&quot;</span>
-    <span class="nt">uid_field</span><span class="p">:</span> <span class="s">&quot;uid&quot;</span>
-    <span class="nt">ldap_userDn_Template</span><span class="p">:</span> <span class="s">&quot;uid={0},ou=people,dc=programmevitam,dc=fr&quot;</span>
-    <span class="nt">ldap_group_request</span><span class="p">:</span> <span class="s">&quot;(&amp;(objectClass=groupOfNames)(member={0}))&quot;</span>
-    <span class="nt">ldap_admin_group</span><span class="p">:</span> <span class="s">&quot;cn=admin,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
-    <span class="nt">ldap_user_group</span><span class="p">:</span> <span class="s">&quot;cn=user,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
-    <span class="nt">ldap_guest_group</span><span class="p">:</span> <span class="s">&quot;cn=guest,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
+<span class="c1">## Mandatory LDAP authentification params when vitam.ihm-demo.authentication_realms: [&#39;ldapRealm&#39;] is set</span>
+<span class="c1"># ldap_authentification:</span>
+<span class="c1">#     ldap_protocol: &quot;ldap&quot;</span>
+<span class="c1">#     ldap_server: &quot;my_ldap_server.domain&quot;</span>
+<span class="c1">#     ldap_port: &quot;389&quot;</span>
+<span class="c1">#     ldap_base: &quot;dc=programmevitam,dc=fr&quot;</span>
+<span class="c1">#     ldap_login: &quot;cn=Manager,dc=programmevitam,dc=fr&quot;</span>
+<span class="c1">#     uid_field: &quot;uid&quot;</span>
+<span class="c1">#     ldap_userDn_Template: &quot;uid={0},ou=people,dc=programmevitam,dc=fr&quot;</span>
+<span class="c1">#     ldap_group_request: &quot;(&amp;(objectClass=groupOfNames)(member={0}))&quot;</span>
+<span class="c1">#     ldap_admin_group: &quot;cn=admin,ou=groups,dc=programmevitam, dc=fr&quot;</span>
+<span class="c1">#     ldap_user_group: &quot;cn=user,ou=groups,dc=programmevitam, dc=fr&quot;</span>
+<span class="c1">#     ldap_guest_group: &quot;cn=guest,ou=groups,dc=programmevitam, dc=fr&quot;</span>
 
-<span class="c1"># Backup tool on storage-offer</span>
+<span class="c1"># Backup tool on offers</span>
 <span class="nt">restic</span><span class="p">:</span>
     <span class="nt">snapshot_retention</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># number of snapshots to keep</span>
     <span class="c1"># default run backup at 23:00 everydays</span>
@@ -2564,7 +2082,7 @@
         <span class="nt">day</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
         <span class="nt">month</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
         <span class="nt">weekday</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
-    <span class="c1"># [hosts_storage_offer_default] must be able to connect to the listed databases below to properly backup.</span>
+    <span class="c1"># [hosts_offer] must be able to connect to the listed databases below to properly backup.</span>
     <span class="nt">backup</span><span class="p">:</span>
         <span class="c1"># mongo-offer</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">offer_conf</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -2764,7 +2282,20 @@
 163
 164
 165
-166</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### tenants ###</span>
 <span class="c1"># List of dead / removed tenants that should never be reused / present in vitam_tenant_ids</span>
 <span class="nt">vitam_removed_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="p p-Indicator">]</span>
 <span class="c1"># Administration tenant</span>
@@ -2924,12 +2455,25 @@
   <span class="c1">#</span>
   <span class="c1"># The `objectGroupBlackListedFields` configuration option specifies the fields that should not be reported by access-external.</span>
   <span class="c1">#</span>
+  <span class="c1"># The `traceabilityVersion` configuration option specifies the traceability version to use per / traceability type.</span>
+  <span class="c1">#   - logbookOperation: Version for logbook operation traceability (default: V1)</span>
+  <span class="c1">#   - lfcUnit: Version for LFC unit traceability (default: V1)</span>
+  <span class="c1">#   - lfcGot: Version for LFC GOT traceability (default: V1)</span>
+  <span class="c1">#   </span>
+  <span class="c1">#   Available versions: V1, V2, V3, V4......</span>
+  <span class="c1">#   WARNING: Updating traceability version generates a new traceability chain.</span>
+  <span class="c1">#   /!\ Do NOT change traceability version unless you know what you do!</span>
+  <span class="c1">#</span>
   <span class="c1"># Example for tenant 0 :</span>
   <span class="c1">#   0:</span>
   <span class="c1">#     eliminationReportExtraFields: [&quot;#id&quot;, &quot;FilePlanPosition&quot;, &quot;SystemId&quot;]</span>
   <span class="c1">#     ingestReportUnitExtraFields: [ &quot;FilePlanPosition&quot;, &quot;OriginatingSystemId&quot;, &quot;ArchivalAgencyArchiveUnitIdentifier&quot;, &quot;OriginatingAgencyArchiveUnitIdentifier&quot;, &quot;TransferringAgencyArchiveUnitIdentifier&quot;, &quot;PersistentIdentifier&quot; ]</span>
   <span class="c1">#     ingestReportObjectExtraFields: [ &quot;PersistentIdentifier&quot; ]</span>
   <span class="c1">#     objectGroupBlackListedFields: [&#39;Filename&#39;]</span>
+  <span class="c1">#     traceabilityVersion:</span>
+  <span class="c1">#       logbookOperation: &#39;V1&#39;</span>
+  <span class="c1">#       lfcUnit: &#39;V1&#39;</span>
+  <span class="c1">#       lfcGot: &#39;V1&#39;</span>
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -3121,27 +2665,7 @@
 139
 140
 141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">---</span>
+142</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">---</span>
 <span class="c1"># Vitam platform secret key</span>
 <span class="c1"># Note: It has to be the same on all sites</span>
 <span class="na">plateforme_secret: change_it_vitamsecret</span>
@@ -3188,6 +2712,7 @@
     <span class="na">metadataCollect:</span>
       <span class="na">user: metadata-collect</span>
       <span class="na">password: change_it_37b97KVaDV8YbCwt</span>
+
   <span class="na">offer-fs-1:</span>
     <span class="na">passphrase: changeitmB5rnk1M5TY61PqZ</span>
     <span class="na">admin:</span>
@@ -3202,34 +2727,7 @@
     <span class="na">offer:</span>
       <span class="na">user: offer</span>
       <span class="na">password: change_it_pQi1T1yT9LAF8au8</span>
-  <span class="na">offer-fs-2:</span>
-    <span class="na">passphrase: changeiteSY1By57qZr4MX2s</span>
-    <span class="na">admin:</span>
-      <span class="na">user: vitamdb-admin</span>
-      <span class="na">password: change_it_84aTMFZ7h8e2NgMe</span>
-    <span class="na">localadmin:</span>
-      <span class="na">user: vitamdb-localadmin</span>
-      <span class="na">password: change_it_Am1B37tGY1w5VfvX</span>
-    <span class="na">system:</span>
-      <span class="na">user: vitamdb-system</span>
-      <span class="na">password: change_it_HycFEVD74g397iRe</span>
-    <span class="na">offer:</span>
-      <span class="na">user: offer</span>
-      <span class="na">password: change_it_mLDYds957sNQ53mA</span>
-  <span class="na">offer-tape-1:</span>
-    <span class="na">passphrase: changeitmB5rnk1M5TY61PqZ</span>
-    <span class="na">admin:</span>
-      <span class="na">user: vitamdb-admin</span>
-      <span class="na">password: change_it_FLkM5emt63N73EcN</span>
-    <span class="na">localadmin:</span>
-      <span class="na">user: vitamdb-localadmin</span>
-      <span class="na">password: change_it_QeH8q4e16ah4QKXS</span>
-    <span class="na">system:</span>
-      <span class="na">user: vitamdb-system</span>
-      <span class="na">password: change_it_HycFEVD74g397iRe</span>
-    <span class="na">offer:</span>
-      <span class="na">user: offer</span>
-      <span class="na">password: change_it_pQi1T1yT9LAF8au8</span>
+
   <span class="na">offer-swift-1:</span>
     <span class="na">passphrase: changeitgYvt42M2pKL6Zx3T</span>
     <span class="na">admin:</span>
@@ -3244,6 +2742,7 @@
     <span class="na">offer:</span>
       <span class="na">user: offer</span>
       <span class="na">password: change_it_AWJg2Bp3s69P6nMe</span>
+
   <span class="na">offer-s3-1:</span>
     <span class="na">passphrase: changeituF1jVdR9NqdTG625</span>
     <span class="na">admin:</span>
@@ -3258,20 +2757,25 @@
     <span class="na">offer:</span>
       <span class="na">user: offer</span>
       <span class="na">password: change_it_TuTB1i2k7iQW3zL2</span>
+
   <span class="na">offer-tape-1:</span>
-    <span class="na">passphrase: changeituF1jghT9NqdTG625</span>
+    <span class="na">passphrase: changeitmB5rnk1M5TY61PqZ</span>
     <span class="na">admin:</span>
       <span class="na">user: vitamdb-admin</span>
-      <span class="na">password: change_it_5b7cSWcab91NF4kv</span>
+      <span class="na">password: change_it_FLkM5emt63N73EcN</span>
     <span class="na">localadmin:</span>
       <span class="na">user: vitamdb-localadmin</span>
-      <span class="na">password: change_it_S9jE24rxHwUZP5a6</span>
+      <span class="na">password: change_it_QeH8q4e16ah4QKXS</span>
     <span class="na">system:</span>
       <span class="na">user: vitamdb-system</span>
       <span class="na">password: change_it_HycFEVD74g397iRe</span>
     <span class="na">offer:</span>
       <span class="na">user: offer</span>
-      <span class="na">password: change_it_TuTB1i2k7iQW3c2a</span>
+      <span class="na">password: change_it_pQi1T1yT9LAF8au8</span>
+    <span class="c1"># Mandatory when &#39;mode: ina&#39; is set for &#39;tape-library&#39; offer configuration</span>
+    <span class="na">ina-tape-proxy:</span>
+      <span class="na">user: ina-tape-proxy</span>
+      <span class="na">password: change_it_RoklFlziZr5grr90</span>
 
 <span class="na">vitam_users:</span>
   <span class="na">- vitam_aadmin:</span>
@@ -3292,17 +2796,17 @@
     <span class="na">role: admin</span>
 
 <span class="na">ldap_authentification:</span>
-    <span class="na">ldap_pwd: &quot;change_it_t69Rn5NdUv39EYkC&quot;</span>
+  <span class="na">ldap_pwd: &quot;change_it_t69Rn5NdUv39EYkC&quot;</span>
 
 <span class="na">admin_basic_auth_password: change_it_5Yn74JgXwbQ9KdP8</span>
 
 <span class="na">vitam_offers:</span>
-    <span class="na">offer-swift-1:</span>
-        <span class="na">swiftUser: swift_user</span>
-        <span class="na">swiftPassword: password_change_m44j57aYeRPnPXQ2</span>
-    <span class="na">offer-s3-1:</span>
-        <span class="na">s3AccessKey: accessKey_change_grLS8372Uga5EJSx</span>
-        <span class="na">s3SecretKey: secretKey_change_p97es2m2CHXPJA1m</span>
+  <span class="na">offer-swift-1:</span>
+    <span class="na">swiftUser: swift_user</span>
+    <span class="na">swiftPassword: password_change_m44j57aYeRPnPXQ2</span>
+  <span class="na">offer-s3-1:</span>
+    <span class="na">s3AccessKey: accessKey_change_grLS8372Uga5EJSx</span>
+    <span class="na">s3SecretKey: secretKey_change_p97es2m2CHXPJA1m</span>
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -3351,8 +2855,7 @@
 24
 25
 26
-27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># NO UNDERSCORE ALLOWED IN VALUES</span>
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># NO UNDERSCORE ALLOWED IN VALUES</span>
 <span class="na">keystores:</span>
   <span class="na">server:</span>
     <span class="na">offer: changeit817NR75vWsZtgAgJ</span>
@@ -3363,7 +2866,6 @@
     <span class="na">collect_external: changeit6kQ16eyDYAoPS9fy</span>
   <span class="na">client_external:</span>
     <span class="na">ihm_demo: changeitGT38hhTiA32x1PLy</span>
-    <span class="na">gatling: changeit2sBC5ac7NfGF9Qj7</span>
     <span class="na">ihm_recette: changeitdAZ9Eq65UhDZd9p4</span>
     <span class="na">reverse: changeite5XTzb5yVPcEX464</span>
     <span class="na">vitam_admin_int: changeitz6xZe5gDu7nhDZd9</span>
@@ -3814,7 +3316,31 @@
 367
 368
 369
-370</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;dynamic_templates&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -4165,6 +3691,13 @@
         <span class="nt">&quot;evId&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
         <span class="p">},</span>
+        <span class="nt">&quot;evIdProc&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;evDateTime&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;strict_date_optional_time&quot;</span>
+        <span class="p">},</span>
         <span class="nt">&quot;obId&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
         <span class="p">},</span>
@@ -4178,6 +3711,23 @@
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span>
         <span class="p">},</span>
         <span class="nt">&quot;evDetData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;_reassignments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;OperationId&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ReassignmentDate&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;strict_date_optional_time&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;TargetOriginatingAgency&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;SourceOriginatingAgency&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
         <span class="p">}</span>
       <span class="p">}</span>

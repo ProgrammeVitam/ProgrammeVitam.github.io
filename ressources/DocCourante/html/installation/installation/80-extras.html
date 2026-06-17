@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.7. Éléments extras de l’installation &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.7. Éléments extras de l’installation &mdash; Documentation VITAM - Documentation d&#39;installation 9.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -153,24 +153,7 @@
 41
 42
 43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">vitam</span><span class="p">:</span>
     <span class="nt">ihm_recette</span><span class="p">:</span>
@@ -178,17 +161,14 @@
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ihm-recette.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8445</span>
         <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28204</span>
-        <span class="nt">baseurl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ihm-recette</span>
         <span class="nt">static_content</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/app/ihm-recette&quot;</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ihm-recette&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ihm-recette</span>
         <span class="nt">secure_mode</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">authc</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">authc</span> <span class="c1"># (default) -&gt; Will use the vitam_users defined in environments/group_vars/all/main/vault-vitam.yml</span>
+            <span class="c1"># - x509</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">session_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1800000</span>
-        <span class="nt">secure_cookie</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">use_proxy_to_clone_tests</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span>
         <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/ihm-recette/mapping&quot;</span>
 
     <span class="nt">library</span><span class="p">:</span>
@@ -196,26 +176,13 @@
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;library.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8090</span>
         <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28090</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;doc&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">doc</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+        <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="nt">consul_business_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># value in seconds</span>
         <span class="nt">consul_admin_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># value in seconds</span>
 
-<span class="nt">tenant_to_clean_before_tnr</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;0&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;1&quot;</span><span class="p p-Indicator">]</span>
-
-<span class="c1"># Period units in seconds</span>
-<span class="nt">metricbeat</span><span class="p">:</span>
-    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">system</span><span class="p">:</span>
-        <span class="nt">period</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="nt">mongodb</span><span class="p">:</span>
-        <span class="nt">period</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="nt">elasticsearch</span><span class="p">:</span>
-        <span class="nt">period</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-
-<span class="nt">packetbeat</span><span class="p">:</span>
-    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">tenant_to_clean_before_tnr</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span> <span class="nv">1</span><span class="p p-Indicator">]</span>
 
 <span class="nt">browser</span><span class="p">:</span>
     <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -229,17 +196,12 @@
     <span class="c1"># docker_address_pools_cidr: 192.168.192.1/18</span>
     <span class="c1"># docker_address_pools_size: 24</span>
 
-<span class="nt">gatling_install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">docker_install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># whether or not install docker &amp; docker images</span>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
 <p class="last">À modifier selon le besoin avant de lancer le playbook ! Les composant ihm-recette et ihm-demo ont la variable <code class="docutils literal notranslate"><span class="pre">secure_cookie</span></code> paramétrée à <code class="docutils literal notranslate"><span class="pre">true</span></code> par défaut, ce qui impose de pouvoir se connecter dessus uniquement en https (même derrière un reverse proxy). Le paramétrage de cette variable se fait dans le fichier <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/advanced/vitam_vars.yml</span></code></p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">La section <code class="docutils literal notranslate"><span class="pre">metricbeat</span></code> permet de configurer la périodicité d’envoi des informations collectées. Selon l’espace disponible sur le <cite>cluster</cite> Elasticsearch de log et la taille de l’environnement <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a> (en particulier, le nombre de machines), il peut être nécessaire d’allonger cette périodicité (en secondes).</p>
 </div>
 <p>Le fichier <a href="#id3"><span class="problematic" id="id4">|</span></a>repertoire_inventory|``group_vars/all/main/vault-extra.yml`` contient les secrets supplémentaires des <em>extras</em> ; ce fichier est encrypté par <code class="docutils literal notranslate"><span class="pre">ansible-vault</span></code> et doit être paramétré avant le lancement de l’orchestration du déploiement, si le composant ihm-recette est déployé avec récupération des <a class="reference internal" href="../introduction.html#term-tnr"><span class="xref std std-term">TNR</span></a>.</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 9.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>4.2.5. Paramétrages supplémentaires &mdash; Documentation VITAM - Documentation d&#39;installation 9.1.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
               <img src="../_static/logo_vitam.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                9.0.0
+                9.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -195,7 +195,7 @@ vitam-ffmpeg-griffin
 Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée en taille et unité (exemple : 14GB ; représente 14 gigabytes).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">des <em>appenders</em> supplémentaires existent pour le composant storage-engine (appender offersync) et offer (offer_tape et offer_tape_backup).</p>
+<p class="last">des <em>appenders</em> supplémentaires existent pour le composant storage (appender offersync) et offer (offer_tape et offer_tape_backup).</p>
 </div>
 <div class="section" id="cas-des-accesslog">
 <h3>4.2.5.4.1. Cas des accesslog<a class="headerlink" href="#cas-des-accesslog" title="Lien permanent vers ce titre">¶</a></h3>
@@ -207,9 +207,9 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 <span id="confantivirus"></span><h2>4.2.5.5. Paramétrage de l’antivirus (ingest-external)<a class="headerlink" href="#parametrage-de-l-antivirus-ingest-external" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’antivirus utilisé par ingest-external est modifiable (par défaut, ClamAV) ; pour cela :</p>
 <ul>
-<li><p class="first">Éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingestexternal.antivirus</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code> pour indiquer le nom de l’antivirus à utiliser.</p>
+<li><p class="first">Éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingest_external.antivirus</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code> pour indiquer le nom de l’antivirus à utiliser.</p>
 </li>
-<li><p class="first">Créer un script shell (dont l’extension doit être <code class="docutils literal notranslate"><span class="pre">.sh</span></code>) sous <code class="docutils literal notranslate"><span class="pre">environments/antivirus/</span></code> (norme : scan-&lt;vitam.ingestexternal.antivirus&gt;.sh) ; prendre comme modèle le fichier <code class="docutils literal notranslate"><span class="pre">scan-clamav.sh</span></code>. Ce script shell doit respecter le contrat suivant :</p>
+<li><p class="first">Créer un script shell (dont l’extension doit être <code class="docutils literal notranslate"><span class="pre">.sh</span></code>) sous <code class="docutils literal notranslate"><span class="pre">environments/antivirus/</span></code> (norme : scan-&lt;vitam.ingest_external.antivirus&gt;.sh) ; prendre comme modèle le fichier <code class="docutils literal notranslate"><span class="pre">scan-clamav.sh</span></code>. Ce script shell doit respecter le contrat suivant :</p>
 <blockquote>
 <div><ul class="simple">
 <li>Argument : chemin absolu du fichier à analyser</li>
@@ -257,7 +257,7 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 <p class="last">Vous trouverez plus d’informations sur le site officiel : <a class="reference external" href="https://www.avast.com/fr-fr/business/products/linux-antivirus">Avast Business Antivirus for Linux</a></p>
 </div>
 <p>À la place de clamAV, il est possible de déployer l’antivirus <strong>Avast Business Antivirus for Linux</strong>.</p>
-<p>Pour se faire, il suffit d’éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingestexternal.antivirus:</span> <span class="pre">avast</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code>.</p>
+<p>Pour se faire, il suffit d’éditer la variable <code class="docutils literal notranslate"><span class="pre">vitam.ingest_external.antivirus:</span> <span class="pre">avast</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code>.</p>
 <p>Il sera nécessaire de fournir le fichier de licence sous <code class="docutils literal notranslate"><span class="pre">deployment/environments/antivirus/license.avastlic</span></code> pour pouvoir déployer et utiliser l’antivirus Avast.</p>
 <p>De plus, il est possible de paramétrer l’accès aux repositories (Packages &amp; Virus definitions database) dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/cots_vars.yml</span></code>.</p>
 <p>Si les paramètres ne sont pas définis, les valeurs suivantes sont appliquées par défaut.</p>
@@ -302,11 +302,10 @@ Pour chaque <strong>APPENDER</strong>, la valeur associée doit être exprimée 
 <div>consul_disabled: true</div></blockquote>
 <p>Il faut également modifier le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code> en remplaçant :</p>
 <ul class="simple">
-<li>dans le bloc <code class="docutils literal notranslate"><span class="pre">accessexternal</span></code>, la directive <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;access-external.service.{{</span> <span class="pre">consul_domain</span> <span class="pre">}}&quot;</span></code> par <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;&lt;adresse</span> <span class="pre">IP</span> <span class="pre">de</span> <span class="pre">access-external&gt;&quot;</span></code> (l’adresse IP peut être une <a class="reference internal" href="../introduction.html#term-fip"><span class="xref std std-term">FIP</span></a>)</li>
-<li>dans le bloc <code class="docutils literal notranslate"><span class="pre">ingestexternal</span></code>, la directive <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;ingest-external.service.{{</span> <span class="pre">consul_domain</span> <span class="pre">}}&quot;</span></code> par <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;&lt;adresse</span> <span class="pre">IP</span> <span class="pre">de</span> <span class="pre">ingest-external&gt;&quot;</span></code> (l’adresse IP peut être une <a class="reference internal" href="../introduction.html#term-fip"><span class="xref std std-term">FIP</span></a>)</li>
+<li>dans le bloc <code class="docutils literal notranslate"><span class="pre">access_external</span></code>, la directive <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;access-external.service.{{</span> <span class="pre">consul_domain</span> <span class="pre">}}&quot;</span></code> par <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;&lt;adresse</span> <span class="pre">IP</span> <span class="pre">de</span> <span class="pre">access-external&gt;&quot;</span></code> (l’adresse IP peut être une <a class="reference internal" href="../introduction.html#term-fip"><span class="xref std std-term">FIP</span></a>)</li>
+<li>dans le bloc <code class="docutils literal notranslate"><span class="pre">ingest_external</span></code>, la directive <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;ingest-external.service.{{</span> <span class="pre">consul_domain</span> <span class="pre">}}&quot;</span></code> par <code class="docutils literal notranslate"><span class="pre">host:</span> <span class="pre">&quot;&lt;adresse</span> <span class="pre">IP</span> <span class="pre">de</span> <span class="pre">ingest-external&gt;&quot;</span></code> (l’adresse IP peut être une <a class="reference internal" href="../introduction.html#term-fip"><span class="xref std std-term">FIP</span></a>)</li>
 </ul>
 <p>A l’issue, le déploiement n’installera pas l’agent Consul. Le composant ihm-demo appellera, alors, par l’adresse <a class="reference internal" href="../introduction.html#term-ip"><span class="xref std std-term">IP</span></a> de service les composants «&nbsp;access-external&nbsp;» et «&nbsp;ingest-external&nbsp;».</p>
-<p>Il est également fortement recommandé de positionner la valeur de la directive <code class="docutils literal notranslate"><span class="pre">vitam.ihm_demo.metrics_enabled</span></code> à <code class="docutils literal notranslate"><span class="pre">false</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">deployment/environments/group_vars/all/advanced/vitam_vars.yml</span></code>, afin que ce composant ne tente pas d’envoyer des données sur «&nbsp;elasticsearch-log&nbsp;».</p>
 </div>
 <div class="section" id="parametrer-le-secure-cookie-pour-ihm-demo">
 <h2>4.2.5.8. Paramétrer le <code class="docutils literal notranslate"><span class="pre">secure_cookie</span></code> pour ihm-demo<a class="headerlink" href="#parametrer-le-secure-cookie-pour-ihm-demo" title="Lien permanent vers ce titre">¶</a></h2>
@@ -410,9 +409,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam</span><span class="p">:</span>
   <span class="nt">worker</span><span class="p">:</span>
         <span class="c1"># api_output_index_tenants : permet d&#39;indexer les règles de gestion, les chemins des règles et les services producteurs</span>
-        <span class="nt">api_output_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+        <span class="nt">api_output_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0-9</span><span class="p p-Indicator">]</span>
         <span class="c1"># rules_index_tenants : permet d&#39;indexer les règles de gestion</span>
-        <span class="nt">rules_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+        <span class="nt">rules_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0-9</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </div>
@@ -424,12 +423,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vitam_tenant_rule_duration</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span> <span class="c1"># applied tenant</span>
     <span class="nt">rules</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">AppraisalRule </span><span class="p">:</span> <span class="s">&quot;1</span><span class="nv"> </span><span class="s">year&quot;</span> <span class="c1"># rule name : rule value</span>
+      <span class="p p-Indicator">-</span> <span class="nt">AppraisalRule</span><span class="p">:</span> <span class="s">&quot;1</span><span class="nv"> </span><span class="s">year&quot;</span> <span class="c1"># rule name : rule value</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
     <span class="nt">rules</span><span class="p">:</span>
-      <span class="nt">AppraisaleRule </span><span class="p">:</span> <span class="s">&quot;5</span><span class="nv"> </span><span class="s">year&quot;</span>
-      <span class="nt">StorageRule </span><span class="p">:</span> <span class="s">&quot;5</span><span class="nv"> </span><span class="s">year&quot;</span>
-      <span class="nt">ReuseRule </span><span class="p">:</span> <span class="s">&quot;2</span><span class="nv"> </span><span class="s">year&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">AppraisalRule</span><span class="p">:</span> <span class="s">&quot;5</span><span class="nv"> </span><span class="s">year&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">StorageRule</span><span class="p">:</span> <span class="s">&quot;5</span><span class="nv"> </span><span class="s">year&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">ReuseRule</span><span class="p">:</span> <span class="s">&quot;2</span><span class="nv"> </span><span class="s">year&quot;</span>
 </pre></div>
 </div>
 <p>Par <cite>tenant</cite>, les directives possibles sont :</p>
@@ -479,7 +478,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <div class="section" id="augmenter-la-precision-sur-le-nombre-de-resultats-retournes-depassant-10000">
 <h2>4.2.5.13. Augmenter la précision sur le nombre de résultats retournés dépassant 10000<a class="headerlink" href="#augmenter-la-precision-sur-le-nombre-de-resultats-retournes-depassant-10000" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Suite à une évolution d’ElasticSearch (à partir de la version 7.6), le nombre maximum de résultats retournés est limité à 10000. Ceci afin de limiter la consommation de ressources sur le cluster elasticsearch.</p>
-<p>Pour permettre de retourner le nombre exact de résultats, il est possible d’éditer le paramètre <code class="docutils literal notranslate"><span class="pre">vitam.accessexternal.authorizeTrackTotalHits</span></code> dans le fichier de configuration <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vitam_vars.yml</span></code></p>
+<p>Pour permettre de retourner le nombre exact de résultats, il est possible d’éditer le paramètre <code class="docutils literal notranslate"><span class="pre">vitam.access_external.authorizeTrackTotalHits</span></code> dans le fichier de configuration <code class="docutils literal notranslate"><span class="pre">environments/group_vars/all/vitam_vars.yml</span></code></p>
 <p>Il sera nécessaire de réappliquer la configuration sur le groupe hosts_access_external:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam/vitam.yml --limit hosts_access_external --tags update_vitam_configuration -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
 </pre></div>
@@ -623,11 +622,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 111
 112
 113
-114</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+114
+115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1"># TENANTS</span>
 <span class="c1"># List of active tenants</span>
-<span class="nt">vitam_tenant_ids</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+<span class="nt">vitam_tenant_ids</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0-9</span><span class="p p-Indicator">]</span>
 <span class="c1"># For functional-administration, manage master/slave tenant configuration</span>
 <span class="c1"># http://www.programmevitam.fr/ressources/DocCourante/html/installation/installation/21-addons.html#passage-des-identifiants-des-referentiels-en-mode-esclave</span>
 <span class="nt">vitam_tenants_usage_external</span><span class="p">:</span>
@@ -712,19 +712,20 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
   <span class="nt">collect_grouped_tenants</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;all&#39;</span>
     <span class="c1"># Group all tenants for collect&#39;s indexes (collect_unit &amp; collect_objectgroup)</span>
-    <span class="nt">tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">join(&#39;,&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">}}&quot;</span>
 
 <span class="nt">elasticsearch</span><span class="p">:</span>
   <span class="nt">log</span><span class="p">:</span>
-    <span class="nt">index_templates</span><span class="p">:</span>
-      <span class="nt">default</span><span class="p">:</span>
-        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">indices</span><span class="p">:</span>
+      <span class="nt">default_config</span><span class="p">:</span>
+        <span class="c1"># Default configuration if others indices (vitam or access) are undefined</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">data</span><span class="p">:</span>
-    <span class="nt">index_templates</span><span class="p">:</span>
-      <span class="nt">default</span><span class="p">:</span>
-        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="nt">indices</span><span class="p">:</span>
+      <span class="nt">default_config</span><span class="p">:</span>
+        <span class="nt">number_of_shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">number_of_replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 
 <span class="nt">curator</span><span class="p">:</span>
   <span class="nt">indices</span><span class="p">:</span>
@@ -1186,134 +1187,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 437
 438
 439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543
-544
-545
-546
-547
-548
-549
-550
-551
-552
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562
-563
-564
-565
-566
-567</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+440</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="c1">### global ###</span>
 
 <span class="c1"># Vitam deployment mode. Allowed values are :</span>
@@ -1322,8 +1196,8 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="nt">deployment_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prod</span>
 
 <span class="c1"># TODO MAYBE : permettre la surcharge avec une syntax du genre vitamopts.folder_root | default(vitam_default.folder_root) dans les templates ?</span>
-<span class="nt">droid_filename</span><span class="p">:</span> <span class="s">&quot;DROID_SignatureFile_V109.xml&quot;</span>
-<span class="nt">droid_container_filename</span><span class="p">:</span> <span class="s">&quot;container-signature-20221102.xml&quot;</span>
+<span class="nt">droid_filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DROID_SignatureFile_V122.xml</span>
+<span class="nt">droid_container_filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">container-signature-20260119.xml</span>
 
 <span class="c1"># The global defaults parameters for vitam &amp; vitam components</span>
 <span class="nt">vitam_defaults</span><span class="p">:</span>
@@ -1334,12 +1208,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">folder_upload_permission</span><span class="p">:</span> <span class="s">&quot;0770&quot;</span>
     <span class="nt">script_permission</span><span class="p">:</span> <span class="s">&quot;0750&quot;</span>
   <span class="nt">users</span><span class="p">:</span>
-    <span class="nt">vitam</span><span class="p">:</span> <span class="s">&quot;vitam&quot;</span>
-    <span class="nt">vitamdb</span><span class="p">:</span> <span class="s">&quot;vitamdb&quot;</span>
-    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;vitam&quot;</span>
+    <span class="nt">vitam</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam</span>
+    <span class="nt">vitamdb</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitamdb</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vitam</span>
   <span class="nt">services</span><span class="p">:</span>
-    <span class="c1"># Default log level for vitam components: logback values (TRACE, DEBUG, INFO, WARN, ERROR, OFF)</span>
-    <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WARN</span>
+    <span class="c1"># Global configuration for all services</span>
     <span class="nt">start_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
     <span class="nt">stop_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
     <span class="nt">port_service_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">86400</span>
@@ -1347,37 +1220,14 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">api_long_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
     <span class="nt">status_retries_number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
     <span class="nt">status_retries_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+
+<span class="c1">### The following values can be overwritten for each components in vitam: parameters.</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="c1">### Trust X-SSL-CLIENT-CERT header for external api auth ? true | false (default)</span>
-  <span class="c1"># Should only be enabled when accessing to vitam externals through a Reverse Proxy that does &quot;SSL offloading&quot;</span>
-  <span class="c1"># NGINX configuration        : proxy_set_header X-SSL-CLIENT-CERT $ssl_client_escaped_cert;</span>
-  <span class="c1"># Apache httpd configuration : RequestHeader set X-SSL-CLIENT-CERT &quot;%{SSL_CLIENT_CERT}s&quot;</span>
-  <span class="c1"># Important : When enabled, special care must be taken to ensure firewall rules are properly set to ensure only</span>
-  <span class="c1">#             reverse proxy can access vitam external applications through their respective port_service to avoid</span>
-  <span class="c1">#             malicious header injection.</span>
-  <span class="nt">trust_client_certificate_header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="c1">### Force chunk mode : set true if chunk header should be checked</span>
-  <span class="nt">vitam_force_chunk_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="c1"># syslog_facility</span>
-  <span class="nt">syslog_facility</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local0</span>
+    <span class="c1"># Default log level for vitam components: logback values (TRACE, DEBUG, INFO, WARN, ERROR, OFF)</span>
+    <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WARN</span>
 
-  <span class="c1">################################################################################</span>
-  <span class="c1">### Default Components parameters</span>
-  <span class="c1">### Uncomment them if you want to update the default value applied on all components</span>
-
-  <span class="c1">### Ontology cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-  <span class="c1"># ontologyCacheMaxEntries: 100</span>
-  <span class="c1"># ontologyCacheTimeoutInSeconds: 300</span>
-  <span class="c1">### Elasticsearch scroll timeout in milliseconds settings</span>
-  <span class="c1"># elasticSearchScrollTimeoutInMilliseconds: 300000</span>
-
-  <span class="c1">### The following values can be overwritten for each components in vitam: parameters.</span>
   <span class="nt">jvm_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
   <span class="nt">performance_logger</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-
-  <span class="c1"># consul_business_check: 10 # value in seconds</span>
-  <span class="c1"># consul_admin_check: 10 # value in seconds</span>
-
 
   <span class="c1">### Logs configuration for reconstruction services (INFO or DEBUG for active logs).</span>
   <span class="c1">### Logs will be present only on secondary site.</span>
@@ -1386,23 +1236,13 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
 
 <span class="c1"># Used in ingest, unitary update, mass-update</span>
-<span class="nt">classificationList</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;Non</span><span class="nv"> </span><span class="s">protégé&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;Secret</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Confidentiel</span><span class="nv"> </span><span class="s">Défense&quot;</span> <span class="p p-Indicator">]</span>
+<span class="nt">classificationList</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;Non</span><span class="nv"> </span><span class="s">protégé&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Secret</span><span class="nv"> </span><span class="s">Défense&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Confidentiel</span><span class="nv"> </span><span class="s">Défense&quot;</span> <span class="p p-Indicator">]</span>
 <span class="c1"># Used in ingest, unitary update, mass-update</span>
 <span class="nt">classificationLevelOptional</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
 <span class="c1"># Packages install retries</span>
 <span class="nt">packages_install_retries_number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">packages_install_retries_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-
-<span class="c1"># Request time check settings. Do NOT update except if required by Vitam support</span>
-<span class="c1"># Max acceptable time desynchronization between machines (in seconds).</span>
-<span class="nt">acceptableRequestTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="c1"># Critical time desynchronization between machines (in seconds).</span>
-<span class="nt">criticalRequestTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
-<span class="c1"># Request time alert throttling Delay (in seconds)</span>
-<span class="nt">requestTimeAlertThrottlingDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
-
-<span class="c1"># Reconstruction config</span>
-<span class="nt">restoreBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
 
 <span class="nt">vitam_timers</span><span class="p">:</span>
   <span class="c1"># /!\ IMPORTANT :</span>
@@ -1420,15 +1260,16 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
   <span class="c1">#    semiannually → 0 0 0 1 1/6 ?</span>
   <span class="nt">logbook</span><span class="p">:</span> <span class="c1"># all have to run on only one machine</span>
     <span class="c1"># Sécurisation des journaux des opérations</span>
-    <span class="nt">frequency_traceability_operations</span><span class="p">:</span> <span class="s">&quot;*</span><span class="nv"> </span><span class="s">05</span><span class="nv"> </span><span class="s">0/1</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every hour</span>
+    <span class="nt">frequency_traceability_operations</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">05</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every hour</span>
     <span class="c1"># Sécurisation des journaux du cycle de vie des groupes d&#39;objets</span>
-    <span class="nt">frequency_traceability_lfc_objectgroup</span><span class="p">:</span> <span class="s">&quot;*</span><span class="nv"> </span><span class="s">15</span><span class="nv"> </span><span class="s">0/1</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every hour</span>
+    <span class="nt">frequency_traceability_lfc_objectgroup</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">15</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every hour</span>
     <span class="c1"># Sécurisation des journaux du cycle de vie des unités archivistiques</span>
-    <span class="nt">frequency_traceability_lfc_unit</span><span class="p">:</span> <span class="s">&quot;*</span><span class="nv"> </span><span class="s">35</span><span class="nv"> </span><span class="s">0/1</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every hour</span>
+    <span class="nt">frequency_traceability_lfc_unit</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">35</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every hour</span>
     <span class="c1"># Audit de traçabilité</span>
     <span class="nt">frequency_traceability_audit</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">55</span><span class="nv"> </span><span class="s">00</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
     <span class="c1"># Reconstruction (uniquement sur site secondaire)</span>
     <span class="nt">frequency_logbook_reconstruction</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">0/5</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
+
   <span class="nt">storage</span><span class="p">:</span>
     <span class="c1"># Sécurisation du journal des écritures</span>
     <span class="nt">frequency_traceability_log</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">40</span><span class="nv"> </span><span class="s">0/4</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span> <span class="c1"># every 4 hours</span>
@@ -1442,6 +1283,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">frequency_accession_register_reconstruction</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">0/5</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
     <span class="nt">frequency_rule_management_audit</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">40</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
     <span class="nt">frequency_reconstruction</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">0/5</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
+
   <span class="nt">metadata</span><span class="p">:</span>
     <span class="nt">frequency_store_graph</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">10/30</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
     <span class="nt">frequency_reconstruction</span><span class="p">:</span> <span class="s">&quot;0</span><span class="nv"> </span><span class="s">0/5</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">?&quot;</span>
@@ -1478,24 +1320,26 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
 <span class="c1"># Workspace should be useless but storage have a dependency to it...</span>
 <span class="c1"># elastic-kibana-interceptor is present as kibana is present, if kibana-data &amp; interceptor are not needed in the secondary site, just do not add them in the hosts file</span>
-<span class="nt">vitam_secondary_site_components</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;scheduler&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;logbook&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;metadata&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;functional-administration&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storage&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storageofferdefault&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;offer&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-log&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-data&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;logstash&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;kibana&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongoc&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongod&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongos&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;elastic-kibana-interceptor&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;consul&quot;</span> <span class="p p-Indicator">]</span>
+<span class="nt">vitam_secondary_site_components</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;scheduler&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;logbook&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;metadata&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;functional-administration&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;storage&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;offer&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-log&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;elasticsearch-data&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;logstash&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;kibana&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongoc&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongod&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;mongos&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;elastic-kibana-interceptor&quot;</span> <span class="p p-Indicator">,</span> <span class="s">&quot;consul&quot;</span> <span class="p p-Indicator">]</span>
 
 <span class="c1"># containers list</span>
 <span class="nt">containers_list</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&#39;units&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;objects&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;objectgroups&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;logbooks&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;reports&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;manifests&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;profiles&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;storagelog&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;storageaccesslog&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;storagetraceability&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;rules&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;dip&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;agencies&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;backup&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;backupoperations&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;unitgraph&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;objectgroupgraph&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;distributionreports&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;accessionregistersdetail&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;accessionregisterssymbolic&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;tmp&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;archivaltransferreply&#39;</span> <span class="p p-Indicator">]</span>
 
 <span class="c1">### Composants Vitam ###</span>
 <span class="nt">vitam</span><span class="p">:</span>
-  <span class="c1">### All available parameters for each components are described in the vitam_defaults variable</span>
-
+  <span class="c1">### You can overload some vitam_defaults parameters for each components:</span>
+  <span class="c1">#</span>
   <span class="c1">### Example</span>
   <span class="c1"># component:</span>
   <span class="c1">#    at_boot: false</span>
   <span class="c1">#    logback_rolling_policy: true</span>
   <span class="c1">## Force the log level for this component. Available logback values are (TRACE, DEBUG, INFO, WARN, ERROR, OFF)</span>
   <span class="c1">## If this var is not set, the default one will be used (vitam_defaults.services.log_level)</span>
-  <span class="c1">#    log_level: &quot;DEBUG&quot;</span>
+  <span class="c1">#    log_level: INFO</span>
+  <span class="c1">#    jvm_log: false</span>
+  <span class="c1">#    performance_logger: false</span>
 
-  <span class="nt">accessexternal</span><span class="p">:</span>
+  <span class="nt">access_external</span><span class="p">:</span>
     <span class="c1"># Component name: do not modify</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access-external</span>
     <span class="c1"># DNS record for the service:</span>
@@ -1503,374 +1347,277 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;access-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28102</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8444</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;access-external&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access-external</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="c1"># Use platform secret for this component ? : do not modify</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">authorizeTrackTotalHits</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># if false, limit results to 10K. if true, authorize results overs 10K (can overload elasticsearch-data)</span>
-  <span class="nt">accessinternal</span><span class="p">:</span>
+
+  <span class="nt">access_internal</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access-internal</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;access-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8101</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28101</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;access-internal&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access-internal</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+
   <span class="nt">functional_administration</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">functional-administration</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;functional-administration.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8004</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18004</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;adminmanagement&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">adminmanagement</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
     <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="c1"># Number of AccessionRegisterSymbolic creation threads that can be run in parallel.</span>
-    <span class="nt">accessionRegisterSymbolicThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-    <span class="c1"># Number of rule audit threads that can be run in parallel.</span>
-    <span class="nt">ruleAuditThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-    <span class="c1"># Reconstruction metrics cache in minutes (secondary site)</span>
-    <span class="nt">reconstructionMetricsCacheDurationInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+
   <span class="nt">scheduler</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scheduler</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;scheduler.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8799</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28799</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;scheduler&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scheduler</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">schedulerThreadSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
-  <span class="nt">elastickibanainterceptor</span><span class="p">:</span>
+
+  <span class="nt">elastic_kibana_interceptor</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elastic-kibana-interceptor</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elastic-kibana-interceptor.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8014</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18014</span>
     <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-  <span class="nt">batchreport</span><span class="p">:</span>
+
+  <span class="nt">batch_report</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">batch-report</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;batch-report.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8015</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18015</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;batchreport&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">batchreport</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
-  <span class="nt">ingestexternal</span><span class="p">:</span>
+
+  <span class="nt">ingest_external</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-external</span>
     <span class="c1"># DNS record for the service:</span>
     <span class="c1"># Modify if ihm-demo is not using consul (typical production deployment)</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ingest-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28001</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8443</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ingest-external&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-external</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
-    <span class="c1"># this variable has containerization purposes only : must not be used in production environment</span>
-    <span class="nt">ignore_antivirus_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="c1"># Directory where files should be placed for local ingest</span>
-    <span class="nt">upload_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload&quot;</span>
+    <span class="nt">upload_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/data/ingest-external/upload&quot;</span>
     <span class="c1"># Directory where successful ingested files will be moved to</span>
-    <span class="nt">success_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload/success&quot;</span>
+    <span class="nt">success_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/data/ingest-external/upload/success&quot;</span>
     <span class="c1"># Directory where failed ingested files will be moved to</span>
-    <span class="nt">fail_dir</span><span class="p">:</span> <span class="s">&quot;/vitam/data/ingest-external/upload/failure&quot;</span>
-    <span class="c1"># Action done to file after local ingest (see below for further information)</span>
-    <span class="nt">upload_final_action</span><span class="p">:</span> <span class="s">&quot;MOVE&quot;</span>
-    <span class="c1"># upload_final_action can be set to three different values (lower or upper case does not matter)</span>
-    <span class="c1">#   MOVE : After upload, the local file will be moved to either success_dir or fail_dir depending on the status of the ingest towards ingest-internal</span>
-    <span class="c1">#   DELETE : After upload, the local file will be deleted if the upload succeeded</span>
-    <span class="c1">#   NONE : After upload, nothing will be done to the local file (default option set if the value entered for upload_final_action does not exist)</span>
-  <span class="nt">ingestinternal</span><span class="p">:</span>
+    <span class="nt">fail_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/data/ingest-external/upload/failure&quot;</span>
+    <span class="c1"># Action done to file after local ingest</span>
+    <span class="c1"># upload_final_action can be set to three different values (case insensitive) :</span>
+    <span class="c1">#  - MOVE   : After upload, the local file will be moved to</span>
+    <span class="c1">#             either success_dir or fail_dir depending on the status of</span>
+    <span class="c1">#             the ingest towards ingest-internal</span>
+    <span class="c1">#  - DELETE : After upload, the local file will be deleted if the upload succeeded</span>
+    <span class="c1">#  - NONE   : After upload, nothing will be done to the local file</span>
+    <span class="c1">#             (default option set if the value entered for upload_final_action does not exist)</span>
+    <span class="nt">upload_final_action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MOVE</span>
+
+  <span class="nt">ingest_internal</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest-internal</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ingest-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8100</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28100</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ingest&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingest</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+
   <span class="nt">ihm_demo</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ihm-demo</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ihm-demo.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8446</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28002</span>
-    <span class="nt">baseurl</span><span class="p">:</span> <span class="s">&quot;/ihm-demo&quot;</span>
     <span class="nt">static_content</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/app/ihm-demo/v2&quot;</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;ihm-demo&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ihm-demo</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
-    <span class="c1"># User session timeout in milliseconds (for shiro)</span>
-    <span class="nt">session_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1800000</span>
-    <span class="nt">secure_cookie</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="c1"># Specify here the realms you want to use for authentication in ihm-demo</span>
     <span class="c1"># You can set multiple realms, one per line</span>
     <span class="c1"># With multiple realms, the user will be able to choose between the allowed realms</span>
-    <span class="c1"># Example: authentication_realms:</span>
-    <span class="c1">#               - x509Realm</span>
-    <span class="c1">#               - ldapRealm</span>
     <span class="c1"># Authorized values:</span>
-    <span class="c1"># x509Realm: certificate</span>
-    <span class="c1"># iniRealm: ini file</span>
-    <span class="c1"># ldapRealm: ldap</span>
+    <span class="c1">#   iniRealm: ini file (default) -&gt; Will use the vitam_users defined in environments/group_vars/all/main/vault-vitam.yml</span>
+    <span class="c1">#   x509Realm: certificate</span>
+    <span class="c1">#   ldapRealm: ldap -&gt; Will use the ldap_authentification parameters set in environments/group_vars/all/advanced/cots_vars.yml</span>
     <span class="nt">authentication_realms</span><span class="p">:</span>
-      <span class="c1"># - x509Realm</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">iniRealm</span>
+      <span class="c1"># - x509Realm</span>
       <span class="c1"># - ldapRealm</span>
     <span class="nt">allowedMediaTypes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;application&quot;</span>
-        <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;pdf&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;text&quot;</span>
-        <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;plain&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;image&quot;</span>
-        <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;jpeg&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;image&quot;</span>
-        <span class="nt">subtype</span><span class="p">:</span> <span class="s">&quot;tiff&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">application</span>
+        <span class="nt">subtype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pdf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
+        <span class="nt">subtype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plain</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image</span>
+        <span class="nt">subtype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jpeg</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image</span>
+        <span class="nt">subtype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tiff</span>
+
   <span class="nt">logbook</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logbook</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;logbook.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9002</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29002</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;logbook&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logbook</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
     <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="c1"># Temporization delay (in seconds) for recent logbook operation events.</span>
-    <span class="c1"># Set it to a reasonable delay to cover max clock difference across servers + VM/GC pauses</span>
-    <span class="nt">operationTraceabilityTemporizationDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Max delay between 2 logbook operation traceability operations.</span>
-    <span class="c1"># A new logbook operation traceability is generated after this delay, even if tenant has no</span>
-    <span class="c1"># new logbook operations to secure</span>
-    <span class="c1"># Unit can be in DAYS, HOURS, MINUTES, SECONDS</span>
-    <span class="c1"># Hint: Set it to 690 MINUTES (11 hours and 30 minutes) to force new traceability after +/- 12 hours (supposing</span>
-    <span class="c1"># logbook operation traceability timer run every hour +/- some clock delays)</span>
-    <span class="nt">operationTraceabilityMaxRenewalDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">690</span>
-    <span class="nt">operationTraceabilityMaxRenewalDelayUnit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MINUTES</span>
-    <span class="c1"># Number of logbook operations that can be run in parallel.</span>
-    <span class="nt">operationTraceabilityThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-    <span class="c1"># Temporization delay (in seconds) for recent logbook lifecycle events.</span>
-    <span class="c1"># Set it to a reasonable delay to cover max clock difference across servers + VM/GC pauses</span>
-    <span class="nt">lifecycleTraceabilityTemporizationDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Max delay between 2 lifecycle traceability operations.</span>
-    <span class="c1"># A new unit/objectgroup lifecycle traceability is generated after this delay, even if tenant has no</span>
-    <span class="c1"># new unit/objectgroups to secure</span>
-    <span class="c1"># Unit can be in DAYS, HOURS, MINUTES, SECONDS</span>
-    <span class="c1"># Hint: Set it to 690 MINUTES (11 hours and 30 minutes) to force new traceability after +/- 12 hours (supposing</span>
-    <span class="c1"># LFC traceability timers run every hour +/- some clock delays)</span>
-    <span class="nt">lifecycleTraceabilityMaxRenewalDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">690</span>
-    <span class="nt">lifecycleTraceabilityMaxRenewalDelayUnit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MINUTES</span>
-    <span class="c1"># Max entries selected per (Unit or Object Group) LFC traceability operation</span>
-    <span class="nt">lifecycleTraceabilityMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
-    <span class="c1"># Reconstruction metrics cache in minutes (secondary site)</span>
-    <span class="nt">reconstructionMetricsCacheDurationInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+
   <span class="nt">metadata</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;metadata.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8200</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28200</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;metadata&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">context_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metadata</span>
     <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="c1"># Archive Unit Profile cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-    <span class="nt">archiveUnitProfileCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">archiveUnitProfileCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Schema validator cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-    <span class="nt">schemaValidatorCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">schemaValidatorCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+    <span class="c1"># Directory of elasticsearch metadata mapping</span>
+    <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata/mapping&quot;</span>
     <span class="c1"># DIP cleanup delay (in minutes)</span>
     <span class="nt">dipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
     <span class="nt">criticalDipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1440</span> <span class="c1"># 1 day</span>
     <span class="nt">transfersSIPTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
-    <span class="nt">unitsStreamThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000</span> <span class="c1"># 1 million</span>
-    <span class="nt">unitsStreamExecutionLimit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span> <span class="c1"># 3 times</span>
-    <span class="nt">persistentIdentifierReconstructionDelayInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1440</span> <span class="c1"># 1 day</span>
-    <span class="nt">persistentIdentifierReconstructionThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># parallel tenants reconstruction</span>
-    <span class="nt">persistentIdentifierReconstructionBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span> <span class="c1"># bulk size</span>
-    <span class="nt">objectsStreamThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000</span> <span class="c1"># 1 million</span>
-    <span class="nt">objectsStreamExecutionLimit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span> <span class="c1"># 3 times</span>
     <span class="nt">workspaceFreespaceThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">25</span> <span class="c1"># when below use critical time to live when above use normal time to live</span>
-    <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata/mapping&quot;</span> <span class="c1"># Directory of elasticsearch metadata mapping</span>
-    <span class="c1">#### Audit data consistency MongoDB-ES #### (Experimental / Not for Production)</span>
-    <span class="nt">isDataConsistencyAuditRunnable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">enableDataConsistencyRectificationMode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">dataConsistencyAuditOplogMaxSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="c1"># Reconstruction metrics cache in minutes (secondary site)</span>
-    <span class="nt">reconstructionMetricsCacheDurationInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
-    <span class="nt">context_path</span><span class="p">:</span> <span class="s">&quot;/metadata&quot;</span>
+
   <span class="nt">processing</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">processing</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;processing.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8203</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28203</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;processing&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">processing</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">maxDistributionInMemoryBufferSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
-    <span class="nt">maxDistributionOnDiskBufferSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000000</span>
+
   <span class="nt">security_internal</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security-internal</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;security-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8005</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28005</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;security-internal&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security-internal</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-  <span class="nt">storageengine</span><span class="p">:</span>
+
+  <span class="nt">storage</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">storage</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;storage.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9102</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29102</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;storage&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">storage</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">storageTraceabilityOverlapDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="nt">restoreBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-    <span class="c1"># Storage write/access log backup max thread pool size</span>
-    <span class="nt">storageLogBackupThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-    <span class="c1"># Storage write log traceability thread pool size</span>
-    <span class="nt">storageLogTraceabilityThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-    <span class="c1"># Offer synchronization batch size &amp; thread pool size</span>
-    <span class="nt">offerSynchronizationBulkSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-    <span class="nt">offerSyncThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-    <span class="c1"># Retries attempts on failures</span>
-    <span class="nt">offerSyncNumberOfRetries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="c1"># Retry wait delay on failures (in seconds)</span>
-    <span class="nt">offerSyncFirstAttemptWaitingTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
-    <span class="nt">offerSyncWaitingTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-    <span class="c1"># Offer synchronization wait delay  (in seconds) for async offers (synchronization from a tape-storage offer)</span>
-    <span class="nt">offerSyncAccessRequestCheckWaitingTime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">logback_total_size_cap</span><span class="p">:</span>
       <span class="nt">offersync</span><span class="p">:</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-        <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+        <span class="nt">totalsize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5GB</span>
       <span class="nt">offerdiff</span><span class="p">:</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-        <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
-    <span class="c1"># unit time per kB (in ms) used while calculating the timeout of an http request between storage and offer.</span>
-    <span class="nt">timeoutMsPerKB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="c1"># minimum timeout (in ms) for writing objects to offers</span>
-    <span class="nt">minWriteTimeoutMs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60000</span>
-    <span class="c1"># minimum timeout per object (in ms) for bulk writing objects to offers</span>
-    <span class="nt">minBulkWriteTimeoutMsPerObject</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-  <span class="nt">storageofferdefault</span><span class="p">:</span>
-    <span class="nt">vitam_component</span><span class="p">:</span> <span class="s">&quot;offer&quot;</span>
+        <span class="nt">totalsize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5GB</span>
+
+  <span class="nt">offer</span><span class="p">:</span>
+    <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9900</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29900</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;offer&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offer</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
     <span class="nt">logback_total_size_cap</span><span class="p">:</span>
       <span class="nt">offer_tape</span><span class="p">:</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-        <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+        <span class="nt">totalsize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5GB</span>
       <span class="nt">offer_tape_backup</span><span class="p">:</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-        <span class="nt">totalsize</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
+        <span class="nt">totalsize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5GB</span>
+
   <span class="nt">worker</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;worker.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9104</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">29104</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;worker&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">api_output_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span> <span class="p p-Indicator">]</span>
-    <span class="nt">rules_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span> <span class="p p-Indicator">]</span>
-    <span class="c1"># Archive Unit Profile cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-    <span class="nt">archiveUnitProfileCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">archiveUnitProfileCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Schema validator cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-    <span class="nt">schemaValidatorCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">schemaValidatorCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Batch size for bulk atomic update</span>
-    <span class="nt">queriesThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000</span>
-    <span class="c1"># Bulk atomic update batch size</span>
-    <span class="nt">bulkAtomicUpdateBatchSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="c1"># Max threads that can be run in concurrently is thread pool for bulk atomic update</span>
-    <span class="nt">bulkAtomicUpdateThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
-    <span class="c1"># Number of jobs that can be queued in memory before blocking for bulk atomic update</span>
-    <span class="nt">bulkAtomicUpdateThreadPoolQueueSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
+    <span class="nt">api_output_index_tenants</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+    <span class="nt">rules_index_tenants</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_tenant_ids</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="c1"># Dip/transfer threshold file size</span>
     <span class="nt">binarySizePlatformThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">binarySizePlatformThresholdSizeUnit</span><span class="p">:</span> <span class="s">&quot;GIGABYTE&quot;</span>
-    <span class="c1"># this variable has containerization purposes only : must not be used in production environment</span>
-    <span class="nt">ignore_antivirus_check</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">binarySizePlatformThresholdSizeUnit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GIGABYTE</span>
+
   <span class="nt">workspace</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;workspace.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8201</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28201</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;workspace&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">context_path</span><span class="p">:</span> <span class="s">&quot;/workspace&quot;</span>
+    <span class="nt">context_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/workspace</span>
+
   <span class="nt">collect_internal</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">collect-internal</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;collect-internal.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8038</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28038</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;collect-internal&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">collect-internal</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">transactionStatusThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-    <span class="nt">statusTransactionThreadFrequency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-    <span class="nt">bulkAtomicUpdateThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
-    <span class="nt">bulkAtomicUpdateThreadPoolQueueSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-    <span class="c1"># Max waiting time (in seconds) for transaction validation before timeout on SIP ingest.</span>
-    <span class="nt">maxWaitDelayForTransactionValidationInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
-    <span class="nt">bulkAtomicUpdateBatchSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+
   <span class="nt">collect_external</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">collect-external</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;collect-external.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8030</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28030</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;collect-external&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">collect-external</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">secret_platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="nt">authorizeTrackTotalHits</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># if false, limit results to 10K. if true, authorize results overs 10K (can overload elasticsearch-data)</span>
-    <span class="nt">ingestionThreadPoolSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-    <span class="nt">ingestionThreadFrequencySeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+
   <span class="nt">metadata_collect</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata-collect</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;metadata-collect.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8290</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28290</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;metadata-collect&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata-collect</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">context_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metadata-collect</span>
     <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">elasticsearch.data.cluster_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="c1"># Archive Unit Profile cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-    <span class="nt">archiveUnitProfileCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">archiveUnitProfileCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-    <span class="c1"># Schema validator cache settings (max entries in cache &amp; retention timeout in seconds)</span>
-    <span class="nt">schemaValidatorCacheMaxEntries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">schemaValidatorCacheTimeoutInSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+    <span class="c1"># Directory of elasticsearch metadata-collect mapping</span>
+    <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata-collect/mapping&quot;</span>
     <span class="c1"># DIP cleanup delay (in minutes)</span>
     <span class="nt">dipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
     <span class="nt">criticalDipTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1440</span> <span class="c1"># 1 day</span>
     <span class="nt">transfersSIPTimeToLiveInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span> <span class="c1"># 7 days</span>
     <span class="nt">workspaceFreespaceThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">25</span> <span class="c1"># when below use critical time to live when above use normal time to live</span>
-    <span class="nt">elasticsearch_mapping_dir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vitam_defaults.folder.root_path</span><span class="nv"> </span><span class="s">}}/conf/metadata-collect/mapping&quot;</span> <span class="c1"># Directory of elasticsearch metadata-collect mapping</span>
-    <span class="nt">refreshElasticIndexPostIndexingMode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">context_path</span><span class="p">:</span> <span class="s">&quot;/metadata-collect&quot;</span>
+
   <span class="nt">workspace_collect</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace-collect</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;workspace-collect.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8291</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28291</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;workspace-collect&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace-collect</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">context_path</span><span class="p">:</span> <span class="s">&quot;/workspace-collect&quot;</span>
+    <span class="nt">context_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/workspace-collect</span>
+
   <span class="nt">antivirus</span><span class="p">:</span>
     <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">antivirus</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;antivirus.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8082</span>
     <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28082</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;antivirus&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">antivirus</span>
     <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">secret_platform</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">engine</span><span class="p">:</span> <span class="s">&quot;clamav&quot;</span> <span class="c1"># or avast</span>
+    <span class="nt">engine</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">clamav</span> <span class="c1"># or avast</span>
+
+  <span class="nt">ina_tape_proxy</span><span class="p">:</span>
+    <span class="nt">vitam_component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ina-tape-proxy</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;ina-tape-proxy.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">port_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8216</span>
+    <span class="nt">port_admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28216</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ina-tape-proxy</span>
+    <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="c1"># Library topology configuration</span>
+    <span class="nt">nbDrives</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>   <span class="c1"># Number of drives</span>
+    <span class="nt">nbSlots</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>   <span class="c1"># Number of tape storage slots</span>
+    <span class="nt">tapeMaxCapacityMB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10_000_000</span>   <span class="c1"># Tape max capacity in MB</span>
+    <span class="nt">tapeCodes</span><span class="p">:</span> <span class="p p-Indicator">[]</span> <span class="c1"># Tape codes (ex TAPE001, TAPE002...)</span>
 
 <span class="c1"># http://www.programmevitam.fr/ressources/DocCourante/html/installation/installation/21-addons.html#durees-minimales-permettant-de-controler-les-valeurs-saisies</span>
 <span class="nt">vitam_tenant_rule_duration</span><span class="p">:</span>
@@ -2218,22 +1965,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 322
 323
 324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+325</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="nt">consul</span><span class="p">:</span>
     <span class="nt">retry_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
@@ -2250,11 +1982,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="nt">elasticsearch</span><span class="p">:</span>
     <span class="nt">log</span><span class="p">:</span>
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9201&quot;</span>
+        <span class="nt">port_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9201</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
-        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-log&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">log</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-log</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-log</span>
         <span class="nt">consul_check_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">error</span>
@@ -2265,18 +1997,18 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="c1"># log configuration</span>
         <span class="nt">log_appenders</span><span class="p">:</span>
             <span class="nt">root</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info</span>
             <span class="nt">rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
                 <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;2GB&quot;</span>
             <span class="nt">deprecation_rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;20&quot;</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
         <span class="c1"># thread_pool:</span>
         <span class="c1">#     index:</span>
@@ -2293,13 +2025,13 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data.service.{{</span><span class="nv"> </span><span class="s">consul_domain</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="c1"># default is 0.1 (10%) and should be quite enough in most cases</span>
         <span class="c1">#index_buffer_size_ratio: &quot;0.15&quot;</span>
-        <span class="nt">port_http</span><span class="p">:</span> <span class="s">&quot;9200&quot;</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
-        <span class="nt">cluster_name</span><span class="p">:</span> <span class="s">&quot;elasticsearch-data&quot;</span>
+        <span class="nt">port_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9200</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-data</span>
+        <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">elasticsearch-data</span>
         <span class="nt">consul_check_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="nt">consul_check_tcp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-        <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">debug</span>
+        <span class="nt">action_log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="nt">https_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
         <span class="nt">indices_fielddata_cache_size</span><span class="p">:</span> <span class="s">&#39;30%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/modules-fielddata.html</span>
         <span class="nt">indices_breaker_fielddata_limit</span><span class="p">:</span> <span class="s">&#39;40%&#39;</span> <span class="c1"># related to https://www.elastic.co/guide/en/elasticsearch/reference/8.13/circuit-breaker.html#fielddata-circuit-breaker</span>
@@ -2307,18 +2039,18 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="c1"># log configuration</span>
         <span class="nt">log_appenders</span><span class="p">:</span>
             <span class="nt">root</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;info&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info</span>
             <span class="nt">rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
                 <span class="nt">max_total_log_size</span><span class="p">:</span> <span class="s">&quot;5GB&quot;</span>
             <span class="nt">deprecation_rolling</span><span class="p">:</span>
                 <span class="nt">max_log_file_size</span><span class="p">:</span> <span class="s">&quot;10MB&quot;</span>
-                <span class="nt">max_files</span><span class="p">:</span> <span class="s">&quot;20&quot;</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">max_files</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_search_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
             <span class="nt">index_indexing_slowlog_rolling</span><span class="p">:</span>
-                <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+                <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="c1"># By default, is commented. Should be uncommented if ansible computes badly vCPUs number ;  values are associated vCPUs numbers ; please adapt to your configuration</span>
         <span class="c1"># thread_pool:</span>
         <span class="c1">#     index:</span>
@@ -2336,9 +2068,9 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
     <span class="nt">mongos_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
     <span class="nt">mongoc_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
     <span class="nt">mongod_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
-    <span class="nt">mongo_authentication</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+    <span class="nt">mongo_authentication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">drop_info_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span> <span class="c1"># Drop mongo (I)nformational log, for Verbosity Level of 0</span>
+    <span class="nt">drop_info_log</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1"># Drop mongo (I)nformational log, for Verbosity Level of 0</span>
     <span class="c1"># logs configuration</span>
     <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
     <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
@@ -2363,12 +2095,19 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
 <span class="nt">filebeat</span><span class="p">:</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="c1"># processors:</span>
+    <span class="c1">#     # https://www.elastic.co/docs/reference/beats/filebeat/add-host-metadata</span>
+    <span class="c1">#     - add_host_metadata:</span>
+    <span class="c1">#         when.not.contains.tags: forwarded</span>
+    <span class="c1">#     # https://www.elastic.co/guide/en/beats/filebeat/current/add-cloud-metadata</span>
+    <span class="c1">#     - add_cloud_metadata: ~</span>
+    <span class="c1">#     # https://www.elastic.co/docs/reference/beats/filebeat/add-docker-metadata</span>
+    <span class="c1">#     - add_docker_metadata: ~</span>
 
 <span class="c1"># Prometheus params</span>
 <span class="nt">prometheus</span><span class="p">:</span>
     <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/admin/v1/metrics</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -2379,20 +2118,19 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9101</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
-        <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+        <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">consul_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9107</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
     <span class="nt">elasticsearch_exporter</span><span class="p">:</span>
         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9114</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
-        <span class="nt">log_level</span><span class="p">:</span> <span class="s">&quot;warn&quot;</span>
+        <span class="nt">log_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">warn</span>
         <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
         <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">alertmanager</span><span class="p">:</span>
@@ -2428,47 +2166,28 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="c1"># Curator units: days</span>
 <span class="nt">curator</span><span class="p">:</span>
     <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">indices</span><span class="p">:</span>
-        <span class="nt">metricbeat</span><span class="p">:</span>
-            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-        <span class="nt">packetbeat</span><span class="p">:</span>
-            <span class="nt">close</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-            <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
 
 <span class="nt">kibana</span><span class="p">:</span>
-    <span class="nt">header_value</span><span class="p">:</span> <span class="s">&quot;reporting&quot;</span>
     <span class="nt">import_delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">import_retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="c1"># logs configuration</span>
     <span class="nt">logrotate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span> <span class="c1"># or disabled</span>
     <span class="nt">history_days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># How many days to store logs if logrotate is set to &#39;enabled&#39;</span>
     <span class="nt">log</span><span class="p">:</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_log&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kibana_log</span>
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;log&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">log</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
         <span class="nt">at_boot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logstash-vitam*&quot;</span>
+        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logstash-vitam*</span>
         <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-        <span class="c1"># default shards &amp; replica</span>
-        <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="c1"># pour index logstash-*</span>
-        <span class="nt">metrics</span><span class="p">:</span>
-            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="c1"># pour index metricbeat-*</span>
-        <span class="nt">metricbeat</span><span class="p">:</span>
-            <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span> <span class="c1"># must be a factor of 30</span>
-            <span class="nt">replica</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="nt">data</span><span class="p">:</span>
-        <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;kibana_data&quot;</span>
+        <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kibana_data</span>
         <span class="c1"># OMA : bugdette : api_call_timeout is used for retries ; should ceate a separate variable rather than this one</span>
         <span class="nt">api_call_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
-        <span class="nt">groupe</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+        <span class="nt">groupe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5601</span>
-        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="s">&quot;logbookoperation_*&quot;</span>
+        <span class="nt">default_index_pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logbookoperation_*</span>
         <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
         <span class="c1"># index template for .kibana</span>
         <span class="nt">shards</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -2476,13 +2195,10 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
 <span class="nt">syslog</span><span class="p">:</span>
     <span class="c1"># value can be syslog-ng, rsyslog or filebeat (default)</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;filebeat&quot;</span>
-
-<span class="c1"># filebeat:</span>
-<span class="c1"># Default values are under ansible-vitam/roles/filebeat/defaults/main.yml</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filebeat</span>
 
 <span class="nt">cerebro</span><span class="p">:</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;cerebro&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cerebro</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
     <span class="c1"># logs configuration</span>
@@ -2502,7 +2218,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="c1"># frequency freshclam for database update per day (from 0 to 24 - 24 meaning hourly check)</span>
         <span class="nt">db_update_periodicity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
         <span class="nt">private_mirror_address</span><span class="p">:</span>
-        <span class="nt">use_proxy</span><span class="p">:</span> <span class="s">&quot;no&quot;</span>
+        <span class="nt">use_proxy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="c1">## Avast Business Antivirus for Linux</span>
 <span class="c1">## if undefined, the following default values are applied.</span>
@@ -2515,7 +2231,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="c1">#         state: present</span>
 <span class="c1">#         # For RedHat family</span>
 <span class="c1">#         baseurl: https://repo.avcdn.net/linux-av/rpm/el9/release</span>
-<span class="c1">#         gpgcheck: no</span>
+<span class="c1">#         gpgcheck: false</span>
 <span class="c1">#         proxy: _none_</span>
 <span class="c1">#         # For Debian family</span>
 <span class="c1">#         baseurl: &#39;deb https://repo.avcdn.net/linux-av/deb debian-bookworm release&#39;</span>
@@ -2526,22 +2242,23 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 <span class="c1">#         - yyyyyy</span>
 
 <span class="nt">mongo_express</span><span class="p">:</span>
-    <span class="nt">baseuri</span><span class="p">:</span> <span class="s">&quot;mongo-express&quot;</span>
+    <span class="nt">baseuri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongo-express</span>
 
-<span class="nt">ldap_authentification</span><span class="p">:</span>
-    <span class="nt">ldap_protocol</span><span class="p">:</span> <span class="s">&quot;ldap&quot;</span>
-    <span class="nt">ldap_server</span><span class="p">:</span> <span class="s">&quot;{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">groups[&#39;ldap&#39;]|length</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">groups[&#39;ldap&#39;]|first</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}&quot;</span>
-    <span class="nt">ldap_port</span><span class="p">:</span> <span class="s">&quot;389&quot;</span>
-    <span class="nt">ldap_base</span><span class="p">:</span> <span class="s">&quot;dc=programmevitam,dc=fr&quot;</span>
-    <span class="nt">ldap_login</span><span class="p">:</span> <span class="s">&quot;cn=Manager,dc=programmevitam,dc=fr&quot;</span>
-    <span class="nt">uid_field</span><span class="p">:</span> <span class="s">&quot;uid&quot;</span>
-    <span class="nt">ldap_userDn_Template</span><span class="p">:</span> <span class="s">&quot;uid={0},ou=people,dc=programmevitam,dc=fr&quot;</span>
-    <span class="nt">ldap_group_request</span><span class="p">:</span> <span class="s">&quot;(&amp;(objectClass=groupOfNames)(member={0}))&quot;</span>
-    <span class="nt">ldap_admin_group</span><span class="p">:</span> <span class="s">&quot;cn=admin,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
-    <span class="nt">ldap_user_group</span><span class="p">:</span> <span class="s">&quot;cn=user,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
-    <span class="nt">ldap_guest_group</span><span class="p">:</span> <span class="s">&quot;cn=guest,ou=groups,dc=programmevitam,</span><span class="nv"> </span><span class="s">dc=fr&quot;</span>
+<span class="c1">## Mandatory LDAP authentification params when vitam.ihm-demo.authentication_realms: [&#39;ldapRealm&#39;] is set</span>
+<span class="c1"># ldap_authentification:</span>
+<span class="c1">#     ldap_protocol: &quot;ldap&quot;</span>
+<span class="c1">#     ldap_server: &quot;my_ldap_server.domain&quot;</span>
+<span class="c1">#     ldap_port: &quot;389&quot;</span>
+<span class="c1">#     ldap_base: &quot;dc=programmevitam,dc=fr&quot;</span>
+<span class="c1">#     ldap_login: &quot;cn=Manager,dc=programmevitam,dc=fr&quot;</span>
+<span class="c1">#     uid_field: &quot;uid&quot;</span>
+<span class="c1">#     ldap_userDn_Template: &quot;uid={0},ou=people,dc=programmevitam,dc=fr&quot;</span>
+<span class="c1">#     ldap_group_request: &quot;(&amp;(objectClass=groupOfNames)(member={0}))&quot;</span>
+<span class="c1">#     ldap_admin_group: &quot;cn=admin,ou=groups,dc=programmevitam, dc=fr&quot;</span>
+<span class="c1">#     ldap_user_group: &quot;cn=user,ou=groups,dc=programmevitam, dc=fr&quot;</span>
+<span class="c1">#     ldap_guest_group: &quot;cn=guest,ou=groups,dc=programmevitam, dc=fr&quot;</span>
 
-<span class="c1"># Backup tool on storage-offer</span>
+<span class="c1"># Backup tool on offers</span>
 <span class="nt">restic</span><span class="p">:</span>
     <span class="nt">snapshot_retention</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span> <span class="c1"># number of snapshots to keep</span>
     <span class="c1"># default run backup at 23:00 everydays</span>
@@ -2551,7 +2268,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
         <span class="nt">day</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
         <span class="nt">month</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
         <span class="nt">weekday</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
-    <span class="c1"># [hosts_storage_offer_default] must be able to connect to the listed databases below to properly backup.</span>
+    <span class="c1"># [hosts_offer] must be able to connect to the listed databases below to properly backup.</span>
     <span class="nt">backup</span><span class="p">:</span>
         <span class="c1"># mongo-offer</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">offer_conf</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -2715,7 +2432,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 130
 131
 132
-133</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+133
+134
+135
+136
+137
+138</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
 <span class="c1">## JVM configuration for Vitam components</span>
 
@@ -2728,32 +2450,32 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
 
 <span class="c1">### Specific configuration for each components</span>
 <span class="nt">vitam</span><span class="p">:</span>
-    <span class="nt">accessinternal</span><span class="p">:</span>
+    <span class="nt">access_internal</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">accessexternal</span><span class="p">:</span>
+    <span class="nt">access_external</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">elastickibanainterceptor</span><span class="p">:</span>
+    <span class="nt">elastic_kibana_interceptor</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">batchreport</span><span class="p">:</span>
-          <span class="nt">jvm_opts</span><span class="p">:</span>
-              <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
-              <span class="c1"># gc: &quot;&quot;</span>
-              <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">ingestinternal</span><span class="p">:</span>
+    <span class="nt">batch_report</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">ingestexternal</span><span class="p">:</span>
+    <span class="nt">ingest_internal</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+            <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
+            <span class="c1"># gc: &quot;&quot;</span>
+            <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">ingest_external</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
@@ -2793,12 +2515,12 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">storageengine</span><span class="p">:</span>
+    <span class="nt">storage</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
-    <span class="nt">storageofferdefault</span><span class="p">:</span>
+    <span class="nt">offer</span><span class="p">:</span>
         <span class="nt">jvm_opts</span><span class="p">:</span>
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
@@ -2848,6 +2570,11 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
             <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
             <span class="c1"># gc: &quot;&quot;</span>
             <span class="c1"># java: &quot;&quot;</span>
+    <span class="nt">ina_tape_proxy</span><span class="p">:</span>
+        <span class="nt">jvm_opts</span><span class="p">:</span>
+          <span class="c1"># memory: &quot;-Xms128m -Xmx512m&quot;</span>
+          <span class="c1"># gc: &quot;&quot;</span>
+          <span class="c1"># java: &quot;&quot;</span>
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -2970,7 +2697,7 @@ Il est possible d’en modifier le routage, qui par défaut redirige vers le ser
       <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]</span>
       <span class="nt">tarBufferingTimeoutInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
     <span class="nt">prod</span><span class="p">:</span>
-      <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="nv">9</span><span class="p p-Indicator">]</span>
+      <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">2-9</span><span class="p p-Indicator">]</span>
       <span class="nt">tarBufferingTimeoutInMinutes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
 </pre></div>
 </div>
@@ -3127,7 +2854,6 @@ Permet pour détecter en cas d’erreur d’écriture sur bande, la cause probab
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prometheus</span><span class="p">:</span>
     <span class="nt">metrics_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/admin/v1/metrics</span>
     <span class="nt">check_consul</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> <span class="c1"># in seconds</span>
-    <span class="nt">prometheus_config_file_target_directory</span><span class="p">:</span> <span class="c1"># Set path where &quot;prometheus.yml&quot; file will be generated. Example: /tmp/</span>
     <span class="nt">server</span><span class="p">:</span>
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
         <span class="nt">tsdb_retention_time</span><span class="p">:</span> <span class="s">&quot;7d&quot;</span>
@@ -3152,7 +2878,6 @@ Permet pour détecter en cas d’erreur d’écriture sur bande, la cause probab
 <ul class="simple">
 <li>L’adresse d’écoute de ces composants est celle de la patte d’administration.</li>
 <li>Vous pouvez surcharger la valeur de certaines de ces variables (Par exemple le port d’écoute, le path de l’API).</li>
-<li>Pour générer uniquement le fichier de configuration prometheus.yml à partir du fichier d’inventaire de l’environnement en question, il suffit de spécifier le répertoire destination dans la variable <code class="docutils literal notranslate"><span class="pre">prometheus_config_file_target_directory</span></code></li>
 </ul>
 <div class="section" id="playbooks-ansible">
 <h3>4.2.5.17.1. Playbooks ansible<a class="headerlink" href="#playbooks-ansible" title="Lien permanent vers ce titre">¶</a></h3>
@@ -3163,14 +2888,6 @@ Permet pour détecter en cas d’erreur d’écriture sur bande, la cause probab
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-extra/prometheus.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
 </pre></div>
 </div>
-<ul class="simple">
-<li>Générer le fichier de conf <code class="docutils literal notranslate"><span class="pre">prometheus.yml</span></code> dans le dossier <code class="docutils literal notranslate"><span class="pre">prometheus_config_file_target_directory</span></code></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook ansible-vitam-extra/prometheus.yml -i environments/hosts.&lt;environnement&gt; --ask-vault-pass
-</pre></div>
-</div>
-<p>–tags gen_prometheus_config
-..</p>
 </div>
 </div>
 <div class="section" id="installation-de-grafana">
@@ -3210,7 +2927,7 @@ enabled = false
 <div class="section" id="installation-de-restic">
 <h2>4.2.5.19. Installation de restic<a class="headerlink" href="#installation-de-restic" title="Lien permanent vers ce titre">¶</a></h2>
 <p>restic est un addon (beta) de la solution <a class="reference internal" href="../introduction.html#term-vitam"><span class="xref std std-term">VITAM</span></a>.</p>
-<p>restic sera déployé sur l’ensemble des machines du groupe <code class="docutils literal notranslate"><span class="pre">[hosts_storage_offer_default]</span></code> qui possèdent le paramètre <code class="docutils literal notranslate"><span class="pre">restic_enabled=true</span></code>. Attention à ne renseigner qu’une seule fois ce paramètre par <code class="docutils literal notranslate"><span class="pre">offer_conf</span></code>.</p>
+<p>restic sera déployé sur l’ensemble des machines du groupe <code class="docutils literal notranslate"><span class="pre">[hosts_offer]</span></code> qui possèdent le paramètre <code class="docutils literal notranslate"><span class="pre">restic_enabled=true</span></code>. Attention à ne renseigner qu’une seule fois ce paramètre par <code class="docutils literal notranslate"><span class="pre">offer_conf</span></code>.</p>
 <p>Pour se faire, il suffit d’exécuter le playbook associé :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook --vault-password-file vault_pass.txt ansible-vitam-extra/restic.yml -i environments/hosts.&lt;environnement&gt;
 </pre></div>
