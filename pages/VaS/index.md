@@ -177,16 +177,6 @@ La gouvernance est mutualisée, associant les ministères porteurs initiaux et c
 
 # Les utilisateurs actuels <a name="utilisateurs"></a>
 
-![alt text](/public/images/VaS_utilisateurs.jpg)
-
-# Documents de présentation <a name="documents"></a>
-
-- Téléchargez le [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
-- Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-souscripteur_3.pdf)
-- Téléchargez les [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
-
-# Utilisateurs VaS en Île-de-France
-
 <div id="map" style="height:700px;"></div>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -309,6 +299,72 @@ const sites = [
     lat: 48.8405,
     lon: 2.3770
 }
+{
+    nom: "Conseil départemental du Gard",
+    adresse: "2 rue Guillemette, 30044 Nîmes Cedex 9",
+    lat: 43.8367,
+    lon: 4.3601
+},
+{
+    nom: "Conseil départemental de l'Hérault",
+    adresse: "Mas d'Alco, 1977 avenue des Moulins, 34087 Montpellier",
+    lat: 43.6119,
+    lon: 3.8336
+},
+{
+    nom: "Conseil départemental du Tarn-et-Garonne",
+    adresse: "100 boulevard Hubert Gouze, 82013 Montauban",
+    lat: 44.0170,
+    lon: 1.3540
+},
+{
+    nom: "Conseil départemental de la Gironde",
+    adresse: "1 Esplanade Charles de Gaulle, 33074 Bordeaux",
+    lat: 44.8378,
+    lon: -0.5792
+},
+{
+    nom: "Conseil départemental des Bouches-du-Rhône",
+    adresse: "52 avenue de Saint-Just, 13256 Marseille",
+    lat: 43.3117,
+    lon: 5.4035
+},
+{
+    nom: "Université de Bordeaux",
+    adresse: "351 cours de la Libération, 33405 Talence",
+    lat: 44.8065,
+    lon: -0.6058
+},
+{
+    nom: "Archives de Paris",
+    adresse: "18 boulevard Sérurier, 75019 Paris",
+    lat: 48.8762,
+    lon: 2.4085
+},
+{
+    nom: "CCI Pays de la Loire",
+    adresse: "1 rue Françoise Sagan, 44800 Saint-Herblain",
+    lat: 47.2158,
+    lon: -1.6386
+},
+{
+    nom: "Toulouse Métropole",
+    adresse: "6 rue René Leduc, 31505 Toulouse",
+    lat: 43.6045,
+    lon: 1.4440
+},
+{
+    nom: "Métropole Aix-Marseille-Provence",
+    adresse: "58 boulevard Charles-Livon, 13007 Marseille",
+    lat: 43.2906,
+    lon: 5.3605
+},
+{
+    nom: "Université de Lille",
+    adresse: "42 rue Paul Duez, 59000 Lille",
+    lat: 50.6297,
+    lon: 3.0686
+}
 ];
 
 sites.forEach(site => {
@@ -320,3 +376,9 @@ sites.forEach(site => {
         );
 });
 </script>
+
+# Documents de présentation <a name="documents"></a>
+
+- Téléchargez le [flyer de présentation](/ressources/RefCourant/VaS_flyer_202102_bd.pdf)
+- Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-souscripteur_3.pdf)
+- Téléchargez les [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
