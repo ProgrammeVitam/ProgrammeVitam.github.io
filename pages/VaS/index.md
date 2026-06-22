@@ -184,7 +184,7 @@ La gouvernance est mutualisée, associant les ministères porteurs initiaux et c
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-var map = L.map('map').setView([48.8566, 2.3522], 10);
+var map = L.map('map').setView([46.6, 2.4], 6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap'
@@ -366,14 +366,18 @@ const sites = [
     lon: 3.0686
 }
 ];
+const group = L.featureGroup();
 
 sites.forEach(site => {
-    L.marker([site.lat, site.lon])
-        .addTo(map)
-        .bindPopup(
-            "<b>" + site.nom + "</b><br>" +
-            site.adresse
-        );
+    const marker = L.marker([site.lat, site.lon])
+        .bindPopup(`<b>${site.nom}</b><br>${site.adresse}`);
+
+    marker.addTo(map);
+    group.addLayer(marker);
+});
+
+map.fitBounds(group.getBounds(), {
+    padding: [50, 50]
 });
 </script>
 
