@@ -185,536 +185,138 @@ La gouvernance est mutualisée, associant les ministères porteurs initiaux et c
 - Téléchargez les [informations souscripteurs](/ressources/RefCourant/vas-souscripteur_3.pdf)
 - Téléchargez les [pré-requis](/ressources/RefCourant/vas-prerequis.pdf)
 
-<!DOCTYPE html>
-<html>
-<head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_a25760613726081d23ced48c931c4987 {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            </style>
+# Utilisateurs VaS en Île-de-France
 
-            <style>html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            </style>
+<div id="map" style="height:700px;"></div>
 
-            <style>#map {
-                position:absolute;
-                top:0;
-                bottom:0;
-                right:0;
-                left:0;
-                }
-            </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-            <script>
-                L_NO_TOUCH = false;
-                L_DISABLE_3D = false;
-            </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-        
-</head>
-<body>
-    
-    
-            <div class="folium-map" id="map_a25760613726081d23ced48c931c4987" ></div>
-        
-</body>
 <script>
-    
-    
-            var map_a25760613726081d23ced48c931c4987 = L.map(
-                "map_a25760613726081d23ced48c931c4987",
-                {
-                    center: [48.86, 2.35],
-                    crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 10,
-  "zoomControl": true,
-  "preferCanvas": false,
+var map = L.map('map').setView([48.8566, 2.3522], 10);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+const sites = [
+{
+    nom: "Ministère de la Culture",
+    adresse: "3 rue de Valois, 75001 Paris",
+    lat: 48.8646,
+    lon: 2.3371
+},
+{
+    nom: "Ministère des Affaires Sociales",
+    adresse: "14 avenue Duquesne, Paris 7e",
+    lat: 48.8567,
+    lon: 2.3076
+},
+{
+    nom: "Ministère de la Transition écologique",
+    adresse: "246 boulevard Saint-Germain",
+    lat: 48.8545,
+    lon: 2.3215
+},
+{
+    nom: "Ministère de l'Agriculture",
+    adresse: "78 rue de Varenne",
+    lat: 48.8540,
+    lon: 2.3182
+},
+{
+    nom: "Ministère de la Justice",
+    adresse: "13 place Vendôme",
+    lat: 48.8670,
+    lon: 2.3290
+},
+{
+    nom: "Ministère de l'Éducation nationale",
+    adresse: "110 rue de Grenelle",
+    lat: 48.8560,
+    lon: 2.3194
+},
+{
+    nom: "Musée du quai Branly",
+    adresse: "37 quai Branly",
+    lat: 48.8606,
+    lon: 2.2976
+},
+{
+    nom: "Société des Grands Projets",
+    adresse: "Saint-Denis",
+    lat: 48.9180,
+    lon: 2.3620
+},
+{
+    nom: "Médiathèque du patrimoine et de la photographie",
+    adresse: "Charenton-le-Pont",
+    lat: 48.8220,
+    lon: 2.4130
+},
+{
+    nom: "CA Paris-Vallée de la Marne",
+    adresse: "Torcy",
+    lat: 48.8503,
+    lon: 2.6503
+},
+{
+    nom: "CNCCFP",
+    adresse: "31-35 rue de la Fédération",
+    lat: 48.8500,
+    lon: 2.2920
+},
+{
+    nom: "DGGN",
+    adresse: "Issy-les-Moulineaux",
+    lat: 48.8230,
+    lon: 2.2740
+},
+{
+    nom: "INHA",
+    adresse: "2 rue de Vivienne",
+    lat: 48.8671,
+    lon: 2.3394
+},
+{
+    nom: "ANSM",
+    adresse: "Saint-Denis",
+    lat: 48.9360,
+    lon: 2.3570
+},
+{
+    nom: "ECPAD",
+    adresse: "Ivry-sur-Seine",
+    lat: 48.8147,
+    lon: 2.3868
+},
+{
+    nom: "École nationale des ponts et chaussées",
+    adresse: "Marne-la-Vallée",
+    lat: 48.8417,
+    lon: 2.5874
+},
+{
+    nom: "Château de Fontainebleau",
+    adresse: "Fontainebleau",
+    lat: 48.4021,
+    lon: 2.7005
+},
+{
+    nom: "Ministère des Finances",
+    adresse: "139 rue de Bercy",
+    lat: 48.8405,
+    lon: 2.3770
 }
+];
 
-                }
-            );
-
-            
-
-        
-    
-            var tile_layer_eb7abf08725f0bbfc1ab58993919092b = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
-            );
-        
-    
-            tile_layer_eb7abf08725f0bbfc1ab58993919092b.addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-            var marker_df7f443729c9dffdaa520e6956c022c6 = L.marker(
-                [48.8647, 2.3363],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_1eb4b36cce4ee07ec6256f8c75af41c1 = L.popup({
-  "maxWidth": "100%",
+sites.forEach(site => {
+    L.marker([site.lat, site.lon])
+        .addTo(map)
+        .bindPopup(
+            "<b>" + site.nom + "</b><br>" +
+            site.adresse
+        );
 });
-
-        
-            
-                var html_e1ba5cb37525e649a12ff8a3c2b6da3e = $(`<div id="html_e1ba5cb37525e649a12ff8a3c2b6da3e" style="width: 100.0%; height: 100.0%;">Ministère de la Culture</div>`)[0];
-                popup_1eb4b36cce4ee07ec6256f8c75af41c1.setContent(html_e1ba5cb37525e649a12ff8a3c2b6da3e);
-            
-        
-
-        marker_df7f443729c9dffdaa520e6956c022c6.bindPopup(popup_1eb4b36cce4ee07ec6256f8c75af41c1)
-        ;
-
-        
-    
-    
-            var marker_563f0069703aa81c9d6027f3f2fff9c0 = L.marker(
-                [48.851, 2.312],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_9776b8bcbaf8838268ee9b051cf5ab10 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_dc30f78eef70fb27349619803ec3e313 = $(`<div id="html_dc30f78eef70fb27349619803ec3e313" style="width: 100.0%; height: 100.0%;">Ministère des Affaires Sociales</div>`)[0];
-                popup_9776b8bcbaf8838268ee9b051cf5ab10.setContent(html_dc30f78eef70fb27349619803ec3e313);
-            
-        
-
-        marker_563f0069703aa81c9d6027f3f2fff9c0.bindPopup(popup_9776b8bcbaf8838268ee9b051cf5ab10)
-        ;
-
-        
-    
-    
-            var marker_9e7f4800d7b6366b39aa8b9bf77a7594 = L.marker(
-                [48.8546, 2.321],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_aae17e003f5dbc9ac489193a4adf2059 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_c7fd7c1f8cd7a62eec43bf490f041dd1 = $(`<div id="html_c7fd7c1f8cd7a62eec43bf490f041dd1" style="width: 100.0%; height: 100.0%;">Ministère de la Transition écologique</div>`)[0];
-                popup_aae17e003f5dbc9ac489193a4adf2059.setContent(html_c7fd7c1f8cd7a62eec43bf490f041dd1);
-            
-        
-
-        marker_9e7f4800d7b6366b39aa8b9bf77a7594.bindPopup(popup_aae17e003f5dbc9ac489193a4adf2059)
-        ;
-
-        
-    
-    
-            var marker_98d914b9fce9345a86babb6c1e6b6b13 = L.marker(
-                [48.853, 2.316],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_2ac03c83b5894893cbf1ddfd3dade19e = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ac2e06877e2aad8b7edec90fd97905c8 = $(`<div id="html_ac2e06877e2aad8b7edec90fd97905c8" style="width: 100.0%; height: 100.0%;">Ministère de l'Agriculture</div>`)[0];
-                popup_2ac03c83b5894893cbf1ddfd3dade19e.setContent(html_ac2e06877e2aad8b7edec90fd97905c8);
-            
-        
-
-        marker_98d914b9fce9345a86babb6c1e6b6b13.bindPopup(popup_2ac03c83b5894893cbf1ddfd3dade19e)
-        ;
-
-        
-    
-    
-            var marker_4b7ed3f983569188c3c20127a691d7a8 = L.marker(
-                [48.8675, 2.329],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_db5aa890d8ddf7222b888e9ba84fa3ac = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ee867c94c6ee6df036a045f9ea9b67fb = $(`<div id="html_ee867c94c6ee6df036a045f9ea9b67fb" style="width: 100.0%; height: 100.0%;">Ministère de la Justice</div>`)[0];
-                popup_db5aa890d8ddf7222b888e9ba84fa3ac.setContent(html_ee867c94c6ee6df036a045f9ea9b67fb);
-            
-        
-
-        marker_4b7ed3f983569188c3c20127a691d7a8.bindPopup(popup_db5aa890d8ddf7222b888e9ba84fa3ac)
-        ;
-
-        
-    
-    
-            var marker_ef9b0fac00f3d2d248ba50cc12da9232 = L.marker(
-                [48.8558, 2.3205],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_e52f76584d8cfeb1281c8119ed289579 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_f13c8c40665a1df277a6958b1d7d8370 = $(`<div id="html_f13c8c40665a1df277a6958b1d7d8370" style="width: 100.0%; height: 100.0%;">Ministère de l'Education nationale</div>`)[0];
-                popup_e52f76584d8cfeb1281c8119ed289579.setContent(html_f13c8c40665a1df277a6958b1d7d8370);
-            
-        
-
-        marker_ef9b0fac00f3d2d248ba50cc12da9232.bindPopup(popup_e52f76584d8cfeb1281c8119ed289579)
-        ;
-
-        
-    
-    
-            var marker_0247ea9f3e9343b26c77e8122bff2bfb = L.marker(
-                [48.8606, 2.2976],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_868a4532c39db614da58ee17a748e304 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_f9f94afcdc47e6d339f0d58f4437bacd = $(`<div id="html_f9f94afcdc47e6d339f0d58f4437bacd" style="width: 100.0%; height: 100.0%;">Musée du quai Branly</div>`)[0];
-                popup_868a4532c39db614da58ee17a748e304.setContent(html_f9f94afcdc47e6d339f0d58f4437bacd);
-            
-        
-
-        marker_0247ea9f3e9343b26c77e8122bff2bfb.bindPopup(popup_868a4532c39db614da58ee17a748e304)
-        ;
-
-        
-    
-    
-            var marker_4280f4cb5f452ea7f2183a672680dca5 = L.marker(
-                [48.918, 2.362],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_498068da66ccd47d9a0d21099bfe22ac = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_1b58d261408184731b0f74959839c2ee = $(`<div id="html_1b58d261408184731b0f74959839c2ee" style="width: 100.0%; height: 100.0%;">Société des Grands Projets</div>`)[0];
-                popup_498068da66ccd47d9a0d21099bfe22ac.setContent(html_1b58d261408184731b0f74959839c2ee);
-            
-        
-
-        marker_4280f4cb5f452ea7f2183a672680dca5.bindPopup(popup_498068da66ccd47d9a0d21099bfe22ac)
-        ;
-
-        
-    
-    
-            var marker_f279bd16d8ae958e401c3f7075bc1f99 = L.marker(
-                [48.821, 2.414],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_cac1f2d00ceaadd4251e24fbd39953c7 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_cc851c23eae523553f29818298b9ac6a = $(`<div id="html_cc851c23eae523553f29818298b9ac6a" style="width: 100.0%; height: 100.0%;">Médiathèque du patrimoine et de la photographie</div>`)[0];
-                popup_cac1f2d00ceaadd4251e24fbd39953c7.setContent(html_cc851c23eae523553f29818298b9ac6a);
-            
-        
-
-        marker_f279bd16d8ae958e401c3f7075bc1f99.bindPopup(popup_cac1f2d00ceaadd4251e24fbd39953c7)
-        ;
-
-        
-    
-    
-            var marker_43eca033d841712a633d80321e5f9a1c = L.marker(
-                [48.85, 2.65],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_854977b2cf0d2d3b58dcef51cf20705d = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_a62c828bac103850d55a783bcaa7936a = $(`<div id="html_a62c828bac103850d55a783bcaa7936a" style="width: 100.0%; height: 100.0%;">CA Paris-Vallée de la Marne</div>`)[0];
-                popup_854977b2cf0d2d3b58dcef51cf20705d.setContent(html_a62c828bac103850d55a783bcaa7936a);
-            
-        
-
-        marker_43eca033d841712a633d80321e5f9a1c.bindPopup(popup_854977b2cf0d2d3b58dcef51cf20705d)
-        ;
-
-        
-    
-    
-            var marker_dea7f99e4e1720b1b649ef9585ec8c3a = L.marker(
-                [48.8502, 2.292],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_9b6ced67083dbac4879e580ac3064bb1 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_be674eb0859ecbd050d01a44eae3616e = $(`<div id="html_be674eb0859ecbd050d01a44eae3616e" style="width: 100.0%; height: 100.0%;">CNCCFP</div>`)[0];
-                popup_9b6ced67083dbac4879e580ac3064bb1.setContent(html_be674eb0859ecbd050d01a44eae3616e);
-            
-        
-
-        marker_dea7f99e4e1720b1b649ef9585ec8c3a.bindPopup(popup_9b6ced67083dbac4879e580ac3064bb1)
-        ;
-
-        
-    
-    
-            var marker_bb13de3175e0774d4a2d88b290b25851 = L.marker(
-                [48.823, 2.274],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_181a1e41f7f0e68e6b31d60ad223e7b5 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_fc52cfa758c9cb9d66003fddccf5b58e = $(`<div id="html_fc52cfa758c9cb9d66003fddccf5b58e" style="width: 100.0%; height: 100.0%;">DGGN</div>`)[0];
-                popup_181a1e41f7f0e68e6b31d60ad223e7b5.setContent(html_fc52cfa758c9cb9d66003fddccf5b58e);
-            
-        
-
-        marker_bb13de3175e0774d4a2d88b290b25851.bindPopup(popup_181a1e41f7f0e68e6b31d60ad223e7b5)
-        ;
-
-        
-    
-    
-            var marker_f8ee78c9e8bd63dd239e4cfcdf72d5bb = L.marker(
-                [48.8665, 2.3398],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_4add8dc87b3e290ba7b9273435f6fce6 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_8320f9a11fca4a16ad44af2c395abd51 = $(`<div id="html_8320f9a11fca4a16ad44af2c395abd51" style="width: 100.0%; height: 100.0%;">INHA</div>`)[0];
-                popup_4add8dc87b3e290ba7b9273435f6fce6.setContent(html_8320f9a11fca4a16ad44af2c395abd51);
-            
-        
-
-        marker_f8ee78c9e8bd63dd239e4cfcdf72d5bb.bindPopup(popup_4add8dc87b3e290ba7b9273435f6fce6)
-        ;
-
-        
-    
-    
-            var marker_b8e4cabc62521e87249f9ed47f0fec52 = L.marker(
-                [48.936, 2.357],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_31466f79bdd9b7b7959dd42e37c945f5 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_1f77fe0310a4271be02c612bd453c41a = $(`<div id="html_1f77fe0310a4271be02c612bd453c41a" style="width: 100.0%; height: 100.0%;">ANSM</div>`)[0];
-                popup_31466f79bdd9b7b7959dd42e37c945f5.setContent(html_1f77fe0310a4271be02c612bd453c41a);
-            
-        
-
-        marker_b8e4cabc62521e87249f9ed47f0fec52.bindPopup(popup_31466f79bdd9b7b7959dd42e37c945f5)
-        ;
-
-        
-    
-    
-            var marker_6828e24923286a4078c34d2b69acd986 = L.marker(
-                [48.815, 2.386],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_3d17b26087bfb20e446907af04b433ab = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_6d6fc2e7b6e1c9236fcd9de2dae09e83 = $(`<div id="html_6d6fc2e7b6e1c9236fcd9de2dae09e83" style="width: 100.0%; height: 100.0%;">ECPAD</div>`)[0];
-                popup_3d17b26087bfb20e446907af04b433ab.setContent(html_6d6fc2e7b6e1c9236fcd9de2dae09e83);
-            
-        
-
-        marker_6828e24923286a4078c34d2b69acd986.bindPopup(popup_3d17b26087bfb20e446907af04b433ab)
-        ;
-
-        
-    
-    
-            var marker_7d7c816269a4234bdd1c6ad30c7fe92e = L.marker(
-                [48.841, 2.587],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_403dcb34ddc58e89c62efe5c9f29e800 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_65e4df8c1294b4de9a91b5c8c8c0fe5e = $(`<div id="html_65e4df8c1294b4de9a91b5c8c8c0fe5e" style="width: 100.0%; height: 100.0%;">ENPC</div>`)[0];
-                popup_403dcb34ddc58e89c62efe5c9f29e800.setContent(html_65e4df8c1294b4de9a91b5c8c8c0fe5e);
-            
-        
-
-        marker_7d7c816269a4234bdd1c6ad30c7fe92e.bindPopup(popup_403dcb34ddc58e89c62efe5c9f29e800)
-        ;
-
-        
-    
-    
-            var marker_246cdc205d560f5585b55749f99237de = L.marker(
-                [48.402, 2.701],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_321392c89a7ead225de8bb48daf377c1 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_332a87eba7536f103e09356784a9d889 = $(`<div id="html_332a87eba7536f103e09356784a9d889" style="width: 100.0%; height: 100.0%;">Château de Fontainebleau</div>`)[0];
-                popup_321392c89a7ead225de8bb48daf377c1.setContent(html_332a87eba7536f103e09356784a9d889);
-            
-        
-
-        marker_246cdc205d560f5585b55749f99237de.bindPopup(popup_321392c89a7ead225de8bb48daf377c1)
-        ;
-
-        
-    
-    
-            var marker_d8625e11f28cb97e39820e43d76f9529 = L.marker(
-                [48.8402, 2.377],
-                {
-}
-            ).addTo(map_a25760613726081d23ced48c931c4987);
-        
-    
-        var popup_ae1f80f67e3de068791c3d4f9e4168e7 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_7cdf346fd0c0309f3c89d846deb60268 = $(`<div id="html_7cdf346fd0c0309f3c89d846deb60268" style="width: 100.0%; height: 100.0%;">Ministère des Finances</div>`)[0];
-                popup_ae1f80f67e3de068791c3d4f9e4168e7.setContent(html_7cdf346fd0c0309f3c89d846deb60268);
-            
-        
-
-        marker_d8625e11f28cb97e39820e43d76f9529.bindPopup(popup_ae1f80f67e3de068791c3d4f9e4168e7)
-        ;
-
-        
-    
 </script>
-</html>
