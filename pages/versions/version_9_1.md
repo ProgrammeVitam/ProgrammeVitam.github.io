@@ -54,6 +54,6 @@ Elle est accessible, en partie sur GitHub pour les documents en forme brute RST,
 
 #### Les changelogs
 
-- le [change-log du back-office](/ressources/RefCourant/Vitam-changelog.9.1.0.pdf)
-- le [change-log du front-office](/ressources/RefCourant/Vitamui-changelog.9.1.0.pdf)
-- pour rappel, la [release note de la version 9.1.0](/ressources/RefCourant/Release notes9.1.pdf)
+- le [change-log du back-office](/ressources/RefCourant/vitam-changelog.9.1.0.pdf)
+- le [change-log du front-office](/ressources/RefCourant/vitamui-changelog.9.1.0.pdf)
+- pour rappel, la [release note de la version 9.1.0](/ressources/RefCourant/Release notes9.1_vdef.pdf)
