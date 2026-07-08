@@ -5,6 +5,7 @@ fatherref: versions
 ---
 
 * [Mise à disposition du code](#github)
+* [8.1.3 - juillet 2026](#813)
 * [8.1.2 - janvier 2026](#812)
 * [8.1.1 - juillet 2025](#811)
 
@@ -17,6 +18,49 @@ Sont mis à dispostion :
 ### Le code développé
 
 Il est accessible sur GitHub dans le dépot GitHub [{{ site.github.repo }}]({{ site.github.repo }}).
+
+<a name="813"></a>
+### Version 8.1.3 (juillet 2026)
+
+#### Les packages java (.jar) associés, diffusés pour Maven
+
+Ils sont accessibles en suivant utilisant ce [lien](https://download.programmevitam.fr/vitam_repository/8.1.3/mvn_repo/).
+
+#### Les paquets de déploiement
+
+Ils permettent d’installer de manière outillée la solution. Ils contiennent aussi des conteneurs de documentation et de jeux de tests.  
+    - Pour [Vitam](https://github.com/ProgrammeVitam/deployment/tree/8.1.3/vitam)  
+    - Pour [Vitam UI](https://github.com/ProgrammeVitam/deployment/tree/8.1.3/vitam-ui)
+
+##### *Vitam back-office*
+
+- Publication [GitHub Vitam](https://github.com/ProgrammeVitam/vitam/tree/8.1.3)
+- URL de configuration du [repository Maven](https://download.programmevitam.fr/vitam_repository/8.1.3/mvn_repo/) 
+- URL de configuration des dépôts de binaires CentOS/RHEL :  
+    - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.3/rpm/vitam-product/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.3/rpm/vitam-external/)  
+- URL de configuration des dépôts de binaires Debian :  
+    - [vitam-product](https://download.programmevitam.fr/vitam_repository/8.1.3/deb/vitam-product/)  
+    - [vitam-external](https://download.programmevitam.fr/vitam_repository/8.1.3/deb/vitam-external/)
+
+##### *Vitam UI*
+
+- Publication [GitHub Vitam UI](https://github.com/ProgrammeVitam/vitam-ui/tree/8.1.3)
+- URL de configuration du [repository Maven](https://download.programmevitam.fr/vitamui_repository/8.1.3/mvn_repo/)
+- URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui_repository/8.1.3/rpm/)
+- URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui_repository/8.1.3/deb/)
+
+Liens de téléchargement pour les partenaires :  [**version 8.1.3**](https://releases.programmevitam.fr/8.1.3/index.html)
+
+#### La documentation fonctionnelle et technique
+
+Elle est accessible, en partie sur GitHub pour les documents en forme brute RST, mais aussi directement sous [forme PDF et/ou HTML sur la page](https://www.programmevitam.fr/pages/documentation/liste_doc_ancienne_v8.1/).
+
+#### La release note
+
+- la [release note de la version 8.1](/ressources/RefCourant/Release_notes8.1.pdf)
+- le [change-log du back-office 8.1.2](/ressources/RefCourant/vitam-changelog.8.1.3.pdf)
+- le [change-log du front-office 8.1.2](/ressources/RefCourant/vitamui-changelog.8.1.3.pdf)
 
 <a name="812"></a>
 ### Version 8.1.2 (janvier 2026)
@@ -49,7 +93,7 @@ Ils permettent d’installer de manière outillée la solution, sous forme RPM p
 - URL de configuration des [dépôts de binaires CentOS/RHEL](https://download.programmevitam.fr/vitamui_repository/8.1.2/rpm/)
 - URL de configuration des [dépôts de binaires Debian](https://download.programmevitam.fr/vitamui_repository/8.1.2/deb/)
 
-Liens de téléchargement pour les partenaires :  [**version 8.1.1**](https://releases.programmevitam.fr/8.1.2/index.html)
+Liens de téléchargement pour les partenaires :  [**version 8.1.2**](https://releases.programmevitam.fr/8.1.2/index.html)
 
 #### La documentation fonctionnelle et technique
 
