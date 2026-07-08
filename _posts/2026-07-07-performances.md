@@ -26,7 +26,7 @@ Ainsi, quelques résultats :
 
 **Résultat :** en succès en 2 h 40 min
 
-### Enseignement
+#### Enseignement
 
 - Pas de saturation RAM ni CPU observée sur les VM concernées.
 - Prise en charge du ZIP dépend entièrement du réseau auquel l'ordinateur de l'utilisateur est raccordé.
@@ -36,7 +36,7 @@ Ainsi, quelques résultats :
 - SIP de 10 Go compressé et 32 Go décompressé
 - contenu identique au cas précédent, avec passage du ZIP à un SIP
 
-### Comportement
+#### Comportement
 
 - Etape d'upload de 50 min
 - Etape de traitement de 2h (visible dans le journal des opérations pour suivre les différentes étapes du workflow)
@@ -68,7 +68,7 @@ Ainsi, quelques résultats :
 - CPU max : 63.7% , RAM max : 92.8%
 - Observation : Traitement normal avec un pic de la RAM.
 
-**De manière générale :
+**De manière générale :**
 - pas de time-out
 - plus le SIP a d'unités d'archives, plus tu consommes de la RAM
 
