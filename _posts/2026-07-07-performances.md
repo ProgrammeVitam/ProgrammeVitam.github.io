@@ -95,6 +95,6 @@ Ainsi, quelques résultats :
 - CPU max : 12%, RAM max : 71.3%
 - Observation : Traitement fluide sans saturation CPU/RAM.
 
-**De manière générale :
+**De manière générale :**
 - pas de time-out
 - plus le ZIP a d'unités d'archives, plus tu consommes de la RAM
