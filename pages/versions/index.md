@@ -12,6 +12,12 @@ Les 2 versions sont homologuées.
 
 ## Présentation des versions
 
+- Juin 2026 - V9.1 : [Une version 9.1 pour débuter l'été](https://www.programmevitam.fr/2026/06/25/version9_1/)
+
+- Décembre 2025 - V9.0 : [L'année 2025 s'achève avec la publication de la version 9.0](https://www.programmevitam.fr/2025/12/23/version9_0/)
+
+- Juillet 2025 - V8.1 : [L'été 2025 démarre avec la publication de la version 8.1](https://www.programmevitam.fr/2025/07/07/version8_1/)
+
 - Décembre 2024 - v8.0 : [Une belle version 8.0 pour finir l'année 2024](https://www.programmevitam.fr/2024/12/16/version8_0/)
 
 - Juillet 2024 - v7.1.1 : [Signature électronique, identifiants pérennes, métadonnées étendues, etc. sont des fonctionnalités embarquées dans la version 7.1.1. Tour d’horizon !](https://www.programmevitam.fr/2024/07/12/version7_1/)
