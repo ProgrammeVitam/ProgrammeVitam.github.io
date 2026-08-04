@@ -1,6 +1,6 @@
 ---
 layout: page
-title: VaS - utilisateurs du service
+title: VaS - Utilisateurs du service
 fatherref: VaS
 ---
 
