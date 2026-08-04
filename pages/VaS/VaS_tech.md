@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Caractéristiques du service VaS
+title: VaS - Caractéristiques du service
 fatherref: VaS
 ---
 
