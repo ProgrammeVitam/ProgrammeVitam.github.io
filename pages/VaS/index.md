@@ -120,8 +120,7 @@ Une phase 2 démarre ensuite.
 Aux porteurs initiaux du projet s’ajoutent de nouveaux ministères, dont certains, comme les Ministères sociaux, ont embarqué dès la phase 1 dans les réflexions et les échanges permettant l’acculturation de tous au projet, au Programme Vitam, aux méthodes, etc.   
 Cette deuxième étape a été l’occasion de pousser les fonctionnalités développées en phase 1, mais aussi d’ajouter des fonctionnalités qui ont pu être jugées non prioritaires au début, tout en gardant en objectif le versement dans VaS mais également le reversement dans la plate-forme des Archives nationales. 
 
-À termes, d’autres ministères, en plus des porteurs en phases 1 et 2, pourront utiliser ce service ainsi que les organisations publiques. 
-Le modèle économique repose sur la répartition des coûts entre tous les utilisateurs.
+Dorénavant, d'autres organisations publiques, ministères comme collectivités ou opérateurs publics, sont membres de la coopération du service VaS.
 
 
 # Comment préparer son usage du service ?<a name="utiliser"></a>
