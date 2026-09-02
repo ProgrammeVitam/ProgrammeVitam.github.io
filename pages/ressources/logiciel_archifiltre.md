@@ -26,4 +26,4 @@ Cette nouvelle étape ne change rien à ce qui fait la force d’Archifiltre : u
 
 Archifiltre écrit aujourd’hui un nouveau chapitre, et vous êtes au cœur de cette aventure.
 
-[Accéder au site d'Archifiltre](https://archifiltre.fabrique.social.gouv.fr/)
+[Archifiltre sur Github](https://github.com/ProgrammeVitam/archifiltre)
