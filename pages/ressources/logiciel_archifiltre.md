@@ -27,3 +27,19 @@ Cette nouvelle étape ne change rien à ce qui fait la force d’Archifiltre : u
 Archifiltre écrit aujourd’hui un nouveau chapitre, et vous êtes au cœur de cette aventure.
 
 [Archifiltre sur Github](https://github.com/ProgrammeVitam/archifiltre)
+
+# Téléchargement
+
+## Windows
+https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.2.1/archifiltre-docs-win-x64-setup.exe
+
+## Linux • AppImage (Ubuntu / Genbuntu)
+https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.2.1/archifiltre-docs-linux-x86_64.AppImage Pour Linux (Ubuntu, Debian, et dérivés). Télécharger, rendre exécutable (chmod +x), puis double-cliquer ou lancer en terminal.
+
+## Mac • Apple Silicon (M1/M2/M3)
+https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.2.1/archifiltre-docs-mac-arm64.dmg
+Pour les Mac avec puce Apple Silicon (M1, M2, M3)
+
+## Mac • Intel (x64)
+https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.2.1/archifiltre-docs-mac-x64.dmg
+Pour les Mac avec processeur Intel (modifié)
