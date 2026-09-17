@@ -39,4 +39,4 @@ Sont ici regroupées quelques informations à destination des membres du Club ut
 
 ## Je veux prendre un rdv avec le Programme Vitam
 
-- [Accès l'agenda partagé d'Alice Grippon](https://outlook.office.com/bookwithme/user/25493d5764274a049de3696cc1bead06@culture.gouv.fr?anonymous&ep=pcard)
+- [Contacter contact@programmevitam.fr](mailto:contact@programmevitam.fr)
