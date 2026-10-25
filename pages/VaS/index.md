@@ -159,6 +159,7 @@ Caractéristiques prises en compte pour établir le prix personnalisé :
 - Pour les collectivités : taille de la population
 
 	- Pour les départements : 
+
 |Taille de t-shirt|Nombre d’habitants|Nouveau forfait* (dès 2027)|
 |:---:|:---:|:----:|
 |XL|Plus de 1,5M||45k€|
@@ -169,6 +170,7 @@ Caractéristiques prises en compte pour établir le prix personnalisé :
 *le forfait de base inclut 5 To pour les collectivités en catégorie S et M et 10 To d’archives versées. Au-delà, une tarification de 700€/To versé est ajoutée au forfait de base.  
 
 	- Pour les communes et EPCI : 
+
 |Taille de t-shirt|Nombre d’habitants|Nouveau forfait* (dès 2027)|
 |:---:|:---:|:----:|
 |XL|Plus de 300k|45k€|
