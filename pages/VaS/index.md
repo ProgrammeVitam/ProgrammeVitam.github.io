@@ -106,8 +106,6 @@ Les contributions à Vitam UI seront reversées au Programme, en Open Source (li
 La phase 1 du projet VaS, extension du Programme Vitam, a débuté en même temps que sa phase maintenance et amélioration continue.   
 Une comitologie propre a été mise en place, issue du fonctionnement du Programme Vitam, avec un comité de direction, un comité de pilotage et une cellule d’urgence, créée pour agir en cas de problème majeur lorsque les mises en production seront effectives. 
 
-![alt text](/public/images/202401_gouvernance_VaS.jpg)
-
 La première phase a abouti à un MVP fin 2020 contenant les fonctionnalités socles de versements, mais aussi de gestion et d’accès aux archives par les archivistes. 
 
 
@@ -119,7 +117,7 @@ Une phase 2 démarre ensuite.
 Aux porteurs initiaux du projet s’ajoutent de nouveaux ministères, dont certains, comme les Ministères sociaux, ont embarqué dès la phase 1 dans les réflexions et les échanges permettant l’acculturation de tous au projet, au Programme Vitam, aux méthodes, etc.   
 Cette deuxième étape a été l’occasion de pousser les fonctionnalités développées en phase 1, mais aussi d’ajouter des fonctionnalités qui ont pu être jugées non prioritaires au début, tout en gardant en objectif le versement dans VaS mais également le reversement dans la plate-forme des Archives nationales. 
 
-Dorénavant, d'autres organisations publiques, ministères comme collectivités ou opérateurs publics, sont membres de la coopération du service VaS.
+Dorénavant, d'autres organisations publiques, [ministères comme collectivités ou opérateurs publics](https://www.programmevitam.fr/pages/VaS/utilisateurs/), sont membres de la coopération du service VaS.
 
 
 # Comment préparer son usage du service ?<a name="utiliser"></a>
@@ -144,7 +142,7 @@ Dorénavant, d'autres organisations publiques, ministères comme collectivités 
 
 		* poids global + nombre de documents estimé en flux pour le versement
 
-* Vérifier son accès au RIE et si besoin évaluer le débit nécessaire selon les données et flux priorisés
+* Vérifier son accès au RIE (réseau interministériel de l'Etat) et si besoin évaluer le débit nécessaire selon les données et flux priorisés
 
 * Préparer les versements
 
@@ -154,16 +152,35 @@ Dorénavant, d'autres organisations publiques, ministères comme collectivités 
 
 # Quels sont les tarifs ? <a name="tarif"></a>
 
-Le budget est réparti entre tous les utilisateurs selon l'usage.  
-En fin d'année, une estimation de l'usage sur l'année à venir permet de chiffrer la participation de chaque utilisateur.  
-Une régularisation selon l'usage réellement constaté sera faite en fin d'année.
+Dans le modèle appliqué jusqu’alors, le prix était dépendant du nombre d’archives versées, du poids binaire, du nombre d’utilisateurs de VaS et de leur utilisation du service. 
+Dans le nouveau modèle qui entrera en vigueur en 2027, chaque utilisateur de VaS se verra proposer un prix forfaitaire, c’est-à-dire un montant personnalisé tenant compte de ses caractéristiques propres et incluant 10To d’archives versées. Au-delà des 10 To, chaque To sera facturé 700€.
 
-Quelques chiffres malgré tout :
-- budget global du service pour 2022 et 2023 : 1 430 000€
-- prix de l'usage de base : 10 000€ l'année pour 20 000 à 22 000 archives et moins d'1 To
-- exemple 1 : 73 000 archives et 6 133 Go pour 30 000€ l'année
-- exemple 2 : 248 000 archives et 1,88 To pour 99 000€ l'année
-- exemple 3 : 1 million d'archives pour 317 000€ et le coût selon les To versés
+Caractéristiques prises en compte pour établir le prix personnalisé : 
+- Pour les collectivités : taille de la population
+
+	- Pour les départements : 
+|Taille de t-shirt|Nombre d’habitants|Nouveau forfait* (dès 2027)|
+|:---:|:---:|:----:|
+|XL|Plus de 1,5M||45k€|
+|L|Entre 1M et 1,5M|35k€|
+|M|Entre 500k et 1M|25k€|
+|S|Moins de 500k|15k€|
+
+*le forfait de base inclut 5 To pour les collectivités en catégorie S et M et 10 To d’archives versées. Au-delà, une tarification de 700€/To versé est ajoutée au forfait de base.  
+
+	- Pour les communes et EPCI : 
+|Taille de t-shirt|Nombre d’habitants|Nouveau forfait* (dès 2027)|
+|:---:|:---:|:----:|
+|XL|Plus de 300k|45k€|
+|L|Entre 100 et 300k|35k€|
+|M|Entre 50k et 100k|25k€|
+|S|Moins de 50k|15k€|
+
+*le forfait de base inclut 5 To pour les collectivités en catégorie S et M et 10 To d’archives versées. Au-delà, une tarification de 700€/To versé est ajoutée au forfait de base.  
+
+- Pour les opérateurs : capacité budgétaire, besoins d’archivage et projet d’usage de VaS
+
+Le nouveau modèle de tarification pour les opérateurs utilisateurs de VaS repose sur un tarif personnalisé sur la base de différents critères combinés (capacité budgétaire, besoins d’archivage, usage prévu de VaS).
 
 Le plus simple ? [Nous contacter](mailto:contact@programmevitam.fr) pour un dialogue sur le modèle économique, vos besoins et une prévision financière sur plusieurs années !
 
