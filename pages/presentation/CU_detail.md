@@ -23,6 +23,8 @@ Sont ici regroupées quelques informations à destination des membres du Club ut
 - [accueil des environnements partenaires](https://rec.part.programmevitam.fr/)
 - [environnement partenaire v9.0 - vitam UI](https://v90-ui.part.programmevitam.fr/)
 - [environnement partenaire v9.0 - général](https://v90.part.programmevitam.fr/)
+- [environnement partenaire v9.1 - vitam UI](https://v91-ui.part.programmevitam.fr/)
+- [environnement partenaire v9.1 - général](https://v91.part.programmevitam.fr/)
 
 ## Je veux accéder à l'outil d'échanges et discussion.
 
@@ -39,4 +41,6 @@ Sont ici regroupées quelques informations à destination des membres du Club ut
 
 ## Je veux prendre un rdv avec le Programme Vitam
 
-- [Contacter contact@programmevitam.fr](mailto:contact@programmevitam.fr)
+- [J'ai un sujet sur le Club utilisateurs](mailto:support@programmevitam.fr)
+
+- [Je veux adresser une demande générale au Programme Vitam](mailto:contact@programmevitam.fr)

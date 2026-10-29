@@ -69,12 +69,13 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 
 ![Logos](/public/images/202501_gouvernance_MAC.jpg)
 
-## Les membres du Club utilisateurs (au 29/05/2026)<a name="membre"></a>
+## Les membres du Club utilisateurs (au 29/10/2026)<a name="membre"></a>
 
 * Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES)
 * Agence nationale de traitement automatisé des infractions (ANTAI)
 * Agence nationale pour la gestion des déchets radioactifs (ANDRA)
 * Agence de Services et de Paiement (ASP)
+* Agglomération du BOcage bressuirais
 * Aix Marseille Provence métropole
 * Aix Marseille université
 * Akompano
@@ -89,7 +90,6 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Centre de recherche et de restauration des musées de France (C2RMF)  
 * Centre Hospitalier d'Avranches-Granville
 * Centre Informatique National de l'Enseignement Supérieur (CINES)
-* Centre national du cinéma et de l'image animée (CNC)
 * Château de Fontainebleau
 * CGI
 * Coexya
@@ -161,6 +161,7 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * Préfecture de police de Paris
 * Présidence de la République
 * RATP
+* Réseau Canopé
 * Seine Yvelines numérique
 * Select
 * SGAMI Sud-Ouest 
@@ -183,4 +184,4 @@ Les membres du Club utilisateurs désignent en leur sein un représentant qui pa
 * XDemat
 * Xelians
 
-![Logos](/public/images/ClubUtilisateurs_MAI2026.png)
+![Logos](/public/images/ClubUtilisateurs+CEA-OCT2026-large@2x.png)
