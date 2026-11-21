@@ -25,15 +25,15 @@ Documentation générale
 
 ![Logos](/public/images/VitamUI_organisation.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"} 
 
-|Ordre d'exécution|Je souhaite...|Je suis...|APP Vitam UI|
-|:----|:-----|:----|:-----|
-|1.1 (obligatoire)|créercréer une nouvelle organisation utilisatrice de Vitam UI et lui associer 1 ou plusieurs coffre(s)|administrateur d'instance (si vous exposez Vitam UI en tant que service), administrateur technique VitamUI (si vous utilisez Vitam UI hébergé en propre)|[Organisation](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Organisation.pdf)|
-|1.2 (obligatoire)|créer le compte nominatif de l'administrateur fonctionnel d'une organisation à des fins d'activation et prendre la main sur la session d'un utilisateur à des fins de support|administrateur d'instance (si vous exposez Vitam UI en tant que service), administrateur technique VitamUI (si vous utilisez Vitam UI hébergé en propre)|[Subrogation](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Subrogation.pdf)|
-|1.2 (facultatif)|définir des droits fins sur les utilisateurs de mon organisation en créant un nouveau profil de droits|administrateur fonctionnel Vitam UI|[Profil APP Utilisateur](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Utilisateur.pdf)|
-|1.3 (obligatoire sauf si le groupe existe déjà)|définir des regroupements de droits sur les APPs Vitam UI pour mes utilisateurs en créant un nouveau groupe de profils|administrateur fonctionnel Vitam UI|[Groupe de profil](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Groupe_profil.pdf)|
-|1.4 (obligatoire sauf si le groupe existe déjà)|créer mes utilisateurs et leur attribuer des droits|administrateur fonctionnel Vitam UI|[Utilisateur](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Utilisateur.pdf)|
-|NA|paramétrer des profils de droits permettant d’associer un contrat d’accès à un utilisateur|administrateur fonctionnel Vitam UI|[Profil APP Paramétrages externes](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Parametrages_externes.pdf)|
-|NA|Créer de nouveaux profils de niveaux inférieurs, limiter l’attribution de profils à une portée d’utilisateurs et adapter la séparation des rôles|opérateur d'instance|[APP Hiérarchisation des profils](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf)|
+|Je souhaite...|Je suis...|APP Vitam UI|
+|:-----|:----|:-----|
+|(obligatoire) créer une nouvelle organisation utilisatrice de Vitam UI et lui associer 1 ou plusieurs coffre(s)|administrateur d'instance (si vous exposez Vitam UI en tant que service), administrateur technique VitamUI (si vous utilisez Vitam UI hébergé en propre)|[Organisation](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Organisation.pdf)|
+|(obligatoire) créer le compte nominatif de l'administrateur fonctionnel d'une organisation à des fins d'activation et prendre la main sur la session d'un utilisateur à des fins de support|administrateur d'instance (si vous exposez Vitam UI en tant que service), administrateur technique VitamUI (si vous utilisez Vitam UI hébergé en propre)|[Subrogation](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Subrogation.pdf)|
+|définir des droits fins sur les utilisateurs de mon organisation en créant un nouveau profil de droits|administrateur fonctionnel Vitam UI|[Profil APP Utilisateur](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Utilisateur.pdf)|
+|(obligatoire sauf si le groupe existe déjà) définir des regroupements de droits sur les APPs Vitam UI pour mes utilisateurs en créant un nouveau groupe de profils|administrateur fonctionnel Vitam UI|[Groupe de profil](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Groupe_profil.pdf)|
+| (obligatoire sauf si le groupe existe déjà) créer mes utilisateurs et leur attribuer des droits|administrateur fonctionnel Vitam UI|[Utilisateur](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Utilisateur.pdf)|
+|paramétrer des profils de droits permettant d’associer un contrat d’accès à un utilisateur|administrateur fonctionnel Vitam UI|[Profil APP Paramétrages externes](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_APP_Parametrages_externes.pdf)|
+|Créer de nouveaux profils de niveaux inférieurs, limiter l’attribution de profils à une portée d’utilisateurs et adapter la séparation des rôles|opérateur d'instance|[APP Hiérarchisation des profils](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Hierarchisation_profils.pdf)|
 
 ### Domaine : référentiels<a name="referentiels">  
 
@@ -54,12 +54,12 @@ Documentation générale
 
 ![Logos](/public/images/VitamUI_securite.JPG){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}  
 
-|Ordre d'exécution|Je souhaite...|Je suis...|APP Vitam UI|
-|:----|:-----|:----|:-----|
-|3.1 (obligatoire sauf si le contrat existe déjà)|paramétrer des droits pour le versement d'archives dans un coffre par une nouvelle application|administrateur fonctionnel Vitam UI|[Contrat d'entrée](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_entree.pdf)|
-|3.2 (obligatoire sauf si le contrat existe déjà)|paramétrer des droits pour la consultation ou mise à jour d'archives dans un coffre par une nouvelle application|administrateur fonctionnel Vitam UI|[Contrat d'accès](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_acces.pdf)|
-|3.3 (obligatoire sauf si le contrat existe déjà)|définir les droits d'une nouvelle application sur les services exposés par Vitam|administrateur technique Vitam UI|[Profil de sécurité](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_securite.pdf)|
-|3.4 (obligatoire sauf si le contrat existe déjà)|authentifier une nouvelle application interconnectée avec Vitam et lui attribuer des droits|administrateur technique Vitam UI|[Contexte applicatif](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contexte_applicatif.pdf)|
+|Je souhaite...|Je suis...|APP Vitam UI|
+|:-----|:----|:-----|
+|(obligatoire sauf si le contrat existe déjà)p aramétrer des droits pour le versement d'archives dans un coffre par une nouvelle application|administrateur fonctionnel Vitam UI|[Contrat d'entrée](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_entree.pdf)|
+|(obligatoire sauf si le contrat existe déjà) paramétrer des droits pour la consultation ou mise à jour d'archives dans un coffre par une nouvelle application|administrateur fonctionnel Vitam UI|[Contrat d'accès](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_acces.pdf)|
+|(obligatoire sauf si le contrat existe déjà) définir les droits d'une nouvelle application sur les services exposés par Vitam|administrateur technique Vitam UI|[Profil de sécurité](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profil_securite.pdf)|
+|(obligatoire sauf si le contrat existe déjà) authentifier une nouvelle application interconnectée avec Vitam et lui attribuer des droits|administrateur technique Vitam UI|[Contexte applicatif](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contexte_applicatif.pdf)|
 
 ### Domaine : supervision et audit<a name="supervision">
 
