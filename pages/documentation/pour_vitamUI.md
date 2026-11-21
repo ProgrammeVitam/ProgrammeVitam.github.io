@@ -39,15 +39,16 @@ Documentation générale
 
 ![Logos](/public/images/VitamUI_referentiels.png){: style="display: block; margin-left: auto; margin-right: auto; height:30rem"}
 
-|Ordre d'exécution|Je souhaite...|Je suis...|APP Vitam UI|
-|:----|:-----|:----|:-----|
-|2.1 (obligatoire)|déclarer un nouveau service producteur ou un nouveau service versant dans Vitam UI|administrateur fonctionnel Vitam UI|[Services agents](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Services_agents.pdf)|
-|2.2 (obligatoire)|déclarer des nouvelles règles de gestion|administrateur fonctionnel Vitam UI|[Règles de gestion](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Regles_gestion.pdf)|
-|2.3 (facultatif)|créer et modifier un profil d’archivage (PA) ou un profil d’unité archivistique (PUA), créer et modifier une notice d’un profil, importer et exporter un profil d’archivage|administrateur fonctionnel Vitam UI|[Profils documentaires](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profils_documentaires.pdf)|
-|2.4 (facultatif)|déclarer un nouveau format non présent dans le référentiel PRONOM|administrateur technique Vitam UI|[Formats de fichiers](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Formats_fichiers.pdf)|
-|2.5 (facultatif)|déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA|administrateur technique Vitam UI|[Ontologie](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Ontologie.pdf)|
-|2.6 (facultatif)|importer un arbre de positionnement ou un plan de classement|administrateur fonctionnel Vitam UI|[Arbres et plans](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf)|
-|2.7 (facultatif)|rechercher et consulter un contrat de gestion, le créer et le mettre à jour|administrateur fonctionnel Vitam UI|[Contrat de gestion](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_gestion.pdf)|
+|Je souhaite...|Je suis...|APP Vitam UI|
+|:-----|:----|:-----|
+|(obligatoire) déclarer un nouveau service producteur ou un nouveau service versant dans Vitam UI|administrateur fonctionnel Vitam UI|[Services agents](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Services_agents.pdf)|
+|(obligatoire) déclarer des nouvelles règles de gestion|administrateur fonctionnel Vitam UI|[Règles de gestion](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Regles_gestion.pdf)|
+|créer et modifier un profil d’archivage (PA) ou un profil d’unité archivistique (PUA), créer et modifier une notice d’un profil, importer et exporter un profil d’archivage|administrateur fonctionnel Vitam UI|[Profils documentaires](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Profils_documentaires.pdf)|
+|déclarer un nouveau format non présent dans le référentiel PRONOM|administrateur technique Vitam UI|[Formats de fichiers](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Formats_fichiers.pdf)|
+|déclarer un nouveau vocabulaire non présent dans l'ontologie SEDA|administrateur technique Vitam UI|[Ontologie](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Ontologie.pdf)|
+|importer un arbre de positionnement ou un plan de classement|administrateur fonctionnel Vitam UI|[Arbres et plans](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Arbres_plans.pdf)|
+|rechercher et consulter un contrat de gestion, le créer et le mettre à jour|administrateur fonctionnel Vitam UI|[Contrat de gestion](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Contrat_gestion.pdf)|
+|importer ou exporter les référentiels des scénarios de préservation et des griffons, consulter les détails d'un scénario ou d'un griffon, mettre à jour les informations d'un griffon, supprimer un scénario de préservation ou un griffon|administrateur fonctionnel Vitam UI|[Griffons et scénarios de préservation](https://www.programmevitam.fr/ressources/DocCourante/autres/fonctionnel/VitamUI_DocAPP_Griffons_et_scenarios_de_preservation.pdf)|
 
 ### Domaine : Sécurité et droits applicatifs<a name="secu">  
 
