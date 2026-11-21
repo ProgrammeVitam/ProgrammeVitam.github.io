@@ -1,7 +1,6 @@
 ---
 layout: page
 title: version 8.0
-fatherref: versions
 ---
 
 

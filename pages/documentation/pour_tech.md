@@ -5,11 +5,11 @@ fatherref: documentation
 ---
 
 
-* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](/ressources/DocCourante/pdf/vitam-architecture.9.1.0.pdf) \| [html](/ressources/DocCourante/html/archi))  
+* **Vitam back-office : dossier d'architecture technique** (DAT) ([pdf](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/pdf/vitam-architecture.10.0.0.pdf) \| [html](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/html/archi/index.html))  
 
-* **Vitam back-office : dossier d'installation** (DIN) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-installation.9.1.0.pdf) \| [html](/ressources/DocCourante/html/installation))
+* **Vitam back-office : dossier d'installation** (DIN) ([pdf](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/pdf/vitam-documentation-installation.10.0.0.pdf) \| [html](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/html/installation/index.html))
 
-* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-exploitation.9.1.0.pdf) \| [html](/ressources/DocCourante/html/exploitation))  
+* **Vitam back-office : dossier d'exploitation** (DEX) ([pdf](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/pdf/vitam-documentation-exploitation.10.0.0.pdf) \| [html](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/html/exploitation/index.html))  
 
 * **Vitam UI : dossier d'architecture technique** (DAT) ([html](https://download.programmevitam.fr/vitamui_repository/9.1.0/doc/architecture/))
 
@@ -17,7 +17,7 @@ fatherref: documentation
 
 * **Vitam UI : dossier d'exploitation** ([html](https://download.programmevitam.fr/vitamui_repository/9.1.0/doc/exploitation/))
 
-* **Documentation de montées de version back-office** (DMV) ([pdf](/ressources/DocCourante/pdf/vitam-documentation-migration.9.1.0.pdf) \| [html](/ressources/DocCourante/html/migration))  
+* **Documentation de montées de version back-office** (DMV) ([pdf](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/pdf/vitam-documentation-migration.10.0.0.pdf) \| [html](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/html/migration/index.html))  
 
 * **Documentation de montées de version Vitam UI** (DMV) ([html](https://download.programmevitam.fr/vitamui_repository/9.1.0/doc/migration/))
 

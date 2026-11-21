@@ -5,14 +5,13 @@ fatherref: documentation
 ---
 
 
-* **Javadoc** ([html](/ressources/DocCourante/javadoc))
-* **Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces ([pdf](/ressources/DocCourante/pdf/vitam-manuel-integration.9.1.0.pdf) \| [html](/ressources/DocCourante/html/manuel-integration))
-* **Modèle de données** - description des collections et des champs standards  
-([html](https://www.programmevitam.fr/vitam-doc/fr/master_9.1.x/sections/modele_de_donnees.html))
-* **Documentation d'API externes** - description des API REST externes en Html ([html](/ressources/DocCourante/raml/externe))
-* **Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM ([pdf](/ressources/DocCourante/pdf/vitam-manuel-developpement.9.1.0.pdf)
-\| [html](/ressources/DocCourante/html/manuel-dev))
-* **Documentation d'API internes** - description des API REST internes en Html et Raml ([html&raml](/ressources/DocCourante/raml/interne))
+* [**Javadoc**](/https://download.programmevitam.fr/vitam_repository/10.0.0/doc/javadoc/index.html)
+* [**Manuel d'intégration applicative** - présentation des principes de d'usage des interfaces](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/html/manuel-integration/index.html) \| [pdf](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/pdf/vitam-manuel-integration.10.0.0.pdf)
+* [**Modèle de données** - description des collections et des champs standards](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/modele_de_donnees.html))
+* [**Documentation d'API externes** - description des API REST externes en Html](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/raml/externe/)
+* [**Manuel de développement** - éléments d'architecture interne et de méthode utiles aux développements de la solution logicielle VITAM](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/html/manuel-dev/index.html)
+\| [pdf](/https://download.programmevitam.fr/vitam_repository/10.0.0/doc/pdf/vitam-manuel-developpement.10.0.0.pdf)
+* [**Documentation d'API internes** - description des API REST internes en Html et Raml](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/raml/interne/)
 
 
 # Documentation

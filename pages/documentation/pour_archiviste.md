@@ -30,6 +30,7 @@ l’utilisation des habilitations (gestion des utilisateurs applicatifs et de le
 * **Le gel d’archives avec la solution logicielle Vitam** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/gel.html))
 * **Archivage sur offre froide** ([pdf](/ressources/DocCourante/autres/fonctionnel/Vitam_Archivage_sur_Offre_Froide.pdf))
 * **Module de collecte** ([html](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/module_de_collecte.html))
+* **Signature électronique - cookbook** - description, cas et exemples [html](https://download.programmevitam.fr/vitam_repository/10.0.0/doc/cookbooks/SigningInformation/)
 
 
 * **Manuel utilisateur de l'IHM de démonstration** ([pdf](/ressources/DocCourante/autres/fonctionnel/VITAM_Manuel_utilisateur.pdf)). *Attention : ce document présentant le fonctionnement de l'IHM de démonstration n'a plus vocation à être mis à jour, l'IHM de démonstration étant progressivement remplacée par [Vitam UI](pour_vitamUI.md).*
