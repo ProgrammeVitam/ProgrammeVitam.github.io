@@ -4,14 +4,14 @@ title: Première approche
 fatherref: documentation
 ---
 
-* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([html](https://www.programmevitam.fr/vitam-doc/fr/master_9.0.x/sections/guide_lecture.html))
+* **Guide de lecture de la documentation** - guide d’orientation dans la documentation : quels documents pouvez-vous lire selon votre rôle et vos attentes ?... avec une description de chaque document ([html](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/guide_lecture.html))
 * **Guide de prise en main** - guide vous permettant d'effectuer les premiers paramétrages et une première entrée d'archives dans la solution logicielle Vitam
-([html](https://www.programmevitam.fr/vitam-doc/fr/master_9.0.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v9.0/Jeux_de_tests_Guide_de_prise_en_main_v90.zip))
+([html](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/guide_prise_en_main.html)) avec les fichiers d'exemple utiles ([zip](https://download.programmevitam.fr/jeux_de_tests/v10.0/Jeux_de_tests_Guide_de_prise_en_main_v100.zip))
 * **Présentation de la solution logicielle** - mode de développement, vision générale fonctionnelle et technique de la solution
-([html](https://www.programmevitam.fr/vitam-doc/fr/master_9.0.x/sections/presentation_solution_logicielle.html))
+([html](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/presentation_solution_logicielle.html))
 
 # Documentation
-* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
+* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/Vademecum_sommaire.html)
 * [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
 * [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
 * [Documentation technique](https://www.programmevitam.fr/pages/documentation/pour_tech/)

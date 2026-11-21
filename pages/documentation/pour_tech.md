@@ -23,7 +23,7 @@ fatherref: documentation
 
 # Documentation
 * [Première approche](https://www.programmevitam.fr/pages/documentation/pour_approche_deb/)
-* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/pages/documentation/vademecums/)
+* [Vademecums ou "Vitam pour mes grands-parents"](https://www.programmevitam.fr/vitam-doc/fr/master_10.0.x/sections/Vademecum_sommaire.html)
 * [Documentation métier](https://www.programmevitam.fr/pages/documentation/pour_archiviste/)
 * [Documentation des tests](https://www.programmevitam.fr/pages/documentation/pour_test/)
 * [Documentation développeur](https://www.programmevitam.fr/pages/documentation/pour_dev/)
